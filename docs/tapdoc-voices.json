@@ -1,5 +1,107 @@
 [
  {
+  "id": "tv-nghe_vaf_chonj_chuwx_ddungs",
+  "file": "/assets/voice/tv-nghe_vaf_chonj_chuwx_ddungs.mp3",
+  "text": "Nghe và chọn chữ đúng.",
+  "group": "Lời dẫn câu hỏi"
+ },
+ {
+  "id": "tv-nghe_vaf_chonj_vaanf_ddungs",
+  "file": "/assets/voice/tv-nghe_vaf_chonj_vaanf_ddungs.mp3",
+  "text": "Nghe và chọn vần đúng.",
+  "group": "Lời dẫn câu hỏi"
+ },
+ {
+  "id": "tv-nghe_vaf_chonj_tieengs_ddungs",
+  "file": "/assets/voice/tv-nghe_vaf_chonj_tieengs_ddungs.mp3",
+  "text": "Nghe và chọn tiếng đúng.",
+  "group": "Lời dẫn câu hỏi"
+ },
+ {
+  "id": "tv-nghe_vaf_chonj_tuwf_ddungs",
+  "file": "/assets/voice/tv-nghe_vaf_chonj_tuwf_ddungs.mp3",
+  "text": "Nghe và chọn từ đúng.",
+  "group": "Lời dẫn câu hỏi"
+ },
+ {
+  "id": "tv-nghe_vaf_chonj_caau_ddungs",
+  "file": "/assets/voice/tv-nghe_vaf_chonj_caau_ddungs.mp3",
+  "text": "Nghe và chọn câu đúng.",
+  "group": "Lời dẫn câu hỏi"
+ },
+ {
+  "id": "tv-tieengs_naof_cos",
+  "file": "/assets/voice/tv-tieengs_naof_cos.mp3",
+  "text": "Tiếng nào có",
+  "group": "Lời dẫn câu hỏi"
+ },
+ {
+  "id": "tv-tieengs_naof_cos_vaanf",
+  "file": "/assets/voice/tv-tieengs_naof_cos_vaanf.mp3",
+  "text": "Tiếng nào có vần",
+  "group": "Lời dẫn câu hỏi"
+ },
+ {
+  "id": "tv-gheps_laij_thanhf_tieengs_naof",
+  "file": "/assets/voice/tv-gheps_laij_thanhf_tieengs_naof.mp3",
+  "text": "Ghép lại thành tiếng nào?",
+  "group": "Lời dẫn câu hỏi"
+ },
+ {
+  "id": "tv-tieengs_nayf_cos_daaus_gif",
+  "file": "/assets/voice/tv-tieengs_nayf_cos_daaus_gif.mp3",
+  "text": "Tiếng này có dấu gì?",
+  "group": "Lời dẫn câu hỏi"
+ },
+ {
+  "id": "tv-em_ddocj_to_tieengs_nayf_nhes",
+  "file": "/assets/voice/tv-em_ddocj_to_tieengs_nayf_nhes.mp3",
+  "text": "Em đọc to tiếng này nhé.",
+  "group": "Lời dẫn câu hỏi"
+ },
+ {
+  "id": "tv-em_ddocj_to_nhes",
+  "file": "/assets/voice/tv-em_ddocj_to_nhes.mp3",
+  "text": "Em đọc to nhé.",
+  "group": "Lời dẫn câu hỏi"
+ },
+ {
+  "id": "tv-chonj_tieengs_conf_thieeus_trong_caau",
+  "file": "/assets/voice/tv-chonj_tieengs_conf_thieeus_trong_caau.mp3",
+  "text": "Chọn tiếng còn thiếu trong câu.",
+  "group": "Lời dẫn câu hỏi"
+ },
+ {
+  "id": "tv-minhf_thuwr_nhanh_nhes",
+  "file": "/assets/voice/tv-minhf_thuwr_nhanh_nhes.mp3",
+  "text": "Mình thử nhanh nhé!",
+  "group": "Lời dẫn câu hỏi"
+ },
+ {
+  "id": "tv-ddocj_ddungs_rooif_gioir_quas",
+  "file": "/assets/voice/tv-ddocj_ddungs_rooif_gioir_quas.mp3",
+  "text": "Đọc đúng rồi, giỏi quá!",
+  "group": "Mochi khen, nhắc"
+ },
+ {
+  "id": "tv-gaanf_ddungs_rooif_chus_ys_daaus_thanh_nhes",
+  "file": "/assets/voice/tv-gaanf_ddungs_rooif_chus_ys_daaus_thanh_nhes.mp3",
+  "text": "Gần đúng rồi, chú ý dấu thanh nhé!",
+  "group": "Mochi khen, nhắc"
+ },
+ {
+  "id": "tv-minhf_nghe_maaux_rooif_ddocj_laij_nha",
+  "file": "/assets/voice/tv-minhf_nghe_maaux_rooif_ddocj_laij_nha.mp3",
+  "text": "Mình nghe mẫu rồi đọc lại nha!",
+  "group": "Mochi khen, nhắc"
+ },
+ {
+  "id": "tv-em_nghe_laij_giongj_minhf_ddocj_ddungs_chuwa_naof",
+  "file": "/assets/voice/tv-em_nghe_laij_giongj_minhf_ddocj_ddungs_chuwa_naof.mp3",
+  "text": "Em nghe lại giọng mình, đọc đúng chưa nào?",
+  "group": "Mochi khen, nhắc"
+ },
+ {
   "id": "tv-bowf",
   "file": "/assets/voice/tv-bowf.mp3",
   "text": "bờ",
@@ -282,6 +384,12 @@
   "group": "Từ khóa · a, o, ô"
  },
  {
+  "id": "tv-chaof_em_tows_laf_mochi_hoom-503kv",
+  "file": "/assets/voice/tv-chaof_em_tows_laf_mochi_hoom-503kv.mp3",
+  "text": "Chào em! Tớ là Mochi. Hôm nay mình gặp ba bạn chữ đầu tiên. Nghe tớ đọc rồi đọc theo nhé!",
+  "group": "Lời Mochi mở bài"
+ },
+ {
   "id": "tv-ow",
   "file": "/assets/voice/tv-ow.mp3",
   "text": "ơ",
@@ -348,6 +456,12 @@
   "group": "Từ khóa · ơ, e, ê"
  },
  {
+  "id": "tv-chuwx_ow_cos_mootj_cais_raau-23sfx",
+  "file": "/assets/voice/tv-chuwx_ow_cos_mootj_cais_raau-23sfx.mp3",
+  "text": "Chữ ơ có một cái râu nhỏ, chữ ê đội mũ giống ô. Mình cùng đọc nào!",
+  "group": "Lời Mochi mở bài"
+ },
+ {
   "id": "tv-i",
   "file": "/assets/voice/tv-i.mp3",
   "text": "i",
@@ -412,6 +526,12 @@
   "file": "/assets/voice/tv-uw_cos_raau.mp3",
   "text": "ư có râu",
   "group": "Từ khóa · i, u, ư"
+ },
+ {
+  "id": "tv-chuwx_i_cos_mootj_cais_chaams-1rbtc",
+  "file": "/assets/voice/tv-chuwx_i_cos_mootj_cais_chaams-1rbtc.mp3",
+  "text": "Chữ i có một cái chấm trên đầu. Chữ ư là chữ u có thêm râu.",
+  "group": "Lời Mochi mở bài"
  },
  {
   "id": "tv-awn",
@@ -492,6 +612,12 @@
   "group": "Từ khóa · ă, â, y"
  },
  {
+  "id": "tv-aw_ddooij_cais_mux_hinhf_trawng-1n74u",
+  "file": "/assets/voice/tv-aw_ddooij_cais_mux_hinhf_trawng-1n74u.mp3",
+  "text": "ă đội cái mũ hình trăng khuyết, â đội mũ nhọn. Còn y gọi là i dài, đọc giống i.",
+  "group": "Lời Mochi mở bài"
+ },
+ {
   "id": "tv-bes",
   "file": "/assets/voice/tv-bes.mp3",
   "text": "bé",
@@ -520,6 +646,12 @@
   "file": "/assets/voice/tv-bes_bees_bee.mp3",
   "text": "bé bế bê",
   "group": "Câu ứng dụng · b, huyền, sắc"
+ },
+ {
+  "id": "tv-ddaay_laf_chuwx_b_ddocj_laf-n64z0",
+  "file": "/assets/voice/tv-ddaay_laf_chuwx_b_ddocj_laf-n64z0.mp3",
+  "text": "Đây là chữ b, đọc là bờ. Ghép bờ với a thành ba. Thêm dấu huyền thành bà, dấu sắc thành bá!",
+  "group": "Lời Mochi mở bài"
  },
  {
   "id": "tv-beer",
@@ -562,6 +694,12 @@
   "file": "/assets/voice/tv-baf_ber_bis_bes_bee_beer.mp3",
   "text": "bà bẻ bí, bé bê bể",
   "group": "Câu ứng dụng · Hỏi, ngã, nặng"
+ },
+ {
+  "id": "tv-theem_ba_daaus_nuwax_daaus_hoir-1l8dl",
+  "file": "/assets/voice/tv-theem_ba_daaus_nuwax_daaus_hoir-1l8dl.mp3",
+  "text": "Thêm ba dấu nữa: dấu hỏi như cái móc câu, dấu ngã như làn sóng, dấu nặng là một chấm dưới chân.",
+  "group": "Lời Mochi mở bài"
  },
  {
   "id": "tv-cas",
@@ -664,6 +802,12 @@
   "file": "/assets/voice/tv-bes_ddi_ddof_coo_bees_bes.mp3",
   "text": "bé đi đò, cô bế bé",
   "group": "Câu ứng dụng · c, d, đ"
+ },
+ {
+  "id": "tv-ba_banj_chuwx_mowis_c_ddocj-hbpia",
+  "file": "/assets/voice/tv-ba_banj_chuwx_mowis_c_ddocj-hbpia.mp3",
+  "text": "Ba bạn chữ mới: c đọc là cờ, d đọc là dờ, đ có thêm gạch ngang đọc là đờ.",
+  "group": "Lời Mochi mở bài"
  },
  {
   "id": "tv-hoo",
@@ -774,6 +918,12 @@
   "group": "Câu ứng dụng · h, l, m"
  },
  {
+  "id": "tv-h_ddocj_laf_howf_l_ddocj-3vve4",
+  "file": "/assets/voice/tv-h_ddocj_laf_howf_l_ddocj-3vve4.mp3",
+  "text": "h đọc là hờ, l đọc là lờ, m đọc là mờ. Miệng ngậm lại khi đọc mờ nhé!",
+  "group": "Lời Mochi mở bài"
+ },
+ {
   "id": "tv-now",
   "file": "/assets/voice/tv-now.mp3",
   "text": "nơ",
@@ -874,6 +1024,12 @@
   "file": "/assets/voice/tv-gaf_mej_keer_cho_gaf_con.mp3",
   "text": "gà mẹ kể cho gà con",
   "group": "Câu ứng dụng · n, k, g"
+ },
+ {
+  "id": "tv-n_ddocj_laf_nowf_k_ddocj-1rwit",
+  "file": "/assets/voice/tv-n_ddocj_laf_nowf_k_ddocj-1rwit.mp3",
+  "text": "n đọc là nờ, k đọc là ca, g đọc là gờ. Chữ k có một luật nhỏ, xem nhé!",
+  "group": "Lời Mochi mở bài"
  },
  {
   "id": "tv-roo",
@@ -984,6 +1140,12 @@
   "group": "Câu ứng dụng · r, s, t"
  },
  {
+  "id": "tv-r_ddocj_laf_rowf_s_ddocj-o7y2w",
+  "file": "/assets/voice/tv-r_ddocj_laf_rowf_s_ddocj-o7y2w.mp3",
+  "text": "r đọc là rờ, s đọc là sờ, t đọc là tờ. Cùng đọc to nào!",
+  "group": "Lời Mochi mở bài"
+ },
+ {
   "id": "tv-vow",
   "file": "/assets/voice/tv-vow.mp3",
   "text": "vơ",
@@ -1078,6 +1240,12 @@
   "file": "/assets/voice/tv-bes_vex_xe_owr_vowr.mp3",
   "text": "bé vẽ xe ở vở",
   "group": "Câu ứng dụng · v, x, p"
+ },
+ {
+  "id": "tv-v_ddocj_laf_vowf_x_ddocj-wn5nu",
+  "file": "/assets/voice/tv-v_ddocj_laf_vowf_x_ddocj-wn5nu.mp3",
+  "text": "v đọc là vờ, x đọc là xờ, p đọc là pờ. Chữ p hay đi với h, mình sẽ gặp lại sau.",
+  "group": "Lời Mochi mở bài"
  },
  {
   "id": "tv-cho",
@@ -1188,6 +1356,12 @@
   "group": "Câu ứng dụng · ch, nh, th"
  },
  {
+  "id": "tv-hai_chuwx_dduwngs_canhj_nhau_thanhf-hfb69",
+  "file": "/assets/voice/tv-hai_chuwx_dduwngs_canhj_nhau_thanhf-hfb69.mp3",
+  "text": "Hai chữ đứng cạnh nhau thành một âm mới. c với h thành chờ, n với h thành nhờ, t với h thành thờ.",
+  "group": "Lời Mochi mở bài"
+ },
+ {
   "id": "tv-khee",
   "file": "/assets/voice/tv-khee.mp3",
   "text": "khê",
@@ -1296,6 +1470,12 @@
   "group": "Câu ứng dụng · kh, ph, tr"
  },
  {
+  "id": "tv-theem_ba_chuwx_gheps_khowf_phowf-np92m",
+  "file": "/assets/voice/tv-theem_ba_chuwx_gheps_khowf_phowf-np92m.mp3",
+  "text": "Thêm ba chữ ghép: khờ, phờ, trờ. Đọc trờ thì cong lưỡi lên một chút.",
+  "group": "Lời Mochi mở bài"
+ },
+ {
   "id": "tv-ngoo",
   "file": "/assets/voice/tv-ngoo.mp3",
   "text": "ngô",
@@ -1398,6 +1578,12 @@
   "group": "Câu ứng dụng · ng, ngh, gh"
  },
  {
+  "id": "tv-hai_banj_ng_vaf_ngh_cungf-1l591",
+  "file": "/assets/voice/tv-hai_banj_ng_vaf_ngh_cungf-1l591.mp3",
+  "text": "Hai bạn ng và ngh cùng đọc là ngờ, gh đọc là gờ. Có một luật rất hay về chúng!",
+  "group": "Lời Mochi mở bài"
+ },
+ {
   "id": "tv-gio",
   "file": "/assets/voice/tv-gio.mp3",
   "text": "gio",
@@ -1474,6 +1660,12 @@
   "file": "/assets/voice/tv-quee_baf_cos_gios_cos_quar.mp3",
   "text": "quê bà có gió, có quả",
   "group": "Câu ứng dụng · gi, qu"
+ },
+ {
+  "id": "tv-gi_ddocj_laf_di_qu_ddocj-pw316",
+  "file": "/assets/voice/tv-gi_ddocj_laf_di_qu_ddocj-pw316.mp3",
+  "text": "gi đọc là di, qu đọc là quờ. Chữ q lúc nào cũng đi cùng chữ u.",
+  "group": "Lời Mochi mở bài"
  },
  {
   "id": "tv-an",
@@ -1582,6 +1774,12 @@
   "file": "/assets/voice/tv-bes_quangf_khawn_ra_saan.mp3",
   "text": "bé quàng khăn ra sân",
   "group": "Câu ứng dụng · an, ăn, ân"
+ },
+ {
+  "id": "tv-vaanf_mowis_ddaay_a_gheps_vowis-ylf3e",
+  "file": "/assets/voice/tv-vaanf_mowis_ddaay_a_gheps_vowis-ylf3e.mp3",
+  "text": "Vần mới đây! a ghép với nờ thành an. Ba vần này chỉ khác nhau cái mũ thôi.",
+  "group": "Lời Mochi mở bài"
  },
  {
   "id": "tv-am",
@@ -1704,6 +1902,12 @@
   "group": "Câu ứng dụng · am, ăm, âm"
  },
  {
+  "id": "tv-vaanf_am_awm_aam_ddeeuf_keets-znfcd",
+  "file": "/assets/voice/tv-vaanf_am_awm_aam_ddeeuf_keets-znfcd.mp3",
+  "text": "Vần am, ăm, âm đều kết thúc bằng mờ, khi đọc xong thì ngậm môi lại.",
+  "group": "Lời Mochi mở bài"
+ },
+ {
   "id": "tv-ai",
   "file": "/assets/voice/tv-ai.mp3",
   "text": "ai",
@@ -1816,6 +2020,12 @@
   "file": "/assets/voice/tv-mays_bay_bay_qua_maay.mp3",
   "text": "máy bay bay qua mây",
   "group": "Câu ứng dụng · ai, ay, ây"
+ },
+ {
+  "id": "tv-a_gheps_vowis_i_thanhf_ai-hxgkw",
+  "file": "/assets/voice/tv-a_gheps_vowis_i_thanhf_ai-hxgkw.mp3",
+  "text": "a ghép với i thành ai, a ghép với y thành ay. Nghe xem có gì khác nhau nhé!",
+  "group": "Lời Mochi mở bài"
  },
  {
   "id": "tv-ao",
@@ -1936,6 +2146,12 @@
   "file": "/assets/voice/tv-gaaus_con_hais_taos_nhoor_rau.mp3",
   "text": "gấu con hái táo, nhổ rau",
   "group": "Câu ứng dụng · ao, au, âu"
+ },
+ {
+  "id": "tv-ba_vaanf_tronf_mooi_ao_au-vzq7j",
+  "file": "/assets/voice/tv-ba_vaanf_tronf_mooi_ao_au-vzq7j.mp3",
+  "text": "Ba vần tròn môi: ao, au, âu. Đọc xong môi chu ra như thổi nến.",
+  "group": "Lời Mochi mở bài"
  },
  {
   "id": "tv-at",
@@ -2070,6 +2286,12 @@
   "group": "Câu ứng dụng · at, ăt, ât"
  },
  {
+  "id": "tv-vaanf_at_awt_aat_ddocj_ngawns-1nr0m",
+  "file": "/assets/voice/tv-vaanf_at_awt_aat_ddocj_ngawns-1nr0m.mp3",
+  "text": "Vần at, ăt, ât đọc ngắn và dứt khoát, cuối vần là tờ.",
+  "group": "Lời Mochi mở bài"
+ },
+ {
   "id": "tv-ap",
   "file": "/assets/voice/tv-ap.mp3",
   "text": "ap",
@@ -2202,6 +2424,12 @@
   "group": "Câu ứng dụng · ap, ăp, âp"
  },
  {
+  "id": "tv-vaanf_cuoois_powf_thif_ddocj_xong-buzsa",
+  "file": "/assets/voice/tv-vaanf_cuoois_powf_thif_ddocj_xong-buzsa.mp3",
+  "text": "Vần cuối pờ thì đọc xong môi khép lại thật nhanh.",
+  "group": "Lời Mochi mở bài"
+ },
+ {
   "id": "tv-ac",
   "file": "/assets/voice/tv-ac.mp3",
   "text": "ac",
@@ -2328,6 +2556,12 @@
   "group": "Câu ứng dụng · ac, ăc, âc"
  },
  {
+  "id": "tv-vaanf_cuoois_cowf_ac_awc_aac-b8wjd",
+  "file": "/assets/voice/tv-vaanf_cuoois_cowf_ac_awc_aac-b8wjd.mp3",
+  "text": "Vần cuối cờ: ac, ăc, âc. Đọc xong cuống lưỡi chạm lên một chút.",
+  "group": "Lời Mochi mở bài"
+ },
+ {
   "id": "tv-ang",
   "file": "/assets/voice/tv-ang.mp3",
   "text": "ang",
@@ -2442,6 +2676,12 @@
   "group": "Câu ứng dụng · ang, ăng, âng"
  },
  {
+  "id": "tv-vaanf_cuoois_ngowf_ang_awng_aang-w7asb",
+  "file": "/assets/voice/tv-vaanf_cuoois_ngowf_ang_awng_aang-w7asb.mp3",
+  "text": "Vần cuối ngờ: ang, ăng, âng. Âm vang lên ở mũi, thử bịt mũi xem!",
+  "group": "Lời Mochi mở bài"
+ },
+ {
   "id": "tv-anh",
   "file": "/assets/voice/tv-anh.mp3",
   "text": "anh",
@@ -2524,6 +2764,12 @@
   "file": "/assets/voice/tv-bes_ddocj_sachs_uoongs_nuwowcs_chanh.mp3",
   "text": "bé đọc sách, uống nước chanh",
   "group": "Câu ứng dụng · anh, ach"
+ },
+ {
+  "id": "tv-hai_vaanf_cos_chuwx_h_owr-1b5uz",
+  "file": "/assets/voice/tv-hai_vaanf_cos_chuwx_h_owr-1b5uz.mp3",
+  "text": "Hai vần có chữ h ở cuối: anh và ach. Đọc lướt nhẹ nhé!",
+  "group": "Lời Mochi mở bài"
  },
  {
   "id": "tv-on",
@@ -2652,6 +2898,12 @@
   "group": "Câu ứng dụng · on, ôn, ơn"
  },
  {
+  "id": "tv-o_oo_ow_gheps_vowis_nowf_thanhf_on_oon_own",
+  "file": "/assets/voice/tv-o_oo_ow_gheps_vowis_nowf_thanhf_on_oon_own.mp3",
+  "text": "o, ô, ơ ghép với nờ thành on, ôn, ơn.",
+  "group": "Lời Mochi mở bài"
+ },
+ {
   "id": "tv-om",
   "file": "/assets/voice/tv-om.mp3",
   "text": "om",
@@ -2764,6 +3016,12 @@
   "file": "/assets/voice/tv-cowm_thowm_toom_ngon.mp3",
   "text": "cơm thơm, tôm ngon",
   "group": "Câu ứng dụng · om, ôm, ơm"
+ },
+ {
+  "id": "tv-vaanf_om_oom_owm_cuoois_mowf_ngaamj_mooi_laij_nhes",
+  "file": "/assets/voice/tv-vaanf_om_oom_owm_cuoois_mowf_ngaamj_mooi_laij_nhes.mp3",
+  "text": "Vần om, ôm, ơm cuối mờ, ngậm môi lại nhé.",
+  "group": "Lời Mochi mở bài"
  },
  {
   "id": "tv-oi",
@@ -2884,6 +3142,12 @@
   "file": "/assets/voice/tv-voi_con_ddi_bowi_ddi_chowi.mp3",
   "text": "voi con đi bơi, đi chơi",
   "group": "Câu ứng dụng · oi, ôi, ơi"
+ },
+ {
+  "id": "tv-ba_vaanf_keets_thucs_bawngf_i_oi_ooi_owi",
+  "file": "/assets/voice/tv-ba_vaanf_keets_thucs_bawngf_i_oi_ooi_owi.mp3",
+  "text": "Ba vần kết thúc bằng i: oi, ôi, ơi.",
+  "group": "Lời Mochi mở bài"
  },
  {
   "id": "tv-ot",
@@ -3010,6 +3274,12 @@
   "file": "/assets/voice/tv-chim_hots_banhs_ngotj.mp3",
   "text": "chim hót, bánh ngọt",
   "group": "Câu ứng dụng · ot, ôt, ơt"
+ },
+ {
+  "id": "tv-vaanf_cuoois_towf_vowis_o_oo_ow_ddocj_ngawns_gonj",
+  "file": "/assets/voice/tv-vaanf_cuoois_towf_vowis_o_oo_ow_ddocj_ngawns_gonj.mp3",
+  "text": "Vần cuối tờ với o, ô, ơ. Đọc ngắn, gọn.",
+  "group": "Lời Mochi mở bài"
  },
  {
   "id": "tv-op",
@@ -3144,6 +3414,12 @@
   "group": "Câu ứng dụng · op, ôp, ơp"
  },
  {
+  "id": "tv-cuoois_powf_thif_kheps_mooi_op_oop_owp",
+  "file": "/assets/voice/tv-cuoois_powf_thif_kheps_mooi_op_oop_owp.mp3",
+  "text": "Cuối pờ thì khép môi: op, ôp, ơp.",
+  "group": "Lời Mochi mở bài"
+ },
+ {
   "id": "tv-oc",
   "file": "/assets/voice/tv-oc.mp3",
   "text": "oc",
@@ -3228,6 +3504,12 @@
   "group": "Câu ứng dụng · oc, ôc"
  },
  {
+  "id": "tv-hai_vaanf_cuoois_cowf_oc_vaf_ooc",
+  "file": "/assets/voice/tv-hai_vaanf_cuoois_cowf_oc_vaf_ooc.mp3",
+  "text": "Hai vần cuối cờ: oc và ôc.",
+  "group": "Lời Mochi mở bài"
+ },
+ {
   "id": "tv-ong",
   "file": "/assets/voice/tv-ong.mp3",
   "text": "ong",
@@ -3298,6 +3580,12 @@
   "file": "/assets/voice/tv-ong_bay_qua_boong_hoa.mp3",
   "text": "ong bay qua bông hoa",
   "group": "Câu ứng dụng · ong, ông"
+ },
+ {
+  "id": "tv-vaanf_cuoois_ngowf_ong_vaf_oong-hf3mr",
+  "file": "/assets/voice/tv-vaanf_cuoois_ngowf_ong_vaf_oong-hf3mr.mp3",
+  "text": "Vần cuối ngờ: ong và ông. Nghe như tiếng chuông kêu boong boong.",
+  "group": "Lời Mochi mở bài"
  },
  {
   "id": "tv-en",
@@ -3426,6 +3714,12 @@
   "group": "Câu ứng dụng · en, ên, in"
  },
  {
+  "id": "tv-e_ee_i_gheps_vowis_nowf_en_een_in",
+  "file": "/assets/voice/tv-e_ee_i_gheps_vowis_nowf_en_een_in.mp3",
+  "text": "e, ê, i ghép với nờ: en, ên, in.",
+  "group": "Lời Mochi mở bài"
+ },
+ {
   "id": "tv-em",
   "file": "/assets/voice/tv-em.mp3",
   "text": "em",
@@ -3538,6 +3832,12 @@
   "file": "/assets/voice/tv-chim_veef_toor_khi_ddeem_xuoongs.mp3",
   "text": "chim về tổ khi đêm xuống",
   "group": "Câu ứng dụng · em, êm, im"
+ },
+ {
+  "id": "tv-vaanf_cuoois_mowf_em_eem_im",
+  "file": "/assets/voice/tv-vaanf_cuoois_mowf_em_eem_im.mp3",
+  "text": "Vần cuối mờ: em, êm, im.",
+  "group": "Lời Mochi mở bài"
  },
  {
   "id": "tv-et",
@@ -3672,6 +3972,12 @@
   "group": "Câu ứng dụng · et, êt, it"
  },
  {
+  "id": "tv-cuoois_towf_et_eet_it_ddocj_gonj_nhuw_tieengs_gox_cuwar",
+  "file": "/assets/voice/tv-cuoois_towf_et_eet_it_ddocj_gonj_nhuw_tieengs_gox_cuwar.mp3",
+  "text": "Cuối tờ: et, êt, it. Đọc gọn như tiếng gõ cửa.",
+  "group": "Lời Mochi mở bài"
+ },
+ {
   "id": "tv-ep",
   "file": "/assets/voice/tv-ep.mp3",
   "text": "ep",
@@ -3790,6 +4096,12 @@
   "file": "/assets/voice/tv-mej_naaus_cowm_owr_beeps.mp3",
   "text": "mẹ nấu cơm ở bếp",
   "group": "Câu ứng dụng · ep, êp, ip"
+ },
+ {
+  "id": "tv-cuoois_powf_ep_eep_ip",
+  "file": "/assets/voice/tv-cuoois_powf_ep_eep_ip.mp3",
+  "text": "Cuối pờ: ep, êp, ip.",
+  "group": "Lời Mochi mở bài"
  },
  {
   "id": "tv-eo",
@@ -3966,6 +4278,12 @@
   "group": "Câu ứng dụng · eo, êu, iu, ia"
  },
  {
+  "id": "tv-boons_vaanf_nhor_xinh_eo_eeu_iu_ia",
+  "file": "/assets/voice/tv-boons_vaanf_nhor_xinh_eo_eeu_iu_ia.mp3",
+  "text": "Bốn vần nhỏ xinh: eo, êu, iu, ia.",
+  "group": "Lời Mochi mở bài"
+ },
+ {
   "id": "tv-eenh",
   "file": "/assets/voice/tv-eenh.mp3",
   "text": "ênh",
@@ -4120,6 +4438,12 @@
   "file": "/assets/voice/tv-eechs_xinh_ngooif_been_keenh.mp3",
   "text": "ếch xinh ngồi bên kênh",
   "group": "Câu ứng dụng · ênh, inh, êch, ich"
+ },
+ {
+  "id": "tv-boons_vaanf_cos_chuwx_h_owr_cuoois_eenh_inh_eech_ich",
+  "file": "/assets/voice/tv-boons_vaanf_cos_chuwx_h_owr_cuoois_eenh_inh_eech_ich.mp3",
+  "text": "Bốn vần có chữ h ở cuối: ênh, inh, êch, ich.",
+  "group": "Lời Mochi mở bài"
  },
  {
   "id": "tv-um",
@@ -4278,6 +4602,12 @@
   "group": "Câu ứng dụng · um, un, ui, ưi"
  },
  {
+  "id": "tv-u_vaf_uw_gheps_vowis_cacs_aam_cuoois_um_un_ui_uwi",
+  "file": "/assets/voice/tv-u_vaf_uw_gheps_vowis_cacs_aam_cuoois_um_un_ui_uwi.mp3",
+  "text": "u và ư ghép với các âm cuối: um, un, ui, ưi.",
+  "group": "Lời Mochi mở bài"
+ },
+ {
   "id": "tv-up",
   "file": "/assets/voice/tv-up.mp3",
   "text": "up",
@@ -4408,6 +4738,12 @@
   "file": "/assets/voice/tv-bes_caamf_buts_giups_mej.mp3",
   "text": "bé cầm bút giúp mẹ",
   "group": "Câu ứng dụng · up, ut, ưt"
+ },
+ {
+  "id": "tv-cuoois_powf_vaf_towf_up_ut_uwt",
+  "file": "/assets/voice/tv-cuoois_powf_vaf_towf_up_ut_uwt.mp3",
+  "text": "Cuối pờ và tờ: up, ut, ưt.",
+  "group": "Lời Mochi mở bài"
  },
  {
   "id": "tv-uc",
@@ -4584,6 +4920,12 @@
   "group": "Câu ứng dụng · uc, ưc, ung, ưng"
  },
  {
+  "id": "tv-cuoois_cowf_vaf_ngowf_uc_uwc_ung_uwng",
+  "file": "/assets/voice/tv-cuoois_cowf_vaf_ngowf_uc_uwc_ung_uwng.mp3",
+  "text": "Cuối cờ và ngờ: uc, ưc, ung, ưng.",
+  "group": "Lời Mochi mở bài"
+ },
+ {
   "id": "tv-ua",
   "file": "/assets/voice/tv-ua.mp3",
   "text": "ua",
@@ -4708,6 +5050,12 @@
   "file": "/assets/voice/tv-trowif_muwa_cua_bof_ra.mp3",
   "text": "trời mưa, cua bò ra",
   "group": "Câu ứng dụng · ua, ưa, ưu"
+ },
+ {
+  "id": "tv-ua_ddocj_nhuw_u_a_uwa_ddocj_nhuw_uw_a_uwu_ddocj_nhuw_uw_u",
+  "file": "/assets/voice/tv-ua_ddocj_nhuw_u_a_uwa_ddocj_nhuw_uw_a_uwu_ddocj_nhuw_uw_u.mp3",
+  "text": "ua đọc như u-a, ưa đọc như ư-a, ưu đọc như ư-u.",
+  "group": "Lời Mochi mở bài"
  },
  {
   "id": "tv-ieen",
@@ -4858,6 +5206,12 @@
   "file": "/assets/voice/tv-chieeuf_chieeuf_bes_thar_dieeuf.mp3",
   "text": "chiều chiều bé thả diều",
   "group": "Câu ứng dụng · iên, iêt, iêu, yêu"
+ },
+ {
+  "id": "tv-iee_ddocj_gaanf_nhuw_ia_gheps-wj6vz",
+  "file": "/assets/voice/tv-iee_ddocj_gaanf_nhuw_ia_gheps-wj6vz.mp3",
+  "text": "iê đọc gần như ia. Ghép với nờ thành iên, với tờ thành iêt.",
+  "group": "Lời Mochi mở bài"
  },
  {
   "id": "tv-ieeng",
@@ -5020,6 +5374,12 @@
   "file": "/assets/voice/tv-car_nhaf_ddi_xem_xieecs.mp3",
   "text": "cả nhà đi xem xiếc",
   "group": "Câu ứng dụng · iêng, iêc, iêm, iêp"
+ },
+ {
+  "id": "tv-theem_boons_vaanf_cos_iee_nuwax_nef",
+  "file": "/assets/voice/tv-theem_boons_vaanf_cos_iee_nuwax_nef.mp3",
+  "text": "Thêm bốn vần có iê nữa nè!",
+  "group": "Lời Mochi mở bài"
  },
  {
   "id": "tv-uoon",
@@ -5232,6 +5592,12 @@
   "group": "Câu ứng dụng · uôn, uôt, uôi, uôc, uông"
  },
  {
+  "id": "tv-uoo_ddocj_gaanf_nhuw_ua_nawm-1i12v",
+  "file": "/assets/voice/tv-uoo_ddocj_gaanf_nhuw_ua_nawm-1i12v.mp3",
+  "text": "uô đọc gần như ua. Năm vần trong một bài, bé làm được!",
+  "group": "Lời Mochi mở bài"
+ },
+ {
   "id": "tv-uwown",
   "file": "/assets/voice/tv-uwown.mp3",
   "text": "ươn",
@@ -5406,6 +5772,12 @@
   "group": "Câu ứng dụng · ươn, ươt, ươi, ươc"
  },
  {
+  "id": "tv-uwow_ddocj_gaanf_nhuw_uwa_vuwownf_luwowts_luwowis_thuwowcs",
+  "file": "/assets/voice/tv-uwow_ddocj_gaanf_nhuw_uwa_vuwownf_luwowts_luwowis_thuwowcs.mp3",
+  "text": "ươ đọc gần như ưa. Vườn, lướt, lưới, thước!",
+  "group": "Lời Mochi mở bài"
+ },
+ {
   "id": "tv-uwowng",
   "file": "/assets/voice/tv-uwowng.mp3",
   "text": "ương",
@@ -5554,6 +5926,12 @@
   "file": "/assets/voice/tv-buwowms_bay_quanh_gianf_muwowps.mp3",
   "text": "bướm bay quanh giàn mướp",
   "group": "Câu ứng dụng · ương, ươu, ươm, ươp"
+ },
+ {
+  "id": "tv-theem_boons_vaanf_uwow_nuwax_sawps_xong_chawngj_rooif",
+  "file": "/assets/voice/tv-theem_boons_vaanf_uwow_nuwax_sawps_xong_chawngj_rooif.mp3",
+  "text": "Thêm bốn vần ươ nữa. Sắp xong chặng rồi!",
+  "group": "Lời Mochi mở bài"
  },
  {
   "id": "tv-oa",
@@ -5718,6 +6096,12 @@
   "group": "Câu ứng dụng · oa, oe, uê, uy"
  },
  {
+  "id": "tv-chuwx_o_u_dduwngs_truwowcs_lamf-15p2u",
+  "file": "/assets/voice/tv-chuwx_o_u_dduwngs_truwowcs_lamf-15p2u.mp3",
+  "text": "Chữ o, u đứng trước làm âm đệm, môi tròn lại: oa, oe, uê, uy.",
+  "group": "Lời Mochi mở bài"
+ },
+ {
   "id": "tv-oan",
   "file": "/assets/voice/tv-oan.mp3",
   "text": "oan",
@@ -5874,6 +6258,12 @@
   "group": "Câu ứng dụng · oan, oăn, oat, oăt"
  },
  {
+  "id": "tv-o_dduwngs_truwowcs_an_awn_at_awt_thanhf_oan_oawn_oat_oawt",
+  "file": "/assets/voice/tv-o_dduwngs_truwowcs_an_awn_at_awt_thanhf_oan_oawn_oat_oawt.mp3",
+  "text": "o đứng trước an, ăn, at, ăt thành oan, oăn, oat, oăt.",
+  "group": "Lời Mochi mở bài"
+ },
+ {
   "id": "tv-oang",
   "file": "/assets/voice/tv-oang.mp3",
   "text": "oang",
@@ -6016,6 +6406,12 @@
   "file": "/assets/voice/tv-bes_khoanh_tay_chaof_coo.mp3",
   "text": "bé khoanh tay chào cô",
   "group": "Câu ứng dụng · oang, oăng, oanh, oach"
+ },
+ {
+  "id": "tv-boons_vaanf_daif_maf_vaanx_deex_oang_oawng_oanh_oach",
+  "file": "/assets/voice/tv-boons_vaanf_daif_maf_vaanx_deex_oang_oawng_oanh_oach.mp3",
+  "text": "Bốn vần dài mà vẫn dễ: oang, oăng, oanh, oach.",
+  "group": "Lời Mochi mở bài"
  },
  {
   "id": "tv-oai",
@@ -6178,6 +6574,12 @@
   "file": "/assets/voice/tv-muaf_xuaan_bes_troongf_khoai.mp3",
   "text": "mùa xuân, bé trồng khoai",
   "group": "Câu ứng dụng · oai, oay, uân, uât"
+ },
+ {
+  "id": "tv-oai_oay_uaan_uaat_muaf_xuaan_ddeens_rooif",
+  "file": "/assets/voice/tv-oai_oay_uaan_uaat_muaf_xuaan_ddeens_rooif.mp3",
+  "text": "oai, oay, uân, uât. Mùa xuân đến rồi!",
+  "group": "Lời Mochi mở bài"
  },
  {
   "id": "tv-uyeen",
@@ -6360,6 +6762,30 @@
   "group": "Câu ứng dụng · uyên, uyêt, uynh, uych"
  },
  {
+  "id": "tv-boons_vaanf_khos_nhaats_rooif_ddocj-83m7t",
+  "file": "/assets/voice/tv-boons_vaanf_khos_nhaats_rooif_ddocj-83m7t.mp3",
+  "text": "Bốn vần khó nhất rồi! Đọc chậm, từng phần một nhé.",
+  "group": "Lời Mochi mở bài"
+ },
+ {
+  "id": "tv-hai_tieengs_gheps_laij_thanhf_mootj-3avrd",
+  "file": "/assets/voice/tv-hai_tieengs_gheps_laij_thanhf_mootj-3avrd.mp3",
+  "text": "Hai tiếng ghép lại thành một từ. Đọc liền hai tiếng, không ngắt quãng nhé.",
+  "group": "Lời Mochi mở bài"
+ },
+ {
+  "id": "tv-ddoof_vaatj_naof_ddeer_ngooif",
+  "file": "/assets/voice/tv-ddoof_vaatj_naof_ddeer_ngooif.mp3",
+  "text": "Đồ vật nào để ngồi?",
+  "group": "Câu hỏi đọc hiểu · Từ quanh nhà"
+ },
+ {
+  "id": "tv-ddoof_vaatj_naof_cho_anhs_sangs",
+  "file": "/assets/voice/tv-ddoof_vaatj_naof_cho_anhs_sangs.mp3",
+  "text": "Đồ vật nào cho ánh sáng?",
+  "group": "Câu hỏi đọc hiểu · Từ quanh nhà"
+ },
+ {
   "id": "tv-cuwar_soor",
   "file": "/assets/voice/tv-cuwar_soor.mp3",
   "text": "cửa sổ",
@@ -6388,6 +6814,24 @@
   "file": "/assets/voice/tv-cais_banf_cuwar_soor_cais_ghees-se3ir.mp3",
   "text": "cái bàn cửa sổ cái ghế bóng đèn tủ lạnh bàn chải",
   "group": "Cả bài · Từ quanh nhà"
+ },
+ {
+  "id": "tv-goij_teen_cacs_con_vaatj_naof",
+  "file": "/assets/voice/tv-goij_teen_cacs_con_vaatj_naof.mp3",
+  "text": "Gọi tên các con vật nào!",
+  "group": "Lời Mochi mở bài"
+ },
+ {
+  "id": "tv-con_gif_keeu_meo_meo",
+  "file": "/assets/voice/tv-con_gif_keeu_meo_meo.mp3",
+  "text": "Con gì kêu meo meo?",
+  "group": "Câu hỏi đọc hiểu · Con vật bé yêu"
+ },
+ {
+  "id": "tv-con_gif_bieets_bay",
+  "file": "/assets/voice/tv-con_gif_bieets_bay.mp3",
+  "text": "Con gì biết bay?",
+  "group": "Câu hỏi đọc hiểu · Con vật bé yêu"
  },
  {
   "id": "tv-chus_chos",
@@ -6420,6 +6864,24 @@
   "group": "Cả bài · Con vật bé yêu"
  },
  {
+  "id": "tv-ddocj_to_teen_trais_caay_vaf_mauf_sawcs_nhes",
+  "file": "/assets/voice/tv-ddocj_to_teen_trais_caay_vaf_mauf_sawcs_nhes.mp3",
+  "text": "Đọc to tên trái cây và màu sắc nhé.",
+  "group": "Lời Mochi mở bài"
+ },
+ {
+  "id": "tv-quar_chuoois_chins_cos_mauf_gif",
+  "file": "/assets/voice/tv-quar_chuoois_chins_cos_mauf_gif.mp3",
+  "text": "Quả chuối chín có màu gì?",
+  "group": "Câu hỏi đọc hiểu · Màu sắc, trái cây"
+ },
+ {
+  "id": "tv-duwa_haaus_ruootj_mauf_gif",
+  "file": "/assets/voice/tv-duwa_haaus_ruootj_mauf_gif.mp3",
+  "text": "Dưa hấu ruột màu gì?",
+  "group": "Câu hỏi đọc hiểu · Màu sắc, trái cây"
+ },
+ {
   "id": "tv-duwa_haaus",
   "file": "/assets/voice/tv-duwa_haaus.mp3",
   "text": "dưa hấu",
@@ -6448,6 +6910,24 @@
   "file": "/assets/voice/tv-quar_cam_duwa_haaus_mauf_ddor-cw6l7.mp3",
   "text": "quả cam dưa hấu màu đỏ màu xanh quả chuối trái xoài",
   "group": "Cả bài · Màu sắc, trái cây"
+ },
+ {
+  "id": "tv-mootj_caau_bawts_ddaauf_bawngf_chuwx-gzujw",
+  "file": "/assets/voice/tv-mootj_caau_bawts_ddaauf_bawngf_chuwx-gzujw.mp3",
+  "text": "Một câu bắt đầu bằng chữ viết hoa và kết thúc bằng dấu chấm. Đến dấu chấm thì nghỉ một chút.",
+  "group": "Lời Mochi mở bài"
+ },
+ {
+  "id": "tv-ai_naaus_cowm",
+  "file": "/assets/voice/tv-ai_naaus_cowm.mp3",
+  "text": "Ai nấu cơm?",
+  "group": "Câu hỏi đọc hiểu · Câu và dấu chấm"
+ },
+ {
+  "id": "tv-meof_ddang_lamf_gif",
+  "file": "/assets/voice/tv-meof_ddang_lamf_gif.mp3",
+  "text": "Mèo đang làm gì?",
+  "group": "Câu hỏi đọc hiểu · Câu và dấu chấm"
  },
  {
   "id": "tv-bes_ddi_hocj",
@@ -6486,6 +6966,24 @@
   "group": "Cả bài · Câu và dấu chấm"
  },
  {
+  "id": "tv-daaus_phaayr_gioongs_choox_nghir_chaan-g0bu9",
+  "file": "/assets/voice/tv-daaus_phaayr_gioongs_choox_nghir_chaan-g0bu9.mp3",
+  "text": "Dấu phẩy giống chỗ nghỉ chân. Đến dấu phẩy thì ngắt hơi thật ngắn.",
+  "group": "Lời Mochi mở bài"
+ },
+ {
+  "id": "tv-vuwownf_nhaf_baf_cos_gif",
+  "file": "/assets/voice/tv-vuwownf_nhaf_baf_cos_gif.mp3",
+  "text": "Vườn nhà bà có gì?",
+  "group": "Câu hỏi đọc hiểu · Dấu phẩy"
+ },
+ {
+  "id": "tv-mochi_thichs_gif",
+  "file": "/assets/voice/tv-mochi_thichs_gif.mp3",
+  "text": "Mochi thích gì?",
+  "group": "Câu hỏi đọc hiểu · Dấu phẩy"
+ },
+ {
   "id": "tv-sangs_nay_bes_daayj_sowms",
   "file": "/assets/voice/tv-sangs_nay_bes_daayj_sowms.mp3",
   "text": "Sáng nay, bé dậy sớm.",
@@ -6514,6 +7012,18 @@
   "file": "/assets/voice/tv-sangs_nay_bes_daayj_sowms_vuwownf-z0z52.mp3",
   "text": "Sáng nay, bé dậy sớm. Vườn nhà bà có cam, có bưởi. Mochi thích cá, thích sữa. Trời nắng, gió thổi nhẹ.",
   "group": "Cả bài · Dấu phẩy"
+ },
+ {
+  "id": "tv-caau_hoir_keets_thucs_bawngf_daaus-110ad",
+  "file": "/assets/voice/tv-caau_hoir_keets_thucs_bawngf_daaus-110ad.mp3",
+  "text": "Câu hỏi kết thúc bằng dấu chấm hỏi. Đọc thì giọng cao lên một chút ở cuối câu.",
+  "group": "Lời Mochi mở bài"
+ },
+ {
+  "id": "tv-caau_hoir_keets_thucs_bawngf_daaus_gif",
+  "file": "/assets/voice/tv-caau_hoir_keets_thucs_bawngf_daaus_gif.mp3",
+  "text": "Câu hỏi kết thúc bằng dấu gì?",
+  "group": "Câu hỏi đọc hiểu · Câu hỏi"
  },
  {
   "id": "tv-banj_teen_laf_gif",
@@ -6546,6 +7056,24 @@
   "group": "Cả bài · Câu hỏi"
  },
  {
+  "id": "tv-baay_giowf_minhf_ddocj_car_mootj-1i776",
+  "file": "/assets/voice/tv-baay_giowf_minhf_ddocj_car_mootj-1i776.mp3",
+  "text": "Bây giờ mình đọc cả một đoạn. Đọc từng câu, nghỉ đúng chỗ dấu chấm nhé.",
+  "group": "Lời Mochi mở bài"
+ },
+ {
+  "id": "tv-ai_dduwa_mochi_ddeens_lowps",
+  "file": "/assets/voice/tv-ai_dduwa_mochi_ddeens_lowps.mp3",
+  "text": "Ai đưa Mochi đến lớp?",
+  "group": "Câu hỏi đọc hiểu · Mochi đi học"
+ },
+ {
+  "id": "tv-owr_lowps_mochi_dduwowcj_ai_khen",
+  "file": "/assets/voice/tv-owr_lowps_mochi_dduwowcj_ai_khen.mp3",
+  "text": "Ở lớp, Mochi được ai khen?",
+  "group": "Câu hỏi đọc hiểu · Mochi đi học"
+ },
+ {
   "id": "tv-sangs_nay_mochi_daayj_thaatj_sowms",
   "file": "/assets/voice/tv-sangs_nay_mochi_daayj_thaatj_sowms.mp3",
   "text": "Sáng nay, Mochi dậy thật sớm.",
@@ -6574,6 +7102,24 @@
   "file": "/assets/voice/tv-sangs_nay_mochi_daayj_thaatj_sowms-7l03i.mp3",
   "text": "Sáng nay, Mochi dậy thật sớm. Mochi đánh răng, rửa mặt rồi ăn sáng. Mẹ đưa Mochi đến lớp. Ở lớp, Mochi được cô khen ngoan.",
   "group": "Cả bài · Mochi đi học"
+ },
+ {
+  "id": "tv-cungf_ddeens_thawm_vuwownf_nhaf_baf_naof",
+  "file": "/assets/voice/tv-cungf_ddeens_thawm_vuwownf_nhaf_baf_naof.mp3",
+  "text": "Cùng đến thăm vườn nhà bà nào!",
+  "group": "Lời Mochi mở bài"
+ },
+ {
+  "id": "tv-mooix_sangs_baf_lamf_gif",
+  "file": "/assets/voice/tv-mooix_sangs_baf_lamf_gif.mp3",
+  "text": "Mỗi sáng, bà làm gì?",
+  "group": "Câu hỏi đọc hiểu · Khu vườn của bà"
+ },
+ {
+  "id": "tv-con_gif_bay_ddeens_hots",
+  "file": "/assets/voice/tv-con_gif_bay_ddeens_hots.mp3",
+  "text": "Con gì bay đến hót?",
+  "group": "Câu hỏi đọc hiểu · Khu vườn của bà"
  },
  {
   "id": "tv-nhaf_baf_cos_mootj_khu_vuwownf_nhor",
@@ -6612,6 +7158,24 @@
   "group": "Cả bài · Khu vườn của bà"
  },
  {
+  "id": "tv-ddocj_ddoanj_vawn_veef_mootj_ngayf_muwa_nhes",
+  "file": "/assets/voice/tv-ddocj_ddoanj_vawn_veef_mootj_ngayf_muwa_nhes.mp3",
+  "text": "Đọc đoạn văn về một ngày mưa nhé.",
+  "group": "Lời Mochi mở bài"
+ },
+ {
+  "id": "tv-khi_muwa_ddeens_ddanf_kieens_lamf_gif",
+  "file": "/assets/voice/tv-khi_muwa_ddeens_ddanf_kieens_lamf_gif.mp3",
+  "text": "Khi mưa đến, đàn kiến làm gì?",
+  "group": "Câu hỏi đọc hiểu · Trời mưa"
+ },
+ {
+  "id": "tv-muwa_tanhj_thif_cos_gif_hieenj_ra",
+  "file": "/assets/voice/tv-muwa_tanhj_thif_cos_gif_hieenj_ra.mp3",
+  "text": "Mưa tạnh thì có gì hiện ra?",
+  "group": "Câu hỏi đọc hiểu · Trời mưa"
+ },
+ {
   "id": "tv-trowif_boongx_toois_saamf_laij",
   "file": "/assets/voice/tv-trowif_boongx_toois_saamf_laij.mp3",
   "text": "Trời bỗng tối sầm lại.",
@@ -6646,6 +7210,18 @@
   "file": "/assets/voice/tv-trowif_boongx_toois_saamf_laij_gios-182nj.mp3",
   "text": "Trời bỗng tối sầm lại. Gió thổi mạnh, mây đen kéo đến. Rồi mưa rơi lộp độp trên mái nhà. Đàn kiến vội vàng chạy về tổ. Mưa tạnh, cầu vồng hiện ra thật đẹp.",
   "group": "Cả bài · Trời mưa"
+ },
+ {
+  "id": "tv-thow_cos_vaanf_ddocj_leen_nghe-39hsc",
+  "file": "/assets/voice/tv-thow_cos_vaanf_ddocj_leen_nghe-39hsc.mp3",
+  "text": "Thơ có vần, đọc lên nghe như hát. Mỗi dòng thơ nghỉ một chút nhé.",
+  "group": "Lời Mochi mở bài"
+ },
+ {
+  "id": "tv-meof_con_ruwar_mawtj_bawngf_gif",
+  "file": "/assets/voice/tv-meof_con_ruwar_mawtj_bawngf_gif.mp3",
+  "text": "Mèo con rửa mặt bằng gì?",
+  "group": "Câu hỏi đọc hiểu · Mèo con rửa mặt"
  },
  {
   "id": "tv-meof_con_daayj_sowms",
@@ -6684,6 +7260,24 @@
   "group": "Cả bài · Mèo con rửa mặt"
  },
  {
+  "id": "tv-mootj_baif_thow_nhor_veef_oong_trawng",
+  "file": "/assets/voice/tv-mootj_baif_thow_nhor_veef_oong_trawng.mp3",
+  "text": "Một bài thơ nhỏ về ông trăng.",
+  "group": "Lời Mochi mở bài"
+ },
+ {
+  "id": "tv-oong_trawng_tronf_nhuw_cais_gif",
+  "file": "/assets/voice/tv-oong_trawng_tronf_nhuw_cais_gif.mp3",
+  "text": "Ông trăng tròn như cái gì?",
+  "group": "Câu hỏi đọc hiểu · Ông trăng"
+ },
+ {
+  "id": "tv-trawng_soi_gif_duwowis_ao",
+  "file": "/assets/voice/tv-trawng_soi_gif_duwowis_ao.mp3",
+  "text": "Trăng soi gì dưới ao?",
+  "group": "Câu hỏi đọc hiểu · Ông trăng"
+ },
+ {
   "id": "tv-oong_trawng_tronf_nhuw_ddiax",
   "file": "/assets/voice/tv-oong_trawng_tronf_nhuw_ddiax.mp3",
   "text": "Ông trăng tròn như đĩa,",
@@ -6718,6 +7312,18 @@
   "file": "/assets/voice/tv-oong_trawng_tronf_nhuw_ddiax_treo-1x4ak.mp3",
   "text": "Ông trăng tròn như đĩa, Treo lửng giữa trời cao. Soi sân nhà bé ngủ, Soi cả đàn cá ao.",
   "group": "Cả bài · Ông trăng"
+ },
+ {
+  "id": "tv-ddocj_thow_veef_ddooi_banf_tay_chawm_chir",
+  "file": "/assets/voice/tv-ddocj_thow_veef_ddooi_banf_tay_chawm_chir.mp3",
+  "text": "Đọc thơ về đôi bàn tay chăm chỉ.",
+  "group": "Lời Mochi mở bài"
+ },
+ {
+  "id": "tv-banf_tay_em_bieets_lamf_gif",
+  "file": "/assets/voice/tv-banf_tay_em_bieets_lamf_gif.mp3",
+  "text": "Bàn tay em biết làm gì?",
+  "group": "Câu hỏi đọc hiểu · Bàn tay em"
  },
  {
   "id": "tv-banf_tay_cuar_em",

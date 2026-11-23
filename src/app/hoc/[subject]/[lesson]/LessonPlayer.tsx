@@ -9,6 +9,7 @@ import { BlockView } from "@/components/lesson/Blocks";
 import { Confetti } from "@/components/Confetti";
 import { IconClose, IconSound } from "@/components/Icons";
 import { play, playVoice, stopVoice } from "@/lib/sound";
+import { speak, stopSpeak } from "@/lib/speech/tts";
 import { Scene } from "@/components/Scene";
 
 export function LessonPlayer({ subjectId, lessonId }: { subjectId: string; lessonId: string }) {
@@ -26,8 +27,12 @@ export function LessonPlayer({ subjectId, lessonId }: { subjectId: string; lesso
       markRead(subject.id, lesson.id);
       play("complete");
       playVoice("vo-complete");
-    } else playVoice(slide.voice);
-    return () => stopVoice();
+    } else if (slide.say) void speak(slide.say);
+    else playVoice(slide.voice);
+    return () => {
+      stopVoice();
+      stopSpeak();
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [i]);
 

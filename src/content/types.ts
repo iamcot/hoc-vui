@@ -33,6 +33,8 @@ export interface Slide {
   mood?: Mood;
   /** id âm thanh đọc lời dẫn (tùy chọn) */
   voice?: string;
+  /** lời dẫn đọc bằng giọng mẫu theo chữ (môn Tập đọc), không cần id */
+  say?: string;
   blocks: Block[];
 }
 
@@ -60,6 +62,8 @@ export interface Question {
   topic: string;
   /** đọc to đề bài cho bé nghe (chữ cần đọc). Có thì hiện nút loa và tự phát. */
   say?: string;
+  /** các câu đọc lần lượt khi hiện câu hỏi (lời dẫn + chữ cần đọc), cho bé chưa tự đọc được đề */
+  voice?: string[];
   /** lựa chọn là chữ cái/vần: hiện chữ thật to */
   big?: boolean;
   /** kind "read": false = sai thanh vẫn tính đạt (âm, vần lẻ) */

@@ -1,12 +1,29 @@
 import type { Block, Lesson, LetterItem, Question, QuestionGen, Slide, Unit } from "@/content/types";
 import type { Rng } from "@/lib/rng";
-import { TONE_NAME, addTone, parseSyllable, splitTone, type Tone } from "@/lib/viet";
+import { ONSET_SAY, TONE_NAME, TONE_SAY, addTone, parseSyllable, splitTone, type Tone } from "@/lib/viet";
 import { DOC_CAU, DOC_TRON, HOC_VAN, VO_LONG, type PhonicsLesson, type ReadingLesson, type Sound } from "./data";
 
 const ALL_PHONICS = [...VO_LONG, ...HOC_VAN].flatMap((u) => u.lessons);
 const ALL_SOUNDS = ALL_PHONICS.flatMap((l) => l.sounds);
 const ALL_WORDS = [...new Set(ALL_SOUNDS.flatMap((s) => s.words))];
 const TONES: Tone[] = ["ngang", "huyen", "sac", "hoi", "nga", "nang"];
+
+/** lời dẫn cố định, có file giọng riêng (xem voices.ts) */
+export const SAY = {
+  ngheChu: "Nghe và chọn chữ đúng.",
+  ngheVan: "Nghe và chọn vần đúng.",
+  ngheTieng: "Nghe và chọn tiếng đúng.",
+  ngheTu: "Nghe và chọn từ đúng.",
+  ngheCau: "Nghe và chọn câu đúng.",
+  timCo: "Tiếng nào có",
+  timVan: "Tiếng nào có vần",
+  ghep: "Ghép lại thành tiếng nào?",
+  dau: "Tiếng này có dấu gì?",
+  docTieng: "Em đọc to tiếng này nhé.",
+  docCau: "Em đọc to nhé.",
+  dien: "Chọn tiếng còn thiếu trong câu.",
+  thu: "Mình thử nhanh nhé!",
+} as const;
 
 const letter = (s: Sound): LetterItem => ({ g: s.g, say: s.say, kind: s.kind, key: s.key, emoji: s.emoji });
 const isToneLesson = (l: PhonicsLesson) => l.id.startsWith("td-b-thanh");
@@ -30,6 +47,7 @@ function phonicsSlides(l: PhonicsLesson): Slide[] {
   slides.push({
     title: l.sounds.length > 1 ? `Gặp ${l.sounds.length} ${kindName} mới` : `Gặp ${kindName} ${l.sounds[0].g}`,
     mood: "happy",
+    say: l.intro,
     blocks: [{ type: "text", text: l.intro }, { type: "letters", items: l.sounds.map(letter) }],
   });
 
@@ -71,7 +89,7 @@ function phonicsSlides(l: PhonicsLesson): Slide[] {
 function readingSlides(l: ReadingLesson): Slide[] {
   const isPoem = l.id.startsWith("td-tho");
   const isWords = l.id.startsWith("td-tu");
-  const slides: Slide[] = [{ title: l.title, mood: "happy", blocks: [{ type: "text", text: l.intro }, ...(l.tip ? [{ type: "tip", text: l.tip } as Block] : [])] }];
+  const slides: Slide[] = [{ title: l.title, mood: "happy", say: l.intro, blocks: [{ type: "text", text: l.intro }, ...(l.tip ? [{ type: "tip", text: l.tip } as Block] : [])] }];
   if (isWords) {
     slides[0].blocks.push({ type: "say", items: l.lines, label: "Chạm để nghe" });
     for (let i = 0; i < l.lines.length; i += 2)
@@ -109,6 +127,7 @@ function listenGlyph(l: PhonicsLesson, s: Sound, seedNote: string[] | Rng): Ques
     answer: s.g,
     choices,
     say: s.say,
+    voice: [s.kind === "van" ? SAY.ngheVan : SAY.ngheChu, s.say],
     big: true,
     topic: l.title,
     explain: `“${s.say}” viết là **${s.g}**, như trong tiếng **${s.key}** ${s.emoji}`,
@@ -127,7 +146,7 @@ function lessonGens(l: PhonicsLesson): QuestionGen[] {
     const toneVariants = TONES.filter((t) => t !== tone).map((t) => addTone(base, t));
     const pool = isToneLesson(l) || s.kind === "nguyen-am" ? toneVariants : [...l.sounds.flatMap((x) => x.words), ...toneVariants.slice(0, 2)];
     const choices = rng.shuffle([w, ...pickOthers(rng, pool, [w], 3)]);
-    return { id: `${l.id}-tieng-${w}`, prompt: "Nghe và chọn tiếng đúng", kind: "choice", answer: w, choices, say: w, big: true, topic: l.title };
+    return { id: `${l.id}-tieng-${w}`, prompt: "Nghe và chọn tiếng đúng", kind: "choice", answer: w, choices, say: w, voice: [SAY.ngheTieng, w], big: true, topic: l.title };
   });
 
   if (!isToneLesson(l) && l.sounds[0].kind !== "nguyen-am") {
@@ -136,14 +155,17 @@ function lessonGens(l: PhonicsLesson): QuestionGen[] {
       const s = rng.pick(l.sounds.filter((x) => x.words.some((w) => hasSound(w, x))));
       const right = rng.pick(s.words.filter((w) => hasSound(w, s)));
       // ưu tiên tiếng của các bài đã học
-      const learned = ALL_PHONICS.slice(0, ALL_PHONICS.indexOf(l) + 1).flatMap((x) => x.sounds.flatMap((y) => y.words)).filter((w) => !hasSound(w, s));
-      const wrong = pickOthers(rng, learned.length >= 6 ? learned : ALL_WORDS.filter((w) => !hasSound(w, s)), [right], 3);
+      // bỏ tiếng chỉ có nguyên âm (ì, á...) cho đỡ lạ mắt
+      const real = (w: string) => !hasSound(w, s) && (s.kind === "van" || parseSyllable(w).onset !== "");
+      const learned = ALL_PHONICS.slice(0, ALL_PHONICS.indexOf(l) + 1).flatMap((x) => x.sounds.flatMap((y) => y.words)).filter(real);
+      const wrong = pickOthers(rng, learned.length >= 6 ? learned : ALL_WORDS.filter(real), [right], 3);
       return {
         id: `${l.id}-tim-${s.g}-${right}`,
         prompt: s.kind === "van" ? `Tiếng nào có vần **${s.g}**?` : `Tiếng nào có **${s.g}**?`,
         kind: "choice",
         answer: right,
         choices: rng.shuffle([right, ...wrong]),
+        voice: [s.kind === "van" ? SAY.timVan : SAY.timCo, s.say],
         big: true,
         topic: l.title,
       };
@@ -164,6 +186,8 @@ function lessonGens(l: PhonicsLesson): QuestionGen[] {
         choices,
         big: true,
         say: w,
+        // không đọc đáp án: chỉ đọc lời dẫn và từng mảnh (bờ, an, huyền)
+        voice: [SAY.ghep, ONSET_SAY[p.onset] ?? p.onset, p.rime, ...(p.tone === "ngang" ? [] : [TONE_SAY[p.tone]])],
         topic: l.title,
       };
     });
@@ -175,7 +199,7 @@ function lessonGens(l: PhonicsLesson): QuestionGen[] {
       const t = splitTone(w).tone;
       const names = TONES.filter((x) => x !== "ngang").map((x) => TONE_NAME[x].replace("thanh ", "dấu "));
       const ans = TONE_NAME[t].replace("thanh ", "dấu ");
-      return { id: `${l.id}-dau-${w}`, prompt: `Tiếng **${w}** có dấu gì?`, kind: "choice", answer: ans, choices: rng.shuffle([ans, ...pickOthers(rng, names, [ans], 3)]), say: w, topic: l.title };
+      return { id: `${l.id}-dau-${w}`, prompt: `Tiếng **${w}** có dấu gì?`, kind: "choice", answer: ans, choices: rng.shuffle([ans, ...pickOthers(rng, names, [ans], 3)]), say: w, voice: [SAY.dau], topic: l.title };
     });
   }
 
@@ -183,7 +207,7 @@ function lessonGens(l: PhonicsLesson): QuestionGen[] {
   gens.push((rng) => {
     const s = rng.pick(l.sounds);
     const w = rng.pick(s.words);
-    return { id: `${l.id}-doc-${w}`, prompt: "Em đọc to tiếng này nhé", kind: "read", answer: w, strict: s.kind !== "nguyen-am", topic: l.title };
+    return { id: `${l.id}-doc-${w}`, prompt: "Em đọc to tiếng này nhé", voice: [SAY.docTieng], kind: "read", answer: w, strict: s.kind !== "nguyen-am", topic: l.title };
   });
   return gens;
 }
@@ -191,20 +215,20 @@ function lessonGens(l: PhonicsLesson): QuestionGen[] {
 function comprehension(l: ReadingLesson, i: number, rng: Rng | null): Question {
   const [q, right, ...wrong] = l.quiz[i];
   const choices = rng ? rng.shuffle([right, ...wrong]) : [wrong[0], right, ...wrong.slice(1)];
-  return { id: `${l.id}-hieu-${i}`, prompt: q, kind: "choice", answer: right, choices, topic: l.title };
+  return { id: `${l.id}-hieu-${i}`, prompt: q, voice: [q], kind: "choice", answer: right, choices, topic: l.title };
 }
 
 function readingGens(l: ReadingLesson): QuestionGen[] {
   const gens: QuestionGen[] = [(rng) => comprehension(l, rng.int(0, l.quiz.length - 1), rng)];
   gens.push((rng) => {
     const t = rng.pick(l.lines);
-    return { id: `${l.id}-doc-${t}`, prompt: "Em đọc to nhé", kind: "read", answer: t, strict: true, topic: l.title };
+    return { id: `${l.id}-doc-${t}`, prompt: "Em đọc to nhé", voice: [SAY.docCau], kind: "read", answer: t, strict: true, topic: l.title };
   });
   // nghe câu, chọn câu đúng
   gens.push((rng) => {
     const t = rng.pick(l.lines);
     const others = pickOthers(rng, l.lines, [t], 3);
-    return { id: `${l.id}-nghe-${t}`, prompt: l.id.startsWith("td-tu") ? "Nghe và chọn từ đúng" : "Nghe và chọn câu đúng", kind: "choice", answer: t, choices: rng.shuffle([t, ...others]), say: t, topic: l.title };
+    return { id: `${l.id}-nghe-${t}`, prompt: l.id.startsWith("td-tu") ? "Nghe và chọn từ đúng" : "Nghe và chọn câu đúng", kind: "choice", answer: t, choices: rng.shuffle([t, ...others]), say: t, voice: [l.id.startsWith("td-tu") ? SAY.ngheTu : SAY.ngheCau, t], topic: l.title };
   });
   if (!l.id.startsWith("td-tu")) {
     // điền tiếng còn thiếu
@@ -215,7 +239,7 @@ function readingGens(l: ReadingLesson): QuestionGen[] {
       const right = ws[k].toLowerCase();
       const pool = l.lines.flatMap((x) => x.replace(/[.,!?]/g, "").toLowerCase().split(" ")).filter((x) => x !== right);
       const shown = t.split(" ").map((w, j) => (j === k ? "___" : w)).join(" ");
-      return { id: `${l.id}-dien-${t}-${k}`, prompt: `Điền tiếng còn thiếu:\n**${shown}**`, kind: "choice", answer: right, choices: rng.shuffle([right, ...pickOthers(rng, pool, [right], 3)]), say: t, topic: l.title };
+      return { id: `${l.id}-dien-${t}-${k}`, prompt: `Điền tiếng còn thiếu:\n**${shown}**`, kind: "choice", answer: right, choices: rng.shuffle([right, ...pickOthers(rng, pool, [right], 3)]), say: t, voice: [SAY.dien, t], topic: l.title };
     });
   }
   return gens;

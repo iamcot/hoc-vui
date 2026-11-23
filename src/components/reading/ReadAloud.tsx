@@ -6,6 +6,7 @@ import { canRecord, detectEngine, listen, type Engine, type Session } from "@/li
 import { speak, stopSpeak } from "@/lib/speech/tts";
 import { play } from "@/lib/sound";
 import { Mascot } from "@/components/Mascot";
+import { FEEDBACK } from "./feedback";
 
 type State = "idle" | "listening" | "checking" | "done" | "self" | "error";
 
@@ -72,6 +73,7 @@ export function ReadAloud({
       // máy không nghe ra chữ nào (hay gặp với âm lẻ như "a", "bờ"): cho bé nghe lại và tự chấm
       if (heard.engine === "self" || (!heard.alts.length && heard.recording)) {
         setState(heard.recording ? "self" : "error");
+        if (heard.recording) void speak(FEEDBACK.tu);
         return;
       }
       setState("checking");
@@ -80,6 +82,7 @@ export function ReadAloud({
       setTries((t) => t + 1);
       setState("done");
       play(r.pass ? "correct" : "wrong");
+      setTimeout(() => void speak(r.pass ? FEEDBACK.dung : r.marks.some((m) => m === "tone") ? FEEDBACK.dau : FEEDBACK.lai), 500);
       onResult?.(r.pass, r.heard);
     } catch {
       setState("error");
@@ -135,14 +138,14 @@ export function ReadAloud({
           <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className={`mt-4 flex items-center gap-3 rounded-3xl p-3 ${res.pass ? "bg-mint-soft" : "bg-sun-soft"}`}>
             <Mascot mood={res.pass ? "cheer" : "oops"} size={56} />
             <div>
-              <div className="font-display text-xl font-extrabold">{res.pass ? "Đọc đúng rồi, giỏi quá!" : res.marks.some((m) => m === "tone") ? "Gần đúng rồi, chú ý dấu thanh nhé!" : "Mình đọc lại nha!"}</div>
+              <div className="font-display text-xl font-extrabold">{res.pass ? FEEDBACK.dung : res.marks.some((m) => m === "tone") ? FEEDBACK.dau : FEEDBACK.lai}</div>
               {!res.pass && <div className="text-sm text-ink-soft">Mochi nghe được: “{res.heard || "…"}”. Bấm 🔊 nghe mẫu rồi đọc lại.</div>}
             </div>
           </motion.div>
         )}
         {state === "self" && (
           <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="mt-4 flex flex-wrap items-center gap-3 rounded-3xl bg-sky-soft p-3">
-            <span className="font-bold">Nghe lại giọng em rồi so với giọng mẫu. Em đọc đúng chưa?</span>
+            <span className="font-bold">{FEEDBACK.tu}</span>
             <button
               className="btn btn-mint"
               onClick={() => {

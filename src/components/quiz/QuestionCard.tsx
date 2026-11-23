@@ -7,9 +7,14 @@ import { KeySeq } from "@/components/calc/Keys";
 import { TryIt } from "@/components/calc/TryIt";
 import { RichText } from "@/components/RichText";
 import { play } from "@/lib/sound";
-import { speak } from "@/lib/speech/tts";
-import { SpeakButton } from "@/components/reading/Glyph";
+import { speak, speakSeq, stopSpeak } from "@/lib/speech/tts";
 import { ReadAloud } from "@/components/reading/ReadAloud";
+
+/** đọc đề: lời dẫn rồi tới chữ cần nghe */
+function readOut(q: Question) {
+  if (q.voice?.length) void speakSeq(q.voice);
+  else if (q.say) void speak(q.say);
+}
 
 export interface AnswerResult {
   correct: boolean;
@@ -68,8 +73,13 @@ export function QuestionCard({
     setShowKeys(false);
     if (q.kind !== "choice" && q.kind !== "read") setTimeout(() => ref.current?.focus(), 50);
     // môn Tập đọc: tự đọc đề cho bé nghe
-    if (q.say) setTimeout(() => void speak(q.say!), 350);
-  }, [q.id, q.kind, q.say]);
+    const tm = setTimeout(() => readOut(q), 350);
+    return () => {
+      clearTimeout(tm);
+      stopSpeak();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [q.id, q.kind]);
 
   const value = q.kind === "pair" ? `${input};${b}` : input;
 
@@ -92,7 +102,11 @@ export function QuestionCard({
   return (
     <motion.div key={q.id} initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} className="space-y-5">
       <div className="flex items-center gap-3">
-        {q.say && <SpeakButton text={q.say} className="shrink-0 !h-14 !w-14 !text-2xl" label="Nghe lại" />}
+        {(q.say || q.voice) && (
+          <button type="button" onClick={() => readOut(q)} className="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-white text-2xl shadow-[var(--shadow-pop)] active:translate-y-0.5" aria-label="Nghe lại đề">
+            🔊
+          </button>
+        )}
         <RichText text={q.prompt} className="font-display text-xl font-bold sm:text-2xl" />
       </div>
 
