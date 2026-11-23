@@ -25,7 +25,7 @@ function stepText(s: KeyStep): string {
 const norm = (s: string) => s.toLowerCase().replace(/\s+/g, "").replace(/,/g, ".").replace(/[−–]/g, "-").replace(/[x*]/g, "×");
 
 /** Bấm theo: máy ảo hướng dẫn từng phím, hoặc máy thật rồi nhập kết quả. */
-export function TryIt({ keys, result, label, onDone }: { keys: string[]; result?: string; label?: string; onDone?: () => void }) {
+export function TryIt({ keys, result, label, onDone, doneNote }: { keys: string[]; result?: string; label?: string; onDone?: () => void; doneNote?: string }) {
   const { data, setCalcMode } = useProgress();
   const mode = data.calcMode;
   const steps = useMemo(() => parseKeys(keys), [keys]);
@@ -87,6 +87,8 @@ export function TryIt({ keys, result, label, onDone }: { keys: string[]; result?
               {done ? (
                 <div className="space-y-1">
                   <div className="font-bold text-mint">Giỏi lắm! Em bấm đúng hết rồi 🎉</div>
+                  {result && <div className="font-bold">Máy ra: <span className="text-lg text-sky">{result}</span></div>}
+                  {doneNote && <div className="text-ink-soft">{doneNote}</div>}
                   <button className="font-bold text-sky underline" onClick={() => setI(0)}>
                     Bấm lại
                   </button>
@@ -121,7 +123,7 @@ export function TryIt({ keys, result, label, onDone }: { keys: string[]; result?
                   Em bấm xong rồi
                 </button>
               )}
-              {physical === "ok" && <p className="font-bold text-mint">Chính xác! Máy của em ra {result} 🎉</p>}
+              {physical === "ok" && <p className="font-bold text-mint">Chính xác! Máy của em ra {result} 🎉{doneNote ? ` ${doneNote}` : ""}</p>}
               {physical === "no" && (
                 <p className="text-sm text-berry">
                   Chưa khớp. Bấm AC rồi thử lại thật chậm nhé. Đáp án đúng là <b>{result}</b>.

@@ -26,6 +26,15 @@ export function showAnswer(q: Question) {
   return q.answer;
 }
 
+/** Màn hình máy tính hiện gì sau khi bấm "=" */
+function calcShows(q: Question) {
+  if (q.kind === "pair") {
+    const [a, b] = q.answer.split(";");
+    return `Q=${a}, R=${b}`;
+  }
+  return q.answer;
+}
+
 /**
  * Một câu hỏi. mode "learn": có gợi ý, giải thích, xem cách bấm.
  * mode "race": trả lời xong sang câu luôn (kiểm tra, thi đấu).
@@ -179,7 +188,22 @@ export function QuestionCard({
         </div>
       )}
       {hinted && q.hint && result === null && <div className="rounded-2xl bg-sun-soft p-3 text-sm">💡 {q.hint}</div>}
-      {showKeys && q.keys && result === null && <TryIt keys={q.keys} label="Cách bấm" />}
+      {showKeys && q.keys && result === null && (
+        <TryIt
+          keys={q.keys}
+          label="Cách bấm"
+          result={calcShows(q)}
+          doneNote={q.kind === "choice" ? undefined : "Kết quả đã được điền vào ô trả lời, em bấm “Trả lời” nhé."}
+          onDone={() => {
+            if (q.kind === "choice") return;
+            if (q.kind === "pair") {
+              const [a, c] = q.answer.split(";");
+              setInput(a);
+              setB(c);
+            } else setInput(q.answer);
+          }}
+        />
+      )}
 
       {result !== null && (
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className={`space-y-3 rounded-3xl p-4 ${result ? "bg-mint-soft" : "bg-berry-soft"}`}>
