@@ -89,14 +89,14 @@ export default function Home() {
               transition={{ delay: 0.05 * (k + live.length) }}
               className="relative overflow-hidden rounded-[2rem]"
             >
-              <Art id="subject-soon" emoji={s.emoji} rounded="" className="aspect-[4/3] w-full saturate-50" />
-              <div className="absolute inset-0 bg-white/35" />
-              <span className="absolute right-4 top-4 rounded-full bg-ink/80 px-3 py-1 text-xs font-bold text-white">Sắp ra mắt</span>
-              <div className="absolute inset-x-0 bottom-0 p-4">
-                <h3 className="font-display text-2xl font-extrabold text-ink text-outline">
+              <Art id="subject-soon" emoji={s.emoji} rounded="" className="aspect-[4/3] w-full" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+              <span className="absolute right-4 top-4 rounded-full bg-sun px-3 py-1 text-xs font-extrabold text-ink">Sắp ra mắt</span>
+              <div className="absolute inset-x-0 bottom-0 p-4 text-white">
+                <h3 className="font-display text-2xl font-extrabold drop-shadow">
                   {s.emoji} {s.name} · Lớp {s.grade}
                 </h3>
-                <p className="text-sm font-bold text-ink-soft text-outline">{s.tagline}</p>
+                <p className="text-sm text-white/90">{s.tagline}</p>
               </div>
             </motion.div>
           ))}
