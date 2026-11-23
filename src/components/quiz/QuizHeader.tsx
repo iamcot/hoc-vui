@@ -5,8 +5,9 @@ import { Scene } from "@/components/Scene";
 
 export function QuizHeader({ closeHref, done, total, right }: { closeHref: string; done: number; total: number; right?: React.ReactNode }) {
   return (
+    <>
+    <Scene image="bg-lesson" variant="desk" dim />
     <header className="sticky top-0 z-20 bg-white/60 backdrop-blur">
-      <Scene image="bg-lesson" variant="desk" dim />
       <div className="mx-auto flex max-w-3xl items-center gap-3 px-4 py-3 sm:px-6">
         <Link href={closeHref} className="grid h-10 w-10 place-items-center rounded-full bg-white shadow-sm" aria-label="Thoát">
           <IconClose className="h-5 w-5" />
@@ -20,5 +21,6 @@ export function QuizHeader({ closeHref, done, total, right }: { closeHref: strin
         {right}
       </div>
     </header>
+    </>
   );
 }
