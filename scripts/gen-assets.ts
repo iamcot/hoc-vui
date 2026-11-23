@@ -14,6 +14,7 @@
 //   OPENAI_API_KEY=sk-...
 //   ELEVENLABS_API_KEY=...
 //   ELEVENLABS_VOICE_ID=...        giọng đọc tiếng Việt chọn trong Voice Library
+//   ELEVENLABS_TAPDOC_VOICE_ID=... (tùy chọn) giọng chuẩn miền Bắc cho môn Tập đọc, thiếu thì dùng ELEVENLABS_VOICE_ID
 //   ELEVENLABS_MODEL=eleven_multilingual_v2  (mặc định, đọc được tiếng Việt; hoặc eleven_v3, eleven_flash_v2_5)
 //   OPENAI_IMAGE_MODEL=gpt-image-1 (tùy chọn)
 //
@@ -42,6 +43,9 @@ const IMAGE_MODEL = process.env.OPENAI_IMAGE_MODEL ?? "gpt-image-1";
 const EL_KEY = process.env.ELEVENLABS_API_KEY;
 const EL_BASE = process.env.ELEVENLABS_BASE_URL ?? "https://api.elevenlabs.io/v1";
 const VOICE_ID = process.env.ELEVENLABS_VOICE_ID;
+/** giọng riêng cho môn Tập đọc (tv-*), giọng chuẩn miền Bắc; thiếu thì dùng ELEVENLABS_VOICE_ID */
+const TAPDOC_VOICE_ID = process.env.ELEVENLABS_TAPDOC_VOICE_ID || VOICE_ID;
+const voiceFor = (a: AudioAsset) => (a.id.startsWith("tv-") ? TAPDOC_VOICE_ID : VOICE_ID);
 const VOICE_MODEL = process.env.ELEVENLABS_MODEL ?? "eleven_multilingual_v2";
 
 let images = wantImages ? pick(IMAGES, ONLY, FORCE).sort(mochiFirst) : [];
@@ -103,7 +107,7 @@ async function genAudio(a: AudioAsset) {
   const headers = { "xi-api-key": EL_KEY!, "Content-Type": "application/json" };
   let res: Response;
   if (a.kind === "voice") {
-    res = await fetch(`${EL_BASE}/text-to-speech/${VOICE_ID}?output_format=mp3_44100_128`, {
+    res = await fetch(`${EL_BASE}/text-to-speech/${voiceFor(a)}?output_format=mp3_44100_128`, {
       method: "POST",
       headers,
       body: JSON.stringify({
@@ -164,7 +168,7 @@ if (!images.length && !audio.length) {
 const missing = [
   images.length && !OPENAI_KEY && "OPENAI_API_KEY",
   audio.length && !EL_KEY && "ELEVENLABS_API_KEY",
-  audio.some((a) => a.kind === "voice") && !VOICE_ID && "ELEVENLABS_VOICE_ID",
+  audio.some((a) => a.kind === "voice" && !voiceFor(a)) && "ELEVENLABS_VOICE_ID",
 ].filter(Boolean);
 if (missing.length) {
   console.error(`\nThiếu ${missing.join(", ")} trong .env.local. Xem hướng dẫn ở đầu file scripts/gen-assets.ts.`);

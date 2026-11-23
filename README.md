@@ -59,7 +59,8 @@ Chạy trên máy của bạn (cần Node 20+, `npm install` một lần).
 2. Tạo file `.env.local` ở thư mục gốc (đã có trong .gitignore, không lên git):
    ```
    ELEVENLABS_API_KEY=...
-   ELEVENLABS_VOICE_ID=...
+   ELEVENLABS_VOICE_ID=...          # giọng Mochi môn Máy tính (giọng Nam)
+   ELEVENLABS_TAPDOC_VOICE_ID=...   # giọng Tập đọc, chuẩn miền Bắc (thiếu thì dùng ELEVENLABS_VOICE_ID)
    # tùy chọn, mặc định eleven_multilingual_v2 (đọc được tiếng Việt). Có thể đổi sang eleven_v3 hoặc eleven_flash_v2_5
    ELEVENLABS_MODEL=eleven_multilingual_v2
    ```
