@@ -68,11 +68,11 @@ function Arena() {
       )}
 
       <div className="grid gap-6 md:grid-cols-2">
-        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="card space-y-4 p-6">
+        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="card flex flex-col gap-4 p-6">
           <h2 className="font-display text-2xl font-extrabold">🏁 Tạo phòng mới</h2>
           <label className="block text-sm font-bold text-ink-soft">
             Môn
-            <select value={subject} onChange={(e) => setSubject(e.target.value)} className="mt-1 block w-full rounded-2xl border-2 border-line bg-white px-4 py-3 text-base font-bold text-ink">
+            <select value={subject} onChange={(e) => setSubject(e.target.value)} className="mt-1 block h-14 w-full rounded-2xl border-2 border-line bg-white px-4 text-base font-bold text-ink">
               {ready.map((s) => (
                 <option key={s.id} value={s.id}>
                   {s.emoji} {s.name} · Lớp {s.grade}
@@ -80,21 +80,24 @@ function Arena() {
               ))}
             </select>
           </label>
-          <button className="btn btn-primary w-full" onClick={create} disabled={busy}>
+          <button className="btn btn-primary mt-auto w-full" onClick={create} disabled={busy}>
             {busy ? "Đang tạo..." : "Tạo phòng và lấy mã"}
           </button>
           {err && <p className="text-sm text-berry">{err}</p>}
         </motion.div>
 
-        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05 }} className="card space-y-4 p-6">
+        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05 }} className="card flex flex-col gap-4 p-6">
           <h2 className="font-display text-2xl font-extrabold">🎟️ Vào phòng của bạn</h2>
+          <label className="block text-sm font-bold text-ink-soft">
+            Mã phòng
           <input
             value={code}
             onChange={(e) => setCode(cleanCode(e.target.value))}
             placeholder="Nhập mã 6 ký tự"
-            className="w-full rounded-2xl border-2 border-line bg-white px-4 py-3 text-center font-mono text-3xl font-bold tracking-[0.3em] uppercase outline-none placeholder:font-sans placeholder:text-lg placeholder:normal-case placeholder:tracking-normal focus:border-sky"
+            className="mt-1 block h-14 w-full rounded-2xl border-2 border-line bg-white px-4 text-center font-mono text-2xl text-ink font-bold tracking-[0.3em] uppercase outline-none placeholder:font-sans placeholder:text-lg placeholder:normal-case placeholder:tracking-normal focus:border-sky"
           />
-          <button className="btn btn-mint w-full" disabled={code.length !== 6} onClick={() => router.push(`/thi-dau/${code}?mon=${subject}`)}>
+          </label>
+          <button className="btn btn-mint mt-auto w-full" disabled={code.length !== 6} onClick={() => router.push(`/thi-dau/${code}?mon=${subject}`)}>
             Vào phòng ▶
           </button>
         </motion.div>
