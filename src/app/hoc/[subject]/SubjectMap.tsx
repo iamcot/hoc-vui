@@ -1,8 +1,9 @@
 "use client";
 import Link from "next/link";
 import { motion } from "motion/react";
-import { useEffect, useState } from "react";
-import { getSubject } from "@/content/subjects";
+import { useEffect, useRef } from "react";
+import { getSubject, tierLessons } from "@/content/subjects";
+import type { Tier } from "@/content/types";
 import { challengeOf, currentTierIndex, tierUnlocked } from "@/lib/tiers";
 import { useProgress } from "@/lib/store";
 import { Art } from "@/components/Art";
@@ -12,72 +13,94 @@ import { Scene } from "@/components/Scene";
 import { LEVELS } from "@/lib/quiz";
 
 const OFFSETS = [0, 24, 0, -24]; // lệch ngang (%) để con đường uốn lượn
-const ROW = 150; // chiều cao mỗi chặng dừng (px)
+const ROW = 150; // chiều cao mỗi điểm dừng (px)
+const UNIT_H = 90; // băng rôn chặng
+const TIER_H = 170; // băng rôn trình độ
 const UNIT_COLORS = ["var(--color-sky)", "var(--color-peach)", "var(--color-mint)", "var(--color-lilac)"];
 
-type Stop =
+type Stop = { ti: number } & (
+  | { kind: "tier" }
   | { kind: "unit"; title: string; color: string }
   | { kind: "lesson"; id: string; n: number; title: string; short: string; emoji: string; cover: string }
   | { kind: "test" }
   | { kind: "challenge" }
-  | { kind: "arena" };
+  | { kind: "soon" }
+  | { kind: "arena" }
+);
 
+const NODE = "shadow-[0_10px_24px_-8px_rgba(40,40,120,0.5)] transition group-hover:scale-105";
+const LABEL = "absolute top-1/2 w-40 -translate-y-1/2 rounded-2xl bg-white/75 px-3 py-2 shadow-sm backdrop-blur sm:w-56";
+
+/** Bản đồ một cây liên tục kiểu Duolingo: Lớp 6 → Lớp 7 → ... Trình độ chưa mở thì mờ và có ổ khóa. */
 export function SubjectMap({ subjectId }: { subjectId: string }) {
   const s = getSubject(subjectId)!;
   const { lesson, data, ready } = useProgress();
-  const [ti, setTi] = useState<number | null>(null);
+  const wrap = useRef<HTMLDivElement>(null);
 
-  // mở đúng trình độ: theo ?cap= trên đường dẫn, không thì trình độ cao nhất đã mở
-  useEffect(() => {
-    if (!ready || ti !== null) return;
-    const cap = new URLSearchParams(location.search).get("cap");
-    const k = s.tiers.findIndex((t) => t.id === cap);
-    setTi(k >= 0 ? k : currentTierIndex(s, lesson, data.unlocks));
-  }, [ready, ti, s, lesson, data.unlocks]);
-
-  const tIdx = ti ?? 0;
-  const tier = s.tiers[tIdx];
-  const prev = s.tiers[tIdx - 1];
-  const nextTier = s.tiers[tIdx + 1];
-  const open = tierUnlocked(s, tIdx, lesson, data.unlocks);
-  const nextOpen = nextTier ? tierUnlocked(s, tIdx + 1, lesson, data.unlocks) : false;
-  const lessons = tier.units.flatMap((u) => u.lessons);
-  const currentId = (lessons.find((l) => lesson(s.id, l.id).stars === 0) ?? lessons[lessons.length - 1])?.id;
-  const test = data.tests[`${s.id}:${tier.id}`];
-  const level = test && LEVELS.find((l) => l.id === test.level);
-
-  function pickTier(k: number) {
-    setTi(k);
-    history.replaceState(null, "", `?cap=${s.tiers[k].id}`);
-  }
+  const open = s.tiers.map((_, i) => tierUnlocked(s, i, lesson, data.unlocks));
+  const cur = currentTierIndex(s, lesson, data.unlocks);
+  const curLessons = tierLessons(s.tiers[cur]);
+  const currentId = (curLessons.find((l) => lesson(s.id, l.id).stars === 0) ?? curLessons[curLessons.length - 1])?.id;
 
   const stops: Stop[] = [];
-  let n = 0;
-  tier.units.forEach((u, ui) => {
-    stops.push({ kind: "unit", title: u.title, color: UNIT_COLORS[ui % UNIT_COLORS.length] });
-    u.lessons.forEach((l) => stops.push({ kind: "lesson", id: l.id, n: ++n, title: l.title, short: l.short, emoji: l.emoji, cover: l.cover }));
+  s.tiers.forEach((t, ti) => {
+    stops.push({ ti, kind: "tier" });
+    if (t.units.length === 0) {
+      stops.push({ ti, kind: "soon" });
+      return;
+    }
+    let n = 0;
+    t.units.forEach((u, ui) => {
+      stops.push({ ti, kind: "unit", title: u.title, color: UNIT_COLORS[ui % UNIT_COLORS.length] });
+      u.lessons.forEach((l) => stops.push({ ti, kind: "lesson", id: l.id, n: ++n, title: l.title, short: l.short, emoji: l.emoji, cover: l.cover }));
+    });
+    stops.push({ ti, kind: "test" });
+    if (ti === cur) stops.push({ ti, kind: "arena" });
+    const next = s.tiers[ti + 1];
+    if (next && next.units.length > 0 && !open[ti + 1]) stops.push({ ti, kind: "challenge" });
   });
-  if (lessons.length) {
-    stops.push({ kind: "test" });
-    if (nextTier && nextTier.units.length) stops.push({ kind: "challenge" });
-    stops.push({ kind: "arena" });
-  }
 
-  // toạ độ các điểm dừng (bỏ qua băng rôn chặng)
+  // toạ độ: băng rôn nằm giữa, điểm dừng lượn trái phải
   let y = 0;
   let k = 0;
   const pos = stops.map((st) => {
-    if (st.kind === "unit") {
-      y += 90;
-      return { x: 50, y: y - 45 };
+    if (st.kind === "tier" || st.kind === "unit") {
+      const h = st.kind === "tier" ? TIER_H : UNIT_H;
+      y += h;
+      return { x: 50, y: y - h / 2 };
     }
     const p = { x: 50 + OFFSETS[k++ % OFFSETS.length], y: y + ROW / 2 };
     y += ROW;
     return p;
   });
   const height = y + 40;
-  const pts = pos.filter((_, i) => stops[i].kind !== "unit");
-  const path = pts.map((p, i) => (i === 0 ? `M ${p.x} ${p.y}` : `C ${pts[i - 1].x} ${pts[i - 1].y + ROW / 2}, ${p.x} ${p.y - ROW / 2}, ${p.x} ${p.y}`)).join(" ");
+
+  // đường đi: phần đã mở nét đậm, phần còn khóa nét mờ
+  const nodes = stops.map((st, i) => ({ st, p: pos[i] })).filter(({ st }) => st.kind !== "unit");
+  const seg = (from: number, to: number) =>
+    nodes
+      .slice(from, to)
+      .map(({ p }, i, arr) => (i === 0 ? `M ${p.x} ${p.y}` : `C ${arr[i - 1].p.x} ${arr[i - 1].p.y + ROW / 2}, ${p.x} ${p.y - ROW / 2}, ${p.x} ${p.y}`))
+      .join(" ");
+  const firstLocked = nodes.findIndex(({ st }) => st.kind === "tier" && !open[st.ti]);
+  const cut = firstLocked < 0 ? nodes.length : firstLocked;
+  const pathOpen = seg(0, cut);
+  const pathLocked = cut < nodes.length ? seg(Math.max(0, cut - 1), nodes.length) : "";
+
+  function jump(tier: Tier) {
+    document.getElementById(`cap-${tier.id}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    history.replaceState(null, "", `?cap=${tier.id}`);
+  }
+
+  // vào bản đồ: cuộn tới trình độ trên đường dẫn (?cap=), không thì tới bài đang học
+  useEffect(() => {
+    if (!ready) return;
+    const cap = new URLSearchParams(location.search).get("cap");
+    const el = (cap && document.getElementById(`cap-${cap}`)) || document.getElementById("bai-hien-tai");
+    if (!el) return;
+    const t = setTimeout(() => el.scrollIntoView({ block: cap ? "start" : "center" }), 80);
+    return () => clearTimeout(t);
+  }, [ready]);
 
   return (
     <div className="space-y-4">
@@ -91,68 +114,68 @@ export function SubjectMap({ subjectId }: { subjectId: string }) {
         </h1>
       </div>
 
-      {/* các trình độ: lớp 6, 7, 8... */}
-      <nav className="flex gap-2 overflow-x-auto pb-1" aria-label="Trình độ">
-        {s.tiers.map((t, k) => {
-          const on = k === tIdx;
-          const locked = !tierUnlocked(s, k, lesson, data.unlocks);
-          return (
-            <button
-              key={t.id}
-              onClick={() => pickTier(k)}
-              className={`flex shrink-0 items-center gap-1.5 rounded-full px-4 py-2 font-display text-lg font-extrabold shadow-[var(--shadow-pop)] transition ${
-                on ? "bg-sky text-white" : "bg-white/90 text-ink"
-              }`}
-            >
-              <span>{t.emoji}</span>
-              {t.name}
-              {locked && <IconLock className={`h-4 w-4 ${on ? "text-white/80" : "text-ink-soft"}`} />}
-              {!locked && t.units.length === 0 && <span className={`text-xs font-bold ${on ? "text-white/80" : "text-ink-soft"}`}>sắp có</span>}
-            </button>
-          );
-        })}
+      {/* lối tắt tới từng trình độ trên cây */}
+      <nav className="sticky top-2 z-20 flex gap-2 overflow-x-auto pb-1 md:top-4" aria-label="Đi tới trình độ">
+        {s.tiers.map((t, i) => (
+          <button
+            key={t.id}
+            onClick={() => jump(t)}
+            className={`flex shrink-0 items-center gap-1.5 rounded-full px-4 py-2 font-display text-lg font-extrabold shadow-[var(--shadow-pop)] backdrop-blur transition hover:scale-105 ${
+              i === cur ? "bg-sky text-white" : "bg-white/90 text-ink"
+            }`}
+          >
+            <span>{t.emoji}</span>
+            {t.name}
+            {!open[i] && <IconLock className={`h-4 w-4 ${i === cur ? "text-white/80" : "text-ink-soft"}`} />}
+          </button>
+        ))}
       </nav>
 
-      {tier.units.length === 0 ? (
-        <div className="bubble mx-auto flex max-w-xl items-center gap-4">
-          <Mascot mood="think" size={96} className="floaty shrink-0" />
-          <div>
-            <h2 className="font-display text-2xl font-extrabold">{tier.name} đang được soạn</h2>
-            <p className="text-ink-soft">{tier.short}. Mochi đang chuẩn bị, em quay lại sau nhé!</p>
-          </div>
-        </div>
-      ) : (
-        !open &&
-        prev && (
-          <div className="bubble mx-auto flex max-w-2xl flex-wrap items-center gap-4">
-            <span className="grid h-16 w-16 shrink-0 place-items-center rounded-full bg-sun text-3xl">🔒</span>
-            <div className="min-w-0 flex-1">
-              <h2 className="font-display text-2xl font-extrabold">{tier.name} chưa mở</h2>
-              <p className="text-ink-soft">
-                Học xong {prev.name}, hoặc vượt thử thách {challengeOf(prev).count} câu (đúng {challengeOf(prev).pass} câu) để mở luôn.
-              </p>
-            </div>
-            <Link href={`/hoc/${s.id}/thu-thach/${prev.id}`} className="btn btn-peach">
-              ⚡ Làm thử thách
-            </Link>
-          </div>
-        )
-      )}
-
-      {lessons.length > 0 && (
-      <div className={`relative mx-auto w-full max-w-3xl ${open ? "" : "pointer-events-none opacity-60 grayscale-[40%]"}`} style={{ height }}>
+      <div ref={wrap} className="relative mx-auto w-full max-w-3xl" style={{ height }}>
         <svg className="absolute inset-0 h-full w-full" viewBox={`0 0 100 ${height}`} preserveAspectRatio="none" aria-hidden>
-          <path d={path} fill="none" stroke="white" strokeWidth="18" strokeLinecap="round" vectorEffect="non-scaling-stroke" opacity="0.85" />
-          <path d={path} fill="none" stroke="#f3c27a" strokeWidth="4" strokeDasharray="2 14" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
+          {pathLocked && <path d={pathLocked} fill="none" stroke="white" strokeWidth="18" strokeLinecap="round" vectorEffect="non-scaling-stroke" opacity="0.4" />}
+          <path d={pathOpen} fill="none" stroke="white" strokeWidth="18" strokeLinecap="round" vectorEffect="non-scaling-stroke" opacity="0.85" />
+          <path d={pathOpen} fill="none" stroke="#f3c27a" strokeWidth="4" strokeDasharray="2 14" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
         </svg>
 
         {stops.map((st, i) => {
           const p = pos[i];
           const labelLeft = p.x > 50;
+          const side = labelLeft ? "right-full mr-3 text-right" : "left-full ml-3";
           const style = { left: `${p.x}%`, top: p.y };
+          const tier = s.tiers[st.ti];
+          const locked = !open[st.ti];
+          const dim = locked ? "opacity-55 grayscale-[45%]" : "";
+
+          if (st.kind === "tier") {
+            const prev = s.tiers[st.ti - 1];
+            const showChallenge = locked && prev && open[st.ti - 1] && tier.units.length > 0;
+            return (
+              <div key={i} id={`cap-${tier.id}`} className="absolute w-[min(92%,30rem)] -translate-x-1/2 -translate-y-1/2 scroll-mt-24" style={style}>
+                <div className={`flex items-center gap-3 rounded-[2rem] px-5 py-3 shadow-[var(--shadow-pop)] ${locked ? "bg-white/80" : "bg-sky text-white"}`}>
+                  <span className={`grid h-14 w-14 shrink-0 place-items-center rounded-full text-3xl ${locked ? "bg-line/60" : "bg-white/25"}`}>{locked ? "🔒" : tier.emoji}</span>
+                  <div className="min-w-0 flex-1">
+                    <div className="font-display text-2xl font-extrabold leading-tight">{tier.name}</div>
+                    <div className={`text-sm font-semibold ${locked ? "text-ink-soft" : "text-white/85"}`}>
+                      {locked && prev
+                        ? tier.units.length
+                          ? `Học xong ${prev.name} hoặc vượt thử thách để mở`
+                          : "Đang soạn"
+                        : tier.short}
+                    </div>
+                  </div>
+                  {showChallenge && (
+                    <Link href={`/hoc/${s.id}/thu-thach/${prev.id}`} className="btn btn-peach shrink-0 px-4 py-2 text-base">
+                      ⚡ Thử thách
+                    </Link>
+                  )}
+                </div>
+              </div>
+            );
+          }
           if (st.kind === "unit") {
             return (
-              <div key={i} className="absolute -translate-x-1/2 -translate-y-1/2 whitespace-nowrap" style={style}>
+              <div key={i} className={`absolute -translate-x-1/2 -translate-y-1/2 whitespace-nowrap ${dim}`} style={style}>
                 <span className="ribbon text-sm sm:text-base" style={{ ["--ribbon" as string]: st.color }}>
                   {st.title}
                 </span>
@@ -161,84 +184,130 @@ export function SubjectMap({ subjectId }: { subjectId: string }) {
           }
           if (st.kind === "lesson") {
             const prog = lesson(s.id, st.id);
-            const current = st.id === currentId;
+            const current = !locked && st.id === currentId;
+            const circle = (
+              <>
+                <span
+                  className={`relative block h-24 w-24 overflow-hidden rounded-full border-[6px] sm:h-28 sm:w-28 ${NODE} ${
+                    prog.stars > 0 ? "border-mint" : current ? "pulse-ring border-sky" : "border-white"
+                  }`}
+                >
+                  <Art id={st.cover} emoji={st.emoji} rounded="rounded-full" className="h-full w-full" />
+                  {locked && (
+                    <span className="absolute inset-0 grid place-items-center bg-ink/35">
+                      <IconLock className="h-8 w-8 text-white" />
+                    </span>
+                  )}
+                </span>
+                {!locked && (
+                  <span className="absolute -bottom-3 left-1/2 flex -translate-x-1/2 gap-0.5 rounded-full bg-white px-2 py-0.5 shadow">
+                    {[1, 2, 3].map((v) => (
+                      <IconStar key={v} filled={prog.stars >= v} className={`h-4 w-4 ${prog.stars >= v ? "text-sun" : "text-line"}`} />
+                    ))}
+                  </span>
+                )}
+                <span className={`${LABEL} w-28 ${side}`}>
+                  <span className="block text-xs font-extrabold uppercase tracking-wide text-ink-soft text-outline">
+                    {tier.name} · Bài {st.n}
+                  </span>
+                  <span className="block font-display text-base font-extrabold leading-tight text-ink text-outline sm:text-xl">{st.title}</span>
+                  <span className="hidden text-sm font-semibold text-ink-soft text-outline sm:block">{st.short}</span>
+                </span>
+              </>
+            );
             return (
               <motion.div
                 key={i}
+                id={current ? "bai-hien-tai" : undefined}
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 className="absolute -translate-x-1/2 -translate-y-1/2"
                 style={style}
               >
-                <Link href={`/hoc/${s.id}/${st.id}`} className="group relative block" tabIndex={open ? undefined : -1}>
-                  <span
-                    className={`relative block h-24 w-24 overflow-hidden rounded-full border-[6px] shadow-[0_10px_24px_-8px_rgba(40,40,120,0.5)] transition group-hover:scale-105 sm:h-28 sm:w-28 ${
-                      prog.stars > 0 ? "border-mint" : current ? "pulse-ring border-sky" : "border-white"
-                    }`}
-                  >
-                    <Art id={st.cover} emoji={st.emoji} rounded="rounded-full" className="h-full w-full" />
-                  </span>
-                  <span className="absolute -bottom-3 left-1/2 flex -translate-x-1/2 gap-0.5 rounded-full bg-white px-2 py-0.5 shadow">
-                    {[1, 2, 3].map((v) => (
-                      <IconStar key={v} filled={prog.stars >= v} className={`h-4 w-4 ${prog.stars >= v ? "text-sun" : "text-line"}`} />
-                    ))}
-                  </span>
-                  <span
-                    className={`absolute top-1/2 w-28 -translate-y-1/2 rounded-2xl bg-white/75 px-3 py-2 shadow-sm backdrop-blur sm:w-56 ${labelLeft ? "right-full mr-3 text-right" : "left-full ml-3"}`}
-                  >
-                    <span className="block text-xs font-extrabold uppercase tracking-wide text-ink-soft text-outline">Bài {st.n}</span>
-                    <span className="block font-display text-base font-extrabold leading-tight text-ink text-outline sm:text-xl">{st.title}</span>
-                    <span className="hidden text-sm font-semibold text-ink-soft text-outline sm:block">{st.short}</span>
-                  </span>
-                </Link>
-                {current && (
-                  <Mascot
-                    mood="cheer"
-                    size={64}
-                    className={`floaty pointer-events-none absolute -top-10 ${labelLeft ? "-left-12" : "-right-12"} drop-shadow`}
-                  />
+                {locked ? (
+                  <div className={`relative ${dim}`} aria-disabled>
+                    {circle}
+                  </div>
+                ) : (
+                  <Link href={`/hoc/${s.id}/${st.id}`} className="group relative block">
+                    {circle}
+                  </Link>
                 )}
+                {current && <Mascot mood="cheer" size={64} className={`floaty pointer-events-none absolute -top-10 ${labelLeft ? "-left-12" : "-right-12"} drop-shadow`} />}
               </motion.div>
             );
           }
           if (st.kind === "test") {
+            const test = data.tests[`${s.id}:${tier.id}`];
+            const level = test && LEVELS.find((l) => l.id === test.level);
+            const body = (
+              <>
+                <span className={`grid h-28 w-28 place-items-center rounded-full border-[6px] border-white bg-peach text-5xl ${NODE}`}>{locked ? "🔒" : level ? level.emoji : "🏅"}</span>
+                <span className={`${LABEL} ${side}`}>
+                  <span className="block font-display text-xl font-extrabold text-ink text-outline">Kiểm tra {tier.name.toLowerCase()}</span>
+                  <span className="block text-sm font-semibold text-ink-soft text-outline">{level ? `Lần trước: ${level.name} (${test!.pct}%)` : "15 câu, khoảng 12 phút"}</span>
+                </span>
+              </>
+            );
             return (
-              <div key={i} className="absolute -translate-x-1/2 -translate-y-1/2" style={style}>
-                <Link href={`/hoc/${s.id}/kiem-tra/${tier.id}`} className="group relative block">
-                  <span className="grid h-28 w-28 place-items-center rounded-full border-[6px] border-white bg-peach text-5xl shadow-[0_10px_24px_-8px_rgba(40,40,120,0.5)] transition group-hover:scale-105">
-                    {level ? level.emoji : "🏅"}
-                  </span>
-                  <span className={`absolute top-1/2 w-40 -translate-y-1/2 rounded-2xl bg-white/75 px-3 py-2 shadow-sm backdrop-blur sm:w-56 ${labelLeft ? "right-full mr-3 text-right" : "left-full ml-3"}`}>
-                    <span className="block font-display text-xl font-extrabold text-ink text-outline">Kiểm tra {tier.name.toLowerCase()}</span>
-                    <span className="block text-sm font-semibold text-ink-soft text-outline">{level ? `Lần trước: ${level.name} (${test!.pct}%)` : "15 câu, khoảng 12 phút"}</span>
-                  </span>
-                </Link>
+              <div key={i} className={`absolute -translate-x-1/2 -translate-y-1/2 ${dim}`} style={style}>
+                {locked ? (
+                  <div className="relative">{body}</div>
+                ) : (
+                  <Link href={`/hoc/${s.id}/kiem-tra/${tier.id}`} className="group relative block">
+                    {body}
+                  </Link>
+                )}
               </div>
             );
           }
           if (st.kind === "challenge") {
+            const next = s.tiers[st.ti + 1];
+            const ch = challengeOf(tier);
+            const body = (
+              <>
+                <span className={`grid h-28 w-28 place-items-center rounded-full border-[6px] border-white bg-sun text-5xl ${NODE}`}>🚀</span>
+                <span className={`${LABEL} ${side}`}>
+                  <span className="block font-display text-xl font-extrabold text-ink text-outline">Nhảy lên {next.name}</span>
+                  <span className="block text-sm font-semibold text-ink-soft text-outline">
+                    Thử thách {ch.count} câu, đúng {ch.pass} câu là mở luôn
+                  </span>
+                </span>
+              </>
+            );
             return (
-              <div key={i} className="absolute -translate-x-1/2 -translate-y-1/2" style={style}>
-                <Link href={`/hoc/${s.id}/thu-thach/${tier.id}`} className="group relative block">
-                  <span className="grid h-28 w-28 place-items-center rounded-full border-[6px] border-white bg-sun text-5xl shadow-[0_10px_24px_-8px_rgba(40,40,120,0.5)] transition group-hover:scale-105">
-                    {nextOpen ? nextTier!.emoji : "🚀"}
+              <div key={i} className={`absolute -translate-x-1/2 -translate-y-1/2 ${dim}`} style={style}>
+                {locked ? (
+                  <div className="relative">{body}</div>
+                ) : (
+                  <Link href={`/hoc/${s.id}/thu-thach/${tier.id}`} className="group relative block">
+                    {body}
+                  </Link>
+                )}
+              </div>
+            );
+          }
+          if (st.kind === "soon") {
+            return (
+              <div key={i} className="absolute -translate-x-1/2 -translate-y-1/2 opacity-80" style={style}>
+                <div className="relative">
+                  <span className={`grid h-28 w-28 place-items-center rounded-full border-[6px] border-white bg-lilac/70 ${NODE}`}>
+                    <Mascot mood="think" size={72} />
                   </span>
-                  <span className={`absolute top-1/2 w-40 -translate-y-1/2 rounded-2xl bg-white/75 px-3 py-2 shadow-sm backdrop-blur sm:w-56 ${labelLeft ? "right-full mr-3 text-right" : "left-full ml-3"}`}>
-                    <span className="block font-display text-xl font-extrabold text-ink text-outline">Lên {nextTier!.name}</span>
-                    <span className="block text-sm font-semibold text-ink-soft text-outline">
-                      {nextOpen ? "Đã mở, bấm tab để học tiếp" : `Thử thách ${challengeOf(tier).count} câu, đạt là mở luôn`}
-                    </span>
+                  <span className={`${LABEL} ${side}`}>
+                    <span className="block font-display text-xl font-extrabold text-ink text-outline">Đang soạn</span>
+                    <span className="block text-sm font-semibold text-ink-soft text-outline">{tier.short}</span>
                   </span>
-                </Link>
+                </div>
               </div>
             );
           }
           return (
             <div key={i} className="absolute -translate-x-1/2 -translate-y-1/2" style={style}>
               <Link href={`/thi-dau?mon=${s.id}&cap=${tier.id}`} className="group relative block">
-                <span className="grid h-28 w-28 place-items-center rounded-full border-[6px] border-white bg-mint text-5xl shadow-[0_10px_24px_-8px_rgba(40,40,120,0.5)] transition group-hover:scale-105">⚡</span>
-                <span className={`absolute top-1/2 w-40 -translate-y-1/2 rounded-2xl bg-white/75 px-3 py-2 shadow-sm backdrop-blur sm:w-56 ${labelLeft ? "right-full mr-3 text-right" : "left-full ml-3"}`}>
+                <span className={`grid h-28 w-28 place-items-center rounded-full border-[6px] border-white bg-mint text-5xl ${NODE}`}>⚡</span>
+                <span className={`${LABEL} ${side}`}>
                   <span className="block font-display text-xl font-extrabold text-ink text-outline">Thi đấu cùng bạn</span>
                   <span className="block text-sm font-semibold text-ink-soft text-outline">Tạo phòng, gửi mã, cùng làm một đề</span>
                 </span>
@@ -247,7 +316,6 @@ export function SubjectMap({ subjectId }: { subjectId: string }) {
           );
         })}
       </div>
-      )}
     </div>
   );
 }
