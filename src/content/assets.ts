@@ -7,7 +7,7 @@ import available from "./available.json";
  */
 
 export const STYLE =
-  "Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark";
+  "Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark";
 
 export const MOCHI =
   "Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator";

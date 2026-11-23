@@ -13,7 +13,7 @@ File này sinh tự động từ `src/content/assets.ts` bằng `npm run prompts
 
 ### Phong cách chung (đã gắn sẵn vào cuối mỗi prompt)
 
-> Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark
+> Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark
 
 ### Nhân vật
 
@@ -27,7 +27,7 @@ File này sinh tự động từ `src/content/assets.ts` bằng `npm run prompts
 - Kích thước: 1024x1024 · nền trong suốt
 
 ```text
-Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator, waving one paw and smiling, full body. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark, isolated on a fully transparent background.
+Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator, waving one paw and smiling, full body. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
 ### ⬜ `mochi-think.webp`
@@ -35,7 +35,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 - Kích thước: 1024x1024 · nền trong suốt
 
 ```text
-Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator, paw on chin, thinking, small question mark sparkle above head, full body. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark, isolated on a fully transparent background.
+Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator, paw on chin, thinking, small question mark sparkle above head, full body. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
 ### ⬜ `mochi-wow.webp`
@@ -43,7 +43,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 - Kích thước: 1024x1024 · nền trong suốt
 
 ```text
-Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator, eyes wide with stars, both paws up in surprise, full body. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark, isolated on a fully transparent background.
+Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator, eyes wide with stars, both paws up in surprise, full body. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
 ### ⬜ `mochi-cheer.webp`
@@ -51,7 +51,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 - Kích thước: 1024x1024 · nền trong suốt
 
 ```text
-Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator, jumping with joy, confetti around, full body. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark, isolated on a fully transparent background.
+Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator, jumping with joy, confetti around, full body. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
 ### ⬜ `mochi-oops.webp`
@@ -59,7 +59,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 - Kích thước: 1024x1024 · nền trong suốt
 
 ```text
-Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator, sweat drop, sheepish encouraging smile, holding a tiny eraser, full body. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark, isolated on a fully transparent background.
+Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator, sweat drop, sheepish encouraging smile, holding a tiny eraser, full body. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
 ### ⬜ `xixi.webp`
@@ -67,7 +67,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 - Kích thước: 1024x1024 · nền trong suốt
 
 ```text
-Xi Xi: a friendly anthropomorphic scientific calculator (dark navy body, light gray keys, small LCD screen showing a smile), tiny arms and legs, standing and giving a thumbs up, full body. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark, isolated on a fully transparent background.
+Xi Xi: a friendly anthropomorphic scientific calculator (dark navy body, light gray keys, small LCD screen showing a smile), tiny arms and legs, standing and giving a thumbs up, full body. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
 ### ⬜ `bg-home.webp`
@@ -75,7 +75,7 @@ Xi Xi: a friendly anthropomorphic scientific calculator (dark navy body, light g
 - Kích thước: 1536x1024
 
 ```text
-Wide landscape of a dreamy morning sky over gentle green hills and a cute small school building far away, soft clouds, floating paper planes, large calm empty sky area in the upper middle for text, low detail at the edges. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark.
+Wide landscape of a dreamy morning sky over gentle green hills and a cute small school building far away, soft clouds, floating paper planes, large calm empty sky area in the upper middle for text, low detail at the edges. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
 ### ⬜ `bg-map.webp`
@@ -83,7 +83,7 @@ Wide landscape of a dreamy morning sky over gentle green hills and a cute small 
 - Kích thước: 1536x1024
 
 ```text
-Wide storybook landscape seen slightly from above: meadows, a small river with a wooden bridge, scattered trees, a hill with a flag far away, very soft and low contrast so icons on top stay readable, no path drawn. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark.
+Wide storybook landscape seen slightly from above: meadows, a small river with a wooden bridge, scattered trees, a hill with a flag far away, very soft and low contrast so icons on top stay readable, no path drawn. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
 ### ⬜ `bg-lesson.webp`
@@ -91,7 +91,7 @@ Wide storybook landscape seen slightly from above: meadows, a small river with a
 - Kích thước: 1536x1024
 
 ```text
-Cozy study corner by a big window: wooden desk, a few books, a plant, warm afternoon light, background heavily blurred and very light, mostly empty bright space. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark.
+Cozy study corner by a big window: wooden desk, a few books, a plant, warm afternoon light, background heavily blurred and very light, mostly empty bright space. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
 ### ⬜ `bg-arena.webp`
@@ -99,7 +99,7 @@ Cozy study corner by a big window: wooden desk, a few books, a plant, warm after
 - Kích thước: 1536x1024
 
 ```text
-Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator and two friend animals (a fox and a bunny) racing with calculators on a sunny sports field with colorful flags, characters on the left third, open bright sky on the right for text, dynamic but gentle. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark.
+Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator and two friend animals (a fox and a bunny) racing with calculators on a sunny sports field with colorful flags, characters on the left third, open bright sky on the right for text, dynamic but gentle. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
 ### ⬜ `bg-leaderboard.webp`
@@ -107,7 +107,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 - Kích thước: 1536x1024
 
 ```text
-Festive outdoor stage at dusk with a podium of three steps, small trophies, bunting flags and twinkling stars, podium on the lower left, open sky for text. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark.
+Festive outdoor stage at dusk with a podium of three steps, small trophies, bunting flags and twinkling stars, podium on the lower left, open sky for text. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
 ### ⬜ `subject-fx580-cover.webp`
@@ -115,7 +115,7 @@ Festive outdoor stage at dusk with a podium of three steps, small trophies, bunt
 - Kích thước: 1536x1024
 
 ```text
-Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator sitting next to Xi Xi: a friendly anthropomorphic scientific calculator (dark navy body, light gray keys, small LCD screen showing a smile), tiny arms and legs on a desk with notebooks and pencils, numbers floating like bubbles. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark.
+Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator sitting next to Xi Xi: a friendly anthropomorphic scientific calculator (dark navy body, light gray keys, small LCD screen showing a smile), tiny arms and legs on a desk with notebooks and pencils, numbers floating like bubbles. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
 ### ⬜ `subject-soon.webp`
@@ -123,7 +123,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 - Kích thước: 1536x1024
 
 ```text
-A closed gift box with a ribbon on a cloud, small sparkles, mysterious and cute. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark.
+A closed gift box with a ribbon on a cloud, small sparkles, mysterious and cute. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
 ### ⬜ `empty-login.webp`
@@ -131,7 +131,7 @@ A closed gift box with a ribbon on a cloud, small sparkles, mysterious and cute.
 - Kích thước: 1024x1024 · nền trong suốt
 
 ```text
-Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator holding a key and smiling at a small door. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark, isolated on a fully transparent background.
+Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator holding a key and smiling at a small door. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
 ### ⬜ `level-mam.webp`
@@ -139,7 +139,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 - Kích thước: 1024x1024 · nền trong suốt
 
 ```text
-Round badge with a tiny sprout in soil, soft green and cream. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark, isolated on a fully transparent background.
+Round badge with a tiny sprout in soil, soft green and cream. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
 ### ⬜ `level-choi.webp`
@@ -147,7 +147,7 @@ Round badge with a tiny sprout in soil, soft green and cream. Soft anime illustr
 - Kích thước: 1024x1024 · nền trong suốt
 
 ```text
-Round badge with a young plant with three leaves, soft green. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark, isolated on a fully transparent background.
+Round badge with a young plant with three leaves, soft green. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
 ### ⬜ `level-cay.webp`
@@ -155,7 +155,7 @@ Round badge with a young plant with three leaves, soft green. Soft anime illustr
 - Kích thước: 1024x1024 · nền trong suốt
 
 ```text
-Round badge with a small lush tree, soft green and sky blue. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark, isolated on a fully transparent background.
+Round badge with a small lush tree, soft green and sky blue. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
 ### ⬜ `level-hoa.webp`
@@ -163,7 +163,7 @@ Round badge with a small lush tree, soft green and sky blue. Soft anime illustra
 - Kích thước: 1024x1024 · nền trong suốt
 
 ```text
-Round badge with a tree in full pink blossom, sparkles. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark, isolated on a fully transparent background.
+Round badge with a tree in full pink blossom, sparkles. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
 ### ⬜ `avatar-fox.webp`
@@ -171,7 +171,7 @@ Round badge with a tree in full pink blossom, sparkles. Soft anime illustration,
 - Kích thước: 1024x1024 · nền trong suốt
 
 ```text
-Cute chibi fox face portrait in a circle, friendly expression, light pastel background circle. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark, isolated on a fully transparent background.
+Cute chibi fox face portrait in a circle, friendly expression, light pastel background circle. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
 ### ⬜ `avatar-bunny.webp`
@@ -179,7 +179,7 @@ Cute chibi fox face portrait in a circle, friendly expression, light pastel back
 - Kích thước: 1024x1024 · nền trong suốt
 
 ```text
-Cute chibi bunny face portrait in a circle, friendly expression, light pastel background circle. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark, isolated on a fully transparent background.
+Cute chibi bunny face portrait in a circle, friendly expression, light pastel background circle. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
 ### ⬜ `avatar-panda.webp`
@@ -187,7 +187,7 @@ Cute chibi bunny face portrait in a circle, friendly expression, light pastel ba
 - Kích thước: 1024x1024 · nền trong suốt
 
 ```text
-Cute chibi panda face portrait in a circle, friendly expression, light pastel background circle. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark, isolated on a fully transparent background.
+Cute chibi panda face portrait in a circle, friendly expression, light pastel background circle. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
 ### ⬜ `avatar-owl.webp`
@@ -195,7 +195,7 @@ Cute chibi panda face portrait in a circle, friendly expression, light pastel ba
 - Kích thước: 1024x1024 · nền trong suốt
 
 ```text
-Cute chibi owl face portrait in a circle, friendly expression, light pastel background circle. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark, isolated on a fully transparent background.
+Cute chibi owl face portrait in a circle, friendly expression, light pastel background circle. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
 ### ⬜ `avatar-bear.webp`
@@ -203,7 +203,7 @@ Cute chibi owl face portrait in a circle, friendly expression, light pastel back
 - Kích thước: 1024x1024 · nền trong suốt
 
 ```text
-Cute chibi bear face portrait in a circle, friendly expression, light pastel background circle. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark, isolated on a fully transparent background.
+Cute chibi bear face portrait in a circle, friendly expression, light pastel background circle. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
 ### ⬜ `avatar-penguin.webp`
@@ -211,7 +211,7 @@ Cute chibi bear face portrait in a circle, friendly expression, light pastel bac
 - Kích thước: 1024x1024 · nền trong suốt
 
 ```text
-Cute chibi penguin face portrait in a circle, friendly expression, light pastel background circle. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark, isolated on a fully transparent background.
+Cute chibi penguin face portrait in a circle, friendly expression, light pastel background circle. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
 ### ⬜ `fx-l01-cover.webp`
@@ -219,7 +219,7 @@ Cute chibi penguin face portrait in a circle, friendly expression, light pastel 
 - Kích thước: 1536x1024
 
 ```text
-Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator shaking hands with Xi Xi: a friendly anthropomorphic scientific calculator (dark navy body, light gray keys, small LCD screen showing a smile), tiny arms and legs on a sunny desk. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark.
+Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator shaking hands with Xi Xi: a friendly anthropomorphic scientific calculator (dark navy body, light gray keys, small LCD screen showing a smile), tiny arms and legs on a sunny desk. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
 ### ⬜ `fx-l02-cover.webp`
@@ -227,7 +227,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 - Kích thước: 1536x1024
 
 ```text
-Cute operator symbols (+, −, ×, ÷ and parentheses) standing in a queue like children lining up, the parentheses at the front. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark.
+Cute operator symbols (+, −, ×, ÷ and parentheses) standing in a queue like children lining up, the parentheses at the front. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
 ### ⬜ `fx-l03-cover.webp`
@@ -235,7 +235,7 @@ Cute operator symbols (+, −, ×, ÷ and parentheses) standing in a queue like 
 - Kích thước: 1536x1024
 
 ```text
-Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator riding a small rocket that leaves a trail of doubling stars. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark.
+Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator riding a small rocket that leaves a trail of doubling stars. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
 ### ⬜ `fx-l04-cover.webp`
@@ -243,7 +243,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 - Kích thước: 1536x1024
 
 ```text
-Colorful candies being shared into seven small bowls, two candies left over in the middle. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark.
+Colorful candies being shared into seven small bowls, two candies left over in the middle. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
 ### ⬜ `fx-l05-cover.webp`
@@ -251,7 +251,7 @@ Colorful candies being shared into seven small bowls, two candies left over in t
 - Kích thước: 1536x1024
 
 ```text
-Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator as a detective with a magnifying glass looking at glowing prime number gems 2, 3, 5, 7. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark.
+Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator as a detective with a magnifying glass looking at glowing prime number gems 2, 3, 5, 7. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
 ### ⬜ `fx-l06-cover.webp`
@@ -259,7 +259,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 - Kích thước: 1536x1024
 
 ```text
-Gift boxes split into equal groups on one side and two blinking lighthouses on the other side. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark.
+Gift boxes split into equal groups on one side and two blinking lighthouses on the other side. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
 ### ⬜ `fx-l07-cover.webp`
@@ -267,7 +267,7 @@ Gift boxes split into equal groups on one side and two blinking lighthouses on t
 - Kích thước: 1536x1024
 
 ```text
-A cute thermometer character standing in snowy mountains, a small submarine below the sea surface in the same scene. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark.
+A cute thermometer character standing in snowy mountains, a small submarine below the sea surface in the same scene. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
 ### ⬜ `fx-l08-cover.webp`
@@ -275,7 +275,7 @@ A cute thermometer character standing in snowy mountains, a small submarine belo
 - Kích thước: 1536x1024
 
 ```text
-Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator with a pizza cut into 8 slices, three slices taken. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark.
+Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator with a pizza cut into 8 slices, three slices taken. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
 ### ⬜ `fx-l09-cover.webp`
@@ -283,7 +283,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 - Kích thước: 1536x1024
 
 ```text
-A cozy little stationery shop with discount tags showing a percent symbol. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark.
+A cozy little stationery shop with discount tags showing a percent symbol. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
 ### ⬜ `fx-l10-cover.webp`
@@ -291,7 +291,7 @@ A cozy little stationery shop with discount tags showing a percent symbol. Soft 
 - Kích thước: 1536x1024
 
 ```text
-A garden seen from above divided into rectangle, rhombus, parallelogram and trapezoid flower beds. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark.
+A garden seen from above divided into rectangle, rhombus, parallelogram and trapezoid flower beds. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
 ### ⬜ `fx-l01-s1.webp`
@@ -299,7 +299,7 @@ A garden seen from above divided into rectangle, rhombus, parallelogram and trap
 - Kích thước: 1536x1024
 
 ```text
-Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator presenting Xi Xi: a friendly anthropomorphic scientific calculator (dark navy body, light gray keys, small LCD screen showing a smile), tiny arms and legs with open paws, sparkles. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark.
+Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator presenting Xi Xi: a friendly anthropomorphic scientific calculator (dark navy body, light gray keys, small LCD screen showing a smile), tiny arms and legs with open paws, sparkles. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
 ### ⬜ `fx-l01-s3.webp`
@@ -307,7 +307,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 - Kích thước: 1536x1024
 
 ```text
-Close-up of three calculator keys, each with a small yellow label and a small red label above it, glowing softly, two tiny arrows pointing to the labels. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark.
+Close-up of three calculator keys, each with a small yellow label and a small red label above it, glowing softly, two tiny arrows pointing to the labels. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
 ### ⬜ `fx-l02-s1.webp`
@@ -315,7 +315,7 @@ Close-up of three calculator keys, each with a small yellow label and a small re
 - Kích thước: 1536x1024
 
 ```text
-Four podium steps labelled with icons: parentheses on top, then a power symbol, then × ÷, then + −, cute characters on each step. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark.
+Four podium steps labelled with icons: parentheses on top, then a power symbol, then × ÷, then + −, cute characters on each step. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
 ### ⬜ `fx-l02-s4.webp`
@@ -323,7 +323,7 @@ Four podium steps labelled with icons: parentheses on top, then a power symbol, 
 - Kích thước: 1536x1024
 
 ```text
-A mother cat and Mochi at a Vietnamese wet market stall with oranges and bundles of vegetables. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark.
+A mother cat and Mochi at a Vietnamese wet market stall with oranges and bundles of vegetables. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
 ### ⬜ `fx-l03-s1.webp`
@@ -331,7 +331,7 @@ A mother cat and Mochi at a Vietnamese wet market stall with oranges and bundles
 - Kích thước: 1536x1024
 
 ```text
-A row of five boxes, each containing twice as many glowing marbles as the one before. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark.
+A row of five boxes, each containing twice as many glowing marbles as the one before. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
 ### ⬜ `fx-l04-s1.webp`
@@ -339,7 +339,7 @@ A row of five boxes, each containing twice as many glowing marbles as the one be
 - Kích thước: 1536x1024
 
 ```text
-Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator handing out candies to seven classmates sitting in a circle, two candies left. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark.
+Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator handing out candies to seven classmates sitting in a circle, two candies left. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
 ### ⬜ `fx-l05-s1.webp`
@@ -347,7 +347,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 - Kích thước: 1536x1024
 
 ```text
-Glowing gemstones with numbers 2, 3, 5, 7, 11 inside, and ordinary pebbles with 4, 6, 9 beside them. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark.
+Glowing gemstones with numbers 2, 3, 5, 7, 11 inside, and ordinary pebbles with 4, 6, 9 beside them. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
 ### ⬜ `fx-l06-s1.webp`
@@ -355,7 +355,7 @@ Glowing gemstones with numbers 2, 3, 5, 7, 11 inside, and ordinary pebbles with 
 - Kích thước: 1536x1024
 
 ```text
-Two cute twin robot characters with badges, one badge shows a gift box, the other shows a clock. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark.
+Two cute twin robot characters with badges, one badge shows a gift box, the other shows a clock. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
 ### ⬜ `fx-l06-s4.webp`
@@ -363,7 +363,7 @@ Two cute twin robot characters with badges, one badge shows a gift box, the othe
 - Kích thước: 1536x1024
 
 ```text
-Twelve equal baskets each with oranges and tangerines, arranged neatly on a table. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark.
+Twelve equal baskets each with oranges and tangerines, arranged neatly on a table. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
 ### ⬜ `fx-l07-s1.webp`
@@ -371,7 +371,7 @@ Twelve equal baskets each with oranges and tangerines, arranged neatly on a tabl
 - Kích thước: 1536x1024
 
 ```text
-Split scene: snowy mountain town with a thermometer below zero on the left, a submarine underwater with a depth gauge on the right. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark.
+Split scene: snowy mountain town with a thermometer below zero on the left, a submarine underwater with a depth gauge on the right. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
 ### ⬜ `fx-l08-s1.webp`
@@ -379,7 +379,7 @@ Split scene: snowy mountain town with a thermometer below zero on the left, a su
 - Kích thước: 1536x1024
 
 ```text
-A round pizza cut into 8 equal slices, 3 slices slightly pulled out, top view. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark.
+A round pizza cut into 8 equal slices, 3 slices slightly pulled out, top view. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
 ### ⬜ `fx-l09-s2.webp`
@@ -387,7 +387,7 @@ A round pizza cut into 8 equal slices, 3 slices slightly pulled out, top view. S
 - Kích thước: 1536x1024
 
 ```text
-A number line like a little road with a ball rolling to the nearest flag, gentle hills. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark.
+A number line like a little road with a ball rolling to the nearest flag, gentle hills. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
 ### ⬜ `fx-l09-s4.webp`
@@ -395,7 +395,7 @@ A number line like a little road with a ball rolling to the nearest flag, gentle
 - Kích thước: 1536x1024
 
 ```text
-Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator trying on sneakers in a shop, a big sale tag nearby. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark.
+Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator trying on sneakers in a shop, a big sale tag nearby. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
 ### ⬜ `fx-l10-s1.webp`
@@ -403,7 +403,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 - Kích thước: 1536x1024
 
 ```text
-Five friendly shape characters: rectangle, square, rhombus, parallelogram, isosceles trapezoid, standing together. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark.
+Five friendly shape characters: rectangle, square, rhombus, parallelogram, isosceles trapezoid, standing together. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
 ### ⬜ `fx-l10-s3.webp`
@@ -411,7 +411,7 @@ Five friendly shape characters: rectangle, square, rhombus, parallelogram, isosc
 - Kích thước: 1536x1024
 
 ```text
-A rectangular schoolyard with a small wooden fence being built around it, top-down three-quarter view. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark.
+A rectangular schoolyard with a small wooden fence being built around it, top-down three-quarter view. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
 ## Âm thanh (30)
