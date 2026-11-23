@@ -1,6 +1,6 @@
 # Giọng đọc mẫu môn Tập đọc
 
-Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa có file thì app dùng giọng tiếng Việt có sẵn của máy (iPad: giọng Linh).
+Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 0. Chưa có file thì app dùng giọng tiếng Việt có sẵn của máy (iPad: giọng Linh).
 
 ## Cách làm
 
@@ -15,28 +15,28 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-nghe_vaf_chonj_chuwx_ddungs.mp3` | Nghe và chọn chữ đúng. |
-| ⬜ | `tv-nghe_vaf_chonj_vaanf_ddungs.mp3` | Nghe và chọn vần đúng. |
-| ⬜ | `tv-nghe_vaf_chonj_tieengs_ddungs.mp3` | Nghe và chọn tiếng đúng. |
-| ⬜ | `tv-nghe_vaf_chonj_tuwf_ddungs.mp3` | Nghe và chọn từ đúng. |
-| ⬜ | `tv-nghe_vaf_chonj_caau_ddungs.mp3` | Nghe và chọn câu đúng. |
-| ⬜ | `tv-tieengs_naof_cos.mp3` | Tiếng nào có |
-| ⬜ | `tv-tieengs_naof_cos_vaanf.mp3` | Tiếng nào có vần |
-| ⬜ | `tv-gheps_laij_thanhf_tieengs_naof.mp3` | Ghép lại thành tiếng nào? |
-| ⬜ | `tv-tieengs_nayf_cos_daaus_gif.mp3` | Tiếng này có dấu gì? |
-| ⬜ | `tv-em_ddocj_to_tieengs_nayf_nhes.mp3` | Em đọc to tiếng này nhé. |
-| ⬜ | `tv-em_ddocj_to_nhes.mp3` | Em đọc to nhé. |
-| ⬜ | `tv-chonj_tieengs_conf_thieeus_trong_caau.mp3` | Chọn tiếng còn thiếu trong câu. |
-| ⬜ | `tv-minhf_thuwr_nhanh_nhes.mp3` | Mình thử nhanh nhé! |
+| ✅ | `tv-nghe_vaf_chonj_chuwx_ddungs.mp3` | Nghe và chọn chữ đúng. |
+| ✅ | `tv-nghe_vaf_chonj_vaanf_ddungs.mp3` | Nghe và chọn vần đúng. |
+| ✅ | `tv-nghe_vaf_chonj_tieengs_ddungs.mp3` | Nghe và chọn tiếng đúng. |
+| ✅ | `tv-nghe_vaf_chonj_tuwf_ddungs.mp3` | Nghe và chọn từ đúng. |
+| ✅ | `tv-nghe_vaf_chonj_caau_ddungs.mp3` | Nghe và chọn câu đúng. |
+| ✅ | `tv-tieengs_naof_cos.mp3` | Tiếng nào có |
+| ✅ | `tv-tieengs_naof_cos_vaanf.mp3` | Tiếng nào có vần |
+| ✅ | `tv-gheps_laij_thanhf_tieengs_naof.mp3` | Ghép lại thành tiếng nào? |
+| ✅ | `tv-tieengs_nayf_cos_daaus_gif.mp3` | Tiếng này có dấu gì? |
+| ✅ | `tv-em_ddocj_to_tieengs_nayf_nhes.mp3` | Em đọc to tiếng này nhé. |
+| ✅ | `tv-em_ddocj_to_nhes.mp3` | Em đọc to nhé. |
+| ✅ | `tv-chonj_tieengs_conf_thieeus_trong_caau.mp3` | Chọn tiếng còn thiếu trong câu. |
+| ✅ | `tv-minhf_thuwr_nhanh_nhes.mp3` | Mình thử nhanh nhé! |
 
 ### Mochi khen, nhắc
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-ddocj_ddungs_rooif_gioir_quas.mp3` | Đọc đúng rồi, giỏi quá! |
-| ⬜ | `tv-gaanf_ddungs_rooif_chus_ys_daaus_thanh_nhes.mp3` | Gần đúng rồi, chú ý dấu thanh nhé! |
-| ⬜ | `tv-minhf_nghe_maaux_rooif_ddocj_laij_nha.mp3` | Mình nghe mẫu rồi đọc lại nha! |
-| ⬜ | `tv-em_nghe_laij_giongj_minhf_ddocj_ddungs_chuwa_naof.mp3` | Em nghe lại giọng mình, đọc đúng chưa nào? |
+| ✅ | `tv-ddocj_ddungs_rooif_gioir_quas.mp3` | Đọc đúng rồi, giỏi quá! |
+| ✅ | `tv-gaanf_ddungs_rooif_chus_ys_daaus_thanh_nhes.mp3` | Gần đúng rồi, chú ý dấu thanh nhé! |
+| ✅ | `tv-minhf_nghe_maaux_rooif_ddocj_laij_nha.mp3` | Mình nghe mẫu rồi đọc lại nha! |
+| ✅ | `tv-em_nghe_laij_giongj_minhf_ddocj_ddungs_chuwa_naof.mp3` | Em nghe lại giọng mình, đọc đúng chưa nào? |
 
 ### Âm đầu (đánh vần)
 
@@ -144,7 +144,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-chaof_em_tows_laf_mochi_hoom-503kv.mp3` | Chào em! Tớ là Mochi. Hôm nay mình gặp ba bạn chữ đầu tiên. Nghe tớ đọc rồi đọc theo nhé! |
+| ✅ | `tv-chaof_em_tows_laf_mochi_hoom-503kv.mp3` | Chào em! Tớ là Mochi. Hôm nay mình gặp ba bạn chữ đầu tiên. Nghe tớ đọc rồi đọc theo nhé! |
 
 ### Âm, vần · ơ, e, ê
 
@@ -201,7 +201,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-chuwx_ow_cos_mootj_cais_raau-23sfx.mp3` | Chữ ơ có một cái râu nhỏ, chữ ê đội mũ giống ô. Mình cùng đọc nào! |
+| ✅ | `tv-chuwx_ow_cos_mootj_cais_raau-23sfx.mp3` | Chữ ơ có một cái râu nhỏ, chữ ê đội mũ giống ô. Mình cùng đọc nào! |
 
 ### Âm, vần · i, u, ư
 
@@ -258,7 +258,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-chuwx_i_cos_mootj_cais_chaams-1rbtc.mp3` | Chữ i có một cái chấm trên đầu. Chữ ư là chữ u có thêm râu. |
+| ✅ | `tv-chuwx_i_cos_mootj_cais_chaams-1rbtc.mp3` | Chữ i có một cái chấm trên đầu. Chữ ư là chữ u có thêm râu. |
 
 ### Đánh vần · ă, â, y
 
@@ -322,7 +322,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-aw_ddooij_cais_mux_hinhf_trawng-1n74u.mp3` | ă đội cái mũ hình trăng khuyết, â đội mũ nhọn. Còn y gọi là i dài, đọc giống i. |
+| ✅ | `tv-aw_ddooij_cais_mux_hinhf_trawng-1n74u.mp3` | ă đội cái mũ hình trăng khuyết, â đội mũ nhọn. Còn y gọi là i dài, đọc giống i. |
 
 ### Tiếng · b, huyền, sắc
 
@@ -343,7 +343,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-ddaay_laf_chuwx_b_ddocj_laf-n64z0.mp3` | Đây là chữ b, đọc là bờ. Ghép bờ với a thành ba. Thêm dấu huyền thành bà, dấu sắc thành bá! |
+| ✅ | `tv-ddaay_laf_chuwx_b_ddocj_laf-n64z0.mp3` | Đây là chữ b, đọc là bờ. Ghép bờ với a thành ba. Thêm dấu huyền thành bà, dấu sắc thành bá! |
 
 ### Đánh vần · Hỏi, ngã, nặng
 
@@ -376,7 +376,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-theem_ba_daaus_nuwax_daaus_hoir-1l8dl.mp3` | Thêm ba dấu nữa: dấu hỏi như cái móc câu, dấu ngã như làn sóng, dấu nặng là một chấm dưới chân. |
+| ✅ | `tv-theem_ba_daaus_nuwax_daaus_hoir-1l8dl.mp3` | Thêm ba dấu nữa: dấu hỏi như cái móc câu, dấu ngã như làn sóng, dấu nặng là một chấm dưới chân. |
 
 ### Đánh vần · c, d, đ
 
@@ -449,7 +449,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-ba_banj_chuwx_mowis_c_ddocj-hbpia.mp3` | Ba bạn chữ mới: c đọc là cờ, d đọc là dờ, đ có thêm gạch ngang đọc là đờ. |
+| ✅ | `tv-ba_banj_chuwx_mowis_c_ddocj-hbpia.mp3` | Ba bạn chữ mới: c đọc là cờ, d đọc là dờ, đ có thêm gạch ngang đọc là đờ. |
 
 ### Đánh vần · h, l, m
 
@@ -523,7 +523,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-h_ddocj_laf_howf_l_ddocj-3vve4.mp3` | h đọc là hờ, l đọc là lờ, m đọc là mờ. Miệng ngậm lại khi đọc mờ nhé! |
+| ✅ | `tv-h_ddocj_laf_howf_l_ddocj-3vve4.mp3` | h đọc là hờ, l đọc là lờ, m đọc là mờ. Miệng ngậm lại khi đọc mờ nhé! |
 
 ### Đánh vần · n, k, g
 
@@ -596,7 +596,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-n_ddocj_laf_nowf_k_ddocj-1rwit.mp3` | n đọc là nờ, k đọc là ca, g đọc là gờ. Chữ k có một luật nhỏ, xem nhé! |
+| ✅ | `tv-n_ddocj_laf_nowf_k_ddocj-1rwit.mp3` | n đọc là nờ, k đọc là ca, g đọc là gờ. Chữ k có một luật nhỏ, xem nhé! |
 
 ### Đánh vần · r, s, t
 
@@ -670,7 +670,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-r_ddocj_laf_rowf_s_ddocj-o7y2w.mp3` | r đọc là rờ, s đọc là sờ, t đọc là tờ. Cùng đọc to nào! |
+| ✅ | `tv-r_ddocj_laf_rowf_s_ddocj-o7y2w.mp3` | r đọc là rờ, s đọc là sờ, t đọc là tờ. Cùng đọc to nào! |
 
 ### Đánh vần · v, x, p
 
@@ -742,7 +742,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-v_ddocj_laf_vowf_x_ddocj-wn5nu.mp3` | v đọc là vờ, x đọc là xờ, p đọc là pờ. Chữ p hay đi với h, mình sẽ gặp lại sau. |
+| ✅ | `tv-v_ddocj_laf_vowf_x_ddocj-wn5nu.mp3` | v đọc là vờ, x đọc là xờ, p đọc là pờ. Chữ p hay đi với h, mình sẽ gặp lại sau. |
 
 ### Đánh vần · ch, nh, th
 
@@ -816,7 +816,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-hai_chuwx_dduwngs_canhj_nhau_thanhf-hfb69.mp3` | Hai chữ đứng cạnh nhau thành một âm mới. c với h thành chờ, n với h thành nhờ, t với h thành thờ. |
+| ✅ | `tv-hai_chuwx_dduwngs_canhj_nhau_thanhf-hfb69.mp3` | Hai chữ đứng cạnh nhau thành một âm mới. c với h thành chờ, n với h thành nhờ, t với h thành thờ. |
 
 ### Đánh vần · kh, ph, tr
 
@@ -890,7 +890,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-theem_ba_chuwx_gheps_khowf_phowf-np92m.mp3` | Thêm ba chữ ghép: khờ, phờ, trờ. Đọc trờ thì cong lưỡi lên một chút. |
+| ✅ | `tv-theem_ba_chuwx_gheps_khowf_phowf-np92m.mp3` | Thêm ba chữ ghép: khờ, phờ, trờ. Đọc trờ thì cong lưỡi lên một chút. |
 
 ### Đánh vần · ng, ngh, gh
 
@@ -963,7 +963,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-hai_banj_ng_vaf_ngh_cungf-1l591.mp3` | Hai bạn ng và ngh cùng đọc là ngờ, gh đọc là gờ. Có một luật rất hay về chúng! |
+| ✅ | `tv-hai_banj_ng_vaf_ngh_cungf-1l591.mp3` | Hai bạn ng và ngh cùng đọc là ngờ, gh đọc là gờ. Có một luật rất hay về chúng! |
 
 ### Đánh vần · gi, qu
 
@@ -1017,7 +1017,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-gi_ddocj_laf_di_qu_ddocj-pw316.mp3` | gi đọc là di, qu đọc là quờ. Chữ q lúc nào cũng đi cùng chữ u. |
+| ✅ | `tv-gi_ddocj_laf_di_qu_ddocj-pw316.mp3` | gi đọc là di, qu đọc là quờ. Chữ q lúc nào cũng đi cùng chữ u. |
 
 ### Âm, vần · an, ăn, ân
 
@@ -1096,7 +1096,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-vaanf_mowis_ddaay_a_gheps_vowis-ylf3e.mp3` | Vần mới đây! a ghép với nờ thành an. Ba vần này chỉ khác nhau cái mũ thôi. |
+| ✅ | `tv-vaanf_mowis_ddaay_a_gheps_vowis-ylf3e.mp3` | Vần mới đây! a ghép với nờ thành an. Ba vần này chỉ khác nhau cái mũ thôi. |
 
 ### Âm, vần · am, ăm, âm
 
@@ -1182,7 +1182,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-vaanf_am_awm_aam_ddeeuf_keets-znfcd.mp3` | Vần am, ăm, âm đều kết thúc bằng mờ, khi đọc xong thì ngậm môi lại. |
+| ✅ | `tv-vaanf_am_awm_aam_ddeeuf_keets-znfcd.mp3` | Vần am, ăm, âm đều kết thúc bằng mờ, khi đọc xong thì ngậm môi lại. |
 
 ### Âm, vần · ai, ay, ây
 
@@ -1272,7 +1272,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-a_gheps_vowis_i_thanhf_ai-hxgkw.mp3` | a ghép với i thành ai, a ghép với y thành ay. Nghe xem có gì khác nhau nhé! |
+| ✅ | `tv-a_gheps_vowis_i_thanhf_ai-hxgkw.mp3` | a ghép với i thành ai, a ghép với y thành ay. Nghe xem có gì khác nhau nhé! |
 
 ### Âm, vần · ao, au, âu
 
@@ -1363,7 +1363,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-ba_vaanf_tronf_mooi_ao_au-vzq7j.mp3` | Ba vần tròn môi: ao, au, âu. Đọc xong môi chu ra như thổi nến. |
+| ✅ | `tv-ba_vaanf_tronf_mooi_ao_au-vzq7j.mp3` | Ba vần tròn môi: ao, au, âu. Đọc xong môi chu ra như thổi nến. |
 
 ### Âm, vần · at, ăt, ât
 
@@ -1456,7 +1456,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-vaanf_at_awt_aat_ddocj_ngawns-1nr0m.mp3` | Vần at, ăt, ât đọc ngắn và dứt khoát, cuối vần là tờ. |
+| ✅ | `tv-vaanf_at_awt_aat_ddocj_ngawns-1nr0m.mp3` | Vần at, ăt, ât đọc ngắn và dứt khoát, cuối vần là tờ. |
 
 ### Âm, vần · ap, ăp, âp
 
@@ -1549,7 +1549,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-vaanf_cuoois_powf_thif_ddocj_xong-buzsa.mp3` | Vần cuối pờ thì đọc xong môi khép lại thật nhanh. |
+| ✅ | `tv-vaanf_cuoois_powf_thif_ddocj_xong-buzsa.mp3` | Vần cuối pờ thì đọc xong môi khép lại thật nhanh. |
 
 ### Âm, vần · ac, ăc, âc
 
@@ -1641,7 +1641,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-vaanf_cuoois_cowf_ac_awc_aac-b8wjd.mp3` | Vần cuối cờ: ac, ăc, âc. Đọc xong cuống lưỡi chạm lên một chút. |
+| ✅ | `tv-vaanf_cuoois_cowf_ac_awc_aac-b8wjd.mp3` | Vần cuối cờ: ac, ăc, âc. Đọc xong cuống lưỡi chạm lên một chút. |
 
 ### Âm, vần · ang, ăng, âng
 
@@ -1731,7 +1731,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-vaanf_cuoois_ngowf_ang_awng_aang-w7asb.mp3` | Vần cuối ngờ: ang, ăng, âng. Âm vang lên ở mũi, thử bịt mũi xem! |
+| ✅ | `tv-vaanf_cuoois_ngowf_ang_awng_aang-w7asb.mp3` | Vần cuối ngờ: ang, ăng, âng. Âm vang lên ở mũi, thử bịt mũi xem! |
 
 ### Âm, vần · anh, ach
 
@@ -1796,7 +1796,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-hai_vaanf_cos_chuwx_h_owr-1b5uz.mp3` | Hai vần có chữ h ở cuối: anh và ach. Đọc lướt nhẹ nhé! |
+| ✅ | `tv-hai_vaanf_cos_chuwx_h_owr-1b5uz.mp3` | Hai vần có chữ h ở cuối: anh và ach. Đọc lướt nhẹ nhé! |
 
 ### Âm, vần · on, ôn, ơn
 
@@ -1888,7 +1888,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-o_oo_ow_gheps_vowis_nowf_thanhf_on_oon_own.mp3` | o, ô, ơ ghép với nờ thành on, ôn, ơn. |
+| ✅ | `tv-o_oo_ow_gheps_vowis_nowf_thanhf_on_oon_own.mp3` | o, ô, ơ ghép với nờ thành on, ôn, ơn. |
 
 ### Âm, vần · om, ôm, ơm
 
@@ -1978,7 +1978,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-vaanf_om_oom_owm_cuoois_mowf_ngaamj_mooi_laij_nhes.mp3` | Vần om, ôm, ơm cuối mờ, ngậm môi lại nhé. |
+| ✅ | `tv-vaanf_om_oom_owm_cuoois_mowf_ngaamj_mooi_laij_nhes.mp3` | Vần om, ôm, ơm cuối mờ, ngậm môi lại nhé. |
 
 ### Âm, vần · oi, ôi, ơi
 
@@ -2069,7 +2069,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-ba_vaanf_keets_thucs_bawngf_i_oi_ooi_owi.mp3` | Ba vần kết thúc bằng i: oi, ôi, ơi. |
+| ✅ | `tv-ba_vaanf_keets_thucs_bawngf_i_oi_ooi_owi.mp3` | Ba vần kết thúc bằng i: oi, ôi, ơi. |
 
 ### Âm, vần · ot, ôt, ơt
 
@@ -2161,7 +2161,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-vaanf_cuoois_towf_vowis_o_oo_ow_ddocj_ngawns_gonj.mp3` | Vần cuối tờ với o, ô, ơ. Đọc ngắn, gọn. |
+| ✅ | `tv-vaanf_cuoois_towf_vowis_o_oo_ow_ddocj_ngawns_gonj.mp3` | Vần cuối tờ với o, ô, ơ. Đọc ngắn, gọn. |
 
 ### Âm, vần · op, ôp, ơp
 
@@ -2254,7 +2254,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-cuoois_powf_thif_kheps_mooi_op_oop_owp.mp3` | Cuối pờ thì khép môi: op, ôp, ơp. |
+| ✅ | `tv-cuoois_powf_thif_kheps_mooi_op_oop_owp.mp3` | Cuối pờ thì khép môi: op, ôp, ơp. |
 
 ### Âm, vần · oc, ôc
 
@@ -2319,7 +2319,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-hai_vaanf_cuoois_cowf_oc_vaf_ooc.mp3` | Hai vần cuối cờ: oc và ôc. |
+| ✅ | `tv-hai_vaanf_cuoois_cowf_oc_vaf_ooc.mp3` | Hai vần cuối cờ: oc và ôc. |
 
 ### Âm, vần · ong, ông
 
@@ -2377,7 +2377,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-vaanf_cuoois_ngowf_ong_vaf_oong-hf3mr.mp3` | Vần cuối ngờ: ong và ông. Nghe như tiếng chuông kêu boong boong. |
+| ✅ | `tv-vaanf_cuoois_ngowf_ong_vaf_oong-hf3mr.mp3` | Vần cuối ngờ: ong và ông. Nghe như tiếng chuông kêu boong boong. |
 
 ### Âm, vần · en, ên, in
 
@@ -2469,7 +2469,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-e_ee_i_gheps_vowis_nowf_en_een_in.mp3` | e, ê, i ghép với nờ: en, ên, in. |
+| ✅ | `tv-e_ee_i_gheps_vowis_nowf_en_een_in.mp3` | e, ê, i ghép với nờ: en, ên, in. |
 
 ### Âm, vần · em, êm, im
 
@@ -2559,7 +2559,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-vaanf_cuoois_mowf_em_eem_im.mp3` | Vần cuối mờ: em, êm, im. |
+| ✅ | `tv-vaanf_cuoois_mowf_em_eem_im.mp3` | Vần cuối mờ: em, êm, im. |
 
 ### Âm, vần · et, êt, it
 
@@ -2652,7 +2652,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-cuoois_towf_et_eet_it_ddocj_gonj_nhuw_tieengs_gox_cuwar.mp3` | Cuối tờ: et, êt, it. Đọc gọn như tiếng gõ cửa. |
+| ✅ | `tv-cuoois_towf_et_eet_it_ddocj_gonj_nhuw_tieengs_gox_cuwar.mp3` | Cuối tờ: et, êt, it. Đọc gọn như tiếng gõ cửa. |
 
 ### Âm, vần · ep, êp, ip
 
@@ -2743,7 +2743,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-cuoois_powf_ep_eep_ip.mp3` | Cuối pờ: ep, êp, ip. |
+| ✅ | `tv-cuoois_powf_ep_eep_ip.mp3` | Cuối pờ: ep, êp, ip. |
 
 ### Âm, vần · eo, êu, iu, ia
 
@@ -2863,7 +2863,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-boons_vaanf_nhor_xinh_eo_eeu_iu_ia.mp3` | Bốn vần nhỏ xinh: eo, êu, iu, ia. |
+| ✅ | `tv-boons_vaanf_nhor_xinh_eo_eeu_iu_ia.mp3` | Bốn vần nhỏ xinh: eo, êu, iu, ia. |
 
 ### Âm, vần · ênh, inh, êch, ich
 
@@ -2980,7 +2980,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-boons_vaanf_cos_chuwx_h_owr_cuoois_eenh_inh_eech_ich.mp3` | Bốn vần có chữ h ở cuối: ênh, inh, êch, ich. |
+| ✅ | `tv-boons_vaanf_cos_chuwx_h_owr_cuoois_eenh_inh_eech_ich.mp3` | Bốn vần có chữ h ở cuối: ênh, inh, êch, ich. |
 
 ### Âm, vần · um, un, ui, ưi
 
@@ -3092,7 +3092,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-u_vaf_uw_gheps_vowis_cacs_aam_cuoois_um_un_ui_uwi.mp3` | u và ư ghép với các âm cuối: um, un, ui, ưi. |
+| ✅ | `tv-u_vaf_uw_gheps_vowis_cacs_aam_cuoois_um_un_ui_uwi.mp3` | u và ư ghép với các âm cuối: um, un, ui, ưi. |
 
 ### Âm, vần · up, ut, ưt
 
@@ -3185,7 +3185,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-cuoois_powf_vaf_towf_up_ut_uwt.mp3` | Cuối pờ và tờ: up, ut, ưt. |
+| ✅ | `tv-cuoois_powf_vaf_towf_up_ut_uwt.mp3` | Cuối pờ và tờ: up, ut, ưt. |
 
 ### Âm, vần · uc, ưc, ung, ưng
 
@@ -3305,7 +3305,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-cuoois_cowf_vaf_ngowf_uc_uwc_ung_uwng.mp3` | Cuối cờ và ngờ: uc, ưc, ung, ưng. |
+| ✅ | `tv-cuoois_cowf_vaf_ngowf_uc_uwc_ung_uwng.mp3` | Cuối cờ và ngờ: uc, ưc, ung, ưng. |
 
 ### Âm, vần · ua, ưa, ưu
 
@@ -3397,7 +3397,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-ua_ddocj_nhuw_u_a_uwa_ddocj_nhuw_uw_a_uwu_ddocj_nhuw_uw_u.mp3` | ua đọc như u-a, ưa đọc như ư-a, ưu đọc như ư-u. |
+| ✅ | `tv-ua_ddocj_nhuw_u_a_uwa_ddocj_nhuw_uw_a_uwu_ddocj_nhuw_uw_u.mp3` | ua đọc như u-a, ưa đọc như ư-a, ưu đọc như ư-u. |
 
 ### Âm, vần · iên, iêt, iêu, yêu
 
@@ -3508,7 +3508,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-iee_ddocj_gaanf_nhuw_ia_gheps-wj6vz.mp3` | iê đọc gần như ia. Ghép với nờ thành iên, với tờ thành iêt. |
+| ✅ | `tv-iee_ddocj_gaanf_nhuw_ia_gheps-wj6vz.mp3` | iê đọc gần như ia. Ghép với nờ thành iên, với tờ thành iêt. |
 
 ### Âm, vần · iêng, iêc, iêm, iêp
 
@@ -3626,7 +3626,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-theem_boons_vaanf_cos_iee_nuwax_nef.mp3` | Thêm bốn vần có iê nữa nè! |
+| ✅ | `tv-theem_boons_vaanf_cos_iee_nuwax_nef.mp3` | Thêm bốn vần có iê nữa nè! |
 
 ### Âm, vần · uôn, uôt, uôi, uôc, uông
 
@@ -3772,7 +3772,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-uoo_ddocj_gaanf_nhuw_ua_nawm-1i12v.mp3` | uô đọc gần như ua. Năm vần trong một bài, bé làm được! |
+| ✅ | `tv-uoo_ddocj_gaanf_nhuw_ua_nawm-1i12v.mp3` | uô đọc gần như ua. Năm vần trong một bài, bé làm được! |
 
 ### Âm, vần · ươn, ươt, ươi, ươc
 
@@ -3892,7 +3892,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-uwow_ddocj_gaanf_nhuw_uwa_vuwownf_luwowts_luwowis_thuwowcs.mp3` | ươ đọc gần như ưa. Vườn, lướt, lưới, thước! |
+| ✅ | `tv-uwow_ddocj_gaanf_nhuw_uwa_vuwownf_luwowts_luwowis_thuwowcs.mp3` | ươ đọc gần như ưa. Vườn, lướt, lưới, thước! |
 
 ### Âm, vần · ương, ươu, ươm, ươp
 
@@ -4008,7 +4008,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-theem_boons_vaanf_uwow_nuwax_sawps_xong_chawngj_rooif.mp3` | Thêm bốn vần ươ nữa. Sắp xong chặng rồi! |
+| ✅ | `tv-theem_boons_vaanf_uwow_nuwax_sawps_xong_chawngj_rooif.mp3` | Thêm bốn vần ươ nữa. Sắp xong chặng rồi! |
 
 ### Âm, vần · oa, oe, uê, uy
 
@@ -4126,7 +4126,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-chuwx_o_u_dduwngs_truwowcs_lamf-15p2u.mp3` | Chữ o, u đứng trước làm âm đệm, môi tròn lại: oa, oe, uê, uy. |
+| ✅ | `tv-chuwx_o_u_dduwngs_truwowcs_lamf-15p2u.mp3` | Chữ o, u đứng trước làm âm đệm, môi tròn lại: oa, oe, uê, uy. |
 
 ### Âm, vần · oan, oăn, oat, oăt
 
@@ -4243,7 +4243,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-o_dduwngs_truwowcs_an_awn_at_awt_thanhf_oan_oawn_oat_oawt.mp3` | o đứng trước an, ăn, at, ăt thành oan, oăn, oat, oăt. |
+| ✅ | `tv-o_dduwngs_truwowcs_an_awn_at_awt_thanhf_oan_oawn_oat_oawt.mp3` | o đứng trước an, ăn, at, ăt thành oan, oăn, oat, oăt. |
 
 ### Âm, vần · oang, oăng, oanh, oach
 
@@ -4358,7 +4358,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-boons_vaanf_daif_maf_vaanx_deex_oang_oawng_oanh_oach.mp3` | Bốn vần dài mà vẫn dễ: oang, oăng, oanh, oach. |
+| ✅ | `tv-boons_vaanf_daif_maf_vaanx_deex_oang_oawng_oanh_oach.mp3` | Bốn vần dài mà vẫn dễ: oang, oăng, oanh, oach. |
 
 ### Âm, vần · oai, oay, uân, uât
 
@@ -4476,7 +4476,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-oai_oay_uaan_uaat_muaf_xuaan_ddeens_rooif.mp3` | oai, oay, uân, uât. Mùa xuân đến rồi! |
+| ✅ | `tv-oai_oay_uaan_uaat_muaf_xuaan_ddeens_rooif.mp3` | oai, oay, uân, uât. Mùa xuân đến rồi! |
 
 ### Âm, vần · uyên, uyêt, uynh, uych
 
@@ -4617,15 +4617,15 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-boons_vaanf_khos_nhaats_rooif_ddocj-83m7t.mp3` | Bốn vần khó nhất rồi! Đọc chậm, từng phần một nhé. |
-| ⬜ | `tv-hai_tieengs_gheps_laij_thanhf_mootj-3avrd.mp3` | Hai tiếng ghép lại thành một từ. Đọc liền hai tiếng, không ngắt quãng nhé. |
+| ✅ | `tv-boons_vaanf_khos_nhaats_rooif_ddocj-83m7t.mp3` | Bốn vần khó nhất rồi! Đọc chậm, từng phần một nhé. |
+| ✅ | `tv-hai_tieengs_gheps_laij_thanhf_mootj-3avrd.mp3` | Hai tiếng ghép lại thành một từ. Đọc liền hai tiếng, không ngắt quãng nhé. |
 
 ### Câu hỏi đọc hiểu · Từ quanh nhà
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-ddoof_vaatj_naof_ddeer_ngooif.mp3` | Đồ vật nào để ngồi? |
-| ⬜ | `tv-ddoof_vaatj_naof_cho_anhs_sangs.mp3` | Đồ vật nào cho ánh sáng? |
+| ✅ | `tv-ddoof_vaatj_naof_ddeer_ngooif.mp3` | Đồ vật nào để ngồi? |
+| ✅ | `tv-ddoof_vaatj_naof_cho_anhs_sangs.mp3` | Đồ vật nào cho ánh sáng? |
 
 ### Bài đọc · Từ quanh nhà
 
@@ -4646,14 +4646,14 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-goij_teen_cacs_con_vaatj_naof.mp3` | Gọi tên các con vật nào! |
+| ✅ | `tv-goij_teen_cacs_con_vaatj_naof.mp3` | Gọi tên các con vật nào! |
 
 ### Câu hỏi đọc hiểu · Con vật bé yêu
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-con_gif_keeu_meo_meo.mp3` | Con gì kêu meo meo? |
-| ⬜ | `tv-con_gif_bieets_bay.mp3` | Con gì biết bay? |
+| ✅ | `tv-con_gif_keeu_meo_meo.mp3` | Con gì kêu meo meo? |
+| ✅ | `tv-con_gif_bieets_bay.mp3` | Con gì biết bay? |
 
 ### Bài đọc · Con vật bé yêu
 
@@ -4674,14 +4674,14 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-ddocj_to_teen_trais_caay_vaf_mauf_sawcs_nhes.mp3` | Đọc to tên trái cây và màu sắc nhé. |
+| ✅ | `tv-ddocj_to_teen_trais_caay_vaf_mauf_sawcs_nhes.mp3` | Đọc to tên trái cây và màu sắc nhé. |
 
 ### Câu hỏi đọc hiểu · Màu sắc, trái cây
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-quar_chuoois_chins_cos_mauf_gif.mp3` | Quả chuối chín có màu gì? |
-| ⬜ | `tv-duwa_haaus_ruootj_mauf_gif.mp3` | Dưa hấu ruột màu gì? |
+| ✅ | `tv-quar_chuoois_chins_cos_mauf_gif.mp3` | Quả chuối chín có màu gì? |
+| ✅ | `tv-duwa_haaus_ruootj_mauf_gif.mp3` | Dưa hấu ruột màu gì? |
 
 ### Bài đọc · Màu sắc, trái cây
 
@@ -4702,14 +4702,14 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-mootj_caau_bawts_ddaauf_bawngf_chuwx-gzujw.mp3` | Một câu bắt đầu bằng chữ viết hoa và kết thúc bằng dấu chấm. Đến dấu chấm thì nghỉ một chút. |
+| ✅ | `tv-mootj_caau_bawts_ddaauf_bawngf_chuwx-gzujw.mp3` | Một câu bắt đầu bằng chữ viết hoa và kết thúc bằng dấu chấm. Đến dấu chấm thì nghỉ một chút. |
 
 ### Câu hỏi đọc hiểu · Câu và dấu chấm
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-ai_naaus_cowm.mp3` | Ai nấu cơm? |
-| ⬜ | `tv-meof_ddang_lamf_gif.mp3` | Mèo đang làm gì? |
+| ✅ | `tv-ai_naaus_cowm.mp3` | Ai nấu cơm? |
+| ✅ | `tv-meof_ddang_lamf_gif.mp3` | Mèo đang làm gì? |
 
 ### Bài đọc · Câu và dấu chấm
 
@@ -4731,14 +4731,14 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-daaus_phaayr_gioongs_choox_nghir_chaan-g0bu9.mp3` | Dấu phẩy giống chỗ nghỉ chân. Đến dấu phẩy thì ngắt hơi thật ngắn. |
+| ✅ | `tv-daaus_phaayr_gioongs_choox_nghir_chaan-g0bu9.mp3` | Dấu phẩy giống chỗ nghỉ chân. Đến dấu phẩy thì ngắt hơi thật ngắn. |
 
 ### Câu hỏi đọc hiểu · Dấu phẩy
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-vuwownf_nhaf_baf_cos_gif.mp3` | Vườn nhà bà có gì? |
-| ⬜ | `tv-mochi_thichs_gif.mp3` | Mochi thích gì? |
+| ✅ | `tv-vuwownf_nhaf_baf_cos_gif.mp3` | Vườn nhà bà có gì? |
+| ✅ | `tv-mochi_thichs_gif.mp3` | Mochi thích gì? |
 
 ### Bài đọc · Dấu phẩy
 
@@ -4759,13 +4759,13 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-caau_hoir_keets_thucs_bawngf_daaus-110ad.mp3` | Câu hỏi kết thúc bằng dấu chấm hỏi. Đọc thì giọng cao lên một chút ở cuối câu. |
+| ✅ | `tv-caau_hoir_keets_thucs_bawngf_daaus-110ad.mp3` | Câu hỏi kết thúc bằng dấu chấm hỏi. Đọc thì giọng cao lên một chút ở cuối câu. |
 
 ### Câu hỏi đọc hiểu · Câu hỏi
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-caau_hoir_keets_thucs_bawngf_daaus_gif.mp3` | Câu hỏi kết thúc bằng dấu gì? |
+| ✅ | `tv-caau_hoir_keets_thucs_bawngf_daaus_gif.mp3` | Câu hỏi kết thúc bằng dấu gì? |
 
 ### Bài đọc · Câu hỏi
 
@@ -4786,14 +4786,14 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-baay_giowf_minhf_ddocj_car_mootj-1i776.mp3` | Bây giờ mình đọc cả một đoạn. Đọc từng câu, nghỉ đúng chỗ dấu chấm nhé. |
+| ✅ | `tv-baay_giowf_minhf_ddocj_car_mootj-1i776.mp3` | Bây giờ mình đọc cả một đoạn. Đọc từng câu, nghỉ đúng chỗ dấu chấm nhé. |
 
 ### Câu hỏi đọc hiểu · Mochi đi học
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-ai_dduwa_mochi_ddeens_lowps.mp3` | Ai đưa Mochi đến lớp? |
-| ⬜ | `tv-owr_lowps_mochi_dduwowcj_ai_khen.mp3` | Ở lớp, Mochi được ai khen? |
+| ✅ | `tv-ai_dduwa_mochi_ddeens_lowps.mp3` | Ai đưa Mochi đến lớp? |
+| ✅ | `tv-owr_lowps_mochi_dduwowcj_ai_khen.mp3` | Ở lớp, Mochi được ai khen? |
 
 ### Bài đọc · Mochi đi học
 
@@ -4814,14 +4814,14 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-cungf_ddeens_thawm_vuwownf_nhaf_baf_naof.mp3` | Cùng đến thăm vườn nhà bà nào! |
+| ✅ | `tv-cungf_ddeens_thawm_vuwownf_nhaf_baf_naof.mp3` | Cùng đến thăm vườn nhà bà nào! |
 
 ### Câu hỏi đọc hiểu · Khu vườn của bà
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-mooix_sangs_baf_lamf_gif.mp3` | Mỗi sáng, bà làm gì? |
-| ⬜ | `tv-con_gif_bay_ddeens_hots.mp3` | Con gì bay đến hót? |
+| ✅ | `tv-mooix_sangs_baf_lamf_gif.mp3` | Mỗi sáng, bà làm gì? |
+| ✅ | `tv-con_gif_bay_ddeens_hots.mp3` | Con gì bay đến hót? |
 
 ### Bài đọc · Khu vườn của bà
 
@@ -4843,14 +4843,14 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-ddocj_ddoanj_vawn_veef_mootj_ngayf_muwa_nhes.mp3` | Đọc đoạn văn về một ngày mưa nhé. |
+| ✅ | `tv-ddocj_ddoanj_vawn_veef_mootj_ngayf_muwa_nhes.mp3` | Đọc đoạn văn về một ngày mưa nhé. |
 
 ### Câu hỏi đọc hiểu · Trời mưa
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-khi_muwa_ddeens_ddanf_kieens_lamf_gif.mp3` | Khi mưa đến, đàn kiến làm gì? |
-| ⬜ | `tv-muwa_tanhj_thif_cos_gif_hieenj_ra.mp3` | Mưa tạnh thì có gì hiện ra? |
+| ✅ | `tv-khi_muwa_ddeens_ddanf_kieens_lamf_gif.mp3` | Khi mưa đến, đàn kiến làm gì? |
+| ✅ | `tv-muwa_tanhj_thif_cos_gif_hieenj_ra.mp3` | Mưa tạnh thì có gì hiện ra? |
 
 ### Bài đọc · Trời mưa
 
@@ -4872,13 +4872,13 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-thow_cos_vaanf_ddocj_leen_nghe-39hsc.mp3` | Thơ có vần, đọc lên nghe như hát. Mỗi dòng thơ nghỉ một chút nhé. |
+| ✅ | `tv-thow_cos_vaanf_ddocj_leen_nghe-39hsc.mp3` | Thơ có vần, đọc lên nghe như hát. Mỗi dòng thơ nghỉ một chút nhé. |
 
 ### Câu hỏi đọc hiểu · Mèo con rửa mặt
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-meof_con_ruwar_mawtj_bawngf_gif.mp3` | Mèo con rửa mặt bằng gì? |
+| ✅ | `tv-meof_con_ruwar_mawtj_bawngf_gif.mp3` | Mèo con rửa mặt bằng gì? |
 
 ### Bài đọc · Mèo con rửa mặt
 
@@ -4900,14 +4900,14 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-mootj_baif_thow_nhor_veef_oong_trawng.mp3` | Một bài thơ nhỏ về ông trăng. |
+| ✅ | `tv-mootj_baif_thow_nhor_veef_oong_trawng.mp3` | Một bài thơ nhỏ về ông trăng. |
 
 ### Câu hỏi đọc hiểu · Ông trăng
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-oong_trawng_tronf_nhuw_cais_gif.mp3` | Ông trăng tròn như cái gì? |
-| ⬜ | `tv-trawng_soi_gif_duwowis_ao.mp3` | Trăng soi gì dưới ao? |
+| ✅ | `tv-oong_trawng_tronf_nhuw_cais_gif.mp3` | Ông trăng tròn như cái gì? |
+| ✅ | `tv-trawng_soi_gif_duwowis_ao.mp3` | Trăng soi gì dưới ao? |
 
 ### Bài đọc · Ông trăng
 
@@ -4929,13 +4929,13 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 101. Chưa c
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-ddocj_thow_veef_ddooi_banf_tay_chawm_chir.mp3` | Đọc thơ về đôi bàn tay chăm chỉ. |
+| ✅ | `tv-ddocj_thow_veef_ddooi_banf_tay_chawm_chir.mp3` | Đọc thơ về đôi bàn tay chăm chỉ. |
 
 ### Câu hỏi đọc hiểu · Bàn tay em
 
 | | File | Lời đọc |
 |---|---|---|
-| ⬜ | `tv-banf_tay_em_bieets_lamf_gif.mp3` | Bàn tay em biết làm gì? |
+| ✅ | `tv-banf_tay_em_bieets_lamf_gif.mp3` | Bàn tay em biết làm gì? |
 
 ### Bài đọc · Bàn tay em
 
