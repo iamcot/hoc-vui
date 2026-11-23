@@ -1,6 +1,6 @@
 // In danh sách prompt ảnh/âm thanh ra docs/ASSET_PROMPTS.md. Chạy: npm run prompts
 import { writeFileSync } from "node:fs";
-import { AUDIO, IMAGES, MOCHI, STYLE, VOICE_SETTINGS, XIXI, hasFile } from "@/content/assets";
+import { AUDIO, IMAGES, MOCHI, STYLE, TAPDOC_AUDIO, VOICE_SETTINGS, XIXI, hasFile } from "@/content/assets";
 
 const lines: string[] = [];
 const done = (f: string) => (hasFile(f) ? "✅" : "⬜");
@@ -31,3 +31,27 @@ for (const a of AUDIO) {
 lines.push("");
 writeFileSync("docs/ASSET_PROMPTS.md", lines.join("\n"));
 console.log(`docs/ASSET_PROMPTS.md: ${IMAGES.length} ảnh, ${AUDIO.length} âm thanh`);
+
+// Giọng đọc mẫu môn Tập đọc: rất nhiều file nhỏ, in riêng
+const tv: string[] = [];
+const missing = TAPDOC_AUDIO.filter((a) => !hasFile(a.file)).length;
+tv.push("# Giọng đọc mẫu môn Tập đọc", "");
+tv.push(`Sinh tự động bằng \`npm run prompts\`. ${TAPDOC_AUDIO.length} file, còn thiếu ${missing}. Chưa có file thì app dùng giọng tiếng Việt có sẵn của máy (iPad: giọng Linh).`, "");
+tv.push("## Cách làm", "");
+tv.push("- ElevenLabs Text to Speech, model **Multilingual v2** (hoặc v3), **một giọng nữ miền Bắc** trong trẻo, chậm rãi, giống cô giáo lớp 1. Dùng **cùng một giọng** cho mọi file.");
+tv.push("- Stability khoảng 60%, Style 0, Speed 0.85. Mỗi dòng là một file riêng, lưu `.mp3` đúng tên vào `public/assets/voice/`.");
+tv.push("- Âm và vần đứng một mình (\"bờ\", \"an\", \"oăng\") máy hay đọc sai: nghe lại từng file, sai thì thử thêm dấu chấm sau chữ (\"bờ.\") hoặc đọc lại vài lần chọn bản đúng.");
+tv.push("- Tên file theo kiểu gõ Telex: `bàn` → `tv-banf.mp3`, `cái bàn` → `tv-cais_banf.mp3`.");
+tv.push("- Ưu tiên tạo trước: nhóm *Âm đầu*, *Tên dấu*, *Âm, vần*, *Từ khóa*; câu dài để sau.", "");
+let group = "";
+for (const a of TAPDOC_AUDIO) {
+  if (a.usage !== group) {
+    group = a.usage;
+    tv.push("", `### ${group}`, "", "| | File | Lời đọc |", "|---|---|---|");
+  }
+  tv.push(`| ${done(a.file)} | \`${a.id}.mp3\` | ${a.prompt.replace(/\n/g, " / ").replace(/\|/g, "/")} |`);
+}
+tv.push("");
+writeFileSync("docs/TAPDOC_VOICES.md", tv.join("\n"));
+writeFileSync("docs/tapdoc-voices.json", JSON.stringify(TAPDOC_AUDIO.map((a) => ({ id: a.id, file: a.file, text: a.prompt, group: a.usage })), null, 1) + "\n");
+console.log(`docs/TAPDOC_VOICES.md: ${TAPDOC_AUDIO.length} giọng đọc Tập đọc`);

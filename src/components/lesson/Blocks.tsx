@@ -7,6 +7,9 @@ import { Art } from "@/components/Art";
 import { KeySeq } from "@/components/calc/Keys";
 import { TryIt } from "@/components/calc/TryIt";
 import { QuestionCard } from "@/components/quiz/QuestionCard";
+import { LettersRow, SayRow } from "@/components/reading/Glyph";
+import { Blend } from "@/components/reading/Blend";
+import { ReadAloud } from "@/components/reading/ReadAloud";
 
 export function BlockView({ b, device, lead }: { b: Block; device?: "fx580"; lead?: React.ReactNode }) {
   switch (b.type) {
@@ -63,6 +66,14 @@ export function BlockView({ b, device, lead }: { b: Block; device?: "fx580"; lea
       );
     case "check":
       return <InlineCheck q={b.question} device={device} />;
+    case "letters":
+      return <LettersRow items={b.items} />;
+    case "blend":
+      return <Blend word={b.word} emoji={b.emoji} phrase={b.phrase} />;
+    case "say":
+      return <SayRow items={b.items} label={b.label} />;
+    case "read":
+      return <ReadAloud text={b.text} strict={b.strict} label={b.label} />;
   }
 }
 

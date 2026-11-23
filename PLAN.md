@@ -52,8 +52,21 @@ Môn đầu tiên: **Máy tính Casio fx-580VN X**, chia trình độ Lớp 6 �
 - [ ] Trình độ Lớp 8, Lớp 9
 - [ ] Ảnh bìa 6 bài lớp 7 (prompt `fx7-l0x-cover` trong docs/ASSET_PROMPTS.md)
 
+### Giai đoạn 2c · Môn Tập đọc (vỡ lòng → đọc trơn)
+Bám mạch Tiếng Việt 1 GDPT 2018 (âm, chữ → thanh → chữ ghép → vần → từ, câu → đoạn, thơ), từ khóa và bài đọc tự viết cho vui hơn. Chữ to là chính, emoji nhỏ thay tranh. Mỗi bài: gặp chữ → ghép tiếng (đánh vần "bờ – an – ban – huyền – bàn") → bé đọc to, máy chấm từng tiếng → thử nhanh. Luyện tập: nghe chọn chữ, tìm tiếng có vần, ghép âm + vần + dấu, đọc to, điền tiếng thiếu, đọc hiểu.
+- [x] Lộ trình 4 trình độ, 58 bài: Vỡ lòng 15, Học vần 31, Đọc câu 6, Đọc trơn 6 (`src/content/subjects/tap-doc/data.ts`)
+- [x] Bộ xử lý tiếng Việt: tách âm đầu/vần/thanh, đánh vần, so khớp lời đọc theo từng tiếng (`src/lib/viet.ts`)
+- [x] Thẻ chữ to, ghép tiếng có hoạt họa, đọc to có tô màu đúng/sai dấu/sai, bản đồ hiện chữ thay ảnh bìa
+- [x] Ghi âm WAV chạy cả Safari iPad; chấm bằng dịch vụ đám mây (`/api/nghe`, Google hoặc OpenAI) → nhận dạng của trình duyệt → tự nghe lại và tự chấm
+- [x] Giọng đọc mẫu: dùng file ElevenLabs nếu có, chưa có thì dùng giọng tiếng Việt của máy; danh sách 1.126 câu/tiếng ở `docs/TAPDOC_VOICES.md`
+- [ ] Bạn góp ý ảnh chụp màn hình (`mockups-tapdoc/`)
+- [ ] Chọn dịch vụ nhận dạng giọng nói, đặt khóa trên Vercel
+- [ ] Tạo giọng đọc mẫu (ưu tiên âm, vần, từ khóa trước) và 3 ảnh mới
+- [ ] Thử ghi âm trên iPad thật với giọng bé
+- [ ] Bổ sung: tập viết chữ (vẽ theo nét), chính tả nghe viết, đo tốc độ đọc (tiếng/phút)
+
 ### Giai đoạn 3 · Mở rộng môn
-- [ ] Toán lớp 6 (lý thuyết), Toán lớp 1, Tiếng Việt, Tiếng Anh...
+- [ ] Toán lớp 6 (lý thuyết), Toán lớp 1, Tiếng Anh...
 - [ ] Trình soạn bài cho phụ huynh
 
 ## Cần bạn kiểm tra trên máy thật

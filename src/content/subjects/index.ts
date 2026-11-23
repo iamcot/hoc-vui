@@ -1,5 +1,6 @@
 import type { Lesson, Subject, Tier } from "@/content/types";
 import { mayTinh } from "./may-tinh";
+import { tapDoc } from "./tap-doc";
 
 /**
  * Danh mục môn học. Thêm môn mới: tạo thư mục trong src/content/subjects/<id>/
@@ -9,9 +10,9 @@ import { mayTinh } from "./may-tinh";
  */
 export const SUBJECTS: Subject[] = [
   mayTinh,
+  tapDoc,
   // Các môn sắp có: hiện trên trang chủ dạng "sắp ra mắt".
   { id: "toan-lop1", name: "Toán vui", levelsLabel: "Lớp 1", tagline: "Đếm, cộng trừ trong phạm vi 100", emoji: "🍎", color: "#ff9fb2", cover: "subject-soon", tiers: [], ready: false },
-  { id: "tieng-viet-lop2", name: "Tiếng Việt", levelsLabel: "Lớp 2", tagline: "Đọc hiểu và chính tả", emoji: "📖", color: "#8fd3b6", cover: "subject-soon", tiers: [], ready: false },
   { id: "tieng-anh-lop6", name: "Tiếng Anh", levelsLabel: "Lớp 6", tagline: "Từ vựng và ngữ pháp", emoji: "🌏", color: "#ffc978", cover: "subject-soon", tiers: [], ready: false },
 ];
 

@@ -7,6 +7,9 @@ import { KeySeq } from "@/components/calc/Keys";
 import { TryIt } from "@/components/calc/TryIt";
 import { RichText } from "@/components/RichText";
 import { play } from "@/lib/sound";
+import { speak } from "@/lib/speech/tts";
+import { SpeakButton } from "@/components/reading/Glyph";
+import { ReadAloud } from "@/components/reading/ReadAloud";
 
 export interface AnswerResult {
   correct: boolean;
@@ -63,8 +66,10 @@ export function QuestionCard({
     setResult(null);
     setHinted(false);
     setShowKeys(false);
-    if (q.kind !== "choice") setTimeout(() => ref.current?.focus(), 50);
-  }, [q.id, q.kind]);
+    if (q.kind !== "choice" && q.kind !== "read") setTimeout(() => ref.current?.focus(), 50);
+    // môn Tập đọc: tự đọc đề cho bé nghe
+    if (q.say) setTimeout(() => void speak(q.say!), 350);
+  }, [q.id, q.kind, q.say]);
 
   const value = q.kind === "pair" ? `${input};${b}` : input;
 
@@ -86,10 +91,32 @@ export function QuestionCard({
 
   return (
     <motion.div key={q.id} initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} className="space-y-5">
-      <RichText text={q.prompt} className="font-display text-xl font-bold sm:text-2xl" />
+      <div className="flex items-center gap-3">
+        {q.say && <SpeakButton text={q.say} className="shrink-0 !h-14 !w-14 !text-2xl" label="Nghe lại" />}
+        <RichText text={q.prompt} className="font-display text-xl font-bold sm:text-2xl" />
+      </div>
 
-      {q.kind === "choice" ? (
-        <div className="grid gap-3 sm:grid-cols-2">
+      {q.kind === "read" ? (
+        <div className="space-y-3">
+          <ReadAloud
+            key={q.id}
+            text={q.answer}
+            strict={q.strict}
+            compact
+            onResult={(ok, heard) => {
+              if (!ok) return;
+              if (mode === "race") onNext({ correct: true, input: heard, hinted });
+              else setResult(true);
+            }}
+          />
+          {result === null && (
+            <button className="btn btn-ghost" onClick={() => (mode === "race" ? onNext({ correct: false, input: "", hinted }) : setResult(false))}>
+              Bỏ qua câu này
+            </button>
+          )}
+        </div>
+      ) : q.kind === "choice" ? (
+        <div className={`grid gap-3 ${q.big ? "grid-cols-2 sm:grid-cols-4" : "sm:grid-cols-2"}`}>
           {q.choices!.map((c) => {
             const picked = input === c;
             const state = result === null ? "" : c === q.answer ? "border-mint bg-mint-soft" : picked ? "border-berry bg-berry-soft" : "opacity-60";
@@ -101,7 +128,7 @@ export function QuestionCard({
                   setInput(c);
                   submit(c);
                 }}
-                className={`rounded-2xl border-2 border-line bg-white px-4 py-3.5 text-left text-lg font-bold transition hover:border-sky active:scale-[0.98] ${state}`}
+                className={`rounded-2xl border-2 border-line bg-white px-4 font-bold transition hover:border-sky active:scale-[0.98] ${q.big ? "py-5 text-center font-display text-4xl font-extrabold sm:text-5xl" : "py-3.5 text-left text-lg"} ${state}`}
               >
                 {c}
               </button>

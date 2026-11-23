@@ -8,7 +8,25 @@ export type Block =
   | { type: "keys"; keys: string[]; label?: string; result?: string; tryIt?: boolean }
   | { type: "tip"; tone?: "tip" | "warn"; text: string }
   | { type: "example"; problem: string; steps: string[]; keys?: string[]; answer: string }
-  | { type: "check"; question: Question };
+  | { type: "check"; question: Question }
+  // ── môn Tập đọc ──
+  /** thẻ chữ to: chạm để nghe */
+  | { type: "letters"; items: LetterItem[] }
+  /** ghép tiếng từng bước: bờ + an → ban, + huyền → bàn */
+  | { type: "blend"; word: string; emoji?: string; phrase?: string }
+  /** dãy tiếng/từ nhỏ, chạm để nghe */
+  | { type: "say"; items: string[]; label?: string }
+  /** bé đọc to, máy nghe và chấm */
+  | { type: "read"; text: string; strict?: boolean; label?: string };
+
+export interface LetterItem {
+  g: string;
+  /** cách đọc, vd. "bờ" */
+  say: string;
+  kind: "nguyen-am" | "phu-am" | "chu-ghep" | "van" | "thanh";
+  key?: string;
+  emoji?: string;
+}
 
 export interface Slide {
   title: string;
@@ -18,7 +36,8 @@ export interface Slide {
   blocks: Block[];
 }
 
-export type AnswerKind = "number" | "fraction" | "choice" | "pair";
+/** read: bé đọc to câu trong `answer`, máy nghe chấm (môn Tập đọc) */
+export type AnswerKind = "number" | "fraction" | "choice" | "pair" | "read";
 
 export interface Question {
   id: string;
@@ -39,6 +58,12 @@ export interface Question {
   keys?: string[];
   explain?: string;
   topic: string;
+  /** đọc to đề bài cho bé nghe (chữ cần đọc). Có thì hiện nút loa và tự phát. */
+  say?: string;
+  /** lựa chọn là chữ cái/vần: hiện chữ thật to */
+  big?: boolean;
+  /** kind "read": false = sai thanh vẫn tính đạt (âm, vần lẻ) */
+  strict?: boolean;
 }
 
 export type QuestionGen = (rng: Rng) => Question;
@@ -50,6 +75,8 @@ export interface Lesson {
   emoji: string;
   /** id ảnh bìa trong danh mục asset */
   cover: string;
+  /** môn chữ: hiện chữ to thay cho ảnh bìa trên bản đồ, vd. "an ăn ân" */
+  glyph?: string;
   minutes: number;
   slides: Slide[];
   /** các dạng bài luyện tập của bài này */

@@ -1,5 +1,6 @@
 import type { Question } from "@/content/types";
 import { parseFrac, parseNum, gcd } from "./math";
+import { compareReading } from "./viet";
 
 export function checkAnswer(q: Question, input: string): boolean {
   const raw = input.trim();
@@ -24,6 +25,9 @@ export function checkAnswer(q: Question, input: string): boolean {
       }
       return true;
     }
+    case "read":
+      // input là lời nghe được (hoặc "__ok__" khi bé/bố mẹ tự chấm đúng)
+      return raw === "__ok__" || compareReading(q.answer, [raw], q.strict ?? true).pass;
     case "pair": {
       const [x, y] = raw.split(";");
       const [ax, ay] = q.answer.split(";");

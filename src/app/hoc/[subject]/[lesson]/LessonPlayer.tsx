@@ -83,6 +83,21 @@ export function LessonPlayer({ subjectId, lessonId }: { subjectId: string; lesso
                 const rest = slide.blocks.filter((b) => b !== img);
                 const hasCalc = rest.some((b) => b.type === "keys" && b.tryIt);
                 const side = img && !hasCalc;
+                // môn Tập đọc: khung "em đọc to" đặt cột phải cạnh phần ghép chữ, đỡ phải cuộn
+                const read = slide.blocks.find((b) => b.type === "read");
+                if (read && !img && slide.blocks.length > 1) {
+                  const others = slide.blocks.filter((b) => b !== read);
+                  return (
+                    <div className="card grid items-center gap-6 p-5 sm:p-6 md:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] [@media(max-height:700px)]:p-4">
+                      <div className="space-y-5">
+                        {others.map((b, k) => (
+                          <BlockView key={k} b={b} device={subject.device} />
+                        ))}
+                      </div>
+                      <BlockView b={read} device={subject.device} />
+                    </div>
+                  );
+                }
                 return (
                   <div className={`card p-5 sm:p-6 [@media(max-height:700px)]:p-4 ${side ? "grid items-start gap-6 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]" : ""}`}>
                     {side && (

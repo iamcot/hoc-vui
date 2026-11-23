@@ -1,0 +1,6758 @@
+[
+ {
+  "id": "tv-bowf",
+  "file": "/assets/voice/tv-bowf.mp3",
+  "text": "bờ",
+  "group": "Âm đầu (đánh vần)"
+ },
+ {
+  "id": "tv-cowf",
+  "file": "/assets/voice/tv-cowf.mp3",
+  "text": "cờ",
+  "group": "Âm đầu (đánh vần)"
+ },
+ {
+  "id": "tv-dowf",
+  "file": "/assets/voice/tv-dowf.mp3",
+  "text": "dờ",
+  "group": "Âm đầu (đánh vần)"
+ },
+ {
+  "id": "tv-ddowf",
+  "file": "/assets/voice/tv-ddowf.mp3",
+  "text": "đờ",
+  "group": "Âm đầu (đánh vần)"
+ },
+ {
+  "id": "tv-gowf",
+  "file": "/assets/voice/tv-gowf.mp3",
+  "text": "gờ",
+  "group": "Âm đầu (đánh vần)"
+ },
+ {
+  "id": "tv-howf",
+  "file": "/assets/voice/tv-howf.mp3",
+  "text": "hờ",
+  "group": "Âm đầu (đánh vần)"
+ },
+ {
+  "id": "tv-ca",
+  "file": "/assets/voice/tv-ca.mp3",
+  "text": "ca",
+  "group": "Âm đầu (đánh vần)"
+ },
+ {
+  "id": "tv-khowf",
+  "file": "/assets/voice/tv-khowf.mp3",
+  "text": "khờ",
+  "group": "Âm đầu (đánh vần)"
+ },
+ {
+  "id": "tv-lowf",
+  "file": "/assets/voice/tv-lowf.mp3",
+  "text": "lờ",
+  "group": "Âm đầu (đánh vần)"
+ },
+ {
+  "id": "tv-mowf",
+  "file": "/assets/voice/tv-mowf.mp3",
+  "text": "mờ",
+  "group": "Âm đầu (đánh vần)"
+ },
+ {
+  "id": "tv-nowf",
+  "file": "/assets/voice/tv-nowf.mp3",
+  "text": "nờ",
+  "group": "Âm đầu (đánh vần)"
+ },
+ {
+  "id": "tv-ngowf",
+  "file": "/assets/voice/tv-ngowf.mp3",
+  "text": "ngờ",
+  "group": "Âm đầu (đánh vần)"
+ },
+ {
+  "id": "tv-nhowf",
+  "file": "/assets/voice/tv-nhowf.mp3",
+  "text": "nhờ",
+  "group": "Âm đầu (đánh vần)"
+ },
+ {
+  "id": "tv-powf",
+  "file": "/assets/voice/tv-powf.mp3",
+  "text": "pờ",
+  "group": "Âm đầu (đánh vần)"
+ },
+ {
+  "id": "tv-phowf",
+  "file": "/assets/voice/tv-phowf.mp3",
+  "text": "phờ",
+  "group": "Âm đầu (đánh vần)"
+ },
+ {
+  "id": "tv-quowf",
+  "file": "/assets/voice/tv-quowf.mp3",
+  "text": "quờ",
+  "group": "Âm đầu (đánh vần)"
+ },
+ {
+  "id": "tv-rowf",
+  "file": "/assets/voice/tv-rowf.mp3",
+  "text": "rờ",
+  "group": "Âm đầu (đánh vần)"
+ },
+ {
+  "id": "tv-sowf",
+  "file": "/assets/voice/tv-sowf.mp3",
+  "text": "sờ",
+  "group": "Âm đầu (đánh vần)"
+ },
+ {
+  "id": "tv-towf",
+  "file": "/assets/voice/tv-towf.mp3",
+  "text": "tờ",
+  "group": "Âm đầu (đánh vần)"
+ },
+ {
+  "id": "tv-thowf",
+  "file": "/assets/voice/tv-thowf.mp3",
+  "text": "thờ",
+  "group": "Âm đầu (đánh vần)"
+ },
+ {
+  "id": "tv-trowf",
+  "file": "/assets/voice/tv-trowf.mp3",
+  "text": "trờ",
+  "group": "Âm đầu (đánh vần)"
+ },
+ {
+  "id": "tv-vowf",
+  "file": "/assets/voice/tv-vowf.mp3",
+  "text": "vờ",
+  "group": "Âm đầu (đánh vần)"
+ },
+ {
+  "id": "tv-xowf",
+  "file": "/assets/voice/tv-xowf.mp3",
+  "text": "xờ",
+  "group": "Âm đầu (đánh vần)"
+ },
+ {
+  "id": "tv-chowf",
+  "file": "/assets/voice/tv-chowf.mp3",
+  "text": "chờ",
+  "group": "Âm đầu (đánh vần)"
+ },
+ {
+  "id": "tv-di",
+  "file": "/assets/voice/tv-di.mp3",
+  "text": "di",
+  "group": "Âm đầu (đánh vần)"
+ },
+ {
+  "id": "tv-huyeenf",
+  "file": "/assets/voice/tv-huyeenf.mp3",
+  "text": "huyền",
+  "group": "Tên dấu (đánh vần)"
+ },
+ {
+  "id": "tv-sawcs",
+  "file": "/assets/voice/tv-sawcs.mp3",
+  "text": "sắc",
+  "group": "Tên dấu (đánh vần)"
+ },
+ {
+  "id": "tv-hoir",
+  "file": "/assets/voice/tv-hoir.mp3",
+  "text": "hỏi",
+  "group": "Tên dấu (đánh vần)"
+ },
+ {
+  "id": "tv-ngax",
+  "file": "/assets/voice/tv-ngax.mp3",
+  "text": "ngã",
+  "group": "Tên dấu (đánh vần)"
+ },
+ {
+  "id": "tv-nawngj",
+  "file": "/assets/voice/tv-nawngj.mp3",
+  "text": "nặng",
+  "group": "Tên dấu (đánh vần)"
+ },
+ {
+  "id": "tv-ba",
+  "file": "/assets/voice/tv-ba.mp3",
+  "text": "ba",
+  "group": "Sáu thanh"
+ },
+ {
+  "id": "tv-baf",
+  "file": "/assets/voice/tv-baf.mp3",
+  "text": "bà",
+  "group": "Sáu thanh"
+ },
+ {
+  "id": "tv-bas",
+  "file": "/assets/voice/tv-bas.mp3",
+  "text": "bá",
+  "group": "Sáu thanh"
+ },
+ {
+  "id": "tv-bar",
+  "file": "/assets/voice/tv-bar.mp3",
+  "text": "bả",
+  "group": "Sáu thanh"
+ },
+ {
+  "id": "tv-bax",
+  "file": "/assets/voice/tv-bax.mp3",
+  "text": "bã",
+  "group": "Sáu thanh"
+ },
+ {
+  "id": "tv-baj",
+  "file": "/assets/voice/tv-baj.mp3",
+  "text": "bạ",
+  "group": "Sáu thanh"
+ },
+ {
+  "id": "tv-a",
+  "file": "/assets/voice/tv-a.mp3",
+  "text": "a",
+  "group": "Âm, vần · a, o, ô"
+ },
+ {
+  "id": "tv-af",
+  "file": "/assets/voice/tv-af.mp3",
+  "text": "à",
+  "group": "Tiếng · a, o, ô"
+ },
+ {
+  "id": "tv-as",
+  "file": "/assets/voice/tv-as.mp3",
+  "text": "á",
+  "group": "Tiếng · a, o, ô"
+ },
+ {
+  "id": "tv-o",
+  "file": "/assets/voice/tv-o.mp3",
+  "text": "o",
+  "group": "Âm, vần · a, o, ô"
+ },
+ {
+  "id": "tv-of",
+  "file": "/assets/voice/tv-of.mp3",
+  "text": "ò",
+  "group": "Tiếng · a, o, ô"
+ },
+ {
+  "id": "tv-os",
+  "file": "/assets/voice/tv-os.mp3",
+  "text": "ó",
+  "group": "Tiếng · a, o, ô"
+ },
+ {
+  "id": "tv-o_tronf",
+  "file": "/assets/voice/tv-o_tronf.mp3",
+  "text": "o tròn",
+  "group": "Từ khóa · a, o, ô"
+ },
+ {
+  "id": "tv-oo",
+  "file": "/assets/voice/tv-oo.mp3",
+  "text": "ô",
+  "group": "Âm, vần · a, o, ô"
+ },
+ {
+  "id": "tv-oof",
+  "file": "/assets/voice/tv-oof.mp3",
+  "text": "ồ",
+  "group": "Tiếng · a, o, ô"
+ },
+ {
+  "id": "tv-oos",
+  "file": "/assets/voice/tv-oos.mp3",
+  "text": "ố",
+  "group": "Tiếng · a, o, ô"
+ },
+ {
+  "id": "tv-oo_cos_mux",
+  "file": "/assets/voice/tv-oo_cos_mux.mp3",
+  "text": "ô có mũ",
+  "group": "Từ khóa · a, o, ô"
+ },
+ {
+  "id": "tv-ow",
+  "file": "/assets/voice/tv-ow.mp3",
+  "text": "ơ",
+  "group": "Âm, vần · ơ, e, ê"
+ },
+ {
+  "id": "tv-owf",
+  "file": "/assets/voice/tv-owf.mp3",
+  "text": "ờ",
+  "group": "Tiếng · ơ, e, ê"
+ },
+ {
+  "id": "tv-ows",
+  "file": "/assets/voice/tv-ows.mp3",
+  "text": "ớ",
+  "group": "Tiếng · ơ, e, ê"
+ },
+ {
+  "id": "tv-ow_cos_raau",
+  "file": "/assets/voice/tv-ow_cos_raau.mp3",
+  "text": "ơ có râu",
+  "group": "Từ khóa · ơ, e, ê"
+ },
+ {
+  "id": "tv-e",
+  "file": "/assets/voice/tv-e.mp3",
+  "text": "e",
+  "group": "Âm, vần · ơ, e, ê"
+ },
+ {
+  "id": "tv-ef",
+  "file": "/assets/voice/tv-ef.mp3",
+  "text": "è",
+  "group": "Tiếng · ơ, e, ê"
+ },
+ {
+  "id": "tv-es",
+  "file": "/assets/voice/tv-es.mp3",
+  "text": "é",
+  "group": "Tiếng · ơ, e, ê"
+ },
+ {
+  "id": "tv-ee",
+  "file": "/assets/voice/tv-ee.mp3",
+  "text": "ê",
+  "group": "Âm, vần · ơ, e, ê"
+ },
+ {
+  "id": "tv-eef",
+  "file": "/assets/voice/tv-eef.mp3",
+  "text": "ề",
+  "group": "Tiếng · ơ, e, ê"
+ },
+ {
+  "id": "tv-ees",
+  "file": "/assets/voice/tv-ees.mp3",
+  "text": "ế",
+  "group": "Tiếng · ơ, e, ê"
+ },
+ {
+  "id": "tv-ee_cos_mux",
+  "file": "/assets/voice/tv-ee_cos_mux.mp3",
+  "text": "ê có mũ",
+  "group": "Từ khóa · ơ, e, ê"
+ },
+ {
+  "id": "tv-i",
+  "file": "/assets/voice/tv-i.mp3",
+  "text": "i",
+  "group": "Âm, vần · i, u, ư"
+ },
+ {
+  "id": "tv-if",
+  "file": "/assets/voice/tv-if.mp3",
+  "text": "ì",
+  "group": "Tiếng · i, u, ư"
+ },
+ {
+  "id": "tv-is",
+  "file": "/assets/voice/tv-is.mp3",
+  "text": "í",
+  "group": "Tiếng · i, u, ư"
+ },
+ {
+  "id": "tv-i_cos_chaams",
+  "file": "/assets/voice/tv-i_cos_chaams.mp3",
+  "text": "i có chấm",
+  "group": "Từ khóa · i, u, ư"
+ },
+ {
+  "id": "tv-u",
+  "file": "/assets/voice/tv-u.mp3",
+  "text": "u",
+  "group": "Âm, vần · i, u, ư"
+ },
+ {
+  "id": "tv-uf",
+  "file": "/assets/voice/tv-uf.mp3",
+  "text": "ù",
+  "group": "Tiếng · i, u, ư"
+ },
+ {
+  "id": "tv-us",
+  "file": "/assets/voice/tv-us.mp3",
+  "text": "ú",
+  "group": "Tiếng · i, u, ư"
+ },
+ {
+  "id": "tv-uw",
+  "file": "/assets/voice/tv-uw.mp3",
+  "text": "ư",
+  "group": "Âm, vần · i, u, ư"
+ },
+ {
+  "id": "tv-uwf",
+  "file": "/assets/voice/tv-uwf.mp3",
+  "text": "ừ",
+  "group": "Tiếng · i, u, ư"
+ },
+ {
+  "id": "tv-uws",
+  "file": "/assets/voice/tv-uws.mp3",
+  "text": "ứ",
+  "group": "Tiếng · i, u, ư"
+ },
+ {
+  "id": "tv-uw_cos_raau",
+  "file": "/assets/voice/tv-uw_cos_raau.mp3",
+  "text": "ư có râu",
+  "group": "Từ khóa · i, u, ư"
+ },
+ {
+  "id": "tv-awn",
+  "file": "/assets/voice/tv-awn.mp3",
+  "text": "ăn",
+  "group": "Đánh vần · ă, â, y"
+ },
+ {
+  "id": "tv-awts",
+  "file": "/assets/voice/tv-awts.mp3",
+  "text": "ắt",
+  "group": "Tiếng · ă, â, y"
+ },
+ {
+  "id": "tv-awmr",
+  "file": "/assets/voice/tv-awmr.mp3",
+  "text": "ẳm",
+  "group": "Tiếng · ă, â, y"
+ },
+ {
+  "id": "tv-aw_trawng",
+  "file": "/assets/voice/tv-aw_trawng.mp3",
+  "text": "ă trăng",
+  "group": "Từ khóa · ă, â, y"
+ },
+ {
+  "id": "tv-aam",
+  "file": "/assets/voice/tv-aam.mp3",
+  "text": "âm",
+  "group": "Đánh vần · ă, â, y"
+ },
+ {
+  "id": "tv-aams",
+  "file": "/assets/voice/tv-aams.mp3",
+  "text": "ấm",
+  "group": "Đánh vần · ă, â, y"
+ },
+ {
+  "id": "tv-aaps",
+  "file": "/assets/voice/tv-aaps.mp3",
+  "text": "ấp",
+  "group": "Tiếng · ă, â, y"
+ },
+ {
+  "id": "tv-aan",
+  "file": "/assets/voice/tv-aan.mp3",
+  "text": "ân",
+  "group": "Tiếng · ă, â, y"
+ },
+ {
+  "id": "tv-aa_mux",
+  "file": "/assets/voice/tv-aa_mux.mp3",
+  "text": "â mũ",
+  "group": "Từ khóa · ă, â, y"
+ },
+ {
+  "id": "tv-y",
+  "file": "/assets/voice/tv-y.mp3",
+  "text": "y",
+  "group": "Đánh vần · ă, â, y"
+ },
+ {
+  "id": "tv-ys",
+  "file": "/assets/voice/tv-ys.mp3",
+  "text": "ý",
+  "group": "Tiếng · ă, â, y"
+ },
+ {
+  "id": "tv-yr",
+  "file": "/assets/voice/tv-yr.mp3",
+  "text": "ỷ",
+  "group": "Tiếng · ă, â, y"
+ },
+ {
+  "id": "tv-i_daif",
+  "file": "/assets/voice/tv-i_daif.mp3",
+  "text": "i dài",
+  "group": "Từ khóa · ă, â, y"
+ },
+ {
+  "id": "tv-bes",
+  "file": "/assets/voice/tv-bes.mp3",
+  "text": "bé",
+  "group": "Tiếng · b, huyền, sắc"
+ },
+ {
+  "id": "tv-bee",
+  "file": "/assets/voice/tv-bee.mp3",
+  "text": "bê",
+  "group": "Tiếng · b, huyền, sắc"
+ },
+ {
+  "id": "tv-bof",
+  "file": "/assets/voice/tv-bof.mp3",
+  "text": "bò",
+  "group": "Tiếng · b, huyền, sắc"
+ },
+ {
+  "id": "tv-boos",
+  "file": "/assets/voice/tv-boos.mp3",
+  "text": "bố",
+  "group": "Tiếng · b, huyền, sắc"
+ },
+ {
+  "id": "tv-bes_bees_bee",
+  "file": "/assets/voice/tv-bes_bees_bee.mp3",
+  "text": "bé bế bê",
+  "group": "Câu ứng dụng · b, huyền, sắc"
+ },
+ {
+  "id": "tv-beer",
+  "file": "/assets/voice/tv-beer.mp3",
+  "text": "bể",
+  "group": "Đánh vần · Hỏi, ngã, nặng"
+ },
+ {
+  "id": "tv-ber",
+  "file": "/assets/voice/tv-ber.mp3",
+  "text": "bẻ",
+  "group": "Tiếng · Hỏi, ngã, nặng"
+ },
+ {
+  "id": "tv-bex",
+  "file": "/assets/voice/tv-bex.mp3",
+  "text": "bẽ",
+  "group": "Tiếng · Hỏi, ngã, nặng"
+ },
+ {
+  "id": "tv-box",
+  "file": "/assets/voice/tv-box.mp3",
+  "text": "bõ",
+  "group": "Tiếng · Hỏi, ngã, nặng"
+ },
+ {
+  "id": "tv-bij",
+  "file": "/assets/voice/tv-bij.mp3",
+  "text": "bị",
+  "group": "Tiếng · Hỏi, ngã, nặng"
+ },
+ {
+  "id": "tv-beer_cas",
+  "file": "/assets/voice/tv-beer_cas.mp3",
+  "text": "bể cá",
+  "group": "Từ khóa · Hỏi, ngã, nặng"
+ },
+ {
+  "id": "tv-baf_ber_bis_bes_bee_beer",
+  "file": "/assets/voice/tv-baf_ber_bis_bes_bee_beer.mp3",
+  "text": "bà bẻ bí, bé bê bể",
+  "group": "Câu ứng dụng · Hỏi, ngã, nặng"
+ },
+ {
+  "id": "tv-cas",
+  "file": "/assets/voice/tv-cas.mp3",
+  "text": "cá",
+  "group": "Đánh vần · c, d, đ"
+ },
+ {
+  "id": "tv-cof",
+  "file": "/assets/voice/tv-cof.mp3",
+  "text": "cò",
+  "group": "Tiếng · c, d, đ"
+ },
+ {
+  "id": "tv-cor",
+  "file": "/assets/voice/tv-cor.mp3",
+  "text": "cỏ",
+  "group": "Tiếng · c, d, đ"
+ },
+ {
+  "id": "tv-coo",
+  "file": "/assets/voice/tv-coo.mp3",
+  "text": "cô",
+  "group": "Tiếng · c, d, đ"
+ },
+ {
+  "id": "tv-con_cas",
+  "file": "/assets/voice/tv-con_cas.mp3",
+  "text": "con cá",
+  "group": "Từ khóa · c, d, đ"
+ },
+ {
+  "id": "tv-dee",
+  "file": "/assets/voice/tv-dee.mp3",
+  "text": "dê",
+  "group": "Đánh vần · c, d, đ"
+ },
+ {
+  "id": "tv-da",
+  "file": "/assets/voice/tv-da.mp3",
+  "text": "da",
+  "group": "Tiếng · c, d, đ"
+ },
+ {
+  "id": "tv-dif",
+  "file": "/assets/voice/tv-dif.mp3",
+  "text": "dì",
+  "group": "Tiếng · c, d, đ"
+ },
+ {
+  "id": "tv-dees",
+  "file": "/assets/voice/tv-dees.mp3",
+  "text": "dế",
+  "group": "Tiếng · c, d, đ"
+ },
+ {
+  "id": "tv-con_dee",
+  "file": "/assets/voice/tv-con_dee.mp3",
+  "text": "con dê",
+  "group": "Từ khóa · c, d, đ"
+ },
+ {
+  "id": "tv-dda",
+  "file": "/assets/voice/tv-dda.mp3",
+  "text": "đa",
+  "group": "Đánh vần · c, d, đ"
+ },
+ {
+  "id": "tv-ddas",
+  "file": "/assets/voice/tv-ddas.mp3",
+  "text": "đá",
+  "group": "Đánh vần · c, d, đ"
+ },
+ {
+  "id": "tv-ddof",
+  "file": "/assets/voice/tv-ddof.mp3",
+  "text": "đò",
+  "group": "Tiếng · c, d, đ"
+ },
+ {
+  "id": "tv-ddi",
+  "file": "/assets/voice/tv-ddi.mp3",
+  "text": "đi",
+  "group": "Tiếng · c, d, đ"
+ },
+ {
+  "id": "tv-ddoox",
+  "file": "/assets/voice/tv-ddoox.mp3",
+  "text": "đỗ",
+  "group": "Tiếng · c, d, đ"
+ },
+ {
+  "id": "tv-honf_ddas",
+  "file": "/assets/voice/tv-honf_ddas.mp3",
+  "text": "hòn đá",
+  "group": "Từ khóa · c, d, đ"
+ },
+ {
+  "id": "tv-bes_ddi_ddof_coo_bees_bes",
+  "file": "/assets/voice/tv-bes_ddi_ddof_coo_bees_bes.mp3",
+  "text": "bé đi đò, cô bế bé",
+  "group": "Câu ứng dụng · c, d, đ"
+ },
+ {
+  "id": "tv-hoo",
+  "file": "/assets/voice/tv-hoo.mp3",
+  "text": "hô",
+  "group": "Đánh vần · h, l, m"
+ },
+ {
+  "id": "tv-hoor",
+  "file": "/assets/voice/tv-hoor.mp3",
+  "text": "hổ",
+  "group": "Đánh vần · h, l, m"
+ },
+ {
+  "id": "tv-hef",
+  "file": "/assets/voice/tv-hef.mp3",
+  "text": "hè",
+  "group": "Tiếng · h, l, m"
+ },
+ {
+  "id": "tv-hoof",
+  "file": "/assets/voice/tv-hoof.mp3",
+  "text": "hồ",
+  "group": "Tiếng · h, l, m"
+ },
+ {
+  "id": "tv-haf",
+  "file": "/assets/voice/tv-haf.mp3",
+  "text": "hà",
+  "group": "Tiếng · h, l, m"
+ },
+ {
+  "id": "tv-con_hoor",
+  "file": "/assets/voice/tv-con_hoor.mp3",
+  "text": "con hổ",
+  "group": "Từ khóa · h, l, m"
+ },
+ {
+  "id": "tv-la",
+  "file": "/assets/voice/tv-la.mp3",
+  "text": "la",
+  "group": "Đánh vần · h, l, m"
+ },
+ {
+  "id": "tv-las",
+  "file": "/assets/voice/tv-las.mp3",
+  "text": "lá",
+  "group": "Đánh vần · h, l, m"
+ },
+ {
+  "id": "tv-lee",
+  "file": "/assets/voice/tv-lee.mp3",
+  "text": "lê",
+  "group": "Tiếng · h, l, m"
+ },
+ {
+  "id": "tv-loj",
+  "file": "/assets/voice/tv-loj.mp3",
+  "text": "lọ",
+  "group": "Tiếng · h, l, m"
+ },
+ {
+  "id": "tv-lof",
+  "file": "/assets/voice/tv-lof.mp3",
+  "text": "lò",
+  "group": "Tiếng · h, l, m"
+ },
+ {
+  "id": "tv-las_cowf",
+  "file": "/assets/voice/tv-las_cowf.mp3",
+  "text": "lá cờ",
+  "group": "Từ khóa · h, l, m"
+ },
+ {
+  "id": "tv-me",
+  "file": "/assets/voice/tv-me.mp3",
+  "text": "me",
+  "group": "Đánh vần · h, l, m"
+ },
+ {
+  "id": "tv-mej",
+  "file": "/assets/voice/tv-mej.mp3",
+  "text": "mẹ",
+  "group": "Đánh vần · h, l, m"
+ },
+ {
+  "id": "tv-mux",
+  "file": "/assets/voice/tv-mux.mp3",
+  "text": "mũ",
+  "group": "Tiếng · h, l, m"
+ },
+ {
+  "id": "tv-mow",
+  "file": "/assets/voice/tv-mow.mp3",
+  "text": "mơ",
+  "group": "Tiếng · h, l, m"
+ },
+ {
+  "id": "tv-mej_bes",
+  "file": "/assets/voice/tv-mej_bes.mp3",
+  "text": "mẹ bé",
+  "group": "Từ khóa · h, l, m"
+ },
+ {
+  "id": "tv-mej_bees_bes_ddi_hoof",
+  "file": "/assets/voice/tv-mej_bees_bes_ddi_hoof.mp3",
+  "text": "mẹ bế bé đi hồ",
+  "group": "Câu ứng dụng · h, l, m"
+ },
+ {
+  "id": "tv-now",
+  "file": "/assets/voice/tv-now.mp3",
+  "text": "nơ",
+  "group": "Đánh vần · n, k, g"
+ },
+ {
+  "id": "tv-no",
+  "file": "/assets/voice/tv-no.mp3",
+  "text": "no",
+  "group": "Tiếng · n, k, g"
+ },
+ {
+  "id": "tv-nos",
+  "file": "/assets/voice/tv-nos.mp3",
+  "text": "nó",
+  "group": "Tiếng · n, k, g"
+ },
+ {
+  "id": "tv-na",
+  "file": "/assets/voice/tv-na.mp3",
+  "text": "na",
+  "group": "Tiếng · n, k, g"
+ },
+ {
+  "id": "tv-cais_now",
+  "file": "/assets/voice/tv-cais_now.mp3",
+  "text": "cái nơ",
+  "group": "Từ khóa · n, k, g"
+ },
+ {
+  "id": "tv-ke",
+  "file": "/assets/voice/tv-ke.mp3",
+  "text": "ke",
+  "group": "Đánh vần · n, k, g"
+ },
+ {
+  "id": "tv-ker",
+  "file": "/assets/voice/tv-ker.mp3",
+  "text": "kẻ",
+  "group": "Đánh vần · n, k, g"
+ },
+ {
+  "id": "tv-kee",
+  "file": "/assets/voice/tv-kee.mp3",
+  "text": "kê",
+  "group": "Tiếng · n, k, g"
+ },
+ {
+  "id": "tv-kif",
+  "file": "/assets/voice/tv-kif.mp3",
+  "text": "kì",
+  "group": "Tiếng · n, k, g"
+ },
+ {
+  "id": "tv-keer",
+  "file": "/assets/voice/tv-keer.mp3",
+  "text": "kể",
+  "group": "Tiếng · n, k, g"
+ },
+ {
+  "id": "tv-ker_vowr",
+  "file": "/assets/voice/tv-ker_vowr.mp3",
+  "text": "kẻ vở",
+  "group": "Từ khóa · n, k, g"
+ },
+ {
+  "id": "tv-ga",
+  "file": "/assets/voice/tv-ga.mp3",
+  "text": "ga",
+  "group": "Đánh vần · n, k, g"
+ },
+ {
+  "id": "tv-gaf",
+  "file": "/assets/voice/tv-gaf.mp3",
+  "text": "gà",
+  "group": "Đánh vần · n, k, g"
+ },
+ {
+  "id": "tv-goox",
+  "file": "/assets/voice/tv-goox.mp3",
+  "text": "gỗ",
+  "group": "Tiếng · n, k, g"
+ },
+ {
+  "id": "tv-gox",
+  "file": "/assets/voice/tv-gox.mp3",
+  "text": "gõ",
+  "group": "Tiếng · n, k, g"
+ },
+ {
+  "id": "tv-con_gaf",
+  "file": "/assets/voice/tv-con_gaf.mp3",
+  "text": "con gà",
+  "group": "Từ khóa · n, k, g"
+ },
+ {
+  "id": "tv-gaf_mej_keer_cho_gaf_con",
+  "file": "/assets/voice/tv-gaf_mej_keer_cho_gaf_con.mp3",
+  "text": "gà mẹ kể cho gà con",
+  "group": "Câu ứng dụng · n, k, g"
+ },
+ {
+  "id": "tv-roo",
+  "file": "/assets/voice/tv-roo.mp3",
+  "text": "rô",
+  "group": "Đánh vần · r, s, t"
+ },
+ {
+  "id": "tv-roor",
+  "file": "/assets/voice/tv-roor.mp3",
+  "text": "rổ",
+  "group": "Đánh vần · r, s, t"
+ },
+ {
+  "id": "tv-ras",
+  "file": "/assets/voice/tv-ras.mp3",
+  "text": "rá",
+  "group": "Tiếng · r, s, t"
+ },
+ {
+  "id": "tv-reex",
+  "file": "/assets/voice/tv-reex.mp3",
+  "text": "rễ",
+  "group": "Tiếng · r, s, t"
+ },
+ {
+  "id": "tv-rif",
+  "file": "/assets/voice/tv-rif.mp3",
+  "text": "rì",
+  "group": "Tiếng · r, s, t"
+ },
+ {
+  "id": "tv-cais_roor",
+  "file": "/assets/voice/tv-cais_roor.mp3",
+  "text": "cái rổ",
+  "group": "Từ khóa · r, s, t"
+ },
+ {
+  "id": "tv-so",
+  "file": "/assets/voice/tv-so.mp3",
+  "text": "so",
+  "group": "Đánh vần · r, s, t"
+ },
+ {
+  "id": "tv-sof",
+  "file": "/assets/voice/tv-sof.mp3",
+  "text": "sò",
+  "group": "Đánh vần · r, s, t"
+ },
+ {
+  "id": "tv-ser",
+  "file": "/assets/voice/tv-ser.mp3",
+  "text": "sẻ",
+  "group": "Tiếng · r, s, t"
+ },
+ {
+  "id": "tv-soos",
+  "file": "/assets/voice/tv-soos.mp3",
+  "text": "số",
+  "group": "Tiếng · r, s, t"
+ },
+ {
+  "id": "tv-suw",
+  "file": "/assets/voice/tv-suw.mp3",
+  "text": "sư",
+  "group": "Tiếng · r, s, t"
+ },
+ {
+  "id": "tv-con_sof",
+  "file": "/assets/voice/tv-con_sof.mp3",
+  "text": "con sò",
+  "group": "Từ khóa · r, s, t"
+ },
+ {
+  "id": "tv-too",
+  "file": "/assets/voice/tv-too.mp3",
+  "text": "tô",
+  "group": "Đánh vần · r, s, t"
+ },
+ {
+  "id": "tv-toor",
+  "file": "/assets/voice/tv-toor.mp3",
+  "text": "tổ",
+  "group": "Tiếng · r, s, t"
+ },
+ {
+  "id": "tv-tur",
+  "file": "/assets/voice/tv-tur.mp3",
+  "text": "tủ",
+  "group": "Tiếng · r, s, t"
+ },
+ {
+  "id": "tv-tow",
+  "file": "/assets/voice/tv-tow.mp3",
+  "text": "tơ",
+  "group": "Tiếng · r, s, t"
+ },
+ {
+  "id": "tv-too_mif",
+  "file": "/assets/voice/tv-too_mif.mp3",
+  "text": "tô mì",
+  "group": "Từ khóa · r, s, t"
+ },
+ {
+  "id": "tv-toor_ser_owr_bowf_ddee",
+  "file": "/assets/voice/tv-toor_ser_owr_bowf_ddee.mp3",
+  "text": "tổ sẻ ở bờ đê",
+  "group": "Câu ứng dụng · r, s, t"
+ },
+ {
+  "id": "tv-vow",
+  "file": "/assets/voice/tv-vow.mp3",
+  "text": "vơ",
+  "group": "Đánh vần · v, x, p"
+ },
+ {
+  "id": "tv-vowr",
+  "file": "/assets/voice/tv-vowr.mp3",
+  "text": "vở",
+  "group": "Đánh vần · v, x, p"
+ },
+ {
+  "id": "tv-vex",
+  "file": "/assets/voice/tv-vex.mp3",
+  "text": "vẽ",
+  "group": "Tiếng · v, x, p"
+ },
+ {
+  "id": "tv-ve",
+  "file": "/assets/voice/tv-ve.mp3",
+  "text": "ve",
+  "group": "Tiếng · v, x, p"
+ },
+ {
+  "id": "tv-vos",
+  "file": "/assets/voice/tv-vos.mp3",
+  "text": "vó",
+  "group": "Tiếng · v, x, p"
+ },
+ {
+  "id": "tv-quyeenr_vowr",
+  "file": "/assets/voice/tv-quyeenr_vowr.mp3",
+  "text": "quyển vở",
+  "group": "Từ khóa · v, x, p"
+ },
+ {
+  "id": "tv-xe",
+  "file": "/assets/voice/tv-xe.mp3",
+  "text": "xe",
+  "group": "Đánh vần · v, x, p"
+ },
+ {
+  "id": "tv-xoo",
+  "file": "/assets/voice/tv-xoo.mp3",
+  "text": "xô",
+  "group": "Tiếng · v, x, p"
+ },
+ {
+  "id": "tv-xa",
+  "file": "/assets/voice/tv-xa.mp3",
+  "text": "xa",
+  "group": "Tiếng · v, x, p"
+ },
+ {
+  "id": "tv-xuf",
+  "file": "/assets/voice/tv-xuf.mp3",
+  "text": "xù",
+  "group": "Tiếng · v, x, p"
+ },
+ {
+  "id": "tv-xe_ddor",
+  "file": "/assets/voice/tv-xe_ddor.mp3",
+  "text": "xe đỏ",
+  "group": "Từ khóa · v, x, p"
+ },
+ {
+  "id": "tv-pa",
+  "file": "/assets/voice/tv-pa.mp3",
+  "text": "pa",
+  "group": "Đánh vần · v, x, p"
+ },
+ {
+  "id": "tv-pis",
+  "file": "/assets/voice/tv-pis.mp3",
+  "text": "pí",
+  "group": "Tiếng · v, x, p"
+ },
+ {
+  "id": "tv-poo",
+  "file": "/assets/voice/tv-poo.mp3",
+  "text": "pô",
+  "group": "Tiếng · v, x, p"
+ },
+ {
+  "id": "tv-pa_pa",
+  "file": "/assets/voice/tv-pa_pa.mp3",
+  "text": "pa pa",
+  "group": "Từ khóa · v, x, p"
+ },
+ {
+  "id": "tv-bes_vex_xe_owr_vowr",
+  "file": "/assets/voice/tv-bes_vex_xe_owr_vowr.mp3",
+  "text": "bé vẽ xe ở vở",
+  "group": "Câu ứng dụng · v, x, p"
+ },
+ {
+  "id": "tv-cho",
+  "file": "/assets/voice/tv-cho.mp3",
+  "text": "cho",
+  "group": "Đánh vần · ch, nh, th"
+ },
+ {
+  "id": "tv-chos",
+  "file": "/assets/voice/tv-chos.mp3",
+  "text": "chó",
+  "group": "Đánh vần · ch, nh, th"
+ },
+ {
+  "id": "tv-chef",
+  "file": "/assets/voice/tv-chef.mp3",
+  "text": "chè",
+  "group": "Tiếng · ch, nh, th"
+ },
+ {
+  "id": "tv-chus",
+  "file": "/assets/voice/tv-chus.mp3",
+  "text": "chú",
+  "group": "Tiếng · ch, nh, th"
+ },
+ {
+  "id": "tv-chij",
+  "file": "/assets/voice/tv-chij.mp3",
+  "text": "chị",
+  "group": "Tiếng · ch, nh, th"
+ },
+ {
+  "id": "tv-con_chos",
+  "file": "/assets/voice/tv-con_chos.mp3",
+  "text": "con chó",
+  "group": "Từ khóa · ch, nh, th"
+ },
+ {
+  "id": "tv-nho",
+  "file": "/assets/voice/tv-nho.mp3",
+  "text": "nho",
+  "group": "Đánh vần · ch, nh, th"
+ },
+ {
+  "id": "tv-nhaf",
+  "file": "/assets/voice/tv-nhaf.mp3",
+  "text": "nhà",
+  "group": "Tiếng · ch, nh, th"
+ },
+ {
+  "id": "tv-nhoor",
+  "file": "/assets/voice/tv-nhoor.mp3",
+  "text": "nhổ",
+  "group": "Tiếng · ch, nh, th"
+ },
+ {
+  "id": "tv-nhej",
+  "file": "/assets/voice/tv-nhej.mp3",
+  "text": "nhẹ",
+  "group": "Tiếng · ch, nh, th"
+ },
+ {
+  "id": "tv-chumf_nho",
+  "file": "/assets/voice/tv-chumf_nho.mp3",
+  "text": "chùm nho",
+  "group": "Từ khóa · ch, nh, th"
+ },
+ {
+  "id": "tv-tho",
+  "file": "/assets/voice/tv-tho.mp3",
+  "text": "tho",
+  "group": "Đánh vần · ch, nh, th"
+ },
+ {
+  "id": "tv-thor",
+  "file": "/assets/voice/tv-thor.mp3",
+  "text": "thỏ",
+  "group": "Đánh vần · ch, nh, th"
+ },
+ {
+  "id": "tv-thar",
+  "file": "/assets/voice/tv-thar.mp3",
+  "text": "thả",
+  "group": "Tiếng · ch, nh, th"
+ },
+ {
+  "id": "tv-thif",
+  "file": "/assets/voice/tv-thif.mp3",
+  "text": "thì",
+  "group": "Tiếng · ch, nh, th"
+ },
+ {
+  "id": "tv-thow",
+  "file": "/assets/voice/tv-thow.mp3",
+  "text": "thơ",
+  "group": "Tiếng · ch, nh, th"
+ },
+ {
+  "id": "tv-chus_thor",
+  "file": "/assets/voice/tv-chus_thor.mp3",
+  "text": "chú thỏ",
+  "group": "Từ khóa · ch, nh, th"
+ },
+ {
+  "id": "tv-nhaf_thor_cos_chus_chos_nhor",
+  "file": "/assets/voice/tv-nhaf_thor_cos_chus_chos_nhor.mp3",
+  "text": "nhà thỏ có chú chó nhỏ",
+  "group": "Câu ứng dụng · ch, nh, th"
+ },
+ {
+  "id": "tv-khee",
+  "file": "/assets/voice/tv-khee.mp3",
+  "text": "khê",
+  "group": "Đánh vần · kh, ph, tr"
+ },
+ {
+  "id": "tv-khees",
+  "file": "/assets/voice/tv-khees.mp3",
+  "text": "khế",
+  "group": "Đánh vần · kh, ph, tr"
+ },
+ {
+  "id": "tv-khos",
+  "file": "/assets/voice/tv-khos.mp3",
+  "text": "khó",
+  "group": "Tiếng · kh, ph, tr"
+ },
+ {
+  "id": "tv-khir",
+  "file": "/assets/voice/tv-khir.mp3",
+  "text": "khỉ",
+  "group": "Tiếng · kh, ph, tr"
+ },
+ {
+  "id": "tv-kho",
+  "file": "/assets/voice/tv-kho.mp3",
+  "text": "kho",
+  "group": "Tiếng · kh, ph, tr"
+ },
+ {
+  "id": "tv-quar_khees",
+  "file": "/assets/voice/tv-quar_khees.mp3",
+  "text": "quả khế",
+  "group": "Từ khóa · kh, ph, tr"
+ },
+ {
+  "id": "tv-phow",
+  "file": "/assets/voice/tv-phow.mp3",
+  "text": "phơ",
+  "group": "Đánh vần · kh, ph, tr"
+ },
+ {
+  "id": "tv-phowr",
+  "file": "/assets/voice/tv-phowr.mp3",
+  "text": "phở",
+  "group": "Đánh vần · kh, ph, tr"
+ },
+ {
+  "id": "tv-phoos",
+  "file": "/assets/voice/tv-phoos.mp3",
+  "text": "phố",
+  "group": "Tiếng · kh, ph, tr"
+ },
+ {
+  "id": "tv-phaf",
+  "file": "/assets/voice/tv-phaf.mp3",
+  "text": "phà",
+  "group": "Tiếng · kh, ph, tr"
+ },
+ {
+  "id": "tv-phus",
+  "file": "/assets/voice/tv-phus.mp3",
+  "text": "phú",
+  "group": "Tiếng · kh, ph, tr"
+ },
+ {
+  "id": "tv-bats_phowr",
+  "file": "/assets/voice/tv-bats_phowr.mp3",
+  "text": "bát phở",
+  "group": "Từ khóa · kh, ph, tr"
+ },
+ {
+  "id": "tv-tre",
+  "file": "/assets/voice/tv-tre.mp3",
+  "text": "tre",
+  "group": "Đánh vần · kh, ph, tr"
+ },
+ {
+  "id": "tv-trer",
+  "file": "/assets/voice/tv-trer.mp3",
+  "text": "trẻ",
+  "group": "Tiếng · kh, ph, tr"
+ },
+ {
+  "id": "tv-traf",
+  "file": "/assets/voice/tv-traf.mp3",
+  "text": "trà",
+  "group": "Tiếng · kh, ph, tr"
+ },
+ {
+  "id": "tv-tree",
+  "file": "/assets/voice/tv-tree.mp3",
+  "text": "trê",
+  "group": "Tiếng · kh, ph, tr"
+ },
+ {
+  "id": "tv-caay_tre",
+  "file": "/assets/voice/tv-caay_tre.mp3",
+  "text": "cây tre",
+  "group": "Từ khóa · kh, ph, tr"
+ },
+ {
+  "id": "tv-phoos_cos_phowr_nhaf_cos_tre",
+  "file": "/assets/voice/tv-phoos_cos_phowr_nhaf_cos_tre.mp3",
+  "text": "phố có phở, nhà có tre",
+  "group": "Câu ứng dụng · kh, ph, tr"
+ },
+ {
+  "id": "tv-ngoo",
+  "file": "/assets/voice/tv-ngoo.mp3",
+  "text": "ngô",
+  "group": "Đánh vần · ng, ngh, gh"
+ },
+ {
+  "id": "tv-ngur",
+  "file": "/assets/voice/tv-ngur.mp3",
+  "text": "ngủ",
+  "group": "Tiếng · ng, ngh, gh"
+ },
+ {
+  "id": "tv-ngaf",
+  "file": "/assets/voice/tv-ngaf.mp3",
+  "text": "ngà",
+  "group": "Tiếng · ng, ngh, gh"
+ },
+ {
+  "id": "tv-ngox",
+  "file": "/assets/voice/tv-ngox.mp3",
+  "text": "ngõ",
+  "group": "Tiếng · ng, ngh, gh"
+ },
+ {
+  "id": "tv-bawps_ngoo",
+  "file": "/assets/voice/tv-bawps_ngoo.mp3",
+  "text": "bắp ngô",
+  "group": "Từ khóa · ng, ngh, gh"
+ },
+ {
+  "id": "tv-nghe",
+  "file": "/assets/voice/tv-nghe.mp3",
+  "text": "nghe",
+  "group": "Đánh vần · ng, ngh, gh"
+ },
+ {
+  "id": "tv-nghes",
+  "file": "/assets/voice/tv-nghes.mp3",
+  "text": "nghé",
+  "group": "Đánh vần · ng, ngh, gh"
+ },
+ {
+  "id": "tv-ngheef",
+  "file": "/assets/voice/tv-ngheef.mp3",
+  "text": "nghề",
+  "group": "Tiếng · ng, ngh, gh"
+ },
+ {
+  "id": "tv-nghir",
+  "file": "/assets/voice/tv-nghir.mp3",
+  "text": "nghỉ",
+  "group": "Tiếng · ng, ngh, gh"
+ },
+ {
+  "id": "tv-chus_nghes",
+  "file": "/assets/voice/tv-chus_nghes.mp3",
+  "text": "chú nghé",
+  "group": "Từ khóa · ng, ngh, gh"
+ },
+ {
+  "id": "tv-ghee",
+  "file": "/assets/voice/tv-ghee.mp3",
+  "text": "ghê",
+  "group": "Đánh vần · ng, ngh, gh"
+ },
+ {
+  "id": "tv-ghees",
+  "file": "/assets/voice/tv-ghees.mp3",
+  "text": "ghế",
+  "group": "Đánh vần · ng, ngh, gh"
+ },
+ {
+  "id": "tv-ghi",
+  "file": "/assets/voice/tv-ghi.mp3",
+  "text": "ghi",
+  "group": "Tiếng · ng, ngh, gh"
+ },
+ {
+  "id": "tv-ghej",
+  "file": "/assets/voice/tv-ghej.mp3",
+  "text": "ghẹ",
+  "group": "Tiếng · ng, ngh, gh"
+ },
+ {
+  "id": "tv-ghes",
+  "file": "/assets/voice/tv-ghes.mp3",
+  "text": "ghé",
+  "group": "Tiếng · ng, ngh, gh"
+ },
+ {
+  "id": "tv-cais_ghees",
+  "file": "/assets/voice/tv-cais_ghees.mp3",
+  "text": "cái ghế",
+  "group": "Từ khóa · ng, ngh, gh"
+ },
+ {
+  "id": "tv-nghes_nghe_bes_ghes_nhaf",
+  "file": "/assets/voice/tv-nghes_nghe_bes_ghes_nhaf.mp3",
+  "text": "nghé nghe bé ghé nhà",
+  "group": "Câu ứng dụng · ng, ngh, gh"
+ },
+ {
+  "id": "tv-gio",
+  "file": "/assets/voice/tv-gio.mp3",
+  "text": "gio",
+  "group": "Đánh vần · gi, qu"
+ },
+ {
+  "id": "tv-gios",
+  "file": "/assets/voice/tv-gios.mp3",
+  "text": "gió",
+  "group": "Đánh vần · gi, qu"
+ },
+ {
+  "id": "tv-gias",
+  "file": "/assets/voice/tv-gias.mp3",
+  "text": "giá",
+  "group": "Tiếng · gi, qu"
+ },
+ {
+  "id": "tv-gior",
+  "file": "/assets/voice/tv-gior.mp3",
+  "text": "giỏ",
+  "group": "Tiếng · gi, qu"
+ },
+ {
+  "id": "tv-giof",
+  "file": "/assets/voice/tv-giof.mp3",
+  "text": "giò",
+  "group": "Tiếng · gi, qu"
+ },
+ {
+  "id": "tv-cown_gios",
+  "file": "/assets/voice/tv-cown_gios.mp3",
+  "text": "cơn gió",
+  "group": "Từ khóa · gi, qu"
+ },
+ {
+  "id": "tv-qua",
+  "file": "/assets/voice/tv-qua.mp3",
+  "text": "qua",
+  "group": "Đánh vần · gi, qu"
+ },
+ {
+  "id": "tv-quar",
+  "file": "/assets/voice/tv-quar.mp3",
+  "text": "quả",
+  "group": "Đánh vần · gi, qu"
+ },
+ {
+  "id": "tv-quee",
+  "file": "/assets/voice/tv-quee.mp3",
+  "text": "quê",
+  "group": "Tiếng · gi, qu"
+ },
+ {
+  "id": "tv-quaf",
+  "file": "/assets/voice/tv-quaf.mp3",
+  "text": "quà",
+  "group": "Tiếng · gi, qu"
+ },
+ {
+  "id": "tv-quaj",
+  "file": "/assets/voice/tv-quaj.mp3",
+  "text": "quạ",
+  "group": "Tiếng · gi, qu"
+ },
+ {
+  "id": "tv-quar_lee",
+  "file": "/assets/voice/tv-quar_lee.mp3",
+  "text": "quả lê",
+  "group": "Từ khóa · gi, qu"
+ },
+ {
+  "id": "tv-quee_baf_cos_gios_cos_quar",
+  "file": "/assets/voice/tv-quee_baf_cos_gios_cos_quar.mp3",
+  "text": "quê bà có gió, có quả",
+  "group": "Câu ứng dụng · gi, qu"
+ },
+ {
+  "id": "tv-an",
+  "file": "/assets/voice/tv-an.mp3",
+  "text": "an",
+  "group": "Âm, vần · an, ăn, ân"
+ },
+ {
+  "id": "tv-ban",
+  "file": "/assets/voice/tv-ban.mp3",
+  "text": "ban",
+  "group": "Đánh vần · an, ăn, ân"
+ },
+ {
+  "id": "tv-banf",
+  "file": "/assets/voice/tv-banf.mp3",
+  "text": "bàn",
+  "group": "Đánh vần · an, ăn, ân"
+ },
+ {
+  "id": "tv-lan",
+  "file": "/assets/voice/tv-lan.mp3",
+  "text": "lan",
+  "group": "Tiếng · an, ăn, ân"
+ },
+ {
+  "id": "tv-nhanx",
+  "file": "/assets/voice/tv-nhanx.mp3",
+  "text": "nhãn",
+  "group": "Tiếng · an, ăn, ân"
+ },
+ {
+  "id": "tv-ddanf",
+  "file": "/assets/voice/tv-ddanf.mp3",
+  "text": "đàn",
+  "group": "Tiếng · an, ăn, ân"
+ },
+ {
+  "id": "tv-cais_banf",
+  "file": "/assets/voice/tv-cais_banf.mp3",
+  "text": "cái bàn",
+  "group": "Từ khóa · an, ăn, ân"
+ },
+ {
+  "id": "tv-khawn",
+  "file": "/assets/voice/tv-khawn.mp3",
+  "text": "khăn",
+  "group": "Đánh vần · an, ăn, ân"
+ },
+ {
+  "id": "tv-chawn",
+  "file": "/assets/voice/tv-chawn.mp3",
+  "text": "chăn",
+  "group": "Tiếng · an, ăn, ân"
+ },
+ {
+  "id": "tv-rawn",
+  "file": "/assets/voice/tv-rawn.mp3",
+  "text": "răn",
+  "group": "Tiếng · an, ăn, ân"
+ },
+ {
+  "id": "tv-lawn",
+  "file": "/assets/voice/tv-lawn.mp3",
+  "text": "lăn",
+  "group": "Tiếng · an, ăn, ân"
+ },
+ {
+  "id": "tv-khawn_len",
+  "file": "/assets/voice/tv-khawn_len.mp3",
+  "text": "khăn len",
+  "group": "Từ khóa · an, ăn, ân"
+ },
+ {
+  "id": "tv-caan",
+  "file": "/assets/voice/tv-caan.mp3",
+  "text": "cân",
+  "group": "Đánh vần · an, ăn, ân"
+ },
+ {
+  "id": "tv-saan",
+  "file": "/assets/voice/tv-saan.mp3",
+  "text": "sân",
+  "group": "Tiếng · an, ăn, ân"
+ },
+ {
+  "id": "tv-chaan",
+  "file": "/assets/voice/tv-chaan.mp3",
+  "text": "chân",
+  "group": "Tiếng · an, ăn, ân"
+ },
+ {
+  "id": "tv-daan",
+  "file": "/assets/voice/tv-daan.mp3",
+  "text": "dân",
+  "group": "Tiếng · an, ăn, ân"
+ },
+ {
+  "id": "tv-cais_caan",
+  "file": "/assets/voice/tv-cais_caan.mp3",
+  "text": "cái cân",
+  "group": "Từ khóa · an, ăn, ân"
+ },
+ {
+  "id": "tv-bes_quangf_khawn_ra_saan",
+  "file": "/assets/voice/tv-bes_quangf_khawn_ra_saan.mp3",
+  "text": "bé quàng khăn ra sân",
+  "group": "Câu ứng dụng · an, ăn, ân"
+ },
+ {
+  "id": "tv-am",
+  "file": "/assets/voice/tv-am.mp3",
+  "text": "am",
+  "group": "Âm, vần · am, ăm, âm"
+ },
+ {
+  "id": "tv-cam",
+  "file": "/assets/voice/tv-cam.mp3",
+  "text": "cam",
+  "group": "Đánh vần · am, ăm, âm"
+ },
+ {
+  "id": "tv-lamf",
+  "file": "/assets/voice/tv-lamf.mp3",
+  "text": "làm",
+  "group": "Tiếng · am, ăm, âm"
+ },
+ {
+  "id": "tv-nam",
+  "file": "/assets/voice/tv-nam.mp3",
+  "text": "nam",
+  "group": "Tiếng · am, ăm, âm"
+ },
+ {
+  "id": "tv-tams",
+  "file": "/assets/voice/tv-tams.mp3",
+  "text": "tám",
+  "group": "Tiếng · am, ăm, âm"
+ },
+ {
+  "id": "tv-quar_cam",
+  "file": "/assets/voice/tv-quar_cam.mp3",
+  "text": "quả cam",
+  "group": "Từ khóa · am, ăm, âm"
+ },
+ {
+  "id": "tv-awm",
+  "file": "/assets/voice/tv-awm.mp3",
+  "text": "ăm",
+  "group": "Âm, vần · am, ăm, âm"
+ },
+ {
+  "id": "tv-tawm",
+  "file": "/assets/voice/tv-tawm.mp3",
+  "text": "tăm",
+  "group": "Đánh vần · am, ăm, âm"
+ },
+ {
+  "id": "tv-tawmf",
+  "file": "/assets/voice/tv-tawmf.mp3",
+  "text": "tằm",
+  "group": "Đánh vần · am, ăm, âm"
+ },
+ {
+  "id": "tv-chawm",
+  "file": "/assets/voice/tv-chawm.mp3",
+  "text": "chăm",
+  "group": "Tiếng · am, ăm, âm"
+ },
+ {
+  "id": "tv-nawm",
+  "file": "/assets/voice/tv-nawm.mp3",
+  "text": "năm",
+  "group": "Tiếng · am, ăm, âm"
+ },
+ {
+  "id": "tv-tawms",
+  "file": "/assets/voice/tv-tawms.mp3",
+  "text": "tắm",
+  "group": "Tiếng · am, ăm, âm"
+ },
+ {
+  "id": "tv-con_tawmf",
+  "file": "/assets/voice/tv-con_tawmf.mp3",
+  "text": "con tằm",
+  "group": "Từ khóa · am, ăm, âm"
+ },
+ {
+  "id": "tv-naam",
+  "file": "/assets/voice/tv-naam.mp3",
+  "text": "nâm",
+  "group": "Đánh vần · am, ăm, âm"
+ },
+ {
+  "id": "tv-naams",
+  "file": "/assets/voice/tv-naams.mp3",
+  "text": "nấm",
+  "group": "Đánh vần · am, ăm, âm"
+ },
+ {
+  "id": "tv-maamf",
+  "file": "/assets/voice/tv-maamf.mp3",
+  "text": "mầm",
+  "group": "Tiếng · am, ăm, âm"
+ },
+ {
+  "id": "tv-saams",
+  "file": "/assets/voice/tv-saams.mp3",
+  "text": "sấm",
+  "group": "Tiếng · am, ăm, âm"
+ },
+ {
+  "id": "tv-taams",
+  "file": "/assets/voice/tv-taams.mp3",
+  "text": "tấm",
+  "group": "Tiếng · am, ăm, âm"
+ },
+ {
+  "id": "tv-caay_naams",
+  "file": "/assets/voice/tv-caay_naams.mp3",
+  "text": "cây nấm",
+  "group": "Từ khóa · am, ăm, âm"
+ },
+ {
+  "id": "tv-bes_chawm_lamf_bes_tawms_cho_gaf",
+  "file": "/assets/voice/tv-bes_chawm_lamf_bes_tawms_cho_gaf.mp3",
+  "text": "bé chăm làm, bé tắm cho gà",
+  "group": "Câu ứng dụng · am, ăm, âm"
+ },
+ {
+  "id": "tv-ai",
+  "file": "/assets/voice/tv-ai.mp3",
+  "text": "ai",
+  "group": "Âm, vần · ai, ay, ây"
+ },
+ {
+  "id": "tv-nai",
+  "file": "/assets/voice/tv-nai.mp3",
+  "text": "nai",
+  "group": "Đánh vần · ai, ay, ây"
+ },
+ {
+  "id": "tv-hai",
+  "file": "/assets/voice/tv-hai.mp3",
+  "text": "hai",
+  "group": "Tiếng · ai, ay, ây"
+ },
+ {
+  "id": "tv-tai",
+  "file": "/assets/voice/tv-tai.mp3",
+  "text": "tai",
+  "group": "Tiếng · ai, ay, ây"
+ },
+ {
+  "id": "tv-mais",
+  "file": "/assets/voice/tv-mais.mp3",
+  "text": "mái",
+  "group": "Tiếng · ai, ay, ây"
+ },
+ {
+  "id": "tv-con_nai",
+  "file": "/assets/voice/tv-con_nai.mp3",
+  "text": "con nai",
+  "group": "Từ khóa · ai, ay, ây"
+ },
+ {
+  "id": "tv-ay",
+  "file": "/assets/voice/tv-ay.mp3",
+  "text": "ay",
+  "group": "Âm, vần · ai, ay, ây"
+ },
+ {
+  "id": "tv-bay",
+  "file": "/assets/voice/tv-bay.mp3",
+  "text": "bay",
+  "group": "Đánh vần · ai, ay, ây"
+ },
+ {
+  "id": "tv-tay",
+  "file": "/assets/voice/tv-tay.mp3",
+  "text": "tay",
+  "group": "Tiếng · ai, ay, ây"
+ },
+ {
+  "id": "tv-mays",
+  "file": "/assets/voice/tv-mays.mp3",
+  "text": "máy",
+  "group": "Tiếng · ai, ay, ây"
+ },
+ {
+  "id": "tv-chayj",
+  "file": "/assets/voice/tv-chayj.mp3",
+  "text": "chạy",
+  "group": "Tiếng · ai, ay, ây"
+ },
+ {
+  "id": "tv-mays_bay",
+  "file": "/assets/voice/tv-mays_bay.mp3",
+  "text": "máy bay",
+  "group": "Từ khóa · ai, ay, ây"
+ },
+ {
+  "id": "tv-aay",
+  "file": "/assets/voice/tv-aay.mp3",
+  "text": "ây",
+  "group": "Âm, vần · ai, ay, ây"
+ },
+ {
+  "id": "tv-caay",
+  "file": "/assets/voice/tv-caay.mp3",
+  "text": "cây",
+  "group": "Đánh vần · ai, ay, ây"
+ },
+ {
+  "id": "tv-maay",
+  "file": "/assets/voice/tv-maay.mp3",
+  "text": "mây",
+  "group": "Tiếng · ai, ay, ây"
+ },
+ {
+  "id": "tv-daay",
+  "file": "/assets/voice/tv-daay.mp3",
+  "text": "dây",
+  "group": "Tiếng · ai, ay, ây"
+ },
+ {
+  "id": "tv-thaays",
+  "file": "/assets/voice/tv-thaays.mp3",
+  "text": "thấy",
+  "group": "Tiếng · ai, ay, ây"
+ },
+ {
+  "id": "tv-caay_xanh",
+  "file": "/assets/voice/tv-caay_xanh.mp3",
+  "text": "cây xanh",
+  "group": "Từ khóa · ai, ay, ây"
+ },
+ {
+  "id": "tv-mays_bay_bay_qua_maay",
+  "file": "/assets/voice/tv-mays_bay_bay_qua_maay.mp3",
+  "text": "máy bay bay qua mây",
+  "group": "Câu ứng dụng · ai, ay, ây"
+ },
+ {
+  "id": "tv-ao",
+  "file": "/assets/voice/tv-ao.mp3",
+  "text": "ao",
+  "group": "Âm, vần · ao, au, âu"
+ },
+ {
+  "id": "tv-sao",
+  "file": "/assets/voice/tv-sao.mp3",
+  "text": "sao",
+  "group": "Đánh vần · ao, au, âu"
+ },
+ {
+  "id": "tv-cao",
+  "file": "/assets/voice/tv-cao.mp3",
+  "text": "cao",
+  "group": "Tiếng · ao, au, âu"
+ },
+ {
+  "id": "tv-taos",
+  "file": "/assets/voice/tv-taos.mp3",
+  "text": "táo",
+  "group": "Tiếng · ao, au, âu"
+ },
+ {
+  "id": "tv-chaof",
+  "file": "/assets/voice/tv-chaof.mp3",
+  "text": "chào",
+  "group": "Tiếng · ao, au, âu"
+ },
+ {
+  "id": "tv-ngooi_sao",
+  "file": "/assets/voice/tv-ngooi_sao.mp3",
+  "text": "ngôi sao",
+  "group": "Từ khóa · ao, au, âu"
+ },
+ {
+  "id": "tv-au",
+  "file": "/assets/voice/tv-au.mp3",
+  "text": "au",
+  "group": "Âm, vần · ao, au, âu"
+ },
+ {
+  "id": "tv-rau",
+  "file": "/assets/voice/tv-rau.mp3",
+  "text": "rau",
+  "group": "Đánh vần · ao, au, âu"
+ },
+ {
+  "id": "tv-cau",
+  "file": "/assets/voice/tv-cau.mp3",
+  "text": "cau",
+  "group": "Tiếng · ao, au, âu"
+ },
+ {
+  "id": "tv-sau",
+  "file": "/assets/voice/tv-sau.mp3",
+  "text": "sau",
+  "group": "Tiếng · ao, au, âu"
+ },
+ {
+  "id": "tv-mauf",
+  "file": "/assets/voice/tv-mauf.mp3",
+  "text": "màu",
+  "group": "Tiếng · ao, au, âu"
+ },
+ {
+  "id": "tv-rau_cair",
+  "file": "/assets/voice/tv-rau_cair.mp3",
+  "text": "rau cải",
+  "group": "Từ khóa · ao, au, âu"
+ },
+ {
+  "id": "tv-aau",
+  "file": "/assets/voice/tv-aau.mp3",
+  "text": "âu",
+  "group": "Âm, vần · ao, au, âu"
+ },
+ {
+  "id": "tv-gaau",
+  "file": "/assets/voice/tv-gaau.mp3",
+  "text": "gâu",
+  "group": "Đánh vần · ao, au, âu"
+ },
+ {
+  "id": "tv-gaaus",
+  "file": "/assets/voice/tv-gaaus.mp3",
+  "text": "gấu",
+  "group": "Đánh vần · ao, au, âu"
+ },
+ {
+  "id": "tv-caau",
+  "file": "/assets/voice/tv-caau.mp3",
+  "text": "câu",
+  "group": "Tiếng · ao, au, âu"
+ },
+ {
+  "id": "tv-saau",
+  "file": "/assets/voice/tv-saau.mp3",
+  "text": "sâu",
+  "group": "Tiếng · ao, au, âu"
+ },
+ {
+  "id": "tv-ddaauj",
+  "file": "/assets/voice/tv-ddaauj.mp3",
+  "text": "đậu",
+  "group": "Tiếng · ao, au, âu"
+ },
+ {
+  "id": "tv-chus_gaaus",
+  "file": "/assets/voice/tv-chus_gaaus.mp3",
+  "text": "chú gấu",
+  "group": "Từ khóa · ao, au, âu"
+ },
+ {
+  "id": "tv-gaaus_con_hais_taos_nhoor_rau",
+  "file": "/assets/voice/tv-gaaus_con_hais_taos_nhoor_rau.mp3",
+  "text": "gấu con hái táo, nhổ rau",
+  "group": "Câu ứng dụng · ao, au, âu"
+ },
+ {
+  "id": "tv-at",
+  "file": "/assets/voice/tv-at.mp3",
+  "text": "at",
+  "group": "Âm, vần · at, ăt, ât"
+ },
+ {
+  "id": "tv-hat",
+  "file": "/assets/voice/tv-hat.mp3",
+  "text": "hat",
+  "group": "Đánh vần · at, ăt, ât"
+ },
+ {
+  "id": "tv-hats",
+  "file": "/assets/voice/tv-hats.mp3",
+  "text": "hát",
+  "group": "Đánh vần · at, ăt, ât"
+ },
+ {
+  "id": "tv-bats",
+  "file": "/assets/voice/tv-bats.mp3",
+  "text": "bát",
+  "group": "Tiếng · at, ăt, ât"
+ },
+ {
+  "id": "tv-mats",
+  "file": "/assets/voice/tv-mats.mp3",
+  "text": "mát",
+  "group": "Tiếng · at, ăt, ât"
+ },
+ {
+  "id": "tv-cats",
+  "file": "/assets/voice/tv-cats.mp3",
+  "text": "cát",
+  "group": "Tiếng · at, ăt, ât"
+ },
+ {
+  "id": "tv-ca_hats",
+  "file": "/assets/voice/tv-ca_hats.mp3",
+  "text": "ca hát",
+  "group": "Từ khóa · at, ăt, ât"
+ },
+ {
+  "id": "tv-awt",
+  "file": "/assets/voice/tv-awt.mp3",
+  "text": "ăt",
+  "group": "Âm, vần · at, ăt, ât"
+ },
+ {
+  "id": "tv-mawt",
+  "file": "/assets/voice/tv-mawt.mp3",
+  "text": "măt",
+  "group": "Đánh vần · at, ăt, ât"
+ },
+ {
+  "id": "tv-mawts",
+  "file": "/assets/voice/tv-mawts.mp3",
+  "text": "mắt",
+  "group": "Đánh vần · at, ăt, ât"
+ },
+ {
+  "id": "tv-bawts",
+  "file": "/assets/voice/tv-bawts.mp3",
+  "text": "bắt",
+  "group": "Tiếng · at, ăt, ât"
+ },
+ {
+  "id": "tv-cawts",
+  "file": "/assets/voice/tv-cawts.mp3",
+  "text": "cắt",
+  "group": "Tiếng · at, ăt, ât"
+ },
+ {
+  "id": "tv-mawtj",
+  "file": "/assets/voice/tv-mawtj.mp3",
+  "text": "mặt",
+  "group": "Tiếng · at, ăt, ât"
+ },
+ {
+  "id": "tv-ddooi_mawts",
+  "file": "/assets/voice/tv-ddooi_mawts.mp3",
+  "text": "đôi mắt",
+  "group": "Từ khóa · at, ăt, ât"
+ },
+ {
+  "id": "tv-aat",
+  "file": "/assets/voice/tv-aat.mp3",
+  "text": "ât",
+  "group": "Âm, vần · at, ăt, ât"
+ },
+ {
+  "id": "tv-maat",
+  "file": "/assets/voice/tv-maat.mp3",
+  "text": "mât",
+  "group": "Đánh vần · at, ăt, ât"
+ },
+ {
+  "id": "tv-maatj",
+  "file": "/assets/voice/tv-maatj.mp3",
+  "text": "mật",
+  "group": "Đánh vần · at, ăt, ât"
+ },
+ {
+  "id": "tv-ddaats",
+  "file": "/assets/voice/tv-ddaats.mp3",
+  "text": "đất",
+  "group": "Tiếng · at, ăt, ât"
+ },
+ {
+  "id": "tv-nhaats",
+  "file": "/assets/voice/tv-nhaats.mp3",
+  "text": "nhất",
+  "group": "Tiếng · at, ăt, ât"
+ },
+ {
+  "id": "tv-vaatj",
+  "file": "/assets/voice/tv-vaatj.mp3",
+  "text": "vật",
+  "group": "Tiếng · at, ăt, ât"
+ },
+ {
+  "id": "tv-maatj_ong",
+  "file": "/assets/voice/tv-maatj_ong.mp3",
+  "text": "mật ong",
+  "group": "Từ khóa · at, ăt, ât"
+ },
+ {
+  "id": "tv-bes_hats_mawts_bes_sangs",
+  "file": "/assets/voice/tv-bes_hats_mawts_bes_sangs.mp3",
+  "text": "bé hát, mắt bé sáng",
+  "group": "Câu ứng dụng · at, ăt, ât"
+ },
+ {
+  "id": "tv-ap",
+  "file": "/assets/voice/tv-ap.mp3",
+  "text": "ap",
+  "group": "Âm, vần · ap, ăp, âp"
+ },
+ {
+  "id": "tv-thap",
+  "file": "/assets/voice/tv-thap.mp3",
+  "text": "thap",
+  "group": "Đánh vần · ap, ăp, âp"
+ },
+ {
+  "id": "tv-thaps",
+  "file": "/assets/voice/tv-thaps.mp3",
+  "text": "tháp",
+  "group": "Đánh vần · ap, ăp, âp"
+ },
+ {
+  "id": "tv-ddapj",
+  "file": "/assets/voice/tv-ddapj.mp3",
+  "text": "đạp",
+  "group": "Tiếng · ap, ăp, âp"
+ },
+ {
+  "id": "tv-saps",
+  "file": "/assets/voice/tv-saps.mp3",
+  "text": "sáp",
+  "group": "Tiếng · ap, ăp, âp"
+ },
+ {
+  "id": "tv-napj",
+  "file": "/assets/voice/tv-napj.mp3",
+  "text": "nạp",
+  "group": "Tiếng · ap, ăp, âp"
+ },
+ {
+  "id": "tv-ngonj_thaps",
+  "file": "/assets/voice/tv-ngonj_thaps.mp3",
+  "text": "ngọn tháp",
+  "group": "Từ khóa · ap, ăp, âp"
+ },
+ {
+  "id": "tv-awp",
+  "file": "/assets/voice/tv-awp.mp3",
+  "text": "ăp",
+  "group": "Âm, vần · ap, ăp, âp"
+ },
+ {
+  "id": "tv-cawp",
+  "file": "/assets/voice/tv-cawp.mp3",
+  "text": "căp",
+  "group": "Đánh vần · ap, ăp, âp"
+ },
+ {
+  "id": "tv-cawpj",
+  "file": "/assets/voice/tv-cawpj.mp3",
+  "text": "cặp",
+  "group": "Đánh vần · ap, ăp, âp"
+ },
+ {
+  "id": "tv-gawpj",
+  "file": "/assets/voice/tv-gawpj.mp3",
+  "text": "gặp",
+  "group": "Tiếng · ap, ăp, âp"
+ },
+ {
+  "id": "tv-sawps",
+  "file": "/assets/voice/tv-sawps.mp3",
+  "text": "sắp",
+  "group": "Tiếng · ap, ăp, âp"
+ },
+ {
+  "id": "tv-bawps",
+  "file": "/assets/voice/tv-bawps.mp3",
+  "text": "bắp",
+  "group": "Tiếng · ap, ăp, âp"
+ },
+ {
+  "id": "tv-cais_cawpj",
+  "file": "/assets/voice/tv-cais_cawpj.mp3",
+  "text": "cái cặp",
+  "group": "Từ khóa · ap, ăp, âp"
+ },
+ {
+  "id": "tv-aap",
+  "file": "/assets/voice/tv-aap.mp3",
+  "text": "âp",
+  "group": "Âm, vần · ap, ăp, âp"
+ },
+ {
+  "id": "tv-taap",
+  "file": "/assets/voice/tv-taap.mp3",
+  "text": "tâp",
+  "group": "Đánh vần · ap, ăp, âp"
+ },
+ {
+  "id": "tv-taapj",
+  "file": "/assets/voice/tv-taapj.mp3",
+  "text": "tập",
+  "group": "Đánh vần · ap, ăp, âp"
+ },
+ {
+  "id": "tv-naaps",
+  "file": "/assets/voice/tv-naaps.mp3",
+  "text": "nấp",
+  "group": "Tiếng · ap, ăp, âp"
+ },
+ {
+  "id": "tv-caaps",
+  "file": "/assets/voice/tv-caaps.mp3",
+  "text": "cấp",
+  "group": "Tiếng · ap, ăp, âp"
+ },
+ {
+  "id": "tv-laapj",
+  "file": "/assets/voice/tv-laapj.mp3",
+  "text": "lập",
+  "group": "Tiếng · ap, ăp, âp"
+ },
+ {
+  "id": "tv-quyeenr_taapj",
+  "file": "/assets/voice/tv-quyeenr_taapj.mp3",
+  "text": "quyển tập",
+  "group": "Từ khóa · ap, ăp, âp"
+ },
+ {
+  "id": "tv-bes_ddeo_cawpj_ddi_xe_ddapj",
+  "file": "/assets/voice/tv-bes_ddeo_cawpj_ddi_xe_ddapj.mp3",
+  "text": "bé đeo cặp đi xe đạp",
+  "group": "Câu ứng dụng · ap, ăp, âp"
+ },
+ {
+  "id": "tv-ac",
+  "file": "/assets/voice/tv-ac.mp3",
+  "text": "ac",
+  "group": "Âm, vần · ac, ăc, âc"
+ },
+ {
+  "id": "tv-nhac",
+  "file": "/assets/voice/tv-nhac.mp3",
+  "text": "nhac",
+  "group": "Đánh vần · ac, ăc, âc"
+ },
+ {
+  "id": "tv-nhacj",
+  "file": "/assets/voice/tv-nhacj.mp3",
+  "text": "nhạc",
+  "group": "Đánh vần · ac, ăc, âc"
+ },
+ {
+  "id": "tv-bacs",
+  "file": "/assets/voice/tv-bacs.mp3",
+  "text": "bác",
+  "group": "Tiếng · ac, ăc, âc"
+ },
+ {
+  "id": "tv-cacs",
+  "file": "/assets/voice/tv-cacs.mp3",
+  "text": "các",
+  "group": "Tiếng · ac, ăc, âc"
+ },
+ {
+  "id": "tv-lacj",
+  "file": "/assets/voice/tv-lacj.mp3",
+  "text": "lạc",
+  "group": "Tiếng · ac, ăc, âc"
+ },
+ {
+  "id": "tv-banr_nhacj",
+  "file": "/assets/voice/tv-banr_nhacj.mp3",
+  "text": "bản nhạc",
+  "group": "Từ khóa · ac, ăc, âc"
+ },
+ {
+  "id": "tv-awc",
+  "file": "/assets/voice/tv-awc.mp3",
+  "text": "ăc",
+  "group": "Âm, vần · ac, ăc, âc"
+ },
+ {
+  "id": "tv-mawc",
+  "file": "/assets/voice/tv-mawc.mp3",
+  "text": "măc",
+  "group": "Đánh vần · ac, ăc, âc"
+ },
+ {
+  "id": "tv-mawcj",
+  "file": "/assets/voice/tv-mawcj.mp3",
+  "text": "mặc",
+  "group": "Đánh vần · ac, ăc, âc"
+ },
+ {
+  "id": "tv-lawcs",
+  "file": "/assets/voice/tv-lawcs.mp3",
+  "text": "lắc",
+  "group": "Tiếng · ac, ăc, âc"
+ },
+ {
+  "id": "tv-chawcs",
+  "file": "/assets/voice/tv-chawcs.mp3",
+  "text": "chắc",
+  "group": "Tiếng · ac, ăc, âc"
+ },
+ {
+  "id": "tv-mawcj_aos",
+  "file": "/assets/voice/tv-mawcj_aos.mp3",
+  "text": "mặc áo",
+  "group": "Từ khóa · ac, ăc, âc"
+ },
+ {
+  "id": "tv-aac",
+  "file": "/assets/voice/tv-aac.mp3",
+  "text": "âc",
+  "group": "Âm, vần · ac, ăc, âc"
+ },
+ {
+  "id": "tv-gaac",
+  "file": "/assets/voice/tv-gaac.mp3",
+  "text": "gâc",
+  "group": "Đánh vần · ac, ăc, âc"
+ },
+ {
+  "id": "tv-gaacs",
+  "file": "/assets/voice/tv-gaacs.mp3",
+  "text": "gấc",
+  "group": "Đánh vần · ac, ăc, âc"
+ },
+ {
+  "id": "tv-baacj",
+  "file": "/assets/voice/tv-baacj.mp3",
+  "text": "bậc",
+  "group": "Tiếng · ac, ăc, âc"
+ },
+ {
+  "id": "tv-nhaacs",
+  "file": "/assets/voice/tv-nhaacs.mp3",
+  "text": "nhấc",
+  "group": "Tiếng · ac, ăc, âc"
+ },
+ {
+  "id": "tv-giaacs",
+  "file": "/assets/voice/tv-giaacs.mp3",
+  "text": "giấc",
+  "group": "Tiếng · ac, ăc, âc"
+ },
+ {
+  "id": "tv-quar_gaacs",
+  "file": "/assets/voice/tv-quar_gaacs.mp3",
+  "text": "quả gấc",
+  "group": "Từ khóa · ac, ăc, âc"
+ },
+ {
+  "id": "tv-bacs_mawcj_aos_nghe_nhacj",
+  "file": "/assets/voice/tv-bacs_mawcj_aos_nghe_nhacj.mp3",
+  "text": "bác mặc áo, nghe nhạc",
+  "group": "Câu ứng dụng · ac, ăc, âc"
+ },
+ {
+  "id": "tv-ang",
+  "file": "/assets/voice/tv-ang.mp3",
+  "text": "ang",
+  "group": "Âm, vần · ang, ăng, âng"
+ },
+ {
+  "id": "tv-thang",
+  "file": "/assets/voice/tv-thang.mp3",
+  "text": "thang",
+  "group": "Đánh vần · ang, ăng, âng"
+ },
+ {
+  "id": "tv-langf",
+  "file": "/assets/voice/tv-langf.mp3",
+  "text": "làng",
+  "group": "Tiếng · ang, ăng, âng"
+ },
+ {
+  "id": "tv-vangf",
+  "file": "/assets/voice/tv-vangf.mp3",
+  "text": "vàng",
+  "group": "Tiếng · ang, ăng, âng"
+ },
+ {
+  "id": "tv-sangs",
+  "file": "/assets/voice/tv-sangs.mp3",
+  "text": "sáng",
+  "group": "Tiếng · ang, ăng, âng"
+ },
+ {
+  "id": "tv-cais_thang",
+  "file": "/assets/voice/tv-cais_thang.mp3",
+  "text": "cái thang",
+  "group": "Từ khóa · ang, ăng, âng"
+ },
+ {
+  "id": "tv-awng",
+  "file": "/assets/voice/tv-awng.mp3",
+  "text": "ăng",
+  "group": "Âm, vần · ang, ăng, âng"
+ },
+ {
+  "id": "tv-mawng",
+  "file": "/assets/voice/tv-mawng.mp3",
+  "text": "măng",
+  "group": "Đánh vần · ang, ăng, âng"
+ },
+ {
+  "id": "tv-trawng",
+  "file": "/assets/voice/tv-trawng.mp3",
+  "text": "trăng",
+  "group": "Tiếng · ang, ăng, âng"
+ },
+ {
+  "id": "tv-nawngs",
+  "file": "/assets/voice/tv-nawngs.mp3",
+  "text": "nắng",
+  "group": "Tiếng · ang, ăng, âng"
+ },
+ {
+  "id": "tv-rawng",
+  "file": "/assets/voice/tv-rawng.mp3",
+  "text": "răng",
+  "group": "Tiếng · ang, ăng, âng"
+ },
+ {
+  "id": "tv-mawng_tre",
+  "file": "/assets/voice/tv-mawng_tre.mp3",
+  "text": "măng tre",
+  "group": "Từ khóa · ang, ăng, âng"
+ },
+ {
+  "id": "tv-aang",
+  "file": "/assets/voice/tv-aang.mp3",
+  "text": "âng",
+  "group": "Âm, vần · ang, ăng, âng"
+ },
+ {
+  "id": "tv-taang",
+  "file": "/assets/voice/tv-taang.mp3",
+  "text": "tâng",
+  "group": "Đánh vần · ang, ăng, âng"
+ },
+ {
+  "id": "tv-taangf",
+  "file": "/assets/voice/tv-taangf.mp3",
+  "text": "tầng",
+  "group": "Đánh vần · ang, ăng, âng"
+ },
+ {
+  "id": "tv-vaang",
+  "file": "/assets/voice/tv-vaang.mp3",
+  "text": "vâng",
+  "group": "Tiếng · ang, ăng, âng"
+ },
+ {
+  "id": "tv-naang",
+  "file": "/assets/voice/tv-naang.mp3",
+  "text": "nâng",
+  "group": "Tiếng · ang, ăng, âng"
+ },
+ {
+  "id": "tv-nhaf_taangf",
+  "file": "/assets/voice/tv-nhaf_taangf.mp3",
+  "text": "nhà tầng",
+  "group": "Từ khóa · ang, ăng, âng"
+ },
+ {
+  "id": "tv-trawng_sangs_car_langf",
+  "file": "/assets/voice/tv-trawng_sangs_car_langf.mp3",
+  "text": "trăng sáng cả làng",
+  "group": "Câu ứng dụng · ang, ăng, âng"
+ },
+ {
+  "id": "tv-anh",
+  "file": "/assets/voice/tv-anh.mp3",
+  "text": "anh",
+  "group": "Âm, vần · anh, ach"
+ },
+ {
+  "id": "tv-chanh",
+  "file": "/assets/voice/tv-chanh.mp3",
+  "text": "chanh",
+  "group": "Đánh vần · anh, ach"
+ },
+ {
+  "id": "tv-xanh",
+  "file": "/assets/voice/tv-xanh.mp3",
+  "text": "xanh",
+  "group": "Tiếng · anh, ach"
+ },
+ {
+  "id": "tv-banhs",
+  "file": "/assets/voice/tv-banhs.mp3",
+  "text": "bánh",
+  "group": "Tiếng · anh, ach"
+ },
+ {
+  "id": "tv-nhanh",
+  "file": "/assets/voice/tv-nhanh.mp3",
+  "text": "nhanh",
+  "group": "Tiếng · anh, ach"
+ },
+ {
+  "id": "tv-quar_chanh",
+  "file": "/assets/voice/tv-quar_chanh.mp3",
+  "text": "quả chanh",
+  "group": "Từ khóa · anh, ach"
+ },
+ {
+  "id": "tv-ach",
+  "file": "/assets/voice/tv-ach.mp3",
+  "text": "ach",
+  "group": "Âm, vần · anh, ach"
+ },
+ {
+  "id": "tv-sach",
+  "file": "/assets/voice/tv-sach.mp3",
+  "text": "sach",
+  "group": "Đánh vần · anh, ach"
+ },
+ {
+  "id": "tv-sachs",
+  "file": "/assets/voice/tv-sachs.mp3",
+  "text": "sách",
+  "group": "Đánh vần · anh, ach"
+ },
+ {
+  "id": "tv-khachs",
+  "file": "/assets/voice/tv-khachs.mp3",
+  "text": "khách",
+  "group": "Tiếng · anh, ach"
+ },
+ {
+  "id": "tv-sachj",
+  "file": "/assets/voice/tv-sachj.mp3",
+  "text": "sạch",
+  "group": "Tiếng · anh, ach"
+ },
+ {
+  "id": "tv-gachj",
+  "file": "/assets/voice/tv-gachj.mp3",
+  "text": "gạch",
+  "group": "Tiếng · anh, ach"
+ },
+ {
+  "id": "tv-quyeenr_sachs",
+  "file": "/assets/voice/tv-quyeenr_sachs.mp3",
+  "text": "quyển sách",
+  "group": "Từ khóa · anh, ach"
+ },
+ {
+  "id": "tv-bes_ddocj_sachs_uoongs_nuwowcs_chanh",
+  "file": "/assets/voice/tv-bes_ddocj_sachs_uoongs_nuwowcs_chanh.mp3",
+  "text": "bé đọc sách, uống nước chanh",
+  "group": "Câu ứng dụng · anh, ach"
+ },
+ {
+  "id": "tv-on",
+  "file": "/assets/voice/tv-on.mp3",
+  "text": "on",
+  "group": "Âm, vần · on, ôn, ơn"
+ },
+ {
+  "id": "tv-non",
+  "file": "/assets/voice/tv-non.mp3",
+  "text": "non",
+  "group": "Đánh vần · on, ôn, ơn"
+ },
+ {
+  "id": "tv-nons",
+  "file": "/assets/voice/tv-nons.mp3",
+  "text": "nón",
+  "group": "Đánh vần · on, ôn, ơn"
+ },
+ {
+  "id": "tv-con",
+  "file": "/assets/voice/tv-con.mp3",
+  "text": "con",
+  "group": "Tiếng · on, ôn, ơn"
+ },
+ {
+  "id": "tv-ngon",
+  "file": "/assets/voice/tv-ngon.mp3",
+  "text": "ngon",
+  "group": "Tiếng · on, ôn, ơn"
+ },
+ {
+  "id": "tv-honf",
+  "file": "/assets/voice/tv-honf.mp3",
+  "text": "hòn",
+  "group": "Tiếng · on, ôn, ơn"
+ },
+ {
+  "id": "tv-nons_las",
+  "file": "/assets/voice/tv-nons_las.mp3",
+  "text": "nón lá",
+  "group": "Từ khóa · on, ôn, ơn"
+ },
+ {
+  "id": "tv-oon",
+  "file": "/assets/voice/tv-oon.mp3",
+  "text": "ôn",
+  "group": "Âm, vần · on, ôn, ơn"
+ },
+ {
+  "id": "tv-choon",
+  "file": "/assets/voice/tv-choon.mp3",
+  "text": "chôn",
+  "group": "Đánh vần · on, ôn, ơn"
+ },
+ {
+  "id": "tv-choonf",
+  "file": "/assets/voice/tv-choonf.mp3",
+  "text": "chồn",
+  "group": "Đánh vần · on, ôn, ơn"
+ },
+ {
+  "id": "tv-thoon",
+  "file": "/assets/voice/tv-thoon.mp3",
+  "text": "thôn",
+  "group": "Tiếng · on, ôn, ơn"
+ },
+ {
+  "id": "tv-khoon",
+  "file": "/assets/voice/tv-khoon.mp3",
+  "text": "khôn",
+  "group": "Tiếng · on, ôn, ơn"
+ },
+ {
+  "id": "tv-troons",
+  "file": "/assets/voice/tv-troons.mp3",
+  "text": "trốn",
+  "group": "Tiếng · on, ôn, ơn"
+ },
+ {
+  "id": "tv-con_choonf",
+  "file": "/assets/voice/tv-con_choonf.mp3",
+  "text": "con chồn",
+  "group": "Từ khóa · on, ôn, ơn"
+ },
+ {
+  "id": "tv-own",
+  "file": "/assets/voice/tv-own.mp3",
+  "text": "ơn",
+  "group": "Âm, vần · on, ôn, ơn"
+ },
+ {
+  "id": "tv-sown",
+  "file": "/assets/voice/tv-sown.mp3",
+  "text": "sơn",
+  "group": "Đánh vần · on, ôn, ơn"
+ },
+ {
+  "id": "tv-lownj",
+  "file": "/assets/voice/tv-lownj.mp3",
+  "text": "lợn",
+  "group": "Tiếng · on, ôn, ơn"
+ },
+ {
+  "id": "tv-hown",
+  "file": "/assets/voice/tv-hown.mp3",
+  "text": "hơn",
+  "group": "Tiếng · on, ôn, ơn"
+ },
+ {
+  "id": "tv-trown",
+  "file": "/assets/voice/tv-trown.mp3",
+  "text": "trơn",
+  "group": "Tiếng · on, ôn, ơn"
+ },
+ {
+  "id": "tv-hoopj_sown",
+  "file": "/assets/voice/tv-hoopj_sown.mp3",
+  "text": "hộp sơn",
+  "group": "Từ khóa · on, ôn, ơn"
+ },
+ {
+  "id": "tv-con_choonf_ddooij_nons",
+  "file": "/assets/voice/tv-con_choonf_ddooij_nons.mp3",
+  "text": "con chồn đội nón",
+  "group": "Câu ứng dụng · on, ôn, ơn"
+ },
+ {
+  "id": "tv-om",
+  "file": "/assets/voice/tv-om.mp3",
+  "text": "om",
+  "group": "Âm, vần · om, ôm, ơm"
+ },
+ {
+  "id": "tv-ddom",
+  "file": "/assets/voice/tv-ddom.mp3",
+  "text": "đom",
+  "group": "Đánh vần · om, ôm, ơm"
+ },
+ {
+  "id": "tv-ddoms",
+  "file": "/assets/voice/tv-ddoms.mp3",
+  "text": "đóm",
+  "group": "Đánh vần · om, ôm, ơm"
+ },
+ {
+  "id": "tv-chomf",
+  "file": "/assets/voice/tv-chomf.mp3",
+  "text": "chòm",
+  "group": "Tiếng · om, ôm, ơm"
+ },
+ {
+  "id": "tv-khoms",
+  "file": "/assets/voice/tv-khoms.mp3",
+  "text": "khóm",
+  "group": "Tiếng · om, ôm, ơm"
+ },
+ {
+  "id": "tv-bom",
+  "file": "/assets/voice/tv-bom.mp3",
+  "text": "bom",
+  "group": "Tiếng · om, ôm, ơm"
+ },
+ {
+  "id": "tv-ddom_ddoms",
+  "file": "/assets/voice/tv-ddom_ddoms.mp3",
+  "text": "đom đóm",
+  "group": "Từ khóa · om, ôm, ơm"
+ },
+ {
+  "id": "tv-oom",
+  "file": "/assets/voice/tv-oom.mp3",
+  "text": "ôm",
+  "group": "Âm, vần · om, ôm, ơm"
+ },
+ {
+  "id": "tv-toom",
+  "file": "/assets/voice/tv-toom.mp3",
+  "text": "tôm",
+  "group": "Đánh vần · om, ôm, ơm"
+ },
+ {
+  "id": "tv-choom",
+  "file": "/assets/voice/tv-choom.mp3",
+  "text": "chôm",
+  "group": "Tiếng · om, ôm, ơm"
+ },
+ {
+  "id": "tv-noomf",
+  "file": "/assets/voice/tv-noomf.mp3",
+  "text": "nồm",
+  "group": "Tiếng · om, ôm, ơm"
+ },
+ {
+  "id": "tv-con_toom",
+  "file": "/assets/voice/tv-con_toom.mp3",
+  "text": "con tôm",
+  "group": "Từ khóa · om, ôm, ơm"
+ },
+ {
+  "id": "tv-owm",
+  "file": "/assets/voice/tv-owm.mp3",
+  "text": "ơm",
+  "group": "Âm, vần · om, ôm, ơm"
+ },
+ {
+  "id": "tv-cowm",
+  "file": "/assets/voice/tv-cowm.mp3",
+  "text": "cơm",
+  "group": "Đánh vần · om, ôm, ơm"
+ },
+ {
+  "id": "tv-thowm",
+  "file": "/assets/voice/tv-thowm.mp3",
+  "text": "thơm",
+  "group": "Tiếng · om, ôm, ơm"
+ },
+ {
+  "id": "tv-rowm",
+  "file": "/assets/voice/tv-rowm.mp3",
+  "text": "rơm",
+  "group": "Tiếng · om, ôm, ơm"
+ },
+ {
+  "id": "tv-bowmf",
+  "file": "/assets/voice/tv-bowmf.mp3",
+  "text": "bờm",
+  "group": "Tiếng · om, ôm, ơm"
+ },
+ {
+  "id": "tv-bats_cowm",
+  "file": "/assets/voice/tv-bats_cowm.mp3",
+  "text": "bát cơm",
+  "group": "Từ khóa · om, ôm, ơm"
+ },
+ {
+  "id": "tv-cowm_thowm_toom_ngon",
+  "file": "/assets/voice/tv-cowm_thowm_toom_ngon.mp3",
+  "text": "cơm thơm, tôm ngon",
+  "group": "Câu ứng dụng · om, ôm, ơm"
+ },
+ {
+  "id": "tv-oi",
+  "file": "/assets/voice/tv-oi.mp3",
+  "text": "oi",
+  "group": "Âm, vần · oi, ôi, ơi"
+ },
+ {
+  "id": "tv-voi",
+  "file": "/assets/voice/tv-voi.mp3",
+  "text": "voi",
+  "group": "Đánh vần · oi, ôi, ơi"
+ },
+ {
+  "id": "tv-coif",
+  "file": "/assets/voice/tv-coif.mp3",
+  "text": "còi",
+  "group": "Tiếng · oi, ôi, ơi"
+ },
+ {
+  "id": "tv-nois",
+  "file": "/assets/voice/tv-nois.mp3",
+  "text": "nói",
+  "group": "Tiếng · oi, ôi, ơi"
+ },
+ {
+  "id": "tv-ddoif",
+  "file": "/assets/voice/tv-ddoif.mp3",
+  "text": "đòi",
+  "group": "Tiếng · oi, ôi, ơi"
+ },
+ {
+  "id": "tv-con_voi",
+  "file": "/assets/voice/tv-con_voi.mp3",
+  "text": "con voi",
+  "group": "Từ khóa · oi, ôi, ơi"
+ },
+ {
+  "id": "tv-ooi",
+  "file": "/assets/voice/tv-ooi.mp3",
+  "text": "ôi",
+  "group": "Âm, vần · oi, ôi, ơi"
+ },
+ {
+  "id": "tv-chooi",
+  "file": "/assets/voice/tv-chooi.mp3",
+  "text": "chôi",
+  "group": "Đánh vần · oi, ôi, ơi"
+ },
+ {
+  "id": "tv-chooir",
+  "file": "/assets/voice/tv-chooir.mp3",
+  "text": "chổi",
+  "group": "Đánh vần · oi, ôi, ơi"
+ },
+ {
+  "id": "tv-ddooi",
+  "file": "/assets/voice/tv-ddooi.mp3",
+  "text": "đôi",
+  "group": "Tiếng · oi, ôi, ơi"
+ },
+ {
+  "id": "tv-tooi",
+  "file": "/assets/voice/tv-tooi.mp3",
+  "text": "tôi",
+  "group": "Tiếng · oi, ôi, ơi"
+ },
+ {
+  "id": "tv-goois",
+  "file": "/assets/voice/tv-goois.mp3",
+  "text": "gối",
+  "group": "Tiếng · oi, ôi, ơi"
+ },
+ {
+  "id": "tv-cais_chooir",
+  "file": "/assets/voice/tv-cais_chooir.mp3",
+  "text": "cái chổi",
+  "group": "Từ khóa · oi, ôi, ơi"
+ },
+ {
+  "id": "tv-owi",
+  "file": "/assets/voice/tv-owi.mp3",
+  "text": "ơi",
+  "group": "Âm, vần · oi, ôi, ơi"
+ },
+ {
+  "id": "tv-bowi",
+  "file": "/assets/voice/tv-bowi.mp3",
+  "text": "bơi",
+  "group": "Đánh vần · oi, ôi, ơi"
+ },
+ {
+  "id": "tv-chowi",
+  "file": "/assets/voice/tv-chowi.mp3",
+  "text": "chơi",
+  "group": "Tiếng · oi, ôi, ơi"
+ },
+ {
+  "id": "tv-mowis",
+  "file": "/assets/voice/tv-mowis.mp3",
+  "text": "mới",
+  "group": "Tiếng · oi, ôi, ơi"
+ },
+ {
+  "id": "tv-trowif",
+  "file": "/assets/voice/tv-trowif.mp3",
+  "text": "trời",
+  "group": "Tiếng · oi, ôi, ơi"
+ },
+ {
+  "id": "tv-bowi_looij",
+  "file": "/assets/voice/tv-bowi_looij.mp3",
+  "text": "bơi lội",
+  "group": "Từ khóa · oi, ôi, ơi"
+ },
+ {
+  "id": "tv-voi_con_ddi_bowi_ddi_chowi",
+  "file": "/assets/voice/tv-voi_con_ddi_bowi_ddi_chowi.mp3",
+  "text": "voi con đi bơi, đi chơi",
+  "group": "Câu ứng dụng · oi, ôi, ơi"
+ },
+ {
+  "id": "tv-ot",
+  "file": "/assets/voice/tv-ot.mp3",
+  "text": "ot",
+  "group": "Âm, vần · ot, ôt, ơt"
+ },
+ {
+  "id": "tv-ngot",
+  "file": "/assets/voice/tv-ngot.mp3",
+  "text": "ngot",
+  "group": "Đánh vần · ot, ôt, ơt"
+ },
+ {
+  "id": "tv-ngotj",
+  "file": "/assets/voice/tv-ngotj.mp3",
+  "text": "ngọt",
+  "group": "Đánh vần · ot, ôt, ơt"
+ },
+ {
+  "id": "tv-hots",
+  "file": "/assets/voice/tv-hots.mp3",
+  "text": "hót",
+  "group": "Tiếng · ot, ôt, ơt"
+ },
+ {
+  "id": "tv-rots",
+  "file": "/assets/voice/tv-rots.mp3",
+  "text": "rót",
+  "group": "Tiếng · ot, ôt, ơt"
+ },
+ {
+  "id": "tv-sotj",
+  "file": "/assets/voice/tv-sotj.mp3",
+  "text": "sọt",
+  "group": "Tiếng · ot, ôt, ơt"
+ },
+ {
+  "id": "tv-banhs_ngotj",
+  "file": "/assets/voice/tv-banhs_ngotj.mp3",
+  "text": "bánh ngọt",
+  "group": "Từ khóa · ot, ôt, ơt"
+ },
+ {
+  "id": "tv-oot",
+  "file": "/assets/voice/tv-oot.mp3",
+  "text": "ôt",
+  "group": "Âm, vần · ot, ôt, ơt"
+ },
+ {
+  "id": "tv-root",
+  "file": "/assets/voice/tv-root.mp3",
+  "text": "rôt",
+  "group": "Đánh vần · ot, ôt, ơt"
+ },
+ {
+  "id": "tv-roots",
+  "file": "/assets/voice/tv-roots.mp3",
+  "text": "rốt",
+  "group": "Đánh vần · ot, ôt, ơt"
+ },
+ {
+  "id": "tv-cootj",
+  "file": "/assets/voice/tv-cootj.mp3",
+  "text": "cột",
+  "group": "Tiếng · ot, ôt, ơt"
+ },
+ {
+  "id": "tv-mootj",
+  "file": "/assets/voice/tv-mootj.mp3",
+  "text": "một",
+  "group": "Tiếng · ot, ôt, ơt"
+ },
+ {
+  "id": "tv-toots",
+  "file": "/assets/voice/tv-toots.mp3",
+  "text": "tốt",
+  "group": "Tiếng · ot, ôt, ơt"
+ },
+ {
+  "id": "tv-caf_roots",
+  "file": "/assets/voice/tv-caf_roots.mp3",
+  "text": "cà rốt",
+  "group": "Từ khóa · ot, ôt, ơt"
+ },
+ {
+  "id": "tv-owt",
+  "file": "/assets/voice/tv-owt.mp3",
+  "text": "ơt",
+  "group": "Âm, vần · ot, ôt, ơt"
+ },
+ {
+  "id": "tv-owts",
+  "file": "/assets/voice/tv-owts.mp3",
+  "text": "ớt",
+  "group": "Đánh vần · ot, ôt, ơt"
+ },
+ {
+  "id": "tv-vowtj",
+  "file": "/assets/voice/tv-vowtj.mp3",
+  "text": "vợt",
+  "group": "Tiếng · ot, ôt, ơt"
+ },
+ {
+  "id": "tv-thowts",
+  "file": "/assets/voice/tv-thowts.mp3",
+  "text": "thớt",
+  "group": "Tiếng · ot, ôt, ơt"
+ },
+ {
+  "id": "tv-phowts",
+  "file": "/assets/voice/tv-phowts.mp3",
+  "text": "phớt",
+  "group": "Tiếng · ot, ôt, ơt"
+ },
+ {
+  "id": "tv-quar_owts",
+  "file": "/assets/voice/tv-quar_owts.mp3",
+  "text": "quả ớt",
+  "group": "Từ khóa · ot, ôt, ơt"
+ },
+ {
+  "id": "tv-chim_hots_banhs_ngotj",
+  "file": "/assets/voice/tv-chim_hots_banhs_ngotj.mp3",
+  "text": "chim hót, bánh ngọt",
+  "group": "Câu ứng dụng · ot, ôt, ơt"
+ },
+ {
+  "id": "tv-op",
+  "file": "/assets/voice/tv-op.mp3",
+  "text": "op",
+  "group": "Âm, vần · op, ôp, ơp"
+ },
+ {
+  "id": "tv-cop",
+  "file": "/assets/voice/tv-cop.mp3",
+  "text": "cop",
+  "group": "Đánh vần · op, ôp, ơp"
+ },
+ {
+  "id": "tv-copj",
+  "file": "/assets/voice/tv-copj.mp3",
+  "text": "cọp",
+  "group": "Đánh vần · op, ôp, ơp"
+ },
+ {
+  "id": "tv-hopj",
+  "file": "/assets/voice/tv-hopj.mp3",
+  "text": "họp",
+  "group": "Tiếng · op, ôp, ơp"
+ },
+ {
+  "id": "tv-gops",
+  "file": "/assets/voice/tv-gops.mp3",
+  "text": "góp",
+  "group": "Tiếng · op, ôp, ơp"
+ },
+ {
+  "id": "tv-bops",
+  "file": "/assets/voice/tv-bops.mp3",
+  "text": "bóp",
+  "group": "Tiếng · op, ôp, ơp"
+ },
+ {
+  "id": "tv-con_copj",
+  "file": "/assets/voice/tv-con_copj.mp3",
+  "text": "con cọp",
+  "group": "Từ khóa · op, ôp, ơp"
+ },
+ {
+  "id": "tv-oop",
+  "file": "/assets/voice/tv-oop.mp3",
+  "text": "ôp",
+  "group": "Âm, vần · op, ôp, ơp"
+ },
+ {
+  "id": "tv-hoop",
+  "file": "/assets/voice/tv-hoop.mp3",
+  "text": "hôp",
+  "group": "Đánh vần · op, ôp, ơp"
+ },
+ {
+  "id": "tv-hoopj",
+  "file": "/assets/voice/tv-hoopj.mp3",
+  "text": "hộp",
+  "group": "Đánh vần · op, ôp, ơp"
+ },
+ {
+  "id": "tv-xoops",
+  "file": "/assets/voice/tv-xoops.mp3",
+  "text": "xốp",
+  "group": "Tiếng · op, ôp, ơp"
+ },
+ {
+  "id": "tv-loopj",
+  "file": "/assets/voice/tv-loopj.mp3",
+  "text": "lộp",
+  "group": "Tiếng · op, ôp, ơp"
+ },
+ {
+  "id": "tv-ddoopj",
+  "file": "/assets/voice/tv-ddoopj.mp3",
+  "text": "độp",
+  "group": "Tiếng · op, ôp, ơp"
+ },
+ {
+  "id": "tv-hoopj_quaf",
+  "file": "/assets/voice/tv-hoopj_quaf.mp3",
+  "text": "hộp quà",
+  "group": "Từ khóa · op, ôp, ơp"
+ },
+ {
+  "id": "tv-owp",
+  "file": "/assets/voice/tv-owp.mp3",
+  "text": "ơp",
+  "group": "Âm, vần · op, ôp, ơp"
+ },
+ {
+  "id": "tv-lowp",
+  "file": "/assets/voice/tv-lowp.mp3",
+  "text": "lơp",
+  "group": "Đánh vần · op, ôp, ơp"
+ },
+ {
+  "id": "tv-lowps",
+  "file": "/assets/voice/tv-lowps.mp3",
+  "text": "lớp",
+  "group": "Đánh vần · op, ôp, ơp"
+ },
+ {
+  "id": "tv-chowps",
+  "file": "/assets/voice/tv-chowps.mp3",
+  "text": "chớp",
+  "group": "Tiếng · op, ôp, ơp"
+ },
+ {
+  "id": "tv-howpj",
+  "file": "/assets/voice/tv-howpj.mp3",
+  "text": "hợp",
+  "group": "Tiếng · op, ôp, ơp"
+ },
+ {
+  "id": "tv-ddowps",
+  "file": "/assets/voice/tv-ddowps.mp3",
+  "text": "đớp",
+  "group": "Tiếng · op, ôp, ơp"
+ },
+ {
+  "id": "tv-lowps_hocj",
+  "file": "/assets/voice/tv-lowps_hocj.mp3",
+  "text": "lớp học",
+  "group": "Từ khóa · op, ôp, ơp"
+ },
+ {
+  "id": "tv-car_lowps_gops_quaf_vaof_hoopj",
+  "file": "/assets/voice/tv-car_lowps_gops_quaf_vaof_hoopj.mp3",
+  "text": "cả lớp góp quà vào hộp",
+  "group": "Câu ứng dụng · op, ôp, ơp"
+ },
+ {
+  "id": "tv-oc",
+  "file": "/assets/voice/tv-oc.mp3",
+  "text": "oc",
+  "group": "Âm, vần · oc, ôc"
+ },
+ {
+  "id": "tv-coc",
+  "file": "/assets/voice/tv-coc.mp3",
+  "text": "coc",
+  "group": "Đánh vần · oc, ôc"
+ },
+ {
+  "id": "tv-cocs",
+  "file": "/assets/voice/tv-cocs.mp3",
+  "text": "cóc",
+  "group": "Đánh vần · oc, ôc"
+ },
+ {
+  "id": "tv-hocj",
+  "file": "/assets/voice/tv-hocj.mp3",
+  "text": "học",
+  "group": "Tiếng · oc, ôc"
+ },
+ {
+  "id": "tv-socs",
+  "file": "/assets/voice/tv-socs.mp3",
+  "text": "sóc",
+  "group": "Tiếng · oc, ôc"
+ },
+ {
+  "id": "tv-khocs",
+  "file": "/assets/voice/tv-khocs.mp3",
+  "text": "khóc",
+  "group": "Tiếng · oc, ôc"
+ },
+ {
+  "id": "tv-con_cocs",
+  "file": "/assets/voice/tv-con_cocs.mp3",
+  "text": "con cóc",
+  "group": "Từ khóa · oc, ôc"
+ },
+ {
+  "id": "tv-ooc",
+  "file": "/assets/voice/tv-ooc.mp3",
+  "text": "ôc",
+  "group": "Âm, vần · oc, ôc"
+ },
+ {
+  "id": "tv-oocs",
+  "file": "/assets/voice/tv-oocs.mp3",
+  "text": "ốc",
+  "group": "Đánh vần · oc, ôc"
+ },
+ {
+  "id": "tv-goocs",
+  "file": "/assets/voice/tv-goocs.mp3",
+  "text": "gốc",
+  "group": "Tiếng · oc, ôc"
+ },
+ {
+  "id": "tv-doocs",
+  "file": "/assets/voice/tv-doocs.mp3",
+  "text": "dốc",
+  "group": "Tiếng · oc, ôc"
+ },
+ {
+  "id": "tv-coocs",
+  "file": "/assets/voice/tv-coocs.mp3",
+  "text": "cốc",
+  "group": "Tiếng · oc, ôc"
+ },
+ {
+  "id": "tv-con_oocs",
+  "file": "/assets/voice/tv-con_oocs.mp3",
+  "text": "con ốc",
+  "group": "Từ khóa · oc, ôc"
+ },
+ {
+  "id": "tv-socs_nhor_owr_goocs_caay",
+  "file": "/assets/voice/tv-socs_nhor_owr_goocs_caay.mp3",
+  "text": "sóc nhỏ ở gốc cây",
+  "group": "Câu ứng dụng · oc, ôc"
+ },
+ {
+  "id": "tv-ong",
+  "file": "/assets/voice/tv-ong.mp3",
+  "text": "ong",
+  "group": "Âm, vần · ong, ông"
+ },
+ {
+  "id": "tv-bongs",
+  "file": "/assets/voice/tv-bongs.mp3",
+  "text": "bóng",
+  "group": "Tiếng · ong, ông"
+ },
+ {
+  "id": "tv-trong",
+  "file": "/assets/voice/tv-trong.mp3",
+  "text": "trong",
+  "group": "Tiếng · ong, ông"
+ },
+ {
+  "id": "tv-vongx",
+  "file": "/assets/voice/tv-vongx.mp3",
+  "text": "võng",
+  "group": "Tiếng · ong, ông"
+ },
+ {
+  "id": "tv-con_ong",
+  "file": "/assets/voice/tv-con_ong.mp3",
+  "text": "con ong",
+  "group": "Từ khóa · ong, ông"
+ },
+ {
+  "id": "tv-oong",
+  "file": "/assets/voice/tv-oong.mp3",
+  "text": "ông",
+  "group": "Âm, vần · ong, ông"
+ },
+ {
+  "id": "tv-troong",
+  "file": "/assets/voice/tv-troong.mp3",
+  "text": "trông",
+  "group": "Đánh vần · ong, ông"
+ },
+ {
+  "id": "tv-troongs",
+  "file": "/assets/voice/tv-troongs.mp3",
+  "text": "trống",
+  "group": "Đánh vần · ong, ông"
+ },
+ {
+  "id": "tv-boong",
+  "file": "/assets/voice/tv-boong.mp3",
+  "text": "bông",
+  "group": "Tiếng · ong, ông"
+ },
+ {
+  "id": "tv-soong",
+  "file": "/assets/voice/tv-soong.mp3",
+  "text": "sông",
+  "group": "Tiếng · ong, ông"
+ },
+ {
+  "id": "tv-cais_troongs",
+  "file": "/assets/voice/tv-cais_troongs.mp3",
+  "text": "cái trống",
+  "group": "Từ khóa · ong, ông"
+ },
+ {
+  "id": "tv-ong_bay_qua_boong_hoa",
+  "file": "/assets/voice/tv-ong_bay_qua_boong_hoa.mp3",
+  "text": "ong bay qua bông hoa",
+  "group": "Câu ứng dụng · ong, ông"
+ },
+ {
+  "id": "tv-en",
+  "file": "/assets/voice/tv-en.mp3",
+  "text": "en",
+  "group": "Âm, vần · en, ên, in"
+ },
+ {
+  "id": "tv-ken",
+  "file": "/assets/voice/tv-ken.mp3",
+  "text": "ken",
+  "group": "Đánh vần · en, ên, in"
+ },
+ {
+  "id": "tv-kenf",
+  "file": "/assets/voice/tv-kenf.mp3",
+  "text": "kèn",
+  "group": "Đánh vần · en, ên, in"
+ },
+ {
+  "id": "tv-sen",
+  "file": "/assets/voice/tv-sen.mp3",
+  "text": "sen",
+  "group": "Tiếng · en, ên, in"
+ },
+ {
+  "id": "tv-khen",
+  "file": "/assets/voice/tv-khen.mp3",
+  "text": "khen",
+  "group": "Tiếng · en, ên, in"
+ },
+ {
+  "id": "tv-ddenf",
+  "file": "/assets/voice/tv-ddenf.mp3",
+  "text": "đèn",
+  "group": "Tiếng · en, ên, in"
+ },
+ {
+  "id": "tv-cais_kenf",
+  "file": "/assets/voice/tv-cais_kenf.mp3",
+  "text": "cái kèn",
+  "group": "Từ khóa · en, ên, in"
+ },
+ {
+  "id": "tv-een",
+  "file": "/assets/voice/tv-een.mp3",
+  "text": "ên",
+  "group": "Âm, vần · en, ên, in"
+ },
+ {
+  "id": "tv-neen",
+  "file": "/assets/voice/tv-neen.mp3",
+  "text": "nên",
+  "group": "Đánh vần · en, ên, in"
+ },
+ {
+  "id": "tv-neens",
+  "file": "/assets/voice/tv-neens.mp3",
+  "text": "nến",
+  "group": "Đánh vần · en, ên, in"
+ },
+ {
+  "id": "tv-teen",
+  "file": "/assets/voice/tv-teen.mp3",
+  "text": "tên",
+  "group": "Tiếng · en, ên, in"
+ },
+ {
+  "id": "tv-leen",
+  "file": "/assets/voice/tv-leen.mp3",
+  "text": "lên",
+  "group": "Tiếng · en, ên, in"
+ },
+ {
+  "id": "tv-beens",
+  "file": "/assets/voice/tv-beens.mp3",
+  "text": "bến",
+  "group": "Tiếng · en, ên, in"
+ },
+ {
+  "id": "tv-caay_neens",
+  "file": "/assets/voice/tv-caay_neens.mp3",
+  "text": "cây nến",
+  "group": "Từ khóa · en, ên, in"
+ },
+ {
+  "id": "tv-in",
+  "file": "/assets/voice/tv-in.mp3",
+  "text": "in",
+  "group": "Âm, vần · en, ên, in"
+ },
+ {
+  "id": "tv-pin",
+  "file": "/assets/voice/tv-pin.mp3",
+  "text": "pin",
+  "group": "Đánh vần · en, ên, in"
+ },
+ {
+  "id": "tv-xin",
+  "file": "/assets/voice/tv-xin.mp3",
+  "text": "xin",
+  "group": "Tiếng · en, ên, in"
+ },
+ {
+  "id": "tv-tin",
+  "file": "/assets/voice/tv-tin.mp3",
+  "text": "tin",
+  "group": "Tiếng · en, ên, in"
+ },
+ {
+  "id": "tv-chins",
+  "file": "/assets/voice/tv-chins.mp3",
+  "text": "chín",
+  "group": "Tiếng · en, ên, in"
+ },
+ {
+  "id": "tv-cucj_pin",
+  "file": "/assets/voice/tv-cucj_pin.mp3",
+  "text": "cục pin",
+  "group": "Từ khóa · en, ên, in"
+ },
+ {
+  "id": "tv-bes_thooir_neens_car_nhaf_khen",
+  "file": "/assets/voice/tv-bes_thooir_neens_car_nhaf_khen.mp3",
+  "text": "bé thổi nến, cả nhà khen",
+  "group": "Câu ứng dụng · en, ên, in"
+ },
+ {
+  "id": "tv-em",
+  "file": "/assets/voice/tv-em.mp3",
+  "text": "em",
+  "group": "Âm, vần · em, êm, im"
+ },
+ {
+  "id": "tv-kem",
+  "file": "/assets/voice/tv-kem.mp3",
+  "text": "kem",
+  "group": "Đánh vần · em, êm, im"
+ },
+ {
+  "id": "tv-xem",
+  "file": "/assets/voice/tv-xem.mp3",
+  "text": "xem",
+  "group": "Tiếng · em, êm, im"
+ },
+ {
+  "id": "tv-tem",
+  "file": "/assets/voice/tv-tem.mp3",
+  "text": "tem",
+  "group": "Tiếng · em, êm, im"
+ },
+ {
+  "id": "tv-lems",
+  "file": "/assets/voice/tv-lems.mp3",
+  "text": "lém",
+  "group": "Tiếng · em, êm, im"
+ },
+ {
+  "id": "tv-que_kem",
+  "file": "/assets/voice/tv-que_kem.mp3",
+  "text": "que kem",
+  "group": "Từ khóa · em, êm, im"
+ },
+ {
+  "id": "tv-eem",
+  "file": "/assets/voice/tv-eem.mp3",
+  "text": "êm",
+  "group": "Âm, vần · em, êm, im"
+ },
+ {
+  "id": "tv-ddeem",
+  "file": "/assets/voice/tv-ddeem.mp3",
+  "text": "đêm",
+  "group": "Đánh vần · em, êm, im"
+ },
+ {
+  "id": "tv-meemf",
+  "file": "/assets/voice/tv-meemf.mp3",
+  "text": "mềm",
+  "group": "Tiếng · em, êm, im"
+ },
+ {
+  "id": "tv-theem",
+  "file": "/assets/voice/tv-theem.mp3",
+  "text": "thêm",
+  "group": "Tiếng · em, êm, im"
+ },
+ {
+  "id": "tv-neemj",
+  "file": "/assets/voice/tv-neemj.mp3",
+  "text": "nệm",
+  "group": "Tiếng · em, êm, im"
+ },
+ {
+  "id": "tv-ban_ddeem",
+  "file": "/assets/voice/tv-ban_ddeem.mp3",
+  "text": "ban đêm",
+  "group": "Từ khóa · em, êm, im"
+ },
+ {
+  "id": "tv-im",
+  "file": "/assets/voice/tv-im.mp3",
+  "text": "im",
+  "group": "Âm, vần · em, êm, im"
+ },
+ {
+  "id": "tv-chim",
+  "file": "/assets/voice/tv-chim.mp3",
+  "text": "chim",
+  "group": "Đánh vần · em, êm, im"
+ },
+ {
+  "id": "tv-tims",
+  "file": "/assets/voice/tv-tims.mp3",
+  "text": "tím",
+  "group": "Tiếng · em, êm, im"
+ },
+ {
+  "id": "tv-kim",
+  "file": "/assets/voice/tv-kim.mp3",
+  "text": "kim",
+  "group": "Tiếng · em, êm, im"
+ },
+ {
+  "id": "tv-phims",
+  "file": "/assets/voice/tv-phims.mp3",
+  "text": "phím",
+  "group": "Tiếng · em, êm, im"
+ },
+ {
+  "id": "tv-con_chim",
+  "file": "/assets/voice/tv-con_chim.mp3",
+  "text": "con chim",
+  "group": "Từ khóa · em, êm, im"
+ },
+ {
+  "id": "tv-chim_veef_toor_khi_ddeem_xuoongs",
+  "file": "/assets/voice/tv-chim_veef_toor_khi_ddeem_xuoongs.mp3",
+  "text": "chim về tổ khi đêm xuống",
+  "group": "Câu ứng dụng · em, êm, im"
+ },
+ {
+  "id": "tv-et",
+  "file": "/assets/voice/tv-et.mp3",
+  "text": "et",
+  "group": "Âm, vần · et, êt, it"
+ },
+ {
+  "id": "tv-vet",
+  "file": "/assets/voice/tv-vet.mp3",
+  "text": "vet",
+  "group": "Đánh vần · et, êt, it"
+ },
+ {
+  "id": "tv-vetj",
+  "file": "/assets/voice/tv-vetj.mp3",
+  "text": "vẹt",
+  "group": "Đánh vần · et, êt, it"
+ },
+ {
+  "id": "tv-bets",
+  "file": "/assets/voice/tv-bets.mp3",
+  "text": "bét",
+  "group": "Tiếng · et, êt, it"
+ },
+ {
+  "id": "tv-hets",
+  "file": "/assets/voice/tv-hets.mp3",
+  "text": "hét",
+  "group": "Tiếng · et, êt, it"
+ },
+ {
+  "id": "tv-kets",
+  "file": "/assets/voice/tv-kets.mp3",
+  "text": "két",
+  "group": "Tiếng · et, êt, it"
+ },
+ {
+  "id": "tv-con_vetj",
+  "file": "/assets/voice/tv-con_vetj.mp3",
+  "text": "con vẹt",
+  "group": "Từ khóa · et, êt, it"
+ },
+ {
+  "id": "tv-eet",
+  "file": "/assets/voice/tv-eet.mp3",
+  "text": "êt",
+  "group": "Âm, vần · et, êt, it"
+ },
+ {
+  "id": "tv-teet",
+  "file": "/assets/voice/tv-teet.mp3",
+  "text": "têt",
+  "group": "Đánh vần · et, êt, it"
+ },
+ {
+  "id": "tv-teets",
+  "file": "/assets/voice/tv-teets.mp3",
+  "text": "tết",
+  "group": "Đánh vần · et, êt, it"
+ },
+ {
+  "id": "tv-deetj",
+  "file": "/assets/voice/tv-deetj.mp3",
+  "text": "dệt",
+  "group": "Tiếng · et, êt, it"
+ },
+ {
+  "id": "tv-meetj",
+  "file": "/assets/voice/tv-meetj.mp3",
+  "text": "mệt",
+  "group": "Tiếng · et, êt, it"
+ },
+ {
+  "id": "tv-heets",
+  "file": "/assets/voice/tv-heets.mp3",
+  "text": "hết",
+  "group": "Tiếng · et, êt, it"
+ },
+ {
+  "id": "tv-ngayf_teets",
+  "file": "/assets/voice/tv-ngayf_teets.mp3",
+  "text": "ngày tết",
+  "group": "Từ khóa · et, êt, it"
+ },
+ {
+  "id": "tv-it",
+  "file": "/assets/voice/tv-it.mp3",
+  "text": "it",
+  "group": "Âm, vần · et, êt, it"
+ },
+ {
+  "id": "tv-vit",
+  "file": "/assets/voice/tv-vit.mp3",
+  "text": "vit",
+  "group": "Đánh vần · et, êt, it"
+ },
+ {
+  "id": "tv-vitj",
+  "file": "/assets/voice/tv-vitj.mp3",
+  "text": "vịt",
+  "group": "Đánh vần · et, êt, it"
+ },
+ {
+  "id": "tv-mits",
+  "file": "/assets/voice/tv-mits.mp3",
+  "text": "mít",
+  "group": "Tiếng · et, êt, it"
+ },
+ {
+  "id": "tv-thitj",
+  "file": "/assets/voice/tv-thitj.mp3",
+  "text": "thịt",
+  "group": "Tiếng · et, êt, it"
+ },
+ {
+  "id": "tv-chits",
+  "file": "/assets/voice/tv-chits.mp3",
+  "text": "chít",
+  "group": "Tiếng · et, êt, it"
+ },
+ {
+  "id": "tv-con_vitj",
+  "file": "/assets/voice/tv-con_vitj.mp3",
+  "text": "con vịt",
+  "group": "Từ khóa · et, êt, it"
+ },
+ {
+  "id": "tv-teets_nayf_bes_dduwowcj_lif_xif",
+  "file": "/assets/voice/tv-teets_nayf_bes_dduwowcj_lif_xif.mp3",
+  "text": "tết này bé được lì xì",
+  "group": "Câu ứng dụng · et, êt, it"
+ },
+ {
+  "id": "tv-ep",
+  "file": "/assets/voice/tv-ep.mp3",
+  "text": "ep",
+  "group": "Âm, vần · ep, êp, ip"
+ },
+ {
+  "id": "tv-dep",
+  "file": "/assets/voice/tv-dep.mp3",
+  "text": "dep",
+  "group": "Đánh vần · ep, êp, ip"
+ },
+ {
+  "id": "tv-deps",
+  "file": "/assets/voice/tv-deps.mp3",
+  "text": "dép",
+  "group": "Đánh vần · ep, êp, ip"
+ },
+ {
+  "id": "tv-ddepj",
+  "file": "/assets/voice/tv-ddepj.mp3",
+  "text": "đẹp",
+  "group": "Tiếng · ep, êp, ip"
+ },
+ {
+  "id": "tv-kepj",
+  "file": "/assets/voice/tv-kepj.mp3",
+  "text": "kẹp",
+  "group": "Tiếng · ep, êp, ip"
+ },
+ {
+  "id": "tv-teps",
+  "file": "/assets/voice/tv-teps.mp3",
+  "text": "tép",
+  "group": "Tiếng · ep, êp, ip"
+ },
+ {
+  "id": "tv-ddooi_deps",
+  "file": "/assets/voice/tv-ddooi_deps.mp3",
+  "text": "đôi dép",
+  "group": "Từ khóa · ep, êp, ip"
+ },
+ {
+  "id": "tv-eep",
+  "file": "/assets/voice/tv-eep.mp3",
+  "text": "êp",
+  "group": "Âm, vần · ep, êp, ip"
+ },
+ {
+  "id": "tv-beep",
+  "file": "/assets/voice/tv-beep.mp3",
+  "text": "bêp",
+  "group": "Đánh vần · ep, êp, ip"
+ },
+ {
+  "id": "tv-beeps",
+  "file": "/assets/voice/tv-beeps.mp3",
+  "text": "bếp",
+  "group": "Đánh vần · ep, êp, ip"
+ },
+ {
+  "id": "tv-xeeps",
+  "file": "/assets/voice/tv-xeeps.mp3",
+  "text": "xếp",
+  "group": "Tiếng · ep, êp, ip"
+ },
+ {
+  "id": "tv-neeps",
+  "file": "/assets/voice/tv-neeps.mp3",
+  "text": "nếp",
+  "group": "Tiếng · ep, êp, ip"
+ },
+ {
+  "id": "tv-nhaf_beeps",
+  "file": "/assets/voice/tv-nhaf_beeps.mp3",
+  "text": "nhà bếp",
+  "group": "Từ khóa · ep, êp, ip"
+ },
+ {
+  "id": "tv-ip",
+  "file": "/assets/voice/tv-ip.mp3",
+  "text": "ip",
+  "group": "Âm, vần · ep, êp, ip"
+ },
+ {
+  "id": "tv-nhip",
+  "file": "/assets/voice/tv-nhip.mp3",
+  "text": "nhip",
+  "group": "Đánh vần · ep, êp, ip"
+ },
+ {
+  "id": "tv-nhipj",
+  "file": "/assets/voice/tv-nhipj.mp3",
+  "text": "nhịp",
+  "group": "Đánh vần · ep, êp, ip"
+ },
+ {
+  "id": "tv-kipj",
+  "file": "/assets/voice/tv-kipj.mp3",
+  "text": "kịp",
+  "group": "Tiếng · ep, êp, ip"
+ },
+ {
+  "id": "tv-hips",
+  "file": "/assets/voice/tv-hips.mp3",
+  "text": "híp",
+  "group": "Tiếng · ep, êp, ip"
+ },
+ {
+  "id": "tv-nhipj_troongs",
+  "file": "/assets/voice/tv-nhipj_troongs.mp3",
+  "text": "nhịp trống",
+  "group": "Từ khóa · ep, êp, ip"
+ },
+ {
+  "id": "tv-mej_naaus_cowm_owr_beeps",
+  "file": "/assets/voice/tv-mej_naaus_cowm_owr_beeps.mp3",
+  "text": "mẹ nấu cơm ở bếp",
+  "group": "Câu ứng dụng · ep, êp, ip"
+ },
+ {
+  "id": "tv-eo",
+  "file": "/assets/voice/tv-eo.mp3",
+  "text": "eo",
+  "group": "Âm, vần · eo, êu, iu, ia"
+ },
+ {
+  "id": "tv-meo",
+  "file": "/assets/voice/tv-meo.mp3",
+  "text": "meo",
+  "group": "Đánh vần · eo, êu, iu, ia"
+ },
+ {
+  "id": "tv-meof",
+  "file": "/assets/voice/tv-meof.mp3",
+  "text": "mèo",
+  "group": "Đánh vần · eo, êu, iu, ia"
+ },
+ {
+  "id": "tv-keoj",
+  "file": "/assets/voice/tv-keoj.mp3",
+  "text": "kẹo",
+  "group": "Tiếng · eo, êu, iu, ia"
+ },
+ {
+  "id": "tv-leo",
+  "file": "/assets/voice/tv-leo.mp3",
+  "text": "leo",
+  "group": "Tiếng · eo, êu, iu, ia"
+ },
+ {
+  "id": "tv-treof",
+  "file": "/assets/voice/tv-treof.mp3",
+  "text": "trèo",
+  "group": "Tiếng · eo, êu, iu, ia"
+ },
+ {
+  "id": "tv-con_meof",
+  "file": "/assets/voice/tv-con_meof.mp3",
+  "text": "con mèo",
+  "group": "Từ khóa · eo, êu, iu, ia"
+ },
+ {
+  "id": "tv-eeu",
+  "file": "/assets/voice/tv-eeu.mp3",
+  "text": "êu",
+  "group": "Âm, vần · eo, êu, iu, ia"
+ },
+ {
+  "id": "tv-leeu",
+  "file": "/assets/voice/tv-leeu.mp3",
+  "text": "lêu",
+  "group": "Đánh vần · eo, êu, iu, ia"
+ },
+ {
+  "id": "tv-leeuf",
+  "file": "/assets/voice/tv-leeuf.mp3",
+  "text": "lều",
+  "group": "Đánh vần · eo, êu, iu, ia"
+ },
+ {
+  "id": "tv-keeu",
+  "file": "/assets/voice/tv-keeu.mp3",
+  "text": "kêu",
+  "group": "Tiếng · eo, êu, iu, ia"
+ },
+ {
+  "id": "tv-neeus",
+  "file": "/assets/voice/tv-neeus.mp3",
+  "text": "nếu",
+  "group": "Tiếng · eo, êu, iu, ia"
+ },
+ {
+  "id": "tv-ddeeuf",
+  "file": "/assets/voice/tv-ddeeuf.mp3",
+  "text": "đều",
+  "group": "Tiếng · eo, êu, iu, ia"
+ },
+ {
+  "id": "tv-cais_leeuf",
+  "file": "/assets/voice/tv-cais_leeuf.mp3",
+  "text": "cái lều",
+  "group": "Từ khóa · eo, êu, iu, ia"
+ },
+ {
+  "id": "tv-iu",
+  "file": "/assets/voice/tv-iu.mp3",
+  "text": "iu",
+  "group": "Âm, vần · eo, êu, iu, ia"
+ },
+ {
+  "id": "tv-riu",
+  "file": "/assets/voice/tv-riu.mp3",
+  "text": "riu",
+  "group": "Đánh vần · eo, êu, iu, ia"
+ },
+ {
+  "id": "tv-riuf",
+  "file": "/assets/voice/tv-riuf.mp3",
+  "text": "rìu",
+  "group": "Đánh vần · eo, êu, iu, ia"
+ },
+ {
+  "id": "tv-diuj",
+  "file": "/assets/voice/tv-diuj.mp3",
+  "text": "dịu",
+  "group": "Tiếng · eo, êu, iu, ia"
+ },
+ {
+  "id": "tv-xius",
+  "file": "/assets/voice/tv-xius.mp3",
+  "text": "xíu",
+  "group": "Tiếng · eo, êu, iu, ia"
+ },
+ {
+  "id": "tv-chiuj",
+  "file": "/assets/voice/tv-chiuj.mp3",
+  "text": "chịu",
+  "group": "Tiếng · eo, êu, iu, ia"
+ },
+ {
+  "id": "tv-cais_riuf",
+  "file": "/assets/voice/tv-cais_riuf.mp3",
+  "text": "cái rìu",
+  "group": "Từ khóa · eo, êu, iu, ia"
+ },
+ {
+  "id": "tv-ia",
+  "file": "/assets/voice/tv-ia.mp3",
+  "text": "ia",
+  "group": "Âm, vần · eo, êu, iu, ia"
+ },
+ {
+  "id": "tv-mia",
+  "file": "/assets/voice/tv-mia.mp3",
+  "text": "mia",
+  "group": "Đánh vần · eo, êu, iu, ia"
+ },
+ {
+  "id": "tv-mias",
+  "file": "/assets/voice/tv-mias.mp3",
+  "text": "mía",
+  "group": "Đánh vần · eo, êu, iu, ia"
+ },
+ {
+  "id": "tv-chia",
+  "file": "/assets/voice/tv-chia.mp3",
+  "text": "chia",
+  "group": "Tiếng · eo, êu, iu, ia"
+ },
+ {
+  "id": "tv-kia",
+  "file": "/assets/voice/tv-kia.mp3",
+  "text": "kia",
+  "group": "Tiếng · eo, êu, iu, ia"
+ },
+ {
+  "id": "tv-liaf",
+  "file": "/assets/voice/tv-liaf.mp3",
+  "text": "lìa",
+  "group": "Tiếng · eo, êu, iu, ia"
+ },
+ {
+  "id": "tv-caay_mias",
+  "file": "/assets/voice/tv-caay_mias.mp3",
+  "text": "cây mía",
+  "group": "Từ khóa · eo, êu, iu, ia"
+ },
+ {
+  "id": "tv-meof_con_leo_caay_mias",
+  "file": "/assets/voice/tv-meof_con_leo_caay_mias.mp3",
+  "text": "mèo con leo cây mía",
+  "group": "Câu ứng dụng · eo, êu, iu, ia"
+ },
+ {
+  "id": "tv-eenh",
+  "file": "/assets/voice/tv-eenh.mp3",
+  "text": "ênh",
+  "group": "Âm, vần · ênh, inh, êch, ich"
+ },
+ {
+  "id": "tv-keenh",
+  "file": "/assets/voice/tv-keenh.mp3",
+  "text": "kênh",
+  "group": "Đánh vần · ênh, inh, êch, ich"
+ },
+ {
+  "id": "tv-beenhj",
+  "file": "/assets/voice/tv-beenhj.mp3",
+  "text": "bệnh",
+  "group": "Tiếng · ênh, inh, êch, ich"
+ },
+ {
+  "id": "tv-leenh",
+  "file": "/assets/voice/tv-leenh.mp3",
+  "text": "lênh",
+  "group": "Tiếng · ênh, inh, êch, ich"
+ },
+ {
+  "id": "tv-cheenh",
+  "file": "/assets/voice/tv-cheenh.mp3",
+  "text": "chênh",
+  "group": "Tiếng · ênh, inh, êch, ich"
+ },
+ {
+  "id": "tv-dongf_keenh",
+  "file": "/assets/voice/tv-dongf_keenh.mp3",
+  "text": "dòng kênh",
+  "group": "Từ khóa · ênh, inh, êch, ich"
+ },
+ {
+  "id": "tv-inh",
+  "file": "/assets/voice/tv-inh.mp3",
+  "text": "inh",
+  "group": "Âm, vần · ênh, inh, êch, ich"
+ },
+ {
+  "id": "tv-kinh",
+  "file": "/assets/voice/tv-kinh.mp3",
+  "text": "kinh",
+  "group": "Đánh vần · ênh, inh, êch, ich"
+ },
+ {
+  "id": "tv-kinhs",
+  "file": "/assets/voice/tv-kinhs.mp3",
+  "text": "kính",
+  "group": "Đánh vần · ênh, inh, êch, ich"
+ },
+ {
+  "id": "tv-xinh",
+  "file": "/assets/voice/tv-xinh.mp3",
+  "text": "xinh",
+  "group": "Tiếng · ênh, inh, êch, ich"
+ },
+ {
+  "id": "tv-binhf",
+  "file": "/assets/voice/tv-binhf.mp3",
+  "text": "bình",
+  "group": "Tiếng · ênh, inh, êch, ich"
+ },
+ {
+  "id": "tv-tinhs",
+  "file": "/assets/voice/tv-tinhs.mp3",
+  "text": "tính",
+  "group": "Tiếng · ênh, inh, êch, ich"
+ },
+ {
+  "id": "tv-cais_kinhs",
+  "file": "/assets/voice/tv-cais_kinhs.mp3",
+  "text": "cái kính",
+  "group": "Từ khóa · ênh, inh, êch, ich"
+ },
+ {
+  "id": "tv-eech",
+  "file": "/assets/voice/tv-eech.mp3",
+  "text": "êch",
+  "group": "Âm, vần · ênh, inh, êch, ich"
+ },
+ {
+  "id": "tv-eechs",
+  "file": "/assets/voice/tv-eechs.mp3",
+  "text": "ếch",
+  "group": "Đánh vần · ênh, inh, êch, ich"
+ },
+ {
+  "id": "tv-leechj",
+  "file": "/assets/voice/tv-leechj.mp3",
+  "text": "lệch",
+  "group": "Tiếng · ênh, inh, êch, ich"
+ },
+ {
+  "id": "tv-cheechs",
+  "file": "/assets/voice/tv-cheechs.mp3",
+  "text": "chếch",
+  "group": "Tiếng · ênh, inh, êch, ich"
+ },
+ {
+  "id": "tv-con_eechs",
+  "file": "/assets/voice/tv-con_eechs.mp3",
+  "text": "con ếch",
+  "group": "Từ khóa · ênh, inh, êch, ich"
+ },
+ {
+  "id": "tv-ich",
+  "file": "/assets/voice/tv-ich.mp3",
+  "text": "ich",
+  "group": "Âm, vần · ênh, inh, êch, ich"
+ },
+ {
+  "id": "tv-lich",
+  "file": "/assets/voice/tv-lich.mp3",
+  "text": "lich",
+  "group": "Đánh vần · ênh, inh, êch, ich"
+ },
+ {
+  "id": "tv-lichj",
+  "file": "/assets/voice/tv-lichj.mp3",
+  "text": "lịch",
+  "group": "Đánh vần · ênh, inh, êch, ich"
+ },
+ {
+  "id": "tv-thichs",
+  "file": "/assets/voice/tv-thichs.mp3",
+  "text": "thích",
+  "group": "Tiếng · ênh, inh, êch, ich"
+ },
+ {
+  "id": "tv-xichs",
+  "file": "/assets/voice/tv-xichs.mp3",
+  "text": "xích",
+  "group": "Tiếng · ênh, inh, êch, ich"
+ },
+ {
+  "id": "tv-ichs",
+  "file": "/assets/voice/tv-ichs.mp3",
+  "text": "ích",
+  "group": "Tiếng · ênh, inh, êch, ich"
+ },
+ {
+  "id": "tv-towf_lichj",
+  "file": "/assets/voice/tv-towf_lichj.mp3",
+  "text": "tờ lịch",
+  "group": "Từ khóa · ênh, inh, êch, ich"
+ },
+ {
+  "id": "tv-eechs_xinh_ngooif_been_keenh",
+  "file": "/assets/voice/tv-eechs_xinh_ngooif_been_keenh.mp3",
+  "text": "ếch xinh ngồi bên kênh",
+  "group": "Câu ứng dụng · ênh, inh, êch, ich"
+ },
+ {
+  "id": "tv-um",
+  "file": "/assets/voice/tv-um.mp3",
+  "text": "um",
+  "group": "Âm, vần · um, un, ui, ưi"
+ },
+ {
+  "id": "tv-chum",
+  "file": "/assets/voice/tv-chum.mp3",
+  "text": "chum",
+  "group": "Đánh vần · um, un, ui, ưi"
+ },
+ {
+  "id": "tv-chumf",
+  "file": "/assets/voice/tv-chumf.mp3",
+  "text": "chùm",
+  "group": "Đánh vần · um, un, ui, ưi"
+ },
+ {
+  "id": "tv-tum",
+  "file": "/assets/voice/tv-tum.mp3",
+  "text": "tum",
+  "group": "Tiếng · um, un, ui, ưi"
+ },
+ {
+  "id": "tv-khum",
+  "file": "/assets/voice/tv-khum.mp3",
+  "text": "khum",
+  "group": "Tiếng · um, un, ui, ưi"
+ },
+ {
+  "id": "tv-cums",
+  "file": "/assets/voice/tv-cums.mp3",
+  "text": "cúm",
+  "group": "Tiếng · um, un, ui, ưi"
+ },
+ {
+  "id": "tv-un",
+  "file": "/assets/voice/tv-un.mp3",
+  "text": "un",
+  "group": "Âm, vần · um, un, ui, ưi"
+ },
+ {
+  "id": "tv-giun",
+  "file": "/assets/voice/tv-giun.mp3",
+  "text": "giun",
+  "group": "Đánh vần · um, un, ui, ưi"
+ },
+ {
+  "id": "tv-buns",
+  "file": "/assets/voice/tv-buns.mp3",
+  "text": "bún",
+  "group": "Tiếng · um, un, ui, ưi"
+ },
+ {
+  "id": "tv-munf",
+  "file": "/assets/voice/tv-munf.mp3",
+  "text": "mùn",
+  "group": "Tiếng · um, un, ui, ưi"
+ },
+ {
+  "id": "tv-ddunf",
+  "file": "/assets/voice/tv-ddunf.mp3",
+  "text": "đùn",
+  "group": "Tiếng · um, un, ui, ưi"
+ },
+ {
+  "id": "tv-con_giun",
+  "file": "/assets/voice/tv-con_giun.mp3",
+  "text": "con giun",
+  "group": "Từ khóa · um, un, ui, ưi"
+ },
+ {
+  "id": "tv-ui",
+  "file": "/assets/voice/tv-ui.mp3",
+  "text": "ui",
+  "group": "Âm, vần · um, un, ui, ưi"
+ },
+ {
+  "id": "tv-nui",
+  "file": "/assets/voice/tv-nui.mp3",
+  "text": "nui",
+  "group": "Đánh vần · um, un, ui, ưi"
+ },
+ {
+  "id": "tv-nuis",
+  "file": "/assets/voice/tv-nuis.mp3",
+  "text": "núi",
+  "group": "Đánh vần · um, un, ui, ưi"
+ },
+ {
+  "id": "tv-tuis",
+  "file": "/assets/voice/tv-tuis.mp3",
+  "text": "túi",
+  "group": "Tiếng · um, un, ui, ưi"
+ },
+ {
+  "id": "tv-vui",
+  "file": "/assets/voice/tv-vui.mp3",
+  "text": "vui",
+  "group": "Tiếng · um, un, ui, ưi"
+ },
+ {
+  "id": "tv-muix",
+  "file": "/assets/voice/tv-muix.mp3",
+  "text": "mũi",
+  "group": "Tiếng · um, un, ui, ưi"
+ },
+ {
+  "id": "tv-ngonj_nuis",
+  "file": "/assets/voice/tv-ngonj_nuis.mp3",
+  "text": "ngọn núi",
+  "group": "Từ khóa · um, un, ui, ưi"
+ },
+ {
+  "id": "tv-uwi",
+  "file": "/assets/voice/tv-uwi.mp3",
+  "text": "ưi",
+  "group": "Âm, vần · um, un, ui, ưi"
+ },
+ {
+  "id": "tv-nguwi",
+  "file": "/assets/voice/tv-nguwi.mp3",
+  "text": "ngưi",
+  "group": "Đánh vần · um, un, ui, ưi"
+ },
+ {
+  "id": "tv-nguwir",
+  "file": "/assets/voice/tv-nguwir.mp3",
+  "text": "ngửi",
+  "group": "Đánh vần · um, un, ui, ưi"
+ },
+ {
+  "id": "tv-guwir",
+  "file": "/assets/voice/tv-guwir.mp3",
+  "text": "gửi",
+  "group": "Tiếng · um, un, ui, ưi"
+ },
+ {
+  "id": "tv-cuwir",
+  "file": "/assets/voice/tv-cuwir.mp3",
+  "text": "cửi",
+  "group": "Tiếng · um, un, ui, ưi"
+ },
+ {
+  "id": "tv-nguwir_hoa",
+  "file": "/assets/voice/tv-nguwir_hoa.mp3",
+  "text": "ngửi hoa",
+  "group": "Từ khóa · um, un, ui, ưi"
+ },
+ {
+  "id": "tv-bes_vui_ddi_chowi_nuis",
+  "file": "/assets/voice/tv-bes_vui_ddi_chowi_nuis.mp3",
+  "text": "bé vui đi chơi núi",
+  "group": "Câu ứng dụng · um, un, ui, ưi"
+ },
+ {
+  "id": "tv-up",
+  "file": "/assets/voice/tv-up.mp3",
+  "text": "up",
+  "group": "Âm, vần · up, ut, ưt"
+ },
+ {
+  "id": "tv-bup",
+  "file": "/assets/voice/tv-bup.mp3",
+  "text": "bup",
+  "group": "Đánh vần · up, ut, ưt"
+ },
+ {
+  "id": "tv-bups",
+  "file": "/assets/voice/tv-bups.mp3",
+  "text": "búp",
+  "group": "Đánh vần · up, ut, ưt"
+ },
+ {
+  "id": "tv-giups",
+  "file": "/assets/voice/tv-giups.mp3",
+  "text": "giúp",
+  "group": "Tiếng · up, ut, ưt"
+ },
+ {
+  "id": "tv-chupj",
+  "file": "/assets/voice/tv-chupj.mp3",
+  "text": "chụp",
+  "group": "Tiếng · up, ut, ưt"
+ },
+ {
+  "id": "tv-nups",
+  "file": "/assets/voice/tv-nups.mp3",
+  "text": "núp",
+  "group": "Tiếng · up, ut, ưt"
+ },
+ {
+  "id": "tv-bups_sen",
+  "file": "/assets/voice/tv-bups_sen.mp3",
+  "text": "búp sen",
+  "group": "Từ khóa · up, ut, ưt"
+ },
+ {
+  "id": "tv-ut",
+  "file": "/assets/voice/tv-ut.mp3",
+  "text": "ut",
+  "group": "Âm, vần · up, ut, ưt"
+ },
+ {
+  "id": "tv-but",
+  "file": "/assets/voice/tv-but.mp3",
+  "text": "but",
+  "group": "Đánh vần · up, ut, ưt"
+ },
+ {
+  "id": "tv-buts",
+  "file": "/assets/voice/tv-buts.mp3",
+  "text": "bút",
+  "group": "Đánh vần · up, ut, ưt"
+ },
+ {
+  "id": "tv-phuts",
+  "file": "/assets/voice/tv-phuts.mp3",
+  "text": "phút",
+  "group": "Tiếng · up, ut, ưt"
+ },
+ {
+  "id": "tv-suts",
+  "file": "/assets/voice/tv-suts.mp3",
+  "text": "sút",
+  "group": "Tiếng · up, ut, ưt"
+ },
+ {
+  "id": "tv-huts",
+  "file": "/assets/voice/tv-huts.mp3",
+  "text": "hút",
+  "group": "Tiếng · up, ut, ưt"
+ },
+ {
+  "id": "tv-caay_buts",
+  "file": "/assets/voice/tv-caay_buts.mp3",
+  "text": "cây bút",
+  "group": "Từ khóa · up, ut, ưt"
+ },
+ {
+  "id": "tv-uwt",
+  "file": "/assets/voice/tv-uwt.mp3",
+  "text": "ưt",
+  "group": "Âm, vần · up, ut, ưt"
+ },
+ {
+  "id": "tv-muwt",
+  "file": "/assets/voice/tv-muwt.mp3",
+  "text": "mưt",
+  "group": "Đánh vần · up, ut, ưt"
+ },
+ {
+  "id": "tv-muwts",
+  "file": "/assets/voice/tv-muwts.mp3",
+  "text": "mứt",
+  "group": "Đánh vần · up, ut, ưt"
+ },
+ {
+  "id": "tv-dduwts",
+  "file": "/assets/voice/tv-dduwts.mp3",
+  "text": "đứt",
+  "group": "Tiếng · up, ut, ưt"
+ },
+ {
+  "id": "tv-nuwts",
+  "file": "/assets/voice/tv-nuwts.mp3",
+  "text": "nứt",
+  "group": "Tiếng · up, ut, ưt"
+ },
+ {
+  "id": "tv-suwts",
+  "file": "/assets/voice/tv-suwts.mp3",
+  "text": "sứt",
+  "group": "Tiếng · up, ut, ưt"
+ },
+ {
+  "id": "tv-hoopj_muwts",
+  "file": "/assets/voice/tv-hoopj_muwts.mp3",
+  "text": "hộp mứt",
+  "group": "Từ khóa · up, ut, ưt"
+ },
+ {
+  "id": "tv-bes_caamf_buts_giups_mej",
+  "file": "/assets/voice/tv-bes_caamf_buts_giups_mej.mp3",
+  "text": "bé cầm bút giúp mẹ",
+  "group": "Câu ứng dụng · up, ut, ưt"
+ },
+ {
+  "id": "tv-uc",
+  "file": "/assets/voice/tv-uc.mp3",
+  "text": "uc",
+  "group": "Âm, vần · uc, ưc, ung, ưng"
+ },
+ {
+  "id": "tv-cuc",
+  "file": "/assets/voice/tv-cuc.mp3",
+  "text": "cuc",
+  "group": "Đánh vần · uc, ưc, ung, ưng"
+ },
+ {
+  "id": "tv-cucs",
+  "file": "/assets/voice/tv-cucs.mp3",
+  "text": "cúc",
+  "group": "Đánh vần · uc, ưc, ung, ưng"
+ },
+ {
+  "id": "tv-mucs",
+  "file": "/assets/voice/tv-mucs.mp3",
+  "text": "múc",
+  "group": "Tiếng · uc, ưc, ung, ưng"
+ },
+ {
+  "id": "tv-trucs",
+  "file": "/assets/voice/tv-trucs.mp3",
+  "text": "trúc",
+  "group": "Tiếng · uc, ưc, ung, ưng"
+ },
+ {
+  "id": "tv-cucj",
+  "file": "/assets/voice/tv-cucj.mp3",
+  "text": "cục",
+  "group": "Tiếng · uc, ưc, ung, ưng"
+ },
+ {
+  "id": "tv-hoa_cucs",
+  "file": "/assets/voice/tv-hoa_cucs.mp3",
+  "text": "hoa cúc",
+  "group": "Từ khóa · uc, ưc, ung, ưng"
+ },
+ {
+  "id": "tv-uwc",
+  "file": "/assets/voice/tv-uwc.mp3",
+  "text": "ưc",
+  "group": "Âm, vần · uc, ưc, ung, ưng"
+ },
+ {
+  "id": "tv-muwc",
+  "file": "/assets/voice/tv-muwc.mp3",
+  "text": "mưc",
+  "group": "Đánh vần · uc, ưc, ung, ưng"
+ },
+ {
+  "id": "tv-muwcj",
+  "file": "/assets/voice/tv-muwcj.mp3",
+  "text": "mực",
+  "group": "Đánh vần · uc, ưc, ung, ưng"
+ },
+ {
+  "id": "tv-dduwcs",
+  "file": "/assets/voice/tv-dduwcs.mp3",
+  "text": "đức",
+  "group": "Tiếng · uc, ưc, ung, ưng"
+ },
+ {
+  "id": "tv-suwcs",
+  "file": "/assets/voice/tv-suwcs.mp3",
+  "text": "sức",
+  "group": "Tiếng · uc, ưc, ung, ưng"
+ },
+ {
+  "id": "tv-thuwcs",
+  "file": "/assets/voice/tv-thuwcs.mp3",
+  "text": "thức",
+  "group": "Tiếng · uc, ưc, ung, ưng"
+ },
+ {
+  "id": "tv-con_muwcj",
+  "file": "/assets/voice/tv-con_muwcj.mp3",
+  "text": "con mực",
+  "group": "Từ khóa · uc, ưc, ung, ưng"
+ },
+ {
+  "id": "tv-ung",
+  "file": "/assets/voice/tv-ung.mp3",
+  "text": "ung",
+  "group": "Âm, vần · uc, ưc, ung, ưng"
+ },
+ {
+  "id": "tv-thung",
+  "file": "/assets/voice/tv-thung.mp3",
+  "text": "thung",
+  "group": "Đánh vần · uc, ưc, ung, ưng"
+ },
+ {
+  "id": "tv-thungs",
+  "file": "/assets/voice/tv-thungs.mp3",
+  "text": "thúng",
+  "group": "Đánh vần · uc, ưc, ung, ưng"
+ },
+ {
+  "id": "tv-sung",
+  "file": "/assets/voice/tv-sung.mp3",
+  "text": "sung",
+  "group": "Tiếng · uc, ưc, ung, ưng"
+ },
+ {
+  "id": "tv-trung",
+  "file": "/assets/voice/tv-trung.mp3",
+  "text": "trung",
+  "group": "Tiếng · uc, ưc, ung, ưng"
+ },
+ {
+  "id": "tv-rung",
+  "file": "/assets/voice/tv-rung.mp3",
+  "text": "rung",
+  "group": "Tiếng · uc, ưc, ung, ưng"
+ },
+ {
+  "id": "tv-cais_thungs",
+  "file": "/assets/voice/tv-cais_thungs.mp3",
+  "text": "cái thúng",
+  "group": "Từ khóa · uc, ưc, ung, ưng"
+ },
+ {
+  "id": "tv-uwng",
+  "file": "/assets/voice/tv-uwng.mp3",
+  "text": "ưng",
+  "group": "Âm, vần · uc, ưc, ung, ưng"
+ },
+ {
+  "id": "tv-truwng",
+  "file": "/assets/voice/tv-truwng.mp3",
+  "text": "trưng",
+  "group": "Đánh vần · uc, ưc, ung, ưng"
+ },
+ {
+  "id": "tv-truwngs",
+  "file": "/assets/voice/tv-truwngs.mp3",
+  "text": "trứng",
+  "group": "Đánh vần · uc, ưc, ung, ưng"
+ },
+ {
+  "id": "tv-luwng",
+  "file": "/assets/voice/tv-luwng.mp3",
+  "text": "lưng",
+  "group": "Tiếng · uc, ưc, ung, ưng"
+ },
+ {
+  "id": "tv-suwngf",
+  "file": "/assets/voice/tv-suwngf.mp3",
+  "text": "sừng",
+  "group": "Tiếng · uc, ưc, ung, ưng"
+ },
+ {
+  "id": "tv-muwngf",
+  "file": "/assets/voice/tv-muwngf.mp3",
+  "text": "mừng",
+  "group": "Tiếng · uc, ưc, ung, ưng"
+ },
+ {
+  "id": "tv-quar_truwngs",
+  "file": "/assets/voice/tv-quar_truwngs.mp3",
+  "text": "quả trứng",
+  "group": "Từ khóa · uc, ưc, ung, ưng"
+ },
+ {
+  "id": "tv-gaf_mej_aaps_truwngs",
+  "file": "/assets/voice/tv-gaf_mej_aaps_truwngs.mp3",
+  "text": "gà mẹ ấp trứng",
+  "group": "Câu ứng dụng · uc, ưc, ung, ưng"
+ },
+ {
+  "id": "tv-ua",
+  "file": "/assets/voice/tv-ua.mp3",
+  "text": "ua",
+  "group": "Âm, vần · ua, ưa, ưu"
+ },
+ {
+  "id": "tv-cua",
+  "file": "/assets/voice/tv-cua.mp3",
+  "text": "cua",
+  "group": "Đánh vần · ua, ưa, ưu"
+ },
+ {
+  "id": "tv-mua",
+  "file": "/assets/voice/tv-mua.mp3",
+  "text": "mua",
+  "group": "Tiếng · ua, ưa, ưu"
+ },
+ {
+  "id": "tv-ruaf",
+  "file": "/assets/voice/tv-ruaf.mp3",
+  "text": "rùa",
+  "group": "Tiếng · ua, ưa, ưu"
+ },
+ {
+  "id": "tv-dduax",
+  "file": "/assets/voice/tv-dduax.mp3",
+  "text": "đũa",
+  "group": "Tiếng · ua, ưa, ưu"
+ },
+ {
+  "id": "tv-con_cua",
+  "file": "/assets/voice/tv-con_cua.mp3",
+  "text": "con cua",
+  "group": "Từ khóa · ua, ưa, ưu"
+ },
+ {
+  "id": "tv-uwa",
+  "file": "/assets/voice/tv-uwa.mp3",
+  "text": "ưa",
+  "group": "Âm, vần · ua, ưa, ưu"
+ },
+ {
+  "id": "tv-nguwa",
+  "file": "/assets/voice/tv-nguwa.mp3",
+  "text": "ngưa",
+  "group": "Đánh vần · ua, ưa, ưu"
+ },
+ {
+  "id": "tv-nguwaj",
+  "file": "/assets/voice/tv-nguwaj.mp3",
+  "text": "ngựa",
+  "group": "Đánh vần · ua, ưa, ưu"
+ },
+ {
+  "id": "tv-muwa",
+  "file": "/assets/voice/tv-muwa.mp3",
+  "text": "mưa",
+  "group": "Tiếng · ua, ưa, ưu"
+ },
+ {
+  "id": "tv-duwa",
+  "file": "/assets/voice/tv-duwa.mp3",
+  "text": "dưa",
+  "group": "Tiếng · ua, ưa, ưu"
+ },
+ {
+  "id": "tv-cuwar",
+  "file": "/assets/voice/tv-cuwar.mp3",
+  "text": "cửa",
+  "group": "Tiếng · ua, ưa, ưu"
+ },
+ {
+  "id": "tv-con_nguwaj",
+  "file": "/assets/voice/tv-con_nguwaj.mp3",
+  "text": "con ngựa",
+  "group": "Từ khóa · ua, ưa, ưu"
+ },
+ {
+  "id": "tv-uwu",
+  "file": "/assets/voice/tv-uwu.mp3",
+  "text": "ưu",
+  "group": "Âm, vần · ua, ưa, ưu"
+ },
+ {
+  "id": "tv-cuwu",
+  "file": "/assets/voice/tv-cuwu.mp3",
+  "text": "cưu",
+  "group": "Đánh vần · ua, ưa, ưu"
+ },
+ {
+  "id": "tv-cuwuf",
+  "file": "/assets/voice/tv-cuwuf.mp3",
+  "text": "cừu",
+  "group": "Đánh vần · ua, ưa, ưu"
+ },
+ {
+  "id": "tv-huwu",
+  "file": "/assets/voice/tv-huwu.mp3",
+  "text": "hưu",
+  "group": "Tiếng · ua, ưa, ưu"
+ },
+ {
+  "id": "tv-cuwus",
+  "file": "/assets/voice/tv-cuwus.mp3",
+  "text": "cứu",
+  "group": "Tiếng · ua, ưa, ưu"
+ },
+ {
+  "id": "tv-luwuj",
+  "file": "/assets/voice/tv-luwuj.mp3",
+  "text": "lựu",
+  "group": "Tiếng · ua, ưa, ưu"
+ },
+ {
+  "id": "tv-con_cuwuf",
+  "file": "/assets/voice/tv-con_cuwuf.mp3",
+  "text": "con cừu",
+  "group": "Từ khóa · ua, ưa, ưu"
+ },
+ {
+  "id": "tv-trowif_muwa_cua_bof_ra",
+  "file": "/assets/voice/tv-trowif_muwa_cua_bof_ra.mp3",
+  "text": "trời mưa, cua bò ra",
+  "group": "Câu ứng dụng · ua, ưa, ưu"
+ },
+ {
+  "id": "tv-ieen",
+  "file": "/assets/voice/tv-ieen.mp3",
+  "text": "iên",
+  "group": "Âm, vần · iên, iêt, iêu, yêu"
+ },
+ {
+  "id": "tv-kieen",
+  "file": "/assets/voice/tv-kieen.mp3",
+  "text": "kiên",
+  "group": "Đánh vần · iên, iêt, iêu, yêu"
+ },
+ {
+  "id": "tv-kieens",
+  "file": "/assets/voice/tv-kieens.mp3",
+  "text": "kiến",
+  "group": "Đánh vần · iên, iêt, iêu, yêu"
+ },
+ {
+  "id": "tv-tieen",
+  "file": "/assets/voice/tv-tieen.mp3",
+  "text": "tiên",
+  "group": "Tiếng · iên, iêt, iêu, yêu"
+ },
+ {
+  "id": "tv-bieenr",
+  "file": "/assets/voice/tv-bieenr.mp3",
+  "text": "biển",
+  "group": "Tiếng · iên, iêt, iêu, yêu"
+ },
+ {
+  "id": "tv-ddieenj",
+  "file": "/assets/voice/tv-ddieenj.mp3",
+  "text": "điện",
+  "group": "Tiếng · iên, iêt, iêu, yêu"
+ },
+ {
+  "id": "tv-con_kieens",
+  "file": "/assets/voice/tv-con_kieens.mp3",
+  "text": "con kiến",
+  "group": "Từ khóa · iên, iêt, iêu, yêu"
+ },
+ {
+  "id": "tv-ieet",
+  "file": "/assets/voice/tv-ieet.mp3",
+  "text": "iêt",
+  "group": "Âm, vần · iên, iêt, iêu, yêu"
+ },
+ {
+  "id": "tv-vieet",
+  "file": "/assets/voice/tv-vieet.mp3",
+  "text": "viêt",
+  "group": "Đánh vần · iên, iêt, iêu, yêu"
+ },
+ {
+  "id": "tv-vieets",
+  "file": "/assets/voice/tv-vieets.mp3",
+  "text": "viết",
+  "group": "Đánh vần · iên, iêt, iêu, yêu"
+ },
+ {
+  "id": "tv-bieets",
+  "file": "/assets/voice/tv-bieets.mp3",
+  "text": "biết",
+  "group": "Tiếng · iên, iêt, iêu, yêu"
+ },
+ {
+  "id": "tv-tieets",
+  "file": "/assets/voice/tv-tieets.mp3",
+  "text": "tiết",
+  "group": "Tiếng · iên, iêt, iêu, yêu"
+ },
+ {
+  "id": "tv-vieetj",
+  "file": "/assets/voice/tv-vieetj.mp3",
+  "text": "việt",
+  "group": "Tiếng · iên, iêt, iêu, yêu"
+ },
+ {
+  "id": "tv-taapj_vieets",
+  "file": "/assets/voice/tv-taapj_vieets.mp3",
+  "text": "tập viết",
+  "group": "Từ khóa · iên, iêt, iêu, yêu"
+ },
+ {
+  "id": "tv-ieeu",
+  "file": "/assets/voice/tv-ieeu.mp3",
+  "text": "iêu",
+  "group": "Âm, vần · iên, iêt, iêu, yêu"
+ },
+ {
+  "id": "tv-dieeu",
+  "file": "/assets/voice/tv-dieeu.mp3",
+  "text": "diêu",
+  "group": "Đánh vần · iên, iêt, iêu, yêu"
+ },
+ {
+  "id": "tv-dieeuf",
+  "file": "/assets/voice/tv-dieeuf.mp3",
+  "text": "diều",
+  "group": "Đánh vần · iên, iêt, iêu, yêu"
+ },
+ {
+  "id": "tv-nhieeuf",
+  "file": "/assets/voice/tv-nhieeuf.mp3",
+  "text": "nhiều",
+  "group": "Tiếng · iên, iêt, iêu, yêu"
+ },
+ {
+  "id": "tv-chieeuf",
+  "file": "/assets/voice/tv-chieeuf.mp3",
+  "text": "chiều",
+  "group": "Tiếng · iên, iêt, iêu, yêu"
+ },
+ {
+  "id": "tv-tieeu",
+  "file": "/assets/voice/tv-tieeu.mp3",
+  "text": "tiêu",
+  "group": "Tiếng · iên, iêt, iêu, yêu"
+ },
+ {
+  "id": "tv-canhs_dieeuf",
+  "file": "/assets/voice/tv-canhs_dieeuf.mp3",
+  "text": "cánh diều",
+  "group": "Từ khóa · iên, iêt, iêu, yêu"
+ },
+ {
+  "id": "tv-yeeu",
+  "file": "/assets/voice/tv-yeeu.mp3",
+  "text": "yêu",
+  "group": "Âm, vần · iên, iêt, iêu, yêu"
+ },
+ {
+  "id": "tv-yeeus",
+  "file": "/assets/voice/tv-yeeus.mp3",
+  "text": "yếu",
+  "group": "Tiếng · iên, iêt, iêu, yêu"
+ },
+ {
+  "id": "tv-yeeu_baf",
+  "file": "/assets/voice/tv-yeeu_baf.mp3",
+  "text": "yêu bà",
+  "group": "Từ khóa · iên, iêt, iêu, yêu"
+ },
+ {
+  "id": "tv-chieeuf_chieeuf_bes_thar_dieeuf",
+  "file": "/assets/voice/tv-chieeuf_chieeuf_bes_thar_dieeuf.mp3",
+  "text": "chiều chiều bé thả diều",
+  "group": "Câu ứng dụng · iên, iêt, iêu, yêu"
+ },
+ {
+  "id": "tv-ieeng",
+  "file": "/assets/voice/tv-ieeng.mp3",
+  "text": "iêng",
+  "group": "Âm, vần · iêng, iêc, iêm, iêp"
+ },
+ {
+  "id": "tv-chieeng",
+  "file": "/assets/voice/tv-chieeng.mp3",
+  "text": "chiêng",
+  "group": "Đánh vần · iêng, iêc, iêm, iêp"
+ },
+ {
+  "id": "tv-rieeng",
+  "file": "/assets/voice/tv-rieeng.mp3",
+  "text": "riêng",
+  "group": "Tiếng · iêng, iêc, iêm, iêp"
+ },
+ {
+  "id": "tv-lieengj",
+  "file": "/assets/voice/tv-lieengj.mp3",
+  "text": "liệng",
+  "group": "Tiếng · iêng, iêc, iêm, iêp"
+ },
+ {
+  "id": "tv-kieengf",
+  "file": "/assets/voice/tv-kieengf.mp3",
+  "text": "kiềng",
+  "group": "Tiếng · iêng, iêc, iêm, iêp"
+ },
+ {
+  "id": "tv-cais_chieeng",
+  "file": "/assets/voice/tv-cais_chieeng.mp3",
+  "text": "cái chiêng",
+  "group": "Từ khóa · iêng, iêc, iêm, iêp"
+ },
+ {
+  "id": "tv-ieec",
+  "file": "/assets/voice/tv-ieec.mp3",
+  "text": "iêc",
+  "group": "Âm, vần · iêng, iêc, iêm, iêp"
+ },
+ {
+  "id": "tv-xieec",
+  "file": "/assets/voice/tv-xieec.mp3",
+  "text": "xiêc",
+  "group": "Đánh vần · iêng, iêc, iêm, iêp"
+ },
+ {
+  "id": "tv-xieecs",
+  "file": "/assets/voice/tv-xieecs.mp3",
+  "text": "xiếc",
+  "group": "Đánh vần · iêng, iêc, iêm, iêp"
+ },
+ {
+  "id": "tv-tieecj",
+  "file": "/assets/voice/tv-tieecj.mp3",
+  "text": "tiệc",
+  "group": "Tiếng · iêng, iêc, iêm, iêp"
+ },
+ {
+  "id": "tv-vieecj",
+  "file": "/assets/voice/tv-vieecj.mp3",
+  "text": "việc",
+  "group": "Tiếng · iêng, iêc, iêm, iêp"
+ },
+ {
+  "id": "tv-chieecs",
+  "file": "/assets/voice/tv-chieecs.mp3",
+  "text": "chiếc",
+  "group": "Tiếng · iêng, iêc, iêm, iêp"
+ },
+ {
+  "id": "tv-rapj_xieecs",
+  "file": "/assets/voice/tv-rapj_xieecs.mp3",
+  "text": "rạp xiếc",
+  "group": "Từ khóa · iêng, iêc, iêm, iêp"
+ },
+ {
+  "id": "tv-ieem",
+  "file": "/assets/voice/tv-ieem.mp3",
+  "text": "iêm",
+  "group": "Âm, vần · iêng, iêc, iêm, iêp"
+ },
+ {
+  "id": "tv-dieem",
+  "file": "/assets/voice/tv-dieem.mp3",
+  "text": "diêm",
+  "group": "Đánh vần · iêng, iêc, iêm, iêp"
+ },
+ {
+  "id": "tv-kieems",
+  "file": "/assets/voice/tv-kieems.mp3",
+  "text": "kiếm",
+  "group": "Tiếng · iêng, iêc, iêm, iêp"
+ },
+ {
+  "id": "tv-ddieemr",
+  "file": "/assets/voice/tv-ddieemr.mp3",
+  "text": "điểm",
+  "group": "Tiếng · iêng, iêc, iêm, iêp"
+ },
+ {
+  "id": "tv-tieemj",
+  "file": "/assets/voice/tv-tieemj.mp3",
+  "text": "tiệm",
+  "group": "Tiếng · iêng, iêc, iêm, iêp"
+ },
+ {
+  "id": "tv-que_dieem",
+  "file": "/assets/voice/tv-que_dieem.mp3",
+  "text": "que diêm",
+  "group": "Từ khóa · iêng, iêc, iêm, iêp"
+ },
+ {
+  "id": "tv-ieep",
+  "file": "/assets/voice/tv-ieep.mp3",
+  "text": "iêp",
+  "group": "Âm, vần · iêng, iêc, iêm, iêp"
+ },
+ {
+  "id": "tv-thieep",
+  "file": "/assets/voice/tv-thieep.mp3",
+  "text": "thiêp",
+  "group": "Đánh vần · iêng, iêc, iêm, iêp"
+ },
+ {
+  "id": "tv-thieeps",
+  "file": "/assets/voice/tv-thieeps.mp3",
+  "text": "thiếp",
+  "group": "Đánh vần · iêng, iêc, iêm, iêp"
+ },
+ {
+  "id": "tv-kieeps",
+  "file": "/assets/voice/tv-kieeps.mp3",
+  "text": "kiếp",
+  "group": "Tiếng · iêng, iêc, iêm, iêp"
+ },
+ {
+  "id": "tv-nghieepj",
+  "file": "/assets/voice/tv-nghieepj.mp3",
+  "text": "nghiệp",
+  "group": "Tiếng · iêng, iêc, iêm, iêp"
+ },
+ {
+  "id": "tv-dieeps",
+  "file": "/assets/voice/tv-dieeps.mp3",
+  "text": "diếp",
+  "group": "Tiếng · iêng, iêc, iêm, iêp"
+ },
+ {
+  "id": "tv-taams_thieeps",
+  "file": "/assets/voice/tv-taams_thieeps.mp3",
+  "text": "tấm thiếp",
+  "group": "Từ khóa · iêng, iêc, iêm, iêp"
+ },
+ {
+  "id": "tv-car_nhaf_ddi_xem_xieecs",
+  "file": "/assets/voice/tv-car_nhaf_ddi_xem_xieecs.mp3",
+  "text": "cả nhà đi xem xiếc",
+  "group": "Câu ứng dụng · iêng, iêc, iêm, iêp"
+ },
+ {
+  "id": "tv-uoon",
+  "file": "/assets/voice/tv-uoon.mp3",
+  "text": "uôn",
+  "group": "Âm, vần · uôn, uôt, uôi, uôc, uông"
+ },
+ {
+  "id": "tv-cuoon",
+  "file": "/assets/voice/tv-cuoon.mp3",
+  "text": "cuôn",
+  "group": "Đánh vần · uôn, uôt, uôi, uôc, uông"
+ },
+ {
+  "id": "tv-cuoonj",
+  "file": "/assets/voice/tv-cuoonj.mp3",
+  "text": "cuộn",
+  "group": "Đánh vần · uôn, uôt, uôi, uôc, uông"
+ },
+ {
+  "id": "tv-muoons",
+  "file": "/assets/voice/tv-muoons.mp3",
+  "text": "muốn",
+  "group": "Tiếng · uôn, uôt, uôi, uôc, uông"
+ },
+ {
+  "id": "tv-buoonf",
+  "file": "/assets/voice/tv-buoonf.mp3",
+  "text": "buồn",
+  "group": "Tiếng · uôn, uôt, uôi, uôc, uông"
+ },
+ {
+  "id": "tv-luoon",
+  "file": "/assets/voice/tv-luoon.mp3",
+  "text": "luôn",
+  "group": "Tiếng · uôn, uôt, uôi, uôc, uông"
+ },
+ {
+  "id": "tv-cuoonj_len",
+  "file": "/assets/voice/tv-cuoonj_len.mp3",
+  "text": "cuộn len",
+  "group": "Từ khóa · uôn, uôt, uôi, uôc, uông"
+ },
+ {
+  "id": "tv-uoot",
+  "file": "/assets/voice/tv-uoot.mp3",
+  "text": "uôt",
+  "group": "Âm, vần · uôn, uôt, uôi, uôc, uông"
+ },
+ {
+  "id": "tv-chuoot",
+  "file": "/assets/voice/tv-chuoot.mp3",
+  "text": "chuôt",
+  "group": "Đánh vần · uôn, uôt, uôi, uôc, uông"
+ },
+ {
+  "id": "tv-chuootj",
+  "file": "/assets/voice/tv-chuootj.mp3",
+  "text": "chuột",
+  "group": "Đánh vần · uôn, uôt, uôi, uôc, uông"
+ },
+ {
+  "id": "tv-suoots",
+  "file": "/assets/voice/tv-suoots.mp3",
+  "text": "suốt",
+  "group": "Tiếng · uôn, uôt, uôi, uôc, uông"
+ },
+ {
+  "id": "tv-tuoots",
+  "file": "/assets/voice/tv-tuoots.mp3",
+  "text": "tuốt",
+  "group": "Tiếng · uôn, uôt, uôi, uôc, uông"
+ },
+ {
+  "id": "tv-buootj",
+  "file": "/assets/voice/tv-buootj.mp3",
+  "text": "buột",
+  "group": "Tiếng · uôn, uôt, uôi, uôc, uông"
+ },
+ {
+  "id": "tv-con_chuootj",
+  "file": "/assets/voice/tv-con_chuootj.mp3",
+  "text": "con chuột",
+  "group": "Từ khóa · uôn, uôt, uôi, uôc, uông"
+ },
+ {
+  "id": "tv-uooi",
+  "file": "/assets/voice/tv-uooi.mp3",
+  "text": "uôi",
+  "group": "Âm, vần · uôn, uôt, uôi, uôc, uông"
+ },
+ {
+  "id": "tv-chuooi",
+  "file": "/assets/voice/tv-chuooi.mp3",
+  "text": "chuôi",
+  "group": "Đánh vần · uôn, uôt, uôi, uôc, uông"
+ },
+ {
+  "id": "tv-chuoois",
+  "file": "/assets/voice/tv-chuoois.mp3",
+  "text": "chuối",
+  "group": "Đánh vần · uôn, uôt, uôi, uôc, uông"
+ },
+ {
+  "id": "tv-muoois",
+  "file": "/assets/voice/tv-muoois.mp3",
+  "text": "muối",
+  "group": "Tiếng · uôn, uôt, uôi, uôc, uông"
+ },
+ {
+  "id": "tv-suoois",
+  "file": "/assets/voice/tv-suoois.mp3",
+  "text": "suối",
+  "group": "Tiếng · uôn, uôt, uôi, uôc, uông"
+ },
+ {
+  "id": "tv-dduooi",
+  "file": "/assets/voice/tv-dduooi.mp3",
+  "text": "đuôi",
+  "group": "Tiếng · uôn, uôt, uôi, uôc, uông"
+ },
+ {
+  "id": "tv-quar_chuoois",
+  "file": "/assets/voice/tv-quar_chuoois.mp3",
+  "text": "quả chuối",
+  "group": "Từ khóa · uôn, uôt, uôi, uôc, uông"
+ },
+ {
+  "id": "tv-uooc",
+  "file": "/assets/voice/tv-uooc.mp3",
+  "text": "uôc",
+  "group": "Âm, vần · uôn, uôt, uôi, uôc, uông"
+ },
+ {
+  "id": "tv-dduooc",
+  "file": "/assets/voice/tv-dduooc.mp3",
+  "text": "đuôc",
+  "group": "Đánh vần · uôn, uôt, uôi, uôc, uông"
+ },
+ {
+  "id": "tv-dduoocs",
+  "file": "/assets/voice/tv-dduoocs.mp3",
+  "text": "đuốc",
+  "group": "Đánh vần · uôn, uôt, uôi, uôc, uông"
+ },
+ {
+  "id": "tv-thuoocs",
+  "file": "/assets/voice/tv-thuoocs.mp3",
+  "text": "thuốc",
+  "group": "Tiếng · uôn, uôt, uôi, uôc, uông"
+ },
+ {
+  "id": "tv-cuoocs",
+  "file": "/assets/voice/tv-cuoocs.mp3",
+  "text": "cuốc",
+  "group": "Tiếng · uôn, uôt, uôi, uôc, uông"
+ },
+ {
+  "id": "tv-buoocj",
+  "file": "/assets/voice/tv-buoocj.mp3",
+  "text": "buộc",
+  "group": "Tiếng · uôn, uôt, uôi, uôc, uông"
+ },
+ {
+  "id": "tv-ngonj_dduoocs",
+  "file": "/assets/voice/tv-ngonj_dduoocs.mp3",
+  "text": "ngọn đuốc",
+  "group": "Từ khóa · uôn, uôt, uôi, uôc, uông"
+ },
+ {
+  "id": "tv-uoong",
+  "file": "/assets/voice/tv-uoong.mp3",
+  "text": "uông",
+  "group": "Âm, vần · uôn, uôt, uôi, uôc, uông"
+ },
+ {
+  "id": "tv-chuoong",
+  "file": "/assets/voice/tv-chuoong.mp3",
+  "text": "chuông",
+  "group": "Đánh vần · uôn, uôt, uôi, uôc, uông"
+ },
+ {
+  "id": "tv-vuoong",
+  "file": "/assets/voice/tv-vuoong.mp3",
+  "text": "vuông",
+  "group": "Tiếng · uôn, uôt, uôi, uôc, uông"
+ },
+ {
+  "id": "tv-xuoongs",
+  "file": "/assets/voice/tv-xuoongs.mp3",
+  "text": "xuống",
+  "group": "Tiếng · uôn, uôt, uôi, uôc, uông"
+ },
+ {
+  "id": "tv-uoongs",
+  "file": "/assets/voice/tv-uoongs.mp3",
+  "text": "uống",
+  "group": "Tiếng · uôn, uôt, uôi, uôc, uông"
+ },
+ {
+  "id": "tv-cais_chuoong",
+  "file": "/assets/voice/tv-cais_chuoong.mp3",
+  "text": "cái chuông",
+  "group": "Từ khóa · uôn, uôt, uôi, uôc, uông"
+ },
+ {
+  "id": "tv-chuootj_con_awn_chuoois_been_suoois",
+  "file": "/assets/voice/tv-chuootj_con_awn_chuoois_been_suoois.mp3",
+  "text": "chuột con ăn chuối bên suối",
+  "group": "Câu ứng dụng · uôn, uôt, uôi, uôc, uông"
+ },
+ {
+  "id": "tv-uwown",
+  "file": "/assets/voice/tv-uwown.mp3",
+  "text": "ươn",
+  "group": "Âm, vần · ươn, ươt, ươi, ươc"
+ },
+ {
+  "id": "tv-vuwown",
+  "file": "/assets/voice/tv-vuwown.mp3",
+  "text": "vươn",
+  "group": "Đánh vần · ươn, ươt, ươi, ươc"
+ },
+ {
+  "id": "tv-vuwownf",
+  "file": "/assets/voice/tv-vuwownf.mp3",
+  "text": "vườn",
+  "group": "Đánh vần · ươn, ươt, ươi, ươc"
+ },
+ {
+  "id": "tv-luwownj",
+  "file": "/assets/voice/tv-luwownj.mp3",
+  "text": "lượn",
+  "group": "Tiếng · ươn, ươt, ươi, ươc"
+ },
+ {
+  "id": "tv-muwownj",
+  "file": "/assets/voice/tv-muwownj.mp3",
+  "text": "mượn",
+  "group": "Tiếng · ươn, ươt, ươi, ươc"
+ },
+ {
+  "id": "tv-suwownf",
+  "file": "/assets/voice/tv-suwownf.mp3",
+  "text": "sườn",
+  "group": "Tiếng · ươn, ươt, ươi, ươc"
+ },
+ {
+  "id": "tv-khu_vuwownf",
+  "file": "/assets/voice/tv-khu_vuwownf.mp3",
+  "text": "khu vườn",
+  "group": "Từ khóa · ươn, ươt, ươi, ươc"
+ },
+ {
+  "id": "tv-uwowt",
+  "file": "/assets/voice/tv-uwowt.mp3",
+  "text": "ươt",
+  "group": "Âm, vần · ươn, ươt, ươi, ươc"
+ },
+ {
+  "id": "tv-luwowt",
+  "file": "/assets/voice/tv-luwowt.mp3",
+  "text": "lươt",
+  "group": "Đánh vần · ươn, ươt, ươi, ươc"
+ },
+ {
+  "id": "tv-luwowts",
+  "file": "/assets/voice/tv-luwowts.mp3",
+  "text": "lướt",
+  "group": "Đánh vần · ươn, ươt, ươi, ươc"
+ },
+ {
+  "id": "tv-muwowtj",
+  "file": "/assets/voice/tv-muwowtj.mp3",
+  "text": "mượt",
+  "group": "Tiếng · ươn, ươt, ươi, ươc"
+ },
+ {
+  "id": "tv-truwowtj",
+  "file": "/assets/voice/tv-truwowtj.mp3",
+  "text": "trượt",
+  "group": "Tiếng · ươn, ươt, ươi, ươc"
+ },
+ {
+  "id": "tv-vuwowtj",
+  "file": "/assets/voice/tv-vuwowtj.mp3",
+  "text": "vượt",
+  "group": "Tiếng · ươn, ươt, ươi, ươc"
+ },
+ {
+  "id": "tv-luwowts_vans",
+  "file": "/assets/voice/tv-luwowts_vans.mp3",
+  "text": "lướt ván",
+  "group": "Từ khóa · ươn, ươt, ươi, ươc"
+ },
+ {
+  "id": "tv-uwowi",
+  "file": "/assets/voice/tv-uwowi.mp3",
+  "text": "ươi",
+  "group": "Âm, vần · ươn, ươt, ươi, ươc"
+ },
+ {
+  "id": "tv-luwowi",
+  "file": "/assets/voice/tv-luwowi.mp3",
+  "text": "lươi",
+  "group": "Đánh vần · ươn, ươt, ươi, ươc"
+ },
+ {
+  "id": "tv-luwowis",
+  "file": "/assets/voice/tv-luwowis.mp3",
+  "text": "lưới",
+  "group": "Đánh vần · ươn, ươt, ươi, ươc"
+ },
+ {
+  "id": "tv-tuwowi",
+  "file": "/assets/voice/tv-tuwowi.mp3",
+  "text": "tươi",
+  "group": "Tiếng · ươn, ươt, ươi, ươc"
+ },
+ {
+  "id": "tv-cuwowif",
+  "file": "/assets/voice/tv-cuwowif.mp3",
+  "text": "cười",
+  "group": "Tiếng · ươn, ươt, ươi, ươc"
+ },
+ {
+  "id": "tv-muwowif",
+  "file": "/assets/voice/tv-muwowif.mp3",
+  "text": "mười",
+  "group": "Tiếng · ươn, ươt, ươi, ươc"
+ },
+ {
+  "id": "tv-cais_luwowis",
+  "file": "/assets/voice/tv-cais_luwowis.mp3",
+  "text": "cái lưới",
+  "group": "Từ khóa · ươn, ươt, ươi, ươc"
+ },
+ {
+  "id": "tv-uwowc",
+  "file": "/assets/voice/tv-uwowc.mp3",
+  "text": "ươc",
+  "group": "Âm, vần · ươn, ươt, ươi, ươc"
+ },
+ {
+  "id": "tv-thuwowc",
+  "file": "/assets/voice/tv-thuwowc.mp3",
+  "text": "thươc",
+  "group": "Đánh vần · ươn, ươt, ươi, ươc"
+ },
+ {
+  "id": "tv-thuwowcs",
+  "file": "/assets/voice/tv-thuwowcs.mp3",
+  "text": "thước",
+  "group": "Đánh vần · ươn, ươt, ươi, ươc"
+ },
+ {
+  "id": "tv-nuwowcs",
+  "file": "/assets/voice/tv-nuwowcs.mp3",
+  "text": "nước",
+  "group": "Tiếng · ươn, ươt, ươi, ươc"
+ },
+ {
+  "id": "tv-buwowcs",
+  "file": "/assets/voice/tv-buwowcs.mp3",
+  "text": "bước",
+  "group": "Tiếng · ươn, ươt, ươi, ươc"
+ },
+ {
+  "id": "tv-dduwowcj",
+  "file": "/assets/voice/tv-dduwowcj.mp3",
+  "text": "được",
+  "group": "Tiếng · ươn, ươt, ươi, ươc"
+ },
+ {
+  "id": "tv-caay_thuwowcs",
+  "file": "/assets/voice/tv-caay_thuwowcs.mp3",
+  "text": "cây thước",
+  "group": "Từ khóa · ươn, ươt, ươi, ươc"
+ },
+ {
+  "id": "tv-bes_tuwowis_nuwowcs_cho_vuwownf",
+  "file": "/assets/voice/tv-bes_tuwowis_nuwowcs_cho_vuwownf.mp3",
+  "text": "bé tưới nước cho vườn",
+  "group": "Câu ứng dụng · ươn, ươt, ươi, ươc"
+ },
+ {
+  "id": "tv-uwowng",
+  "file": "/assets/voice/tv-uwowng.mp3",
+  "text": "ương",
+  "group": "Âm, vần · ương, ươu, ươm, ươp"
+ },
+ {
+  "id": "tv-giuwowng",
+  "file": "/assets/voice/tv-giuwowng.mp3",
+  "text": "giương",
+  "group": "Đánh vần · ương, ươu, ươm, ươp"
+ },
+ {
+  "id": "tv-giuwowngf",
+  "file": "/assets/voice/tv-giuwowngf.mp3",
+  "text": "giường",
+  "group": "Đánh vần · ương, ươu, ươm, ươp"
+ },
+ {
+  "id": "tv-huwowng",
+  "file": "/assets/voice/tv-huwowng.mp3",
+  "text": "hương",
+  "group": "Tiếng · ương, ươu, ươm, ươp"
+ },
+ {
+  "id": "tv-suwowng",
+  "file": "/assets/voice/tv-suwowng.mp3",
+  "text": "sương",
+  "group": "Tiếng · ương, ươu, ươm, ươp"
+ },
+ {
+  "id": "tv-dduwowngf",
+  "file": "/assets/voice/tv-dduwowngf.mp3",
+  "text": "đường",
+  "group": "Tiếng · ương, ươu, ươm, ươp"
+ },
+ {
+  "id": "tv-cais_giuwowngf",
+  "file": "/assets/voice/tv-cais_giuwowngf.mp3",
+  "text": "cái giường",
+  "group": "Từ khóa · ương, ươu, ươm, ươp"
+ },
+ {
+  "id": "tv-uwowu",
+  "file": "/assets/voice/tv-uwowu.mp3",
+  "text": "ươu",
+  "group": "Âm, vần · ương, ươu, ươm, ươp"
+ },
+ {
+  "id": "tv-huwowu",
+  "file": "/assets/voice/tv-huwowu.mp3",
+  "text": "hươu",
+  "group": "Đánh vần · ương, ươu, ươm, ươp"
+ },
+ {
+  "id": "tv-ruwowuj",
+  "file": "/assets/voice/tv-ruwowuj.mp3",
+  "text": "rượu",
+  "group": "Tiếng · ương, ươu, ươm, ươp"
+ },
+ {
+  "id": "tv-buwowus",
+  "file": "/assets/voice/tv-buwowus.mp3",
+  "text": "bướu",
+  "group": "Tiếng · ương, ươu, ươm, ươp"
+ },
+ {
+  "id": "tv-con_huwowu",
+  "file": "/assets/voice/tv-con_huwowu.mp3",
+  "text": "con hươu",
+  "group": "Từ khóa · ương, ươu, ươm, ươp"
+ },
+ {
+  "id": "tv-uwowm",
+  "file": "/assets/voice/tv-uwowm.mp3",
+  "text": "ươm",
+  "group": "Âm, vần · ương, ươu, ươm, ươp"
+ },
+ {
+  "id": "tv-buwowm",
+  "file": "/assets/voice/tv-buwowm.mp3",
+  "text": "bươm",
+  "group": "Đánh vần · ương, ươu, ươm, ươp"
+ },
+ {
+  "id": "tv-buwowms",
+  "file": "/assets/voice/tv-buwowms.mp3",
+  "text": "bướm",
+  "group": "Đánh vần · ương, ươu, ươm, ươp"
+ },
+ {
+  "id": "tv-guwowm",
+  "file": "/assets/voice/tv-guwowm.mp3",
+  "text": "gươm",
+  "group": "Tiếng · ương, ươu, ươm, ươp"
+ },
+ {
+  "id": "tv-luwowmj",
+  "file": "/assets/voice/tv-luwowmj.mp3",
+  "text": "lượm",
+  "group": "Tiếng · ương, ươu, ươm, ươp"
+ },
+ {
+  "id": "tv-uwowms",
+  "file": "/assets/voice/tv-uwowms.mp3",
+  "text": "ướm",
+  "group": "Tiếng · ương, ươu, ươm, ươp"
+ },
+ {
+  "id": "tv-con_buwowms",
+  "file": "/assets/voice/tv-con_buwowms.mp3",
+  "text": "con bướm",
+  "group": "Từ khóa · ương, ươu, ươm, ươp"
+ },
+ {
+  "id": "tv-uwowp",
+  "file": "/assets/voice/tv-uwowp.mp3",
+  "text": "ươp",
+  "group": "Âm, vần · ương, ươu, ươm, ươp"
+ },
+ {
+  "id": "tv-muwowp",
+  "file": "/assets/voice/tv-muwowp.mp3",
+  "text": "mươp",
+  "group": "Đánh vần · ương, ươu, ươm, ươp"
+ },
+ {
+  "id": "tv-muwowps",
+  "file": "/assets/voice/tv-muwowps.mp3",
+  "text": "mướp",
+  "group": "Đánh vần · ương, ươu, ươm, ươp"
+ },
+ {
+  "id": "tv-cuwowps",
+  "file": "/assets/voice/tv-cuwowps.mp3",
+  "text": "cướp",
+  "group": "Tiếng · ương, ươu, ươm, ươp"
+ },
+ {
+  "id": "tv-quar_muwowps",
+  "file": "/assets/voice/tv-quar_muwowps.mp3",
+  "text": "quả mướp",
+  "group": "Từ khóa · ương, ươu, ươm, ươp"
+ },
+ {
+  "id": "tv-buwowms_bay_quanh_gianf_muwowps",
+  "file": "/assets/voice/tv-buwowms_bay_quanh_gianf_muwowps.mp3",
+  "text": "bướm bay quanh giàn mướp",
+  "group": "Câu ứng dụng · ương, ươu, ươm, ươp"
+ },
+ {
+  "id": "tv-oa",
+  "file": "/assets/voice/tv-oa.mp3",
+  "text": "oa",
+  "group": "Âm, vần · oa, oe, uê, uy"
+ },
+ {
+  "id": "tv-hoa",
+  "file": "/assets/voice/tv-hoa.mp3",
+  "text": "hoa",
+  "group": "Đánh vần · oa, oe, uê, uy"
+ },
+ {
+  "id": "tv-loa",
+  "file": "/assets/voice/tv-loa.mp3",
+  "text": "loa",
+  "group": "Tiếng · oa, oe, uê, uy"
+ },
+ {
+  "id": "tv-toaf",
+  "file": "/assets/voice/tv-toaf.mp3",
+  "text": "tòa",
+  "group": "Tiếng · oa, oe, uê, uy"
+ },
+ {
+  "id": "tv-xoas",
+  "file": "/assets/voice/tv-xoas.mp3",
+  "text": "xóa",
+  "group": "Tiếng · oa, oe, uê, uy"
+ },
+ {
+  "id": "tv-boong_hoa",
+  "file": "/assets/voice/tv-boong_hoa.mp3",
+  "text": "bông hoa",
+  "group": "Từ khóa · oa, oe, uê, uy"
+ },
+ {
+  "id": "tv-oe",
+  "file": "/assets/voice/tv-oe.mp3",
+  "text": "oe",
+  "group": "Âm, vần · oa, oe, uê, uy"
+ },
+ {
+  "id": "tv-khoe",
+  "file": "/assets/voice/tv-khoe.mp3",
+  "text": "khoe",
+  "group": "Đánh vần · oa, oe, uê, uy"
+ },
+ {
+  "id": "tv-khoer",
+  "file": "/assets/voice/tv-khoer.mp3",
+  "text": "khỏe",
+  "group": "Đánh vần · oa, oe, uê, uy"
+ },
+ {
+  "id": "tv-xoef",
+  "file": "/assets/voice/tv-xoef.mp3",
+  "text": "xòe",
+  "group": "Tiếng · oa, oe, uê, uy"
+ },
+ {
+  "id": "tv-choef",
+  "file": "/assets/voice/tv-choef.mp3",
+  "text": "chòe",
+  "group": "Tiếng · oa, oe, uê, uy"
+ },
+ {
+  "id": "tv-hoe",
+  "file": "/assets/voice/tv-hoe.mp3",
+  "text": "hoe",
+  "group": "Tiếng · oa, oe, uê, uy"
+ },
+ {
+  "id": "tv-khoer_manhj",
+  "file": "/assets/voice/tv-khoer_manhj.mp3",
+  "text": "khỏe mạnh",
+  "group": "Từ khóa · oa, oe, uê, uy"
+ },
+ {
+  "id": "tv-uee",
+  "file": "/assets/voice/tv-uee.mp3",
+  "text": "uê",
+  "group": "Âm, vần · oa, oe, uê, uy"
+ },
+ {
+  "id": "tv-huee",
+  "file": "/assets/voice/tv-huee.mp3",
+  "text": "huê",
+  "group": "Đánh vần · oa, oe, uê, uy"
+ },
+ {
+  "id": "tv-hueej",
+  "file": "/assets/voice/tv-hueej.mp3",
+  "text": "huệ",
+  "group": "Đánh vần · oa, oe, uê, uy"
+ },
+ {
+  "id": "tv-thuee",
+  "file": "/assets/voice/tv-thuee.mp3",
+  "text": "thuê",
+  "group": "Tiếng · oa, oe, uê, uy"
+ },
+ {
+  "id": "tv-thuees",
+  "file": "/assets/voice/tv-thuees.mp3",
+  "text": "thuế",
+  "group": "Tiếng · oa, oe, uê, uy"
+ },
+ {
+  "id": "tv-hoa_hueej",
+  "file": "/assets/voice/tv-hoa_hueej.mp3",
+  "text": "hoa huệ",
+  "group": "Từ khóa · oa, oe, uê, uy"
+ },
+ {
+  "id": "tv-uy",
+  "file": "/assets/voice/tv-uy.mp3",
+  "text": "uy",
+  "group": "Âm, vần · oa, oe, uê, uy"
+ },
+ {
+  "id": "tv-thuy",
+  "file": "/assets/voice/tv-thuy.mp3",
+  "text": "thuy",
+  "group": "Đánh vần · oa, oe, uê, uy"
+ },
+ {
+  "id": "tv-thuyr",
+  "file": "/assets/voice/tv-thuyr.mp3",
+  "text": "thủy",
+  "group": "Đánh vần · oa, oe, uê, uy"
+ },
+ {
+  "id": "tv-luyx",
+  "file": "/assets/voice/tv-luyx.mp3",
+  "text": "lũy",
+  "group": "Tiếng · oa, oe, uê, uy"
+ },
+ {
+  "id": "tv-huy",
+  "file": "/assets/voice/tv-huy.mp3",
+  "text": "huy",
+  "group": "Tiếng · oa, oe, uê, uy"
+ },
+ {
+  "id": "tv-tuyf",
+  "file": "/assets/voice/tv-tuyf.mp3",
+  "text": "tùy",
+  "group": "Tiếng · oa, oe, uê, uy"
+ },
+ {
+  "id": "tv-tauf_thuyr",
+  "file": "/assets/voice/tv-tauf_thuyr.mp3",
+  "text": "tàu thủy",
+  "group": "Từ khóa · oa, oe, uê, uy"
+ },
+ {
+  "id": "tv-hoa_nowr_bes_khoer",
+  "file": "/assets/voice/tv-hoa_nowr_bes_khoer.mp3",
+  "text": "hoa nở, bé khỏe",
+  "group": "Câu ứng dụng · oa, oe, uê, uy"
+ },
+ {
+  "id": "tv-oan",
+  "file": "/assets/voice/tv-oan.mp3",
+  "text": "oan",
+  "group": "Âm, vần · oan, oăn, oat, oăt"
+ },
+ {
+  "id": "tv-toan",
+  "file": "/assets/voice/tv-toan.mp3",
+  "text": "toan",
+  "group": "Đánh vần · oan, oăn, oat, oăt"
+ },
+ {
+  "id": "tv-toans",
+  "file": "/assets/voice/tv-toans.mp3",
+  "text": "toán",
+  "group": "Đánh vần · oan, oăn, oat, oăt"
+ },
+ {
+  "id": "tv-ngoan",
+  "file": "/assets/voice/tv-ngoan.mp3",
+  "text": "ngoan",
+  "group": "Tiếng · oan, oăn, oat, oăt"
+ },
+ {
+  "id": "tv-khoan",
+  "file": "/assets/voice/tv-khoan.mp3",
+  "text": "khoan",
+  "group": "Tiếng · oan, oăn, oat, oăt"
+ },
+ {
+  "id": "tv-ddoanf",
+  "file": "/assets/voice/tv-ddoanf.mp3",
+  "text": "đoàn",
+  "group": "Tiếng · oan, oăn, oat, oăt"
+ },
+ {
+  "id": "tv-hocj_toans",
+  "file": "/assets/voice/tv-hocj_toans.mp3",
+  "text": "học toán",
+  "group": "Từ khóa · oan, oăn, oat, oăt"
+ },
+ {
+  "id": "tv-oawn",
+  "file": "/assets/voice/tv-oawn.mp3",
+  "text": "oăn",
+  "group": "Âm, vần · oan, oăn, oat, oăt"
+ },
+ {
+  "id": "tv-xoawn",
+  "file": "/assets/voice/tv-xoawn.mp3",
+  "text": "xoăn",
+  "group": "Đánh vần · oan, oăn, oat, oăt"
+ },
+ {
+  "id": "tv-thoawn",
+  "file": "/assets/voice/tv-thoawn.mp3",
+  "text": "thoăn",
+  "group": "Tiếng · oan, oăn, oat, oăt"
+ },
+ {
+  "id": "tv-ngoawnf",
+  "file": "/assets/voice/tv-ngoawnf.mp3",
+  "text": "ngoằn",
+  "group": "Tiếng · oan, oăn, oat, oăt"
+ },
+ {
+  "id": "tv-tocs_xoawn",
+  "file": "/assets/voice/tv-tocs_xoawn.mp3",
+  "text": "tóc xoăn",
+  "group": "Từ khóa · oan, oăn, oat, oăt"
+ },
+ {
+  "id": "tv-oat",
+  "file": "/assets/voice/tv-oat.mp3",
+  "text": "oat",
+  "group": "Âm, vần · oan, oăn, oat, oăt"
+ },
+ {
+  "id": "tv-hoat",
+  "file": "/assets/voice/tv-hoat.mp3",
+  "text": "hoat",
+  "group": "Đánh vần · oan, oăn, oat, oăt"
+ },
+ {
+  "id": "tv-hoatj",
+  "file": "/assets/voice/tv-hoatj.mp3",
+  "text": "hoạt",
+  "group": "Đánh vần · oan, oăn, oat, oăt"
+ },
+ {
+  "id": "tv-thoats",
+  "file": "/assets/voice/tv-thoats.mp3",
+  "text": "thoát",
+  "group": "Tiếng · oan, oăn, oat, oăt"
+ },
+ {
+  "id": "tv-toats",
+  "file": "/assets/voice/tv-toats.mp3",
+  "text": "toát",
+  "group": "Tiếng · oan, oăn, oat, oăt"
+ },
+ {
+  "id": "tv-loats",
+  "file": "/assets/voice/tv-loats.mp3",
+  "text": "loát",
+  "group": "Tiếng · oan, oăn, oat, oăt"
+ },
+ {
+  "id": "tv-hoatj_hinhf",
+  "file": "/assets/voice/tv-hoatj_hinhf.mp3",
+  "text": "hoạt hình",
+  "group": "Từ khóa · oan, oăn, oat, oăt"
+ },
+ {
+  "id": "tv-oawt",
+  "file": "/assets/voice/tv-oawt.mp3",
+  "text": "oăt",
+  "group": "Âm, vần · oan, oăn, oat, oăt"
+ },
+ {
+  "id": "tv-ngoawt",
+  "file": "/assets/voice/tv-ngoawt.mp3",
+  "text": "ngoăt",
+  "group": "Đánh vần · oan, oăn, oat, oăt"
+ },
+ {
+  "id": "tv-ngoawtj",
+  "file": "/assets/voice/tv-ngoawtj.mp3",
+  "text": "ngoặt",
+  "group": "Đánh vần · oan, oăn, oat, oăt"
+ },
+ {
+  "id": "tv-choawts",
+  "file": "/assets/voice/tv-choawts.mp3",
+  "text": "choắt",
+  "group": "Tiếng · oan, oăn, oat, oăt"
+ },
+ {
+  "id": "tv-hoawts",
+  "file": "/assets/voice/tv-hoawts.mp3",
+  "text": "hoắt",
+  "group": "Tiếng · oan, oăn, oat, oăt"
+ },
+ {
+  "id": "tv-khucs_ngoawtj",
+  "file": "/assets/voice/tv-khucs_ngoawtj.mp3",
+  "text": "khúc ngoặt",
+  "group": "Từ khóa · oan, oăn, oat, oăt"
+ },
+ {
+  "id": "tv-bes_ngoan_hocj_toans",
+  "file": "/assets/voice/tv-bes_ngoan_hocj_toans.mp3",
+  "text": "bé ngoan học toán",
+  "group": "Câu ứng dụng · oan, oăn, oat, oăt"
+ },
+ {
+  "id": "tv-oang",
+  "file": "/assets/voice/tv-oang.mp3",
+  "text": "oang",
+  "group": "Âm, vần · oang, oăng, oanh, oach"
+ },
+ {
+  "id": "tv-khoang",
+  "file": "/assets/voice/tv-khoang.mp3",
+  "text": "khoang",
+  "group": "Đánh vần · oang, oăng, oanh, oach"
+ },
+ {
+  "id": "tv-hoangf",
+  "file": "/assets/voice/tv-hoangf.mp3",
+  "text": "hoàng",
+  "group": "Tiếng · oang, oăng, oanh, oach"
+ },
+ {
+  "id": "tv-loang",
+  "file": "/assets/voice/tv-loang.mp3",
+  "text": "loang",
+  "group": "Tiếng · oang, oăng, oanh, oach"
+ },
+ {
+  "id": "tv-choangf",
+  "file": "/assets/voice/tv-choangf.mp3",
+  "text": "choàng",
+  "group": "Tiếng · oang, oăng, oanh, oach"
+ },
+ {
+  "id": "tv-khoang_tauf",
+  "file": "/assets/voice/tv-khoang_tauf.mp3",
+  "text": "khoang tàu",
+  "group": "Từ khóa · oang, oăng, oanh, oach"
+ },
+ {
+  "id": "tv-oawng",
+  "file": "/assets/voice/tv-oawng.mp3",
+  "text": "oăng",
+  "group": "Âm, vần · oang, oăng, oanh, oach"
+ },
+ {
+  "id": "tv-hoawng",
+  "file": "/assets/voice/tv-hoawng.mp3",
+  "text": "hoăng",
+  "group": "Đánh vần · oang, oăng, oanh, oach"
+ },
+ {
+  "id": "tv-hoawngx",
+  "file": "/assets/voice/tv-hoawngx.mp3",
+  "text": "hoẵng",
+  "group": "Đánh vần · oang, oăng, oanh, oach"
+ },
+ {
+  "id": "tv-loawngf",
+  "file": "/assets/voice/tv-loawngf.mp3",
+  "text": "loằng",
+  "group": "Tiếng · oang, oăng, oanh, oach"
+ },
+ {
+  "id": "tv-ngoawngx",
+  "file": "/assets/voice/tv-ngoawngx.mp3",
+  "text": "ngoẵng",
+  "group": "Tiếng · oang, oăng, oanh, oach"
+ },
+ {
+  "id": "tv-con_hoawngx",
+  "file": "/assets/voice/tv-con_hoawngx.mp3",
+  "text": "con hoẵng",
+  "group": "Từ khóa · oang, oăng, oanh, oach"
+ },
+ {
+  "id": "tv-oanh",
+  "file": "/assets/voice/tv-oanh.mp3",
+  "text": "oanh",
+  "group": "Âm, vần · oang, oăng, oanh, oach"
+ },
+ {
+  "id": "tv-khoanh",
+  "file": "/assets/voice/tv-khoanh.mp3",
+  "text": "khoanh",
+  "group": "Đánh vần · oang, oăng, oanh, oach"
+ },
+ {
+  "id": "tv-doanh",
+  "file": "/assets/voice/tv-doanh.mp3",
+  "text": "doanh",
+  "group": "Tiếng · oang, oăng, oanh, oach"
+ },
+ {
+  "id": "tv-loanh",
+  "file": "/assets/voice/tv-loanh.mp3",
+  "text": "loanh",
+  "group": "Tiếng · oang, oăng, oanh, oach"
+ },
+ {
+  "id": "tv-khoanh_tay",
+  "file": "/assets/voice/tv-khoanh_tay.mp3",
+  "text": "khoanh tay",
+  "group": "Từ khóa · oang, oăng, oanh, oach"
+ },
+ {
+  "id": "tv-oach",
+  "file": "/assets/voice/tv-oach.mp3",
+  "text": "oach",
+  "group": "Âm, vần · oang, oăng, oanh, oach"
+ },
+ {
+  "id": "tv-hoach",
+  "file": "/assets/voice/tv-hoach.mp3",
+  "text": "hoach",
+  "group": "Đánh vần · oang, oăng, oanh, oach"
+ },
+ {
+  "id": "tv-hoachj",
+  "file": "/assets/voice/tv-hoachj.mp3",
+  "text": "hoạch",
+  "group": "Đánh vần · oang, oăng, oanh, oach"
+ },
+ {
+  "id": "tv-toachj",
+  "file": "/assets/voice/tv-toachj.mp3",
+  "text": "toạch",
+  "group": "Tiếng · oang, oăng, oanh, oach"
+ },
+ {
+  "id": "tv-xoachj",
+  "file": "/assets/voice/tv-xoachj.mp3",
+  "text": "xoạch",
+  "group": "Tiếng · oang, oăng, oanh, oach"
+ },
+ {
+  "id": "tv-thu_hoachj",
+  "file": "/assets/voice/tv-thu_hoachj.mp3",
+  "text": "thu hoạch",
+  "group": "Từ khóa · oang, oăng, oanh, oach"
+ },
+ {
+  "id": "tv-bes_khoanh_tay_chaof_coo",
+  "file": "/assets/voice/tv-bes_khoanh_tay_chaof_coo.mp3",
+  "text": "bé khoanh tay chào cô",
+  "group": "Câu ứng dụng · oang, oăng, oanh, oach"
+ },
+ {
+  "id": "tv-oai",
+  "file": "/assets/voice/tv-oai.mp3",
+  "text": "oai",
+  "group": "Âm, vần · oai, oay, uân, uât"
+ },
+ {
+  "id": "tv-thoai",
+  "file": "/assets/voice/tv-thoai.mp3",
+  "text": "thoai",
+  "group": "Đánh vần · oai, oay, uân, uât"
+ },
+ {
+  "id": "tv-thoaij",
+  "file": "/assets/voice/tv-thoaij.mp3",
+  "text": "thoại",
+  "group": "Đánh vần · oai, oay, uân, uât"
+ },
+ {
+  "id": "tv-ngoaif",
+  "file": "/assets/voice/tv-ngoaif.mp3",
+  "text": "ngoài",
+  "group": "Tiếng · oai, oay, uân, uât"
+ },
+ {
+  "id": "tv-khoai",
+  "file": "/assets/voice/tv-khoai.mp3",
+  "text": "khoai",
+  "group": "Tiếng · oai, oay, uân, uât"
+ },
+ {
+  "id": "tv-loaif",
+  "file": "/assets/voice/tv-loaif.mp3",
+  "text": "loài",
+  "group": "Tiếng · oai, oay, uân, uât"
+ },
+ {
+  "id": "tv-ddieenj_thoaij",
+  "file": "/assets/voice/tv-ddieenj_thoaij.mp3",
+  "text": "điện thoại",
+  "group": "Từ khóa · oai, oay, uân, uât"
+ },
+ {
+  "id": "tv-oay",
+  "file": "/assets/voice/tv-oay.mp3",
+  "text": "oay",
+  "group": "Âm, vần · oai, oay, uân, uât"
+ },
+ {
+  "id": "tv-xoay",
+  "file": "/assets/voice/tv-xoay.mp3",
+  "text": "xoay",
+  "group": "Đánh vần · oai, oay, uân, uât"
+ },
+ {
+  "id": "tv-loay",
+  "file": "/assets/voice/tv-loay.mp3",
+  "text": "loay",
+  "group": "Tiếng · oai, oay, uân, uât"
+ },
+ {
+  "id": "tv-ngoays",
+  "file": "/assets/voice/tv-ngoays.mp3",
+  "text": "ngoáy",
+  "group": "Tiếng · oai, oay, uân, uât"
+ },
+ {
+  "id": "tv-hoays",
+  "file": "/assets/voice/tv-hoays.mp3",
+  "text": "hoáy",
+  "group": "Tiếng · oai, oay, uân, uât"
+ },
+ {
+  "id": "tv-chong_chongs_xoay",
+  "file": "/assets/voice/tv-chong_chongs_xoay.mp3",
+  "text": "chong chóng xoay",
+  "group": "Từ khóa · oai, oay, uân, uât"
+ },
+ {
+  "id": "tv-uaan",
+  "file": "/assets/voice/tv-uaan.mp3",
+  "text": "uân",
+  "group": "Âm, vần · oai, oay, uân, uât"
+ },
+ {
+  "id": "tv-xuaan",
+  "file": "/assets/voice/tv-xuaan.mp3",
+  "text": "xuân",
+  "group": "Đánh vần · oai, oay, uân, uât"
+ },
+ {
+  "id": "tv-tuaanf",
+  "file": "/assets/voice/tv-tuaanf.mp3",
+  "text": "tuần",
+  "group": "Tiếng · oai, oay, uân, uât"
+ },
+ {
+  "id": "tv-luaanj",
+  "file": "/assets/voice/tv-luaanj.mp3",
+  "text": "luận",
+  "group": "Tiếng · oai, oay, uân, uât"
+ },
+ {
+  "id": "tv-huaans",
+  "file": "/assets/voice/tv-huaans.mp3",
+  "text": "huấn",
+  "group": "Tiếng · oai, oay, uân, uât"
+ },
+ {
+  "id": "tv-muaf_xuaan",
+  "file": "/assets/voice/tv-muaf_xuaan.mp3",
+  "text": "mùa xuân",
+  "group": "Từ khóa · oai, oay, uân, uât"
+ },
+ {
+  "id": "tv-uaat",
+  "file": "/assets/voice/tv-uaat.mp3",
+  "text": "uât",
+  "group": "Âm, vần · oai, oay, uân, uât"
+ },
+ {
+  "id": "tv-thuaat",
+  "file": "/assets/voice/tv-thuaat.mp3",
+  "text": "thuât",
+  "group": "Đánh vần · oai, oay, uân, uât"
+ },
+ {
+  "id": "tv-thuaatj",
+  "file": "/assets/voice/tv-thuaatj.mp3",
+  "text": "thuật",
+  "group": "Đánh vần · oai, oay, uân, uât"
+ },
+ {
+  "id": "tv-luaatj",
+  "file": "/assets/voice/tv-luaatj.mp3",
+  "text": "luật",
+  "group": "Tiếng · oai, oay, uân, uât"
+ },
+ {
+  "id": "tv-xuaats",
+  "file": "/assets/voice/tv-xuaats.mp3",
+  "text": "xuất",
+  "group": "Tiếng · oai, oay, uân, uât"
+ },
+ {
+  "id": "tv-khuaats",
+  "file": "/assets/voice/tv-khuaats.mp3",
+  "text": "khuất",
+  "group": "Tiếng · oai, oay, uân, uât"
+ },
+ {
+  "id": "tv-mix_thuaatj",
+  "file": "/assets/voice/tv-mix_thuaatj.mp3",
+  "text": "mĩ thuật",
+  "group": "Từ khóa · oai, oay, uân, uât"
+ },
+ {
+  "id": "tv-muaf_xuaan_bes_troongf_khoai",
+  "file": "/assets/voice/tv-muaf_xuaan_bes_troongf_khoai.mp3",
+  "text": "mùa xuân, bé trồng khoai",
+  "group": "Câu ứng dụng · oai, oay, uân, uât"
+ },
+ {
+  "id": "tv-uyeen",
+  "file": "/assets/voice/tv-uyeen.mp3",
+  "text": "uyên",
+  "group": "Âm, vần · uyên, uyêt, uynh, uych"
+ },
+ {
+  "id": "tv-yeen",
+  "file": "/assets/voice/tv-yeen.mp3",
+  "text": "yên",
+  "group": "Mảnh vần (đánh vần)"
+ },
+ {
+  "id": "tv-thuyeen",
+  "file": "/assets/voice/tv-thuyeen.mp3",
+  "text": "thuyên",
+  "group": "Đánh vần · uyên, uyêt, uynh, uych"
+ },
+ {
+  "id": "tv-thuyeenf",
+  "file": "/assets/voice/tv-thuyeenf.mp3",
+  "text": "thuyền",
+  "group": "Đánh vần · uyên, uyêt, uynh, uych"
+ },
+ {
+  "id": "tv-chuyeenj",
+  "file": "/assets/voice/tv-chuyeenj.mp3",
+  "text": "chuyện",
+  "group": "Tiếng · uyên, uyêt, uynh, uych"
+ },
+ {
+  "id": "tv-khuyeen",
+  "file": "/assets/voice/tv-khuyeen.mp3",
+  "text": "khuyên",
+  "group": "Tiếng · uyên, uyêt, uynh, uych"
+ },
+ {
+  "id": "tv-luyeenj",
+  "file": "/assets/voice/tv-luyeenj.mp3",
+  "text": "luyện",
+  "group": "Tiếng · uyên, uyêt, uynh, uych"
+ },
+ {
+  "id": "tv-con_thuyeenf",
+  "file": "/assets/voice/tv-con_thuyeenf.mp3",
+  "text": "con thuyền",
+  "group": "Từ khóa · uyên, uyêt, uynh, uych"
+ },
+ {
+  "id": "tv-uyeet",
+  "file": "/assets/voice/tv-uyeet.mp3",
+  "text": "uyêt",
+  "group": "Âm, vần · uyên, uyêt, uynh, uych"
+ },
+ {
+  "id": "tv-yeet",
+  "file": "/assets/voice/tv-yeet.mp3",
+  "text": "yêt",
+  "group": "Mảnh vần (đánh vần)"
+ },
+ {
+  "id": "tv-tuyeet",
+  "file": "/assets/voice/tv-tuyeet.mp3",
+  "text": "tuyêt",
+  "group": "Đánh vần · uyên, uyêt, uynh, uych"
+ },
+ {
+  "id": "tv-tuyeets",
+  "file": "/assets/voice/tv-tuyeets.mp3",
+  "text": "tuyết",
+  "group": "Đánh vần · uyên, uyêt, uynh, uych"
+ },
+ {
+  "id": "tv-duyeetj",
+  "file": "/assets/voice/tv-duyeetj.mp3",
+  "text": "duyệt",
+  "group": "Tiếng · uyên, uyêt, uynh, uych"
+ },
+ {
+  "id": "tv-huyeets",
+  "file": "/assets/voice/tv-huyeets.mp3",
+  "text": "huyết",
+  "group": "Tiếng · uyên, uyêt, uynh, uych"
+ },
+ {
+  "id": "tv-khuyeets",
+  "file": "/assets/voice/tv-khuyeets.mp3",
+  "text": "khuyết",
+  "group": "Tiếng · uyên, uyêt, uynh, uych"
+ },
+ {
+  "id": "tv-boong_tuyeets",
+  "file": "/assets/voice/tv-boong_tuyeets.mp3",
+  "text": "bông tuyết",
+  "group": "Từ khóa · uyên, uyêt, uynh, uych"
+ },
+ {
+  "id": "tv-uynh",
+  "file": "/assets/voice/tv-uynh.mp3",
+  "text": "uynh",
+  "group": "Âm, vần · uyên, uyêt, uynh, uych"
+ },
+ {
+  "id": "tv-ynh",
+  "file": "/assets/voice/tv-ynh.mp3",
+  "text": "ynh",
+  "group": "Mảnh vần (đánh vần)"
+ },
+ {
+  "id": "tv-huynh",
+  "file": "/assets/voice/tv-huynh.mp3",
+  "text": "huynh",
+  "group": "Đánh vần · uyên, uyêt, uynh, uych"
+ },
+ {
+  "id": "tv-khuynhf",
+  "file": "/assets/voice/tv-khuynhf.mp3",
+  "text": "khuỳnh",
+  "group": "Tiếng · uyên, uyêt, uynh, uych"
+ },
+ {
+  "id": "tv-huynhf",
+  "file": "/assets/voice/tv-huynhf.mp3",
+  "text": "huỳnh",
+  "group": "Tiếng · uyên, uyêt, uynh, uych"
+ },
+ {
+  "id": "tv-phuj_huynh",
+  "file": "/assets/voice/tv-phuj_huynh.mp3",
+  "text": "phụ huynh",
+  "group": "Từ khóa · uyên, uyêt, uynh, uych"
+ },
+ {
+  "id": "tv-uych",
+  "file": "/assets/voice/tv-uych.mp3",
+  "text": "uych",
+  "group": "Âm, vần · uyên, uyêt, uynh, uych"
+ },
+ {
+  "id": "tv-ych",
+  "file": "/assets/voice/tv-ych.mp3",
+  "text": "ych",
+  "group": "Mảnh vần (đánh vần)"
+ },
+ {
+  "id": "tv-huych",
+  "file": "/assets/voice/tv-huych.mp3",
+  "text": "huych",
+  "group": "Đánh vần · uyên, uyêt, uynh, uych"
+ },
+ {
+  "id": "tv-huychj",
+  "file": "/assets/voice/tv-huychj.mp3",
+  "text": "huỵch",
+  "group": "Đánh vần · uyên, uyêt, uynh, uych"
+ },
+ {
+  "id": "tv-huychs",
+  "file": "/assets/voice/tv-huychs.mp3",
+  "text": "huých",
+  "group": "Tiếng · uyên, uyêt, uynh, uych"
+ },
+ {
+  "id": "tv-uychj",
+  "file": "/assets/voice/tv-uychj.mp3",
+  "text": "uỵch",
+  "group": "Tiếng · uyên, uyêt, uynh, uych"
+ },
+ {
+  "id": "tv-chayj_huychj_huychj",
+  "file": "/assets/voice/tv-chayj_huychj_huychj.mp3",
+  "text": "chạy huỵch huỵch",
+  "group": "Từ khóa · uyên, uyêt, uynh, uych"
+ },
+ {
+  "id": "tv-thuyeenf_ddi_treen_bieenr_tuyeets",
+  "file": "/assets/voice/tv-thuyeenf_ddi_treen_bieenr_tuyeets.mp3",
+  "text": "thuyền đi trên biển tuyết",
+  "group": "Câu ứng dụng · uyên, uyêt, uynh, uych"
+ },
+ {
+  "id": "tv-cuwar_soor",
+  "file": "/assets/voice/tv-cuwar_soor.mp3",
+  "text": "cửa sổ",
+  "group": "Bài đọc · Từ quanh nhà"
+ },
+ {
+  "id": "tv-bongs_ddenf",
+  "file": "/assets/voice/tv-bongs_ddenf.mp3",
+  "text": "bóng đèn",
+  "group": "Bài đọc · Từ quanh nhà"
+ },
+ {
+  "id": "tv-tur_lanhj",
+  "file": "/assets/voice/tv-tur_lanhj.mp3",
+  "text": "tủ lạnh",
+  "group": "Bài đọc · Từ quanh nhà"
+ },
+ {
+  "id": "tv-banf_chair",
+  "file": "/assets/voice/tv-banf_chair.mp3",
+  "text": "bàn chải",
+  "group": "Bài đọc · Từ quanh nhà"
+ },
+ {
+  "id": "tv-cais_banf_cuwar_soor_cais_ghees-se3ir",
+  "file": "/assets/voice/tv-cais_banf_cuwar_soor_cais_ghees-se3ir.mp3",
+  "text": "cái bàn cửa sổ cái ghế bóng đèn tủ lạnh bàn chải",
+  "group": "Cả bài · Từ quanh nhà"
+ },
+ {
+  "id": "tv-chus_chos",
+  "file": "/assets/voice/tv-chus_chos.mp3",
+  "text": "chú chó",
+  "group": "Bài đọc · Con vật bé yêu"
+ },
+ {
+  "id": "tv-ddanf_vitj",
+  "file": "/assets/voice/tv-ddanf_vitj.mp3",
+  "text": "đàn vịt",
+  "group": "Bài đọc · Con vật bé yêu"
+ },
+ {
+  "id": "tv-chim_ser",
+  "file": "/assets/voice/tv-chim_ser.mp3",
+  "text": "chim sẻ",
+  "group": "Bài đọc · Con vật bé yêu"
+ },
+ {
+  "id": "tv-con_traau",
+  "file": "/assets/voice/tv-con_traau.mp3",
+  "text": "con trâu",
+  "group": "Bài đọc · Con vật bé yêu"
+ },
+ {
+  "id": "tv-con_meof_chus_chos_con_gaf_ddanf_vitj_chim_ser_con_traau",
+  "file": "/assets/voice/tv-con_meof_chus_chos_con_gaf_ddanf_vitj_chim_ser_con_traau.mp3",
+  "text": "con mèo chú chó con gà đàn vịt chim sẻ con trâu",
+  "group": "Cả bài · Con vật bé yêu"
+ },
+ {
+  "id": "tv-duwa_haaus",
+  "file": "/assets/voice/tv-duwa_haaus.mp3",
+  "text": "dưa hấu",
+  "group": "Bài đọc · Màu sắc, trái cây"
+ },
+ {
+  "id": "tv-mauf_ddor",
+  "file": "/assets/voice/tv-mauf_ddor.mp3",
+  "text": "màu đỏ",
+  "group": "Bài đọc · Màu sắc, trái cây"
+ },
+ {
+  "id": "tv-mauf_xanh",
+  "file": "/assets/voice/tv-mauf_xanh.mp3",
+  "text": "màu xanh",
+  "group": "Bài đọc · Màu sắc, trái cây"
+ },
+ {
+  "id": "tv-trais_xoaif",
+  "file": "/assets/voice/tv-trais_xoaif.mp3",
+  "text": "trái xoài",
+  "group": "Bài đọc · Màu sắc, trái cây"
+ },
+ {
+  "id": "tv-quar_cam_duwa_haaus_mauf_ddor-cw6l7",
+  "file": "/assets/voice/tv-quar_cam_duwa_haaus_mauf_ddor-cw6l7.mp3",
+  "text": "quả cam dưa hấu màu đỏ màu xanh quả chuối trái xoài",
+  "group": "Cả bài · Màu sắc, trái cây"
+ },
+ {
+  "id": "tv-bes_ddi_hocj",
+  "file": "/assets/voice/tv-bes_ddi_hocj.mp3",
+  "text": "Bé đi học.",
+  "group": "Bài đọc · Câu và dấu chấm"
+ },
+ {
+  "id": "tv-mej_naaus_cowm",
+  "file": "/assets/voice/tv-mej_naaus_cowm.mp3",
+  "text": "Mẹ nấu cơm.",
+  "group": "Bài đọc · Câu và dấu chấm"
+ },
+ {
+  "id": "tv-meof_nawmf_ngur",
+  "file": "/assets/voice/tv-meof_nawmf_ngur.mp3",
+  "text": "Mèo nằm ngủ.",
+  "group": "Bài đọc · Câu và dấu chấm"
+ },
+ {
+  "id": "tv-boos_ddocj_baos",
+  "file": "/assets/voice/tv-boos_ddocj_baos.mp3",
+  "text": "Bố đọc báo.",
+  "group": "Bài đọc · Câu và dấu chấm"
+ },
+ {
+  "id": "tv-chim_hots_treen_caay",
+  "file": "/assets/voice/tv-chim_hots_treen_caay.mp3",
+  "text": "Chim hót trên cây.",
+  "group": "Bài đọc · Câu và dấu chấm"
+ },
+ {
+  "id": "tv-bes_ddi_hocj_mej_naaus_cowm-azxhj",
+  "file": "/assets/voice/tv-bes_ddi_hocj_mej_naaus_cowm-azxhj.mp3",
+  "text": "Bé đi học. Mẹ nấu cơm. Mèo nằm ngủ. Bố đọc báo. Chim hót trên cây.",
+  "group": "Cả bài · Câu và dấu chấm"
+ },
+ {
+  "id": "tv-sangs_nay_bes_daayj_sowms",
+  "file": "/assets/voice/tv-sangs_nay_bes_daayj_sowms.mp3",
+  "text": "Sáng nay, bé dậy sớm.",
+  "group": "Bài đọc · Dấu phẩy"
+ },
+ {
+  "id": "tv-vuwownf_nhaf_baf_cos_cam_cos_buwowir",
+  "file": "/assets/voice/tv-vuwownf_nhaf_baf_cos_cam_cos_buwowir.mp3",
+  "text": "Vườn nhà bà có cam, có bưởi.",
+  "group": "Bài đọc · Dấu phẩy"
+ },
+ {
+  "id": "tv-mochi_thichs_cas_thichs_suwax",
+  "file": "/assets/voice/tv-mochi_thichs_cas_thichs_suwax.mp3",
+  "text": "Mochi thích cá, thích sữa.",
+  "group": "Bài đọc · Dấu phẩy"
+ },
+ {
+  "id": "tv-trowif_nawngs_gios_thooir_nhej",
+  "file": "/assets/voice/tv-trowif_nawngs_gios_thooir_nhej.mp3",
+  "text": "Trời nắng, gió thổi nhẹ.",
+  "group": "Bài đọc · Dấu phẩy"
+ },
+ {
+  "id": "tv-sangs_nay_bes_daayj_sowms_vuwownf-z0z52",
+  "file": "/assets/voice/tv-sangs_nay_bes_daayj_sowms_vuwownf-z0z52.mp3",
+  "text": "Sáng nay, bé dậy sớm. Vườn nhà bà có cam, có bưởi. Mochi thích cá, thích sữa. Trời nắng, gió thổi nhẹ.",
+  "group": "Cả bài · Dấu phẩy"
+ },
+ {
+  "id": "tv-banj_teen_laf_gif",
+  "file": "/assets/voice/tv-banj_teen_laf_gif.mp3",
+  "text": "Bạn tên là gì?",
+  "group": "Bài đọc · Câu hỏi"
+ },
+ {
+  "id": "tv-hoom_nay_trowif_cos_muwa_khoong",
+  "file": "/assets/voice/tv-hoom_nay_trowif_cos_muwa_khoong.mp3",
+  "text": "Hôm nay trời có mưa không?",
+  "group": "Bài đọc · Câu hỏi"
+ },
+ {
+  "id": "tv-ai_ddang_hats_thees",
+  "file": "/assets/voice/tv-ai_ddang_hats_thees.mp3",
+  "text": "Ai đang hát thế?",
+  "group": "Bài đọc · Câu hỏi"
+ },
+ {
+  "id": "tv-meof_con_ddi_ddaau",
+  "file": "/assets/voice/tv-meof_con_ddi_ddaau.mp3",
+  "text": "Mèo con đi đâu?",
+  "group": "Bài đọc · Câu hỏi"
+ },
+ {
+  "id": "tv-banj_teen_laf_gif_hoom_nay-c5c7s",
+  "file": "/assets/voice/tv-banj_teen_laf_gif_hoom_nay-c5c7s.mp3",
+  "text": "Bạn tên là gì? Hôm nay trời có mưa không? Ai đang hát thế? Mèo con đi đâu?",
+  "group": "Cả bài · Câu hỏi"
+ },
+ {
+  "id": "tv-sangs_nay_mochi_daayj_thaatj_sowms",
+  "file": "/assets/voice/tv-sangs_nay_mochi_daayj_thaatj_sowms.mp3",
+  "text": "Sáng nay, Mochi dậy thật sớm.",
+  "group": "Bài đọc · Mochi đi học"
+ },
+ {
+  "id": "tv-mochi_ddanhs_rawng_ruwar_mawtj_rooif_awn_sangs",
+  "file": "/assets/voice/tv-mochi_ddanhs_rawng_ruwar_mawtj_rooif_awn_sangs.mp3",
+  "text": "Mochi đánh răng, rửa mặt rồi ăn sáng.",
+  "group": "Bài đọc · Mochi đi học"
+ },
+ {
+  "id": "tv-mej_dduwa_mochi_ddeens_lowps",
+  "file": "/assets/voice/tv-mej_dduwa_mochi_ddeens_lowps.mp3",
+  "text": "Mẹ đưa Mochi đến lớp.",
+  "group": "Bài đọc · Mochi đi học"
+ },
+ {
+  "id": "tv-owr_lowps_mochi_dduwowcj_coo_khen_ngoan",
+  "file": "/assets/voice/tv-owr_lowps_mochi_dduwowcj_coo_khen_ngoan.mp3",
+  "text": "Ở lớp, Mochi được cô khen ngoan.",
+  "group": "Bài đọc · Mochi đi học"
+ },
+ {
+  "id": "tv-sangs_nay_mochi_daayj_thaatj_sowms-7l03i",
+  "file": "/assets/voice/tv-sangs_nay_mochi_daayj_thaatj_sowms-7l03i.mp3",
+  "text": "Sáng nay, Mochi dậy thật sớm. Mochi đánh răng, rửa mặt rồi ăn sáng. Mẹ đưa Mochi đến lớp. Ở lớp, Mochi được cô khen ngoan.",
+  "group": "Cả bài · Mochi đi học"
+ },
+ {
+  "id": "tv-nhaf_baf_cos_mootj_khu_vuwownf_nhor",
+  "file": "/assets/voice/tv-nhaf_baf_cos_mootj_khu_vuwownf_nhor.mp3",
+  "text": "Nhà bà có một khu vườn nhỏ.",
+  "group": "Bài đọc · Khu vườn của bà"
+ },
+ {
+  "id": "tv-trong_vuwownf_cos_caay_cam_caay_buwowir_vaf_luoongs_rau_xanh",
+  "file": "/assets/voice/tv-trong_vuwownf_cos_caay_cam_caay_buwowir_vaf_luoongs_rau_xanh.mp3",
+  "text": "Trong vườn có cây cam, cây bưởi và luống rau xanh.",
+  "group": "Bài đọc · Khu vườn của bà"
+ },
+ {
+  "id": "tv-mooix_sangs_baf_ra_vuwownf_tuwowis_nuwowcs",
+  "file": "/assets/voice/tv-mooix_sangs_baf_ra_vuwownf_tuwowis_nuwowcs.mp3",
+  "text": "Mỗi sáng, bà ra vườn tưới nước.",
+  "group": "Bài đọc · Khu vườn của bà"
+ },
+ {
+  "id": "tv-bes_thichs_theo_baf_nhawtj_las_vangf",
+  "file": "/assets/voice/tv-bes_thichs_theo_baf_nhawtj_las_vangf.mp3",
+  "text": "Bé thích theo bà nhặt lá vàng.",
+  "group": "Bài đọc · Khu vườn của bà"
+ },
+ {
+  "id": "tv-chieeuf_veef_chim_ser_bay_ddeens_hots_lius_lo",
+  "file": "/assets/voice/tv-chieeuf_veef_chim_ser_bay_ddeens_hots_lius_lo.mp3",
+  "text": "Chiều về, chim sẻ bay đến hót líu lo.",
+  "group": "Bài đọc · Khu vườn của bà"
+ },
+ {
+  "id": "tv-nhaf_baf_cos_mootj_khu_vuwownf-lrzrh",
+  "file": "/assets/voice/tv-nhaf_baf_cos_mootj_khu_vuwownf-lrzrh.mp3",
+  "text": "Nhà bà có một khu vườn nhỏ. Trong vườn có cây cam, cây bưởi và luống rau xanh. Mỗi sáng, bà ra vườn tưới nước. Bé thích theo bà nhặt lá vàng. Chiều về, chim sẻ bay đến hót líu lo.",
+  "group": "Cả bài · Khu vườn của bà"
+ },
+ {
+  "id": "tv-trowif_boongx_toois_saamf_laij",
+  "file": "/assets/voice/tv-trowif_boongx_toois_saamf_laij.mp3",
+  "text": "Trời bỗng tối sầm lại.",
+  "group": "Bài đọc · Trời mưa"
+ },
+ {
+  "id": "tv-gios_thooir_manhj_maay_dden_keos_ddeens",
+  "file": "/assets/voice/tv-gios_thooir_manhj_maay_dden_keos_ddeens.mp3",
+  "text": "Gió thổi mạnh, mây đen kéo đến.",
+  "group": "Bài đọc · Trời mưa"
+ },
+ {
+  "id": "tv-rooif_muwa_rowi_loopj_ddoopj_treen_mais_nhaf",
+  "file": "/assets/voice/tv-rooif_muwa_rowi_loopj_ddoopj_treen_mais_nhaf.mp3",
+  "text": "Rồi mưa rơi lộp độp trên mái nhà.",
+  "group": "Bài đọc · Trời mưa"
+ },
+ {
+  "id": "tv-ddanf_kieens_vooij_vangf_chayj_veef_toor",
+  "file": "/assets/voice/tv-ddanf_kieens_vooij_vangf_chayj_veef_toor.mp3",
+  "text": "Đàn kiến vội vàng chạy về tổ.",
+  "group": "Bài đọc · Trời mưa"
+ },
+ {
+  "id": "tv-muwa_tanhj_caauf_voongf_hieenj_ra_thaatj_ddepj",
+  "file": "/assets/voice/tv-muwa_tanhj_caauf_voongf_hieenj_ra_thaatj_ddepj.mp3",
+  "text": "Mưa tạnh, cầu vồng hiện ra thật đẹp.",
+  "group": "Bài đọc · Trời mưa"
+ },
+ {
+  "id": "tv-trowif_boongx_toois_saamf_laij_gios-182nj",
+  "file": "/assets/voice/tv-trowif_boongx_toois_saamf_laij_gios-182nj.mp3",
+  "text": "Trời bỗng tối sầm lại. Gió thổi mạnh, mây đen kéo đến. Rồi mưa rơi lộp độp trên mái nhà. Đàn kiến vội vàng chạy về tổ. Mưa tạnh, cầu vồng hiện ra thật đẹp.",
+  "group": "Cả bài · Trời mưa"
+ },
+ {
+  "id": "tv-meof_con_daayj_sowms",
+  "file": "/assets/voice/tv-meof_con_daayj_sowms.mp3",
+  "text": "Mèo con dậy sớm,",
+  "group": "Bài đọc · Mèo con rửa mặt"
+ },
+ {
+  "id": "tv-ruwar_mawtj_bawngf_tay",
+  "file": "/assets/voice/tv-ruwar_mawtj_bawngf_tay.mp3",
+  "text": "Rửa mặt bằng tay.",
+  "group": "Bài đọc · Mèo con rửa mặt"
+ },
+ {
+  "id": "tv-lieems_loong_sachj_bongs",
+  "file": "/assets/voice/tv-lieems_loong_sachj_bongs.mp3",
+  "text": "Liếm lông sạch bóng,",
+  "group": "Bài đọc · Mèo con rửa mặt"
+ },
+ {
+  "id": "tv-chaof_nawngs_ban_mai",
+  "file": "/assets/voice/tv-chaof_nawngs_ban_mai.mp3",
+  "text": "Chào nắng ban mai.",
+  "group": "Bài đọc · Mèo con rửa mặt"
+ },
+ {
+  "id": "tv-meof_con_daayj_sowms_ruwar_mawtj-abt72",
+  "file": "/assets/voice/tv-meof_con_daayj_sowms_ruwar_mawtj-abt72.mp3",
+  "text": "Mèo con dậy sớm,\nRửa mặt bằng tay.\nLiếm lông sạch bóng,\nChào nắng ban mai.",
+  "group": "Cả bài · Mèo con rửa mặt"
+ },
+ {
+  "id": "tv-meof_con_daayj_sowms_ruwar_mawtj-tmxen",
+  "file": "/assets/voice/tv-meof_con_daayj_sowms_ruwar_mawtj-tmxen.mp3",
+  "text": "Mèo con dậy sớm, Rửa mặt bằng tay. Liếm lông sạch bóng, Chào nắng ban mai.",
+  "group": "Cả bài · Mèo con rửa mặt"
+ },
+ {
+  "id": "tv-oong_trawng_tronf_nhuw_ddiax",
+  "file": "/assets/voice/tv-oong_trawng_tronf_nhuw_ddiax.mp3",
+  "text": "Ông trăng tròn như đĩa,",
+  "group": "Bài đọc · Ông trăng"
+ },
+ {
+  "id": "tv-treo_luwngr_giuwax_trowif_cao",
+  "file": "/assets/voice/tv-treo_luwngr_giuwax_trowif_cao.mp3",
+  "text": "Treo lửng giữa trời cao.",
+  "group": "Bài đọc · Ông trăng"
+ },
+ {
+  "id": "tv-soi_saan_nhaf_bes_ngur",
+  "file": "/assets/voice/tv-soi_saan_nhaf_bes_ngur.mp3",
+  "text": "Soi sân nhà bé ngủ,",
+  "group": "Bài đọc · Ông trăng"
+ },
+ {
+  "id": "tv-soi_car_ddanf_cas_ao",
+  "file": "/assets/voice/tv-soi_car_ddanf_cas_ao.mp3",
+  "text": "Soi cả đàn cá ao.",
+  "group": "Bài đọc · Ông trăng"
+ },
+ {
+  "id": "tv-oong_trawng_tronf_nhuw_ddiax_treo-1jt4x",
+  "file": "/assets/voice/tv-oong_trawng_tronf_nhuw_ddiax_treo-1jt4x.mp3",
+  "text": "Ông trăng tròn như đĩa,\nTreo lửng giữa trời cao.\nSoi sân nhà bé ngủ,\nSoi cả đàn cá ao.",
+  "group": "Cả bài · Ông trăng"
+ },
+ {
+  "id": "tv-oong_trawng_tronf_nhuw_ddiax_treo-1x4ak",
+  "file": "/assets/voice/tv-oong_trawng_tronf_nhuw_ddiax_treo-1x4ak.mp3",
+  "text": "Ông trăng tròn như đĩa, Treo lửng giữa trời cao. Soi sân nhà bé ngủ, Soi cả đàn cá ao.",
+  "group": "Cả bài · Ông trăng"
+ },
+ {
+  "id": "tv-banf_tay_cuar_em",
+  "file": "/assets/voice/tv-banf_tay_cuar_em.mp3",
+  "text": "Bàn tay của em,",
+  "group": "Bài đọc · Bàn tay em"
+ },
+ {
+  "id": "tv-bieets_caamf_buts_vieets",
+  "file": "/assets/voice/tv-bieets_caamf_buts_vieets.mp3",
+  "text": "Biết cầm bút viết.",
+  "group": "Bài đọc · Bàn tay em"
+ },
+ {
+  "id": "tv-bieets_quets_saan_nhaf",
+  "file": "/assets/voice/tv-bieets_quets_saan_nhaf.mp3",
+  "text": "Biết quét sân nhà,",
+  "group": "Bài đọc · Bàn tay em"
+ },
+ {
+  "id": "tv-bieets_oom_baf_mej",
+  "file": "/assets/voice/tv-bieets_oom_baf_mej.mp3",
+  "text": "Biết ôm bà mẹ.",
+  "group": "Bài đọc · Bàn tay em"
+ },
+ {
+  "id": "tv-banf_tay_cuar_em_bieets_caamf-tcj5y",
+  "file": "/assets/voice/tv-banf_tay_cuar_em_bieets_caamf-tcj5y.mp3",
+  "text": "Bàn tay của em,\nBiết cầm bút viết.\nBiết quét sân nhà,\nBiết ôm bà mẹ.",
+  "group": "Cả bài · Bàn tay em"
+ },
+ {
+  "id": "tv-banf_tay_cuar_em_bieets_caamf-11aia",
+  "file": "/assets/voice/tv-banf_tay_cuar_em_bieets_caamf-11aia.mp3",
+  "text": "Bàn tay của em, Biết cầm bút viết. Biết quét sân nhà, Biết ôm bà mẹ.",
+  "group": "Cả bài · Bàn tay em"
+ }
+]

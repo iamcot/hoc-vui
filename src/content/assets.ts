@@ -1,4 +1,5 @@
 import available from "./available.json";
+import { TAPDOC_VOICES } from "./subjects/tap-doc/voices";
 
 /**
  * Danh mục ảnh và âm thanh. Mỗi mục có prompt để tạo bằng ChatGPT (ảnh) hoặc ElevenLabs (âm thanh).
@@ -93,6 +94,11 @@ export const IMAGES: ImageAsset[] = [
   img("fx7-l05-cover", "1536x1024", "Lớp 7 · Bìa bài 5: Đại lượng tỉ lệ", `${MOCHI} and three animal friends sharing a big layered cake cut into slices of different sizes, a stack of notebooks nearby`),
   img("fx7-l06-cover", "1536x1024", "Lớp 7 · Bìa bài 6: Thống kê", `${MOCHI} presenting a big colorful pie chart and a simple bar chart on a classroom easel, ${XIXI} pointing at the chart`),
 
+  // Môn Tập đọc: ít tranh, chữ là chính
+  img("subject-tapdoc-cover", "1536x1024", "Ảnh lớn của môn Tập đọc ở trang chủ (chữ đè lên phần dưới ảnh)", `${MOCHI.replace(", wearing a small yellow backpack shaped like a calculator", "")}, sitting on a stack of big picture books, holding an open book, a few large soft wooden alphabet blocks around (blank faces, no letters), warm reading nook`),
+  img("td-cover", "1536x1024", "Ảnh chung cho thẻ \"Học tiếp\" của môn Tập đọc (chữ to đè lên)", "A cozy empty classroom blackboard corner with soft chalk dust, a small potted plant and a stack of books, large plain empty area in the middle, very soft and light"),
+  img("mochi-read", "1024x1024", "Mochi đọc sách: màn hình bé ghi âm đọc to", `${MOCHI.replace(", wearing a small yellow backpack shaped like a calculator", "")}, holding an open book and reading aloud with a small music-note sparkle near its mouth, one ear perked up as if listening, full body`, true),
+
   // Minh họa trong bài
   img("fx-l01-s1", "1536x1024", "Bài 1, slide 1: Mochi giới thiệu Xi Xi", `${MOCHI} presenting ${XIXI} with open paws, sparkles`),
   img("fx-l01-s3", "1536x1024", "Bài 1, slide 3: chữ vàng chữ đỏ trên phím", "Close-up of three calculator keys, each with a small yellow label and a small red label above it, glowing softly, two tiny arrows pointing to the labels"),
@@ -151,8 +157,11 @@ export const AUDIO: AudioAsset[] = [
   voice("vo-complete", "Hoàn thành bài", "Hoàn thành bài học rồi! Mochi tự hào về em lắm."),
 ];
 
+/** Giọng đọc mẫu môn Tập đọc (in riêng ở docs/TAPDOC_VOICES.md) */
+export const TAPDOC_AUDIO: AudioAsset[] = TAPDOC_VOICES.map((v) => ({ id: v.id, file: `/assets/voice/${v.id}.mp3`, kind: "voice", usage: v.group, prompt: v.text }));
+
 export const imageById = (id: string) => IMAGES.find((i) => i.id === id);
-export const audioById = (id: string) => AUDIO.find((a) => a.id === id);
+export const audioById = (id: string) => AUDIO.find((a) => a.id === id) ?? TAPDOC_AUDIO.find((a) => a.id === id);
 
 const AVAILABLE = new Map<string, string>(
   (available as string[]).map((f) => [f.replace(/\.(webp|png|jpe?g|mp3|m4a|wav|ogg)$/i, ""), f]),

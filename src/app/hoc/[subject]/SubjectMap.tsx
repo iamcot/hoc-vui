@@ -21,7 +21,7 @@ const UNIT_COLORS = ["var(--color-sky)", "var(--color-peach)", "var(--color-mint
 type Stop = { ti: number } & (
   | { kind: "tier" }
   | { kind: "unit"; title: string; color: string }
-  | { kind: "lesson"; id: string; n: number; title: string; short: string; emoji: string; cover: string }
+  | { kind: "lesson"; id: string; n: number; title: string; short: string; emoji: string; cover: string; glyph?: string }
   | { kind: "test" }
   | { kind: "challenge" }
   | { kind: "soon" }
@@ -52,7 +52,7 @@ export function SubjectMap({ subjectId }: { subjectId: string }) {
     let n = 0;
     t.units.forEach((u, ui) => {
       stops.push({ ti, kind: "unit", title: u.title, color: UNIT_COLORS[ui % UNIT_COLORS.length] });
-      u.lessons.forEach((l) => stops.push({ ti, kind: "lesson", id: l.id, n: ++n, title: l.title, short: l.short, emoji: l.emoji, cover: l.cover }));
+      u.lessons.forEach((l) => stops.push({ ti, kind: "lesson", id: l.id, n: ++n, title: l.title, short: l.short, emoji: l.emoji, cover: l.cover, glyph: l.glyph }));
     });
     stops.push({ ti, kind: "test" });
     if (ti === cur) stops.push({ ti, kind: "arena" });
@@ -192,7 +192,11 @@ export function SubjectMap({ subjectId }: { subjectId: string }) {
                     prog.stars > 0 ? "border-mint" : current ? "pulse-ring border-sky" : "border-white"
                   }`}
                 >
-                  <Art id={st.cover} emoji={st.emoji} rounded="rounded-full" className="h-full w-full" />
+                  {st.glyph ? (
+                    <GlyphNode glyph={st.glyph} n={st.n} />
+                  ) : (
+                    <Art id={st.cover} emoji={st.emoji} rounded="rounded-full" className="h-full w-full" />
+                  )}
                   {locked && (
                     <span className="absolute inset-0 grid place-items-center bg-ink/35">
                       <IconLock className="h-8 w-8 text-white" />
@@ -317,5 +321,18 @@ export function SubjectMap({ subjectId }: { subjectId: string }) {
         })}
       </div>
     </div>
+  );
+}
+
+const GLYPH_BG = ["#ff8a5c", "#4f72ff", "#22b98c", "#9b7bff", "#ffb81f"];
+/** Môn chữ: điểm dừng là chữ cái/vần viết to thay cho tranh */
+function GlyphNode({ glyph, n }: { glyph: string; n: number }) {
+  const parts = glyph.split(" ");
+  const shown = parts.length > 3 ? parts.slice(0, 2).join(" ") + "…" : glyph;
+  const size = shown.length <= 2 ? "text-5xl" : shown.length <= 5 ? "text-3xl" : shown.length <= 9 ? "text-xl" : "text-base";
+  return (
+    <span className="grid h-full w-full place-items-center rounded-full px-1 text-center" style={{ background: GLYPH_BG[n % GLYPH_BG.length] }}>
+      <span className={`font-display font-extrabold leading-none text-white drop-shadow ${size}`}>{shown}</span>
+    </span>
   );
 }

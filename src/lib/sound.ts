@@ -4,6 +4,7 @@ import { audioById, hasFile, resolveFile } from "@/content/assets";
 const cache = new Map<string, HTMLAudioElement | null>();
 let muted = false;
 
+export const isMuted = () => muted;
 export function setMuted(m: boolean) {
   muted = m;
 }

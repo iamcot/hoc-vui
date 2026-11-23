@@ -20,7 +20,7 @@ File này sinh tự động từ `src/content/assets.ts` bằng `npm run prompts
 - Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator
 - Xi Xi: a friendly anthropomorphic scientific calculator (dark navy body, light gray keys, small LCD screen showing a smile), tiny arms and legs
 
-## Ảnh (55)
+## Ảnh (58)
 
 ### ✅ `mochi-happy.webp`
 - Dùng ở: Mochi vui vẻ: lời chào, slide mở đầu
@@ -340,6 +340,30 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 
 ```text
 Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator presenting a big colorful pie chart and a simple bar chart on a classroom easel, Xi Xi: a friendly anthropomorphic scientific calculator (dark navy body, light gray keys, small LCD screen showing a smile), tiny arms and legs pointing at the chart. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
+```
+
+### ⬜ `subject-tapdoc-cover.webp`
+- Dùng ở: Ảnh lớn của môn Tập đọc ở trang chủ (chữ đè lên phần dưới ảnh)
+- Kích thước: 1536x1024
+
+```text
+Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, sitting on a stack of big picture books, holding an open book, a few large soft wooden alphabet blocks around (blank faces, no letters), warm reading nook. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
+```
+
+### ⬜ `td-cover.webp`
+- Dùng ở: Ảnh chung cho thẻ "Học tiếp" của môn Tập đọc (chữ to đè lên)
+- Kích thước: 1536x1024
+
+```text
+A cozy empty classroom blackboard corner with soft chalk dust, a small potted plant and a stack of books, large plain empty area in the middle, very soft and light. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
+```
+
+### ⬜ `mochi-read.webp`
+- Dùng ở: Mochi đọc sách: màn hình bé ghi âm đọc to
+- Kích thước: 1024x1024 · nền trong suốt
+
+```text
+Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, holding an open book and reading aloud with a small music-note sparkle near its mouth, one ear perked up as if listening, full body. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
 ### ✅ `fx-l01-s1.webp`
