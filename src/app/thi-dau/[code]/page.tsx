@@ -16,6 +16,7 @@ import { Confetti } from "@/components/Confetti";
 import { IconClose } from "@/components/Icons";
 import { play } from "@/lib/sound";
 import { Scene } from "@/components/Scene";
+import { TypingRace } from "@/components/typing/TypingRace";
 
 export default function RoomPage() {
   return (
@@ -91,6 +92,8 @@ function RoomView() {
   }, [left]);
 
   if (!room) return null;
+  // môn Gõ phím: phòng thi là đường đua xe
+  if (room.subject_id === "go-phim") return <TypingRace room={room} />;
   const subject = getSubject(room.subject_id) ?? SUBJECTS[0];
   const tier = room.tier_id ? getTier(subject, room.tier_id) : undefined;
   const link = typeof window !== "undefined" ? `${location.origin}/thi-dau/${room.code}?mon=${room.subject_id}${tier ? `&cap=${tier.id}` : ""}` : "";

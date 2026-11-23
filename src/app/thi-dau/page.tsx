@@ -51,7 +51,9 @@ function Arena() {
           ⚡ Đấu trường
         </h1>
         <p className="max-w-xl text-lg font-bold text-ink text-outline">
-          {ROOM_QUESTIONS} câu, {ROOM_SECONDS / 60} phút. Cả phòng làm cùng một đề, ai đúng nhiều và nhanh hơn thì thắng.
+          {subject === "go-phim"
+            ? "Đua xe gõ phím: cả phòng gõ cùng một đoạn, gõ nhanh và chính xác thì xe về trước."
+            : `${ROOM_QUESTIONS} câu, ${ROOM_SECONDS / 60} phút. Cả phòng làm cùng một đề, ai đúng nhiều và nhanh hơn thì thắng.`}
         </p>
       </header>
 

@@ -342,3 +342,8 @@ button {
 .theme-cyber .border-white {
   border-color: #23357d;
 }
+.race-lane {
+  background: repeating-linear-gradient(90deg, transparent 0 40px, rgb(47 211 255 / 0.12) 40px 70px);
+  background-size: 70px 100%;
+  mask-image: linear-gradient(to bottom, transparent 45%, black 50%, transparent 55%);
+}

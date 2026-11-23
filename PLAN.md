@@ -69,6 +69,20 @@ Bám mạch Tiếng Việt 1 GDPT 2018 (âm, chữ → thanh → chữ ghép →
 - [ ] Thử ghi âm trên iPad thật với giọng bé
 - [ ] Bổ sung: tập viết chữ (vẽ theo nét), chính tả nghe viết, đo tốc độ đọc (tiếng/phút)
 
+### Giai đoạn 2d · Môn Gõ phím 10 ngón (vừa học vừa chơi)
+Tông công nghệ cho bé lớn: biển sâu neon, nhân vật **thỏ Bit** (STYLE_CYBER trong `src/content/assets.ts`). Học không dấu trước, cuối cùng mới học Telex; app tự ghép Telex nên không cần Unikey.
+- [x] Bàn phím ảo mỗi ngón một màu, phím cần gõ nhấp nháy, nhắc ngón nào bấm (`src/lib/typing/keyboard.ts`)
+- [x] Bộ ghép Telex trong app: aa → â, ow → ơ, dd → đ, s f r x j ở cuối tiếng (`src/lib/typing/telex.ts`)
+- [x] 24 bài, 4 trình độ: Hàng nhà (từng ngón) → Từng bàn tay → Phối hợp (Shift, dấu câu, số, câu) → Telex
+- [x] Luyện tập = game thợ lặn bắn cá mập: cá mang chữ, gõ chữ đầu để khóa mục tiêu, đo WPM và độ chính xác
+- [x] Thử thách vượt cấp, kiểm tra trình độ: gõ lại từng dòng, đạt khi chính xác từ 90%
+- [x] Chế độ Sinh tồn (3 mạng, cá nhanh dần, chữ lấy từ bài đã học), Bài gõ hay (12 đoạn văn, ca dao)
+- [x] Đua xe trong phòng thi đấu: cùng một đoạn theo mã phòng, xe bạn bè chạy trực tiếp (Supabase Realtime), không có ai thì đua với xe máy; điểm = WPM × độ chính xác
+- [ ] Bạn góp ý ảnh chụp (`mockups-gophim/`) và chốt nhân vật thỏ Bit
+- [ ] Tạo ảnh (bắt đầu từ `bit-happy`, rồi `bg-gp-deep`) và 6 hiệu ứng `gp-*`, 4 câu chào `vo-gp-*`
+- [ ] Thử trên iPad có bàn phím rời (iPad không bàn phím thì không tập 10 ngón được)
+- [ ] Sau này: bài gõ theo thời gian (1 phút), bảng xếp hạng WPM riêng, nhạc nền
+
 ### Giai đoạn 3 · Mở rộng môn
 - [ ] Toán lớp 6 (lý thuyết), Toán lớp 1, Tiếng Anh...
 - [ ] Trình soạn bài cho phụ huynh
