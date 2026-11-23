@@ -53,7 +53,6 @@ Chạy trên máy của bạn (cần Node 20+, `npm install` một lần).
    ELEVENLABS_MODEL=eleven_multilingual_v2
    ```
 3. `npm run gen-assets -- --audio --dry-run` để xem danh sách, rồi `npm run gen-assets -- --audio` để tạo. Giọng đọc mẫu môn Tập đọc (khoảng 1.100 âm, vần, tiếng) chạy riêng bằng `npm run gen-assets -- --tapdoc` (đọc chậm hơn, ổn định hơn để không đọc sai âm đứng một mình).
-4. Kiểm tra thử: `npm run gen-assets -- --audio --dry-run` để xem danh sách, rồi `npm run gen-assets -- --audio` để tạo.
 
 **Ảnh, bán tự động bằng tài khoản ChatGPT:** `npm run asset-helper`. Tool mở ChatGPT, chép sẵn prompt vào clipboard và mở thư mục ảnh tham chiếu (mochi-happy, bg-home...). Bạn kéo ảnh tham chiếu vào, dán prompt, gửi, rồi bấm tải ảnh về. Tool thấy file mới trong Downloads sẽ tự đổi đúng tên và sang ảnh kế tiếp. Phím: `c` chép lại prompt, `s` bỏ qua, `b` quay lại, `q` thoát. Thoát xong tool tự chuyển ảnh sang WebP. Trình duyệt lưu file ở chỗ khác thì thêm `-- --downloads <thư mục>`.
 
