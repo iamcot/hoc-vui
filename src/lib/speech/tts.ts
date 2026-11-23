@@ -39,22 +39,38 @@ export function speak(text: string, opts: { rate?: number; id?: string } = {}): 
   stopSpeak();
   if (typeof window === "undefined" || isMuted()) return Promise.resolve();
   const file = `/assets/voice/${opts.id ?? voiceIdFor(text)}.mp3`;
-  if (hasFile(file)) {
+  // file có trong danh sách lúc build, hoặc chưa biết (vd. vừa tạo khi đang chạy npm run dev): thử phát file trước
+  if (hasFile(file) || !missing.has(file)) {
+    const src = resolveFile(file) ?? file;
     return new Promise((res) => {
-      const a = new Audio(resolveFile(file));
+      const a = new Audio(src);
       current = a;
       a.playbackRate = opts.rate && opts.rate < 1 ? 0.9 : 1;
-      a.onended = a.onerror = () => res();
-      void a.play().catch(() => res());
+      a.onended = () => res();
+      a.onerror = () => {
+        missing.add(file);
+        if (current === a) void tts(text, opts.rate).then(res);
+        else res();
+      };
+      void a.play().catch((e: Error) => {
+        // trình duyệt chặn tự phát: không đọc gì; còn lỗi tải file thì onerror lo
+        if (e?.name === "NotAllowedError") res();
+      });
     });
   }
+  return tts(text, opts.rate);
+}
+
+const missing = new Set<string>();
+
+function tts(text: string, rate?: number): Promise<void> {
   const v = pickVoice();
   if (!v) return Promise.resolve();
   return new Promise((res) => {
     const u = new SpeechSynthesisUtterance(text);
     u.voice = v;
     u.lang = v.lang;
-    u.rate = opts.rate ?? 0.8;
+    u.rate = rate ?? 0.8;
     u.onend = u.onerror = () => res();
     speechSynthesis.speak(u);
     // Safari đôi khi không gọi onend
