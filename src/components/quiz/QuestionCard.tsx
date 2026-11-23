@@ -1,0 +1,206 @@
+"use client";
+import { useEffect, useRef, useState } from "react";
+import { motion } from "motion/react";
+import type { Question } from "@/content/types";
+import { checkAnswer } from "@/lib/check";
+import { KeySeq } from "@/components/calc/Keys";
+import { TryIt } from "@/components/calc/TryIt";
+import { RichText } from "@/components/RichText";
+import { play } from "@/lib/sound";
+
+export interface AnswerResult {
+  correct: boolean;
+  input: string;
+  hinted: boolean;
+}
+
+export function showAnswer(q: Question) {
+  if (q.kind === "pair") {
+    const [a, b] = q.answer.split(";");
+    return `${q.pairLabels?.[0] ?? "a"} = ${a}, ${q.pairLabels?.[1] ?? "b"} = ${b}`;
+  }
+  if (q.kind === "number") {
+    const n = Number(q.answer.replace(",", "."));
+    return `${isNaN(n) ? q.answer : n.toLocaleString("vi-VN", { maximumFractionDigits: 6 })}${q.unit ? ` ${q.unit}` : ""}`;
+  }
+  return q.answer;
+}
+
+/**
+ * Một câu hỏi. mode "learn": có gợi ý, giải thích, xem cách bấm.
+ * mode "race": trả lời xong sang câu luôn (kiểm tra, thi đấu).
+ */
+export function QuestionCard({
+  q,
+  mode = "learn",
+  onNext,
+  device,
+}: {
+  q: Question;
+  mode?: "learn" | "race";
+  onNext: (r: AnswerResult) => void;
+  device?: "fx580";
+}) {
+  const [input, setInput] = useState("");
+  const [b, setB] = useState("");
+  const [result, setResult] = useState<null | boolean>(null);
+  const [hinted, setHinted] = useState(false);
+  const [showKeys, setShowKeys] = useState(false);
+  const ref = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    setInput("");
+    setB("");
+    setResult(null);
+    setHinted(false);
+    setShowKeys(false);
+    if (q.kind !== "choice") setTimeout(() => ref.current?.focus(), 50);
+  }, [q.id, q.kind]);
+
+  const value = q.kind === "pair" ? `${input};${b}` : input;
+
+  function submit(v = value) {
+    if (result !== null) return;
+    const ok = checkAnswer(q, v);
+    play(ok ? "correct" : "wrong");
+    if (mode === "race") {
+      onNext({ correct: ok, input: v, hinted });
+      return;
+    }
+    setResult(ok);
+  }
+
+  const insert = (s: string) => {
+    setInput((x) => x + s);
+    ref.current?.focus();
+  };
+
+  return (
+    <motion.div key={q.id} initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} className="space-y-5">
+      <RichText text={q.prompt} className="font-display text-xl font-bold sm:text-2xl" />
+
+      {q.kind === "choice" ? (
+        <div className="grid gap-3 sm:grid-cols-2">
+          {q.choices!.map((c) => {
+            const picked = input === c;
+            const state = result === null ? "" : c === q.answer ? "border-mint bg-mint-soft" : picked ? "border-berry bg-berry-soft" : "opacity-60";
+            return (
+              <button
+                key={c}
+                disabled={result !== null}
+                onClick={() => {
+                  setInput(c);
+                  submit(c);
+                }}
+                className={`rounded-2xl border-2 border-line bg-white px-4 py-3.5 text-left text-lg font-bold transition hover:border-sky active:scale-[0.98] ${state}`}
+              >
+                {c}
+              </button>
+            );
+          })}
+        </div>
+      ) : q.kind === "pair" ? (
+        <div className="flex flex-wrap items-end gap-3">
+          <label className="flex flex-col gap-1 text-sm font-bold text-ink-soft">
+            {q.pairLabels?.[0] ?? "a"}
+            <input
+              ref={ref}
+              value={input}
+              disabled={result !== null}
+              inputMode="numeric"
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && submit()}
+              className="w-36 rounded-2xl border-2 border-line bg-white px-4 py-3 text-xl font-bold text-ink outline-none focus:border-sky"
+            />
+          </label>
+          <label className="flex flex-col gap-1 text-sm font-bold text-ink-soft">
+            {q.pairLabels?.[1] ?? "b"}
+            <input
+              value={b}
+              disabled={result !== null}
+              inputMode="numeric"
+              onChange={(e) => setB(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && submit()}
+              className="w-36 rounded-2xl border-2 border-line bg-white px-4 py-3 text-xl font-bold text-ink outline-none focus:border-sky"
+            />
+          </label>
+          <button className="btn btn-primary" onClick={() => submit()} disabled={result !== null || !input || !b}>
+            Trả lời
+          </button>
+        </div>
+      ) : (
+        <div className="space-y-2">
+          <div className="flex flex-wrap items-center gap-3">
+            <input
+              ref={ref}
+              value={input}
+              disabled={result !== null}
+              inputMode={q.kind === "fraction" ? "text" : "decimal"}
+              placeholder={q.kind === "fraction" ? "vd. 7/12" : "Nhập đáp số"}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && submit()}
+              className="w-56 rounded-2xl border-2 border-line bg-white px-4 py-3 text-2xl font-bold outline-none focus:border-sky"
+            />
+            {q.unit && <span className="text-lg font-bold text-ink-soft">{q.unit}</span>}
+            <button className="btn btn-primary" onClick={() => submit()} disabled={result !== null || !input}>
+              Trả lời
+            </button>
+          </div>
+          {result === null && (
+            <div className="flex gap-2">
+              {["−", q.kind === "fraction" ? "/" : ","].map((s) => (
+                <button key={s} onClick={() => insert(s === "−" ? "-" : s)} className="h-10 w-10 rounded-xl border border-line bg-white font-bold">
+                  {s}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+
+      {mode === "learn" && result === null && (q.hint || (q.keys && device)) && (
+        <div className="flex flex-wrap gap-2 text-sm">
+          {q.hint && !hinted && (
+            <button className="chip bg-sun-soft text-ink" onClick={() => setHinted(true)}>
+              💡 Gợi ý
+            </button>
+          )}
+          {q.keys && !showKeys && device && (
+            <button
+              className="chip bg-sky-soft text-sky"
+              onClick={() => {
+                setHinted(true);
+                setShowKeys(true);
+              }}
+            >
+              🧮 Xem cách bấm
+            </button>
+          )}
+        </div>
+      )}
+      {hinted && q.hint && result === null && <div className="rounded-2xl bg-sun-soft p-3 text-sm">💡 {q.hint}</div>}
+      {showKeys && q.keys && result === null && <TryIt keys={q.keys} label="Cách bấm" />}
+
+      {result !== null && (
+        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className={`space-y-3 rounded-3xl p-4 ${result ? "bg-mint-soft" : "bg-berry-soft"}`}>
+          <div className="font-display text-xl font-extrabold">{result ? "🎉 Chính xác!" : "Chưa đúng rồi"}</div>
+          {!result && (
+            <div>
+              Đáp án: <b>{showAnswer(q)}</b>
+            </div>
+          )}
+          {q.explain && <div className="text-sm">{q.explain}</div>}
+          {q.keys && device && (
+            <div className="space-y-1">
+              <div className="text-sm font-bold text-ink-soft">Cách bấm trên máy:</div>
+              <KeySeq keys={q.keys} />
+            </div>
+          )}
+          <button className="btn btn-primary" autoFocus onClick={() => onNext({ correct: result, input: value, hinted })}>
+            Tiếp tục
+          </button>
+        </motion.div>
+      )}
+    </motion.div>
+  );
+}

@@ -1,0 +1,150 @@
+import available from "./available.json";
+
+/**
+ * Danh mục ảnh và âm thanh. Mỗi mục có prompt để tạo bằng ChatGPT (ảnh) hoặc ElevenLabs (âm thanh).
+ * Tạo xong, lưu đúng tên file vào public/assets/... là app tự dùng; chưa có file thì app hiện hình thay thế.
+ * Chạy `npm run prompts` để in lại docs/ASSET_PROMPTS.md.
+ */
+
+export const STYLE =
+  "Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark";
+
+export const MOCHI =
+  "Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator";
+
+export const XIXI =
+  "Xi Xi: a friendly anthropomorphic Casio-style scientific calculator (dark navy body, light gray keys, small LCD screen showing a smile), tiny arms and legs";
+
+export interface ImageAsset {
+  id: string;
+  file: string;
+  size: "1024x1024" | "1536x1024" | "1024x1536";
+  usage: string;
+  prompt: string;
+  /** nền trong suốt */
+  transparent?: boolean;
+}
+
+export interface AudioAsset {
+  id: string;
+  file: string;
+  kind: "sfx" | "voice" | "music";
+  usage: string;
+  /** sfx/music: prompt cho ElevenLabs Sound Effects/Music. voice: lời thoại tiếng Việt */
+  prompt: string;
+}
+
+const img = (id: string, size: ImageAsset["size"], usage: string, prompt: string, transparent = false): ImageAsset => ({
+  id,
+  file: `/assets/img/${id}.webp`,
+  size,
+  usage,
+  transparent,
+  prompt: `${prompt}. ${STYLE}${transparent ? ", isolated on a fully transparent background" : ""}.`,
+});
+
+export const IMAGES: ImageAsset[] = [
+  // Nhân vật
+  img("mochi-happy", "1024x1024", "Mochi vui vẻ: lời chào, slide mở đầu", `${MOCHI}, waving one paw and smiling, full body`, true),
+  img("mochi-think", "1024x1024", "Mochi suy nghĩ: slide giải thích", `${MOCHI}, paw on chin, thinking, small question mark sparkle above head, full body`, true),
+  img("mochi-wow", "1024x1024", "Mochi ngạc nhiên: mẹo hay, phím mới", `${MOCHI}, eyes wide with stars, both paws up in surprise, full body`, true),
+  img("mochi-cheer", "1024x1024", "Mochi cổ vũ: trả lời đúng, hoàn thành bài", `${MOCHI}, jumping with joy, confetti around, full body`, true),
+  img("mochi-oops", "1024x1024", "Mochi an ủi: trả lời sai", `${MOCHI}, sweat drop, sheepish encouraging smile, holding a tiny eraser, full body`, true),
+  img("xixi", "1024x1024", "Xi Xi: thẻ môn FX580, trang giới thiệu", `${XIXI}, standing and giving a thumbs up, full body`, true),
+
+  // Nền và màn hình chính
+  img("bg-home", "1024x1536", "Nền màn hình Học (trang chủ), phía sau danh sách môn", "Dreamy morning sky over a small hillside town with a cute school building, soft clouds, floating paper planes, empty space in the center for UI, portrait"),
+  img("bg-map", "1024x1536", "Nền bản đồ bài học của môn FX580", "Top-down storybook map with a winding pastel path across meadows, a river, a small bridge, a hill with a flag at the top, very soft and low contrast, empty path, portrait"),
+  img("bg-arena", "1536x1024", "Banner đầu trang Thi đấu", `${MOCHI} and two friend animals (a fox and a bunny) racing with calculators on a sunny sports field, dynamic but gentle`),
+  img("bg-leaderboard", "1536x1024", "Banner đầu trang Xếp hạng", "A pastel podium with three small trophies, ribbons and stars, soft spotlight"),
+  img("subject-fx580-cover", "1536x1024", "Thẻ môn Máy tính FX580 ở trang chủ", `${MOCHI} sitting next to ${XIXI} on a desk with notebooks and pencils, numbers floating like bubbles`),
+  img("subject-soon", "1536x1024", "Thẻ môn sắp ra mắt", "A closed gift box with a ribbon on a cloud, small sparkles, mysterious and cute"),
+  img("empty-login", "1024x1024", "Màn hình mời đăng nhập", `${MOCHI} holding a key and smiling at a small door`, true),
+
+  // Huy hiệu trình độ
+  img("level-mam", "1024x1024", "Huy hiệu trình độ Hạt mầm", "Round badge with a tiny sprout in soil, soft green and cream", true),
+  img("level-choi", "1024x1024", "Huy hiệu trình độ Chồi non", "Round badge with a young plant with three leaves, soft green", true),
+  img("level-cay", "1024x1024", "Huy hiệu trình độ Cây xanh", "Round badge with a small lush tree, soft green and sky blue", true),
+  img("level-hoa", "1024x1024", "Huy hiệu trình độ Cây nở hoa", "Round badge with a tree in full pink blossom, sparkles", true),
+
+  // Ảnh đại diện để con chọn
+  ...["fox", "bunny", "panda", "owl", "bear", "penguin"].map((a) =>
+    img(`avatar-${a}`, "1024x1024", `Ảnh đại diện: ${a}`, `Cute chibi ${a} face portrait in a circle, friendly expression, light pastel background circle`, true),
+  ),
+
+  // Bìa bài học
+  img("fx-l01-cover", "1536x1024", "Bìa bài 1: Làm quen với Xi Xi", `${MOCHI} shaking hands with ${XIXI} on a sunny desk`),
+  img("fx-l02-cover", "1536x1024", "Bìa bài 2: Thứ tự phép tính", "Cute operator symbols (+, −, ×, ÷ and parentheses) standing in a queue like children lining up, the parentheses at the front"),
+  img("fx-l03-cover", "1536x1024", "Bìa bài 3: Lũy thừa", `${MOCHI} riding a small rocket that leaves a trail of doubling stars`),
+  img("fx-l04-cover", "1536x1024", "Bìa bài 4: Chia có dư", "Colorful candies being shared into seven small bowls, two candies left over in the middle"),
+  img("fx-l05-cover", "1536x1024", "Bìa bài 5: Số nguyên tố", `${MOCHI} as a detective with a magnifying glass looking at glowing prime number gems 2, 3, 5, 7`),
+  img("fx-l06-cover", "1536x1024", "Bìa bài 6: ƯCLN, BCNN", "Gift boxes split into equal groups on one side and two blinking lighthouses on the other side"),
+  img("fx-l07-cover", "1536x1024", "Bìa bài 7: Số nguyên âm", "A cute thermometer character standing in snowy mountains, a small submarine below the sea surface in the same scene"),
+  img("fx-l08-cover", "1536x1024", "Bìa bài 8: Phân số", `${MOCHI} with a pizza cut into 8 slices, three slices taken`),
+  img("fx-l09-cover", "1536x1024", "Bìa bài 9: Thập phân và phần trăm", "A cozy little stationery shop with discount tags showing a percent symbol"),
+  img("fx-l10-cover", "1536x1024", "Bìa bài 10: Chu vi, diện tích", "A garden seen from above divided into rectangle, rhombus, parallelogram and trapezoid flower beds"),
+
+  // Minh họa trong bài
+  img("fx-l01-s1", "1536x1024", "Bài 1, slide 1: Mochi giới thiệu Xi Xi", `${MOCHI} presenting ${XIXI} with open paws, sparkles`),
+  img("fx-l01-s3", "1536x1024", "Bài 1, slide 3: chữ vàng chữ đỏ trên phím", "Close-up of three calculator keys, each with a small yellow label and a small red label above it, glowing softly, two tiny arrows pointing to the labels"),
+  img("fx-l02-s1", "1536x1024", "Bài 2, slide 1: luật xếp hàng phép tính", "Four podium steps labelled with icons: parentheses on top, then a power symbol, then × ÷, then + −, cute characters on each step"),
+  img("fx-l02-s4", "1536x1024", "Bài 2, slide 4: mẹ đi chợ", "A mother cat and Mochi at a Vietnamese wet market stall with oranges and bundles of vegetables"),
+  img("fx-l03-s1", "1536x1024", "Bài 3, slide 1: lũy thừa nhân đôi", "A row of five boxes, each containing twice as many glowing marbles as the one before"),
+  img("fx-l04-s1", "1536x1024", "Bài 4, slide 1: chia kẹo", `${MOCHI} handing out candies to seven classmates sitting in a circle, two candies left`),
+  img("fx-l05-s1", "1536x1024", "Bài 5, slide 1: số nguyên tố là viên đá quý", "Glowing gemstones with numbers 2, 3, 5, 7, 11 inside, and ordinary pebbles with 4, 6, 9 beside them"),
+  img("fx-l06-s1", "1536x1024", "Bài 6, slide 1: GCD và LCM", "Two cute twin robot characters with badges, one badge shows a gift box, the other shows a clock"),
+  img("fx-l06-s4", "1536x1024", "Bài 6, slide 4: chia giỏ trái cây", "Twelve equal baskets each with oranges and tangerines, arranged neatly on a table"),
+  img("fx-l07-s1", "1536x1024", "Bài 7, slide 1: số âm quanh ta", "Split scene: snowy mountain town with a thermometer below zero on the left, a submarine underwater with a depth gauge on the right"),
+  img("fx-l08-s1", "1536x1024", "Bài 8, slide 1: bánh pizza 3/8", "A round pizza cut into 8 equal slices, 3 slices slightly pulled out, top view"),
+  img("fx-l09-s2", "1536x1024", "Bài 9, slide 2: làm tròn số", "A number line like a little road with a ball rolling to the nearest flag, gentle hills"),
+  img("fx-l09-s4", "1536x1024", "Bài 9, slide 4: mua giày giảm giá", `${MOCHI} trying on sneakers in a shop, a big sale tag nearby`),
+  img("fx-l10-s1", "1536x1024", "Bài 10, slide 1: các hình", "Five friendly shape characters: rectangle, square, rhombus, parallelogram, isosceles trapezoid, standing together"),
+  img("fx-l10-s3", "1536x1024", "Bài 10, slide 3: rào sân", "A rectangular schoolyard with a small wooden fence being built around it, top-down three-quarter view"),
+];
+
+const sfx = (id: string, usage: string, prompt: string): AudioAsset => ({ id, file: `/assets/sfx/${id}.mp3`, kind: "sfx", usage, prompt });
+const voice = (id: string, usage: string, prompt: string): AudioAsset => ({ id, file: `/assets/voice/${id}.mp3`, kind: "voice", usage, prompt });
+
+export const VOICE_SETTINGS =
+  "ElevenLabs Text to Speech, model Multilingual v2 hoặc v3, giọng nữ trẻ ấm áp (vd. chọn giọng tiếng Việt trong Voice Library), stability ~50%, style thấp, tốc độ chậm vừa. Xuất MP3 44.1kHz.";
+
+export const AUDIO: AudioAsset[] = [
+  sfx("tap", "Chạm phím máy tính ảo, nút bấm", "Soft short plastic button click, gentle, 0.1 seconds"),
+  sfx("correct", "Trả lời đúng", "Cheerful bright two-note chime, soft xylophone, 0.6 seconds"),
+  sfx("wrong", "Trả lời sai", "Gentle low wooden 'bonk', friendly, not harsh, 0.4 seconds"),
+  sfx("complete", "Hoàn thành bài học / luyện tập", "Short magical sparkle fanfare with soft bells, 2 seconds"),
+  sfx("levelup", "Kết quả kiểm tra trình độ, lên cấp", "Uplifting harp glissando followed by a soft chime, 2.5 seconds"),
+  sfx("tick", "Đếm ngược 3 giây cuối khi thi đấu", "Soft clock tick, single, 0.2 seconds"),
+  sfx("whoosh", "Chuyển slide", "Very soft paper whoosh, 0.3 seconds"),
+  { id: "bgm-learn", file: "/assets/sfx/bgm-learn.mp3", kind: "music", usage: "Nhạc nền nhẹ (tùy chọn, bật trong cài đặt)", prompt: "Calm lo-fi acoustic loop for children studying, soft piano and ukulele, 80 bpm, seamless loop, 60 seconds" },
+
+  voice("vo-l01-s1", "Bài 1, slide 1", "Chào em, tớ là Mochi! Đây là bạn đồng hành mới của chúng mình, máy tính Casio fx năm tám mươi V N X. Tớ gọi bạn ấy là Xi Xi. Cùng làm quen nhé!"),
+  voice("vo-l01-s2", "Bài 1, slide 2", "Bấm ON để bật máy. Phím AC xóa hết để làm phép tính mới, còn phím DEL chỉ xóa một chữ số thôi."),
+  voice("vo-l01-s3", "Bài 1, slide 3", "Em có thấy chữ nhỏ màu vàng và màu đỏ trên phím không? Bấm SHIFT để dùng chữ vàng, bấm ALPHA để dùng chữ đỏ."),
+  voice("vo-l01-s4", "Bài 1, slide 4", "Nếu máy hiện kết quả lạ, em có thể đưa máy về cài đặt gốc. Nhưng nhớ là bộ nhớ sẽ bị xóa đó."),
+  voice("vo-l01-s5", "Bài 1, slide 5", "Giờ thử phép tính đầu tiên nhé. Em chạm vào các phím theo đúng thứ tự, rồi bấm bằng."),
+  voice("vo-l02-s1", "Bài 2, slide 1", "Các phép tính cũng phải xếp hàng đấy. Trong ngoặc trước, rồi lũy thừa, rồi nhân chia, cuối cùng mới đến cộng trừ."),
+  voice("vo-l02-s4", "Bài 2, slide 4", "Đi chợ cùng mẹ nào! Em chỉ cần viết thành một biểu thức, rồi gõ liền một lần vào máy."),
+  voice("vo-l03-s1", "Bài 3, slide 1", "Lũy thừa là nhân một số với chính nó nhiều lần. Hai mũ năm là hai nhân hai nhân hai nhân hai nhân hai, bằng ba mươi hai."),
+  voice("vo-l04-s1", "Bài 4, slide 1", "Một trăm cái kẹo chia cho bảy bạn. Mỗi bạn được mười bốn cái, còn dư hai cái. Xi Xi tính việc này chỉ trong một lần bấm."),
+  voice("vo-l05-s1", "Bài 5, slide 1", "Số nguyên tố giống như viên đá quý, chỉ chia hết cho một và chính nó. Hôm nay mình làm thám tử đi tìm chúng nhé."),
+  voice("vo-l06-s1", "Bài 6, slide 1", "Gặp hai người bạn mới: GCD là ước chung lớn nhất, LCM là bội chung nhỏ nhất. Họ sống trên phím nhân và phím chia."),
+  voice("vo-l06-s4", "Bài 6, slide 4", "Chia đều, nhiều nhất thì nghĩ đến ước chung lớn nhất. Lặp lại, gặp nhau lần tới thì nghĩ đến bội chung nhỏ nhất."),
+  voice("vo-l07-s1", "Bài 7, slide 1", "Ở Sa Pa có khi lạnh dưới không độ. Những con số nhỏ hơn không gọi là số âm. Xi Xi có phím riêng cho dấu âm đó."),
+  voice("vo-l08-s1", "Bài 8, slide 1", "Chiếc bánh cắt thành tám miếng, em ăn ba miếng, vậy em đã ăn ba phần tám cái bánh."),
+  voice("vo-l09-s1", "Bài 9, slide 1", "Mình viết ba phẩy năm, nhưng trên máy em bấm dấu chấm nhé. Hai cách viết là một số thôi."),
+  voice("vo-l09-s4", "Bài 9, slide 4", "Đôi giày đang giảm giá hai mươi phần trăm. Cùng tính xem còn phải trả bao nhiêu tiền nào."),
+  voice("vo-l10-s1", "Bài 10, slide 1", "Đây là bảng công thức chu vi và diện tích. Em không cần học thuộc ngay, cứ xem lại mỗi khi cần nhé."),
+  voice("vo-l10-s3", "Bài 10, slide 3", "Rào xung quanh là chu vi, còn lát nền là diện tích. Đọc kỹ đề trước khi bấm máy nhé."),
+  voice("vo-correct-1", "Khen khi đúng (ngẫu nhiên)", "Chính xác! Giỏi quá!"),
+  voice("vo-correct-2", "Khen khi đúng (ngẫu nhiên)", "Tuyệt vời, đúng rồi!"),
+  voice("vo-wrong-1", "Động viên khi sai", "Chưa đúng rồi, thử xem lại cách bấm nhé."),
+  voice("vo-complete", "Hoàn thành bài", "Hoàn thành bài học rồi! Mochi tự hào về em lắm."),
+];
+
+export const imageById = (id: string) => IMAGES.find((i) => i.id === id);
+export const audioById = (id: string) => AUDIO.find((a) => a.id === id);
+
+const AVAILABLE = new Set<string>(available as string[]);
+/** File đã có thật trong public/assets (quét lúc build bằng scripts/scan-assets.mjs) */
+export const hasFile = (file: string) => AVAILABLE.has(file);
