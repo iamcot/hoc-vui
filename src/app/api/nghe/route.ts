@@ -5,6 +5,7 @@ import { StartStreamTranscriptionCommand, TranscribeStreamingClient } from "@aws
  * Nhận dạng giọng bé đọc (môn Tập đọc). Bật bằng biến môi trường trên Vercel:
  *   STT_PROVIDER=google + GOOGLE_STT_KEY=<API key Google Cloud, bật Speech-to-Text API>
  *   STT_PROVIDER=openai + OPENAI_API_KEY=<key>
+ *   STT_PROVIDER=azure + AZURE_SPEECH_KEY, AZURE_SPEECH_REGION (vd. southeastasia)
  *   STT_PROVIDER=aws + AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_REGION (vd. ap-southeast-1)
  *     IAM chỉ cần quyền transcribe:StartStreamTranscription
  * Không đặt gì thì app tự dùng nhận dạng của trình duyệt hoặc chế độ tự chấm.
@@ -16,6 +17,7 @@ const provider = () => {
   const p = process.env.STT_PROVIDER;
   if (p === "google" && process.env.GOOGLE_STT_KEY) return "google";
   if (p === "openai" && process.env.OPENAI_API_KEY) return "openai";
+  if (p === "azure" && process.env.AZURE_SPEECH_KEY) return "azure";
   if (p === "aws" && process.env.AWS_ACCESS_KEY_ID && process.env.AWS_SECRET_ACCESS_KEY) return "aws";
   if (!p && process.env.GOOGLE_STT_KEY) return "google";
   return null;
@@ -35,6 +37,7 @@ export async function POST(req: Request) {
   const hint = decodeURIComponent(req.headers.get("x-hint") ?? "").slice(0, 400);
 
   try {
+    if (p === "azure") return NextResponse.json({ alts: await azureRecognize(buf) });
     if (p === "aws") return NextResponse.json({ alts: await awsTranscribe(buf) });
     if (p === "google") {
       const phrases = [hint, ...hint.split(/[\s.,!?]+/).filter(Boolean)].slice(0, 60);
@@ -99,4 +102,23 @@ async function awsTranscribe(wav: Buffer): Promise<string[]> {
   if (!finals.length) return [];
   const n = Math.max(...finals.map((f) => f.length));
   return Array.from({ length: n }, (_, i) => finals.map((f) => f[i] ?? f[0] ?? "").join(" ").trim()).filter(Boolean);
+}
+
+/** Azure Speech, REST cho đoạn ngắn (dưới 60 giây), WAV PCM 16 kHz, lấy 5 kết quả tốt nhất */
+async function azureRecognize(wav: Buffer): Promise<string[]> {
+  const region = process.env.AZURE_SPEECH_REGION ?? "southeastasia";
+  const r = await fetch(`https://${region}.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=vi-VN&format=detailed&profanity=raw`, {
+    method: "POST",
+    headers: {
+      "Ocp-Apim-Subscription-Key": process.env.AZURE_SPEECH_KEY!,
+      "Content-Type": "audio/wav; codecs=audio/pcm; samplerate=16000",
+      Accept: "application/json",
+    },
+    body: new Uint8Array(wav),
+  });
+  if (!r.ok) throw new Error(`azure ${r.status}`);
+  const j = (await r.json()) as { RecognitionStatus?: string; DisplayText?: string; NBest?: { Display?: string; Lexical?: string }[] };
+  if (j.RecognitionStatus !== "Success") return [];
+  const alts = (j.NBest ?? []).flatMap((n) => [n.Display ?? "", n.Lexical ?? ""]);
+  return [...new Set([j.DisplayText ?? "", ...alts].filter(Boolean))];
 }

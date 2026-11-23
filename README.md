@@ -36,15 +36,15 @@ Không cần Supabase vẫn chạy được (chế độ khách, tiến trình l
 Mở địa chỉ app bằng Safari → nút Chia sẻ → **Thêm vào Màn hình chính**. App mở toàn màn hình, không có thanh địa chỉ.
 
 ### 4. Chấm giọng đọc (môn Tập đọc, tùy chọn)
-App ghi âm bé đọc rồi gửi lên dịch vụ nhận dạng giọng nói qua `/api/nghe` (âm thanh không được lưu lại). Dùng AWS Transcribe:
-1. AWS Console → **IAM** → tạo user (hoặc dùng key sẵn có) với quyền `transcribe:StartStreamTranscription`.
+App ghi âm bé đọc rồi gửi lên dịch vụ nhận dạng giọng nói qua `/api/nghe` (âm thanh không được lưu lại). Dùng Azure Speech:
+1. Azure Portal → resource **Speech** của bạn → **Keys and Endpoint**: chép **Key 1** và **Location/Region** (vd. `southeastasia`).
 2. Vercel → Settings → Environment Variables, thêm:
-   - `STT_PROVIDER` = `aws`
-   - `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`
-   - `AWS_REGION` = `ap-southeast-1` (Singapore)
+   - `STT_PROVIDER` = `azure`
+   - `AZURE_SPEECH_KEY` = Key 1
+   - `AZURE_SPEECH_REGION` = region ở trên
 3. Deploy lại. Mở `https://<app>/api/nghe` thấy `"enabled":true` là xong.
 
-Không đặt gì thì app dùng nhận dạng của trình duyệt (Chrome laptop) hoặc cho bé nghe lại và tự chấm. Cũng hỗ trợ Google (`STT_PROVIDER=google`, `GOOGLE_STT_KEY`) và OpenAI (`STT_PROVIDER=openai`, `OPENAI_API_KEY`).
+Không đặt gì thì app dùng nhận dạng của trình duyệt (Chrome laptop) hoặc cho bé nghe lại và tự chấm. Cũng hỗ trợ AWS Transcribe (`STT_PROVIDER=aws`, `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_REGION`), Google (`STT_PROVIDER=google`, `GOOGLE_STT_KEY`) và OpenAI (`STT_PROVIDER=openai`, `OPENAI_API_KEY`).
 
 ## Ảnh và âm thanh
 
