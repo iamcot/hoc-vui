@@ -19,6 +19,7 @@ export const LESSONS: Lesson[] = [
       {
         title: "Chào mừng lên lớp 9!",
         mood: "cheer",
+        voice: "vo9-l01",
         blocks: [
           { type: "image", asset: "fx9-l01-cover" },
           { type: "text", text: "Lớp 9 gặp lại căn bậc hai và thêm **căn bậc ba**: ∛a là số mà lập phương lên bằng a. Ví dụ ∛125 = 5 vì 5³ = 125. Căn bậc ba của số âm vẫn có: ∛(−8) = −2." },
@@ -56,6 +57,7 @@ export const LESSONS: Lesson[] = [
       {
         title: "Hai manh mối, hai ẩn số",
         mood: "think",
+        voice: "vo9-l02",
         blocks: [
           { type: "image", asset: "fx9-l02-cover" },
           { type: "text", text: "Hệ **a₁x + b₁y = c₁** và **a₂x + b₂y = c₂** giống hai manh mối cùng chỉ về một cặp (x; y). Ở lớp em sẽ học cách thế và cách cộng đại số. Xi Xi giúp tính nhanh và kiểm tra." },
@@ -92,6 +94,7 @@ export const LESSONS: Lesson[] = [
       {
         title: "Delta quyết định tất cả",
         mood: "think",
+        voice: "vo9-l03",
         blocks: [
           { type: "image", asset: "fx9-l03-cover" },
           { type: "text", text: "Với **ax² + bx + c = 0**, tính **Δ = b² − 4ac**. Δ > 0: hai nghiệm phân biệt. Δ = 0: nghiệm kép. Δ < 0: vô nghiệm." },
@@ -128,6 +131,7 @@ export const LESSONS: Lesson[] = [
       {
         title: "Đối, kề, huyền",
         mood: "think",
+        voice: "vo9-l04",
         blocks: [
           { type: "image", asset: "fx9-l04-cover" },
           { type: "text", text: "Trong tam giác vuông, với góc nhọn α: **sin α = đối : huyền**, **cos α = kề : huyền**, **tan α = đối : kề**. Mẹo nhớ: \"Sin đi học, Cos không hư, Tan đoàn kết\"." },
@@ -165,6 +169,7 @@ export const LESSONS: Lesson[] = [
       {
         title: "Số π thần kỳ",
         mood: "wow",
+        voice: "vo9-l05",
         blocks: [
           { type: "image", asset: "fx9-l05-cover" },
           { type: "text", text: "Chu vi đường tròn chia cho đường kính luôn ra **π ≈ 3,14159...** Trên Xi Xi, π là chữ vàng trên phím **×10ˣ**: bấm **SHIFT** rồi **×10ˣ**." },
@@ -201,6 +206,7 @@ export const LESSONS: Lesson[] = [
       {
         title: "Lon nước, que kem, quả bóng",
         mood: "happy",
+        voice: "vo9-l06",
         blocks: [
           { type: "image", asset: "fx9-l06-cover" },
           { type: "text", text: "**Hình trụ** V = πr²h. **Hình nón** V = πr²h : 3, đúng một phần ba hình trụ cùng đáy, cùng cao. **Hình cầu** V = 4/3·πr³, diện tích mặt cầu S = 4πr²." },

@@ -9,6 +9,12 @@ import { BlockView } from "@/components/lesson/Blocks";
 import { Confetti } from "@/components/Confetti";
 import { IconClose, IconSound } from "@/components/Icons";
 import { play, playVoice, stopVoice } from "@/lib/sound";
+import { audioById, hasFile } from "@/content/assets";
+
+const voiceReady = (id: string) => {
+  const a = audioById(id);
+  return !!a && hasFile(a.file);
+};
 import { speak, stopSpeak } from "@/lib/speech/tts";
 import { Scene } from "@/components/Scene";
 
@@ -28,7 +34,7 @@ export function LessonPlayer({ subjectId, lessonId }: { subjectId: string; lesso
       play("complete");
       playVoice("vo-complete");
     } else if (slide.say) void speak(slide.say);
-    else playVoice(slide.voice);
+    else if (i === 0) playVoice(slide.voice); // chỉ tự đọc câu chào ở slide đầu, slide khác bấm loa mới đọc
     return () => {
       stopVoice();
       stopSpeak();
@@ -80,7 +86,18 @@ export function LessonPlayer({ subjectId, lessonId }: { subjectId: string; lesso
                   <div className="text-sm font-bold text-ink-soft">
                     Bài {index + 1} · {i + 1}/{total}
                   </div>
-                  <h1 className="font-display text-2xl font-extrabold leading-tight sm:text-3xl [@media(max-height:700px)]:text-2xl">{slide.title}</h1>
+                  <h1 className="flex items-center gap-2 font-display text-2xl font-extrabold leading-tight sm:text-3xl [@media(max-height:700px)]:text-2xl">
+                    {slide.title}
+                    {slide.voice && voiceReady(slide.voice) && (
+                      <button
+                        onClick={() => playVoice(slide.voice)}
+                        className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white/90 text-sky shadow-sm transition hover:scale-110"
+                        aria-label="Nghe Mochi đọc"
+                      >
+                        <IconSound className="h-5 w-5" />
+                      </button>
+                    )}
+                  </h1>
                 </div>
               </div>
               {(() => {

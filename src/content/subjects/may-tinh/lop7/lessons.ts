@@ -19,6 +19,7 @@ export const LESSONS: Lesson[] = [
       {
         title: "Chào mừng lên lớp 7!",
         mood: "cheer",
+        voice: "vo7-l01",
         blocks: [
           { type: "image", asset: "fx7-l01-cover" },
           { type: "text", text: "Lên lớp 7, em gặp **số hữu tỉ**: những số viết được dạng phân số a/b, kể cả số âm như **−3/4** hay số thập phân như **0,25**. Xi Xi xử lý hết, miễn em nhập đúng dấu." },
@@ -65,6 +66,7 @@ export const LESSONS: Lesson[] = [
       {
         title: "Cái bẫy dấu ngoặc",
         mood: "oops",
+        voice: "vo7-l02",
         blocks: [
           { type: "image", asset: "fx7-l02-cover" },
           { type: "text", text: "**(−2)⁴** và **−2⁴** trông giống nhau nhưng khác hẳn! (−2)⁴ = 16, còn −2⁴ = −(2⁴) = −16. Máy cũng hiểu như vậy, nên cơ số âm **luôn phải có ngoặc**." },
@@ -103,6 +105,7 @@ export const LESSONS: Lesson[] = [
       {
         title: "Căn bậc hai là gì?",
         mood: "think",
+        voice: "vo7-l03",
         blocks: [
           { type: "image", asset: "fx7-l03-cover" },
           { type: "text", text: "**√a** là số không âm mà bình phương lên bằng a. Ví dụ √49 = 7 vì 7² = 49. Mảnh vườn vuông rộng 49 m² thì cạnh dài 7 m." },
@@ -147,6 +150,7 @@ export const LESSONS: Lesson[] = [
       {
         title: "Hai tỉ số bằng nhau",
         mood: "happy",
+        voice: "vo7-l04",
         blocks: [
           { type: "image", asset: "fx7-l04-cover" },
           { type: "text", text: "**a/b = c/d** gọi là tỉ lệ thức. Tính chất quan trọng nhất: **tích chéo bằng nhau**, a × d = b × c." },
@@ -183,6 +187,7 @@ export const LESSONS: Lesson[] = [
       {
         title: "Cùng tăng hay ngược chiều?",
         mood: "think",
+        voice: "vo7-l05",
         blocks: [
           { type: "image", asset: "fx7-l05-cover" },
           { type: "text", text: "**Tỉ lệ thuận**: mua gấp đôi số vở thì trả gấp đôi tiền, thương y/x không đổi. **Tỉ lệ nghịch**: gấp đôi số bạn cùng làm thì số ngày giảm một nửa, tích x × y không đổi." },
@@ -220,6 +225,7 @@ export const LESSONS: Lesson[] = [
       {
         title: "Điểm trung bình",
         mood: "happy",
+        voice: "vo7-l06",
         blocks: [
           { type: "image", asset: "fx7-l06-cover" },
           { type: "text", text: "**Trung bình cộng** = tổng các giá trị : số giá trị. Nhớ **đóng ngoặc** cả tổng trước khi chia, không thì máy chỉ chia số cuối." },

@@ -19,6 +19,7 @@ export const LESSONS: Lesson[] = [
       {
         title: "Chào mừng lên lớp 8!",
         mood: "cheer",
+        voice: "vo8-l01",
         blocks: [
           { type: "image", asset: "fx8-l01-cover" },
           { type: "text", text: "Lớp 8 có nhiều **đa thức** như P = 2x² − 3x + 1. Muốn biết P bằng bao nhiêu khi x = −2, em **thay x bằng −2** rồi để Xi Xi tính." },
@@ -47,6 +48,7 @@ export const LESSONS: Lesson[] = [
       {
         title: "Bảy câu thần chú",
         mood: "wow",
+        voice: "vo8-l02",
         blocks: [
           { type: "image", asset: "fx8-l02-cover" },
           { type: "text", text: "(a + b)² = a² + 2ab + b²\n(a − b)² = a² − 2ab + b²\na² − b² = (a − b)(a + b)\n(a ± b)³ = a³ ± 3a²b + 3ab² ± b³\na³ ± b³ = (a ± b)(a² ∓ ab + b²)" },
@@ -83,6 +85,7 @@ export const LESSONS: Lesson[] = [
       {
         title: "Đi tìm x",
         mood: "think",
+        voice: "vo8-l03",
         blocks: [
           { type: "image", asset: "fx8-l03-cover" },
           { type: "text", text: "Phương trình **ax + b = cx + d**: đưa x về một vế, số về một vế. Ta được **(a − c)x = d − b**, nên **x = (d − b) : (a − c)**." },
@@ -119,6 +122,7 @@ export const LESSONS: Lesson[] = [
       {
         title: "Bí mật của tam giác vuông",
         mood: "wow",
+        voice: "vo8-l04",
         blocks: [
           { type: "image", asset: "fx8-l04-cover" },
           { type: "text", text: "Trong tam giác vuông, **bình phương cạnh huyền bằng tổng bình phương hai cạnh góc vuông**: c² = a² + b². Cạnh huyền là cạnh đối diện góc vuông, dài nhất." },
@@ -155,6 +159,7 @@ export const LESSONS: Lesson[] = [
       {
         title: "Cỗ máy biến số",
         mood: "happy",
+        voice: "vo8-l05",
         blocks: [
           { type: "image", asset: "fx8-l05-cover" },
           { type: "text", text: "Hàm số **y = ax + b** giống một cỗ máy: bỏ x vào, ra y. Ví dụ taxi mở cửa 10 nghìn, mỗi km 12 nghìn: tiền = 12x + 10. **a** là hệ số góc, quyết định đường thẳng dốc cỡ nào." },
@@ -189,6 +194,7 @@ export const LESSONS: Lesson[] = [
       {
         title: "Khả năng xảy ra",
         mood: "think",
+        voice: "vo8-l06",
         blocks: [
           { type: "image", asset: "fx8-l06-cover" },
           { type: "text", text: "Khi các kết quả **có khả năng như nhau**: xác suất = **số kết quả thuận lợi : tổng số kết quả**. Hộp có 3 bi đỏ trong 10 bi thì xác suất lấy được bi đỏ là 3/10." },

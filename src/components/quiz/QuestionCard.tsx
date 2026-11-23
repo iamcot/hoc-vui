@@ -6,7 +6,7 @@ import { checkAnswer } from "@/lib/check";
 import { KeySeq } from "@/components/calc/Keys";
 import { TryIt } from "@/components/calc/TryIt";
 import { RichText } from "@/components/RichText";
-import { play } from "@/lib/sound";
+import { play, playVoice } from "@/lib/sound";
 import { speak, speakSeq, stopSpeak } from "@/lib/speech/tts";
 import { ReadAloud } from "@/components/reading/ReadAloud";
 
@@ -93,6 +93,8 @@ export function QuestionCard({
       onNext({ correct: ok, input: v, hinted });
       return;
     }
+    // thỉnh thoảng Mochi khen một câu ngắn, không khen mọi câu cho đỡ mệt tai
+    if (ok && Math.random() < 0.3) playVoice(`vo-correct-${1 + Math.floor(Math.random() * 3)}`);
     setResult(ok);
   }
 
