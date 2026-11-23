@@ -69,8 +69,9 @@ export async function listen(hint: string, opts: { onLevel?: (v: number) => void
     sr.interimResults = false;
     sr.maxAlternatives = 5;
     // trên iPad, ghi âm song song có thể giành micro của nhận dạng nên bỏ qua
+    // ghi âm song song để bé nghe lại, và để biết lúc bé ngừng đọc thì dừng nghe luôn
     let rec: RecorderHandle | null = null;
-    if (!isIOS()) rec = await startRecording({ onLevel: opts.onLevel, maxSeconds, autoStop: false }).catch(() => null);
+    if (!isIOS()) rec = await startRecording({ onLevel: opts.onLevel, maxSeconds, autoStop: false, onSilence: () => sr.stop() }).catch(() => null);
     const result = new Promise<Heard>((resolve) => {
       const alts: string[] = [];
       let settled = false;
@@ -97,7 +98,7 @@ export async function listen(hint: string, opts: { onLevel?: (v: number) => void
     return { stop: () => sr.stop(), result };
   }
 
-  const rec = await startRecording({ onLevel: opts.onLevel, maxSeconds });
+  const rec = await startRecording({ onLevel: opts.onLevel, maxSeconds, silenceMs: hint.length < 12 ? 800 : 1200 });
   const result = rec.done.then(async (recording): Promise<Heard> => {
     if (!recording) return { engine, alts: [], recording: null };
     if (engine !== "cloud") return { engine, alts: [], recording };

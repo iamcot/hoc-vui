@@ -17,7 +17,7 @@ export interface RecorderHandle {
 
 const RATE = 16000;
 
-export async function startRecording(opts: { maxSeconds?: number; onLevel?: (v: number) => void; autoStop?: boolean } = {}): Promise<RecorderHandle> {
+export async function startRecording(opts: { maxSeconds?: number; onLevel?: (v: number) => void; autoStop?: boolean; silenceMs?: number; onSilence?: () => void } = {}): Promise<RecorderHandle> {
   const stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true, channelCount: 1 } });
   const Ctx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
   const ctx = new Ctx();
@@ -27,6 +27,11 @@ export async function startRecording(opts: { maxSeconds?: number; onLevel?: (v: 
   const chunks: Float32Array[] = [];
   let spoke = false;
   let silentSince = 0;
+  // ước lượng tiếng ồn nền trong ~0,3 giây đầu để biết lúc nào bé ngừng đọc
+  let floor = 0;
+  let floorN = 0;
+  let silenceFired = false;
+  const silenceMs = opts.silenceMs ?? 1000;
   const started = performance.now();
   const max = (opts.maxSeconds ?? 8) * 1000;
   let resolve!: (r: Recording | null) => void;
@@ -56,11 +61,22 @@ export async function startRecording(opts: { maxSeconds?: number; onLevel?: (v: 
     const rms = Math.sqrt(sum / data.length);
     opts.onLevel?.(Math.min(1, rms * 8));
     const now = performance.now();
-    if (rms > 0.02) {
+    if (now - started < 300) {
+      floor = (floor * floorN + rms) / ++floorN;
+      return;
+    }
+    const thr = Math.max(0.015, Math.min(floor * 2.5, 0.05));
+    if (rms > thr * 1.4) {
       spoke = true;
       silentSince = 0;
-    } else if (spoke && !silentSince) silentSince = now;
-    if ((opts.autoStop ?? true) && spoke && silentSince && now - silentSince > 1300) stop();
+    } else if (rms < thr && spoke && !silentSince) silentSince = now;
+    if (spoke && silentSince && now - silentSince > silenceMs) {
+      if (!silenceFired) {
+        silenceFired = true;
+        opts.onSilence?.();
+      }
+      if (opts.autoStop ?? true) stop();
+    }
     if (now - started > max) stop();
   };
   src.connect(proc);

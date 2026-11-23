@@ -69,7 +69,8 @@ export function ReadAloud({
       setLevel(0);
       setEngine(heard.engine);
       if (heard.recording) setMine(heard.recording.url);
-      if (heard.engine === "self") {
+      // máy không nghe ra chữ nào (hay gặp với âm lẻ như "a", "bờ"): cho bé nghe lại và tự chấm
+      if (heard.engine === "self" || (!heard.alts.length && heard.recording)) {
         setState(heard.recording ? "self" : "error");
         return;
       }
