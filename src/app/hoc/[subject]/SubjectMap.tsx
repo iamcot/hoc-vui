@@ -108,7 +108,7 @@ export function SubjectMap({ subjectId }: { subjectId: string }) {
                     ))}
                   </span>
                   <span
-                    className={`absolute top-1/2 w-28 -translate-y-1/2 sm:w-52 ${labelLeft ? "right-full mr-4 text-right" : "left-full ml-4"}`}
+                    className={`absolute top-1/2 w-28 -translate-y-1/2 rounded-2xl bg-white/75 px-3 py-2 shadow-sm backdrop-blur sm:w-56 ${labelLeft ? "right-full mr-3 text-right" : "left-full ml-3"}`}
                   >
                     <span className="block text-xs font-extrabold uppercase tracking-wide text-ink-soft text-outline">Bài {st.n}</span>
                     <span className="block font-display text-base font-extrabold leading-tight text-ink text-outline sm:text-xl">{st.title}</span>
@@ -132,7 +132,7 @@ export function SubjectMap({ subjectId }: { subjectId: string }) {
                   <span className="grid h-28 w-28 place-items-center rounded-full border-[6px] border-white bg-peach text-5xl shadow-[0_10px_24px_-8px_rgba(40,40,120,0.5)] transition group-hover:scale-105">
                     {level ? level.emoji : "🏅"}
                   </span>
-                  <span className={`absolute top-1/2 w-40 -translate-y-1/2 sm:w-52 ${labelLeft ? "right-full mr-4 text-right" : "left-full ml-4"}`}>
+                  <span className={`absolute top-1/2 w-40 -translate-y-1/2 rounded-2xl bg-white/75 px-3 py-2 shadow-sm backdrop-blur sm:w-56 ${labelLeft ? "right-full mr-3 text-right" : "left-full ml-3"}`}>
                     <span className="block font-display text-xl font-extrabold text-ink text-outline">Kiểm tra trình độ</span>
                     <span className="block text-sm font-semibold text-ink-soft text-outline">{level ? `Lần trước: ${level.name} (${test!.pct}%)` : "15 câu, khoảng 12 phút"}</span>
                   </span>
@@ -144,7 +144,7 @@ export function SubjectMap({ subjectId }: { subjectId: string }) {
             <div key={i} className="absolute -translate-x-1/2 -translate-y-1/2" style={style}>
               <Link href={`/thi-dau?mon=${s.id}`} className="group relative block">
                 <span className="grid h-28 w-28 place-items-center rounded-full border-[6px] border-white bg-mint text-5xl shadow-[0_10px_24px_-8px_rgba(40,40,120,0.5)] transition group-hover:scale-105">⚡</span>
-                <span className={`absolute top-1/2 w-40 -translate-y-1/2 sm:w-52 ${labelLeft ? "right-full mr-4 text-right" : "left-full ml-4"}`}>
+                <span className={`absolute top-1/2 w-40 -translate-y-1/2 rounded-2xl bg-white/75 px-3 py-2 shadow-sm backdrop-blur sm:w-56 ${labelLeft ? "right-full mr-3 text-right" : "left-full ml-3"}`}>
                   <span className="block font-display text-xl font-extrabold text-ink text-outline">Thi đấu cùng bạn</span>
                   <span className="block text-sm font-semibold text-ink-soft text-outline">Tạo phòng, gửi mã, cùng làm một đề</span>
                 </span>

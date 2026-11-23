@@ -40,8 +40,8 @@ export default function Home() {
       {/* Ảnh lớn "học tiếp": chữ đè lên tranh, không có khung thẻ */}
       <motion.section initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}>
         <Link href={`/hoc/${main.id}/${next.id}`} className="group relative block overflow-hidden rounded-[2.5rem] shadow-[0_24px_50px_-24px_rgba(40,40,120,0.55)]">
-          <Art id={next.cover} emoji={next.emoji} rounded="" className="aspect-[16/9] w-full transition duration-500 group-hover:scale-[1.03] sm:aspect-[21/9]" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#1f2350]/85 via-[#1f2350]/25 to-transparent" />
+          <Art id={next.cover} emoji={next.emoji} rounded="" className="aspect-[4/5] w-full transition duration-500 group-hover:scale-[1.03] sm:aspect-[16/9] lg:aspect-[21/9]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#1f2350]/95 via-[#1f2350]/55 via-45% to-transparent" />
           <div className="absolute inset-x-0 bottom-0 flex flex-wrap items-end gap-4 p-5 text-white sm:p-8">
             <div className="min-w-0 flex-1 space-y-2">
               <span className="ribbon text-sm" style={{ ["--ribbon" as string]: "var(--color-peach)" }}>

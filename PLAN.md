@@ -37,8 +37,8 @@ Môn đầu tiên: **Máy tính Casio fx-580VN X cho Toán 6**.
 
 ### Giai đoạn 2 · Hoàn thiện
 - [ ] Deploy Vercel + Supabase (bạn tạo project, mình hướng dẫn trong README)
-- [ ] Chỉnh giao diện theo góp ý từ ảnh chụp màn hình
-- [ ] Gắn ảnh/âm thanh thật (bạn tạo theo `docs/ASSET_PROMPTS.md`)
+- [x] Chỉnh giao diện theo góp ý: màu đậm hơn, bỏ khung thẻ, cảnh nền minh họa
+- [ ] Gắn ảnh/âm thanh thật (bạn tạo theo `docs/ASSET_PROMPTS.md`): đợt 1 xong 27 ảnh + 4 giọng đọc
 - [ ] Phụ huynh xem tiến trình của con
 - [ ] Thử trên điện thoại thật, chỉnh hoạt họa
 - [ ] Chuỗi ngày học (streak), nhắc học
