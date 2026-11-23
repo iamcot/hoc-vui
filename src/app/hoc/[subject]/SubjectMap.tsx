@@ -16,6 +16,10 @@ const OFFSETS = [0, 24, 0, -24]; // lệch ngang (%) để con đường uốn l
 const ROW = 150; // chiều cao mỗi điểm dừng (px)
 const UNIT_H = 90; // băng rôn chặng
 const TIER_H = 170; // băng rôn trình độ
+/** ảnh biểu tượng mặc định cho trình độ thứ 1, 2, 3, 4... */
+const TIER_ICONS = ["level-mam", "level-choi", "level-cay", "level-hoa"];
+const tierIcon = (t: Tier, i: number) => t.icon ?? TIER_ICONS[Math.min(i, TIER_ICONS.length - 1)];
+
 const UNIT_COLORS = ["var(--color-sky)", "var(--color-peach)", "var(--color-mint)", "var(--color-lilac)"];
 
 type Stop = { ti: number } & (
@@ -109,9 +113,8 @@ export function SubjectMap({ subjectId }: { subjectId: string }) {
         <Link href="/" className="grid h-12 w-12 place-items-center rounded-full bg-white/90 shadow-[var(--shadow-pop)]" aria-label="Quay lại">
           <IconBack className="h-6 w-6" />
         </Link>
-        <h1 className="ribbon text-2xl sm:text-3xl">
-          {s.emoji} {s.name}
-        </h1>
+        <Art id={s.device === "fx580" ? "xixi" : s.cover} emoji={s.emoji} rounded={s.device === "fx580" ? "" : "rounded-full"} contain={s.device === "fx580"} className="h-14 w-14 shrink-0 drop-shadow" />
+        <h1 className="ribbon text-2xl sm:text-3xl">{s.name}</h1>
       </div>
 
       {/* lối tắt tới từng trình độ trên cây */}
@@ -124,7 +127,7 @@ export function SubjectMap({ subjectId }: { subjectId: string }) {
               i === cur ? "bg-sky text-white" : "bg-white/90 text-ink"
             }`}
           >
-            {t.icon ? <Art id={t.icon} emoji={t.emoji} rounded="rounded-full" contain className="-my-1 h-9 w-9" /> : <span>{t.emoji}</span>}
+            <Art id={tierIcon(t, i)} emoji={t.emoji} rounded="" contain className={`h-8 w-8 shrink-0 ${open[i] ? "" : "opacity-60 grayscale"}`} />
             {t.name}
             {!open[i] && <IconLock className={`h-4 w-4 ${i === cur ? "text-white/80" : "text-ink-soft"}`} />}
           </button>
@@ -153,7 +156,14 @@ export function SubjectMap({ subjectId }: { subjectId: string }) {
             return (
               <div key={i} id={`cap-${tier.id}`} className="absolute w-[min(92%,30rem)] -translate-x-1/2 -translate-y-1/2 scroll-mt-24" style={style}>
                 <div className={`flex items-center gap-3 rounded-[2rem] px-5 py-3 shadow-[var(--shadow-pop)] ${locked ? "bg-white/80" : "bg-sky text-white"}`}>
-                  <span className={`grid h-14 w-14 shrink-0 place-items-center rounded-full text-3xl ${locked ? "bg-line/60" : "bg-white/25"}`}>{locked && !tier.icon ? "🔒" : tier.icon ? <Art id={tier.icon} emoji={tier.emoji} rounded="rounded-full" contain className={`h-14 w-14 ${locked ? "opacity-60 grayscale" : ""}`} /> : tier.emoji}</span>
+                  <span className={`relative grid h-16 w-16 shrink-0 place-items-center rounded-full ${locked ? "bg-line/60" : "bg-white/30"}`}>
+                    <Art id={tierIcon(tier, st.ti)} emoji={tier.emoji} rounded="" contain className={`h-14 w-14 ${locked ? "opacity-50 grayscale" : ""}`} />
+                    {locked && (
+                      <span className="absolute -bottom-1 -right-1 grid h-7 w-7 place-items-center rounded-full bg-ink/80">
+                        <IconLock className="h-4 w-4 text-white" />
+                      </span>
+                    )}
+                  </span>
                   <div className="min-w-0 flex-1">
                     <div className="font-display text-2xl font-extrabold leading-tight">{tier.name}</div>
                     <div className={`text-sm font-semibold ${locked ? "text-ink-soft" : "text-white/85"}`}>
@@ -247,7 +257,10 @@ export function SubjectMap({ subjectId }: { subjectId: string }) {
             const level = test && LEVELS.find((l) => l.id === test.level);
             const body = (
               <>
-                <span className={`grid h-28 w-28 place-items-center rounded-full border-[6px] border-white bg-peach text-5xl ${NODE}`}>{locked ? "🔒" : level ? level.emoji : "🏅"}</span>
+                <span className={`relative grid h-28 w-28 place-items-center overflow-hidden rounded-full border-[6px] border-white bg-peach-soft ${NODE}`}>
+                  <Art id={level ? `level-${level.id}` : "mochi-think"} emoji={level ? level.emoji : "🏅"} rounded="" contain className="h-[88%] w-[88%]" />
+                  {locked && <LockVeil />}
+                </span>
                 <span className={`${LABEL} ${side}`}>
                   <span className="block font-display text-xl font-extrabold text-ink text-outline">Kiểm tra {tier.name.toLowerCase()}</span>
                   <span className="block text-sm font-semibold text-ink-soft text-outline">{level ? `Lần trước: ${level.name} (${test!.pct}%)` : "15 câu, khoảng 12 phút"}</span>
@@ -271,7 +284,10 @@ export function SubjectMap({ subjectId }: { subjectId: string }) {
             const ch = challengeOf(tier);
             const body = (
               <>
-                <span className={`grid h-28 w-28 place-items-center rounded-full border-[6px] border-white bg-sun text-5xl ${NODE}`}>🚀</span>
+                <span className={`relative grid h-28 w-28 place-items-center overflow-hidden rounded-full border-[6px] border-white bg-sun-soft ${NODE}`}>
+                  <Art id={tierIcon(next, st.ti + 1)} emoji="🚀" rounded="" contain className="h-[80%] w-[80%]" />
+                  {locked && <LockVeil />}
+                </span>
                 <span className={`${LABEL} ${side}`}>
                   <span className="block font-display text-xl font-extrabold text-ink text-outline">Nhảy lên {next.name}</span>
                   <span className="block text-sm font-semibold text-ink-soft text-outline">
@@ -310,7 +326,9 @@ export function SubjectMap({ subjectId }: { subjectId: string }) {
           return (
             <div key={i} className="absolute -translate-x-1/2 -translate-y-1/2" style={style}>
               <Link href={`/thi-dau?mon=${s.id}&cap=${tier.id}`} className="group relative block">
-                <span className={`grid h-28 w-28 place-items-center rounded-full border-[6px] border-white bg-mint text-5xl ${NODE}`}>⚡</span>
+                <span className={`relative block h-28 w-28 overflow-hidden rounded-full border-[6px] border-white ${NODE}`}>
+                  <Art id="bg-arena" emoji="⚡" rounded="rounded-full" className="h-full w-full" />
+                </span>
                 <span className={`${LABEL} ${side}`}>
                   <span className="block font-display text-xl font-extrabold text-ink text-outline">Thi đấu cùng bạn</span>
                   <span className="block text-sm font-semibold text-ink-soft text-outline">Tạo phòng, gửi mã, cùng làm một đề</span>
@@ -333,6 +351,14 @@ function GlyphNode({ glyph, n }: { glyph: string; n: number }) {
   return (
     <span className="grid h-full w-full place-items-center rounded-full px-1 text-center" style={{ background: GLYPH_BG[n % GLYPH_BG.length] }}>
       <span className={`font-display font-extrabold leading-none text-white drop-shadow ${size}`}>{shown}</span>
+    </span>
+  );
+}
+
+function LockVeil() {
+  return (
+    <span className="absolute inset-0 grid place-items-center bg-ink/35">
+      <IconLock className="h-8 w-8 text-white" />
     </span>
   );
 }

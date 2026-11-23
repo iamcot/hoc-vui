@@ -101,7 +101,7 @@ export interface Tier {
   /** mô tả một dòng */
   short: string;
   emoji: string;
-  /** ảnh huy hiệu (id trong danh mục ảnh), có thì hiện thay emoji */
+  /** id ảnh biểu tượng trình độ (không đặt thì dùng ảnh mặc định theo thứ tự: hạt mầm, chồi, cây, hoa) */
   icon?: string;
   /** rỗng = đang soạn */
   units: Unit[];
