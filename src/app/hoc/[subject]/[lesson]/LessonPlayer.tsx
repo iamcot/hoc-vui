@@ -42,7 +42,7 @@ export function LessonPlayer({ subjectId, lessonId }: { subjectId: string; lesso
     <div className="flex min-h-dvh flex-col">
       <Scene image="bg-lesson" variant="desk" dim />
       <header className="sticky top-0 z-20 bg-white/60 backdrop-blur">
-        <div className="mx-auto flex max-w-4xl items-center gap-3 px-4 py-3 sm:px-6">
+        <div className="mx-auto flex max-w-6xl items-center gap-3 px-4 py-3 sm:px-6">
           <Link href={`/hoc/${subject.id}`} className="grid h-10 w-10 place-items-center rounded-full bg-white shadow-sm" aria-label="Đóng bài học">
             <IconClose className="h-5 w-5" />
           </Link>
@@ -57,7 +57,7 @@ export function LessonPlayer({ subjectId, lessonId }: { subjectId: string; lesso
         </div>
       </header>
 
-      <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-6 sm:px-6">
+      <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-4 sm:px-6 [@media(max-height:700px)]:py-2">
         <AnimatePresence mode="wait" custom={dir}>
           {!finished ? (
             <motion.article
@@ -67,23 +67,48 @@ export function LessonPlayer({ subjectId, lessonId }: { subjectId: string; lesso
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -40 * dir }}
               transition={{ duration: 0.25 }}
-              className="grid gap-6 md:grid-cols-[180px_1fr]"
+              className="space-y-4 [@media(max-height:700px)]:space-y-2"
             >
-              <div className="flex items-center gap-3 md:flex-col md:items-start">
-                <Mascot mood={slide.mood} size={110} className="floaty shrink-0" />
-                <div>
+              <div className="flex items-center gap-3">
+                <Mascot mood={slide.mood} size={72} className="floaty shrink-0 [@media(max-height:700px)]:hidden" />
+                <div className="min-w-0">
                   <div className="text-sm font-bold text-ink-soft">
                     Bài {index + 1} · {i + 1}/{total}
                   </div>
-                  <h1 className="font-display text-2xl font-extrabold leading-tight sm:text-3xl md:hidden">{slide.title}</h1>
+                  <h1 className="font-display text-2xl font-extrabold leading-tight sm:text-3xl [@media(max-height:700px)]:text-2xl">{slide.title}</h1>
                 </div>
               </div>
-              <div className="card space-y-5 p-5 sm:p-8">
-                <h1 className="hidden font-display text-3xl font-extrabold leading-tight md:block">{slide.title}</h1>
-                {slide.blocks.map((b, k) => (
-                  <BlockView key={k} b={b} device={subject.device} />
-                ))}
-              </div>
+              {(() => {
+                const img = slide.blocks.find((b) => b.type === "image");
+                const rest = slide.blocks.filter((b) => b !== img);
+                const hasCalc = rest.some((b) => b.type === "keys" && b.tryIt);
+                const side = img && !hasCalc;
+                return (
+                  <div className={`card p-5 sm:p-6 [@media(max-height:700px)]:p-4 ${side ? "grid items-start gap-6 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]" : ""}`}>
+                    {side && (
+                      <div className="md:sticky md:top-24">
+                        <BlockView b={img} device={subject.device} />
+                      </div>
+                    )}
+                    <div className="space-y-5">
+                      {(() => {
+                        const list = side ? rest : slide.blocks;
+                        // chữ đứng trước máy ảo được đưa vào cột trái, cạnh máy, cho đỡ phải cuộn
+                        const ci = list.findIndex((b) => b.type === "keys" && b.tryIt);
+                        const pre = ci > 0 && list.slice(0, ci).every((b) => b.type === "text" || b.type === "tip") ? ci : 0;
+                        return list.slice(pre).map((b, k) => (
+                          <BlockView
+                            key={k}
+                            b={b}
+                            device={subject.device}
+                            lead={k === 0 && pre ? list.slice(0, pre).map((x, j) => <BlockView key={j} b={x} device={subject.device} />) : undefined}
+                          />
+                        ));
+                      })()}
+                    </div>
+                  </div>
+                );
+              })()}
             </motion.article>
           ) : (
             <motion.div key="done" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="card mx-auto max-w-lg space-y-5 p-8 text-center">
@@ -115,7 +140,7 @@ export function LessonPlayer({ subjectId, lessonId }: { subjectId: string; lesso
 
       {!finished && (
         <footer className="sticky bottom-0 bg-white/60 pb-[env(safe-area-inset-bottom)] backdrop-blur">
-          <div className="mx-auto flex max-w-4xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
+          <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
             <button className="btn btn-ghost" onClick={() => go(-1)} disabled={i === 0}>
               ◀ Trước
             </button>

@@ -1,4 +1,5 @@
 "use client";
+import type React from "react";
 import { useMemo, useState } from "react";
 import { parseKeys, type CalcKey, type KeyStep } from "@/content/devices/fx580";
 import { Keypad } from "./Keypad";
@@ -25,7 +26,7 @@ function stepText(s: KeyStep): string {
 const norm = (s: string) => s.toLowerCase().replace(/\s+/g, "").replace(/,/g, ".").replace(/[−–]/g, "-").replace(/[x*]/g, "×");
 
 /** Bấm theo: máy ảo hướng dẫn từng phím, hoặc máy thật rồi nhập kết quả. */
-export function TryIt({ keys, result, label, onDone, doneNote }: { keys: string[]; result?: string; label?: string; onDone?: () => void; doneNote?: string }) {
+export function TryIt({ keys, result, label, onDone, doneNote, lead }: { keys: string[]; result?: string; label?: string; onDone?: () => void; doneNote?: string; lead?: React.ReactNode }) {
   const { data, setCalcMode } = useProgress();
   const mode = data.calcMode;
   const steps = useMemo(() => parseKeys(keys), [keys]);
@@ -79,8 +80,9 @@ export function TryIt({ keys, result, label, onDone, doneNote }: { keys: string[
         </div>
       </div>
 
-      <div className={mode === "virtual" ? "grid items-start gap-4 lg:grid-cols-[1fr_auto]" : ""}>
+      <div className={mode === "virtual" ? "grid items-start gap-4 md:grid-cols-[1fr_auto]" : ""}>
         <div className="space-y-3">
+          {lead && <div className="space-y-4 pb-1">{lead}</div>}
           <KeySeq keys={keys} current={mode === "virtual" ? i : -1} numbered={mode === "physical"} />
           {mode === "virtual" ? (
             <div className="text-sm">

@@ -1,5 +1,32 @@
 "use client";
+import { useEffect, useRef, useState } from "react";
 import { FX580_ROWS, type CalcKey } from "@/content/devices/fx580";
+
+const FOOTER_H = 96; // thanh Trước/Tiếp ở đáy + khoảng thở
+
+/** Thu nhỏ máy ảo cho vừa phần màn hình còn lại (laptop, iPad ngang), không nhỏ hơn 60%. */
+function useFitZoom(on: boolean) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [z, setZ] = useState(1);
+  useEffect(() => {
+    if (!on) return;
+    const f = () => {
+      const el = ref.current;
+      if (!el || window.innerWidth < 640) return setZ(1);
+      const natural = el.offsetHeight; // offsetHeight không tính zoom
+      const top = el.getBoundingClientRect().top + window.scrollY;
+      const room = window.innerHeight - FOOTER_H - Math.min(top, 330);
+      setZ(Math.max(0.6, Math.min(1, room / natural)));
+    };
+    const t = setTimeout(f, 50);
+    window.addEventListener("resize", f);
+    return () => {
+      clearTimeout(t);
+      window.removeEventListener("resize", f);
+    };
+  }, [on]);
+  return [ref, z] as const;
+}
 
 /** Máy tính fx-580VN X ảo (rút gọn). */
 export function Keypad({
@@ -19,8 +46,9 @@ export function Keypad({
   shakeKey?: number;
   compact?: boolean;
 }) {
+  const [ref, zoom] = useFitZoom(compact);
   return (
-    <div className={`mx-auto w-full ${compact ? "max-w-[300px]" : "max-w-[340px]"} select-none rounded-[2rem] bg-gradient-to-b from-[#2f3452] to-[#232741] p-3 pb-4 shadow-[0_18px_40px_-12px_rgba(35,39,65,0.6)]`}>
+    <div ref={ref} style={zoom < 1 ? { zoom } : undefined} className={`mx-auto w-full ${compact ? "max-w-[300px]" : "max-w-[340px]"} select-none rounded-[2rem] bg-gradient-to-b from-[#2f3452] to-[#232741] p-3 pb-4 shadow-[0_18px_40px_-12px_rgba(35,39,65,0.6)]`}>
       <div className="mb-1 flex items-center justify-between px-2 text-[10px] font-bold tracking-widest text-white/60">
         <span>CASIO</span>
         <span>fx-580VN X</span>
