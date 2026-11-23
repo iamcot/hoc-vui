@@ -30,14 +30,9 @@ export const XIXI =
   "Xi Xi: a friendly anthropomorphic scientific calculator (dark navy body, light gray keys, small LCD screen showing a smile), tiny arms and legs";
 
 /**
- * Phong cách cho môn/trình độ của bé lớn (lớp 6-9 trở lên, và môn công nghệ như Gõ phím).
- * Bé lớn hay chê nét "cute, em bé" của Mochi, nên các môn sau dùng nét anime thiếu niên,
- * gọn, ngầu, công nghệ hơn. Nhân vật vẫn là con vật (thỏ Bit) để còn chất Học Vui.
- * Môn lớp 1-5 giữ STYLE (Mochi). Môn mới cho lớp 6+ thì dùng STYLE_TEEN, chủ đề công nghệ thì STYLE_CYBER.
+ * Môn công nghệ cho bé lớn (Gõ phím): cùng tinh thần STYLE_TEEN nhưng bối cảnh biển sâu neon,
+ * nhân vật là thỏ Bit (vẫn là con vật để còn chất Học Vui). Lớp 1-5 giữ STYLE (Mochi).
  */
-export const STYLE_TEEN =
-  "Modern Japanese anime illustration for teenagers, like a polished anime key visual: confident clean line art, crisp cel shading, dramatic lighting, stylish character proportions (not chibi, not babyish), cool and slightly mature mood while still friendly, rich saturated colors, no text, no letters, no watermark";
-
 export const STYLE_CYBER =
   "Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark";
 
