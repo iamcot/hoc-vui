@@ -10,12 +10,12 @@
 // Phím tắt trong lúc chờ:  c = chép lại prompt · s = bỏ qua · b = quay lại ảnh trước · q = thoát
 // Khi thoát, tool tự chuyển ảnh sang WebP và cập nhật docs/ASSET_PROMPTS.md.
 import { copyFileSync, existsSync, mkdirSync, readdirSync, renameSync, rmSync, statSync, unlinkSync } from "node:fs";
-import { execFileSync, spawn, spawnSync } from "node:child_process";
+import { spawn, spawnSync } from "node:child_process";
 import { homedir, platform } from "node:os";
 import { basename, extname, join, resolve } from "node:path";
 import { emitKeypressEvents } from "node:readline";
 import { IMAGES, type ImageAsset } from "@/content/assets";
-import { REF_INTRO, SRC, cli, mochiFirst, pick, refsFor } from "./asset-lib";
+import { REF_INTRO, SRC, cli, mochiFirst, pick, refsFor, finalize } from "./asset-lib";
 
 const { flag, opt, only } = cli();
 const DOWNLOADS = resolve(opt("downloads") ?? process.env.ASSET_DOWNLOADS ?? join(homedir(), "Downloads"));
@@ -120,9 +120,7 @@ function finish() {
   console.log(`\nĐã lưu ${saved} ảnh.`);
   if (saved) {
     console.log("Đang chuyển sang WebP và cập nhật danh sách...");
-    execFileSync("node", ["scripts/convert-assets.mjs"], { stdio: "inherit" });
-    execFileSync("node", ["scripts/scan-assets.mjs"], { stdio: "inherit" });
-    execFileSync("npx", ["tsx", "scripts/gen-asset-prompts.ts"], { stdio: "inherit", shell: OS === "win32" });
+    finalize();
   }
   process.exit(0);
 }

@@ -1,5 +1,6 @@
 // Hàm dùng chung cho gen-assets.ts và asset-helper.ts
 import { existsSync, readdirSync, readFileSync } from "node:fs";
+import { execSync } from "node:child_process";
 import { basename, extname, join } from "node:path";
 import type { ImageAsset } from "@/content/assets";
 
@@ -71,3 +72,17 @@ export const REF_INTRO =
 
 /** mochi-happy lên đầu vì các ảnh khác cần nó làm tham chiếu */
 export const mochiFirst = (a: { id: string }, b: { id: string }) => Number(b.id === "mochi-happy") - Number(a.id === "mochi-happy");
+
+/** các file đang có của một mục (để báo vì sao bị bỏ qua) */
+export function whereIs(file: string, id: string) {
+  const dirs = [join(PUB, file.split("/").slice(0, -1).join("/")), SRC];
+  return dirs.flatMap((d) => (existsSync(d) ? readdirSync(d).filter((f) => basename(f, extname(f)) === id).map((f) => join(d, f)) : []));
+}
+
+/** assets-src → public/assets (WebP), cập nhật available.json và docs/ASSET_PROMPTS.md */
+export function finalize() {
+  // execSync chạy qua shell nên dùng được cả trên Windows (npm.cmd)
+  execSync("node scripts/convert-assets.mjs", { stdio: "inherit" });
+  execSync("node scripts/scan-assets.mjs", { stdio: "inherit" });
+  execSync("npm run -s prompts", { stdio: "inherit" });
+}

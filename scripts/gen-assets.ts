@@ -20,10 +20,9 @@
 // File tạo ra nằm ở assets-src/<id>.png | .mp3, sau đó script tự chạy convert-assets (PNG → WebP vào
 // public/assets/...), scan-assets và in lại docs/ASSET_PROMPTS.md.
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
-import { execFileSync } from "node:child_process";
 import { basename, extname, join } from "node:path";
 import { AUDIO, IMAGES, TAPDOC_AUDIO, type AudioAsset, type ImageAsset } from "@/content/assets";
-import { REF_INTRO, SRC, cli, loadEnv, mochiFirst, pick, refsFor as refsOf } from "./asset-lib";
+import { REF_INTRO, SRC, cli, loadEnv, mochiFirst, pick, refsFor as refsOf, finalize, whereIs } from "./asset-lib";
 
 loadEnv(".env.local", ".env");
 const { flag, opt, only: ONLY } = cli();
@@ -155,7 +154,11 @@ if (DRY) {
   process.exit(0);
 }
 if (!images.length && !audio.length) {
-  console.log("Không còn gì để tạo. Dùng --only <id> --force để tạo lại một file.");
+  if (ONLY) {
+    const have = [...IMAGES, ...AUDIO, ...TAPDOC_AUDIO].filter((a) => ONLY.some((r) => r.test(a.id))).flatMap((a) => whereIs(a.file, a.id));
+    if (have.length) console.log(`Đã có file nên bỏ qua:\n${have.map((f) => "  " + f).join("\n")}\nXóa các file này hoặc thêm --force để tạo lại.`);
+    else console.log("Không tìm thấy mục nào khớp --only (xem tên trong docs/ASSET_PROMPTS.md).");
+  } else console.log("Không còn gì để tạo. Dùng --only <id> --force để tạo lại một file.");
   process.exit(0);
 }
 const missing = [
@@ -204,9 +207,7 @@ async function main() {
   console.log(`\nXong ${done} file${failed.length ? `, lỗi ${failed.length}: ${failed.join(", ")}` : ""}.`);
   if (done) {
     console.log("Đang chuyển sang WebP và cập nhật danh sách...");
-    execFileSync("node", ["scripts/convert-assets.mjs"], { stdio: "inherit" });
-    execFileSync("node", ["scripts/scan-assets.mjs"], { stdio: "inherit" });
-    execFileSync("npx", ["tsx", "scripts/gen-asset-prompts.ts"], { stdio: "inherit" });
+    finalize();
     console.log("Xem lại ảnh trong public/assets/img. Ảnh nào chưa ưng: npm run gen-assets -- --only <id> --force");
   }
   if (failed.length) process.exit(1);
