@@ -39,6 +39,25 @@ Mở địa chỉ app bằng Safari → nút Chia sẻ → **Thêm vào Màn hì
 
 Danh sách đầy đủ kèm prompt: [docs/ASSET_PROMPTS.md](docs/ASSET_PROMPTS.md). Tạo xong, đặt file đúng tên vào `public/assets/img`, `public/assets/sfx`, `public/assets/voice` rồi đẩy lên. File nào chưa có thì app hiện hình thay thế.
 
+### Tạo tự động bằng tool
+
+Chạy trên máy của bạn (cần Node 20+, `npm install` một lần).
+
+**Âm thanh, tự động hoàn toàn bằng tài khoản ElevenLabs:** API dùng chung credit hằng tháng của gói bạn đang trả, không mua thêm.
+1. Lấy key ở ElevenLabs > Developers > API Keys. Lấy Voice ID của giọng đã dùng cho 4 file giọng đọc đầu (Voices > bấm vào giọng > Copy ID) để giọng đồng nhất.
+2. Tạo file `.env.local` ở thư mục gốc (đã có trong .gitignore, không lên git):
+   ```
+   ELEVENLABS_API_KEY=...
+   ELEVENLABS_VOICE_ID=...
+   ```
+3. `npm run gen-assets -- --audio --dry-run` để xem danh sách, rồi `npm run gen-assets -- --audio` để tạo.
+
+**Ảnh, bán tự động bằng tài khoản ChatGPT:** `npm run asset-helper`. Tool mở ChatGPT, chép sẵn prompt vào clipboard và mở thư mục ảnh tham chiếu (mochi-happy, bg-home...). Bạn kéo ảnh tham chiếu vào, dán prompt, gửi, rồi bấm tải ảnh về. Tool thấy file mới trong Downloads sẽ tự đổi đúng tên và sang ảnh kế tiếp. Phím: `c` chép lại prompt, `s` bỏ qua, `b` quay lại, `q` thoát. Thoát xong tool tự chuyển ảnh sang WebP. Trình duyệt lưu file ở chỗ khác thì thêm `-- --downloads <thư mục>`.
+
+**Ảnh, tự động hoàn toàn bằng OpenAI API (tốn phí riêng, khác gói ChatGPT Plus, khoảng 0,04 đến 0,06 USD/ảnh):** thêm `OPENAI_API_KEY=...` vào `.env.local`, rồi `npm run gen-assets -- --images`.
+
+Tùy chọn chung: `--dry-run` (chỉ xem, không gọi API), `--only fx-l05-*,vo-l02-s1` (chỉ các mục này), `--force` (làm lại file đã có), `--limit 3`, `--quality high`. Mặc định tool chỉ tạo file còn thiếu. File tạo ra vào `assets-src/`, sau đó tool tự chuyển sang `public/assets/...` và cập nhật `docs/ASSET_PROMPTS.md`. Xem lại rồi commit các file trong `public/assets`.
+
 Muốn thêm ảnh mới: thêm mục vào `src/content/assets.ts` rồi chạy `npm run prompts` để in lại danh sách.
 
 ## Cấu trúc

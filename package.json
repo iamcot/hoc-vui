@@ -11,7 +11,9 @@
     "prompts": "tsx scripts/gen-asset-prompts.ts",
     "predev": "node scripts/convert-assets.mjs && node scripts/scan-assets.mjs",
     "prebuild": "node scripts/convert-assets.mjs && node scripts/scan-assets.mjs",
-    "assets": "node scripts/convert-assets.mjs"
+    "assets": "node scripts/convert-assets.mjs",
+    "gen-assets": "tsx scripts/gen-assets.ts",
+    "asset-helper": "tsx scripts/asset-helper.ts"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.7",
