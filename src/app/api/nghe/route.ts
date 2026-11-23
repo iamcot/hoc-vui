@@ -1,9 +1,12 @@
 import { NextResponse } from "next/server";
+import { StartStreamTranscriptionCommand, TranscribeStreamingClient } from "@aws-sdk/client-transcribe-streaming";
 
 /**
  * Nhận dạng giọng bé đọc (môn Tập đọc). Bật bằng biến môi trường trên Vercel:
  *   STT_PROVIDER=google + GOOGLE_STT_KEY=<API key Google Cloud, bật Speech-to-Text API>
  *   STT_PROVIDER=openai + OPENAI_API_KEY=<key>
+ *   STT_PROVIDER=aws + AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_REGION (vd. ap-southeast-1)
+ *     IAM chỉ cần quyền transcribe:StartStreamTranscription
  * Không đặt gì thì app tự dùng nhận dạng của trình duyệt hoặc chế độ tự chấm.
  * Âm thanh chỉ chuyển thẳng tới dịch vụ để nhận dạng, không lưu lại.
  */
@@ -13,6 +16,7 @@ const provider = () => {
   const p = process.env.STT_PROVIDER;
   if (p === "google" && process.env.GOOGLE_STT_KEY) return "google";
   if (p === "openai" && process.env.OPENAI_API_KEY) return "openai";
+  if (p === "aws" && process.env.AWS_ACCESS_KEY_ID && process.env.AWS_SECRET_ACCESS_KEY) return "aws";
   if (!p && process.env.GOOGLE_STT_KEY) return "google";
   return null;
 };
@@ -31,6 +35,7 @@ export async function POST(req: Request) {
   const hint = decodeURIComponent(req.headers.get("x-hint") ?? "").slice(0, 400);
 
   try {
+    if (p === "aws") return NextResponse.json({ alts: await awsTranscribe(buf) });
     if (p === "google") {
       const phrases = [hint, ...hint.split(/[\s.,!?]+/).filter(Boolean)].slice(0, 60);
       const r = await fetch(`https://speech.googleapis.com/v1/speech:recognize?key=${process.env.GOOGLE_STT_KEY}`, {
@@ -71,4 +76,27 @@ export async function POST(req: Request) {
   } catch {
     return NextResponse.json({ error: "không gọi được dịch vụ" }, { status: 502 });
   }
+}
+
+/** AWS Transcribe Streaming, tiếng Việt, PCM 16 kHz (bỏ 44 byte đầu WAV) */
+async function awsTranscribe(wav: Buffer): Promise<string[]> {
+  const client = new TranscribeStreamingClient({ region: process.env.AWS_REGION ?? "ap-southeast-1" });
+  const pcm = wav.subarray(44);
+  async function* audio() {
+    const CHUNK = 3200; // 100 ms
+    for (let i = 0; i < pcm.length; i += CHUNK) yield { AudioEvent: { AudioChunk: pcm.subarray(i, i + CHUNK) } };
+  }
+  const res = await client.send(
+    new StartStreamTranscriptionCommand({ LanguageCode: "vi-VN", MediaEncoding: "pcm", MediaSampleRateHertz: 16000, AudioStream: audio() }),
+  );
+  const finals: string[][] = [];
+  for await (const ev of res.TranscriptResultStream ?? []) {
+    for (const r of ev.TranscriptEvent?.Transcript?.Results ?? []) {
+      if (r.IsPartial) continue;
+      finals.push((r.Alternatives ?? []).map((a) => a.Transcript ?? "").filter(Boolean));
+    }
+  }
+  if (!finals.length) return [];
+  const n = Math.max(...finals.map((f) => f.length));
+  return Array.from({ length: n }, (_, i) => finals.map((f) => f[i] ?? f[0] ?? "").join(" ").trim()).filter(Boolean);
 }

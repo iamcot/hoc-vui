@@ -16,6 +16,7 @@
     "asset-helper": "tsx scripts/asset-helper.ts"
   },
   "dependencies": {
+    "@aws-sdk/client-transcribe-streaming": "^3.1175.0",
     "@supabase/ssr": "^0.12.7",
     "@supabase/supabase-js": "^2.119.2",
     "motion": "^14.14.0",

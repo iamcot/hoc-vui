@@ -60,7 +60,8 @@ Bám mạch Tiếng Việt 1 GDPT 2018 (âm, chữ → thanh → chữ ghép →
 - [x] Ghi âm WAV chạy cả Safari iPad; chấm bằng dịch vụ đám mây (`/api/nghe`, Google hoặc OpenAI) → nhận dạng của trình duyệt → tự nghe lại và tự chấm
 - [x] Giọng đọc mẫu: dùng file ElevenLabs nếu có, chưa có thì dùng giọng tiếng Việt của máy; danh sách 1.126 câu/tiếng ở `docs/TAPDOC_VOICES.md`
 - [ ] Bạn góp ý ảnh chụp màn hình (`mockups-tapdoc/`)
-- [ ] Chọn dịch vụ nhận dạng giọng nói, đặt khóa trên Vercel
+- [x] Chọn dịch vụ nhận dạng giọng nói: AWS Transcribe (vi-VN, streaming)
+- [ ] Đặt khóa AWS trên Vercel (README mục 4)
 - [ ] Tạo giọng đọc mẫu (ưu tiên âm, vần, từ khóa trước) và 3 ảnh mới
 - [ ] Thử ghi âm trên iPad thật với giọng bé
 - [ ] Bổ sung: tập viết chữ (vẽ theo nét), chính tả nghe viết, đo tốc độ đọc (tiếng/phút)
