@@ -32,10 +32,14 @@ export function cli(argv = process.argv.slice(2)) {
 }
 
 /** đã có file (ở public/assets hoặc assets-src, đuôi bất kỳ)? */
+const dirCache = new Map<string, Set<string>>();
+const names = (d: string) => {
+  if (!dirCache.has(d)) dirCache.set(d, new Set(existsSync(d) ? readdirSync(d).map((f) => basename(f, extname(f))) : []));
+  return dirCache.get(d)!;
+};
 export function exists(file: string, id: string) {
   const dir = join(PUB, file.split("/").slice(0, -1).join("/"));
-  const has = (d: string) => existsSync(d) && readdirSync(d).some((f) => basename(f, extname(f)) === id);
-  return has(dir) || has(SRC);
+  return names(dir).has(id) || names(SRC).has(id);
 }
 
 /** lọc theo --only, bỏ mục đã có file (trừ khi force) */

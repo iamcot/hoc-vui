@@ -5,6 +5,7 @@
 //   npm run gen-assets -- --images             chỉ ảnh   (--audio: chỉ âm thanh)
 //   npm run gen-assets -- --only fx-l04-cover,vo-l02-s1    chỉ các mục này (có thể dùng *, vd "fx-l05-*")
 //   npm run gen-assets -- --only mochi-oops --force        tạo lại dù đã có file
+//   npm run gen-assets -- --tapdoc --dry-run   giọng đọc mẫu môn Tập đọc (TAPDOC_AUDIO, ~1.100 file)
 //   npm run gen-assets -- --limit 3            chỉ tạo 3 mục đầu (để thử)
 //   npm run gen-assets -- --quality high       chất lượng ảnh low | medium | high (mặc định medium)
 //   npm run gen-assets -- --no-ref             không gửi ảnh tham chiếu
@@ -21,7 +22,7 @@
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 import { basename, extname, join } from "node:path";
-import { AUDIO, IMAGES, type AudioAsset, type ImageAsset } from "@/content/assets";
+import { AUDIO, IMAGES, TAPDOC_AUDIO, type AudioAsset, type ImageAsset } from "@/content/assets";
 import { REF_INTRO, SRC, cli, loadEnv, mochiFirst, pick, refsFor as refsOf } from "./asset-lib";
 
 loadEnv(".env.local", ".env");
@@ -32,8 +33,9 @@ const NO_REF = flag("no-ref");
 const QUALITY = (opt("quality") ?? "medium") as "low" | "medium" | "high";
 const LIMIT = opt("limit") ? Number(opt("limit")) : Infinity;
 const CONCURRENCY = Number(opt("concurrency") ?? 3);
-const wantImages = !flag("audio") || flag("images");
-const wantAudio = !flag("images") || flag("audio");
+const TAPDOC = flag("tapdoc");
+const wantImages = flag("images") || (!flag("audio") && !TAPDOC);
+const wantAudio = !flag("images") || flag("audio") || TAPDOC;
 
 const OPENAI_KEY = process.env.OPENAI_API_KEY;
 const OPENAI_BASE = process.env.OPENAI_BASE_URL ?? "https://api.openai.com/v1";
@@ -44,7 +46,7 @@ const VOICE_ID = process.env.ELEVENLABS_VOICE_ID;
 const VOICE_MODEL = process.env.ELEVENLABS_MODEL ?? "eleven_multilingual_v2";
 
 let images = wantImages ? pick(IMAGES, ONLY, FORCE).sort(mochiFirst) : [];
-let audio = wantAudio ? pick(AUDIO, ONLY, FORCE) : [];
+let audio = wantAudio ? pick(TAPDOC ? TAPDOC_AUDIO : AUDIO, ONLY, FORCE) : [];
 if (Number.isFinite(LIMIT)) {
   images = images.slice(0, LIMIT);
   audio = audio.slice(0, Math.max(0, LIMIT - images.length));
@@ -109,7 +111,10 @@ async function genAudio(a: AudioAsset) {
         text: a.prompt,
         model_id: VOICE_MODEL,
         language_code: VOICE_MODEL.includes("multilingual_v2") ? undefined : "vi",
-        voice_settings: { stability: 0.5, similarity_boost: 0.75, style: 0.1, speed: 0.92 },
+        // âm/vần đứng một mình (tv-*) dễ đọc sai: chậm hơn, ổn định hơn
+        voice_settings: a.id.startsWith("tv-")
+          ? { stability: 0.6, similarity_boost: 0.75, style: 0, speed: 0.85 }
+          : { stability: 0.5, similarity_boost: 0.75, style: 0.1, speed: 0.92 },
       }),
     });
   } else if (a.kind === "music") {
@@ -170,7 +175,17 @@ async function main() {
   const run = async (id: string, fn: () => Promise<string>) => {
     const t = Date.now();
     try {
-      const note = await fn();
+      let note = "";
+      for (let attempt = 1; ; attempt++) {
+        try {
+          note = await fn();
+          break;
+        } catch (e) {
+          // quá tải / giới hạn tốc độ: đợi rồi thử lại tối đa 4 lần
+          if (attempt >= 4 || !/HTTP (429|5\d\d)|fetch failed/.test((e as Error).message)) throw e;
+          await new Promise((r) => setTimeout(r, 3000 * attempt));
+        }
+      }
       console.log(`✅ ${id}  ${((Date.now() - t) / 1000).toFixed(0)}s ${note}`);
       done++;
     } catch (e) {
