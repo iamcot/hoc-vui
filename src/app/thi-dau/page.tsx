@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 import { SUBJECTS } from "@/content/subjects";
 import { cleanCode, createRoom, ROOM_QUESTIONS, ROOM_SECONDS } from "@/lib/arena";
 import { useProgress } from "@/lib/store";
-import { Art } from "@/components/Art";
+import { Scene } from "@/components/Scene";
 import Link from "next/link";
 
 export default function ArenaPage() {
@@ -41,18 +41,18 @@ function Arena() {
 
   return (
     <div className="space-y-6">
-      <section className="card relative overflow-hidden">
-        <Art id="bg-arena" emoji="⚡" rounded="" className="aspect-[21/9] w-full" />
-        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-white via-white/80 to-transparent p-5 pt-16 sm:p-8">
-          <h1 className="font-display text-3xl font-extrabold sm:text-4xl">Đấu trường</h1>
-          <p className="text-ink-soft">
-            {ROOM_QUESTIONS} câu, {ROOM_SECONDS / 60} phút. Cả phòng làm cùng một đề, ai đúng nhiều và nhanh hơn thì thắng.
-          </p>
-        </div>
-      </section>
+      <Scene image="bg-arena" variant="arena" />
+      <header className="space-y-3 pt-4 sm:pt-10">
+        <h1 className="ribbon text-3xl sm:text-4xl" style={{ ["--ribbon" as string]: "var(--color-peach)" }}>
+          ⚡ Đấu trường
+        </h1>
+        <p className="max-w-xl text-lg font-bold text-ink text-outline">
+          {ROOM_QUESTIONS} câu, {ROOM_SECONDS / 60} phút. Cả phòng làm cùng một đề, ai đúng nhiều và nhanh hơn thì thắng.
+        </p>
+      </header>
 
       {!session && (
-        <div className="rounded-3xl bg-sun-soft p-4 text-sm">
+        <div className="card p-4 text-sm">
           {online ? (
             <>
               <b>Mẹo:</b>{" "}
@@ -92,7 +92,7 @@ function Arena() {
             value={code}
             onChange={(e) => setCode(cleanCode(e.target.value))}
             placeholder="Nhập mã 6 ký tự"
-            className="w-full rounded-2xl border-2 border-line bg-white px-4 py-3 text-center font-mono text-3xl font-bold tracking-[0.3em] uppercase outline-none focus:border-sky"
+            className="w-full rounded-2xl border-2 border-line bg-white px-4 py-3 text-center font-mono text-3xl font-bold tracking-[0.3em] uppercase outline-none placeholder:font-sans placeholder:text-lg placeholder:normal-case placeholder:tracking-normal focus:border-sky"
           />
           <button className="btn btn-mint w-full" disabled={code.length !== 6} onClick={() => router.push(`/thi-dau/${code}?mon=${subject}`)}>
             Vào phòng ▶

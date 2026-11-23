@@ -9,6 +9,7 @@ import { BlockView } from "@/components/lesson/Blocks";
 import { Confetti } from "@/components/Confetti";
 import { IconClose, IconSound } from "@/components/Icons";
 import { play, playVoice, stopVoice } from "@/lib/sound";
+import { Scene } from "@/components/Scene";
 
 export function LessonPlayer({ subjectId, lessonId }: { subjectId: string; lessonId: string }) {
   const info = getLesson(subjectId, lessonId)!;
@@ -39,7 +40,8 @@ export function LessonPlayer({ subjectId, lessonId }: { subjectId: string; lesso
 
   return (
     <div className="flex min-h-dvh flex-col">
-      <header className="sticky top-0 z-20 border-b border-line bg-cream/90 backdrop-blur">
+      <Scene image="bg-lesson" variant="desk" dim />
+      <header className="sticky top-0 z-20 bg-white/60 backdrop-blur">
         <div className="mx-auto flex max-w-4xl items-center gap-3 px-4 py-3 sm:px-6">
           <Link href={`/hoc/${subject.id}`} className="grid h-10 w-10 place-items-center rounded-full bg-white shadow-sm" aria-label="Đóng bài học">
             <IconClose className="h-5 w-5" />
@@ -76,7 +78,7 @@ export function LessonPlayer({ subjectId, lessonId }: { subjectId: string; lesso
                   <h1 className="font-display text-2xl font-extrabold leading-tight sm:text-3xl md:hidden">{slide.title}</h1>
                 </div>
               </div>
-              <div className="space-y-5">
+              <div className="card space-y-5 p-5 sm:p-8">
                 <h1 className="hidden font-display text-3xl font-extrabold leading-tight md:block">{slide.title}</h1>
                 {slide.blocks.map((b, k) => (
                   <BlockView key={k} b={b} device={subject.device} />
@@ -84,7 +86,7 @@ export function LessonPlayer({ subjectId, lessonId }: { subjectId: string; lesso
               </div>
             </motion.article>
           ) : (
-            <motion.div key="done" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="mx-auto max-w-lg space-y-5 py-10 text-center">
+            <motion.div key="done" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="card mx-auto max-w-lg space-y-5 p-8 text-center">
               <Confetti />
               <Mascot mood="cheer" size={160} className="floaty mx-auto" />
               <h1 className="font-display text-3xl font-extrabold">Hoàn thành bài học!</h1>
@@ -112,7 +114,7 @@ export function LessonPlayer({ subjectId, lessonId }: { subjectId: string; lesso
       </main>
 
       {!finished && (
-        <footer className="sticky bottom-0 border-t border-line bg-white/90 pb-[env(safe-area-inset-bottom)] backdrop-blur">
+        <footer className="sticky bottom-0 bg-white/60 pb-[env(safe-area-inset-bottom)] backdrop-blur">
           <div className="mx-auto flex max-w-4xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
             <button className="btn btn-ghost" onClick={() => go(-1)} disabled={i === 0}>
               ◀ Trước

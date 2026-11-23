@@ -15,6 +15,7 @@ import { Mascot } from "@/components/Mascot";
 import { Confetti } from "@/components/Confetti";
 import { IconClose } from "@/components/Icons";
 import { play } from "@/lib/sound";
+import { Scene } from "@/components/Scene";
 
 export default function RoomPage() {
   return (
@@ -138,12 +139,13 @@ function RoomView() {
 
   return (
     <div className="min-h-dvh">
+      <Scene image="bg-arena" variant="arena" dim />
       {phase === "done" && mine && mine.correct >= room.question_count * 0.6 && <Confetti />}
       <header className="mx-auto flex max-w-4xl items-center gap-3 px-4 pt-4 sm:px-6">
         <Link href="/thi-dau" className="grid h-10 w-10 place-items-center rounded-full bg-white shadow-sm" aria-label="Thoát">
           <IconClose className="h-5 w-5" />
         </Link>
-        <span className="font-display text-lg font-extrabold">
+        <span className="ribbon text-lg">
           {subject.emoji} {subject.name} · Lớp {subject.grade}
         </span>
       </header>

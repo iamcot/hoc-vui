@@ -1,22 +1,22 @@
 @import "tailwindcss";
 
 @theme {
-  --color-cream: #fffaf3;
+  --color-cream: #fff3e3;
   --color-paper: #ffffff;
-  --color-ink: #2d3047;
-  --color-ink-soft: #6b6f8a;
-  --color-line: #ece6f2;
-  --color-sky: #7c9cff;
-  --color-sky-soft: #e6ecff;
-  --color-peach: #ffad8a;
-  --color-peach-soft: #fff0e8;
-  --color-mint: #5fcfae;
-  --color-mint-soft: #e2f7f0;
-  --color-berry: #ff7a9a;
-  --color-berry-soft: #ffe8ee;
-  --color-sun: #ffcf5c;
-  --color-sun-soft: #fff6dc;
-  --color-lilac: #b49cff;
+  --color-ink: #252845;
+  --color-ink-soft: #5d6283;
+  --color-line: #e6dcef;
+  --color-sky: #4f72ff;
+  --color-sky-soft: #dbe3ff;
+  --color-peach: #ff8a5c;
+  --color-peach-soft: #ffe4d6;
+  --color-mint: #22b98c;
+  --color-mint-soft: #d2f3e8;
+  --color-berry: #ff4f7b;
+  --color-berry-soft: #ffdbe5;
+  --color-sun: #ffb81f;
+  --color-sun-soft: #ffefc4;
+  --color-lilac: #9b7bff;
   --color-key: #3a3f5c;
   --color-key-fn: #5a607f;
   --color-shift: #e8a400;
@@ -28,19 +28,16 @@
   --shadow-pop: 0 4px 0 0 rgb(45 48 71 / 0.12);
 }
 
-html,
-body {
+html {
   background: var(--color-cream);
+}
+body {
   color: var(--color-ink);
   -webkit-tap-highlight-color: transparent;
   overscroll-behavior-y: none;
 }
 
 body {
-  background-image:
-    radial-gradient(60rem 40rem at 110% -10%, #e9eeff 0%, transparent 60%),
-    radial-gradient(50rem 30rem at -10% 110%, #fff0e6 0%, transparent 60%);
-  background-attachment: fixed;
   min-height: 100dvh;
 }
 
@@ -53,11 +50,61 @@ button {
   font-family: var(--font-display);
 }
 
+/* "Giấy mờ": lớp nền đọc chữ đặt trên tranh, không viền cứng */
 .card {
-  background: var(--color-paper);
-  border-radius: var(--radius-card);
-  box-shadow: var(--shadow-soft);
-  border: 1px solid var(--color-line);
+  background: rgb(255 255 255 / 0.78);
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  border-radius: 2rem;
+  box-shadow: 0 10px 40px -18px rgb(60 50 140 / 0.35);
+}
+
+/* Ruy băng tiêu đề */
+.ribbon {
+  position: relative;
+  display: inline-block;
+  padding: 0.45rem 1.4rem;
+  color: white;
+  font-family: var(--font-display);
+  font-weight: 800;
+  background: var(--ribbon, var(--color-sky));
+  border-radius: 0.6rem;
+  box-shadow: 0 4px 0 0 rgb(0 0 0 / 0.12);
+}
+.ribbon::before,
+.ribbon::after {
+  content: "";
+  position: absolute;
+  top: 0.45rem;
+  width: 1rem;
+  height: 100%;
+  background: var(--ribbon, var(--color-sky));
+  filter: brightness(0.8);
+  z-index: -1;
+}
+.ribbon::before { left: -0.6rem; clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 45% 50%); }
+.ribbon::after { right: -0.6rem; clip-path: polygon(0 0, 100% 0, 55% 50%, 100% 100%, 0 100%); }
+
+/* Bong bóng thoại của Mochi */
+.bubble {
+  position: relative;
+  background: white;
+  border-radius: 1.5rem;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 8px 30px -14px rgb(60 50 140 / 0.4);
+}
+.bubble::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 1.4rem;
+  border: 10px solid transparent;
+  border-right-color: white;
+  border-left: 0;
+}
+
+.text-outline {
+  text-shadow: 0 2px 0 rgb(255 255 255 / 0.9), 0 0 18px rgb(255 255 255 / 0.9);
 }
 
 .btn {
@@ -136,4 +183,15 @@ button {
 
 @media (prefers-reduced-motion: reduce) {
   .floaty, .pulse-ring { animation: none; }
+}
+
+@keyframes drift {
+  0% { transform: translateX(-30px); }
+  50% { transform: translateX(30px); }
+  100% { transform: translateX(-30px); }
+}
+.cloud-a { animation: drift 28s ease-in-out infinite; }
+.cloud-b { animation: drift 36s ease-in-out infinite reverse; }
+@media (prefers-reduced-motion: reduce) {
+  .cloud-a, .cloud-b { animation: none; }
 }

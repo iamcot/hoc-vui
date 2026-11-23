@@ -53,11 +53,12 @@ export const IMAGES: ImageAsset[] = [
   img("xixi", "1024x1024", "Xi Xi: thẻ môn FX580, trang giới thiệu", `${XIXI}, standing and giving a thumbs up, full body`, true),
 
   // Nền và màn hình chính
-  img("bg-home", "1024x1536", "Nền màn hình Học (trang chủ), phía sau danh sách môn", "Dreamy morning sky over a small hillside town with a cute school building, soft clouds, floating paper planes, empty space in the center for UI, portrait"),
-  img("bg-map", "1024x1536", "Nền bản đồ bài học của môn FX580", "Top-down storybook map with a winding pastel path across meadows, a river, a small bridge, a hill with a flag at the top, very soft and low contrast, empty path, portrait"),
-  img("bg-arena", "1536x1024", "Banner đầu trang Thi đấu", `${MOCHI} and two friend animals (a fox and a bunny) racing with calculators on a sunny sports field, dynamic but gentle`),
-  img("bg-leaderboard", "1536x1024", "Banner đầu trang Xếp hạng", "A pastel podium with three small trophies, ribbons and stars, soft spotlight"),
-  img("subject-fx580-cover", "1536x1024", "Thẻ môn Máy tính FX580 ở trang chủ", `${MOCHI} sitting next to ${XIXI} on a desk with notebooks and pencils, numbers floating like bubbles`),
+  img("bg-home", "1536x1024", "Cảnh nền màn hình Học (trang chủ), tràn toàn màn hình phía sau nội dung", "Wide landscape of a dreamy morning sky over gentle green hills and a cute small school building far away, soft clouds, floating paper planes, large calm empty sky area in the upper middle for text, low detail at the edges"),
+  img("bg-map", "1536x1024", "Cảnh nền bản đồ bài học FX580, phía sau con đường bài học", "Wide storybook landscape seen slightly from above: meadows, a small river with a wooden bridge, scattered trees, a hill with a flag far away, very soft and low contrast so icons on top stay readable, no path drawn"),
+  img("bg-lesson", "1536x1024", "Cảnh nền khi học bài, luyện tập, kiểm tra (rất nhạt để đọc chữ)", "Cozy study corner by a big window: wooden desk, a few books, a plant, warm afternoon light, background heavily blurred and very light, mostly empty bright space"),
+  img("bg-arena", "1536x1024", "Cảnh nền trang Thi đấu và phòng thi", `${MOCHI} and two friend animals (a fox and a bunny) racing with calculators on a sunny sports field with colorful flags, characters on the left third, open bright sky on the right for text, dynamic but gentle`),
+  img("bg-leaderboard", "1536x1024", "Cảnh nền trang Xếp hạng", "Festive outdoor stage at dusk with a podium of three steps, small trophies, bunting flags and twinkling stars, podium on the lower left, open sky for text"),
+  img("subject-fx580-cover", "1536x1024", "Ảnh lớn của môn Máy tính FX580 ở trang chủ (chữ đè lên phần dưới ảnh)", `${MOCHI} sitting next to ${XIXI} on a desk with notebooks and pencils, numbers floating like bubbles`),
   img("subject-soon", "1536x1024", "Thẻ môn sắp ra mắt", "A closed gift box with a ribbon on a cloud, small sparkles, mysterious and cute"),
   img("empty-login", "1024x1024", "Màn hình mời đăng nhập", `${MOCHI} holding a key and smiling at a small door`, true),
 

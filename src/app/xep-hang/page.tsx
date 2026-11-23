@@ -6,7 +6,7 @@ import { SUBJECTS } from "@/content/subjects";
 import { leaderboard, type Entry } from "@/lib/arena";
 import { useProgress } from "@/lib/store";
 import { Avatar } from "@/components/Avatar";
-import { Art } from "@/components/Art";
+import { Scene } from "@/components/Scene";
 import { Mascot } from "@/components/Mascot";
 
 export default function RankPage() {
@@ -25,13 +25,13 @@ export default function RankPage() {
 
   return (
     <div className="space-y-6">
-      <section className="card relative overflow-hidden">
-        <Art id="bg-leaderboard" emoji="🏆" rounded="" className="aspect-[21/9] w-full" />
-        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-white via-white/80 to-transparent p-5 pt-16 sm:p-8">
-          <h1 className="font-display text-3xl font-extrabold sm:text-4xl">Bảng xếp hạng</h1>
-          <p className="text-ink-soft">Điểm XP từ học bài, luyện tập, kiểm tra và thi đấu.</p>
-        </div>
-      </section>
+      <Scene image="bg-leaderboard" variant="night" />
+      <header className="space-y-3 pt-4 sm:pt-10">
+        <h1 className="ribbon text-3xl sm:text-4xl" style={{ ["--ribbon" as string]: "var(--color-sun)" }}>
+          🏆 Bảng xếp hạng
+        </h1>
+        <p className="max-w-xl text-lg font-bold text-white drop-shadow">Điểm XP từ học bài, luyện tập, kiểm tra và thi đấu.</p>
+      </header>
 
       {!session ? (
         <div className="card flex flex-col items-center gap-4 p-8 text-center">

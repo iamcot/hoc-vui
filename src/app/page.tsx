@@ -5,6 +5,7 @@ import { SUBJECTS, allLessons } from "@/content/subjects";
 import { useProgress } from "@/lib/store";
 import { Mascot } from "@/components/Mascot";
 import { Art } from "@/components/Art";
+import { Scene } from "@/components/Scene";
 
 function greeting() {
   const h = new Date().getHours();
@@ -13,81 +14,91 @@ function greeting() {
 
 export default function Home() {
   const { data, lesson, streak, ready } = useProgress();
-  const ready1 = SUBJECTS.filter((s) => s.ready);
+  const live = SUBJECTS.filter((s) => s.ready);
   const soon = SUBJECTS.filter((s) => !s.ready);
-  const main = ready1[0];
+  const main = live[0];
   const lessons = allLessons(main);
-  const next = lessons.find((l) => !lesson(main.id, l.id).read || lesson(main.id, l.id).stars === 0) ?? lessons[0];
+  const next = lessons.find((l) => lesson(main.id, l.id).stars === 0) ?? lessons[0];
   const doneCount = lessons.filter((l) => lesson(main.id, l.id).stars > 0).length;
 
   return (
-    <div className="space-y-8">
-      <header className="flex items-center gap-4">
-        <Mascot mood="happy" size={84} className="floaty" />
-        <div>
+    <div className="space-y-10">
+      <Scene image="bg-home" variant="meadow" />
+
+      <header className="flex flex-wrap items-end gap-4">
+        <Mascot mood="happy" size={110} className="floaty drop-shadow-lg" />
+        <div className="bubble mb-4">
           <p className="text-ink-soft">{greeting()},</p>
-          <h1 className="font-display text-3xl font-extrabold sm:text-4xl">{ready && data.profile.name ? data.profile.name : "bạn nhỏ"} 👋</h1>
+          <h1 className="font-display text-3xl font-extrabold sm:text-4xl">{ready && data.profile.name ? data.profile.name : "bạn nhỏ"}! Hôm nay học gì nào?</h1>
         </div>
-        <div className="ml-auto hidden gap-3 sm:flex">
-          <Stat label="XP" value={data.xp} icon="⭐" tone="bg-sun-soft" />
-          <Stat label="ngày liên tiếp" value={streak} icon="🔥" tone="bg-peach-soft" />
+        <div className="mb-4 ml-auto flex gap-3">
+          <Stat value={data.xp} label="XP" icon="⭐" cls="bg-sun text-ink" />
+          <Stat value={streak} label="ngày" icon="🔥" cls="bg-peach text-white" />
         </div>
       </header>
 
-      <motion.section initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="card grid gap-0 overflow-hidden sm:grid-cols-[1.1fr_1fr]">
-        <Art id={next.cover} emoji={next.emoji} rounded="" className="aspect-[3/2] w-full sm:aspect-auto sm:h-full" />
-        <div className="flex flex-col gap-3 p-5 sm:p-7">
-          <span className="chip w-fit bg-sky-soft text-sky">
-            {main.emoji} {main.name} · Lớp {main.grade}
-          </span>
-          <h2 className="font-display text-2xl font-extrabold">Học tiếp: {next.title}</h2>
-          <p className="text-ink-soft">{next.short}</p>
-          <div className="mt-1 h-3 overflow-hidden rounded-full bg-line">
-            <div className="h-full rounded-full bg-mint transition-all" style={{ width: `${(doneCount / lessons.length) * 100}%` }} />
+      {/* Ảnh lớn "học tiếp": chữ đè lên tranh, không có khung thẻ */}
+      <motion.section initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}>
+        <Link href={`/hoc/${main.id}/${next.id}`} className="group relative block overflow-hidden rounded-[2.5rem] shadow-[0_24px_50px_-24px_rgba(40,40,120,0.55)]">
+          <Art id={next.cover} emoji={next.emoji} rounded="" className="aspect-[16/9] w-full transition duration-500 group-hover:scale-[1.03] sm:aspect-[21/9]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#1f2350]/85 via-[#1f2350]/25 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 flex flex-wrap items-end gap-4 p-5 text-white sm:p-8">
+            <div className="min-w-0 flex-1 space-y-2">
+              <span className="ribbon text-sm" style={{ ["--ribbon" as string]: "var(--color-peach)" }}>
+                Học tiếp · Bài {lessons.indexOf(next) + 1}
+              </span>
+              <h2 className="font-display text-3xl font-extrabold drop-shadow sm:text-5xl">{next.title}</h2>
+              <p className="text-white/85 sm:text-lg">{next.short}</p>
+              <div className="flex max-w-sm items-center gap-3 pt-1">
+                <div className="h-2.5 flex-1 overflow-hidden rounded-full bg-white/30">
+                  <div className="h-full rounded-full bg-sun" style={{ width: `${(doneCount / lessons.length) * 100}%` }} />
+                </div>
+                <span className="text-sm font-bold">
+                  {doneCount}/{lessons.length} bài
+                </span>
+              </div>
+            </div>
+            <span className="btn btn-primary text-lg">Vào học ▶</span>
           </div>
-          <p className="text-sm text-ink-soft">
-            Đã xong {doneCount}/{lessons.length} bài
-          </p>
-          <div className="mt-auto flex flex-wrap gap-3 pt-2">
-            <Link href={`/hoc/${main.id}/${next.id}`} className="btn btn-primary">
-              Vào học ▶
-            </Link>
-            <Link href={`/hoc/${main.id}`} className="btn btn-ghost">
-              Xem bản đồ
-            </Link>
-          </div>
-        </div>
+        </Link>
       </motion.section>
 
-      <section className="space-y-4">
-        <h2 className="font-display text-2xl font-extrabold">Môn học</h2>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {ready1.map((s) => (
-            <Link key={s.id} href={`/hoc/${s.id}`} className="card group overflow-hidden transition hover:-translate-y-1">
-              <Art id={s.cover} emoji={s.emoji} rounded="" className="aspect-[16/9] w-full" />
-              <div className="p-4">
-                <div className="flex items-center justify-between">
-                  <h3 className="font-display text-xl font-extrabold">{s.name}</h3>
-                  <span className="chip bg-mint-soft text-mint">Lớp {s.grade}</span>
+      <section className="space-y-5">
+        <h2 className="ribbon text-xl" style={{ ["--ribbon" as string]: "var(--color-mint)" }}>
+          Các môn học
+        </h2>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {live.map((s, k) => (
+            <motion.div key={s.id} initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05 * k }}>
+              <Link href={`/hoc/${s.id}`} className="group relative block overflow-hidden rounded-[2rem] shadow-[0_18px_40px_-22px_rgba(40,40,120,0.6)]">
+                <Art id={s.cover} emoji={s.emoji} rounded="" className="aspect-[4/3] w-full transition duration-500 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
+                <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-sm font-extrabold text-sky">Lớp {s.grade}</span>
+                <div className="absolute inset-x-0 bottom-0 p-4 text-white">
+                  <h3 className="font-display text-2xl font-extrabold drop-shadow">{s.name}</h3>
+                  <p className="text-sm text-white/90">{s.tagline}</p>
                 </div>
-                <p className="text-sm text-ink-soft">{s.tagline}</p>
-              </div>
-            </Link>
+              </Link>
+            </motion.div>
           ))}
-          {soon.map((s) => (
-            <div key={s.id} className="card relative overflow-hidden opacity-80">
-              <div className="grid aspect-[16/9] w-full place-items-center text-6xl" style={{ background: `${s.color}33` }}>
-                <span className="floaty">{s.emoji}</span>
+          {soon.map((s, k) => (
+            <motion.div
+              key={s.id}
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.05 * (k + live.length) }}
+              className="relative overflow-hidden rounded-[2rem]"
+            >
+              <Art id="subject-soon" emoji={s.emoji} rounded="" className="aspect-[4/3] w-full saturate-50" />
+              <div className="absolute inset-0 bg-white/35" />
+              <span className="absolute right-4 top-4 rounded-full bg-ink/80 px-3 py-1 text-xs font-bold text-white">Sắp ra mắt</span>
+              <div className="absolute inset-x-0 bottom-0 p-4">
+                <h3 className="font-display text-2xl font-extrabold text-ink text-outline">
+                  {s.emoji} {s.name} · Lớp {s.grade}
+                </h3>
+                <p className="text-sm font-bold text-ink-soft text-outline">{s.tagline}</p>
               </div>
-              <div className="p-4">
-                <div className="flex items-center justify-between">
-                  <h3 className="font-display text-xl font-extrabold">{s.name}</h3>
-                  <span className="chip bg-line text-ink-soft">Lớp {s.grade}</span>
-                </div>
-                <p className="text-sm text-ink-soft">{s.tagline}</p>
-              </div>
-              <span className="chip absolute right-3 top-3 bg-white/90 text-ink-soft">Sắp ra mắt</span>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
@@ -95,13 +106,10 @@ export default function Home() {
   );
 }
 
-function Stat({ label, value, icon, tone }: { label: string; value: number; icon: string; tone: string }) {
+function Stat({ value, label, icon, cls }: { value: number; label: string; icon: string; cls: string }) {
   return (
-    <div className={`rounded-2xl px-4 py-2 text-center ${tone}`}>
-      <div className="font-display text-xl font-extrabold">
-        {icon} {value}
-      </div>
-      <div className="text-xs text-ink-soft">{label}</div>
+    <div className={`flex items-center gap-1.5 rounded-full px-4 py-2 font-display text-lg font-extrabold shadow-[var(--shadow-pop)] ${cls}`}>
+      {icon} {value} <span className="text-sm font-bold opacity-80">{label}</span>
     </div>
   );
 }

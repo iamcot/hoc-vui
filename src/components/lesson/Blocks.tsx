@@ -21,7 +21,7 @@ export function BlockView({ b, device }: { b: Block; device?: "fx580" }) {
     case "keys":
       if (b.tryIt && device) return <TryIt keys={b.keys} result={b.result} label={b.label} />;
       return (
-        <div className="rounded-3xl border border-line bg-white p-4">
+        <div className="rounded-3xl bg-sky-soft/50 p-4">
           {b.label && <div className="mb-2 font-bold">{b.label}</div>}
           <div className="flex flex-wrap items-end gap-3">
             <KeySeq keys={b.keys} />
@@ -63,7 +63,7 @@ export function BlockView({ b, device }: { b: Block; device?: "fx580" }) {
 function InlineCheck({ q, device }: { q: Extract<Block, { type: "check" }>["question"]; device?: "fx580" }) {
   const [done, setDone] = useState(false);
   return (
-    <div className="rounded-3xl border border-line bg-white p-4 sm:p-5">
+    <div className="rounded-3xl bg-lilac/10 p-4 sm:p-5">
       <div className="chip mb-3 bg-lilac/20 text-lilac">✏️ Thử nhanh</div>
       {done ? <p className="font-bold text-mint">Xong rồi! Bấm Tiếp để đi tiếp nhé.</p> : <QuestionCard q={q} device={device} onNext={() => setDone(true)} />}
     </div>

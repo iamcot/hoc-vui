@@ -23,7 +23,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-dvh md:flex">
       {/* Thanh bên cho iPad ngang và laptop */}
-      <aside className="sticky top-0 hidden h-dvh w-60 shrink-0 flex-col gap-2 border-r border-line bg-white/70 p-4 backdrop-blur md:flex lg:w-64">
+      <aside className="sticky top-0 hidden h-dvh w-60 shrink-0 flex-col gap-2 bg-white/65 p-4 shadow-[8px_0_30px_-20px_rgba(40,40,120,0.4)] backdrop-blur-xl md:flex lg:w-64">
         <Link href="/" className="mb-4 flex items-center gap-2 px-2">
           <span className="grid h-10 w-10 place-items-center rounded-2xl bg-sky text-xl text-white shadow-[var(--shadow-pop)]">✦</span>
           <span className="font-display text-2xl font-extrabold tracking-tight">Học Vui</span>
@@ -41,7 +41,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             </Link>
           );
         })}
-        <div className="mt-auto flex items-center gap-3 rounded-2xl bg-cream p-3">
+        <div className="mt-auto flex items-center gap-3 rounded-2xl bg-white/70 p-3">
           <Avatar id={data.profile.avatar} size={40} />
           <div className="min-w-0 text-sm">
             <div className="truncate font-bold">{data.profile.name || "Bạn nhỏ"}</div>
@@ -55,7 +55,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       <main className="mx-auto w-full max-w-5xl flex-1 px-4 pb-28 pt-4 sm:px-6 md:pb-10 md:pt-8 lg:px-10">{children}</main>
 
       {/* Tab dưới đáy cho màn hẹp */}
-      <nav className="fixed inset-x-0 bottom-0 z-30 border-t border-line bg-white/90 pb-[env(safe-area-inset-bottom)] backdrop-blur md:hidden">
+      <nav className="fixed inset-x-0 bottom-0 z-30 bg-white/85 shadow-[0_-8px_30px_-20px_rgba(40,40,120,0.4)] pb-[env(safe-area-inset-bottom)] backdrop-blur md:hidden">
         <div className="mx-auto grid max-w-lg grid-cols-4">
           {TABS.map(({ href, label, Icon, match }) => {
             const on = match(path);

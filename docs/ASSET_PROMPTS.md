@@ -20,7 +20,7 @@ File này sinh tự động từ `src/content/assets.ts` bằng `npm run prompts
 - Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator
 - Xi Xi: a friendly anthropomorphic scientific calculator (dark navy body, light gray keys, small LCD screen showing a smile), tiny arms and legs
 
-## Ảnh (48)
+## Ảnh (49)
 
 ### ⬜ `mochi-happy.webp`
 - Dùng ở: Mochi vui vẻ: lời chào, slide mở đầu
@@ -71,39 +71,47 @@ Xi Xi: a friendly anthropomorphic scientific calculator (dark navy body, light g
 ```
 
 ### ⬜ `bg-home.webp`
-- Dùng ở: Nền màn hình Học (trang chủ), phía sau danh sách môn
-- Kích thước: 1024x1536
+- Dùng ở: Cảnh nền màn hình Học (trang chủ), tràn toàn màn hình phía sau nội dung
+- Kích thước: 1536x1024
 
 ```text
-Dreamy morning sky over a small hillside town with a cute school building, soft clouds, floating paper planes, empty space in the center for UI, portrait. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark.
+Wide landscape of a dreamy morning sky over gentle green hills and a cute small school building far away, soft clouds, floating paper planes, large calm empty sky area in the upper middle for text, low detail at the edges. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark.
 ```
 
 ### ⬜ `bg-map.webp`
-- Dùng ở: Nền bản đồ bài học của môn FX580
-- Kích thước: 1024x1536
+- Dùng ở: Cảnh nền bản đồ bài học FX580, phía sau con đường bài học
+- Kích thước: 1536x1024
 
 ```text
-Top-down storybook map with a winding pastel path across meadows, a river, a small bridge, a hill with a flag at the top, very soft and low contrast, empty path, portrait. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark.
+Wide storybook landscape seen slightly from above: meadows, a small river with a wooden bridge, scattered trees, a hill with a flag far away, very soft and low contrast so icons on top stay readable, no path drawn. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark.
+```
+
+### ⬜ `bg-lesson.webp`
+- Dùng ở: Cảnh nền khi học bài, luyện tập, kiểm tra (rất nhạt để đọc chữ)
+- Kích thước: 1536x1024
+
+```text
+Cozy study corner by a big window: wooden desk, a few books, a plant, warm afternoon light, background heavily blurred and very light, mostly empty bright space. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark.
 ```
 
 ### ⬜ `bg-arena.webp`
-- Dùng ở: Banner đầu trang Thi đấu
+- Dùng ở: Cảnh nền trang Thi đấu và phòng thi
 - Kích thước: 1536x1024
 
 ```text
-Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator and two friend animals (a fox and a bunny) racing with calculators on a sunny sports field, dynamic but gentle. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark.
+Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator and two friend animals (a fox and a bunny) racing with calculators on a sunny sports field with colorful flags, characters on the left third, open bright sky on the right for text, dynamic but gentle. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark.
 ```
 
 ### ⬜ `bg-leaderboard.webp`
-- Dùng ở: Banner đầu trang Xếp hạng
+- Dùng ở: Cảnh nền trang Xếp hạng
 - Kích thước: 1536x1024
 
 ```text
-A pastel podium with three small trophies, ribbons and stars, soft spotlight. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark.
+Festive outdoor stage at dusk with a podium of three steps, small trophies, bunting flags and twinkling stars, podium on the lower left, open sky for text. Soft anime illustration, gentle pastel palette (sky blue, peach, mint, cream), clean line art, soft cel shading, warm light, cozy and calm, child-friendly but not babyish, no text, no watermark.
 ```
 
 ### ⬜ `subject-fx580-cover.webp`
-- Dùng ở: Thẻ môn Máy tính FX580 ở trang chủ
+- Dùng ở: Ảnh lớn của môn Máy tính FX580 ở trang chủ (chữ đè lên phần dưới ảnh)
 - Kích thước: 1536x1024
 
 ```text

@@ -13,6 +13,7 @@ import { Mascot } from "@/components/Mascot";
 import { Art } from "@/components/Art";
 import { Confetti } from "@/components/Confetti";
 import { play } from "@/lib/sound";
+import { Scene } from "@/components/Scene";
 
 const COUNT = 15;
 const MINUTES = 12;
@@ -122,6 +123,7 @@ export function LevelTest({ subjectId }: { subjectId: string }) {
   const { level, pct, correct, byTopic } = result;
   return (
     <div className="min-h-dvh">
+      <Scene image="bg-lesson" variant="desk" dim />
       {pct >= 65 && <Confetti />}
       <main className="mx-auto max-w-4xl space-y-6 px-4 py-10 sm:px-6">
         <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="card grid items-center gap-6 p-6 sm:grid-cols-[200px_1fr] sm:p-8">

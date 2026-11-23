@@ -63,7 +63,7 @@ export function TryIt({ keys, result, label, onDone }: { keys: string[]; result?
   }
 
   return (
-    <div className="rounded-3xl border border-line bg-cream/60 p-4">
+    <div className="rounded-3xl bg-sky-soft/60 p-4">
       <div className="mb-3 flex flex-wrap items-center gap-2">
         <span className="font-display font-extrabold">🎯 {label ?? "Bấm theo"}</span>
         <div className="ml-auto inline-flex rounded-full bg-white p-1 text-sm font-bold shadow-sm">

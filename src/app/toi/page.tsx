@@ -8,6 +8,7 @@ import { getSupabase } from "@/lib/supabase";
 import { Avatar, AVATARS } from "@/components/Avatar";
 import { Mascot } from "@/components/Mascot";
 import { IconSound } from "@/components/Icons";
+import { Scene } from "@/components/Scene";
 
 export default function MePage() {
   const { data, session, online, setProfile, setSound, setCalcMode, signOut, streak, lesson } = useProgress();
@@ -16,7 +17,8 @@ export default function MePage() {
 
   return (
     <div className="space-y-6">
-      <h1 className="font-display text-3xl font-extrabold">Của tôi</h1>
+      <Scene variant="meadow" dim />
+      <h1 className="ribbon text-3xl">Của tôi</h1>
 
       <div className="grid gap-6 lg:grid-cols-2">
         <section className="card space-y-5 p-6">

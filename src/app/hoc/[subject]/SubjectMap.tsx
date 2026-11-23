@@ -6,7 +6,18 @@ import { useProgress } from "@/lib/store";
 import { Art } from "@/components/Art";
 import { IconBack, IconStar } from "@/components/Icons";
 import { Mascot } from "@/components/Mascot";
+import { Scene } from "@/components/Scene";
 import { LEVELS } from "@/lib/quiz";
+
+const OFFSETS = [0, 24, 0, -24]; // lệch ngang (%) để con đường uốn lượn
+const ROW = 150; // chiều cao mỗi chặng dừng (px)
+const UNIT_COLORS = ["var(--color-sky)", "var(--color-peach)", "var(--color-mint)", "var(--color-lilac)"];
+
+type Stop =
+  | { kind: "unit"; title: string; color: string }
+  | { kind: "lesson"; id: string; n: number; title: string; short: string; emoji: string; cover: string }
+  | { kind: "test" }
+  | { kind: "arena" };
 
 export function SubjectMap({ subjectId }: { subjectId: string }) {
   const s = getSubject(subjectId)!;
@@ -15,94 +26,132 @@ export function SubjectMap({ subjectId }: { subjectId: string }) {
   const currentId = (lessons.find((l) => lesson(s.id, l.id).stars === 0) ?? lessons[lessons.length - 1]).id;
   const test = data.tests[s.id];
   const level = test && LEVELS.find((l) => l.id === test.level);
+
+  const stops: Stop[] = [];
   let n = 0;
+  s.units.forEach((u, ui) => {
+    stops.push({ kind: "unit", title: u.title, color: UNIT_COLORS[ui % UNIT_COLORS.length] });
+    u.lessons.forEach((l) => stops.push({ kind: "lesson", id: l.id, n: ++n, title: l.title, short: l.short, emoji: l.emoji, cover: l.cover }));
+  });
+  stops.push({ kind: "test" }, { kind: "arena" });
+
+  // toạ độ các điểm dừng (bỏ qua băng rôn chặng)
+  let y = 0;
+  let k = 0;
+  const pos = stops.map((st) => {
+    if (st.kind === "unit") {
+      y += 90;
+      return { x: 50, y: y - 45 };
+    }
+    const p = { x: 50 + OFFSETS[k++ % OFFSETS.length], y: y + ROW / 2 };
+    y += ROW;
+    return p;
+  });
+  const height = y + 40;
+  const pts = pos.filter((_, i) => stops[i].kind !== "unit");
+  const path = pts.map((p, i) => (i === 0 ? `M ${p.x} ${p.y}` : `C ${pts[i - 1].x} ${pts[i - 1].y + ROW / 2}, ${p.x} ${p.y - ROW / 2}, ${p.x} ${p.y}`)).join(" ");
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
+      <Scene image="bg-map" variant="map" />
       <div className="flex items-center gap-3">
-        <Link href="/" className="grid h-11 w-11 place-items-center rounded-full bg-white shadow-[var(--shadow-soft)]" aria-label="Quay lại">
-          <IconBack className="h-5 w-5" />
+        <Link href="/" className="grid h-12 w-12 place-items-center rounded-full bg-white/90 shadow-[var(--shadow-pop)]" aria-label="Quay lại">
+          <IconBack className="h-6 w-6" />
         </Link>
-        <div>
-          <p className="text-sm text-ink-soft">Lớp {s.grade}</p>
-          <h1 className="font-display text-3xl font-extrabold">
-            {s.emoji} {s.name}
-          </h1>
-        </div>
+        <h1 className="ribbon text-2xl sm:text-3xl">
+          {s.emoji} {s.name} · Lớp {s.grade}
+        </h1>
       </div>
 
-      <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_300px]">
-        <div className="space-y-8">
-          {s.units.map((u) => (
-            <section key={u.id} className="card p-5 sm:p-7">
-              <h2 className="mb-5 font-display text-xl font-extrabold text-ink-soft">{u.title}</h2>
-              <ol className="relative space-y-4">
-                <span className="absolute bottom-6 left-[2.15rem] top-6 w-1 rounded-full bg-line" aria-hidden />
-                {u.lessons.map((l) => {
-                  n++;
-                  const st = lesson(s.id, l.id);
-                  const current = l.id === currentId;
-                  return (
-                    <motion.li key={l.id} initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-                      <Link
-                        href={`/hoc/${s.id}/${l.id}`}
-                        className={`relative flex items-center gap-4 rounded-3xl p-3 transition hover:bg-cream ${current ? "bg-sky-soft/60" : ""}`}
-                      >
-                        <span
-                          className={`relative z-10 grid h-14 w-14 shrink-0 place-items-center rounded-full text-2xl shadow-[var(--shadow-pop)] ${
-                            st.stars > 0 ? "bg-mint text-white" : current ? "pulse-ring bg-sky text-white" : "bg-white"
-                          }`}
-                        >
-                          {l.emoji}
-                        </span>
-                        <div className="min-w-0 flex-1">
-                          <div className="text-xs font-bold uppercase tracking-wide text-ink-soft">Bài {n}</div>
-                          <div className="font-display text-lg font-extrabold leading-tight">{l.title}</div>
-                          <div className="truncate text-sm text-ink-soft">{l.short}</div>
-                        </div>
-                        <div className="hidden w-24 shrink-0 sm:block">
-                          <Art id={l.cover} emoji={l.emoji} rounded="rounded-2xl" className="aspect-[3/2] w-full" />
-                        </div>
-                        <div className="flex shrink-0 gap-0.5 text-sun">
-                          {[1, 2, 3].map((i) => (
-                            <IconStar key={i} filled={st.stars >= i} className={`h-5 w-5 ${st.stars >= i ? "" : "text-line"}`} />
-                          ))}
-                        </div>
-                      </Link>
-                    </motion.li>
-                  );
-                })}
-              </ol>
-            </section>
-          ))}
-        </div>
+      <div className="relative mx-auto w-full max-w-3xl" style={{ height }}>
+        <svg className="absolute inset-0 h-full w-full" viewBox={`0 0 100 ${height}`} preserveAspectRatio="none" aria-hidden>
+          <path d={path} fill="none" stroke="white" strokeWidth="18" strokeLinecap="round" vectorEffect="non-scaling-stroke" opacity="0.85" />
+          <path d={path} fill="none" stroke="#f3c27a" strokeWidth="4" strokeDasharray="2 14" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
+        </svg>
 
-        <aside className="grid gap-4 sm:grid-cols-2 xl:sticky xl:top-8 xl:block xl:self-start xl:space-y-4">
-          <div className="card space-y-3 p-5">
-            <div className="flex items-center gap-3">
-              <Mascot mood="think" size={64} />
-              <div>
-                <h3 className="font-display text-lg font-extrabold">Kiểm tra trình độ</h3>
-                <p className="text-sm text-ink-soft">15 câu trộn các bài, khoảng 10 phút</p>
+        {stops.map((st, i) => {
+          const p = pos[i];
+          const labelLeft = p.x > 50;
+          const style = { left: `${p.x}%`, top: p.y };
+          if (st.kind === "unit") {
+            return (
+              <div key={i} className="absolute -translate-x-1/2 -translate-y-1/2 whitespace-nowrap" style={style}>
+                <span className="ribbon text-sm sm:text-base" style={{ ["--ribbon" as string]: st.color }}>
+                  {st.title}
+                </span>
               </div>
+            );
+          }
+          if (st.kind === "lesson") {
+            const prog = lesson(s.id, st.id);
+            const current = st.id === currentId;
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                className="absolute -translate-x-1/2 -translate-y-1/2"
+                style={style}
+              >
+                <Link href={`/hoc/${s.id}/${st.id}`} className="group relative block">
+                  <span
+                    className={`relative block h-24 w-24 overflow-hidden rounded-full border-[6px] shadow-[0_10px_24px_-8px_rgba(40,40,120,0.5)] transition group-hover:scale-105 sm:h-28 sm:w-28 ${
+                      prog.stars > 0 ? "border-mint" : current ? "pulse-ring border-sky" : "border-white"
+                    }`}
+                  >
+                    <Art id={st.cover} emoji={st.emoji} rounded="rounded-full" className="h-full w-full" />
+                  </span>
+                  <span className="absolute -bottom-3 left-1/2 flex -translate-x-1/2 gap-0.5 rounded-full bg-white px-2 py-0.5 shadow">
+                    {[1, 2, 3].map((v) => (
+                      <IconStar key={v} filled={prog.stars >= v} className={`h-4 w-4 ${prog.stars >= v ? "text-sun" : "text-line"}`} />
+                    ))}
+                  </span>
+                  <span
+                    className={`absolute top-1/2 w-28 -translate-y-1/2 sm:w-52 ${labelLeft ? "right-full mr-4 text-right" : "left-full ml-4"}`}
+                  >
+                    <span className="block text-xs font-extrabold uppercase tracking-wide text-ink-soft text-outline">Bài {st.n}</span>
+                    <span className="block font-display text-base font-extrabold leading-tight text-ink text-outline sm:text-xl">{st.title}</span>
+                    <span className="hidden text-sm font-semibold text-ink-soft text-outline sm:block">{st.short}</span>
+                  </span>
+                </Link>
+                {current && (
+                  <Mascot
+                    mood="cheer"
+                    size={64}
+                    className={`floaty pointer-events-none absolute -top-10 ${labelLeft ? "-left-12" : "-right-12"} drop-shadow`}
+                  />
+                )}
+              </motion.div>
+            );
+          }
+          if (st.kind === "test") {
+            return (
+              <div key={i} className="absolute -translate-x-1/2 -translate-y-1/2" style={style}>
+                <Link href={`/hoc/${s.id}/kiem-tra`} className="group relative block">
+                  <span className="grid h-28 w-28 place-items-center rounded-full border-[6px] border-white bg-peach text-5xl shadow-[0_10px_24px_-8px_rgba(40,40,120,0.5)] transition group-hover:scale-105">
+                    {level ? level.emoji : "🏅"}
+                  </span>
+                  <span className={`absolute top-1/2 w-40 -translate-y-1/2 sm:w-52 ${labelLeft ? "right-full mr-4 text-right" : "left-full ml-4"}`}>
+                    <span className="block font-display text-xl font-extrabold text-ink text-outline">Kiểm tra trình độ</span>
+                    <span className="block text-sm font-semibold text-ink-soft text-outline">{level ? `Lần trước: ${level.name} (${test!.pct}%)` : "15 câu, khoảng 12 phút"}</span>
+                  </span>
+                </Link>
+              </div>
+            );
+          }
+          return (
+            <div key={i} className="absolute -translate-x-1/2 -translate-y-1/2" style={style}>
+              <Link href={`/thi-dau?mon=${s.id}`} className="group relative block">
+                <span className="grid h-28 w-28 place-items-center rounded-full border-[6px] border-white bg-mint text-5xl shadow-[0_10px_24px_-8px_rgba(40,40,120,0.5)] transition group-hover:scale-105">⚡</span>
+                <span className={`absolute top-1/2 w-40 -translate-y-1/2 sm:w-52 ${labelLeft ? "right-full mr-4 text-right" : "left-full ml-4"}`}>
+                  <span className="block font-display text-xl font-extrabold text-ink text-outline">Thi đấu cùng bạn</span>
+                  <span className="block text-sm font-semibold text-ink-soft text-outline">Tạo phòng, gửi mã, cùng làm một đề</span>
+                </span>
+              </Link>
             </div>
-            {level && (
-              <div className="rounded-2xl bg-mint-soft p-3 text-sm">
-                Lần gần nhất: <b>{level.emoji} {level.name}</b> ({test!.pct}%)
-              </div>
-            )}
-            <Link href={`/hoc/${s.id}/kiem-tra`} className="btn btn-peach w-full">
-              Làm bài kiểm tra
-            </Link>
-          </div>
-          <div className="card space-y-3 p-5">
-            <h3 className="font-display text-lg font-extrabold">⚡ Thi đấu cùng bạn</h3>
-            <p className="text-sm text-ink-soft">Tạo phòng, gửi mã cho bạn, cùng làm một đề xem ai nhanh hơn.</p>
-            <Link href={`/thi-dau?mon=${s.id}`} className="btn btn-mint w-full">
-              Vào đấu trường
-            </Link>
-          </div>
-        </aside>
+          );
+        })}
       </div>
     </div>
   );

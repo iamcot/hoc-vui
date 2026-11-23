@@ -3,10 +3,10 @@ import { useState } from "react";
 import { hasFile, imageById, resolveFile } from "@/content/assets";
 
 const PALETTES = [
-  ["#e6ecff", "#fff0e8"],
-  ["#e2f7f0", "#e6ecff"],
-  ["#fff6dc", "#ffe8ee"],
-  ["#f0e9ff", "#e2f7f0"],
+  ["#9fb6ff", "#ffc7ae"],
+  ["#8fe3c6", "#a9c2ff"],
+  ["#ffd77a", "#ffadc2"],
+  ["#c3b0ff", "#93e4cb"],
 ];
 
 /**
