@@ -13,6 +13,7 @@
 //   OPENAI_API_KEY=sk-...
 //   ELEVENLABS_API_KEY=...
 //   ELEVENLABS_VOICE_ID=...        giọng đọc tiếng Việt chọn trong Voice Library
+//   ELEVENLABS_MODEL=eleven_multilingual_v2  (mặc định, đọc được tiếng Việt; hoặc eleven_v3, eleven_flash_v2_5)
 //   OPENAI_IMAGE_MODEL=gpt-image-1 (tùy chọn)
 //
 // File tạo ra nằm ở assets-src/<id>.png | .mp3, sau đó script tự chạy convert-assets (PNG → WebP vào
@@ -141,7 +142,7 @@ const total = images.reduce((s, a) => s + imgCost(a), 0);
 const chars = audio.reduce((s, a) => s + a.prompt.length, 0);
 console.log(`Ảnh: ${images.length} (model ${IMAGE_MODEL}, chất lượng ${QUALITY}, ước tính ~$${total.toFixed(2)})`);
 for (const a of images) console.log(`  ⬜ ${a.id}.png  ${a.size}${a.transparent ? " trong suốt" : ""}${refsFor(a).length ? "  ← " + refsFor(a).map((r) => basename(r)).join(", ") : ""}`);
-console.log(`Âm thanh: ${audio.length} (ElevenLabs, khoảng ${chars} ký tự lời đọc/prompt)`);
+console.log(`Âm thanh: ${audio.length} (ElevenLabs, giọng đọc dùng model ${VOICE_MODEL}, khoảng ${chars} ký tự lời đọc/prompt)`);
 for (const a of audio) console.log(`  ⬜ ${a.id}.mp3  ${a.kind}`);
 
 if (DRY) {

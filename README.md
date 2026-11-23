@@ -49,6 +49,8 @@ Chạy trên máy của bạn (cần Node 20+, `npm install` một lần).
    ```
    ELEVENLABS_API_KEY=...
    ELEVENLABS_VOICE_ID=...
+   # tùy chọn, mặc định eleven_multilingual_v2 (đọc được tiếng Việt). Có thể đổi sang eleven_v3 hoặc eleven_flash_v2_5
+   ELEVENLABS_MODEL=eleven_multilingual_v2
    ```
 3. `npm run gen-assets -- --audio --dry-run` để xem danh sách, rồi `npm run gen-assets -- --audio` để tạo.
 
