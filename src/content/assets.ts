@@ -10,6 +10,19 @@ import { TAPDOC_VOICES } from "./subjects/tap-doc/voices";
 export const STYLE =
   "Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark";
 
+/**
+ * Phong cách cho lớp lớn (8, 9 trở lên, và các môn cho tuổi teen): anime trưởng thành hơn, chất công nghệ.
+ * Giữ cùng bảng màu để app vẫn liền mạch, nhưng nền tối hơn, ánh neon, giao diện hologram.
+ */
+export const STYLE_TEEN =
+  "Modern anime illustration for teenagers aged 13 to 15, cinematic lighting, clean sharp line art, cel shading with subtle gradients, cool tech vibe with floating holographic UI panels and soft neon glow. Color palette: sky blue #4F72FF, mint #22B98C and lilac #9B7BFF neon accents over deep navy #1B1F3B and slate tones, a touch of coral #FF8A5C. Stylish and confident, not cute, not babyish, no text, no letters, no numbers, no watermark";
+
+/** Nhân vật cho lớp lớn: một bạn teen và Mochi phiên bản "ngầu" đi cùng */
+export const TEEN =
+  "a confident anime teen student about 14 years old, gender-neutral look, short dark hair, navy hoodie with subtle circuit patterns, headphones around the neck";
+export const MOCHI_TEEN = "Mochi: a sleek white cat with glowing teal eyes and a light-blue scarf, cool and calm, perched on the student's shoulder";
+export const XIXI_TEEN = "a futuristic scientific calculator with a glowing holographic display projecting light above it";
+
 export const MOCHI =
   "Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator";
 
@@ -35,13 +48,15 @@ export interface AudioAsset {
   prompt: string;
 }
 
-const img = (id: string, size: ImageAsset["size"], usage: string, prompt: string, transparent = false): ImageAsset => ({
+/** ảnh phong cách lớp lớn */
+const teen = (id: string, usage: string, prompt: string) => img(id, "1536x1024", usage, `${prompt}. Characters: ${TEEN}; ${MOCHI_TEEN}`, false, STYLE_TEEN);
+const img = (id: string, size: ImageAsset["size"], usage: string, prompt: string, transparent = false, style = STYLE): ImageAsset => ({
   id,
   file: `/assets/img/${id}.webp`,
   size,
   usage,
   transparent,
-  prompt: `${prompt}. ${STYLE}${transparent ? ", isolated on a fully transparent background" : ""}.`,
+  prompt: `${prompt}. ${style}${transparent ? ", isolated on a fully transparent background" : ""}.`,
 });
 
 export const IMAGES: ImageAsset[] = [
@@ -94,21 +109,19 @@ export const IMAGES: ImageAsset[] = [
   img("fx7-l05-cover", "1536x1024", "Lớp 7 · Bìa bài 5: Đại lượng tỉ lệ", `${MOCHI} and three animal friends sharing a big layered cake cut into slices of different sizes, a stack of notebooks nearby`),
   img("fx7-l06-cover", "1536x1024", "Lớp 7 · Bìa bài 6: Thống kê", `${MOCHI} presenting a big colorful pie chart and a simple bar chart on a classroom easel, ${XIXI} pointing at the chart`),
 
-  // Trình độ lớp 8
-  img("fx8-l01-cover", "1536x1024", "Lớp 8 · Bìa bài 1: Giá trị đa thức", `${MOCHI} in a small lab coat pouring a glowing number into a bubbling flask labeled only with a big x shape, colorful potion bottles around`),
-  img("fx8-l02-cover", "1536x1024", "Lớp 8 · Bìa bài 2: Hằng đẳng thức", `${MOCHI} as a little wizard with a star wand, a big square split into four colored tiles (two squares and two rectangles) floating and glowing`),
-  img("fx8-l03-cover", "1536x1024", "Lớp 8 · Bìa bài 3: Phương trình bậc nhất", `${MOCHI} holding a golden key in front of a treasure chest on a balance scale, ${XIXI} cheering`),
-  img("fx8-l04-cover", "1536x1024", "Lớp 8 · Bìa bài 4: Định lí Pythagore", `${MOCHI} standing next to a big right triangle made of garden fences, three square flower beds attached to its three sides`),
-  img("fx8-l05-cover", "1536x1024", "Lớp 8 · Bìa bài 5: Hàm số bậc nhất", `${MOCHI} riding a small taxi along a straight road climbing up a gentle hill like a rising line, kilometer posts along the road`),
-  img("fx8-l06-cover", "1536x1024", "Lớp 8 · Bìa bài 6: Xác suất", `${MOCHI} rolling a big six-sided die and tossing a coin, a glass jar with red, blue and yellow marbles on the table`),
-
-  // Trình độ lớp 9
-  img("fx9-l01-cover", "1536x1024", "Lớp 9 · Bìa bài 1: Căn bậc hai, căn bậc ba", `${MOCHI} next to a stack of building blocks forming a perfect cube, a big tree with deep roots growing beside it`),
-  img("fx9-l02-cover", "1536x1024", "Lớp 9 · Bìa bài 2: Hệ phương trình", `${MOCHI} as a little detective with a magnifying glass, two crossing paths on a treasure map meeting at one glowing point`),
-  img("fx9-l03-cover", "1536x1024", "Lớp 9 · Bìa bài 3: Phương trình bậc hai", `${MOCHI} and ${XIXI} riding a roller coaster whose track is a smooth U-shaped parabola, crossing the ground at two points`),
-  img("fx9-l04-cover", "1536x1024", "Lớp 9 · Bìa bài 4: Tỉ số lượng giác", `${MOCHI} climbing a ladder leaning against a tree house, the ladder, wall and ground forming a right triangle, a small protractor arc at the ground angle`),
-  img("fx9-l05-cover", "1536x1024", "Lớp 9 · Bìa bài 5: Đường tròn", `${MOCHI} sharing a round pizza cut into neat slices, a measuring tape wrapped around the pizza edge`),
-  img("fx9-l06-cover", "1536x1024", "Lớp 9 · Bìa bài 6: Hình trụ, nón, cầu", `${MOCHI} at a picnic table with a can of juice (cylinder), an ice cream cone and a beach ball (sphere)`),
+  // Trình độ lớp 8, 9: phong cách teen, công nghệ (STYLE_TEEN)
+  teen("fx8-l01-cover", "Lớp 8 · Bìa bài 1: Giá trị đa thức", `The student in a high-tech lab inserting a glowing value into a floating holographic machine, curved data streams flowing out the other side, ${XIXI_TEEN} on the desk`),
+  teen("fx8-l02-cover", "Lớp 8 · Bìa bài 2: Hằng đẳng thức", "The student casting a glowing spell from fingertips, a large square splitting into four neon tiles (two squares, two rectangles) that rearrange in mid-air"),
+  teen("fx8-l03-cover", "Lớp 8 · Bìa bài 3: Phương trình bậc nhất", "The student at night in front of a futuristic vault door with a glowing balance-scale lock, reaching out to turn a holographic dial, city lights behind"),
+  teen("fx8-l04-cover", "Lớp 8 · Bìa bài 4: Định lí Pythagore", "The student standing on a rooftop at dusk next to a giant glowing right triangle made of light beams, three translucent square panels attached to its sides"),
+  teen("fx8-l05-cover", "Lớp 8 · Bìa bài 5: Hàm số bậc nhất", "The student riding an electric scooter along a straight neon road rising across a dark grid like a graph line, distance markers glowing along the road"),
+  teen("fx8-l06-cover", "Lớp 8 · Bìa bài 6: Xác suất", "The student flicking a glowing coin into the air while a translucent die spins mid-air, faint probability arcs and particles around, game-arcade lighting"),
+  teen("fx9-l01-cover", "Lớp 9 · Bìa bài 1: Căn bậc hai, căn bậc ba", "The student examining a glowing translucent cube built from smaller cubes floating above an open palm, a digital tree with deep luminous roots in the background"),
+  teen("fx9-l02-cover", "Lớp 9 · Bìa bài 2: Hệ phương trình", "The student as a sharp detective in a dark room studying a holographic map where two neon lines cross at one bright point"),
+  teen("fx9-l03-cover", "Lớp 9 · Bìa bài 3: Phương trình bậc hai", "The student riding a sleek roller coaster whose track is a smooth glowing U-shaped parabola crossing a neon ground line at two points, night sky"),
+  teen("fx9-l04-cover", "Lớp 9 · Bìa bài 4: Tỉ số lượng giác", "The student on a rooftop aiming a futuristic rangefinder at a tall tower, a glowing right triangle and angle arc projected between them"),
+  teen("fx9-l05-cover", "Lớp 9 · Bìa bài 5: Đường tròn", "The student standing inside a huge glowing circular ring of light, holographic arcs and a sector highlighted in mint, sci-fi plaza at night"),
+  teen("fx9-l06-cover", "Lớp 9 · Bìa bài 6: Hình trụ, nón, cầu", "The student in a design studio with three holographic wireframe solids floating above the desk: a cylinder, a cone and a sphere, soft neon lighting"),
 
   // Môn Tập đọc: ít tranh, chữ là chính
   img("subject-tapdoc-cover", "1536x1024", "Ảnh lớn của môn Tập đọc ở trang chủ (chữ đè lên phần dưới ảnh)", `${MOCHI.replace(", wearing a small yellow backpack shaped like a calculator", "")}, sitting on a stack of big picture books, holding an open book, a few large soft wooden alphabet blocks around (blank faces, no letters), warm reading nook`),

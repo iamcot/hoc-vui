@@ -1,6 +1,6 @@
 // In danh sách prompt ảnh/âm thanh ra docs/ASSET_PROMPTS.md. Chạy: npm run prompts
 import { writeFileSync } from "node:fs";
-import { AUDIO, IMAGES, MOCHI, STYLE, TAPDOC_AUDIO, VOICE_SETTINGS, XIXI, hasFile } from "@/content/assets";
+import { AUDIO, IMAGES, MOCHI, STYLE, STYLE_TEEN, TAPDOC_AUDIO, VOICE_SETTINGS, XIXI, hasFile } from "@/content/assets";
 
 const lines: string[] = [];
 const done = (f: string) => (hasFile(f) ? "✅" : "⬜");
@@ -12,7 +12,7 @@ lines.push("2. Đặt file vào `public/assets/img/` với **đúng tên** (đu�
 lines.push("3. **Âm thanh (ElevenLabs):** hiệu ứng dùng *Sound Effects*, lời đọc dùng *Text to Speech*. Lưu `.mp3` đúng tên vào `public/assets/sfx/` hoặc `public/assets/voice/`.");
 lines.push("4. Chạy `npm run dev` (hoặc deploy lại) là app tự dùng file mới; file nào chưa có thì app hiện hình thay thế.", "");
 lines.push("**Giữ nhân vật đồng nhất:** tạo `mochi-happy` trước, sau đó đính kèm ảnh đó vào ChatGPT khi tạo các ảnh khác có Mochi và nói \"same character as the attached image\".", "");
-lines.push("### Phong cách chung (đã gắn sẵn vào cuối mỗi prompt)", "", "> " + STYLE, "");
+lines.push("### Phong cách chung (đã gắn sẵn vào cuối mỗi prompt)", "", "> " + STYLE, "", "### Phong cách lớp lớn (lớp 8, 9 trở lên): anime trưởng thành, chất công nghệ", "", "> " + STYLE_TEEN, "");
 lines.push("### Nhân vật", "", `- ${MOCHI}`, `- ${XIXI}`, "");
 
 lines.push(`## Ảnh (${IMAGES.length})`, "");
