@@ -17,7 +17,12 @@ export type Block =
   /** dãy tiếng/từ nhỏ, chạm để nghe */
   | { type: "say"; items: string[]; label?: string }
   /** bé đọc to, máy nghe và chấm */
-  | { type: "read"; text: string; strict?: boolean; label?: string };
+  | { type: "read"; text: string; strict?: boolean; label?: string }
+  // ── môn Gõ phím ──
+  /** bàn phím có màu theo ngón, sáng các phím của bài */
+  | { type: "keyboard"; keys: string; focus?: string; label?: string }
+  /** gõ thử một dòng ngay trong slide */
+  | { type: "drill"; text: string; label?: string; keys?: string; focus?: string };
 
 export interface LetterItem {
   g: string;
@@ -39,7 +44,8 @@ export interface Slide {
 }
 
 /** read: bé đọc to câu trong `answer`, máy nghe chấm (môn Tập đọc) */
-export type AnswerKind = "number" | "fraction" | "choice" | "pair" | "read";
+/** type: bé gõ lại dòng chữ trong `answer` (môn Gõ phím), đúng từ 90% ký tự là đạt */
+export type AnswerKind = "number" | "fraction" | "choice" | "pair" | "read" | "type";
 
 export interface Question {
   id: string;
@@ -72,6 +78,21 @@ export interface Question {
 
 export type QuestionGen = (rng: Rng) => Question;
 
+/** Môn Gõ phím: dữ liệu cho trò chơi cá mập của một bài */
+export interface TypingSpec {
+  /** các phím bài này được dùng (chữ thường) */
+  keys: string;
+  /** phím mới của bài: hay xuất hiện hơn, sáng trên bàn phím */
+  focus?: string;
+  /** "key": mỗi con cá mang 1-3 ký tự sinh từ `keys`; "word": mỗi con cá một từ trong `words` */
+  unit: "key" | "word";
+  words?: string[];
+  /** số cá trong một lượt luyện tập */
+  count?: number;
+  /** tốc độ cá (1 = chậm nhất) */
+  speed?: number;
+}
+
 export interface Lesson {
   id: string;
   title: string;
@@ -85,6 +106,8 @@ export interface Lesson {
   slides: Slide[];
   /** các dạng bài luyện tập của bài này */
   practice: QuestionGen[];
+  /** môn Gõ phím: luyện tập là trò chơi cá mập thay cho câu hỏi */
+  typing?: TypingSpec;
 }
 
 export interface Unit {
@@ -124,7 +147,13 @@ export interface Subject {
   color: string;
   cover: string;
   /** thiết bị ảo dùng trong bài (vd. bàn phím máy tính) */
-  device?: "fx580";
+  device?: "fx580" | "keyboard";
+  /** nhân vật dẫn chuyện (mặc định Mochi) */
+  mascot?: "mochi" | "bit";
+  /** cảnh nền riêng của môn; "cyber" = tông tối, neon (môn cho bé lớn) */
+  look?: { theme?: "cyber"; map?: string; lesson?: string };
+  /** chế độ chơi thêm hiện trên đầu bản đồ (vd. sinh tồn, bài gõ hay) */
+  modes?: { id: string; name: string; short: string; emoji: string; href: string; icon?: string }[];
   tiers: Tier[];
   ready: boolean;
 }

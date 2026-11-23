@@ -1,9 +1,9 @@
 "use client";
 import { imageById, resolveFile } from "@/content/assets";
 
-type Variant = "meadow" | "map" | "arena" | "desk" | "night";
+type Variant = "meadow" | "map" | "arena" | "desk" | "night" | "deep";
 
-const PAL: Record<Variant, { sky: [string, string]; hills: string[]; sun: string }> = {
+const PAL: Record<Exclude<Variant, "deep">, { sky: [string, string]; hills: string[]; sun: string }> = {
   meadow: { sky: ["#8fd0ff", "#fff1dc"], hills: ["#b8e8b0", "#86d39a", "#5fc28a"], sun: "#ffd966" },
   map: { sky: ["#a7e2ff", "#e9fbe6"], hills: ["#c9efb9", "#9fdea0", "#78cc90"], sun: "#ffe08a" },
   arena: { sky: ["#7fb6ff", "#ffe2c7"], hills: ["#ffd0a8", "#ffb48a", "#ff9a7a"], sun: "#fff2a8" },
@@ -18,6 +18,20 @@ const PAL: Record<Variant, { sky: [string, string]; hills: string[]; sun: string
 export function Scene({ image, variant = "meadow", fixed = true, dim = false }: { image?: string; variant?: Variant; fixed?: boolean; dim?: boolean }) {
   const asset = image ? imageById(image) : undefined;
   const src = asset ? resolveFile(asset.file) : undefined;
+  if (variant === "deep") {
+    // môn cho bé lớn: biển sâu neon (ảnh thật nếu có, không thì gradient + tia sáng)
+    return (
+      <div className={`${fixed ? "fixed left-0 top-0 h-lvh w-full" : "absolute inset-0"} deep-sea -z-10 overflow-hidden`} aria-hidden>
+        {src && (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={src} alt="" className="block h-full w-full object-cover" />
+        )}
+        <div className="light-rays absolute inset-0" />
+        <div className="cyber-grid absolute inset-x-0 bottom-0 h-1/3" />
+        {dim && <div className="absolute inset-0 bg-[#030a24]/40" />}
+      </div>
+    );
+  }
   const p = PAL[variant];
   return (
     <div className={`${fixed ? "fixed left-0 top-0 h-lvh w-full" : "absolute inset-0"} -z-10 overflow-hidden`} aria-hidden>

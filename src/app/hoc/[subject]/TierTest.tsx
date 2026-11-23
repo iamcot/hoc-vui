@@ -23,6 +23,7 @@ import { Scene } from "@/components/Scene";
  */
 export function TierTest({ subjectId, tierId, mode }: { subjectId: string; tierId: string; mode: "level" | "challenge" }) {
   const s = getSubject(subjectId)!;
+  const cyber = s.look?.theme === "cyber";
   const tier = getTier(s, tierId)!;
   const nextTier = s.tiers[s.tiers.indexOf(tier) + 1];
   const lessons = tierLessons(tier);
@@ -93,10 +94,11 @@ export function TierTest({ subjectId, tierId, mode }: { subjectId: string; tierI
 
   if (phase === "intro") {
     return (
-      <div className="min-h-dvh">
+      <div className={`min-h-dvh ${cyber ? "theme-cyber" : ""}`}>
+        {cyber && <Scene image={s.look?.lesson} variant="deep" />}
         <QuizHeader closeHref={mapHref} done={0} total={COUNT} />
         <main className="mx-auto grid max-w-4xl items-center gap-8 px-4 py-10 sm:px-6 md:grid-cols-2">
-          <Mascot mood="think" size={220} className="floaty mx-auto" />
+          <Mascot who={s.mascot} mood="think" size={220} className="floaty mx-auto" />
           <div className="space-y-4">
             {mode === "challenge" ? (
               <>
@@ -133,7 +135,8 @@ export function TierTest({ subjectId, tierId, mode }: { subjectId: string; tierI
     const mm = Math.max(0, Math.floor(left / 60));
     const ss = String(Math.max(0, left % 60)).padStart(2, "0");
     return (
-      <div className="min-h-dvh">
+      <div className={`min-h-dvh ${cyber ? "theme-cyber" : ""}`}>
+        {cyber && <Scene image={s.look?.lesson} variant="deep" />}
         <QuizHeader
           closeHref={mapHref}
           done={answers.length}
@@ -155,7 +158,7 @@ export function TierTest({ subjectId, tierId, mode }: { subjectId: string; tierI
       <main className="mx-auto max-w-4xl space-y-6 px-4 py-10 sm:px-6">
         {mode === "challenge" ? (
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="card grid items-center gap-6 p-6 sm:grid-cols-[200px_1fr] sm:p-8">
-            <Mascot mood={correct >= ch.pass ? "cheer" : "oops"} size={180} className="floaty mx-auto" />
+            <Mascot who={s.mascot} mood={correct >= ch.pass ? "cheer" : "oops"} size={180} className="floaty mx-auto" />
             <div className="space-y-2 text-center sm:text-left">
               <p className="text-ink-soft">Thử thách lên {nextTier?.name}</p>
               <h1 className="font-display text-4xl font-extrabold">{correct >= ch.pass ? `🎉 Đã mở ${nextTier?.name}!` : correct >= ch.pass - 2 ? "Suýt nữa rồi!" : "Chưa qua lần này"}</h1>

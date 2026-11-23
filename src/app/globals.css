@@ -195,3 +195,150 @@ button {
 @media (prefers-reduced-motion: reduce) {
   .cloud-a, .cloud-b { animation: none; }
 }
+
+/* ───────── Môn Gõ phím: tông biển sâu neon ───────── */
+.deep-sea {
+  background: radial-gradient(120% 80% at 70% 0%, #1b3f8f 0%, #0b1a52 38%, #050c2c 72%, #02061a 100%);
+}
+.light-rays {
+  background: repeating-linear-gradient(105deg, rgb(120 220 255 / 0.07) 0 40px, transparent 40px 120px);
+  mask-image: linear-gradient(to bottom, black, transparent 70%);
+  animation: rays 12s ease-in-out infinite alternate;
+}
+@keyframes rays {
+  to {
+    transform: translateX(-60px);
+  }
+}
+.bubble-up {
+  position: absolute;
+  bottom: -20px;
+  border-radius: 9999px;
+  border: 1.5px solid rgb(180 240 255 / 0.5);
+  background: rgb(180 240 255 / 0.08);
+  animation: bubble-up linear infinite;
+}
+@keyframes bubble-up {
+  to {
+    transform: translateY(-110vh) translateX(20px);
+    opacity: 0;
+  }
+}
+.swim {
+  animation: swim 0.9s ease-in-out infinite alternate;
+}
+@keyframes swim {
+  to {
+    transform: translateY(4px) rotate(-2deg);
+  }
+}
+.blink {
+  animation: blink 1.4s ease-in-out infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0.35;
+  }
+}
+.reticle {
+  position: absolute;
+  inset: -10%;
+  border: 2px dashed #ff4fa3;
+  border-radius: 9999px;
+  animation: spin 4s linear infinite;
+  box-shadow: 0 0 18px rgb(255 79 163 / 0.6);
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.laser {
+  background: linear-gradient(90deg, #fff, #2fd3ff 30%, #ff4fa3);
+  box-shadow: 0 0 16px 4px rgb(47 211 255 / 0.8);
+}
+.hud-chip {
+  display: inline-flex;
+  gap: 0.15rem;
+  border-radius: 0.9rem;
+  background: rgb(6 16 46 / 0.6);
+  padding: 0.35rem 0.7rem;
+  box-shadow: inset 0 0 0 1px rgb(47 211 255 / 0.35);
+  backdrop-filter: blur(6px);
+}
+.cyber-panel {
+  background: linear-gradient(160deg, rgb(16 28 84 / 0.92), rgb(6 12 40 / 0.92));
+  color: #fff;
+  box-shadow: 0 0 0 1px rgb(47 211 255 / 0.35), 0 20px 60px -20px rgb(47 211 255 / 0.45);
+  backdrop-filter: blur(10px);
+}
+.caret {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  margin: 0 1px -0.15em;
+  background: #ff4fa3;
+  animation: blink 0.9s steps(2) infinite;
+}
+.key-next {
+  animation: key-pulse 0.9s ease-in-out infinite;
+}
+@keyframes key-pulse {
+  50% {
+    transform: translateY(1px) scale(0.96);
+  }
+}
+.cyber-grid {
+  background-image: linear-gradient(rgb(47 211 255 / 0.18) 1px, transparent 1px), linear-gradient(90deg, rgb(47 211 255 / 0.18) 1px, transparent 1px);
+  background-size: 48px 48px;
+  transform: perspective(400px) rotateX(55deg);
+  transform-origin: bottom;
+  mask-image: linear-gradient(to top, black, transparent);
+}
+/* môn tông tối: thẻ giấy mờ đổi sang kính tối */
+.theme-cyber .card {
+  background: rgb(10 18 60 / 0.72);
+  color: #eaf6ff;
+  box-shadow: 0 0 0 1px rgb(47 211 255 / 0.28), 0 20px 60px -24px rgb(47 211 255 / 0.5);
+}
+.theme-cyber .text-ink-soft {
+  color: rgb(190 220 255 / 0.85);
+}
+.theme-cyber .text-ink {
+  color: #f2f8ff;
+}
+.theme-cyber .bg-sun-soft {
+  background: rgb(255 176 32 / 0.16);
+}
+.theme-cyber .bg-peach-soft {
+  background: rgb(255 79 163 / 0.16);
+}
+.theme-cyber .text-outline {
+  text-shadow: 0 0 12px rgb(47 211 255 / 0.35);
+}
+.theme-cyber .bg-white\/75,
+.theme-cyber .bg-white\/80,
+.theme-cyber .bg-white\/90,
+.theme-cyber .bg-white\/60 {
+  background: rgb(8 16 52 / 0.78);
+  color: #eaf6ff;
+  box-shadow: 0 0 0 1px rgb(47 211 255 / 0.3);
+}
+.theme-cyber .btn-ghost {
+  background: rgb(8 16 52 / 0.8);
+  color: #eaf6ff;
+  border-color: rgb(47 211 255 / 0.4);
+}
+.theme-cyber .bg-sky {
+  background: linear-gradient(120deg, #1d6dff, #7c4dff);
+  box-shadow: 0 0 24px -4px rgb(47 211 255 / 0.7);
+}
+.theme-cyber .ribbon {
+  text-shadow: 0 0 8px rgb(0 0 0 / 0.3);
+}
+.theme-cyber {
+  color: #eaf6ff;
+}
+.theme-cyber .border-white {
+  border-color: #23357d;
+}

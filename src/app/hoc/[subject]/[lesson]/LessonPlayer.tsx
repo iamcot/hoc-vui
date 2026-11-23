@@ -26,7 +26,18 @@ export function LessonPlayer({ subjectId, lessonId }: { subjectId: string; lesso
   const [dir, setDir] = useState(1);
   const total = lesson.slides.length;
   const finished = i >= total;
-  const slide = lesson.slides[Math.min(i, total - 1)];
+  const raw = lesson.slides[Math.min(i, total - 1)];
+  // môn Gõ phím: slide có ô gõ thử thì bàn phím đi kèm ô gõ (sáng phím cần gõ tiếp), không vẽ hai bàn phím
+  const slide = (() => {
+    const kb = raw.blocks.find((b) => b.type === "keyboard");
+    if (!kb || !raw.blocks.some((b) => b.type === "drill")) return raw;
+    return {
+      ...raw,
+      blocks: raw.blocks
+        .filter((b) => b !== kb)
+        .map((b) => (b.type === "drill" ? { ...b, keys: b.keys ?? kb.keys, focus: b.focus ?? kb.focus, label: b.label ?? kb.label } : b)),
+    };
+  })();
 
   useEffect(() => {
     if (finished) {
@@ -50,8 +61,8 @@ export function LessonPlayer({ subjectId, lessonId }: { subjectId: string; lesso
   };
 
   return (
-    <div className="flex min-h-dvh flex-col">
-      <Scene image="bg-lesson" variant="desk" dim />
+    <div className={`flex min-h-dvh flex-col ${subject.look?.theme === "cyber" ? "theme-cyber" : ""}`}>
+      <Scene image={subject.look?.lesson ?? "bg-lesson"} variant={subject.look?.theme === "cyber" ? "deep" : "desk"} dim={subject.look?.theme !== "cyber"} />
       <header className="sticky top-0 z-20 bg-white/60 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center gap-3 px-4 py-3 sm:px-6">
           <Link href={`/hoc/${subject.id}?cap=${tier.id}`} className="grid h-10 w-10 place-items-center rounded-full bg-white shadow-sm" aria-label="Đóng bài học">
@@ -81,7 +92,7 @@ export function LessonPlayer({ subjectId, lessonId }: { subjectId: string; lesso
               className="space-y-4 [@media(max-height:700px)]:space-y-2"
             >
               <div className="flex items-center gap-3">
-                <Mascot mood={slide.mood} size={72} className="floaty shrink-0 [@media(max-height:700px)]:hidden" />
+                <Mascot who={subject.mascot} mood={slide.mood} size={72} className="floaty shrink-0 [@media(max-height:700px)]:hidden" />
                 <div className="min-w-0">
                   <div className="text-sm font-bold text-ink-soft">
                     Bài {index + 1} · {i + 1}/{total}
@@ -150,7 +161,7 @@ export function LessonPlayer({ subjectId, lessonId }: { subjectId: string; lesso
           ) : (
             <motion.div key="done" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="card mx-auto max-w-lg space-y-5 p-8 text-center">
               <Confetti />
-              <Mascot mood="cheer" size={160} className="floaty mx-auto" />
+              <Mascot who={subject.mascot} mood="cheer" size={160} className="floaty mx-auto" />
               <h1 className="font-display text-3xl font-extrabold">Hoàn thành bài học!</h1>
               <p className="text-lg text-ink-soft">
                 Em vừa học xong <b>{lesson.title}</b>. +20 XP ⭐

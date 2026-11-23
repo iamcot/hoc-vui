@@ -29,6 +29,21 @@ export const MOCHI =
 export const XIXI =
   "Xi Xi: a friendly anthropomorphic scientific calculator (dark navy body, light gray keys, small LCD screen showing a smile), tiny arms and legs";
 
+/**
+ * Phong cách cho môn/trình độ của bé lớn (lớp 6-9 trở lên, và môn công nghệ như Gõ phím).
+ * Bé lớn hay chê nét "cute, em bé" của Mochi, nên các môn sau dùng nét anime thiếu niên,
+ * gọn, ngầu, công nghệ hơn. Nhân vật vẫn là con vật (thỏ Bit) để còn chất Học Vui.
+ * Môn lớp 1-5 giữ STYLE (Mochi). Môn mới cho lớp 6+ thì dùng STYLE_TEEN, chủ đề công nghệ thì STYLE_CYBER.
+ */
+export const STYLE_TEEN =
+  "Modern Japanese anime illustration for teenagers, like a polished anime key visual: confident clean line art, crisp cel shading, dramatic lighting, stylish character proportions (not chibi, not babyish), cool and slightly mature mood while still friendly, rich saturated colors, no text, no letters, no watermark";
+
+export const STYLE_CYBER =
+  "Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark";
+
+export const BIT =
+  "Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile";
+
 export interface ImageAsset {
   id: string;
   file: string;
@@ -58,6 +73,18 @@ const img = (id: string, size: ImageAsset["size"], usage: string, prompt: string
   transparent,
   prompt: `${prompt}. ${style}${transparent ? ", isolated on a fully transparent background" : ""}.`,
 });
+
+/** ảnh môn Gõ phím: phong cách công nghệ (STYLE_CYBER) thay cho STYLE của Mochi */
+const cyber = (id: string, size: ImageAsset["size"], usage: string, prompt: string, transparent = false): ImageAsset => ({
+  id,
+  file: `/assets/img/${id}.webp`,
+  size,
+  usage,
+  transparent,
+  prompt: `${prompt}. ${STYLE_CYBER}${transparent ? ", isolated on a fully transparent background" : ""}.`,
+});
+
+const SEA_FISH = "side view, swimming toward the LEFT (head on the left), a large flat dark plate in the middle of the body left empty for a word label, glowing neon outline";
 
 export const IMAGES: ImageAsset[] = [
   // Nhân vật
@@ -144,6 +171,35 @@ export const IMAGES: ImageAsset[] = [
   img("fx-l09-s4", "1536x1024", "Bài 9, slide 4: mua giày giảm giá", `${MOCHI} trying on sneakers in a shop, a big sale tag nearby`),
   img("fx-l10-s1", "1536x1024", "Bài 10, slide 1: các hình", "Five friendly shape characters: rectangle, square, rhombus, parallelogram, isosceles trapezoid, standing together"),
   img("fx-l10-s3", "1536x1024", "Bài 10, slide 3: rào sân", "A rectangular schoolyard with a small wooden fence being built around it, top-down three-quarter view"),
+
+  // ── Môn Gõ phím (tông công nghệ, nhân vật thỏ Bit) ──
+  cyber("bit-happy", "1024x1024", "Thỏ Bit chào: slide mở đầu môn Gõ phím (tạo ảnh này TRƯỚC, các ảnh Bit khác lấy làm mẫu)", `${BIT}, standing relaxed and giving a small two-finger salute, full body`, true),
+  cyber("bit-think", "1024x1024", "Bit suy nghĩ: slide giải thích", `${BIT}, one hand touching the visor which shows a tiny holographic keyboard, thinking, full body`, true),
+  cyber("bit-wow", "1024x1024", "Bit ngạc nhiên: phím mới, mẹo hay", `${BIT}, visor glowing pink, ears straight up in surprise, both hands open, full body`, true),
+  cyber("bit-cheer", "1024x1024", "Bit ăn mừng: hoàn thành, thắng cuộc", `${BIT}, jumping with a fist pump, neon sparks around, full body`, true),
+  cyber("bit-oops", "1024x1024", "Bit an ủi: thua lượt, gõ sai nhiều", `${BIT}, scratching the back of the head with a lopsided grin, visor showing a small glitch, full body`, true),
+  cyber("gp-bit-diver", "1024x1024", "Thợ lặn trong game cá mập (bên trái màn hình, nhìn sang phải)", `${BIT} in a sleek dark-navy diving suit with cyan neon lines, round glass helmet around the head with the ears inside, small oxygen tank on the back, holding a laser blaster shaped like a compact keyboard pointing to the RIGHT, floating underwater, side three-quarter view facing right`, true),
+  cyber("gp-fish", "1024x1024", "Cá nhỏ trong game (mang 1-3 chữ cái)", `A small sleek robotic piranha-like fish with amber glowing fins, ${SEA_FISH}`, true),
+  cyber("gp-jelly", "1024x1024", "Sứa trong game (mang 1-3 chữ cái)", "A cyber jellyfish with a violet translucent dome and glowing pink circuit tentacles, front view, the dome has a darker flat center area for a short word label", true),
+  cyber("gp-shark", "1536x1024", "Cá mập máy (mang một từ)", `A cool mechanical shark with dark navy armor plates, cyan glowing gill lines and a red glowing eye, sharp but not gory, ${SEA_FISH}`, true),
+  cyber("gp-boss", "1536x1024", "Cá mập trùm (mang từ dài, câu)", `A huge boss mechanical shark with magenta neon armor, glowing pink eyes, spiky dorsal fin like a radio antenna, menacing but kid-friendly, ${SEA_FISH}`, true),
+  cyber("bg-gp-deep", "1536x1024", "Cảnh nền game cá mập: biển sâu (để trống giữa cho cá bơi qua)", "Wide underwater scene in the deep ocean at night: soft god rays from the surface at the top, a far-away glowing cyber city of coral towers on the seabed at the bottom, floating particles, the middle band left mostly empty and dark-blue so fish sprites and labels stay readable, low contrast at the center"),
+  cyber("bg-gp-map", "1536x1024", "Cảnh nền bản đồ bài của môn Gõ phím", "Top-down view of a deep-sea cyber city: glowing neon coral reefs, light trails on the seabed like circuit boards, small submarine docks, very dark and low contrast so map nodes on top stay readable"),
+  cyber("bg-gp-lesson", "1536x1024", "Cảnh nền bài học, kiểm tra của môn Gõ phím (rất tối, mờ)", "Inside a cozy high-tech submarine control room with a big round window showing the dark ocean, keyboard consoles with soft cyan glow, background heavily blurred and dark, mostly empty"),
+  cyber("subject-gophim-cover", "1536x1024", "Ảnh lớn môn Gõ phím ở trang chủ (chữ đè lên phần dưới ảnh)", `${BIT} as a diver aiming a keyboard laser blaster at a mechanical shark charging in from the right, letters glowing on the shark's side, deep ocean with neon light rays, dynamic action pose, upper half has the action, lower third darker for text`),
+  cyber("bg-gp-race", "1536x1024", "Cảnh nền đường đua (chế độ Đua xe)", "A neon hover-car race track inside a glass tunnel under the sea, track lanes glowing cyan and pink seen from the side, fish swimming outside the tunnel, the track runs horizontally across the image, dark background"),
+  cyber("gp-car", "1536x1024", "Xe đua trong chế độ Đua xe (app tự đổi màu cho từng bạn)", "A sleek futuristic hover race car, side view facing RIGHT, white and silver body with glowing cyan underlights and a small bubble cockpit, no driver visible, no numbers", true),
+  cyber("gp-mode-survival", "1024x1024", "Biểu tượng chế độ Sinh tồn", "Round app-icon style badge: a mechanical shark head with glowing red eye bursting through a ring of three neon hearts", true),
+  cyber("gp-mode-passage", "1024x1024", "Biểu tượng chế độ Bài gõ hay", "Round app-icon style badge: a glowing holographic scroll of paper floating above a neon keyboard", true),
+  cyber("gp-mode-race", "1024x1024", "Biểu tượng chế độ Đua xe", "Round app-icon style badge: a neon hover race car crossing a checkered finish line", true),
+  cyber("gp-tier-1", "1024x1024", "Huy hiệu trình độ Hàng nhà", "Hexagon tech badge with two glowing keycaps side by side, each with a small raised bump, cyan glow", true),
+  cyber("gp-tier-2", "1024x1024", "Huy hiệu trình độ Từng bàn tay", "Hexagon tech badge with a robotic glove hand outline made of neon lines, violet glow", true),
+  cyber("gp-tier-3", "1024x1024", "Huy hiệu trình độ Phối hợp", "Hexagon tech badge with two neon hands crossing over a keyboard, pink and cyan glow", true),
+  cyber("gp-tier-4", "1024x1024", "Huy hiệu trình độ Telex (gõ tiếng Việt)", "Hexagon tech badge with a glowing keycap that has a small hook and hat accent marks floating above it like Vietnamese diacritics, amber glow, no real letters", true),
+  cyber("gp-cover-nha", "1536x1024", "Bìa các bài Hàng nhà (thẻ Học tiếp)", `${BIT} resting both hands on the middle row of a giant glowing keyboard that lies on the seabed like a dance floor`),
+  cyber("gp-cover-tay", "1536x1024", "Bìa các bài Từng bàn tay", `${BIT} reaching up to a glowing top-row key and down to a bottom-row key of a giant neon keyboard, underwater`),
+  cyber("gp-cover-phoi", "1536x1024", "Bìa các bài Phối hợp", `${BIT} typing fast with both hands on a holographic keyboard, light trails following the fingers, a school of neon fish swirling around`),
+  cyber("gp-cover-telex", "1536x1024", "Bìa các bài Telex", `${BIT} in a submarine cockpit typing, glowing Vietnamese-style accent marks (hooks, hats, tone marks) floating like bubbles, no full words`),
 ];
 
 const sfx = (id: string, usage: string, prompt: string): AudioAsset => ({ id, file: `/assets/sfx/${id}.mp3`, kind: "sfx", usage, prompt });
@@ -204,6 +260,17 @@ export const AUDIO: AudioAsset[] = [
   voice("vo-correct-2", "Khen khi đúng (ngẫu nhiên)", "Tuyệt vời, đúng rồi!"),
   voice("vo-wrong-1", "Động viên khi sai", "Chưa đúng rồi, thử xem lại cách bấm nhé."),
   voice("vo-complete", "Hoàn thành bài", "Hoàn thành bài học rồi! Mochi tự hào về em lắm."),
+  // ── Môn Gõ phím: hiệu ứng ngắn, gọn tai; giọng đọc chỉ ở bài đầu mỗi trình độ ──
+  sfx("gp-key", "Gõ đúng một phím", "Very soft short mechanical keyboard key click, clean, 0.08 seconds"),
+  sfx("gp-miss", "Gõ sai phím", "Short soft digital error blip, low pitch, not harsh, 0.15 seconds"),
+  sfx("gp-hit", "Bắn hạ cá", "Short sci-fi laser zap followed by a small underwater bubble pop, 0.5 seconds"),
+  sfx("gp-bite", "Cá chạm vào thợ lặn", "Muffled underwater chomp with a short low warning buzz, 0.5 seconds"),
+  sfx("gp-wave", "Bắt đầu lượt, đợt cá mới", "Deep sonar ping with soft echo underwater, 1 second"),
+  sfx("gp-go", "Đếm ngược xuất phát đua xe", "Three short electronic countdown beeps and a higher go beep, 2 seconds"),
+  voice("vo-gp-n01", "Gõ phím · Bài đầu Hàng nhà, câu chào của Bit", "Chào em, tớ là Bit! Mình sẽ lặn xuống biển sâu và hạ cá mập bằng bàn phím. Trước tiên, đặt hai ngón trỏ lên phím F và J nhé."),
+  voice("vo-gp-t01", "Gõ phím · Bài đầu Từng bàn tay", "Lên hàng trên nào! Ngón nào với lên phím nào thì gõ xong phải về hàng nhà nha."),
+  voice("vo-gp-p01", "Gõ phím · Bài đầu Phối hợp", "Giờ hai tay cùng chơi. Gõ đều tay, mắt nhìn màn hình là sẽ nhanh thôi."),
+  voice("vo-gp-v01", "Gõ phím · Bài đầu Telex", "Gõ tiếng Việt có dấu thôi! Gõ a hai lần là thành chữ â. Học Vui tự ghép chữ cho em."),
 ];
 
 /** Giọng đọc mẫu môn Tập đọc (in riêng ở docs/TAPDOC_VOICES.md) */

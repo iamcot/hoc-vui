@@ -9,6 +9,7 @@ import { RichText } from "@/components/RichText";
 import { play, playVoice } from "@/lib/sound";
 import { speak, speakSeq, stopSpeak } from "@/lib/speech/tts";
 import { ReadAloud } from "@/components/reading/ReadAloud";
+import { TypeLine } from "@/components/typing/TypeLine";
 
 /** đọc đề: lời dẫn rồi tới chữ cần nghe */
 function readOut(q: Question) {
@@ -58,7 +59,7 @@ export function QuestionCard({
   q: Question;
   mode?: "learn" | "race";
   onNext: (r: AnswerResult) => void;
-  device?: "fx580";
+  device?: "fx580" | "keyboard";
 }) {
   const [input, setInput] = useState("");
   const [b, setB] = useState("");
@@ -111,10 +112,22 @@ export function QuestionCard({
             🔊
           </button>
         )}
-        <RichText text={q.prompt} className="font-display text-xl font-bold sm:text-2xl" />
+        <RichText text={q.kind === "type" ? "Gõ lại dòng này, nhìn màn hình nhé" : q.prompt} className="font-display text-xl font-bold sm:text-2xl" />
       </div>
 
-      {q.kind === "read" ? (
+      {q.kind === "type" ? (
+        <TypeLine
+          key={q.id}
+          text={q.answer}
+          big
+          onDone={(r) => {
+            // gõ phải đúng từng phím mới đi tiếp, nên đạt hay không tính theo độ chính xác
+            const ok = r.acc >= 90;
+            play(ok ? "correct" : "wrong", 0.5);
+            setTimeout(() => (mode === "race" ? onNext({ correct: ok, input: `${r.wpm}wpm ${r.acc}%`, hinted }) : setResult(ok)), mode === "race" ? 350 : 0);
+          }}
+        />
+      ) : q.kind === "read" ? (
         <div className="space-y-3">
           <ReadAloud
             key={q.id}
@@ -259,7 +272,8 @@ export function QuestionCard({
       {result !== null && (
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className={`space-y-3 rounded-3xl p-4 ${result ? "bg-mint-soft" : "bg-berry-soft"}`}>
           <div className="font-display text-xl font-extrabold">{result ? "🎉 Chính xác!" : "Chưa đúng rồi"}</div>
-          {!result && (
+          {!result && q.kind === "type" && <div>Sai hơi nhiều phím. Gõ chậm lại một chút, đúng trước rồi mới nhanh nhé.</div>}
+          {!result && q.kind !== "type" && (
             <div>
               Đáp án: <b>{showAnswer(q)}</b>
             </div>

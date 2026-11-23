@@ -3,17 +3,21 @@ import { useState } from "react";
 import type { Mood } from "@/content/types";
 import { hasFile, resolveFile } from "@/content/assets";
 
-/** Mochi. Dùng ảnh /assets/img/mochi-<mood>.webp nếu có, không thì vẽ bằng SVG. */
-export function Mascot({ mood = "happy", size = 96, className = "" }: { mood?: Mood; size?: number; className?: string }) {
+/**
+ * Nhân vật dẫn chuyện. Mochi (mèo, mặc định) hoặc thỏ Bit (môn Gõ phím, tông công nghệ).
+ * Dùng ảnh /assets/img/<mochi|bit>-<mood>.webp nếu có, không thì vẽ bằng SVG.
+ */
+export function Mascot({ mood = "happy", size = 96, className = "", who = "mochi" }: { mood?: Mood; size?: number; className?: string; who?: "mochi" | "bit" }) {
   const [failed, setFailed] = useState(false);
-  if (!failed && hasFile(`/assets/img/mochi-${mood}.webp`)) {
+  const file = `/assets/img/${who}-${mood}.webp`;
+  if (!failed && hasFile(file)) {
     return (
       // eslint-disable-next-line @next/next/no-img-element
       <img
-        src={resolveFile(`/assets/img/mochi-${mood}.webp`)}
+        src={resolveFile(file)}
         width={size}
         height={size}
-        alt="Mochi"
+        alt={who === "bit" ? "Bit" : "Mochi"}
         className={`select-none ${className}`}
         style={{ width: size, height: size, objectFit: "contain" }}
         onError={() => setFailed(true)}
@@ -21,7 +25,36 @@ export function Mascot({ mood = "happy", size = 96, className = "" }: { mood?: M
       />
     );
   }
+  if (who === "bit") return <BitSvg mood={mood} size={size} className={className} />;
   return <MochiSvg mood={mood} size={size} className={className} />;
+}
+
+/** Thỏ Bit: thỏ trắng bạc, tai có đèn LED, kính visor neon, áo khoác kỹ thuật */
+function BitSvg({ mood, size, className }: { mood: Mood; size: number; className: string }) {
+  const visor = mood === "oops" ? "#ffb020" : mood === "cheer" || mood === "wow" ? "#ff4fa3" : "#2fd3ff";
+  const mouth =
+    mood === "wow" ? <ellipse cx="60" cy="80" rx="4" ry="5" fill="#0b1233" /> : mood === "oops" ? <path d="M53 81 q7 -5 14 0" stroke="#0b1233" strokeWidth="3" fill="none" strokeLinecap="round" /> : <path d="M52 78 q8 7 16 0" stroke="#0b1233" strokeWidth="3" fill="none" strokeLinecap="round" />;
+  return (
+    <svg viewBox="0 0 120 120" width={size} height={size} className={className} role="img" aria-label="Bit">
+      <path d="M40 46 C 28 4, 46 -2, 52 40" fill="#eef2fb" stroke="#0b1233" strokeWidth="2.5" />
+      <path d="M70 40 C 76 -2, 96 4, 82 46" fill="#eef2fb" stroke="#0b1233" strokeWidth="2.5" />
+      <path d="M42 38 C 36 14, 46 10, 49 38" fill="#ff9ccf" />
+      <path d="M73 38 C 76 10, 88 14, 80 38" fill="#ff9ccf" />
+      <circle cx="38" cy="10" r="4" fill="#2fd3ff" className="blink" />
+      <circle cx="86" cy="10" r="4" fill="#ff4fa3" className="blink" />
+      <path d="M24 112 Q 28 92 60 92 Q 92 92 96 112 Z" fill="#141d52" stroke="#2fd3ff" strokeWidth="2" />
+      <path d="M48 96 L 60 108 L 72 96" stroke="#2fd3ff" strokeWidth="2" fill="none" />
+      <ellipse cx="60" cy="66" rx="32" ry="29" fill="#eef2fb" stroke="#0b1233" strokeWidth="2.5" />
+      <rect x="32" y="54" width="56" height="16" rx="8" fill="#0b1233" />
+      <rect x="36" y="58" width="48" height="6" rx="3" fill={visor} />
+      {mood === "think" && <rect x="36" y="58" width="20" height="6" rx="3" fill="#fff" opacity="0.6" />}
+      <path d="M57 74 l3 3 l3 -3 z" fill="#ff7aa8" />
+      {mouth}
+      <ellipse cx="36" cy="78" rx="5" ry="3" fill="#ffb3d1" opacity="0.7" />
+      <ellipse cx="84" cy="78" rx="5" ry="3" fill="#ffb3d1" opacity="0.7" />
+      {mood === "cheer" && <path d="M100 30 l4 8 l8 1 l-6 6 l2 8 l-8 -4 l-8 4 l2 -8 l-6 -6 l8 -1 z" fill="#ffb020" />}
+    </svg>
+  );
 }
 
 function MochiSvg({ mood, size, className }: { mood: Mood; size: number; className: string }) {

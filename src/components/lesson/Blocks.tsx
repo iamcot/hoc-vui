@@ -10,8 +10,10 @@ import { QuestionCard } from "@/components/quiz/QuestionCard";
 import { LettersRow, SayRow } from "@/components/reading/Glyph";
 import { Blend } from "@/components/reading/Blend";
 import { ReadAloud } from "@/components/reading/ReadAloud";
+import { Keyboard } from "@/components/typing/Keyboard";
+import { TypeLine } from "@/components/typing/TypeLine";
 
-export function BlockView({ b, device, lead }: { b: Block; device?: "fx580"; lead?: React.ReactNode }) {
+export function BlockView({ b, device, lead }: { b: Block; device?: "fx580" | "keyboard"; lead?: React.ReactNode }) {
   switch (b.type) {
     case "text":
       return <RichText text={b.text} className="text-lg text-ink-soft sm:text-xl" />;
@@ -34,6 +36,15 @@ export function BlockView({ b, device, lead }: { b: Block; device?: "fx580"; lea
           </div>
         </div>
       );
+    case "keyboard":
+      return (
+        <figure className="space-y-2">
+          <Keyboard keys={b.keys} focus={b.focus} />
+          {b.label && <figcaption className="text-center text-sm font-semibold text-ink-soft">{b.label}</figcaption>}
+        </figure>
+      );
+    case "drill":
+      return <TypeLine text={b.text} label={b.label ?? "Gõ thử dòng này"} keys={b.keys} focus={b.focus} />;
     case "tip":
       return (
         <div className={`flex gap-3 rounded-3xl p-4 ${b.tone === "warn" ? "bg-peach-soft" : "bg-sun-soft"}`}>
@@ -77,7 +88,7 @@ export function BlockView({ b, device, lead }: { b: Block; device?: "fx580"; lea
   }
 }
 
-function InlineCheck({ q, device }: { q: Extract<Block, { type: "check" }>["question"]; device?: "fx580" }) {
+function InlineCheck({ q, device }: { q: Extract<Block, { type: "check" }>["question"]; device?: "fx580" | "keyboard" }) {
   const [done, setDone] = useState(false);
   return (
     <div className="rounded-3xl bg-lilac/10 p-4 sm:p-5">

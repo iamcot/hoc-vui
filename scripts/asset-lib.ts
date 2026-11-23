@@ -58,8 +58,14 @@ export function findImage(id: string) {
 
 /** ảnh tham chiếu để giữ nhân vật và nét vẽ đồng bộ */
 export function refsFor(a: ImageAsset, noRef = false): string[] {
-  if (noRef || a.id === "mochi-happy") return [];
+  if (noRef || a.id === "mochi-happy" || a.id === "bit-happy") return [];
   const ids: string[] = [];
+  // môn Gõ phím (tông công nghệ, cho bé lớn): tham chiếu thỏ Bit và cảnh biển sâu, không lấy nét Mochi
+  if (isCyber(a.id)) {
+    if (a.prompt.includes("Bit:") || a.id.startsWith("bit-") || a.transparent) ids.push("bit-happy");
+    if (!a.transparent && a.id !== "bg-gp-deep") ids.push("bg-gp-deep");
+    return [...new Set(ids)].filter((id) => id !== a.id).map(findImage).filter((f): f is string => !!f);
+  }
   if (a.prompt.includes("Mochi:") || a.id.startsWith("mochi-")) ids.push("mochi-happy");
   if (a.prompt.includes("Xi Xi:") && a.id !== "xixi") ids.push("xixi");
   if (!a.transparent) ids.push("bg-home"); // giữ tông màu, nét vẽ của cảnh
@@ -70,8 +76,10 @@ export function refsFor(a: ImageAsset, noRef = false): string[] {
 export const REF_INTRO =
   "Use the attached images only as reference for character design and art style: same characters, same line art, same colors and shading. Create a brand-new image: ";
 
-/** mochi-happy lên đầu vì các ảnh khác cần nó làm tham chiếu */
-export const mochiFirst = (a: { id: string }, b: { id: string }) => Number(b.id === "mochi-happy") - Number(a.id === "mochi-happy");
+const isCyber = (id: string) => /^(gp-|bit-|bg-gp-|subject-gophim)/.test(id);
+const anchor = (id: string) => (id === "mochi-happy" || id === "bit-happy" ? 2 : id === "bg-gp-deep" ? 1 : 0);
+/** mochi-happy, bit-happy (rồi bg-gp-deep) lên đầu vì các ảnh khác cần chúng làm tham chiếu */
+export const mochiFirst = (a: { id: string }, b: { id: string }) => anchor(b.id) - anchor(a.id);
 
 /** các file đang có của một mục (để báo vì sao bị bỏ qua) */
 export function whereIs(file: string, id: string) {

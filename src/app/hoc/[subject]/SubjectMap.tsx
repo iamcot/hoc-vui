@@ -40,6 +40,7 @@ export function SubjectMap({ subjectId }: { subjectId: string }) {
   const s = getSubject(subjectId)!;
   const { lesson, data, ready } = useProgress();
   const wrap = useRef<HTMLDivElement>(null);
+  const cyber = s.look?.theme === "cyber";
 
   const open = s.tiers.map((_, i) => tierUnlocked(s, i, lesson, data.unlocks));
   const cur = currentTierIndex(s, lesson, data.unlocks);
@@ -107,13 +108,17 @@ export function SubjectMap({ subjectId }: { subjectId: string }) {
   }, [ready]);
 
   return (
-    <div className="space-y-4">
-      <Scene image="bg-map" variant="map" />
+    <div className={`space-y-4 ${cyber ? "theme-cyber" : ""}`}>
+      <Scene image={s.look?.map ?? "bg-map"} variant={cyber ? "deep" : "map"} />
       <div className="flex flex-wrap items-center gap-3">
         <Link href="/" className="grid h-12 w-12 place-items-center rounded-full bg-white/90 shadow-[var(--shadow-pop)]" aria-label="Quay lại">
           <IconBack className="h-6 w-6" />
         </Link>
-        <Art id={s.device === "fx580" ? "xixi" : s.cover} emoji={s.emoji} rounded={s.device === "fx580" ? "" : "rounded-full"} contain={s.device === "fx580"} className="h-14 w-14 shrink-0 drop-shadow" />
+        {s.mascot === "bit" ? (
+          <Mascot who="bit" mood="happy" size={56} className="shrink-0 drop-shadow" />
+        ) : (
+          <Art id={s.device === "fx580" ? "xixi" : s.cover} emoji={s.emoji} rounded={s.device === "fx580" ? "" : "rounded-full"} contain={s.device === "fx580"} className="h-14 w-14 shrink-0 drop-shadow" />
+        )}
         <h1 className="ribbon text-2xl sm:text-3xl">{s.name}</h1>
       </div>
 
@@ -134,11 +139,30 @@ export function SubjectMap({ subjectId }: { subjectId: string }) {
         ))}
       </nav>
 
+      {/* chế độ chơi thêm của môn (vd. Gõ phím: sinh tồn, bài gõ hay, đua xe) */}
+      {s.modes && (
+        <div className="grid grid-cols-3 gap-3">
+          {s.modes.map((m) => (
+            <Link
+              key={m.id}
+              href={m.href}
+              className={`group flex items-center gap-3 rounded-3xl p-3 transition hover:scale-[1.02] sm:p-4 ${cyber ? "cyber-panel" : "card"}`}
+            >
+              <Art id={m.icon ?? m.id} emoji={m.emoji} rounded="rounded-2xl" contain className="h-12 w-12 shrink-0 sm:h-16 sm:w-16" />
+              <span className="min-w-0">
+                <span className="block font-display text-lg font-extrabold leading-tight sm:text-xl">{m.name}</span>
+                <span className={`hidden text-sm font-semibold sm:block ${cyber ? "text-cyan-100/75" : "text-ink-soft"}`}>{m.short}</span>
+              </span>
+            </Link>
+          ))}
+        </div>
+      )}
+
       <div ref={wrap} className="relative mx-auto w-full max-w-3xl" style={{ height }}>
         <svg className="absolute inset-0 h-full w-full" viewBox={`0 0 100 ${height}`} preserveAspectRatio="none" aria-hidden>
-          {pathLocked && <path d={pathLocked} fill="none" stroke="white" strokeWidth="18" strokeLinecap="round" vectorEffect="non-scaling-stroke" opacity="0.4" />}
-          <path d={pathOpen} fill="none" stroke="white" strokeWidth="18" strokeLinecap="round" vectorEffect="non-scaling-stroke" opacity="0.85" />
-          <path d={pathOpen} fill="none" stroke="#f3c27a" strokeWidth="4" strokeDasharray="2 14" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
+          {pathLocked && <path d={pathLocked} fill="none" stroke={cyber ? "#5b6aa8" : "white"} strokeWidth="18" strokeLinecap="round" vectorEffect="non-scaling-stroke" opacity="0.4" />}
+          <path d={pathOpen} fill="none" stroke={cyber ? "#123a8a" : "white"} strokeWidth="18" strokeLinecap="round" vectorEffect="non-scaling-stroke" opacity="0.85" />
+          <path d={pathOpen} fill="none" stroke={cyber ? "#2fd3ff" : "#f3c27a"} strokeWidth="4" strokeDasharray="2 14" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
         </svg>
 
         {stops.map((st, i) => {
@@ -203,7 +227,7 @@ export function SubjectMap({ subjectId }: { subjectId: string }) {
                   }`}
                 >
                   {st.glyph ? (
-                    <GlyphNode glyph={st.glyph} n={st.n} />
+                    <GlyphNode glyph={st.glyph} n={st.n} cyber={cyber} />
                   ) : (
                     <Art id={st.cover} emoji={st.emoji} rounded="rounded-full" className="h-full w-full" />
                   )}
@@ -248,7 +272,7 @@ export function SubjectMap({ subjectId }: { subjectId: string }) {
                     {circle}
                   </Link>
                 )}
-                {current && <Mascot mood="cheer" size={64} className={`floaty pointer-events-none absolute -top-10 ${labelLeft ? "-left-12" : "-right-12"} drop-shadow`} />}
+                {current && <Mascot who={s.mascot} mood="cheer" size={64} className={`floaty pointer-events-none absolute -top-10 ${labelLeft ? "-left-12" : "-right-12"} drop-shadow`} />}
               </motion.div>
             );
           }
@@ -313,7 +337,7 @@ export function SubjectMap({ subjectId }: { subjectId: string }) {
               <div key={i} className="absolute -translate-x-1/2 -translate-y-1/2 opacity-80" style={style}>
                 <div className="relative">
                   <span className={`grid h-28 w-28 place-items-center rounded-full border-[6px] border-white bg-lilac/70 ${NODE}`}>
-                    <Mascot mood="think" size={72} />
+                    <Mascot who={s.mascot} mood="think" size={72} />
                   </span>
                   <span className={`${LABEL} ${side}`}>
                     <span className="block font-display text-xl font-extrabold text-ink text-outline">Đang soạn</span>
@@ -344,7 +368,20 @@ export function SubjectMap({ subjectId }: { subjectId: string }) {
 
 const GLYPH_BG = ["#ff8a5c", "#4f72ff", "#22b98c", "#9b7bff", "#ffb81f"];
 /** Môn chữ: điểm dừng là chữ cái/vần viết to thay cho tranh */
-function GlyphNode({ glyph, n }: { glyph: string; n: number }) {
+const NEON = ["#2fd3ff", "#ff4fa3", "#3ee08f", "#7c6bff", "#ffb020"];
+function GlyphNode({ glyph, n, cyber }: { glyph: string; n: number; cyber?: boolean }) {
+  if (cyber) {
+    // môn Gõ phím: điểm dừng là phím bấm neon
+    const c = NEON[n % NEON.length];
+    const size = glyph.length <= 3 ? "text-3xl" : glyph.length <= 5 ? "text-2xl" : "text-lg";
+    return (
+      <span className="grid h-full w-full place-items-center rounded-full bg-[#0b1233]" style={{ boxShadow: `inset 0 0 0 3px ${c}, inset 0 0 26px ${c}66` }}>
+        <span className={`font-mono font-extrabold leading-none text-white ${size}`} style={{ textShadow: `0 0 12px ${c}` }}>
+          {glyph}
+        </span>
+      </span>
+    );
+  }
   const parts = glyph.split(" ");
   const shown = parts.length > 3 ? parts.slice(0, 2).join(" ") + "…" : glyph;
   const size = shown.length <= 2 ? "text-5xl" : shown.length <= 5 ? "text-3xl" : shown.length <= 9 ? "text-xl" : "text-base";
