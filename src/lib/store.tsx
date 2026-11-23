@@ -75,7 +75,7 @@ interface Store {
   online: boolean;
   lesson(subjectId: string, lessonId: string): LessonState;
   markRead(subjectId: string, lessonId: string): void;
-  recordPractice(subjectId: string, lessonId: string, correct: number, total: number): { stars: number; xp: number };
+  recordPractice(subjectId: string, lessonId: string, correct: number, total: number, hinted?: number): { stars: number; xp: number };
   recordTest(subjectId: string, t: TestState): void;
   addXp(subjectId: string, amount: number, reason: string): void;
   setProfile(p: Partial<Profile>): void;
@@ -195,14 +195,14 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
         syncLesson(s, l, next);
         addXp(s, 20, `doc:${l}`);
       },
-      recordPractice(s, l, correct, total) {
+      recordPractice(s, l, correct, total, hinted = 0) {
         const pct = Math.round((correct / Math.max(total, 1)) * 100);
         const stars = pct >= 90 ? 3 : pct >= 70 ? 2 : pct >= 40 ? 1 : 0;
         const cur = lesson(s, l);
         const next = { ...cur, stars: Math.max(cur.stars, stars), best: Math.max(cur.best, pct) };
         update((d) => ({ ...d, lessons: { ...d.lessons, [`${s}/${l}`]: next } }));
         syncLesson(s, l, next);
-        const xp = correct * 5 + (stars > cur.stars ? (stars - cur.stars) * 10 : 0);
+        const xp = Math.max(0, correct - hinted) * 5 + (stars > cur.stars ? (stars - cur.stars) * 10 : 0);
         addXp(s, xp, `luyen:${l}`);
         return { stars, xp };
       },

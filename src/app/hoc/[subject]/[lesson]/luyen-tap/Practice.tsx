@@ -38,9 +38,9 @@ export function Practice({ subjectId, lessonId }: { subjectId: string; lessonId:
     if (i + 1 >= qs.length) {
       // câu dùng gợi ý vẫn tính đúng, nhưng không cộng XP cho câu đó
       const correct = all.filter((a) => a.correct).length;
-      const res = recordPractice(subject.id, lesson.id, correct, qs.length);
       const hintedCorrect = all.filter((a) => a.correct && a.hinted).length;
-      setSummary({ ...res, xp: Math.max(0, res.xp - hintedCorrect * 5) });
+      const res = recordPractice(subject.id, lesson.id, correct, qs.length, hintedCorrect);
+      setSummary(res);
       play(res.stars >= 2 ? "levelup" : "complete");
     }
     setI((x) => x + 1);

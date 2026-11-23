@@ -21,21 +21,23 @@ Môn đầu tiên: **Máy tính Casio fx-580VN X cho Toán 6**.
 
 ## Tiến độ
 
-### Giai đoạn 1 · Bản đầu (đang làm)
+### Giai đoạn 1 · Bản đầu (xong, chờ góp ý)
 - [x] Khung dự án Next.js + Tailwind + Supabase client
 - [x] Mô hình nội dung đa môn, đa lớp
 - [x] 10 bài FX580 lớp 6 + bộ sinh bài tập cho từng bài
 - [x] Danh mục ảnh/âm thanh kèm prompt
-- [ ] Giao diện app: thanh tab, trang chủ, bản đồ bài học, màn hình bài học
-- [ ] Bàn phím FX580 ảo (bấm theo từng bước)
-- [ ] Luyện tập + chấm điểm + XP
-- [ ] Kiểm tra trình độ
-- [ ] Đăng nhập, hồ sơ, chế độ khách
-- [ ] Thi đấu theo phòng + bảng xếp hạng (Supabase)
-- [ ] SQL migration + hướng dẫn deploy Vercel/Supabase
-- [ ] PWA (manifest, icon)
+- [x] Giao diện app: thanh bên (iPad/laptop) + tab dưới (điện thoại), trang chủ, bản đồ bài học, màn hình bài học
+- [x] Bàn phím FX580 ảo (bấm theo từng bước) + chế độ dùng máy thật
+- [x] Luyện tập + chấm điểm + XP
+- [x] Kiểm tra trình độ
+- [x] Đăng nhập, hồ sơ, chế độ khách
+- [x] Thi đấu theo phòng + bảng xếp hạng (Supabase)
+- [x] SQL migration + hướng dẫn deploy Vercel/Supabase
+- [x] PWA (manifest, icon)
 
 ### Giai đoạn 2 · Hoàn thiện
+- [ ] Deploy Vercel + Supabase (bạn tạo project, mình hướng dẫn trong README)
+- [ ] Chỉnh giao diện theo góp ý từ ảnh chụp màn hình
 - [ ] Gắn ảnh/âm thanh thật (bạn tạo theo `docs/ASSET_PROMPTS.md`)
 - [ ] Phụ huynh xem tiến trình của con
 - [ ] Thử trên điện thoại thật, chỉnh hoạt họa

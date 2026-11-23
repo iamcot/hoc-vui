@@ -13,7 +13,7 @@ export const MOCHI =
   "Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator";
 
 export const XIXI =
-  "Xi Xi: a friendly anthropomorphic Casio-style scientific calculator (dark navy body, light gray keys, small LCD screen showing a smile), tiny arms and legs";
+  "Xi Xi: a friendly anthropomorphic scientific calculator (dark navy body, light gray keys, small LCD screen showing a smile), tiny arms and legs";
 
 export interface ImageAsset {
   id: string;
@@ -145,6 +145,9 @@ export const AUDIO: AudioAsset[] = [
 export const imageById = (id: string) => IMAGES.find((i) => i.id === id);
 export const audioById = (id: string) => AUDIO.find((a) => a.id === id);
 
-const AVAILABLE = new Set<string>(available as string[]);
-/** File đã có thật trong public/assets (quét lúc build bằng scripts/scan-assets.mjs) */
-export const hasFile = (file: string) => AVAILABLE.has(file);
+const AVAILABLE = new Map<string, string>(
+  (available as string[]).map((f) => [f.replace(/\.(webp|png|jpe?g|mp3|m4a|wav|ogg)$/i, ""), f]),
+);
+/** Đường dẫn file thật đã có trong public/assets (chấp nhận .webp/.png/.jpg, .mp3/.m4a/.wav), hoặc undefined. */
+export const resolveFile = (file: string) => AVAILABLE.get(file.replace(/\.[a-z0-9]+$/i, ""));
+export const hasFile = (file: string) => resolveFile(file) !== undefined;

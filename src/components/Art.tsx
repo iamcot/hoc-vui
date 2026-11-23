@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { hasFile, imageById } from "@/content/assets";
+import { hasFile, imageById, resolveFile } from "@/content/assets";
 
 const PALETTES = [
   ["#e6ecff", "#fff0e8"],
@@ -48,7 +48,7 @@ export function Art({
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
-      src={asset.file}
+      src={resolveFile(asset.file)}
       alt={label ?? asset.usage}
       onError={() => setFailed(true)}
       className={`${rounded} ${contain ? "object-contain" : "object-cover"} ${className}`}

@@ -1,5 +1,5 @@
 "use client";
-import { audioById, hasFile } from "@/content/assets";
+import { audioById, hasFile, resolveFile } from "@/content/assets";
 
 const cache = new Map<string, HTMLAudioElement | null>();
 let muted = false;
@@ -16,7 +16,7 @@ export function play(id: string, volume = 0.6) {
   let a = cache.get(id);
   if (a === null) return;
   if (!a) {
-    a = new Audio(asset.file);
+    a = new Audio(resolveFile(asset.file));
     a.addEventListener("error", () => cache.set(id, null), { once: true });
     cache.set(id, a);
   }
@@ -35,7 +35,7 @@ export function playVoice(id?: string) {
   if (!id || muted || typeof window === "undefined") return;
   const asset = audioById(id);
   if (!asset || !hasFile(asset.file)) return;
-  voiceEl = new Audio(asset.file);
+  voiceEl = new Audio(resolveFile(asset.file));
   void voiceEl.play().catch(() => {});
 }
 export function stopVoice() {

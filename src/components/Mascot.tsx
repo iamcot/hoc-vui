@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import type { Mood } from "@/content/types";
-import { hasFile } from "@/content/assets";
+import { hasFile, resolveFile } from "@/content/assets";
 
 /** Mochi. Dùng ảnh /assets/img/mochi-<mood>.webp nếu có, không thì vẽ bằng SVG. */
 export function Mascot({ mood = "happy", size = 96, className = "" }: { mood?: Mood; size?: number; className?: string }) {
@@ -10,7 +10,7 @@ export function Mascot({ mood = "happy", size = 96, className = "" }: { mood?: M
     return (
       // eslint-disable-next-line @next/next/no-img-element
       <img
-        src={`/assets/img/mochi-${mood}.webp`}
+        src={resolveFile(`/assets/img/mochi-${mood}.webp`)}
         width={size}
         height={size}
         alt="Mochi"

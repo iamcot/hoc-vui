@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { hasFile } from "@/content/assets";
+import { hasFile, resolveFile } from "@/content/assets";
 
 export const AVATARS: { id: string; emoji: string; bg: string }[] = [
   { id: "fox", emoji: "🦊", bg: "#fff0e8" },
@@ -18,7 +18,7 @@ export function Avatar({ id, size = 48 }: { id: string; size?: number }) {
     <span className="relative inline-grid shrink-0 place-items-center overflow-hidden rounded-full ring-2 ring-white" style={{ width: size, height: size, background: a.bg }}>
       {!failed && hasFile(`/assets/img/avatar-${a.id}.webp`) ? (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={`/assets/img/avatar-${a.id}.webp`} alt="" className="h-full w-full object-cover" onError={() => setFailed(true)} />
+        <img src={resolveFile(`/assets/img/avatar-${a.id}.webp`)} alt="" className="h-full w-full object-cover" onError={() => setFailed(true)} />
       ) : (
         <span style={{ fontSize: size * 0.55 }}>{a.emoji}</span>
       )}
