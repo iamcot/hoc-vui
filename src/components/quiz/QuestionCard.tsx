@@ -38,10 +38,12 @@ export function showAnswer(q: Question) {
 function calcShows(q: Question) {
   if (q.kind === "pair") {
     const [a, b] = q.answer.split(";");
-    return `Q=${a}, R=${b}`;
+    // chia có dư (÷R) ra cả thương và dư; các dạng khác (hệ, bậc hai) chuỗi phím chỉ tính giá trị đầu
+    return isRemainder(q) ? `Q=${a}, R=${b}` : a;
   }
   return q.answer;
 }
+const isRemainder = (q: Question) => q.keys?.some((k) => k.endsWith(":÷R")) ?? false;
 
 /**
  * Một câu hỏi. mode "learn": có gợi ý, giải thích, xem cách bấm.
@@ -234,13 +236,19 @@ export function QuestionCard({
           keys={q.keys}
           label="Cách bấm"
           result={calcShows(q)}
-          doneNote={q.kind === "choice" ? undefined : "Kết quả đã được điền vào ô trả lời, em bấm “Trả lời” nhé."}
+          doneNote={
+            q.kind === "choice"
+              ? undefined
+              : q.kind === "pair" && !isRemainder(q)
+                ? "Đã điền giá trị đầu tiên. Em tự tính nốt ô còn lại rồi bấm “Trả lời” nhé."
+                : "Kết quả đã được điền vào ô trả lời, em bấm “Trả lời” nhé."
+          }
           onDone={() => {
             if (q.kind === "choice") return;
             if (q.kind === "pair") {
               const [a, c] = q.answer.split(";");
               setInput(a);
-              setB(c);
+              if (isRemainder(q)) setB(c);
             } else setInput(q.answer);
           }}
         />

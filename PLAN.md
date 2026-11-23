@@ -49,8 +49,11 @@ Môn đầu tiên: **Máy tính Casio fx-580VN X**, chia trình độ Lớp 6 �
 - [x] Thử thách vượt cấp 10 câu, đúng 8 là mở trình độ sau; kiểm tra theo từng trình độ
 - [x] Đấu trường chọn môn + trình độ
 - [x] Trình độ Lớp 7: 6 bài (số hữu tỉ, lũy thừa, căn bậc hai, tỉ lệ thức, đại lượng tỉ lệ, thống kê)
-- [ ] Trình độ Lớp 8, Lớp 9
-- [ ] Ảnh bìa 6 bài lớp 7 (prompt `fx7-l0x-cover` trong docs/ASSET_PROMPTS.md)
+- [x] Trình độ Lớp 8: 6 bài (giá trị đa thức, hằng đẳng thức, phương trình bậc nhất, Pythagore, hàm số bậc nhất, xác suất)
+- [x] Trình độ Lớp 9: 6 bài (căn bậc hai/ba, hệ phương trình, phương trình bậc hai, lượng giác, đường tròn, hình trụ/nón/cầu)
+- [x] Ảnh bìa 6 bài lớp 7
+- [ ] Ảnh bìa 12 bài lớp 8, 9 (prompt `fx8-l0x-cover`, `fx9-l0x-cover` trong docs/ASSET_PROMPTS.md)
+- [ ] Kiểm tra trên máy thật: π (SHIFT ×10ˣ), sin⁻¹ (SHIFT sin), ∛ (SHIFT √)
 
 ### Giai đoạn 2c · Môn Tập đọc (vỡ lòng → đọc trơn)
 Bám mạch Tiếng Việt 1 GDPT 2018 (âm, chữ → thanh → chữ ghép → vần → từ, câu → đoạn, thơ), từ khóa và bài đọc tự viết cho vui hơn. Chữ to là chính, emoji nhỏ thay tranh. Mỗi bài: gặp chữ → ghép tiếng (đánh vần "bờ – an – ban – huyền – bàn") → bé đọc to, máy chấm từng tiếng → thử nhanh. Luyện tập: nghe chọn chữ, tìm tiếng có vần, ghép âm + vần + dấu, đọc to, điền tiếng thiếu, đọc hiểu.

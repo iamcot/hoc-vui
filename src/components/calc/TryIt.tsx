@@ -16,6 +16,9 @@ function stepText(s: KeyStep): string {
     if (s.as === "%") return "%";
     if (s.as === "÷R") return "÷R";
     if (s.as === "▯▯/▯") return "▯";
+    if (s.as === "π") return "π";
+    if (s.as === "∛▯") return "∛(";
+    if (s.as.endsWith("⁻¹") && s.as !== "x⁻¹") return `${s.as}(`;
     return "";
   }
   if (s.key.id === "FRAC") return "/";

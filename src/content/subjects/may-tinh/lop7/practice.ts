@@ -82,7 +82,9 @@ const genRationalPower: QuestionGen = (rng) => {
   }
   if (form === 1) {
     // (a/b)^n
-    const a = nz(rng, -3, 3), b = rng.pick([2, 3, 4, 5]), e = rng.int(2, 3);
+    const b = rng.pick([2, 3, 4, 5]), e = rng.int(2, 3);
+    let a = nz(rng, -3, 3);
+    while (a % b === 0 || (Math.abs(a) % 2 === 0 && b % 2 === 0)) a = nz(rng, -3, 3);
     const r = frac(a ** e, b ** e);
     return {
       id: qid("l7-luy-thua"), kind: "fraction", reduced: true, topic: "l7-luy-thua",

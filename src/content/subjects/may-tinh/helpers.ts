@@ -26,6 +26,11 @@ export function k(...tokens: (string | number)[]): string[] {
     else if (t === ",") out.push("SHIFT", "RP:,");
     else if (t === "%") out.push("SHIFT", "ANS:%");
     else if (t === "=") out.push("EQ");
+    else if (t === "π") out.push("SHIFT", "EXP:π");
+    else if (t === "√") out.push("SQRT");
+    else if (t === "∛") out.push("SHIFT", "SQRT:∛▯");
+    else if (t === "sin" || t === "cos" || t === "tan") out.push(t.toUpperCase());
+    else if (t === "S⇔D") out.push("SD");
     else out.push(t);
   }
   return out;

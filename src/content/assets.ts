@@ -94,6 +94,22 @@ export const IMAGES: ImageAsset[] = [
   img("fx7-l05-cover", "1536x1024", "Lớp 7 · Bìa bài 5: Đại lượng tỉ lệ", `${MOCHI} and three animal friends sharing a big layered cake cut into slices of different sizes, a stack of notebooks nearby`),
   img("fx7-l06-cover", "1536x1024", "Lớp 7 · Bìa bài 6: Thống kê", `${MOCHI} presenting a big colorful pie chart and a simple bar chart on a classroom easel, ${XIXI} pointing at the chart`),
 
+  // Trình độ lớp 8
+  img("fx8-l01-cover", "1536x1024", "Lớp 8 · Bìa bài 1: Giá trị đa thức", `${MOCHI} in a small lab coat pouring a glowing number into a bubbling flask labeled only with a big x shape, colorful potion bottles around`),
+  img("fx8-l02-cover", "1536x1024", "Lớp 8 · Bìa bài 2: Hằng đẳng thức", `${MOCHI} as a little wizard with a star wand, a big square split into four colored tiles (two squares and two rectangles) floating and glowing`),
+  img("fx8-l03-cover", "1536x1024", "Lớp 8 · Bìa bài 3: Phương trình bậc nhất", `${MOCHI} holding a golden key in front of a treasure chest on a balance scale, ${XIXI} cheering`),
+  img("fx8-l04-cover", "1536x1024", "Lớp 8 · Bìa bài 4: Định lí Pythagore", `${MOCHI} standing next to a big right triangle made of garden fences, three square flower beds attached to its three sides`),
+  img("fx8-l05-cover", "1536x1024", "Lớp 8 · Bìa bài 5: Hàm số bậc nhất", `${MOCHI} riding a small taxi along a straight road climbing up a gentle hill like a rising line, kilometer posts along the road`),
+  img("fx8-l06-cover", "1536x1024", "Lớp 8 · Bìa bài 6: Xác suất", `${MOCHI} rolling a big six-sided die and tossing a coin, a glass jar with red, blue and yellow marbles on the table`),
+
+  // Trình độ lớp 9
+  img("fx9-l01-cover", "1536x1024", "Lớp 9 · Bìa bài 1: Căn bậc hai, căn bậc ba", `${MOCHI} next to a stack of building blocks forming a perfect cube, a big tree with deep roots growing beside it`),
+  img("fx9-l02-cover", "1536x1024", "Lớp 9 · Bìa bài 2: Hệ phương trình", `${MOCHI} as a little detective with a magnifying glass, two crossing paths on a treasure map meeting at one glowing point`),
+  img("fx9-l03-cover", "1536x1024", "Lớp 9 · Bìa bài 3: Phương trình bậc hai", `${MOCHI} and ${XIXI} riding a roller coaster whose track is a smooth U-shaped parabola, crossing the ground at two points`),
+  img("fx9-l04-cover", "1536x1024", "Lớp 9 · Bìa bài 4: Tỉ số lượng giác", `${MOCHI} climbing a ladder leaning against a tree house, the ladder, wall and ground forming a right triangle, a small protractor arc at the ground angle`),
+  img("fx9-l05-cover", "1536x1024", "Lớp 9 · Bìa bài 5: Đường tròn", `${MOCHI} sharing a round pizza cut into neat slices, a measuring tape wrapped around the pizza edge`),
+  img("fx9-l06-cover", "1536x1024", "Lớp 9 · Bìa bài 6: Hình trụ, nón, cầu", `${MOCHI} at a picnic table with a can of juice (cylinder), an ice cream cone and a beach ball (sphere)`),
+
   // Môn Tập đọc: ít tranh, chữ là chính
   img("subject-tapdoc-cover", "1536x1024", "Ảnh lớn của môn Tập đọc ở trang chủ (chữ đè lên phần dưới ảnh)", `${MOCHI.replace(", wearing a small yellow backpack shaped like a calculator", "")}, sitting on a stack of big picture books, holding an open book, a few large soft wooden alphabet blocks around (blank faces, no letters), warm reading nook`),
   img("td-cover", "1536x1024", "Ảnh chung cho thẻ \"Học tiếp\" của môn Tập đọc (chữ to đè lên)", "A cozy empty classroom blackboard corner with soft chalk dust, a small potted plant and a stack of books, large plain empty area in the middle, very soft and light"),

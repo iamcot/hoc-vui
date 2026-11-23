@@ -1,5 +1,5 @@
 /**
- * Bàn phím Casio fx-580VN X (rút gọn, đủ dùng cho Toán 6).
+ * Bàn phím Casio fx-580VN X (rút gọn, đủ dùng cho Toán 6 đến 9).
  * Mỗi phím có nhãn chính, nhãn SHIFT (vàng) và nhãn ALPHA (đỏ) in phía trên.
  * Trong chuỗi phím của bài học, viết "MUL:GCD" nghĩa là bấm phím × để dùng chức năng GCD
  * (khi đó trước nó luôn có ALPHA hoặc SHIFT).
@@ -37,9 +37,9 @@ export const FX580_ROWS: CalcKey[][] = [
     { id: "NEG", label: "(−)", kind: "fn", out: "−" },
     { id: "DEG", label: "° ' \"", shift: "FACT", kind: "fn" },
     { id: "INV", label: "x⁻¹", shift: "x!", kind: "fn", out: "⁻¹" },
-    { id: "SIN", label: "sin", kind: "fn" },
-    { id: "COS", label: "cos", kind: "fn" },
-    { id: "TAN", label: "tan", kind: "fn" },
+    { id: "SIN", label: "sin", shift: "sin⁻¹", kind: "fn", out: "sin(" },
+    { id: "COS", label: "cos", shift: "cos⁻¹", kind: "fn", out: "cos(" },
+    { id: "TAN", label: "tan", shift: "tan⁻¹", kind: "fn", out: "tan(" },
   ],
   [
     { id: "STO", label: "STO", shift: "RECALL", kind: "fn" },
@@ -73,7 +73,7 @@ export const FX580_ROWS: CalcKey[][] = [
   [
     { id: "0", label: "0", kind: "num", out: "0" },
     { id: "DOT", label: ".", kind: "num", out: "." },
-    { id: "EXP", label: "×10ˣ", kind: "num" },
+    { id: "EXP", label: "×10ˣ", shift: "π", kind: "num" },
     { id: "ANS", label: "Ans", shift: "%", kind: "num", out: "Ans" },
     { id: "EQ", label: "=", kind: "eq", out: "=" },
   ],
