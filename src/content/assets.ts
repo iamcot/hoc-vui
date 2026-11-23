@@ -85,6 +85,14 @@ export const IMAGES: ImageAsset[] = [
   img("fx-l09-cover", "1536x1024", "Bìa bài 9: Thập phân và phần trăm", "A cozy little stationery shop with discount tags showing a percent symbol"),
   img("fx-l10-cover", "1536x1024", "Bìa bài 10: Chu vi, diện tích", "A garden seen from above divided into rectangle, rhombus, parallelogram and trapezoid flower beds"),
 
+  // Trình độ lớp 7 (bìa dùng luôn làm ảnh slide đầu)
+  img("fx7-l01-cover", "1536x1024", "Lớp 7 · Bìa bài 1: Số hữu tỉ", `${MOCHI} standing on a number line that stretches left into cool blue ice (negative numbers) and right into warm sunshine, holding a glowing fraction-shaped ice cube`),
+  img("fx7-l02-cover", "1536x1024", "Lớp 7 · Bìa bài 2: Lũy thừa số hữu tỉ", `${MOCHI} and ${XIXI} riding a small rocket that grows bigger in stages like a staircase, playful sense of rapid growth, pair of curved brackets shaped like a protective bubble around the rocket`),
+  img("fx7-l03-cover", "1536x1024", "Lớp 7 · Bìa bài 3: Căn bậc hai", `${MOCHI} kneeling in a square vegetable garden, measuring one side with a ribbon tape, a sprouting plant with visible roots growing under the soil`),
+  img("fx7-l04-cover", "1536x1024", "Lớp 7 · Bìa bài 4: Tỉ lệ thức", `${MOCHI} balancing a wooden seesaw scale with two equal groups of fruit on each side, ${XIXI} watching cheerfully`),
+  img("fx7-l05-cover", "1536x1024", "Lớp 7 · Bìa bài 5: Đại lượng tỉ lệ", `${MOCHI} and three animal friends sharing a big layered cake cut into slices of different sizes, a stack of notebooks nearby`),
+  img("fx7-l06-cover", "1536x1024", "Lớp 7 · Bìa bài 6: Thống kê", `${MOCHI} presenting a big colorful pie chart and a simple bar chart on a classroom easel, ${XIXI} pointing at the chart`),
+
   // Minh họa trong bài
   img("fx-l01-s1", "1536x1024", "Bài 1, slide 1: Mochi giới thiệu Xi Xi", `${MOCHI} presenting ${XIXI} with open paws, sparkles`),
   img("fx-l01-s3", "1536x1024", "Bài 1, slide 3: chữ vàng chữ đỏ trên phím", "Close-up of three calculator keys, each with a small yellow label and a small red label above it, glowing softly, two tiny arrows pointing to the labels"),

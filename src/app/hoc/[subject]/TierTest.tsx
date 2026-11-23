@@ -158,7 +158,7 @@ export function TierTest({ subjectId, tierId, mode }: { subjectId: string; tierI
             <Mascot mood={correct >= ch.pass ? "cheer" : "oops"} size={180} className="floaty mx-auto" />
             <div className="space-y-2 text-center sm:text-left">
               <p className="text-ink-soft">Thử thách lên {nextTier?.name}</p>
-              <h1 className="font-display text-4xl font-extrabold">{correct >= ch.pass ? `🎉 Đã mở ${nextTier?.name}!` : "Suýt nữa rồi!"}</h1>
+              <h1 className="font-display text-4xl font-extrabold">{correct >= ch.pass ? `🎉 Đã mở ${nextTier?.name}!` : correct >= ch.pass - 2 ? "Suýt nữa rồi!" : "Chưa qua lần này"}</h1>
               <p className="text-lg">
                 Đúng <b>{correct}/{COUNT}</b> câu.{" "}
                 {correct >= ch.pass ? `Em giỏi quá, vào học ${nextTier?.name} thôi.` : `Cần đúng ${ch.pass} câu. Ôn lại mấy bài bên dưới rồi thử lại nhé.`}

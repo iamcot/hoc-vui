@@ -1,14 +1,14 @@
 # Học Vui · Kế hoạch
 
 App học tập cho con, lớp 1 đến 12, bám chương trình GDPT 2018. Một khung chung, cắm nhiều môn vào.
-Môn đầu tiên: **Máy tính Casio fx-580VN X cho Toán 6**.
+Môn đầu tiên: **Máy tính Casio fx-580VN X**, chia trình độ Lớp 6 → 9. Muốn học vượt thì làm thử thách 10 câu (đúng 8) của trình độ trước để mở khóa.
 
 ## Kiến trúc
 
 - **Next.js (App Router) + TypeScript + Tailwind**, chạy như app trên điện thoại (PWA, cài ra màn hình chính, thanh tab dưới đáy).
 - **Supabase**: đăng nhập (email + mật khẩu), lưu tiến trình, phòng thi đấu, bảng xếp hạng. Chưa cấu hình Supabase thì app chạy ở **chế độ khách**, lưu tiến trình trên máy.
 - **Deploy**: Vercel (kết nối repo, thêm 2 biến môi trường Supabase).
-- **Nội dung là dữ liệu**: `src/content/subjects/<môn>/` gồm chặng → bài → slide + bộ sinh bài tập. Thêm môn mới không phải sửa màn hình.
+- **Nội dung là dữ liệu**: `src/content/subjects/<môn>/` gồm trình độ → chặng → bài → slide + bộ sinh bài tập. Thêm môn mới không phải sửa màn hình. Luật mở khóa ở `src/lib/tiers.ts`.
 - **Ảnh/âm thanh**: danh mục ở `src/content/assets.ts`, prompt in ra `docs/ASSET_PROMPTS.md`. Chưa có file thì app tự hiện hình thay thế.
 
 ## Luồng học của con
@@ -43,6 +43,14 @@ Môn đầu tiên: **Máy tính Casio fx-580VN X cho Toán 6**.
 - [ ] Phụ huynh xem tiến trình của con
 - [ ] Thử trên điện thoại thật, chỉnh hoạt họa
 - [ ] Chuỗi ngày học (streak), nhắc học
+
+### Giai đoạn 2b · Môn Máy tính nhiều trình độ
+- [x] Môn → trình độ (Lớp 6, 7, 8, 9) → chặng → bài; tiến trình cũ tự chuyển sang
+- [x] Thử thách vượt cấp 10 câu, đúng 8 là mở trình độ sau; kiểm tra theo từng trình độ
+- [x] Đấu trường chọn môn + trình độ
+- [x] Trình độ Lớp 7: 6 bài (số hữu tỉ, lũy thừa, căn bậc hai, tỉ lệ thức, đại lượng tỉ lệ, thống kê)
+- [ ] Trình độ Lớp 8, Lớp 9
+- [ ] Ảnh bìa 6 bài lớp 7 (prompt `fx7-l0x-cover` trong docs/ASSET_PROMPTS.md)
 
 ### Giai đoạn 3 · Mở rộng môn
 - [ ] Toán lớp 6 (lý thuyết), Toán lớp 1, Tiếng Việt, Tiếng Anh...
