@@ -101,6 +101,8 @@ export interface Tier {
   /** mô tả một dòng */
   short: string;
   emoji: string;
+  /** ảnh huy hiệu (id trong danh mục ảnh), có thì hiện thay emoji */
+  icon?: string;
   /** rỗng = đang soạn */
   units: Unit[];
   /** thử thách vượt cấp lấy từ trình độ này: số câu và số câu đúng để đạt */

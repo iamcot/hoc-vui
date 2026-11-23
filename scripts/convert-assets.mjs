@@ -4,7 +4,7 @@
 // - Ảnh có nền trong suốt (nhân vật, huy hiệu, avatar) được cắt bớt viền trống.
 // - Cũng quét public/assets/img: PNG/JPG nào lỡ để ở đó sẽ được đổi sang WebP và xoá bản gốc
 //   (chạy tự động trước mỗi lần build/dev).
-// - File .mp3/.m4a/.wav trong thư mục nguồn: tên vo-* vào public/assets/voice, còn lại vào public/assets/sfx.
+// - File .mp3/.m4a/.wav trong thư mục nguồn: tên vo-* và tv-* (giọng Tập đọc) vào public/assets/voice, còn lại vào public/assets/sfx.
 import { readdirSync, statSync, mkdirSync, copyFileSync, unlinkSync, existsSync } from "node:fs";
 import { join, extname, basename } from "node:path";
 import sharp from "sharp";
@@ -53,7 +53,7 @@ for (const f of walk(srcDir)) {
   const ext = extname(f).toLowerCase();
   if ([".png", ".jpg", ".jpeg"].includes(ext)) await toWebp(f);
   else if ([".mp3", ".m4a", ".wav", ".ogg"].includes(ext)) {
-    const dest = basename(f).startsWith("vo-") ? "public/assets/voice" : "public/assets/sfx";
+    const dest = /^(vo|tv)-/.test(basename(f)) ? "public/assets/voice" : "public/assets/sfx";
     copyFileSync(f, join(dest, basename(f)));
     console.log(`${basename(f)} → ${dest}`);
   }

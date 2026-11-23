@@ -124,7 +124,7 @@ export function SubjectMap({ subjectId }: { subjectId: string }) {
               i === cur ? "bg-sky text-white" : "bg-white/90 text-ink"
             }`}
           >
-            <span>{t.emoji}</span>
+            {t.icon ? <Art id={t.icon} emoji={t.emoji} rounded="rounded-full" contain className="-my-1 h-9 w-9" /> : <span>{t.emoji}</span>}
             {t.name}
             {!open[i] && <IconLock className={`h-4 w-4 ${i === cur ? "text-white/80" : "text-ink-soft"}`} />}
           </button>
@@ -153,7 +153,7 @@ export function SubjectMap({ subjectId }: { subjectId: string }) {
             return (
               <div key={i} id={`cap-${tier.id}`} className="absolute w-[min(92%,30rem)] -translate-x-1/2 -translate-y-1/2 scroll-mt-24" style={style}>
                 <div className={`flex items-center gap-3 rounded-[2rem] px-5 py-3 shadow-[var(--shadow-pop)] ${locked ? "bg-white/80" : "bg-sky text-white"}`}>
-                  <span className={`grid h-14 w-14 shrink-0 place-items-center rounded-full text-3xl ${locked ? "bg-line/60" : "bg-white/25"}`}>{locked ? "🔒" : tier.emoji}</span>
+                  <span className={`grid h-14 w-14 shrink-0 place-items-center rounded-full text-3xl ${locked ? "bg-line/60" : "bg-white/25"}`}>{locked && !tier.icon ? "🔒" : tier.icon ? <Art id={tier.icon} emoji={tier.emoji} rounded="rounded-full" contain className={`h-14 w-14 ${locked ? "opacity-60 grayscale" : ""}`} /> : tier.emoji}</span>
                   <div className="min-w-0 flex-1">
                     <div className="font-display text-2xl font-extrabold leading-tight">{tier.name}</div>
                     <div className={`text-sm font-semibold ${locked ? "text-ink-soft" : "text-white/85"}`}>
