@@ -1,7 +1,8 @@
 "use client";
 import Link from "next/link";
 import { motion } from "motion/react";
-import { SUBJECTS, allLessons } from "@/content/subjects";
+import { SUBJECTS, tierLessons } from "@/content/subjects";
+import { currentTierIndex } from "@/lib/tiers";
 import { useProgress } from "@/lib/store";
 import { Mascot } from "@/components/Mascot";
 import { Art } from "@/components/Art";
@@ -17,7 +18,8 @@ export default function Home() {
   const live = SUBJECTS.filter((s) => s.ready);
   const soon = SUBJECTS.filter((s) => !s.ready);
   const main = live[0];
-  const lessons = allLessons(main);
+  const tier = main.tiers[currentTierIndex(main, lesson, data.unlocks)];
+  const lessons = tierLessons(tier);
   const next = lessons.find((l) => lesson(main.id, l.id).stars === 0) ?? lessons[0];
   const doneCount = lessons.filter((l) => lesson(main.id, l.id).stars > 0).length;
 
@@ -45,7 +47,7 @@ export default function Home() {
           <div className="absolute inset-x-0 bottom-0 flex flex-wrap items-end gap-4 p-5 text-white sm:p-8">
             <div className="min-w-0 flex-1 space-y-2">
               <span className="ribbon text-sm" style={{ ["--ribbon" as string]: "var(--color-peach)" }}>
-                Học tiếp · Bài {lessons.indexOf(next) + 1}
+                Học tiếp · {tier.name} · Bài {lessons.indexOf(next) + 1}
               </span>
               <h2 className="font-display text-3xl font-extrabold drop-shadow sm:text-5xl">{next.title}</h2>
               <p className="text-white/85 sm:text-lg">{next.short}</p>
@@ -54,7 +56,7 @@ export default function Home() {
                   <div className="h-full rounded-full bg-sun" style={{ width: `${(doneCount / lessons.length) * 100}%` }} />
                 </div>
                 <span className="text-sm font-bold">
-                  {doneCount}/{lessons.length} bài
+                  {doneCount}/{lessons.length} bài {tier.name.toLowerCase()}
                 </span>
               </div>
             </div>
@@ -73,7 +75,7 @@ export default function Home() {
               <Link href={`/hoc/${s.id}`} className="group relative block overflow-hidden rounded-[2rem] shadow-[0_18px_40px_-22px_rgba(40,40,120,0.6)]">
                 <Art id={s.cover} emoji={s.emoji} rounded="" className="aspect-[4/3] w-full transition duration-500 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
-                <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-sm font-extrabold text-sky">Lớp {s.grade}</span>
+                <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-sm font-extrabold text-sky">{s.levelsLabel}</span>
                 <div className="absolute inset-x-0 bottom-0 p-4 text-white">
                   <h3 className="font-display text-2xl font-extrabold drop-shadow">{s.name}</h3>
                   <p className="text-sm text-white/90">{s.tagline}</p>
@@ -94,7 +96,7 @@ export default function Home() {
               <span className="absolute right-4 top-4 rounded-full bg-sun px-3 py-1 text-xs font-extrabold text-ink">Sắp ra mắt</span>
               <div className="absolute inset-x-0 bottom-0 p-4 text-white">
                 <h3 className="font-display text-2xl font-extrabold drop-shadow">
-                  {s.emoji} {s.name} · Lớp {s.grade}
+                  {s.emoji} {s.name} · {s.levelsLabel}
                 </h3>
                 <p className="text-sm text-white/90">{s.tagline}</p>
               </div>

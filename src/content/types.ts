@@ -62,10 +62,29 @@ export interface Unit {
   lessons: Lesson[];
 }
 
+/**
+ * Trình độ (chặng lớn) trong một môn: vd. "Lớp 6", "Lớp 7" của môn Máy tính,
+ * hay "Vỡ lòng", "Vần" của môn Tập đọc. Muốn học vượt: làm thử thách của
+ * trình độ trước (câu trộn từ mọi bài của trình độ đó), đạt thì mở khóa.
+ */
+export interface Tier {
+  id: string;
+  /** tên ngắn hiện trên tab, vd. "Lớp 7" */
+  name: string;
+  /** mô tả một dòng */
+  short: string;
+  emoji: string;
+  /** rỗng = đang soạn */
+  units: Unit[];
+  /** thử thách vượt cấp lấy từ trình độ này: số câu và số câu đúng để đạt */
+  challenge?: { count: number; pass: number };
+}
+
 export interface Subject {
   id: string;
   name: string;
-  grade: number;
+  /** khoảng trình độ, vd. "Lớp 6 → 9" */
+  levelsLabel: string;
   tagline: string;
   emoji: string;
   /** màu chủ đạo (hex) */
@@ -73,6 +92,6 @@ export interface Subject {
   cover: string;
   /** thiết bị ảo dùng trong bài (vd. bàn phím máy tính) */
   device?: "fx580";
-  units: Unit[];
+  tiers: Tier[];
   ready: boolean;
 }

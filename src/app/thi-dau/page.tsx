@@ -20,7 +20,11 @@ function Arena() {
   const router = useRouter();
   const params = useSearchParams();
   const ready = SUBJECTS.filter((s) => s.ready);
-  const [subject, setSubject] = useState(params.get("mon") ?? ready[0].id);
+  // lựa chọn = môn + trình độ (vd. "may-tinh:lop7"); bạn vào phòng chọn cùng mục này để có cùng đề
+  const options = ready.flatMap((s) => s.tiers.filter((t) => t.units.length > 0).map((t) => ({ value: `${s.id}:${t.id}`, label: `${s.emoji} ${s.name} · ${t.name}` })));
+  const initial = params.get("mon") ? `${params.get("mon")}:${params.get("cap") ?? ""}` : "";
+  const [pick, setPick] = useState(options.find((o) => o.value === initial)?.value ?? options.find((o) => initial && o.value.startsWith(initial.split(":")[0] + ":"))?.value ?? options[0].value);
+  const [subject, tierId] = pick.split(":");
   const [code, setCode] = useState("");
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState("");
@@ -30,8 +34,8 @@ function Arena() {
     setBusy(true);
     setErr("");
     try {
-      const room = await createRoom(subject);
-      router.push(`/thi-dau/${room.code}?mon=${subject}`);
+      const room = await createRoom(subject, tierId);
+      router.push(`/thi-dau/${room.code}?mon=${subject}&cap=${tierId}`);
     } catch (e) {
       setErr("Chưa tạo được phòng, thử lại sau nhé.");
       console.error(e);
@@ -71,11 +75,11 @@ function Arena() {
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="card flex flex-col gap-4 p-6">
           <h2 className="font-display text-2xl font-extrabold">🏁 Tạo phòng mới</h2>
           <label className="block text-sm font-bold text-ink-soft">
-            Môn
-            <select value={subject} onChange={(e) => setSubject(e.target.value)} className="mt-1 block h-14 w-full rounded-2xl border-2 border-line bg-white px-4 text-base font-bold text-ink">
-              {ready.map((s) => (
-                <option key={s.id} value={s.id}>
-                  {s.emoji} {s.name} · Lớp {s.grade}
+            Môn và trình độ
+            <select value={pick} onChange={(e) => setPick(e.target.value)} className="mt-1 block h-14 w-full rounded-2xl border-2 border-line bg-white px-4 text-base font-bold text-ink">
+              {options.map((o) => (
+                <option key={o.value} value={o.value}>
+                  {o.label}
                 </option>
               ))}
             </select>
@@ -97,7 +101,7 @@ function Arena() {
             className="mt-1 block h-14 w-full rounded-2xl border-2 border-line bg-white px-4 text-center font-mono text-2xl text-ink font-bold tracking-[0.3em] uppercase outline-none placeholder:font-sans placeholder:text-lg placeholder:normal-case placeholder:tracking-normal focus:border-sky"
           />
           </label>
-          <button className="btn btn-mint mt-auto w-full" disabled={code.length !== 6} onClick={() => router.push(`/thi-dau/${code}?mon=${subject}`)}>
+          <button className="btn btn-mint mt-auto w-full" disabled={code.length !== 6} onClick={() => router.push(`/thi-dau/${code}?mon=${subject}&cap=${tierId}`)}>
             Vào phòng ▶
           </button>
         </motion.div>

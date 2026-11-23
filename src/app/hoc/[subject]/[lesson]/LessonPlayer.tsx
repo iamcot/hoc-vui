@@ -13,7 +13,7 @@ import { Scene } from "@/components/Scene";
 
 export function LessonPlayer({ subjectId, lessonId }: { subjectId: string; lessonId: string }) {
   const info = getLesson(subjectId, lessonId)!;
-  const { subject, lesson, index, next } = info;
+  const { subject, tier, lesson, index, next } = info;
   const { markRead, data, setSound } = useProgress();
   const [i, setI] = useState(0);
   const [dir, setDir] = useState(1);
@@ -43,7 +43,7 @@ export function LessonPlayer({ subjectId, lessonId }: { subjectId: string; lesso
       <Scene image="bg-lesson" variant="desk" dim />
       <header className="sticky top-0 z-20 bg-white/60 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center gap-3 px-4 py-3 sm:px-6">
-          <Link href={`/hoc/${subject.id}`} className="grid h-10 w-10 place-items-center rounded-full bg-white shadow-sm" aria-label="Đóng bài học">
+          <Link href={`/hoc/${subject.id}?cap=${tier.id}`} className="grid h-10 w-10 place-items-center rounded-full bg-white shadow-sm" aria-label="Đóng bài học">
             <IconClose className="h-5 w-5" />
           </Link>
           <div className="flex flex-1 gap-1.5">
@@ -128,7 +128,7 @@ export function LessonPlayer({ subjectId, lessonId }: { subjectId: string; lesso
                     Bài tiếp: {next.title}
                   </Link>
                 ) : (
-                  <Link href={`/hoc/${subject.id}/kiem-tra`} className="btn btn-ghost">
+                  <Link href={`/hoc/${subject.id}/kiem-tra/${tier.id}`} className="btn btn-ghost">
                     Kiểm tra trình độ
                   </Link>
                 )}

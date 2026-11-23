@@ -1,7 +1,8 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
-import { SUBJECTS, allLessons } from "@/content/subjects";
+import { SUBJECTS, tierLessons } from "@/content/subjects";
+import { tierUnlocked } from "@/lib/tiers";
 import { LEVELS } from "@/lib/quiz";
 import { useProgress } from "@/lib/store";
 import { getSupabase } from "@/lib/supabase";
@@ -83,20 +84,25 @@ export default function MePage() {
 
       <section className="card space-y-4 p-6">
         <h2 className="font-display text-xl font-extrabold">Tiến trình</h2>
-        {SUBJECTS.filter((s) => s.ready).map((s) => {
-          const ls = allLessons(s);
+        {SUBJECTS.filter((s) => s.ready).flatMap((s) => s.tiers.filter((t) => t.units.length > 0).map((tier, ti) => ({ s, tier, ti }))).map(({ s, tier, ti }) => {
+          const ls = tierLessons(tier);
           const stars = ls.reduce((a, l) => a + lesson(s.id, l.id).stars, 0);
-          const t = data.tests[s.id];
+          const t = data.tests[`${s.id}:${tier.id}`];
           const lv = t && LEVELS.find((l) => l.id === t.level);
+          const open = tierUnlocked(s, s.tiers.indexOf(tier), lesson, data.unlocks);
           return (
-            <div key={s.id} className="space-y-3">
+            <div key={`${s.id}:${tier.id}`} className="space-y-3">
               <div className="flex flex-wrap items-center gap-3">
                 <span className="font-display text-lg font-extrabold">
-                  {s.emoji} {s.name} · Lớp {s.grade}
+                  {s.emoji} {s.name} · {tier.name}
                 </span>
-                <span className="chip bg-sun-soft">
-                  ⭐ {stars}/{ls.length * 3} sao
-                </span>
+                {open ? (
+                  <span className="chip bg-sun-soft">
+                    ⭐ {stars}/{ls.length * 3} sao
+                  </span>
+                ) : (
+                  <span className="chip bg-line/60">🔒 Chưa mở</span>
+                )}
                 {lv && (
                   <span className="chip bg-mint-soft">
                     {lv.emoji} {lv.name} ({t!.pct}%)

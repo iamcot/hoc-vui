@@ -67,3 +67,19 @@ test("chấm đáp án", () => {
   assert.ok(checkAnswer({ ...base, kind: "pair", answer: "5;25" }, "5;25"));
   assert.ok(checkAnswer({ ...base, kind: "number", answer: "-75" }, "−75"));
 });
+
+test("trình độ: id bài không trùng trong môn, mở khóa theo học xong hoặc thử thách", async () => {
+  const { tierUnlocked, currentTierIndex } = await import("@/lib/tiers");
+  for (const s of SUBJECTS) {
+    const ids = allLessons(s).map((l) => l.id);
+    assert.equal(new Set(ids).size, ids.length, `${s.id}: trùng id bài`);
+  }
+  const s = SUBJECTS.find((x) => x.id === "may-tinh")!;
+  const none = () => ({ read: false, stars: 0, best: 0 });
+  const all = () => ({ read: true, stars: 1, best: 50 });
+  assert.equal(tierUnlocked(s, 0, none, {}), true);
+  assert.equal(tierUnlocked(s, 1, none, {}), false);
+  assert.equal(tierUnlocked(s, 1, none, { "may-tinh": ["lop7"] }), true);
+  assert.equal(tierUnlocked(s, 1, all, {}), true);
+  assert.equal(currentTierIndex(s, none, {}), 0);
+});

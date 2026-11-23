@@ -1,39 +1,7 @@
-import type { Question, QuestionGen } from "@/content/types";
-import type { Rng } from "@/lib/rng";
-import { numKeys } from "@/content/devices/fx580";
+import type { QuestionGen } from "@/content/types";
 import { factorize, factorString, frac, fracStr, gcd, isPrime, lcm, vn } from "@/lib/math";
 
-let counter = 0;
-const qid = (topic: string) => `${topic}-${++counter}`;
-
-/** Chuyển biểu thức dạng token thành chuỗi phím. */
-function k(...tokens: (string | number)[]): string[] {
-  const out: string[] = [];
-  for (const t of tokens) {
-    if (typeof t === "number") out.push(...numKeys(t));
-    else if (t === "+") out.push("ADD");
-    else if (t === "-") out.push("SUB");
-    else if (t === "×") out.push("MUL");
-    else if (t === "÷") out.push("DIV");
-    else if (t === "(") out.push("LP");
-    else if (t === ")") out.push("RP");
-    else if (t === "²") out.push("POW2");
-    else if (t === "³") out.push("SHIFT", "POW2:x³");
-    else if (t === "^") out.push("POW");
-    else if (t === "/") out.push("FRAC");
-    else if (t === "▶") out.push("RIGHT");
-    else if (t === ",") out.push("SHIFT", "RP:,");
-    else if (t === "%") out.push("SHIFT", "ANS:%");
-    else if (t === "=") out.push("EQ");
-    else out.push(t);
-  }
-  return out;
-}
-
-function choiceQ(rng: Rng, base: Omit<Question, "id" | "kind" | "choices">, wrong: string[]): Question {
-  const uniq = Array.from(new Set(wrong.filter((w) => w !== base.answer))).slice(0, 3);
-  return { ...base, id: qid(base.topic), kind: "choice", choices: rng.shuffle([base.answer, ...uniq]) };
-}
+import { choiceQ, k, qid } from "../helpers";
 
 /* ---------------- Bài 1: Làm quen ---------------- */
 const KEY_BANK: { q: string; a: string; wrong: string[]; hint?: string }[] = [

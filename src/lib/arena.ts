@@ -11,6 +11,8 @@ export const cleanCode = (s: string) => s.toUpperCase().replace(/[^A-Z0-9]/g, ""
 export interface Room {
   code: string;
   subject_id: string;
+  /** trình độ của đề (null = trộn cả môn) */
+  tier_id?: string | null;
   question_count: number;
   seconds: number;
 }
@@ -48,9 +50,9 @@ function saveLocalRooms(r: ReturnType<typeof localRooms>) {
 }
 
 /** Tạo phòng. Không đăng nhập: phòng chỉ lưu trên máy, nhưng mã vẫn cho ra cùng đề ở máy khác. */
-export async function createRoom(subjectId: string): Promise<Room> {
+export async function createRoom(subjectId: string, tierId?: string | null): Promise<Room> {
   const sb = getSupabase();
-  const room: Room = { code: newCode(), subject_id: subjectId, question_count: ROOM_QUESTIONS, seconds: ROOM_SECONDS };
+  const room: Room = { code: newCode(), subject_id: subjectId, tier_id: tierId ?? null, question_count: ROOM_QUESTIONS, seconds: ROOM_SECONDS };
   const { data: s } = (await sb?.auth.getSession()) ?? { data: { session: null } };
   if (sb && s.session) {
     const { error } = await sb.from("challenges").insert(room);
@@ -64,16 +66,16 @@ export async function createRoom(subjectId: string): Promise<Room> {
 }
 
 /** Tìm phòng theo mã. Mã đặt ở máy khác khi chưa đăng nhập: mặc định môn đầu tiên. */
-export async function findRoom(code: string, fallbackSubject: string): Promise<Room> {
+export async function findRoom(code: string, fallbackSubject: string, fallbackTier?: string | null): Promise<Room> {
   const sb = getSupabase();
   const { data: s } = (await sb?.auth.getSession()) ?? { data: { session: null } };
   if (sb && s.session) {
-    const { data } = await sb.from("challenges").select("code, subject_id, question_count, seconds").eq("code", code).maybeSingle();
+    const { data } = await sb.from("challenges").select("code, subject_id, tier_id, question_count, seconds").eq("code", code).maybeSingle();
     if (data) return data as Room;
   }
   const local = localRooms()[code];
   if (local) return local.room;
-  return { code, subject_id: fallbackSubject, question_count: ROOM_QUESTIONS, seconds: ROOM_SECONDS };
+  return { code, subject_id: fallbackSubject, tier_id: fallbackTier ?? null, question_count: ROOM_QUESTIONS, seconds: ROOM_SECONDS };
 }
 
 export async function submitEntry(room: Room, e: { score: number; correct: number; time_ms: number }, me: { name: string; avatar: string }) {

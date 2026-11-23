@@ -28,7 +28,10 @@ export interface ProgressData {
   xp: number;
   /** key: subjectId/lessonId */
   lessons: Record<string, LessonState>;
+  /** key: subjectId:tierId */
   tests: Record<string, TestState>;
+  /** trình độ đã mở khóa nhờ thử thách vượt cấp: subjectId -> [tierId] */
+  unlocks: Record<string, string[]>;
   profile: Profile;
   sound: boolean;
   /** môn máy tính: bấm máy ảo trên màn hình hay máy thật */
@@ -41,6 +44,7 @@ const EMPTY: ProgressData = {
   xp: 0,
   lessons: {},
   tests: {},
+  unlocks: {},
   profile: { name: "", avatar: "fox" },
   sound: true,
   calcMode: "virtual",
@@ -52,11 +56,24 @@ const LS_KEY = "hocvui:v1";
 function loadLocal(): ProgressData {
   try {
     const raw = localStorage.getItem(LS_KEY);
-    if (raw) return { ...EMPTY, ...JSON.parse(raw) };
+    if (raw) return migrate({ ...EMPTY, ...JSON.parse(raw) });
   } catch {
     /* chế độ riêng tư */
   }
   return EMPTY;
+}
+/** Dữ liệu cũ: môn "fx580-lop6" nay là trình độ "lop6" của môn "may-tinh". */
+function migrate(d: ProgressData): ProgressData {
+  const OLD = "fx580-lop6";
+  if (!Object.keys(d.lessons).some((k) => k.startsWith(OLD + "/")) && !d.tests[OLD]) return d;
+  const lessons: ProgressData["lessons"] = {};
+  for (const [k, v] of Object.entries(d.lessons)) lessons[k.replace(OLD + "/", "may-tinh/")] = v;
+  const tests = { ...d.tests };
+  if (tests[OLD]) {
+    tests["may-tinh:lop6"] = tests[OLD];
+    delete tests[OLD];
+  }
+  return { ...d, lessons, tests };
 }
 function saveLocal(d: ProgressData) {
   try {
@@ -76,7 +93,9 @@ interface Store {
   lesson(subjectId: string, lessonId: string): LessonState;
   markRead(subjectId: string, lessonId: string): void;
   recordPractice(subjectId: string, lessonId: string, correct: number, total: number, hinted?: number): { stars: number; xp: number };
-  recordTest(subjectId: string, t: TestState): void;
+  /** key: subjectId:tierId */
+  recordTest(key: string, t: TestState): void;
+  unlockTier(subjectId: string, tierId: string): void;
   addXp(subjectId: string, amount: number, reason: string): void;
   setProfile(p: Partial<Profile>): void;
   setSound(on: boolean): void;
@@ -122,12 +141,19 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
     if (!sb || !session) return;
     const uid = session.user.id;
     (async () => {
-      const [{ data: prof }, { data: rows }, { data: xpRow }] = await Promise.all([
+      const [{ data: prof }, { data: rows }, { data: xpRow }, { data: unl }] = await Promise.all([
         sb.from("profiles").select("display_name, avatar").eq("id", uid).maybeSingle(),
         sb.from("lesson_progress").select("subject_id, lesson_id, read, stars, best").eq("user_id", uid),
         sb.rpc("my_total_xp"),
+        sb.from("tier_unlocks").select("subject_id, tier_id").eq("user_id", uid),
       ]);
       const local = dataRef.current;
+      const unlocks: ProgressData["unlocks"] = Object.fromEntries(Object.entries(local.unlocks).map(([k, v]) => [k, [...v]]));
+      for (const r of unl ?? []) {
+        unlocks[r.subject_id] = Array.from(new Set([...(unlocks[r.subject_id] ?? []), r.tier_id]));
+      }
+      const unlockRows = Object.entries(local.unlocks).flatMap(([subject_id, ids]) => ids.map((tier_id) => ({ user_id: uid, subject_id, tier_id })));
+      if (unlockRows.length) await sb.from("tier_unlocks").upsert(unlockRows);
       const lessons = { ...local.lessons };
       const upserts: Record<string, unknown>[] = [];
       for (const r of rows ?? []) {
@@ -148,6 +174,7 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
       update((d) => ({
         ...d,
         lessons,
+        unlocks,
         xp: Math.max(d.xp, serverXp),
         profile: prof ? { name: prof.display_name ?? d.profile.name, avatar: prof.avatar ?? d.profile.avatar } : d.profile,
       }));
@@ -206,9 +233,14 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
         addXp(s, xp, `luyen:${l}`);
         return { stars, xp };
       },
-      recordTest(s, t) {
-        update((d) => ({ ...d, tests: { ...d.tests, [s]: t } }));
-        if (sb && session) void sb.from("level_tests").insert({ user_id: session.user.id, subject_id: s, pct: t.pct, level: t.level });
+      recordTest(key, t) {
+        update((d) => ({ ...d, tests: { ...d.tests, [key]: t } }));
+        if (sb && session) void sb.from("level_tests").insert({ user_id: session.user.id, subject_id: key, pct: t.pct, level: t.level });
+      },
+      unlockTier(s, tier) {
+        if (data.unlocks[s]?.includes(tier)) return;
+        update((d) => ({ ...d, unlocks: { ...d.unlocks, [s]: [...(d.unlocks[s] ?? []), tier] } }));
+        if (sb && session) void sb.from("tier_unlocks").upsert({ user_id: session.user.id, subject_id: s, tier_id: tier });
       },
       addXp,
       setProfile(p) {

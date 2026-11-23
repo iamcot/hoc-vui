@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Suspense, useCallback, useEffect, useRef, useState } from "react";
 import { useParams, useSearchParams } from "next/navigation";
 import { motion } from "motion/react";
-import { SUBJECTS, getSubject } from "@/content/subjects";
+import { SUBJECTS, getSubject, getTier, tierLessons } from "@/content/subjects";
 import type { Question } from "@/content/types";
 import { mixedSet } from "@/lib/quiz";
 import { cleanCode, findRoom, roomBoard, scoreOf, submitEntry, type Entry, type Room } from "@/lib/arena";
@@ -27,7 +27,9 @@ export default function RoomPage() {
 
 function RoomView() {
   const code = cleanCode(String(useParams().code ?? ""));
-  const fallback = useSearchParams().get("mon") ?? SUBJECTS.find((s) => s.ready)!.id;
+  const sp = useSearchParams();
+  const fallback = sp.get("mon") ?? SUBJECTS.find((s) => s.ready)!.id;
+  const fallbackTier = sp.get("cap");
   const { data, addXp, session } = useProgress();
   const [room, setRoom] = useState<Room | null>(null);
   const [phase, setPhase] = useState<"lobby" | "run" | "done">("lobby");
@@ -43,7 +45,7 @@ function RoomView() {
   const refresh = useCallback(() => roomBoard(code).then(setBoard), [code]);
 
   useEffect(() => {
-    findRoom(code, fallback).then(setRoom);
+    findRoom(code, fallback, fallbackTier).then(setRoom);
     refresh();
   }, [code, fallback, refresh, session]);
 
@@ -90,10 +92,11 @@ function RoomView() {
 
   if (!room) return null;
   const subject = getSubject(room.subject_id) ?? SUBJECTS[0];
-  const link = typeof window !== "undefined" ? `${location.origin}/thi-dau/${room.code}?mon=${room.subject_id}` : "";
+  const tier = room.tier_id ? getTier(subject, room.tier_id) : undefined;
+  const link = typeof window !== "undefined" ? `${location.origin}/thi-dau/${room.code}?mon=${room.subject_id}${tier ? `&cap=${tier.id}` : ""}` : "";
 
   function start() {
-    setQs(mixedSet(subject, room!.code, room!.question_count));
+    setQs(mixedSet(subject, room!.code, room!.question_count, tier ? tierLessons(tier).map((l) => l.id) : undefined));
     setAnswers([]);
     setI(0);
     startAt.current = Date.now();
@@ -146,7 +149,7 @@ function RoomView() {
           <IconClose className="h-5 w-5" />
         </Link>
         <span className="ribbon text-lg">
-          {subject.emoji} {subject.name} · Lớp {subject.grade}
+          {subject.emoji} {subject.name}{tier ? ` · ${tier.name}` : ""}
         </span>
       </header>
 

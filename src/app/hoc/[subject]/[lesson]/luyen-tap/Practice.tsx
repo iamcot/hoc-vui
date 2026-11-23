@@ -17,7 +17,7 @@ import { play } from "@/lib/sound";
 const COUNT = 8;
 
 export function Practice({ subjectId, lessonId }: { subjectId: string; lessonId: string }) {
-  const { subject, lesson, next } = getLesson(subjectId, lessonId)!;
+  const { subject, tier, lesson, next } = getLesson(subjectId, lessonId)!;
   const { recordPractice } = useProgress();
   const [qs, setQs] = useState<Question[]>([]);
   const [i, setI] = useState(0);
@@ -51,7 +51,7 @@ export function Practice({ subjectId, lessonId }: { subjectId: string; lessonId:
 
   return (
     <div className="min-h-dvh">
-      <QuizHeader closeHref={`/hoc/${subject.id}`} done={answers.length} total={qs.length} />
+      <QuizHeader closeHref={`/hoc/${subject.id}?cap=${tier.id}`} done={answers.length} total={qs.length} />
       <main className="mx-auto max-w-3xl px-4 py-8 sm:px-6">
         {!summary ? (
           <div className="card p-5 sm:p-8">
@@ -94,7 +94,7 @@ export function Practice({ subjectId, lessonId }: { subjectId: string; lessonId:
                   Bài tiếp ▶
                 </Link>
               ) : (
-                <Link href={`/hoc/${subject.id}/kiem-tra`} className="btn btn-mint">
+                <Link href={`/hoc/${subject.id}/kiem-tra/${tier.id}`} className="btn btn-mint">
                   Kiểm tra trình độ
                 </Link>
               )}
