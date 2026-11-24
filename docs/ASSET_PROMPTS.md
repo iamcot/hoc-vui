@@ -586,7 +586,7 @@ Five friendly shape characters: rectangle, square, rhombus, parallelogram, isosc
 A rectangular schoolyard with a small wooden fence being built around it, top-down three-quarter view. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
-### ⬜ `bit-happy.webp`
+### ✅ `bit-happy.webp`
 - Dùng ở: Thỏ Bit chào: slide mở đầu môn Gõ phím (tạo ảnh này TRƯỚC, các ảnh Bit khác lấy làm mẫu)
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -594,7 +594,7 @@ A rectangular schoolyard with a small wooden fence being built around it, top-do
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile, standing relaxed and giving a small two-finger salute, full body. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `bit-think.webp`
+### ✅ `bit-think.webp`
 - Dùng ở: Bit suy nghĩ: slide giải thích
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -602,7 +602,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile, one hand touching the visor which shows a tiny holographic keyboard, thinking, full body. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `bit-wow.webp`
+### ✅ `bit-wow.webp`
 - Dùng ở: Bit ngạc nhiên: phím mới, mẹo hay
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -610,7 +610,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile, visor glowing pink, ears straight up in surprise, both hands open, full body. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `bit-cheer.webp`
+### ✅ `bit-cheer.webp`
 - Dùng ở: Bit ăn mừng: hoàn thành, thắng cuộc
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -618,7 +618,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile, jumping with a fist pump, neon sparks around, full body. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `bit-oops.webp`
+### ✅ `bit-oops.webp`
 - Dùng ở: Bit an ủi: thua lượt, gõ sai nhiều
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -626,7 +626,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile, scratching the back of the head with a lopsided grin, visor showing a small glitch, full body. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `gp-bit-diver.webp`
+### ✅ `gp-bit-diver.webp`
 - Dùng ở: Thợ lặn trong game cá mập (bên trái màn hình, nhìn sang phải)
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -634,7 +634,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile in a sleek dark-navy diving suit with cyan neon lines, round glass helmet around the head with the ears inside, small oxygen tank on the back, holding a laser blaster shaped like a compact keyboard pointing to the RIGHT, floating underwater, side three-quarter view facing right. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `gp-fish.webp`
+### ✅ `gp-fish.webp`
 - Dùng ở: Cá nhỏ trong game (mang 1-3 chữ cái)
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -642,7 +642,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 A small sleek robotic piranha-like fish with amber glowing fins, side view, swimming toward the LEFT (head on the left), a large flat dark plate in the middle of the body left empty for a word label, glowing neon outline. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `gp-jelly.webp`
+### ✅ `gp-jelly.webp`
 - Dùng ở: Sứa trong game (mang 1-3 chữ cái)
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -650,7 +650,7 @@ A small sleek robotic piranha-like fish with amber glowing fins, side view, swim
 A cyber jellyfish with a violet translucent dome and glowing pink circuit tentacles, front view, the dome has a darker flat center area for a short word label. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `gp-shark.webp`
+### ✅ `gp-shark.webp`
 - Dùng ở: Cá mập máy (mang một từ)
 - Kích thước: 1536x1024 · nền trong suốt
 
@@ -658,7 +658,7 @@ A cyber jellyfish with a violet translucent dome and glowing pink circuit tentac
 A cool mechanical shark with dark navy armor plates, cyan glowing gill lines and a red glowing eye, sharp but not gory, side view, swimming toward the LEFT (head on the left), a large flat dark plate in the middle of the body left empty for a word label, glowing neon outline. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `gp-boss.webp`
+### ✅ `gp-boss.webp`
 - Dùng ở: Cá mập trùm (mang từ dài, câu)
 - Kích thước: 1536x1024 · nền trong suốt
 
@@ -666,7 +666,7 @@ A cool mechanical shark with dark navy armor plates, cyan glowing gill lines and
 A huge boss mechanical shark with magenta neon armor, glowing pink eyes, spiky dorsal fin like a radio antenna, menacing but kid-friendly, side view, swimming toward the LEFT (head on the left), a large flat dark plate in the middle of the body left empty for a word label, glowing neon outline. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `bg-gp-deep.webp`
+### ✅ `bg-gp-deep.webp`
 - Dùng ở: Cảnh nền game cá mập: biển sâu (để trống giữa cho cá bơi qua)
 - Kích thước: 1536x1024
 
@@ -674,7 +674,7 @@ A huge boss mechanical shark with magenta neon armor, glowing pink eyes, spiky d
 Wide underwater scene in the deep ocean at night: soft god rays from the surface at the top, a far-away glowing cyber city of coral towers on the seabed at the bottom, floating particles, the middle band left mostly empty and dark-blue so fish sprites and labels stay readable, low contrast at the center. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
 ```
 
-### ⬜ `bg-gp-map.webp`
+### ✅ `bg-gp-map.webp`
 - Dùng ở: Cảnh nền bản đồ bài của môn Gõ phím
 - Kích thước: 1536x1024
 
@@ -682,7 +682,7 @@ Wide underwater scene in the deep ocean at night: soft god rays from the surface
 Top-down view of a deep-sea cyber city: glowing neon coral reefs, light trails on the seabed like circuit boards, small submarine docks, very dark and low contrast so map nodes on top stay readable. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
 ```
 
-### ⬜ `bg-gp-lesson.webp`
+### ✅ `bg-gp-lesson.webp`
 - Dùng ở: Cảnh nền bài học, kiểm tra của môn Gõ phím (rất tối, mờ)
 - Kích thước: 1536x1024
 
@@ -690,7 +690,7 @@ Top-down view of a deep-sea cyber city: glowing neon coral reefs, light trails o
 Inside a cozy high-tech submarine control room with a big round window showing the dark ocean, keyboard consoles with soft cyan glow, background heavily blurred and dark, mostly empty. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
 ```
 
-### ⬜ `subject-gophim-cover.webp`
+### ✅ `subject-gophim-cover.webp`
 - Dùng ở: Ảnh lớn môn Gõ phím ở trang chủ (chữ đè lên phần dưới ảnh)
 - Kích thước: 1536x1024
 
@@ -698,7 +698,7 @@ Inside a cozy high-tech submarine control room with a big round window showing t
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile as a diver aiming a keyboard laser blaster at a mechanical shark charging in from the right, letters glowing on the shark's side, deep ocean with neon light rays, dynamic action pose, upper half has the action, lower third darker for text. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
 ```
 
-### ⬜ `bg-gp-race.webp`
+### ✅ `bg-gp-race.webp`
 - Dùng ở: Cảnh nền đường đua (chế độ Đua xe)
 - Kích thước: 1536x1024
 
@@ -706,7 +706,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 A neon hover-car race track inside a glass tunnel under the sea, track lanes glowing cyan and pink seen from the side, fish swimming outside the tunnel, the track runs horizontally across the image, dark background. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
 ```
 
-### ⬜ `gp-car.webp`
+### ✅ `gp-car.webp`
 - Dùng ở: Xe đua trong chế độ Đua xe (app tự đổi màu cho từng bạn)
 - Kích thước: 1536x1024 · nền trong suốt
 
@@ -714,7 +714,7 @@ A neon hover-car race track inside a glass tunnel under the sea, track lanes glo
 A sleek futuristic hover race car, side view facing RIGHT, white and silver body with glowing cyan underlights and a small bubble cockpit, no driver visible, no numbers. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `gp-mode-survival.webp`
+### ✅ `gp-mode-survival.webp`
 - Dùng ở: Biểu tượng chế độ Sinh tồn
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -722,7 +722,7 @@ A sleek futuristic hover race car, side view facing RIGHT, white and silver body
 Round app-icon style badge: a mechanical shark head with glowing red eye bursting through a ring of three neon hearts. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `gp-mode-passage.webp`
+### ✅ `gp-mode-passage.webp`
 - Dùng ở: Biểu tượng chế độ Bài gõ hay
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -730,7 +730,7 @@ Round app-icon style badge: a mechanical shark head with glowing red eye burstin
 Round app-icon style badge: a glowing holographic scroll of paper floating above a neon keyboard. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `gp-mode-race.webp`
+### ✅ `gp-mode-race.webp`
 - Dùng ở: Biểu tượng chế độ Đua xe
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -738,7 +738,7 @@ Round app-icon style badge: a glowing holographic scroll of paper floating above
 Round app-icon style badge: a neon hover race car crossing a checkered finish line. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `gp-tier-1.webp`
+### ✅ `gp-tier-1.webp`
 - Dùng ở: Huy hiệu trình độ Hàng nhà
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -746,7 +746,7 @@ Round app-icon style badge: a neon hover race car crossing a checkered finish li
 Hexagon tech badge with two glowing keycaps side by side, each with a small raised bump, cyan glow. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `gp-tier-2.webp`
+### ✅ `gp-tier-2.webp`
 - Dùng ở: Huy hiệu trình độ Từng bàn tay
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -754,7 +754,7 @@ Hexagon tech badge with two glowing keycaps side by side, each with a small rais
 Hexagon tech badge with a robotic glove hand outline made of neon lines, violet glow. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `gp-tier-3.webp`
+### ✅ `gp-tier-3.webp`
 - Dùng ở: Huy hiệu trình độ Phối hợp
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -762,7 +762,7 @@ Hexagon tech badge with a robotic glove hand outline made of neon lines, violet 
 Hexagon tech badge with two neon hands crossing over a keyboard, pink and cyan glow. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `gp-tier-4.webp`
+### ✅ `gp-tier-4.webp`
 - Dùng ở: Huy hiệu trình độ Telex (gõ tiếng Việt)
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -770,7 +770,7 @@ Hexagon tech badge with two neon hands crossing over a keyboard, pink and cyan g
 Hexagon tech badge with a glowing keycap that has a small hook and hat accent marks floating above it like Vietnamese diacritics, amber glow, no real letters. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `gp-cover-nha.webp`
+### ✅ `gp-cover-nha.webp`
 - Dùng ở: Bìa các bài Hàng nhà (thẻ Học tiếp)
 - Kích thước: 1536x1024
 
@@ -778,7 +778,7 @@ Hexagon tech badge with a glowing keycap that has a small hook and hat accent ma
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile resting both hands on the middle row of a giant glowing keyboard that lies on the seabed like a dance floor. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
 ```
 
-### ⬜ `gp-cover-tay.webp`
+### ✅ `gp-cover-tay.webp`
 - Dùng ở: Bìa các bài Từng bàn tay
 - Kích thước: 1536x1024
 
@@ -786,7 +786,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile reaching up to a glowing top-row key and down to a bottom-row key of a giant neon keyboard, underwater. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
 ```
 
-### ⬜ `gp-cover-phoi.webp`
+### ✅ `gp-cover-phoi.webp`
 - Dùng ở: Bìa các bài Phối hợp
 - Kích thước: 1536x1024
 
@@ -794,7 +794,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile typing fast with both hands on a holographic keyboard, light trails following the fingers, a school of neon fish swirling around. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
 ```
 
-### ⬜ `gp-cover-telex.webp`
+### ✅ `gp-cover-telex.webp`
 - Dùng ở: Bìa các bài Telex
 - Kích thước: 1536x1024
 
@@ -857,13 +857,13 @@ Cài đặt giọng đọc gợi ý: ElevenLabs Text to Speech, model Multilingu
 | ✅ | `voice/vo-correct-2.mp3` | Giọng đọc | Khen khi đúng (ngẫu nhiên) | Tuyệt vời, đúng rồi! |
 | ✅ | `voice/vo-wrong-1.mp3` | Giọng đọc | Động viên khi sai | Chưa đúng rồi, thử xem lại cách bấm nhé. |
 | ✅ | `voice/vo-complete.mp3` | Giọng đọc | Hoàn thành bài | Hoàn thành bài học rồi! Mochi tự hào về em lắm. |
-| ⬜ | `sfx/gp-key.mp3` | Hiệu ứng | Gõ đúng một phím | Very soft short mechanical keyboard key click, clean, 0.08 seconds |
-| ⬜ | `sfx/gp-miss.mp3` | Hiệu ứng | Gõ sai phím | Short soft digital error blip, low pitch, not harsh, 0.15 seconds |
-| ⬜ | `sfx/gp-hit.mp3` | Hiệu ứng | Bắn hạ cá | Short sci-fi laser zap followed by a small underwater bubble pop, 0.5 seconds |
-| ⬜ | `sfx/gp-bite.mp3` | Hiệu ứng | Cá chạm vào thợ lặn | Muffled underwater chomp with a short low warning buzz, 0.5 seconds |
-| ⬜ | `sfx/gp-wave.mp3` | Hiệu ứng | Bắt đầu lượt, đợt cá mới | Deep sonar ping with soft echo underwater, 1 second |
-| ⬜ | `sfx/gp-go.mp3` | Hiệu ứng | Đếm ngược xuất phát đua xe | Three short electronic countdown beeps and a higher go beep, 2 seconds |
-| ⬜ | `voice/vo-gp-n01.mp3` | Giọng đọc | Gõ phím · Bài đầu Hàng nhà, câu chào của Bit | Chào em, tớ là Bit! Mình sẽ lặn xuống biển sâu và hạ cá mập bằng bàn phím. Trước tiên, đặt hai ngón trỏ lên phím F và J nhé. |
-| ⬜ | `voice/vo-gp-t01.mp3` | Giọng đọc | Gõ phím · Bài đầu Từng bàn tay | Lên hàng trên nào! Ngón nào với lên phím nào thì gõ xong phải về hàng nhà nha. |
-| ⬜ | `voice/vo-gp-p01.mp3` | Giọng đọc | Gõ phím · Bài đầu Phối hợp | Giờ hai tay cùng chơi. Gõ đều tay, mắt nhìn màn hình là sẽ nhanh thôi. |
-| ⬜ | `voice/vo-gp-v01.mp3` | Giọng đọc | Gõ phím · Bài đầu Telex | Gõ tiếng Việt có dấu thôi! Gõ a hai lần là thành chữ â. Học Vui tự ghép chữ cho em. |
+| ✅ | `sfx/gp-key.mp3` | Hiệu ứng | Gõ đúng một phím | Very soft short mechanical keyboard key click, clean, 0.08 seconds |
+| ✅ | `sfx/gp-miss.mp3` | Hiệu ứng | Gõ sai phím | Short soft digital error blip, low pitch, not harsh, 0.15 seconds |
+| ✅ | `sfx/gp-hit.mp3` | Hiệu ứng | Bắn hạ cá | Short sci-fi laser zap followed by a small underwater bubble pop, 0.5 seconds |
+| ✅ | `sfx/gp-bite.mp3` | Hiệu ứng | Cá chạm vào thợ lặn | Muffled underwater chomp with a short low warning buzz, 0.5 seconds |
+| ✅ | `sfx/gp-wave.mp3` | Hiệu ứng | Bắt đầu lượt, đợt cá mới | Deep sonar ping with soft echo underwater, 1 second |
+| ✅ | `sfx/gp-go.mp3` | Hiệu ứng | Đếm ngược xuất phát đua xe | Three short electronic countdown beeps and a higher go beep, 2 seconds |
+| ✅ | `voice/vo-gp-n01.mp3` | Giọng đọc | Gõ phím · Bài đầu Hàng nhà, câu chào của Bit | Chào em, tớ là Bit! Mình sẽ lặn xuống biển sâu và hạ cá mập bằng bàn phím. Trước tiên, đặt hai ngón trỏ lên phím F và J nhé. |
+| ✅ | `voice/vo-gp-t01.mp3` | Giọng đọc | Gõ phím · Bài đầu Từng bàn tay | Lên hàng trên nào! Ngón nào với lên phím nào thì gõ xong phải về hàng nhà nha. |
+| ✅ | `voice/vo-gp-p01.mp3` | Giọng đọc | Gõ phím · Bài đầu Phối hợp | Giờ hai tay cùng chơi. Gõ đều tay, mắt nhìn màn hình là sẽ nhanh thôi. |
+| ✅ | `voice/vo-gp-v01.mp3` | Giọng đọc | Gõ phím · Bài đầu Telex | Gõ tiếng Việt có dấu thôi! Gõ a hai lần là thành chữ â. Học Vui tự ghép chữ cho em. |
