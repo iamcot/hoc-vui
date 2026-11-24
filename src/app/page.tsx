@@ -70,7 +70,9 @@ export default function Home() {
       {/* môn xếp theo cấp học: bố mẹ / bé vào là thấy ngay phần của mình; thêm môn chỉ cần đặt stage */}
       <div className="space-y-10">
         {STAGES.map((st) => {
-          const list = SUBJECTS.filter((s) => s.stage === st.id).sort((x, y) => Number(y.ready) - Number(x.ready));
+          const mine = SUBJECTS.filter((s) => s.stage === st.id);
+          // môn đã mở trước, các môn sắp có gộp lại thành 1 thẻ "môn mới đang tới"
+          const list = [...mine.filter((s) => s.ready), ...mine.filter((s) => !s.ready).slice(0, 1)];
           if (!list.length) return null;
           return (
             <section key={st.id} id={`cap-${st.id}`} className="scroll-mt-6 space-y-4">
@@ -94,14 +96,14 @@ export default function Home() {
                         </div>
                       </Link>
                     ) : (
+                      // môn sắp có: không ghi tên môn cụ thể, chỉ báo "có môn mới", tránh tạo áp lực/hứa hẹn
                       <div className="relative overflow-hidden rounded-[2rem]">
-                        <Art id="subject-soon" emoji={s.emoji} rounded="" className="aspect-[4/3] w-full saturate-[.85]" />
+                        <Art id="subject-soon" emoji="🎁" rounded="" className="aspect-[4/3] w-full saturate-[.85]" />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 via-45% to-transparent" />
-                        <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-sm font-extrabold text-sky">{s.levelsLabel}</span>
                         <span className="absolute right-4 top-4 rounded-full bg-sun px-3 py-1 text-xs font-extrabold text-ink">Sắp ra mắt</span>
                         <div className="absolute inset-x-0 bottom-0 p-4 text-white">
-                          <h3 className="font-display text-2xl font-extrabold drop-shadow">{s.name}</h3>
-                          <p className="text-sm text-white/90">{s.tagline}</p>
+                          <h3 className="font-display text-2xl font-extrabold drop-shadow">Môn mới đang tới</h3>
+                          <p className="text-sm text-white/90">Mochi đang chuẩn bị một món quà bất ngờ</p>
                         </div>
                       </div>
                     )}

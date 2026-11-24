@@ -20,10 +20,10 @@ export const SUBJECTS: Subject[] = [
 
 /** Nhóm môn trên trang chủ, theo thứ tự hiện. Nhóm chưa có môn nào thì ẩn. */
 export const STAGES: { id: StageId; name: string; ages: string; color: string }[] = [
+  { id: "all", name: "Mọi lứa tuổi", ages: "Kỹ năng ai cũng cần, bé lớn hay bé nhỏ đều học được", color: "var(--color-mint)" },
   { id: "primary", name: "Tiểu học", ages: "Lớp 1 – 5 · 6 đến 10 tuổi", color: "var(--color-berry)" },
   { id: "secondary", name: "Trung học cơ sở", ages: "Lớp 6 – 9 · 11 đến 15 tuổi", color: "var(--color-sky)" },
   { id: "high", name: "Trung học phổ thông", ages: "Lớp 10 – 12", color: "var(--color-lilac)" },
-  { id: "all", name: "Mọi lứa tuổi", ages: "Kỹ năng ai cũng cần, bé lớn hay bé nhỏ đều học được", color: "var(--color-mint)" },
 ];
 
 export const getSubject = (id: string) => SUBJECTS.find((s) => s.id === id);
