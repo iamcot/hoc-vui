@@ -9,6 +9,7 @@ import { randomSeed } from "@/lib/rng";
 import { useProgress } from "@/lib/store";
 import { QuestionCard, type AnswerResult } from "@/components/quiz/QuestionCard";
 import { QuizHeader } from "@/components/quiz/QuizHeader";
+import { CalcLayout, CalcToggle, useCalcDock } from "@/components/calc/CalcDock";
 import { Mascot } from "@/components/Mascot";
 import { Confetti } from "@/components/Confetti";
 import { IconStar } from "@/components/Icons";
@@ -23,6 +24,7 @@ export function Practice({ subjectId, lessonId }: { subjectId: string; lessonId:
   const [i, setI] = useState(0);
   const [answers, setAnswers] = useState<AnswerResult[]>([]);
   const [summary, setSummary] = useState<{ stars: number; xp: number } | null>(null);
+  const dock = useCalcDock(subject.device);
 
   const start = () => {
     setQs(practiceSet(subject, lesson.id, randomSeed(), COUNT));
@@ -51,9 +53,9 @@ export function Practice({ subjectId, lessonId }: { subjectId: string; lessonId:
 
   return (
     <div className="min-h-dvh">
-      <QuizHeader closeHref={`/hoc/${subject.id}?cap=${tier.id}`} done={answers.length} total={qs.length} />
-      <main className="mx-auto max-w-3xl px-4 py-8 sm:px-6">
-        {!summary ? (
+      <QuizHeader closeHref={`/hoc/${subject.id}?cap=${tier.id}`} done={answers.length} total={qs.length} wide={dock.open && !summary} right={!summary && <CalcToggle dock={dock} />} />
+      {!summary ? (
+        <CalcLayout dock={dock}>
           <div className="card p-5 sm:p-8">
             <div className="mb-4 flex items-center gap-2 text-sm font-bold text-ink-soft">
               <span className="chip bg-sky-soft text-sky">
@@ -63,7 +65,9 @@ export function Practice({ subjectId, lessonId }: { subjectId: string; lessonId:
             </div>
             <QuestionCard q={qs[i]} onNext={onNext} device={subject.device} />
           </div>
-        ) : (
+        </CalcLayout>
+      ) : (
+      <main className="mx-auto max-w-3xl px-4 py-8 sm:px-6">
           <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="card mx-auto max-w-lg space-y-5 p-8 text-center">
             {summary.stars >= 2 && <Confetti />}
             <Mascot mood={summary.stars >= 2 ? "cheer" : summary.stars === 1 ? "happy" : "oops"} size={130} className="floaty mx-auto" />
@@ -100,8 +104,8 @@ export function Practice({ subjectId, lessonId }: { subjectId: string; lessonId:
               )}
             </div>
           </motion.div>
-        )}
       </main>
+      )}
     </div>
   );
 }

@@ -10,6 +10,7 @@ import { cleanCode, findRoom, roomBoard, scoreOf, submitEntry, type Entry, type 
 import { useProgress } from "@/lib/store";
 import { QuestionCard, type AnswerResult } from "@/components/quiz/QuestionCard";
 import { QuizHeader } from "@/components/quiz/QuizHeader";
+import { CalcLayout, CalcToggle, useCalcDock } from "@/components/calc/CalcDock";
 import { Avatar } from "@/components/Avatar";
 import { Mascot } from "@/components/Mascot";
 import { Confetti } from "@/components/Confetti";
@@ -42,6 +43,7 @@ function RoomView() {
   const [mine, setMine] = useState<{ score: number; correct: number; time_ms: number } | null>(null);
   const [copied, setCopied] = useState(false);
   const startAt = useRef(0);
+  const dock = useCalcDock(getSubject(room?.subject_id ?? fallback)?.device);
 
   const refresh = useCallback(() => roomBoard(code).then(setBoard), [code]);
 
@@ -134,11 +136,12 @@ function RoomView() {
           closeHref="/thi-dau"
           done={answers.length}
           total={qs.length}
-          right={<span className={`chip font-mono ${left <= 10 ? "bg-berry-soft text-berry" : "bg-white"}`}>⏱ {Math.max(0, left)}s</span>}
+          wide={dock.open}
+          right={<><span className={`chip font-mono ${left <= 10 ? "bg-berry-soft text-berry" : "bg-white"}`}>⏱ {Math.max(0, left)}s</span><CalcToggle dock={dock} /></>}
         />
-        <main className="mx-auto max-w-3xl px-4 py-8 sm:px-6">
+        <CalcLayout dock={dock}>
           <div className="card p-5 sm:p-8">{qs[i] && <QuestionCard q={qs[i]} mode="race" onNext={onNext} device={subject.device} />}</div>
-        </main>
+        </CalcLayout>
       </div>
     );
   }

@@ -3,12 +3,12 @@ import Link from "next/link";
 import { IconClose } from "@/components/Icons";
 import { Scene } from "@/components/Scene";
 
-export function QuizHeader({ closeHref, done, total, right }: { closeHref: string; done: number; total: number; right?: React.ReactNode }) {
+export function QuizHeader({ closeHref, done, total, right, wide }: { closeHref: string; done: number; total: number; right?: React.ReactNode; wide?: boolean }) {
   return (
     <>
     <Scene image="bg-lesson" variant="desk" dim />
     <header className="sticky top-0 z-20 bg-white/60 backdrop-blur">
-      <div className="mx-auto flex max-w-3xl items-center gap-3 px-4 py-3 sm:px-6">
+      <div className={`mx-auto flex ${wide ? "max-w-6xl" : "max-w-3xl"} items-center gap-3 px-4 py-3 sm:px-6`}>
         <Link href={closeHref} className="grid h-10 w-10 place-items-center rounded-full bg-white shadow-sm" aria-label="Thoát">
           <IconClose className="h-5 w-5" />
         </Link>

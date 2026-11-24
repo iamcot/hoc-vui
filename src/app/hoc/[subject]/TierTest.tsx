@@ -10,6 +10,7 @@ import { randomSeed } from "@/lib/rng";
 import { useProgress } from "@/lib/store";
 import { QuestionCard, type AnswerResult } from "@/components/quiz/QuestionCard";
 import { QuizHeader } from "@/components/quiz/QuizHeader";
+import { CalcLayout, CalcToggle, useCalcDock } from "@/components/calc/CalcDock";
 import { Mascot } from "@/components/Mascot";
 import { Art } from "@/components/Art";
 import { Confetti } from "@/components/Confetti";
@@ -37,6 +38,7 @@ export function TierTest({ subjectId, tierId, mode }: { subjectId: string; tierI
   const [i, setI] = useState(0);
   const [answers, setAnswers] = useState<AnswerResult[]>([]);
   const [left, setLeft] = useState(MINUTES * 60);
+  const dock = useCalcDock(s.device);
 
   useEffect(() => {
     if (phase !== "run") return;
@@ -141,11 +143,12 @@ export function TierTest({ subjectId, tierId, mode }: { subjectId: string; tierI
           closeHref={mapHref}
           done={answers.length}
           total={COUNT}
-          right={<span className={`chip ${left < 60 ? "bg-berry-soft text-berry" : "bg-white"} font-mono`}>⏱ {mm}:{ss}</span>}
+          wide={dock.open}
+          right={<><span className={`chip ${left < 60 ? "bg-berry-soft text-berry" : "bg-white"} font-mono`}>⏱ {mm}:{ss}</span><CalcToggle dock={dock} /></>}
         />
-        <main className="mx-auto max-w-3xl px-4 py-8 sm:px-6">
+        <CalcLayout dock={dock}>
           <div className="card p-5 sm:p-8">{qs[i] && <QuestionCard q={qs[i]} mode="race" onNext={onNext} device={s.device} />}</div>
-        </main>
+        </CalcLayout>
       </div>
     );
   }
