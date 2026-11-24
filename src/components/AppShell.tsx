@@ -132,7 +132,7 @@ function TitleBoard({ dark }: { dark: boolean }) {
 }
 
 /**
- * Một tấm biển gắn vào cây cọc: có ảnh nav-<id>.webp (tấm ván mũi tên, vẽ sẵn icon bên trái) thì chữ đè lên phần ván trống;
+ * Một tấm biển gắn vào cây cọc: có ảnh nav-<id>.webp (tấm ván mũi tên, vẽ sẵn icon bên trái) thì cắt 9 mảnh, chữ nằm ở phần ván giữa;
  * chưa có ảnh thì vẽ tấm ván gỗ bằng CSS. Các biển so le nhẹ; mục đang mở nhấc lên, nghiêng thêm, phát sáng.
  */
 function NavSign({ href, id, label, Icon, on, k }: { href: string; id: string; label: string; Icon: (p: { className?: string }) => React.ReactNode; on: boolean; k: number }) {
@@ -149,22 +149,18 @@ function NavSign({ href, id, label, Icon, on, k }: { href: string; id: string; l
       style={{ marginLeft: shift, marginRight: `calc(1.4rem - ${shift})`, transform: `rotate(${on ? tilt * 1.6 : tilt}deg)`, transformOrigin: "3.4rem 50%" }}
     >
       {img ? (
-        <div className={`relative ${glow}`}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={resolveFile(file)}
-            alt=""
-            className="block w-full"
-            draggable={false}
-          />
-          {/* chữ nằm giữa phần ván trống: sau hình tròn bên trái (~37% bề ngang), trước mũi tên bên phải */}
-          <span
-            className="absolute inset-y-0 z-10 flex items-center justify-center whitespace-nowrap font-display text-lg font-extrabold text-[#5a3418] [text-shadow:0_1px_0_rgb(255_235_200/0.7)] lg:text-xl"
-            style={{ left: "37%", right: "16%" }}
-          >
-            {label}
-          </span>
-        </div>
+        // 9-slice: giữ nguyên hình tròn (trái) và mũi tên (phải), chỉ kéo dài phần ván giữa -> biển thấp, dài, cân với biển tên
+        <span
+          className={`relative flex h-[60px] items-center justify-center whitespace-nowrap font-display text-lg font-extrabold text-[#5a3418] [text-shadow:0_1px_0_rgb(255_235_200/0.7)] ${glow}`}
+          style={{
+            borderStyle: "solid",
+            borderWidth: "0 26px 0 56px",
+            borderImage: `url(${resolveFile(file)}) 0 140 0 300 fill / 0 26px 0 56px stretch`,
+            paddingLeft: "0.25rem",
+          }}
+        >
+          {label}
+        </span>
       ) : (
         <span className={`relative flex h-[54px] items-center gap-2.5 pl-3 pr-9 font-display text-lg font-extrabold text-[#5a3418] ${glow}`}>
           <span
