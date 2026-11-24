@@ -37,6 +37,7 @@ Môn đầu tiên: **Máy tính Casio fx-580VN X**, chia trình độ Lớp 6 �
 
 ### Giai đoạn 2 · Hoàn thiện
 - [ ] Deploy Vercel + Supabase (bạn tạo project, mình hướng dẫn trong README)
+- [x] Đăng nhập bằng tên đăng nhập + mật khẩu, không cần email (cần tắt Confirm email trong Supabase)
 - [x] Rà chỗ dính chặt Vercel/Supabase cloud: không có. Thêm build standalone, Dockerfile, docker-compose, hướng dẫn chuyển server riêng và tự host Supabase (`docs/SELF_HOST.md`)
 - [x] Chỉnh giao diện theo góp ý: màu đậm hơn, bỏ khung thẻ, cảnh nền minh họa
 - [ ] Gắn ảnh/âm thanh thật (bạn tạo theo `docs/ASSET_PROMPTS.md`): đợt 1 xong 27 ảnh + 4 giọng đọc

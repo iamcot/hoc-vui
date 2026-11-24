@@ -5,6 +5,7 @@ import { SUBJECTS, tierLessons } from "@/content/subjects";
 import { tierUnlocked } from "@/lib/tiers";
 import { LEVELS } from "@/lib/quiz";
 import { useProgress } from "@/lib/store";
+import { emailToLogin, loginToEmail, normalizeUsername, usernameError } from "@/lib/username";
 import { getSupabase } from "@/lib/supabase";
 import { Avatar, AVATARS } from "@/components/Avatar";
 import { Mascot } from "@/components/Mascot";
@@ -79,7 +80,7 @@ export default function MePage() {
           </div>
         </section>
 
-        <section className="card space-y-4 p-6">{online ? session ? <SignedIn email={session.user.email ?? ""} onOut={signOut} /> : <AuthForm /> : <Offline />}</section>
+        <section className="card space-y-4 p-6">{online ? session ? <SignedIn email={emailToLogin(session.user.email ?? "")} onOut={signOut} /> : <AuthForm /> : <Offline />}</section>
       </div>
 
       <section className="card space-y-4 p-6">
@@ -158,7 +159,7 @@ function SignedIn({ email, onOut }: { email: string; onOut: () => Promise<void> 
 
 function AuthForm() {
   const [mode, setMode] = useState<"in" | "up">("in");
-  const [email, setEmail] = useState("");
+  const [login, setLogin] = useState("");
   const [pw, setPw] = useState("");
   const [name, setName] = useState("");
   const [msg, setMsg] = useState<{ ok: boolean; text: string } | null>(null);
@@ -169,17 +170,26 @@ function AuthForm() {
     e.preventDefault();
     const sb = getSupabase();
     if (!sb) return;
+    if (mode === "up" && !login.includes("@")) {
+      const err = usernameError(normalizeUsername(login));
+      if (err) return setMsg({ ok: false, text: err });
+    }
+    const email = loginToEmail(login);
     setBusy(true);
     setMsg(null);
     const res =
       mode === "in"
         ? await sb.auth.signInWithPassword({ email, password: pw })
-        : await sb.auth.signUp({ email, password: pw, options: { data: { display_name: name || data.profile.name || "Bạn nhỏ", avatar: data.profile.avatar } } });
+        : await sb.auth.signUp({ email, password: pw, options: { data: { username: emailToLogin(email), display_name: name || data.profile.name || "Bạn nhỏ", avatar: data.profile.avatar } } });
     setBusy(false);
     if (res.error) {
-      setMsg({ ok: false, text: res.error.message.includes("Invalid login") ? "Sai email hoặc mật khẩu." : res.error.message });
+      setMsg({ ok: false, text: res.error.message.includes("Invalid login")
+          ? "Sai tên đăng nhập hoặc mật khẩu."
+          : /already registered|already exists/i.test(res.error.message)
+            ? "Tên đăng nhập này đã có bạn dùng, chọn tên khác nhé."
+            : res.error.message });
     } else if (mode === "up" && !res.data.session) {
-      setMsg({ ok: true, text: "Đã tạo tài khoản. Kiểm tra email để xác nhận rồi đăng nhập nhé." });
+      setMsg({ ok: true, text: "Đã tạo tài khoản nhưng máy chủ đang bật xác nhận email. Bố mẹ tắt Confirm email trong Supabase (xem README) rồi đăng nhập lại nhé." });
     }
   }
 
@@ -189,13 +199,13 @@ function AuthForm() {
         <Mascot mood="happy" size={64} />
         <div>
           <h2 className="font-display text-xl font-extrabold">{mode === "in" ? "Đăng nhập" : "Tạo tài khoản"}</h2>
-          <p className="text-sm text-ink-soft">Bố mẹ giúp con tạo tài khoản bằng email nhé.</p>
+          <p className="text-sm text-ink-soft">Chỉ cần tên đăng nhập và mật khẩu, không cần email.</p>
         </div>
       </div>
       {mode === "up" && (
         <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Tên của con (hiện trên bảng xếp hạng)" className="w-full rounded-2xl border-2 border-line bg-white px-4 py-2.5 outline-none focus:border-sky" />
       )}
-      <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" autoComplete="email" className="w-full rounded-2xl border-2 border-line bg-white px-4 py-2.5 outline-none focus:border-sky" />
+      <input required value={login} onChange={(e) => setLogin(e.target.value)} placeholder="Tên đăng nhập (vd. bena2015)" autoComplete="username" autoCapitalize="none" autoCorrect="off" spellCheck={false} className="w-full rounded-2xl border-2 border-line bg-white px-4 py-2.5 outline-none focus:border-sky" />
       <input
         type="password"
         required
