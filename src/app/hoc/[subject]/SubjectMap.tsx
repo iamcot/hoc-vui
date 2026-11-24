@@ -120,13 +120,7 @@ export function SubjectMap({ subjectId }: { subjectId: string }) {
         {s.mascot === "bit" ? (
           <Mascot who="bit" mood="happy" size={56} className="shrink-0 drop-shadow" />
         ) : (
-          <Art
-            id={s.device === "fx580" ? "xixi" : s.cover}
-            emoji={s.emoji}
-            rounded={s.device === "fx580" ? "" : "rounded-full"}
-            contain={s.device === "fx580"}
-            className="h-14 w-14 shrink-0 drop-shadow"
-          />
+          <Art id={s.device === "fx580" ? "xixi" : s.cover} emoji={s.emoji} rounded={s.device === "fx580" ? "" : "rounded-full"} contain={s.device === "fx580"} className="h-14 w-14 shrink-0 drop-shadow" />
         )}
         <h1 className="ribbon text-2xl sm:text-3xl">{s.name}</h1>
         {s.arena !== false && ready && <RankChip s={s} />}
@@ -153,7 +147,11 @@ export function SubjectMap({ subjectId }: { subjectId: string }) {
       {s.modes && (
         <div className="grid grid-cols-3 gap-3">
           {s.modes.map((m) => (
-            <Link key={m.id} href={m.href} className={`group flex items-center gap-3 rounded-3xl p-3 transition hover:scale-[1.02] sm:p-4 ${cyber ? "cyber-panel" : "card"}`}>
+            <Link
+              key={m.id}
+              href={m.href}
+              className={`group flex items-center gap-3 rounded-3xl p-3 transition hover:scale-[1.02] sm:p-4 ${cyber ? "cyber-panel" : "card"}`}
+            >
               <Art id={m.icon ?? m.id} emoji={m.emoji} rounded="rounded-2xl" contain className="h-12 w-12 shrink-0 sm:h-16 sm:w-16" />
               <span className="min-w-0">
                 <span className="block font-display text-lg font-extrabold leading-tight sm:text-xl">{m.name}</span>
@@ -197,7 +195,11 @@ export function SubjectMap({ subjectId }: { subjectId: string }) {
                   <div className="min-w-0 flex-1">
                     <div className="font-display text-2xl font-extrabold leading-tight">{tier.name}</div>
                     <div className={`text-sm font-semibold ${locked ? "text-ink-soft" : "text-white/85"}`}>
-                      {locked && prev ? (tier.units.length ? `Học xong ${prev.name} hoặc vượt thử thách để mở` : "Đang soạn") : tier.short}
+                      {locked && prev
+                        ? tier.units.length
+                          ? `Học xong ${prev.name} hoặc vượt thử thách để mở`
+                          : "Đang soạn"
+                        : tier.short}
                     </div>
                   </div>
                   {showChallenge && (
@@ -228,7 +230,11 @@ export function SubjectMap({ subjectId }: { subjectId: string }) {
                     prog.stars > 0 ? "border-mint" : current ? "pulse-ring border-sky" : "border-white"
                   }`}
                 >
-                  {st.glyph ? <GlyphNode glyph={st.glyph} n={st.n} cyber={cyber} /> : <Art id={st.cover} emoji={st.emoji} rounded="rounded-full" className="h-full w-full" />}
+                  {st.glyph ? (
+                    <GlyphNode glyph={st.glyph} n={st.n} cyber={cyber} />
+                  ) : (
+                    <Art id={st.cover} emoji={st.emoji} rounded="rounded-full" className="h-full w-full" />
+                  )}
                   {locked && (
                     <span className="absolute inset-0 grid place-items-center bg-ink/35">
                       <IconLock className="h-8 w-8 text-white" />
@@ -278,14 +284,7 @@ export function SubjectMap({ subjectId }: { subjectId: string }) {
                     ▶ Học tiếp
                   </Link>
                 )}
-                {current && (
-                  <Mascot
-                    who={s.tiers[st.ti]?.mascot ?? s.mascot}
-                    mood="cheer"
-                    size={64}
-                    className={`floaty pointer-events-none absolute -top-10 ${labelLeft ? "-left-12" : "-right-12"} drop-shadow`}
-                  />
-                )}
+                {current && <Mascot who={s.tiers[st.ti]?.mascot ?? s.mascot} mood="cheer" size={64} className={`floaty pointer-events-none absolute -top-10 ${labelLeft ? "-left-12" : "-right-12"} drop-shadow`} />}
               </motion.div>
             );
           }

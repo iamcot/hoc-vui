@@ -41,9 +41,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       <MusicDirector />
       <MusicToggle className="fixed right-3 top-3 z-40 md:hidden" />
       {/* Thanh bên: mỗi mục là một cọc biển chỉ đường cắm trên cảnh nền */}
-      <aside
-        className={`sticky top-0 hidden h-dvh w-60 shrink-0 flex-col gap-1 bg-gradient-to-r ${dark ? "from-[#030a24]/50 via-[#030a24]/20" : "from-white/45 via-white/20"} to-transparent p-4 md:flex lg:w-64`}
-      >
+      <aside className={`sticky top-0 hidden h-dvh w-60 shrink-0 flex-col gap-1 bg-gradient-to-r ${dark ? "from-[#030a24]/50 via-[#030a24]/20" : "from-white/45 via-white/20"} to-transparent p-4 md:flex lg:w-64`}>
         {/* biển tên treo trên đầu cọc, các biển mục đóng dọc theo cọc; cọc dừng ở biển cuối */}
         <div className="relative">
           <NavPole neon={data.theme === "neon"} />
@@ -57,9 +55,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           </nav>
         </div>
         {/* thẻ của bé thay cho mục "Của tôi" */}
-        <div
-          className={`relative z-10 mt-auto flex items-center gap-2 rounded-2xl p-2 backdrop-blur transition ${path.startsWith("/toi") ? `${dark ? "bg-[#16225c]" : "bg-white"} shadow-[0_0_0_3px_var(--color-sun)]` : "bg-white/80"}`}
-        >
+        <div className={`relative z-10 mt-auto flex items-center gap-2 rounded-2xl p-2 backdrop-blur transition ${path.startsWith("/toi") ? `${dark ? "bg-[#16225c]" : "bg-white"} shadow-[0_0_0_3px_var(--color-sun)]` : "bg-white/80"}`}>
           <Link href="/toi" className="flex min-w-0 flex-1 items-center gap-3 rounded-xl p-1 hover:bg-cream/20" aria-label="Của tôi">
             <Avatar id={data.profile.avatar} size={40} />
             <div className="min-w-0 text-sm">
@@ -113,7 +109,8 @@ function NavPole({ neon }: { neon: boolean }) {
         img
           ? { backgroundImage: `url(${resolveFile(POLE)})`, backgroundSize: "100% 100%", backgroundRepeat: "no-repeat" }
           : {
-              background: "repeating-linear-gradient(180deg, transparent 0 46px, rgb(90 52 20 / 0.18) 46px 48px), linear-gradient(90deg, #7a4c22, #b98450 35%, #c99560 50%, #a06a35 75%, #6e431d)",
+              background:
+                "repeating-linear-gradient(180deg, transparent 0 46px, rgb(90 52 20 / 0.18) 46px 48px), linear-gradient(90deg, #7a4c22, #b98450 35%, #c99560 50%, #a06a35 75%, #6e431d)",
               boxShadow: "inset 0 0 0 1px rgb(70 40 15 / 0.45), 4px 0 10px -4px rgb(40 25 10 / 0.35)",
             }
       }
@@ -132,9 +129,7 @@ function TitleBoard({ dark, neon }: { dark: boolean; neon: boolean }) {
         // eslint-disable-next-line @next/next/no-img-element
         <img src={resolveFile(TITLE)} alt="" className={`absolute ${neonImg ? "-inset-x-[7%] -inset-y-[20%] h-[140%] w-[114%]" : "inset-0 h-full w-full"}`} />
       ) : (
-        <span
-          className={`absolute inset-0 rounded-[1.1rem] ${dark ? "bg-[linear-gradient(180deg,#e9c48c,#c9965a)]" : "bg-[linear-gradient(180deg,#f6d6a2,#dca869_60%,#c48a4c)]"} shadow-[inset_0_0_0_2px_rgb(120_75_35/0.55),inset_0_-4px_0_rgb(120_75_35/0.25)]`}
-        />
+        <span className={`absolute inset-0 rounded-[1.1rem] ${dark ? "bg-[linear-gradient(180deg,#e9c48c,#c9965a)]" : "bg-[linear-gradient(180deg,#f6d6a2,#dca869_60%,#c48a4c)]"} shadow-[inset_0_0_0_2px_rgb(120_75_35/0.55),inset_0_-4px_0_rgb(120_75_35/0.25)]`} />
       )}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src="/assets/img/logo.webp" alt="" className="relative h-11 w-auto drop-shadow-sm" />
@@ -168,13 +163,7 @@ function NavSign({ href, id, label, Icon, on, k, neon }: { href: string; id: str
           style={
             neonImg
               ? // ảnh neon có viền trong suốt ~15% quanh tấm biển: phóng to cho phần biển thấy được cao bằng biển gỗ (60px), lề âm bù viền
-                {
-                  borderStyle: "solid",
-                  borderWidth: "0 60px 0 81px",
-                  borderImage: `url(${resolveFile(file)}) 0 220 0 300 fill / 0 60px 0 81px stretch`,
-                  margin: "-13px -13px -13px -13px",
-                  paddingLeft: "0.25rem",
-                }
+                { borderStyle: "solid", borderWidth: "0 60px 0 81px", borderImage: `url(${resolveFile(file)}) 0 220 0 300 fill / 0 60px 0 81px stretch`, margin: "-13px", paddingLeft: "0.25rem" }
               : { borderStyle: "solid", borderWidth: "0 26px 0 56px", borderImage: `url(${resolveFile(file)}) 0 140 0 300 fill / 0 26px 0 56px stretch`, paddingLeft: "0.25rem" }
           }
         >
