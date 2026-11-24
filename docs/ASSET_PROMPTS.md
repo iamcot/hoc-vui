@@ -1186,7 +1186,7 @@ Round badge: a row of bar-chart columns being sorted from short to tall with a s
 Round badge: a friendly round blue and yellow snake coiled around a pair of curly code brackets made of simple shapes (no letters). Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
-## Âm thanh (64)
+## Âm thanh (70)
 
 Cài đặt giọng đọc gợi ý: ElevenLabs Text to Speech, model Multilingual v2 hoặc v3, giọng nữ trẻ ấm áp (vd. chọn giọng tiếng Việt trong Voice Library), stability ~50%, style thấp, tốc độ chậm vừa. Xuất MP3 44.1kHz.
 
@@ -1251,6 +1251,12 @@ Cài đặt giọng đọc gợi ý: ElevenLabs Text to Speech, model Multilingu
 | ✅ | `sfx/gp-bite.mp3` | Hiệu ứng | Cá chạm vào thợ lặn | Muffled underwater chomp with a short low warning buzz, 0.5 seconds |
 | ✅ | `sfx/gp-wave.mp3` | Hiệu ứng | Bắt đầu lượt, đợt cá mới | Deep sonar ping with soft echo underwater, 1 second |
 | ✅ | `sfx/gp-go.mp3` | Hiệu ứng | Đếm ngược xuất phát đua xe | Three short electronic countdown beeps and a higher go beep, 2 seconds |
+| ⬜ | `sfx/lt-step.mp3` | Hiệu ứng | Lập trình · nhân vật bước một ô | Tiny soft robotic footstep blip, light and bouncy, 0.12 seconds |
+| ⬜ | `sfx/lt-turn.mp3` | Hiệu ứng | Lập trình · nhân vật quay người | Short soft servo whirr turning, cute robot, 0.2 seconds |
+| ⬜ | `sfx/lt-bump.mp3` | Hiệu ứng | Lập trình · đụng tường | Soft cartoon thud against a wall with a tiny dizzy boing, friendly, 0.4 seconds |
+| ⬜ | `sfx/lt-run.mp3` | Hiệu ứng | Lập trình · bấm Chạy chương trình | Short rising electronic power-up chirp, clean synth, 0.5 seconds |
+| ⬜ | `sfx/lt-swap.mp3` | Hiệu ứng | Lập trình · kho hàng: đổi chỗ hai hộp | Quick whoosh of two boxes sliding past each other with a soft wooden clack, 0.4 seconds |
+| ⬜ | `sfx/lt-key.mp3` | Hiệu ứng | Lập trình · bấm phím điều khiển trong mini game | Retro 8-bit game button blip, short and crisp, 0.1 seconds |
 | ✅ | `voice/vo-gp-n01.mp3` | Giọng đọc | Gõ phím · Bài đầu Hàng phím cơ sở, câu chào của Bit | Chào em, tớ là Bit! Mình sẽ lặn xuống biển sâu và hạ cá mập bằng bàn phím. Trước tiên, đặt hai ngón trỏ lên phím F và J nhé. |
 | ✅ | `voice/vo-gp-t01.mp3` | Giọng đọc | Gõ phím · Bài đầu Từng bàn tay | Lên hàng trên nào! Ngón nào với lên phím nào thì gõ xong phải về hàng phím cơ sở nha. |
 | ✅ | `voice/vo-gp-p01.mp3` | Giọng đọc | Gõ phím · Bài đầu Phối hợp | Giờ hai tay cùng chơi. Gõ đều tay, mắt nhìn màn hình là sẽ nhanh thôi. |
