@@ -144,7 +144,7 @@ export const VO_LONG: { unit: string; title: string; lessons: PhonicsLesson[] }[
         id: "td-r-s-t",
         title: "r, s, t",
         short: "rổ, sò, tô",
-        intro: "r đọc là rờ, s đọc là sờ, t đọc là tờ. Cùng đọc to nào!",
+        intro: "r đọc là rờ: uốn cong lưỡi lên, hơi rung, khác với dờ. s đọc là sờ, t đọc là tờ. Cùng đọc to nào!",
         sounds: [C("r", "rờ", "rổ", "🧺", ["rổ", "rá", "rễ", "rì"], "cái rổ"), C("s", "sờ", "sò", "🐚", ["sò", "sẻ", "số", "sư"], "con sò"), C("t", "tờ", "tô", "🥣", ["tô", "tổ", "tủ", "tơ"], "tô mì")],
         sentence: "tổ sẻ ở bờ đê",
       },
