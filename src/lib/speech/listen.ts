@@ -53,6 +53,8 @@ export interface Heard {
   /** các cách nghe được (tốt nhất trước) */
   alts: string[];
   recording: Recording | null;
+  /** lỗi từ máy chủ nhận dạng (để hiện cho bố mẹ biết) */
+  error?: string;
 }
 
 export interface Session {
@@ -117,10 +119,10 @@ export async function listen(hint: string, opts: { onLevel?: (v: number) => void
     if (engine !== "cloud") return { engine, alts: [], recording };
     try {
       const r = await fetch("/api/nghe", { method: "POST", body: recording.wav, headers: { "content-type": "audio/wav", "x-hint": encodeURIComponent(hint) } });
-      const j = (await r.json()) as { alts?: string[] };
-      return { engine, alts: j.alts ?? [], recording };
-    } catch {
-      return { engine: "self", alts: [], recording };
+      const j = (await r.json()) as { alts?: string[]; error?: string };
+      return { engine, alts: j.alts ?? [], recording, error: r.ok ? undefined : (j.error ?? `lỗi ${r.status}`) };
+    } catch (e) {
+      return { engine: "self", alts: [], recording, error: (e as Error).message };
     }
   });
   return { stop: rec.stop, result };

@@ -23,8 +23,28 @@ const provider = () => {
   return null;
 };
 
-export function GET() {
-  return NextResponse.json({ enabled: !!provider(), provider: provider() });
+export const dynamic = "force-dynamic";
+
+/** GET /api/nghe: đã bật chưa. GET /api/nghe?test=1: gửi thử 1 giây im lặng tới Azure để biết khóa/vùng có đúng không */
+export async function GET(req: Request) {
+  const p = provider();
+  const base = { enabled: !!p, provider: p, region: p === "azure" ? (process.env.AZURE_SPEECH_REGION ?? "southeastasia (mặc định)") : undefined };
+  if (!new URL(req.url).searchParams.has("test") || p !== "azure") return NextResponse.json(base);
+  try {
+    await azureRecognize(silentWav(1));
+    return NextResponse.json({ ...base, test: "ok: khóa và vùng Azure dùng được" });
+  } catch (e) {
+    return NextResponse.json({ ...base, test: `lỗi: ${(e as Error).message} (401 = sai khóa hoặc sai vùng)` });
+  }
+}
+
+function silentWav(seconds: number) {
+  const n = 16000 * seconds;
+  const b = Buffer.alloc(44 + n * 2);
+  b.write("RIFF", 0); b.writeUInt32LE(36 + n * 2, 4); b.write("WAVE", 8); b.write("fmt ", 12);
+  b.writeUInt32LE(16, 16); b.writeUInt16LE(1, 20); b.writeUInt16LE(1, 22); b.writeUInt32LE(16000, 24);
+  b.writeUInt32LE(32000, 28); b.writeUInt16LE(2, 32); b.writeUInt16LE(16, 34); b.write("data", 36); b.writeUInt32LE(n * 2, 40);
+  return b;
 }
 
 const MAX_BYTES = 16000 * 2 * 25; // ~25 giây WAV 16 kHz
@@ -76,8 +96,9 @@ export async function POST(req: Request) {
     const j = (await r.json()) as { text?: string; error?: { message: string } };
     if (!r.ok) return NextResponse.json({ error: j.error?.message ?? "lỗi dịch vụ" }, { status: 502 });
     return NextResponse.json({ alts: j.text ? [j.text] : [] });
-  } catch {
-    return NextResponse.json({ error: "không gọi được dịch vụ" }, { status: 502 });
+  } catch (e) {
+    console.error("nghe:", e);
+    return NextResponse.json({ error: `không gọi được dịch vụ (${(e as Error).message})` }, { status: 502 });
   }
 }
 
@@ -116,7 +137,7 @@ async function azureRecognize(wav: Buffer): Promise<string[]> {
     },
     body: new Uint8Array(wav),
   });
-  if (!r.ok) throw new Error(`azure ${r.status}`);
+  if (!r.ok) throw new Error(`azure ${r.status} ${(await r.text()).slice(0, 120)}`);
   const j = (await r.json()) as { RecognitionStatus?: string; DisplayText?: string; NBest?: { Display?: string; Lexical?: string }[] };
   if (j.RecognitionStatus !== "Success") return [];
   const alts = (j.NBest ?? []).flatMap((n) => [n.Display ?? "", n.Lexical ?? ""]);

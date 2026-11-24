@@ -8,12 +8,14 @@ const FOOTER_H = 96; // thanh Trước/Tiếp ở đáy + khoảng thở
 function useFitZoom(on: boolean) {
   const ref = useRef<HTMLDivElement>(null);
   const [z, setZ] = useState(1);
+  const [h, setH] = useState(0);
   useEffect(() => {
     if (!on) return;
     const f = () => {
       const el = ref.current;
       if (!el || window.innerWidth < 640) return setZ(1);
-      const natural = el.offsetHeight; // offsetHeight không tính zoom
+      const natural = el.offsetHeight; // offsetHeight không tính transform
+      setH(natural);
       const top = el.getBoundingClientRect().top + window.scrollY;
       const room = window.innerHeight - FOOTER_H - Math.min(top, 330);
       setZ(Math.max(0.6, Math.min(1, room / natural)));
@@ -25,7 +27,7 @@ function useFitZoom(on: boolean) {
       window.removeEventListener("resize", f);
     };
   }, [on]);
-  return [ref, z] as const;
+  return [ref, z, h] as const;
 }
 
 /** Máy tính fx-580VN X ảo (rút gọn). */
@@ -46,9 +48,11 @@ export function Keypad({
   shakeKey?: number;
   compact?: boolean;
 }) {
-  const [ref, zoom] = useFitZoom(compact);
+  const [ref, zoom, naturalH] = useFitZoom(compact);
+  // thu nhỏ bằng transform (CSS zoom trên Safari iPad làm chữ không co theo, máy bị bóp méo)
   return (
-    <div ref={ref} style={zoom < 1 ? { zoom } : undefined} className={`mx-auto w-full ${compact ? "max-w-[300px]" : "max-w-[340px]"} select-none rounded-[2rem] bg-gradient-to-b from-[#2f3452] to-[#232741] p-3 pb-4 shadow-[0_18px_40px_-12px_rgba(35,39,65,0.6)]`}>
+    <div style={zoom < 1 && naturalH ? { height: naturalH * zoom } : undefined}>
+    <div ref={ref} style={zoom < 1 ? { transform: `scale(${zoom})`, transformOrigin: "top center" } : undefined} className={`mx-auto w-full ${compact ? "max-w-[300px]" : "max-w-[340px]"} select-none rounded-[2rem] bg-gradient-to-b from-[#2f3452] to-[#232741] p-3 pb-4 shadow-[0_18px_40px_-12px_rgba(35,39,65,0.6)]`}>
       <div className="mb-1 flex items-center justify-between px-2 text-[10px] font-bold tracking-widest text-white/60">
         <span>CASIO</span>
         <span>fx-580VN X</span>
@@ -72,6 +76,7 @@ export function Keypad({
           </div>
         ))}
       </div>
+    </div>
     </div>
   );
 }

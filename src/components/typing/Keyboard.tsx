@@ -135,7 +135,7 @@ export function Keyboard({
   return (
     <div className={`select-none ${className}`}>
       {ghost && toolbar}
-      <div ref={board} aria-hidden={!pad} style={{ marginBottom: showHands ? extra : undefined, touchAction: pad ? "manipulation" : undefined }} className={`relative mx-auto flex w-full max-w-3xl flex-col rounded-[1.4rem] p-2 ${ghost ? "" : "border border-cyan-300/25 bg-[#0b1233]/85 shadow-[0_0_40px_-10px_rgba(47,211,255,0.5)] backdrop-blur"} ${compact ? "gap-1" : "gap-1.5 sm:p-3"}`}>
+      <div ref={board} aria-hidden={!pad} style={{ marginBottom: showHands ? extra : undefined, touchAction: pad ? "manipulation" : undefined }} className={`relative mx-auto flex w-full ${pad ? "max-w-none" : "max-w-3xl"} flex-col rounded-[1.4rem] p-2 ${ghost ? "" : "border border-cyan-300/25 bg-[#0b1233]/85 shadow-[0_0_40px_-10px_rgba(47,211,255,0.5)] backdrop-blur"} ${compact ? "gap-1" : "gap-1.5 sm:p-3"}`}>
         {ROWS.map((r, ri) => (
           <div key={ri} className={`flex ${compact ? "gap-1" : "gap-1.5"} ${ri === 4 ? "justify-center" : ""}`}>
             {r.map((c, ci) => {
@@ -345,7 +345,7 @@ function Cap({
       role={onPress ? "button" : undefined}
       aria-label={onPress ? (c.k === " " ? "Phím cách" : label) : undefined}
       onPointerDown={onPress ? (e) => { e.preventDefault(); onPress(); } : undefined}
-      className={`relative grid place-items-center rounded-lg font-mono font-bold transition-all duration-150 ${onPress ? "h-11 cursor-pointer text-base sm:h-14 sm:text-lg" : compact ? "h-7 text-[11px] sm:h-8 sm:text-xs" : "h-9 text-xs sm:h-11 sm:text-sm"} ${next ? "key-next" : ""} ${tapped ? "scale-95" : ""}`}
+      className={`relative grid place-items-center rounded-lg font-mono font-bold transition-all duration-150 ${onPress ? "h-12 cursor-pointer text-lg sm:h-16 sm:text-xl" : compact ? "h-7 text-[11px] sm:h-8 sm:text-xs" : "h-9 text-xs sm:h-11 sm:text-sm"} ${next ? "key-next" : ""} ${tapped ? "scale-95" : ""}`}
       style={ghost ? {
         flex: `${c.w ?? 1} 1 0`,
         minWidth: 0,

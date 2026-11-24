@@ -37,6 +37,7 @@ export function ReadAloud({
   const [res, setRes] = useState<ReadResult | null>(null);
   const [mine, setMine] = useState<string | null>(null);
   const [tries, setTries] = useState(0);
+  const [err, setErr] = useState<string | undefined>();
   const sess = useRef<Session | null>(null);
 
   useEffect(() => {
@@ -71,8 +72,9 @@ export function ReadAloud({
       setLevel(0);
       setEngine(heard.engine);
       if (heard.recording) setMine(heard.recording.url);
-      // máy không nghe ra chữ nào (hay gặp với âm lẻ như "a", "bờ"): cho bé nghe lại và tự chấm
-      if (heard.engine === "self" || (!heard.alts.length && heard.recording)) {
+      setErr(heard.error);
+      // máy này không có chấm tự động: cho bé nghe lại giọng mình và tự chấm
+      if (heard.engine === "self" || (heard.error && heard.recording)) {
         setState(heard.recording ? "self" : "error");
         if (heard.recording) void speak(FEEDBACK.tu);
         return;
@@ -188,6 +190,7 @@ export function ReadAloud({
             )}
           </motion.div>
         )}
+        {err && <div className="mt-2 text-xs text-ink-soft">Máy chủ chấm đang lỗi: {err}</div>}
         {state === "error" && <div className="mt-3 text-sm text-berry">Mochi chưa nghe thấy gì. Em cho phép dùng micro rồi đọc to hơn một chút nhé.</div>}
       </AnimatePresence>
       {engine === "self" && state === "idle" && <div className="mt-2 text-xs text-ink-soft">Máy này chưa tự chấm được, em đọc xong thì nghe lại và tự chấm nhé.</div>}
