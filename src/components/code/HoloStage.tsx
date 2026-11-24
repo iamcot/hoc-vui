@@ -59,7 +59,7 @@ export function HoloStage({ world, state, bump, mood = "happy", max = 84, speed 
   return (
     <div ref={box} className="lt-holo-stage relative h-full w-full overflow-hidden">
       {!small && (
-        <div className="pointer-events-none absolute left-3 top-2 z-10 flex flex-col gap-0.5">
+        <div className="pointer-events-none absolute left-3 top-10 z-10 flex flex-col gap-0.5">
           <span className="lt-hud-k">TỌA ĐỘ</span>
           <span className="lt-hud-v">
             X:{String(state.x).padStart(2, "0")} Y:

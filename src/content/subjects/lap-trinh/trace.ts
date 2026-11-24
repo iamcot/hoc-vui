@@ -1,4 +1,5 @@
 import { parseProgram, type Stmt } from "@/lib/code/program";
+import { makeRng } from "@/lib/rng";
 import { DX, DY, turnLeft, turnRight, type Dir } from "@/lib/code/world";
 
 /**
@@ -13,7 +14,7 @@ export function corridor(program: string, dir: Dir, opts: { stars?: number[]; go
   let d = dir;
   const walk = (list: Stmt[]) => {
     for (const s of list) {
-      if (s.op === "repeat") for (let k = 0; k < s.n; k++) walk(s.body);
+      if (s.op === "repeat") for (let k = 0; k < (s.n as number); k++) walk(s.body);
       else if (s.op === "left") d = turnLeft(d);
       else if (s.op === "right") d = turnRight(d);
       else if (s.op === "forward") {
@@ -41,4 +42,44 @@ export function corridor(program: string, dir: Dir, opts: { stars?: number[]; go
 /** sân trống cho màn bút vẽ: w × h ô cỏ, Mochi đứng ở (sx, sy) */
 export function canvas(w: number, h: number, sx: number, sy: number): string[] {
   return Array.from({ length: h }, (_, y) => Array.from({ length: w }, (_, x) => (x === sx && y === sy ? "S" : ".")).join(""));
+}
+
+/**
+ * Mê cung hoàn hảo (mọi ô đi tới nhau đúng một đường) cw × ch ô, đào bằng tìm theo chiều sâu từ seed cố định.
+ * Bản đồ (2cw-1) × (2ch-1) (bỏ viền tường ngoài, vì mép sân đã là tường): S ở góc trên trái, G ở góc dưới phải.
+ */
+export function maze(cw: number, ch: number, seed: number): string[] {
+  const rng = makeRng(seed);
+  const W = 2 * cw + 1;
+  const H = 2 * ch + 1;
+  const g = Array.from({ length: H }, () => Array.from({ length: W }, () => "#"));
+  const seen = new Set<string>();
+  const stack: [number, number][] = [[0, 0]];
+  seen.add("0,0");
+  g[1][1] = ".";
+  while (stack.length) {
+    const [x, y] = stack[stack.length - 1];
+    const nb = (
+      [
+        [1, 0],
+        [-1, 0],
+        [0, 1],
+        [0, -1],
+      ] as const
+    )
+      .map(([dx, dy]) => [x + dx, y + dy] as [number, number])
+      .filter(([nx, ny]) => nx >= 0 && ny >= 0 && nx < cw && ny < ch && !seen.has(`${nx},${ny}`));
+    if (!nb.length) {
+      stack.pop();
+      continue;
+    }
+    const [nx, ny] = rng.pick(nb);
+    seen.add(`${nx},${ny}`);
+    g[2 * ny + 1][2 * nx + 1] = ".";
+    g[y + ny + 1][x + nx + 1] = ".";
+    stack.push([nx, ny]);
+  }
+  g[1][1] = "S";
+  g[H - 2][W - 2] = "G";
+  return g.slice(1, -1).map((r) => r.slice(1, -1).join(""));
 }

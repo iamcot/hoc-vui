@@ -22,6 +22,7 @@ import { GuideProvider, HoloDefs, SkinBackdrop, SkinProvider, skinFonts } from "
 import { ThemePicker } from "./ThemePicker";
 import { loadSkinChoice, pickSkin, saveSkinChoice, SKINS, type SkinId } from "@/lib/code/skins";
 import { tierUnlocked } from "@/lib/tiers";
+import { isDebug } from "@/lib/debug";
 
 /**
  * Bài học môn Lập trình, một luồng liền: vài slide hướng dẫn ngắn → các màn chơi → kết quả.
@@ -75,6 +76,15 @@ export function CodePractice({ subjectId, lessonId }: { subjectId: string; lesso
   }, [seed, lesson.id, spec]);
   const [i, setI] = useState(0);
   const [results, setResults] = useState<LevelResult[]>([]);
+  /** chế độ xem thử (?debug=1): bấm số màn để nhảy tới, có nút nạp lời giải mẫu */
+  const [debug, setDebug] = useState(false);
+  useEffect(() => setDebug(isDebug()), []);
+  const [withSol, setWithSol] = useState(false);
+  const jump = (k: number) => {
+    setI(k);
+    setResults((r) => r.slice(0, k).concat(Array.from({ length: Math.max(0, k - r.length) }, () => ({ stars: 0, blocks: 0, optimal: 0, skipped: true }))));
+    setSlide(null);
+  };
   const [summary, setSummary] = useState<{ stars: number; xp: number } | null>(null);
 
   function done(r: LevelResult) {
@@ -126,12 +136,18 @@ export function CodePractice({ subjectId, lessonId }: { subjectId: string; lesso
                 {levels.map((_, k) => (
                   <span
                     key={k}
+                    onClick={debug ? () => jump(k) : undefined}
                     className={`grid h-7 w-7 place-items-center rounded-full text-xs font-extrabold ${k < results.length ? (results[k].stars ? "bg-mint text-white" : "bg-line text-ink-soft") : k === i && slide === null ? "bg-sky text-white ring-4 ring-sky-soft" : "bg-white text-ink-soft"}`}
                   >
                     {k < results.length && results[k].stars ? "★" : k + 1}
                   </span>
                 ))}
               </div>
+              {debug && (
+                <button onClick={() => setWithSol((v) => !v)} className="h-10 rounded-full bg-white px-3 text-xs font-extrabold shadow-sm" title="Xem thử: nạp lời giải mẫu">
+                  {withSol ? "🧪 Bỏ lời giải" : "🧪 Lời giải"}
+                </button>
+              )}
               <button
                 onClick={() => setPicking(true)}
                 className="lt-theme-btn flex h-10 items-center gap-1.5 rounded-full bg-white px-3 text-sm font-extrabold shadow-sm"
@@ -165,7 +181,13 @@ export function CodePractice({ subjectId, lessonId }: { subjectId: string; lesso
             <Intro slides={lesson.slides} i={slide} lessonNo={allLessonsIndex(subject.id, lesson.id)} guide={guide} onPrev={() => setSlide(Math.max(0, slide - 1))} onNext={nextSlide} />
           ) : !summary ? (
             <main className="mx-auto min-h-0 w-full max-w-7xl flex-1 px-3 pb-3 pt-2 sm:px-5">
-              <LevelPlayer key={`${seed}-${i}`} level={levels[i]} index={i} total={levels.length} onDone={done} />
+              <LevelPlayer
+                key={`${seed}-${i}-${withSol}`}
+                level={withSol && levels[i].solution ? { ...levels[i], preset: levels[i].solution } : levels[i]}
+                index={i}
+                total={levels.length}
+                onDone={done}
+              />
             </main>
           ) : (
             <main className="mx-auto grid w-full max-w-3xl flex-1 place-items-center overflow-y-auto px-4 py-6">

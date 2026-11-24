@@ -17,7 +17,7 @@ const LOOP: BlockKind[] = ["forward", "left", "right", "repeat"];
 const IF: BlockKind[] = ["forward", "left", "right", "repeat", "if"];
 const UNTIL: BlockKind[] = ["forward", "left", "right", "until", "if"];
 
-interface Def {
+export interface Def {
   id: string;
   title: string;
   short: string;
@@ -27,10 +27,12 @@ interface Def {
   practice: QuestionGen[];
 }
 
-const make = (cover: string) => (d: Def): Lesson => ({ id: d.id, title: d.title, short: d.short, emoji: d.emoji, cover, minutes: 8, slides: d.slides, practice: d.practice, code: d.code });
+export const make =
+  (cover: string) =>
+  (d: Def): Lesson => ({ id: d.id, title: d.title, short: d.short, emoji: d.emoji, cover, minutes: 8, slides: d.slides, practice: d.practice, code: d.code });
 
 /** màn đi trên hành lang vẽ từ đường mẫu `path` (chỉ F L R và lặp N lần), lời giải gọn là `solution` */
-const hall = (id: string, blocks: BlockKind[], dir: Dir, path: string, solution: string, hint: string, stars?: number[]): Level => ({
+export const hall = (id: string, blocks: BlockKind[], dir: Dir, path: string, solution: string, hint: string, stars?: number[]): Level => ({
   id,
   blocks,
   dir,
@@ -40,7 +42,7 @@ const hall = (id: string, blocks: BlockKind[], dir: Dir, path: string, solution:
 });
 
 /** màn có sân ẩn: mỗi đường mẫu là một sân, cùng một lời giải phải đi được hết */
-const multi = (id: string, blocks: BlockKind[], paths: [Dir, string][], solution: string, hint: string): Level => ({
+export const multi = (id: string, blocks: BlockKind[], paths: [Dir, string][], solution: string, hint: string): Level => ({
   id,
   blocks,
   dir: paths[0][0],
@@ -51,7 +53,7 @@ const multi = (id: string, blocks: BlockKind[], paths: [Dir, string][], solution
 });
 
 /** màn bút vẽ trên sân trống: vẽ lại đúng hình do `solution` vẽ ra */
-const pen = (id: string, w: number, h: number, sx: number, sy: number, dir: Dir, solution: string, hint: string): Level => ({
+export const pen = (id: string, w: number, h: number, sx: number, sy: number, dir: Dir, solution: string, hint: string): Level => ({
   id,
   blocks: LOOP,
   dir,
@@ -99,8 +101,13 @@ const coBan: Def[] = [
         title: "Vòng lặp lồng nhau",
         mood: "think",
         blocks: [
-          text("Đi quanh một hình vuông: **đi 4 ô rồi rẽ phải**, làm như vậy 3 lần. Phần \"đi 4 ô\" lại là một vòng lặp nữa, nên ta đặt **lặp trong lặp**."),
-          demo(corridor("3(4(F) R)", 1, { stars: [4, 8, 12] }).map((r) => r), 1, "3(4(F) R)", "Lặp 3 lần (Lặp 4 lần (Đi tới) · Rẽ phải)"),
+          text('Đi quanh một hình vuông: **đi 4 ô rồi rẽ phải**, làm như vậy 3 lần. Phần "đi 4 ô" lại là một vòng lặp nữa, nên ta đặt **lặp trong lặp**.'),
+          demo(
+            corridor("3(4(F) R)", 1, { stars: [4, 8, 12] }).map((r) => r),
+            1,
+            "3(4(F) R)",
+            "Lặp 3 lần (Lặp 4 lần (Đi tới) · Rẽ phải)",
+          ),
           tip("Vòng **trong** chạy hết rồi vòng **ngoài** mới sang lượt sau."),
         ],
       },
@@ -134,11 +141,58 @@ const coBan: Def[] = [
     ],
     code: {
       levels: [
-        multi("b03-1", IF, [[1, "3(F) L 3(F)"], [1, "2(F) L 4(F)"]], "7(W?(L) F)", "Hai sân khác nhau, một chương trình. Gặp tường thì rẽ trái."),
-        multi("b03-2", IF, [[0, "2(F) R 3(F) R 2(F)"], [0, "4(F) R 2(F) R 3(F)"]], "10(W?(R) F)", "Lần này đường rẽ phải."),
-        multi("b03-3", IF, [[1, "4(F) L 3(F) L 2(F) L 1(F)"], [1, "3(F) L 3(F) L 3(F)"], [1, "5(F) L 2(F)"]], "12(W?(L) F)", "Ba sân! Lặp đủ nhiều lần nhé."),
-        multi("b03-4", IF, [[1, "3(F) L 2(F) R 3(F)"], [1, "2(F) R 2(F) L 2(F)"]], "10(A?(L) D?(R) F)", "Đường rẽ cả hai phía. Mochi nhìn trái, nhìn phải."),
-        multi("b03-5", IF, [[0, "2(F) R 2(F) L 2(F) L 2(F) R 2(F)"], [0, "F L 3(F) R 2(F) R 3(F)"], [0, "5(F)"]], "12(A?(L) D?(R) F)", "Màn trùm: ba sân, đủ kiểu khúc quanh."),
+        multi(
+          "b03-1",
+          IF,
+          [
+            [1, "3(F) L 3(F)"],
+            [1, "2(F) L 4(F)"],
+          ],
+          "7(W?(L) F)",
+          "Hai sân khác nhau, một chương trình. Gặp tường thì rẽ trái.",
+        ),
+        multi(
+          "b03-2",
+          IF,
+          [
+            [0, "2(F) R 3(F) R 2(F)"],
+            [0, "4(F) R 2(F) R 3(F)"],
+          ],
+          "10(W?(R) F)",
+          "Lần này đường rẽ phải.",
+        ),
+        multi(
+          "b03-3",
+          IF,
+          [
+            [1, "4(F) L 3(F) L 2(F) L 1(F)"],
+            [1, "3(F) L 3(F) L 3(F)"],
+            [1, "5(F) L 2(F)"],
+          ],
+          "12(W?(L) F)",
+          "Ba sân! Lặp đủ nhiều lần nhé.",
+        ),
+        multi(
+          "b03-4",
+          IF,
+          [
+            [1, "3(F) L 2(F) R 3(F)"],
+            [1, "2(F) R 2(F) L 2(F)"],
+          ],
+          "10(A?(L) D?(R) F)",
+          "Đường rẽ cả hai phía. Mochi nhìn trái, nhìn phải.",
+        ),
+        multi(
+          "b03-5",
+          IF,
+          [
+            [0, "2(F) R 2(F) L 2(F) L 2(F) R 2(F)"],
+            [0, "F L 3(F) R 2(F) R 3(F)"],
+            [0, "5(F)"],
+          ],
+          "12(A?(L) D?(R) F)",
+          "Màn trùm: ba sân, đủ kiểu khúc quanh.",
+        ),
       ],
     },
     practice: [qIfWall, qRepeatSteps],
@@ -161,11 +215,59 @@ const coBan: Def[] = [
     ],
     code: {
       levels: [
-        multi("b04-1", UNTIL, [[1, "4(F)"], [1, "7(F)"], [1, "2(F)"]], "U(F)", "Ba sân dài ngắn khác nhau. Một chương trình 2 khối là đủ!"),
-        multi("b04-2", UNTIL, [[1, "3(F) L 4(F)"], [1, "6(F) L 2(F)"]], "U(W?(L) F)", "Lặp tới cờ, gặp tường thì rẽ trái."),
-        multi("b04-3", UNTIL, [[0, "2(F) R 3(F) R 2(F) L 2(F)"], [0, "3(F) R 4(F)"], [0, "F R F L F R F"]], "U(A?(L) D?(R) F)", "Đường nào cũng được, Mochi tự nhìn."),
-        multi("b04-4", UNTIL, [[1, "5(F) R 5(F) R 4(F) R 3(F) R 2(F)"], [1, "4(F) R 4(F) R 3(F) R 2(F)"]], "U(W?(R) F)", "Vòng xoắn ốc vào giữa."),
-        multi("b04-5", UNTIL, [[2, "F L 2(F) R 2(F) R 3(F) L 2(F) L F"], [2, "3(F) L 3(F) R 3(F)"], [2, "2(F L F R)"]], "U(A?(L) D?(R) F)", "Màn trùm: mê cung ba sân."),
+        multi(
+          "b04-1",
+          UNTIL,
+          [
+            [1, "4(F)"],
+            [1, "7(F)"],
+            [1, "2(F)"],
+          ],
+          "U(F)",
+          "Ba sân dài ngắn khác nhau. Một chương trình 2 khối là đủ!",
+        ),
+        multi(
+          "b04-2",
+          UNTIL,
+          [
+            [1, "3(F) L 4(F)"],
+            [1, "6(F) L 2(F)"],
+          ],
+          "U(W?(L) F)",
+          "Lặp tới cờ, gặp tường thì rẽ trái.",
+        ),
+        multi(
+          "b04-3",
+          UNTIL,
+          [
+            [0, "2(F) R 3(F) R 2(F) L 2(F)"],
+            [0, "3(F) R 4(F)"],
+            [0, "F R F L F R F"],
+          ],
+          "U(A?(L) D?(R) F)",
+          "Đường nào cũng được, Mochi tự nhìn.",
+        ),
+        multi(
+          "b04-4",
+          UNTIL,
+          [
+            [1, "5(F) R 5(F) R 4(F) R 3(F) R 2(F)"],
+            [1, "4(F) R 4(F) R 3(F) R 2(F)"],
+          ],
+          "U(W?(R) F)",
+          "Vòng xoắn ốc vào giữa.",
+        ),
+        multi(
+          "b04-5",
+          UNTIL,
+          [
+            [2, "F L 2(F) R 2(F) R 3(F) L 2(F) L F"],
+            [2, "3(F) L 3(F) R 3(F)"],
+            [2, "2(F L F R)"],
+          ],
+          "U(A?(L) D?(R) F)",
+          "Màn trùm: mê cung ba sân.",
+        ),
       ],
     },
     practice: [qUntil, qIfWall],

@@ -86,6 +86,60 @@ function RobotCat({ size, mood }: { size: number; mood: Mood }) {
   );
 }
 
+const PIXEL_BIT = ["..c......m..", "..x......x..", "..x......x..", ".xxxxxxxxxx.", "xxxxxxxxxxxx", "xvvvvvvvvvvx", "xvwvvvvvwvvx", "xxxxxppxxxxx", "xxxxxxxxxxxx", ".nnnnnnnnnn.", "..nn....nn.."];
+
+/** Bit bản pixel: thỏ tai dài đèn LED, kính chắn cyan, áo khoác xanh đậm */
+function PixelBit({ size, mood }: { size: number; mood: Mood }) {
+  const rows = [...PIXEL_BIT];
+  if (mood === "cheer") rows[8] = "xxxxkkkkxxxx";
+  if (mood === "oops") rows[6] = "xvkvkvvkvkvx";
+  const fill = { x: "#f4f6ff", k: "#1d1033", p: "#ff77a8", c: "#29adff", m: "#ff77a8", v: mood === "oops" ? "#ff004d" : "#29adff", w: "#ffffff", n: "#1d2b53" } as const;
+  return (
+    <svg width={size} height={size} viewBox="-1 -1 14 14" shapeRendering="crispEdges" aria-hidden>
+      {rows.map((r, y) => [...r].map((ch, x) => (ch === "." ? null : <rect key={`o${x}-${y}`} x={x - 0.5} y={y + 0.5} width={2} height={2} fill="#000" />)))}
+      {rows.map((r, y) => [...r].map((ch, x) => (ch === "." ? null : <rect key={`${x}-${y}`} x={x} y={y + 1} width={1} height={1} fill={fill[ch as keyof typeof fill]} />)))}
+    </svg>
+  );
+}
+
+/** Bit bản xưởng robot: thân robot tròn, tai thỏ dài có đèn LED, kính chắn cyan */
+function RobotBit({ size, mood }: { size: number; mood: Mood }) {
+  const eye = mood === "oops" ? "#ff5a7a" : "#2fd3ff";
+  const eyes =
+    mood === "cheer" ? (
+      <g stroke={eye} strokeWidth={2.4} fill="none" strokeLinecap="round">
+        <path d="M12.5 22 q2.5 -3 5 0" />
+        <path d="M22.5 22 q2.5 -3 5 0" />
+      </g>
+    ) : mood === "oops" ? (
+      <g stroke={eye} strokeWidth={2.2} strokeLinecap="round">
+        <path d="M13 18.5 l4 4 M17 18.5 l-4 4 M23 18.5 l4 4 M27 18.5 l-4 4" />
+      </g>
+    ) : (
+      <g fill={eye}>
+        <rect x={12.5} y={19} width={5.5} height={3} rx={1.5} />
+        <rect x={22} y={mood === "think" ? 20 : 19} width={5.5} height={mood === "think" ? 2 : 3} rx={1.2} />
+      </g>
+    );
+  return (
+    <svg width={size} height={size} viewBox="0 0 40 40" aria-hidden>
+      {/* tai thỏ, đầu tai có đèn */}
+      <rect x={9.5} y={0.8} width={6} height={15} rx={3} fill="#ffffff" stroke="#2b2f55" strokeWidth={2} transform="rotate(-8 12.5 14)" />
+      <rect x={24.5} y={0.8} width={6} height={15} rx={3} fill="#ffffff" stroke="#2b2f55" strokeWidth={2} transform="rotate(8 27.5 14)" />
+      <circle cx={11.4} cy={3.6} r={1.8} fill="#2fd3ff" />
+      <circle cx={28.6} cy={3.6} r={1.8} fill="#ff4fa3" />
+      <rect x={5} y={10} width={30} height={23} rx={10} fill="#f4f6ff" stroke="#2b2f55" strokeWidth={2.4} />
+      {/* kính chắn */}
+      <rect x={8} y={15} width={24} height={10} rx={5} fill="#16264f" stroke="#2fd3ff" strokeWidth={1.4} />
+      <path d="M10 17 h6" stroke="#ffffff" strokeOpacity={0.35} strokeWidth={1.2} strokeLinecap="round" />
+      {eyes}
+      <path d="M18 28.5 q2 1.6 4 0" stroke="#2b2f55" strokeWidth={1.4} fill="none" strokeLinecap="round" />
+      <rect x={11} y={32.5} width={6.5} height={5.5} rx={2.4} fill="#1d2b53" stroke="#2b2f55" strokeWidth={1.6} />
+      <rect x={22.5} y={32.5} width={6.5} height={5.5} rx={2.4} fill="#1d2b53" stroke="#2b2f55" strokeWidth={1.6} />
+    </svg>
+  );
+}
+
 /** Mochi hologram: khung dây phát sáng, có vạch quét. `beam` thêm bệ chiếu và tia sáng (dùng trên sân 3D) */
 export function HoloCat({ size, mood, beam }: { size: number; mood: Mood; beam?: boolean }) {
   const h = beam ? size * 1.28 : size;
@@ -158,8 +212,8 @@ export function HoloBit({ size, mood, beam }: { size: number; mood: Mood; beam?:
 
 /** nhân vật theo giao diện (Neon luôn là thỏ Bit như môn Gõ phím; Hologram theo nhân vật của trình độ) */
 export function Hero({ skin, size, mood = "happy", guide = "mochi" }: { skin: Skin; size: number; mood?: Mood; guide?: Guide }) {
-  if (skin.id === "pixel") return <PixelCat size={size} mood={mood} />;
-  if (skin.id === "robot") return <RobotCat size={size} mood={mood} />;
+  if (skin.id === "pixel") return guide === "bit" ? <PixelBit size={size} mood={mood} /> : <PixelCat size={size} mood={mood} />;
+  if (skin.id === "robot") return guide === "bit" ? <RobotBit size={size} mood={mood} /> : <RobotCat size={size} mood={mood} />;
   if (skin.id === "holo") return guide === "bit" ? <HoloBit size={size} mood={mood} /> : <HoloCat size={size} mood={mood} />;
   // ảnh Bit là dáng đứng cả người: phóng to và chỉ lấy nửa trên cho vừa một ô
   return (
@@ -414,6 +468,8 @@ export function HoloDefs() {
         {g("lt-g-turn", "#e2d4ff", "#b28cff", "#6a4bb8", "#2e2260")}
         {g("lt-g-loop", "#c8ffdf", "#7dffb0", "#2a9a68", "#0d4a34", 0.07)}
         {g("lt-g-logic", "#ffd0e6", "#ff5fa8", "#b8306e", "#5c0f33", 0.07)}
+        {g("lt-g-func", "#ffe0fb", "#ff8cf0", "#b04aa4", "#561f50", 0.07)}
+        {g("lt-g-data", "#fff7c8", "#ffe66d", "#b89a1c", "#5c4a08")}
       </defs>
     </svg>
   );

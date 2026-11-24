@@ -23,7 +23,7 @@ function simulate(p: Stmt[], d: Dir) {
   let y = 0;
   const walk = (list: Stmt[]) => {
     for (const s of list) {
-      if (s.op === "repeat") for (let k = 0; k < s.n; k++) walk(s.body);
+      if (s.op === "repeat") for (let k = 0; k < (s.n as number); k++) walk(s.body);
       else if (s.op === "left") d = turnLeft(d);
       else if (s.op === "right") d = turnRight(d);
       else if (s.op === "forward") {
@@ -122,9 +122,14 @@ export const qShortest: QuestionGen = (rng) => {
     [L, R, ...fs(a), turn, ...fs(b)],
     [...fs(a), turn, ...fs(b), R, L],
   ];
-  return choiceQ("lt-ngan", `${facing(d)} Mochi cần đi ${goal}. Cả bốn chương trình đều đưa Mochi tới nơi. Chương trình nào **ít khối nhất**?`, sayProgram(good), rng.shuffle(longer).map(sayProgram), rng, {
-    hint: "Rẽ phải 3 lần cũng bằng rẽ trái 1 lần, nhưng tốn khối hơn!",
-  });
+  return choiceQ(
+    "lt-ngan",
+    `${facing(d)} Mochi cần đi ${goal}. Cả bốn chương trình đều đưa Mochi tới nơi. Chương trình nào **ít khối nhất**?`,
+    sayProgram(good),
+    rng.shuffle(longer).map(sayProgram),
+    rng,
+    { hint: "Rẽ phải 3 lần cũng bằng rẽ trái 1 lần, nhưng tốn khối hơn!" },
+  );
 };
 
 // ───────────── Cơ bản: lặp, nếu, bút vẽ ─────────────
@@ -148,9 +153,7 @@ export const qRepeatSame: QuestionGen = (rng) => {
   const long = Array.from({ length: n }, () => unit).flat();
   const good = [rep(n, unit)];
   const wrong = [[rep(n - 1, unit)], [rep(n + 1, unit)], [rep(n, [...unit, F])], [rep(Math.max(2, n - 2), unit)]];
-  return choiceQ("lt-gon", `Chương trình nào làm **y hệt** dãy khối: ${sayProgram(long)}?`, sayProgram(good), wrong.map(sayProgram), rng, {
-    hint: "Tìm phần lặp lại, rồi đếm xem nó lặp mấy lần.",
-  });
+  return choiceQ("lt-gon", `Chương trình nào làm **y hệt** dãy khối: ${sayProgram(long)}?`, sayProgram(good), wrong.map(sayProgram), rng, { hint: "Tìm phần lặp lại, rồi đếm xem nó lặp mấy lần." });
 };
 
 /** lt-b02: lặp trong lặp */
@@ -207,7 +210,5 @@ const SHAPES: [string, Stmt[]][] = [
 export const qShape: QuestionGen = (rng) => {
   const [name, p] = rng.pick(SHAPES);
   const wrong = rng.shuffle(SHAPES.filter(([n]) => n !== name && !(n.startsWith("Hình vuông") && name.startsWith("Hình vuông")))).map(([n]) => n);
-  return choiceQ("lt-ve", `Mochi cầm bút, đi tới đâu vẽ tới đó. Chạy **${sayProgram(p)}** thì vẽ ra hình gì?`, name, wrong, rng, {
-    hint: "Lấy ngón tay vẽ thử theo từng khối trên giấy nhé.",
-  });
+  return choiceQ("lt-ve", `Mochi cầm bút, đi tới đâu vẽ tới đó. Chạy **${sayProgram(p)}** thì vẽ ra hình gì?`, name, wrong, rng, { hint: "Lấy ngón tay vẽ thử theo từng khối trên giấy nhé." });
 };
