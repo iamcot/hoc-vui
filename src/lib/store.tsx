@@ -144,12 +144,17 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
   const dataRef = useRef(data);
   dataRef.current = data;
 
-  // các màn con (vd. bài học ghi "bài đang học") có thể ghi trước khi effect này chạy (effect của con chạy trước cha);
-  // lúc đó phải ghi chồng lên dữ liệu đã lưu trên máy, không phải lên EMPTY, nếu không sẽ xóa mất tiến trình
-  const loaded = useRef(false);
+  // Cập nhật gọi trước khi đọc xong dữ liệu trên máy (vd. effect của trang bài học chạy trước effect này)
+  // được xếp hàng rồi áp lên dữ liệu thật, không thì ghi đè mất tiến trình đã lưu.
+  const hydrated = useRef(false);
+  const pending = useRef<((d: ProgressData) => ProgressData)[]>([]);
+
   useEffect(() => {
-    loaded.current = true;
-    const d = loadLocal();
+    let d = loadLocal();
+    for (const fn of pending.current) d = fn(d);
+    if (pending.current.length) saveLocal(d);
+    pending.current = [];
+    hydrated.current = true;
     setData(d);
     setMuted(!d.sound);
     setMusicOn(d.music);
@@ -157,8 +162,12 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const update = useCallback((fn: (d: ProgressData) => ProgressData) => {
+    if (!hydrated.current) {
+      pending.current.push(fn);
+      return;
+    }
     setData((prev) => {
-      const next = fn(loaded.current ? prev : loadLocal());
+      const next = fn(prev);
       saveLocal(next);
       return next;
     });

@@ -31,7 +31,6 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     return (
       <div className={`min-h-dvh ${themeCls}`}>
         <MusicDirector />
-        <FirstRunPrompt />
         {children}
         {/* bài học và bài tập có nút nhạc trên thanh đầu; game, phòng thi dùng nút nổi */}
         {floatingMusic(path) && <MusicToggle dark className="fixed bottom-3 right-3 z-40 h-9 w-9" />}
