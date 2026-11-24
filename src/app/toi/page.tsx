@@ -32,7 +32,9 @@ export default function MePage() {
       <Scene variant="meadow" dim />
       <h1 className="ribbon text-3xl">Của tôi</h1>
 
-      <div className="grid gap-6 lg:grid-cols-2">
+      {/* hai cột cao tự nhiên: trái = hồ sơ + tài khoản, phải = tuỳ chỉnh (không ép bằng chiều cao) */}
+      <div className="grid items-start gap-6 lg:grid-cols-2">
+        <div className="space-y-6">
         <section className="card space-y-5 p-6">
           <div className="flex items-center gap-4">
             <Avatar id={data.profile.avatar} size={72} />
@@ -81,6 +83,10 @@ export default function MePage() {
               ))}
             </div>
           </div>
+        </section>
+        <section className="card space-y-4 p-6">{online ? session ? <SignedIn email={emailToLogin(session.user.email ?? "")} onOut={signOut} /> : <AuthForm /> : <Offline />}</section>
+        </div>
+        <section className="card space-y-6 p-6">
           <div className="space-y-2">
             <p className="text-sm font-bold text-ink-soft">Em học lớp mấy?</p>
             <GradeChips />
@@ -99,7 +105,6 @@ export default function MePage() {
           </div>
         </section>
 
-        <section className="card space-y-4 p-6">{online ? session ? <SignedIn email={emailToLogin(session.user.email ?? "")} onOut={signOut} /> : <AuthForm /> : <Offline />}</section>
       </div>
 
       <section className="card space-y-4 p-6">
