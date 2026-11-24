@@ -247,12 +247,10 @@ export const IMAGES: ImageAsset[] = [
 
   // Thanh bên: cây cọc dọc + các tấm biển
   img("nav-pole", "1024x1536", "Thân cọc gỗ dọc thanh bên (app lặp ảnh theo chiều dọc, kéo dài suốt màn hình)", `A straight vertical wooden post segment, seen from the front, centered, filling the full image height and about 12% of the width, ${WOOD}; SEAMLESS vertically: the top and bottom edges must tile perfectly when repeated (no cap, no end, no knots cut at the edges), nothing else in the image`, true),
-  img("nav-pole-top", "1024x1024", "Mũ đầu cọc (trên cùng thanh bên)", `The rounded top cap of a vertical wooden post, front view, a small cute carved round top with a tiny leaf sprouting, ${WOOD}, the post width at the bottom edge equals about 25% of the image width, nothing else`, true),
-  img("nav-pole-base", "1024x1024", "Chân cọc cắm trong bụi cỏ (dưới cùng thanh bên)", "A soft grassy mound with a few tiny flowers and a small stone, front view, the mound is wide and low, with a gap in the middle top where a wooden post goes into the ground (post not drawn), nothing else", true),
+  img("nav-title", "1536x1024", "Biển tên app treo trên đầu cọc (app đặt logo và chữ Học Vui lên trên)", `A single wide rounded-rectangle wooden name plaque, front view, about 3.2 times wider than tall, filling the image width, ${WOOD}, a slightly thicker carved frame border, two small nails in the middle of the top and bottom edges, a tiny green leaf vine curling on one corner, the inner area completely BLANK flat wood for a logo and title, no post, nothing else`, true),
   sign("hoc", "Học", "an open storybook with a small sprout"),
   sign("thi-dau", "Thi đấu", "a yellow lightning bolt over two crossed pencils"),
   sign("xep-hang", "Xếp hạng", "a small golden trophy cup"),
-  sign("toi", "Của tôi", "a smiling child's face with a star badge"),
 
   // Icon nhỏ thay emoji
   icon("star", "XP (sao)", "A plump five-pointed golden star with a soft shine"),

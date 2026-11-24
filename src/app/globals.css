@@ -109,6 +109,7 @@ button {
 
 .btn {
   display: inline-flex;
+  white-space: nowrap;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
@@ -324,7 +325,8 @@ button {
   color: #eaf6ff;
   box-shadow: 0 0 0 1px rgb(47 211 255 / 0.3);
 }
-.theme-cyber .btn-ghost {
+.theme-cyber .btn-ghost,
+.cyber-panel .btn-ghost {
   background: rgb(8 16 52 / 0.8);
   color: #eaf6ff;
   border-color: rgb(47 211 255 / 0.4);

@@ -39,29 +39,32 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     <div className="min-h-dvh md:flex">
       <MusicDirector />
       <MusicToggle className="fixed right-3 top-3 z-40 md:hidden" />
-      {/* Thanh bên cho iPad ngang và laptop */}
       {/* Thanh bên: mỗi mục là một cọc biển chỉ đường cắm trên cảnh nền */}
       <aside className={`sticky top-0 hidden h-dvh w-60 shrink-0 flex-col gap-1 bg-gradient-to-r ${dark ? "from-[#030a24]/50 via-[#030a24]/20" : "from-white/45 via-white/20"} to-transparent p-4 md:flex lg:w-64`}>
-        <Link href="/" className="relative z-10 mb-4 flex items-center gap-2 px-2">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/assets/img/logo.webp" alt="" className="h-12 w-auto drop-shadow-sm" />
-          <span className={`font-display text-2xl font-extrabold tracking-tight ${dark ? "text-white drop-shadow" : ""}`}>Học Vui</span>
-        </Link>
-        <NavPole />
-        <nav className="relative z-10 flex flex-col gap-3">
-          {TABS.map(({ href, id, label, Icon, match }, k) => (
-            <NavSign key={href} href={href} id={id} label={label} Icon={Icon} on={match(path)} k={k} />
-          ))}
-        </nav>
-        <div className="relative z-10 mt-auto mb-6 flex items-center gap-3 rounded-2xl bg-white/80 p-3 backdrop-blur">
-          <Avatar id={data.profile.avatar} size={40} />
-          <div className="min-w-0 text-sm">
-            <div className="truncate font-bold">{data.profile.name || "Bạn nhỏ"}</div>
-            <div className="text-ink-soft">
-              <Ico n="star" /> {data.xp} XP · <Ico n="fire" /> {streak}
+        {/* biển tên treo trên đầu cọc, các biển mục đóng dọc theo cọc; cọc dừng ở biển cuối */}
+        <div className="relative">
+          <NavPole />
+          <Link href="/" className="relative z-10 mx-auto mb-5 block w-fit">
+            <TitleBoard dark={dark} />
+          </Link>
+          <nav className="relative z-10 flex flex-col gap-3 pb-6">
+            {TABS.filter((t) => t.id !== "toi").map(({ href, id, label, Icon, match }, k) => (
+              <NavSign key={href} href={href} id={id} label={label} Icon={Icon} on={match(path)} k={k} />
+            ))}
+          </nav>
+        </div>
+        {/* thẻ của bé thay cho mục "Của tôi" */}
+        <div className={`relative z-10 mt-auto flex items-center gap-2 rounded-2xl p-2 backdrop-blur transition ${path.startsWith("/toi") ? "bg-white shadow-[0_0_0_3px_var(--color-sun)]" : "bg-white/80"}`}>
+          <Link href="/toi" className="flex min-w-0 flex-1 items-center gap-3 rounded-xl p-1 hover:bg-cream" aria-label="Của tôi">
+            <Avatar id={data.profile.avatar} size={40} />
+            <div className="min-w-0 text-sm">
+              <div className="truncate font-bold">{data.profile.name || "Bạn nhỏ"}</div>
+              <div className="text-ink-soft">
+                <Ico n="star" /> {data.xp} XP · <Ico n="fire" /> {streak}
+              </div>
             </div>
-          </div>
-          <MusicToggle className="ml-auto shrink-0" />
+          </Link>
+          <MusicToggle className="shrink-0" />
         </div>
       </aside>
 
@@ -88,38 +91,42 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 }
 
 const POLE = "/assets/img/nav-pole.webp";
-const POLE_TOP = "/assets/img/nav-pole-top.webp";
-const POLE_BASE = "/assets/img/nav-pole-base.webp";
+const TITLE = "/assets/img/nav-title.webp";
 
-/** cây cọc gỗ dọc suốt thanh bên (ảnh nav-pole lặp theo chiều dọc, có mũ cọc và chân cỏ); chưa có ảnh thì vẽ bằng CSS */
+/** cây cọc gỗ dọc: từ sau biển tên xuống tới dưới biển cuối (ảnh nav-pole lặp dọc); chưa có ảnh thì vẽ bằng CSS */
 function NavPole() {
   const img = hasFile(POLE);
   return (
-    <div className="pointer-events-none absolute inset-y-0 left-[3.4rem] z-0 w-6" aria-hidden>
-      <div
-        className="absolute inset-x-0 bottom-0 top-3 rounded-t-md"
-        style={
-          img
-            ? { backgroundImage: `url(${resolveFile(POLE)})`, backgroundSize: "100% auto", backgroundRepeat: "repeat-y" }
-            : {
-                background:
-                  "repeating-linear-gradient(180deg, transparent 0 46px, rgb(90 52 20 / 0.18) 46px 48px), linear-gradient(90deg, #7a4c22, #b98450 35%, #c99560 50%, #a06a35 75%, #6e431d)",
-                boxShadow: "inset 0 0 0 1px rgb(70 40 15 / 0.45), 4px 0 10px -4px rgb(40 25 10 / 0.35)",
-              }
-        }
-      />
-      {hasFile(POLE_TOP) ? (
+    <div
+      className="pointer-events-none absolute bottom-0 left-[3.4rem] top-6 z-0 w-6 rounded-b-full"
+      aria-hidden
+      style={
+        img
+          ? { backgroundImage: `url(${resolveFile(POLE)})`, backgroundSize: "100% auto", backgroundRepeat: "repeat-y" }
+          : {
+              background:
+                "repeating-linear-gradient(180deg, transparent 0 46px, rgb(90 52 20 / 0.18) 46px 48px), linear-gradient(90deg, #7a4c22, #b98450 35%, #c99560 50%, #a06a35 75%, #6e431d)",
+              boxShadow: "inset 0 0 0 1px rgb(70 40 15 / 0.45), 4px 0 10px -4px rgb(40 25 10 / 0.35)",
+            }
+      }
+    />
+  );
+}
+
+/** biển tên app trên đầu cọc: tấm ván (ảnh nav-title nếu có) với logo và chữ Học Vui */
+function TitleBoard({ dark }: { dark: boolean }) {
+  const img = hasFile(TITLE);
+  return (
+    <div className="relative flex items-center gap-2 py-2 pl-2 pr-4 drop-shadow-[0_6px_6px_rgba(60,35,10,0.35)]">
+      {img ? (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={resolveFile(POLE_TOP)} alt="" className="absolute -left-3 top-0 w-12" />
+        <img src={resolveFile(TITLE)} alt="" className="absolute inset-0 h-full w-full" />
       ) : (
-        <span className="absolute -left-1 top-1 h-4 w-8 rounded-full bg-gradient-to-b from-[#c99560] to-[#7a4c22] shadow-[inset_0_0_0_1px_rgb(70_40_15/0.45)]" />
+        <span className={`absolute inset-0 rounded-[1.1rem] ${dark ? "bg-[linear-gradient(180deg,#e9c48c,#c9965a)]" : "bg-[linear-gradient(180deg,#f6d6a2,#dca869_60%,#c48a4c)]"} shadow-[inset_0_0_0_2px_rgb(120_75_35/0.55),inset_0_-4px_0_rgb(120_75_35/0.25)]`} />
       )}
-      {hasFile(POLE_BASE) ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img src={resolveFile(POLE_BASE)} alt="" className="absolute -left-10 bottom-0 w-[6.5rem]" />
-      ) : (
-        <span className="absolute -left-8 bottom-0 h-6 w-[5.5rem] rounded-t-full bg-gradient-to-b from-[#7fd08e] to-[#4fae6a]" />
-      )}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src="/assets/img/logo.webp" alt="" className="relative h-11 w-auto drop-shadow-sm" />
+      <span className="relative font-display text-2xl font-extrabold tracking-tight text-[#5a3418]">Học Vui</span>
     </div>
   );
 }
