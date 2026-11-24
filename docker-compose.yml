@@ -1,0 +1,14 @@
+# Chạy app trên server riêng: `docker compose up -d --build`
+# Đặt NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY (và khóa STT nếu dùng) trong file .env cạnh file này.
+# Supabase tự host chạy riêng theo hướng dẫn ở docs/SELF_HOST.md.
+services:
+  web:
+    build:
+      context: .
+      args:
+        NEXT_PUBLIC_SUPABASE_URL: ${NEXT_PUBLIC_SUPABASE_URL}
+        NEXT_PUBLIC_SUPABASE_ANON_KEY: ${NEXT_PUBLIC_SUPABASE_ANON_KEY}
+    env_file: .env
+    ports:
+      - "3000:3000"
+    restart: unless-stopped

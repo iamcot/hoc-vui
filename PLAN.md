@@ -7,7 +7,7 @@ Môn đầu tiên: **Máy tính Casio fx-580VN X**, chia trình độ Lớp 6 �
 
 - **Next.js (App Router) + TypeScript + Tailwind**, chạy như app trên điện thoại (PWA, cài ra màn hình chính, thanh tab dưới đáy).
 - **Supabase**: đăng nhập (email + mật khẩu), lưu tiến trình, phòng thi đấu, bảng xếp hạng. Chưa cấu hình Supabase thì app chạy ở **chế độ khách**, lưu tiến trình trên máy.
-- **Deploy**: Vercel (kết nối repo, thêm 2 biến môi trường Supabase).
+- **Deploy**: Vercel (kết nối repo, thêm 2 biến môi trường Supabase). Giữ trung lập để sau chuyển lên server riêng được: không dùng tính năng riêng của Vercel, chỉ dùng phần Supabase tự host được. Có Dockerfile và hướng dẫn ở `docs/SELF_HOST.md`.
 - **Nội dung là dữ liệu**: `src/content/subjects/<môn>/` gồm trình độ → chặng → bài → slide + bộ sinh bài tập. Thêm môn mới không phải sửa màn hình. Luật mở khóa ở `src/lib/tiers.ts`.
 - **Ảnh/âm thanh**: danh mục ở `src/content/assets.ts`, prompt in ra `docs/ASSET_PROMPTS.md`. Chưa có file thì app tự hiện hình thay thế.
 
@@ -37,6 +37,7 @@ Môn đầu tiên: **Máy tính Casio fx-580VN X**, chia trình độ Lớp 6 �
 
 ### Giai đoạn 2 · Hoàn thiện
 - [ ] Deploy Vercel + Supabase (bạn tạo project, mình hướng dẫn trong README)
+- [x] Rà chỗ dính chặt Vercel/Supabase cloud: không có. Thêm build standalone, Dockerfile, docker-compose, hướng dẫn chuyển server riêng và tự host Supabase (`docs/SELF_HOST.md`)
 - [x] Chỉnh giao diện theo góp ý: màu đậm hơn, bỏ khung thẻ, cảnh nền minh họa
 - [ ] Gắn ảnh/âm thanh thật (bạn tạo theo `docs/ASSET_PROMPTS.md`): đợt 1 xong 27 ảnh + 4 giọng đọc
 - [x] Tool tạo ảnh/âm thanh: `npm run gen-assets` (ElevenLabs API, OpenAI API) và `npm run asset-helper` (ChatGPT bán tự động)

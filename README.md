@@ -32,6 +32,9 @@ Không cần Supabase vẫn chạy được (chế độ khách, tiến trình l
    - `NEXT_PUBLIC_SUPABASE_ANON_KEY` = anon public key
 3. Deploy. Mỗi lần đẩy code lên `main`, Vercel tự deploy lại.
 
+### Chạy trên server riêng (sau này)
+App không dùng tính năng riêng của Vercel hay Supabase cloud. Có sẵn `Dockerfile`, `docker-compose.yml` và hướng dẫn chuyển cả web lẫn Supabase sang server riêng ở [docs/SELF_HOST.md](docs/SELF_HOST.md).
+
 ### 3. Cài như app trên iPad
 Mở địa chỉ app bằng Safari → nút Chia sẻ → **Thêm vào Màn hình chính**. App mở toàn màn hình, không có thanh địa chỉ.
 

@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { StartStreamTranscriptionCommand, TranscribeStreamingClient } from "@aws-sdk/client-transcribe-streaming";
 
 /**
- * Nhận dạng giọng bé đọc (môn Tập đọc). Bật bằng biến môi trường trên Vercel:
+ * Nhận dạng giọng bé đọc (môn Tập đọc). Bật bằng biến môi trường (Vercel hoặc server riêng):
  *   STT_PROVIDER=google + GOOGLE_STT_KEY=<API key Google Cloud, bật Speech-to-Text API>
  *   STT_PROVIDER=openai + OPENAI_API_KEY=<key>
  *   STT_PROVIDER=azure + AZURE_SPEECH_KEY, AZURE_SPEECH_REGION (vd. southeastasia)
