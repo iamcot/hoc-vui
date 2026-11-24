@@ -37,9 +37,10 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       <MusicToggle className="fixed right-3 top-3 z-40 md:hidden" />
       {/* Thanh bên cho iPad ngang và laptop */}
       <aside className="sticky top-0 hidden h-dvh w-60 shrink-0 flex-col gap-2 bg-white/65 p-4 shadow-[8px_0_30px_-20px_rgba(40,40,120,0.4)] backdrop-blur-xl md:flex lg:w-64">
-        <Link href="/" className="mb-2 block px-2" aria-label="Trang chủ">
+        <Link href="/" className="mb-4 flex items-center gap-2 px-2">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/assets/img/logo.webp" alt="SuGaMi" className="mx-auto h-auto w-40 drop-shadow-sm transition hover:scale-105 lg:w-44" />
+          <img src="/assets/img/logo-mark.webp" alt="" className="h-11 w-11 drop-shadow-sm" />
+          <span className="font-display text-2xl font-extrabold tracking-tight">Học Vui</span>
         </Link>
         {TABS.map(({ href, label, Icon, match }) => {
           const on = match(path);
