@@ -1,7 +1,7 @@
 "use client";
 import { forwardRef, useEffect, useImperativeHandle, useRef } from "react";
 import type * as BlocklyT from "blockly/core";
-import type { Stmt } from "@/lib/code/program";
+import type { Cond, Stmt } from "@/lib/code/program";
 import type { BlockKind } from "@/lib/code/world";
 
 /**
@@ -16,7 +16,7 @@ export interface WorkspaceHandle {
 
 type B = typeof BlocklyT;
 
-const TYPE: Record<BlockKind, string> = { forward: "lt_forward", left: "lt_left", right: "lt_right", repeat: "lt_repeat" };
+const TYPE: Record<BlockKind, string> = { forward: "lt_forward", left: "lt_left", right: "lt_right", repeat: "lt_repeat", if: "lt_if", until: "lt_until" };
 
 let defined = false;
 function define(Blockly: B) {
@@ -38,6 +38,37 @@ function define(Blockly: B) {
       style: "lt_loop",
       tooltip: "Làm các khối bên trong nhiều lần",
     },
+    {
+      type: "lt_until",
+      message0: "🔁  Lặp cho tới khi tới cờ",
+      message1: "%1",
+      args1: [{ type: "input_statement", name: "DO" }],
+      previousStatement: null,
+      nextStatement: null,
+      style: "lt_loop",
+      tooltip: "Làm đi làm lại các khối bên trong, tới cờ thì dừng",
+    },
+    {
+      type: "lt_if",
+      message0: "❓  Nếu có %1 thì",
+      args0: [
+        {
+          type: "field_dropdown",
+          name: "C",
+          options: [
+            ["tường phía trước", "W"],
+            ["đường bên trái", "A"],
+            ["đường bên phải", "D"],
+          ],
+        },
+      ],
+      message1: "%1",
+      args1: [{ type: "input_statement", name: "DO" }],
+      previousStatement: null,
+      nextStatement: null,
+      style: "lt_logic",
+      tooltip: "Chỉ làm các khối bên trong khi điều kiện đúng",
+    },
   ]);
 }
 
@@ -50,6 +81,7 @@ function theme(Blockly: B) {
       lt_move: { colourPrimary: "#4f72ff", colourSecondary: "#8fa6ff", colourTertiary: "#3553d6" },
       lt_turn: { colourPrimary: "#9b7bff", colourSecondary: "#c2adff", colourTertiary: "#7552e6" },
       lt_loop: { colourPrimary: "#22b98c", colourSecondary: "#6fd8b7", colourTertiary: "#13926c" },
+      lt_logic: { colourPrimary: "#ff8a5c", colourSecondary: "#ffb596", colourTertiary: "#e0643a" },
     },
     categoryStyles: {},
     componentStyles: {
@@ -70,8 +102,9 @@ function theme(Blockly: B) {
 function toJson(list: Stmt[]): { block: object } | undefined {
   return list.reduceRight<{ block: object } | undefined>((next, s) => {
     const block: Record<string, unknown> = { type: TYPE[s.op] };
-    if (s.op === "repeat") {
-      block.fields = { N: s.n };
+    if (s.op === "repeat") block.fields = { N: s.n };
+    if (s.op === "if") block.fields = { C: s.cond };
+    if ("body" in s) {
       const body = toJson(s.body);
       if (body) block.inputs = { DO: body };
     }
@@ -88,6 +121,8 @@ function read(b: BlocklyT.Block | null): Stmt[] {
     else if (c.type === "lt_left") out.push({ op: "left", id: c.id });
     else if (c.type === "lt_right") out.push({ op: "right", id: c.id });
     else if (c.type === "lt_repeat") out.push({ op: "repeat", n: Number(c.getFieldValue("N")) || 1, body: read(c.getInputTargetBlock("DO")), id: c.id });
+    else if (c.type === "lt_until") out.push({ op: "until", cond: "G", body: read(c.getInputTargetBlock("DO")), id: c.id });
+    else if (c.type === "lt_if") out.push({ op: "if", cond: c.getFieldValue("C") as Cond, body: read(c.getInputTargetBlock("DO")), id: c.id });
   }
   return out;
 }

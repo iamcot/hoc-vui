@@ -10,7 +10,7 @@
 export type Dir = 0 | 1 | 2 | 3;
 
 /** các khối lệnh có trong môn (mỗi màn chỉ mở một phần) */
-export type BlockKind = "forward" | "left" | "right" | "repeat";
+export type BlockKind = "forward" | "left" | "right" | "repeat" | "if" | "until";
 
 export interface Level {
   id: string;
@@ -25,6 +25,12 @@ export interface Level {
   hint?: string;
   /** chương trình có sẵn khi vào màn (bài gỡ lỗi), viết kiểu "F F L F" (xem program.ts) */
   preset?: string;
+  /** một lời giải đạt số khối tối ưu (bắt buộc khi màn có khối lặp/nếu: kiểm thử dùng để soát `optimal`) */
+  solution?: string;
+  /** bản đồ ẩn: cùng chương trình phải chạy đúng cả ở đây (bài Nếu, Lặp tới khi) */
+  alt?: { map: string[]; dir: Dir }[];
+  /** màn bút vẽ: hình mẫu là nét do chương trình này vẽ ra; vẽ đúng y hệt là qua màn */
+  draw?: string;
 }
 
 export interface Pos {
@@ -42,7 +48,12 @@ export interface World {
   dir: Dir;
   goal: Pos | null;
   stars: Pos[];
+  /** màn bút vẽ: các nét cần vẽ (khóa cạnh, xem edgeKey) */
+  target?: Set<string>;
 }
+
+/** khóa của một nét vẽ giữa hai ô kề nhau (không phân biệt chiều) */
+export const edgeKey = (ax: number, ay: number, bx: number, by: number) => (ax < bx || (ax === bx && ay < by) ? `${ax},${ay}-${bx},${by}` : `${bx},${by}-${ax},${ay}`);
 
 export const DX = [0, 1, 0, -1] as const;
 export const DY = [-1, 0, 1, 0] as const;
@@ -74,7 +85,7 @@ export function parseLevel(l: Level): World {
     }
   }
   if (!start) throw new Error(`${l.id}: thiếu chỗ xuất phát S`);
-  if (!goal && !stars.length) throw new Error(`${l.id}: cần cờ G hoặc sao *`);
+  if (!goal && !stars.length && !l.draw) throw new Error(`${l.id}: cần cờ G, sao * hoặc hình mẫu`);
   return { w, h, solid, water, start, dir: l.dir, goal, stars };
 }
 

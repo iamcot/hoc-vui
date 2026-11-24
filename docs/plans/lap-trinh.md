@@ -61,7 +61,7 @@ lt-p01 Từ khối sang Python · lt-p02 print, biến, input · lt-p03 if/else 
 - [x] Bộ màn chơi dạng dữ liệu, sinh màn ngẫu nhiên có kiểm tra (BFS)
 - [x] Bộ chấm + sao theo số khối
 - [x] Vỡ lòng: 5 bài, 26 màn làm sẵn + màn sinh ngẫu nhiên, câu trắc nghiệm cho thử thách/đấu trường
-- [ ] Cơ bản (lặp, nếu thì, bút vẽ): khối `lt_repeat` và trình chạy đã hỗ trợ lặp, còn thiếu cảm biến tường và rùa vẽ
+- [x] Cơ bản: 6 bài, 30 màn (Lặp N lần, Lặp trong lặp, Nếu có tường/đường, Lặp cho tới khi, Bút vẽ, Hoa văn). Bài Nếu và Lặp tới khi có **sân ẩn**: qua sân 1 thì cùng chương trình tự chạy sân 2, 3 (chấm theo bộ dữ liệu ẩn). Bút vẽ so nét vẽ với hình mẫu.
 - [ ] Tạo ảnh `lt-*` (prompt đã có trong `docs/ASSET_PROMPTS.md`), giọng `vo-lt-a01`
 - [ ] Sân chơi tự do + chia sẻ bằng mã
 - [ ] Trung cấp, Nâng cao

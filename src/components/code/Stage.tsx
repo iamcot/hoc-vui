@@ -62,6 +62,7 @@ export function Stage({ world, state, bump, mood = "happy", max = 84, speed = 1 
             );
           }),
         )}
+        {world.target && <Lines target={world.target} trail={state.trail} cell={cell} w={world.w} h={world.h} />}
         {world.goal && (
           <div className="absolute grid place-items-center" style={{ left: 8 + world.goal.x * cell, top: 8 + world.goal.y * cell, width: cell, height: cell }}>
             {imgs.flag ? <Img src={imgs.flag} /> : <Flag size={cell * 0.78} />}
@@ -95,7 +96,7 @@ export function Stage({ world, state, bump, mood = "happy", max = 84, speed = 1 
               <motion.img src={top} alt="Mochi" className="h-[92%] w-[92%]" initial={false} animate={{ rotate: state.dir * 90 }} transition={{ duration: dur }} draggable={false} />
             ) : (
               <>
-                <Mascot mood={mood} size={Math.round(cell * 0.92)} />
+                <Mascot mood={mood} size={Math.round(cell * (world.target ? 0.62 : 0.92))} />
                 {/* mũi tên hướng nhìn: quay theo Mochi */}
                 <motion.div className="pointer-events-none absolute inset-0" initial={false} animate={{ rotate: state.dir * 90 }} transition={{ duration: dur }}>
                   <svg viewBox="0 0 40 40" className="absolute left-1/2 -translate-x-1/2" style={{ width: cell * 0.42, top: -cell * 0.2 }}>
@@ -141,6 +142,25 @@ function Flag({ size }: { size: number }) {
       <ellipse cx="14" cy="36" rx="9" ry="2.5" fill="#2d3047" opacity="0.18" />
       <rect x="11" y="4" width="3.5" height="32" rx="1.5" fill="#6b4b2a" />
       <path d="M14.5 5 h18 l-5 7 l5 7 h-18 z" fill="#ff4f7b" stroke="#c2264f" strokeWidth="1.5" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+/** màn bút vẽ: hình mẫu là nét đứt mờ, nét Mochi vẽ là nét liền màu cam */
+function Lines({ target, trail, cell, w, h }: { target: Set<string>; trail: string[]; cell: number; w: number; h: number }) {
+  const seg = (k: string) => {
+    const [a, b] = k.split("-").map((p) => p.split(",").map(Number));
+    return { x1: (a[0] + 0.5) * cell, y1: (a[1] + 0.5) * cell, x2: (b[0] + 0.5) * cell, y2: (b[1] + 0.5) * cell };
+  };
+  const drawn = [...new Set(trail)];
+  return (
+    <svg className="pointer-events-none absolute" style={{ left: 8, top: 8 }} width={w * cell} height={h * cell}>
+      {[...target].map((k) => (
+        <line key={`t${k}`} {...seg(k)} stroke="#252845" strokeOpacity={0.28} strokeWidth={Math.max(4, cell * 0.1)} strokeDasharray={`${cell * 0.12} ${cell * 0.1}`} strokeLinecap="round" />
+      ))}
+      {drawn.map((k) => (
+        <line key={`d${k}`} {...seg(k)} stroke={target.has(k) ? "#ff8a5c" : "#ff4f7b"} strokeWidth={Math.max(5, cell * 0.13)} strokeLinecap="round" />
+      ))}
     </svg>
   );
 }

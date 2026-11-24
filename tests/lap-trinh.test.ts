@@ -3,8 +3,8 @@ import assert from "node:assert/strict";
 import { getSubject, allLessons } from "@/content/subjects";
 import { parseLevel, solve } from "@/lib/code/world";
 import { runAll } from "@/lib/code/run";
-import { countBlocks, parseProgram, programText } from "@/lib/code/program";
-import { grade, optimalOf } from "@/lib/code/grade";
+import { countBlocks, parseProgram, programText, type Stmt } from "@/lib/code/program";
+import { grade, optimalOf, worldsOf } from "@/lib/code/grade";
 import { genLevel } from "@/lib/code/levels";
 import { makeRng } from "@/lib/rng";
 
@@ -14,12 +14,15 @@ test("đọc và viết lại chương trình dạng chữ", () => {
   const p = parseProgram("F 3(F L) R");
   assert.equal(programText(p), "F 3(F L) R");
   assert.equal(countBlocks(p), 5);
+  const q = parseProgram("U(W?(L) A?(F) F)");
+  assert.equal(programText(q), "U(W?(L) A?(F) F)");
+  assert.equal(countBlocks(q), 6);
 });
 
 test("mọi màn làm sẵn đều giải được bằng đúng các khối của màn, số khối tối ưu khớp tìm đường", () => {
   for (const l of lessons) {
     assert.ok(l.code, `${l.id} thiếu màn chơi`);
-    for (const lv of l.code.levels) {
+    for (const lv of l.code.levels.filter((x) => !x.solution)) {
       const w = parseLevel(lv);
       const sol = solve(w);
       assert.ok(sol, `${lv.id} không giải được`);
@@ -28,10 +31,40 @@ test("mọi màn làm sẵn đều giải được bằng đúng các khối c�
       const best = parseProgram(sol.join(" "));
       const g = grade(lv, best);
       assert.ok(g.win && g.stars === 3, `${lv.id}: lời giải ngắn nhất phải được 3 sao`);
-      assert.ok(optimalOf(lv) <= 14, `${lv.id}: màn Vỡ lòng quá dài (${optimalOf(lv)} khối)`);
+      assert.ok(optimalOf(lv) <= 14, `${lv.id}: màn quá dài (${optimalOf(lv)} khối)`);
       if (lv.preset) assert.notEqual(runAll(w, parseProgram(lv.preset)).outcome, "win", `${lv.id}: chương trình có sẵn của bài gỡ lỗi phải chạy sai`);
     }
   }
+});
+
+const KIND: Record<string, string> = { forward: "forward", left: "left", right: "right", repeat: "repeat", if: "if", until: "until" };
+const kinds = (p: Stmt[]): string[] => p.flatMap((s) => [KIND[s.op], ...("body" in s ? kinds(s.body) : [])]);
+
+test("màn có lời giải mẫu (lặp, nếu, bút vẽ): lời giải qua mọi sân, đúng số khối tối ưu, chỉ dùng khối của màn", () => {
+  const withSol = lessons.flatMap((l) => l.code!.levels).filter((x) => x.solution);
+  assert.ok(withSol.length >= 25);
+  for (const lv of withSol) {
+    const sol = parseProgram(lv.solution!);
+    const g = grade(lv, sol);
+    assert.ok(g.win && g.stars === 3, `${lv.id}: lời giải mẫu không qua màn`);
+    for (const k of kinds(sol)) assert.ok(lv.blocks.includes(k as never), `${lv.id}: lời giải dùng khối ${k} không có trong màn`);
+    const ws = worldsOf(lv);
+    for (const w of ws) for (const row of w.solid) assert.equal(row.length, w.w);
+    // màn có sân ẩn: không chương trình thẳng (không lặp/nếu) nào đi được hết các sân
+    if (lv.alt?.length) {
+      const straight = solve(ws[0])!;
+      assert.ok(!ws.every((w) => runAll(w, parseProgram(straight.join(" "))).outcome === "win"), `${lv.id}: sân ẩn quá giống nhau`);
+    }
+    // màn bút vẽ: hình mẫu có nét, và chưa chạy gì thì chưa thắng
+    if (lv.draw) assert.ok(ws[0].target!.size > 0 && runAll(ws[0], []).outcome === "shape", `${lv.id}: hình mẫu rỗng`);
+  }
+});
+
+test("lặp tới khi: vòng lặp không bao giờ tới cờ thì bị chặn, không treo máy", () => {
+  const w = parseLevel({ id: "u", map: ["S#G"], dir: 1, blocks: [] });
+  assert.equal(runAll(w, parseProgram("U(L)")).outcome, "limit");
+  assert.equal(runAll(w, parseProgram("U(W?(L))")).outcome, "limit");
+  assert.equal(runAll(w, parseProgram("U()")).outcome, "limit");
 });
 
 test("bài gỡ lỗi sửa được bằng một thao tác (thêm, bớt hoặc đổi một khối)", () => {

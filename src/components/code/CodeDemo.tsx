@@ -1,18 +1,26 @@
 "use client";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { parseProgram } from "@/lib/code/program";
+import { parseProgram, sayProgram, type Stmt } from "@/lib/code/program";
 import { initState, run, type Outcome, type State } from "@/lib/code/run";
 import { parseLevel } from "@/lib/code/world";
+import { traceTrail } from "@/lib/code/grade";
 import { Stage } from "./Stage";
 
-const CHIP = { forward: "bg-sky text-white", left: "bg-lilac text-white", right: "bg-lilac text-white", repeat: "bg-mint text-white" } as const;
+const CHIP = { forward: "bg-sky text-white", left: "bg-lilac text-white", right: "bg-lilac text-white", repeat: "bg-mint text-white", until: "bg-mint text-white", if: "bg-peach text-white" } as const;
 const LABEL = { forward: "👣 Đi tới", left: "↺ Rẽ trái", right: "↻ Rẽ phải" } as const;
 
+/** gắn id theo vị trí ("2", "2.0"…) để sáng đúng khối ngoài cùng đang chạy */
+const withIds = (p: Stmt[], pre = ""): Stmt[] => p.map((s, i) => ({ ...s, id: pre + i, ...("body" in s ? { body: withIds(s.body, `${pre}${i}.`) } : {}) }) as Stmt);
+const chipText = (s: Stmt) => (s.op === "forward" || s.op === "left" || s.op === "right" ? LABEL[s.op] : `${s.op === "if" ? "❓" : "🔁"} ${sayProgram([s])}`);
+
 /** Slide bài học: lưới nhỏ + dãy khối mẫu, bấm "Xem chạy" thì Mochi đi theo, khối đang chạy sáng lên */
-export function CodeDemo({ map, dir, program, label }: { map: string[]; dir: 0 | 1 | 2 | 3; program: string; label?: string }) {
-  const world = useMemo(() => parseLevel({ id: "demo", map, dir, blocks: [] }), [map, dir]);
-  // gắn id theo vị trí để sáng đúng khối (chỉ dùng chương trình phẳng trong slide)
-  const prog = useMemo(() => parseProgram(program).map((s, i) => ({ ...s, id: String(i) })), [program]);
+export function CodeDemo({ map, dir, program, label, draw }: { map: string[]; dir: 0 | 1 | 2 | 3; program: string; label?: string; draw?: boolean }) {
+  const world = useMemo(() => {
+    const w = parseLevel({ id: "demo", map, dir, blocks: [], draw: draw ? program : undefined });
+    if (draw) w.target = traceTrail(w, parseProgram(program));
+    return w;
+  }, [map, dir, draw, program]);
+  const prog = useMemo(() => withIds(parseProgram(program)), [program]);
   const [state, setState] = useState<State>(() => initState(world));
   const [active, setActive] = useState<string | null>(null);
   const [end, setEnd] = useState<Outcome | null>(null);
@@ -34,7 +42,7 @@ export function CodeDemo({ map, dir, program, label }: { map: string[]; dir: 0 |
         return;
       }
       setState(r.value.state);
-      setActive(r.value.blockId ?? null);
+      setActive(r.value.blockId?.split(".")[0] ?? null);
       if (r.value.kind === "bump") setBump(true);
       timer.current = setTimeout(tick, 600);
     };
@@ -54,7 +62,7 @@ export function CodeDemo({ map, dir, program, label }: { map: string[]; dir: 0 |
               key={s.id}
               className={`rounded-xl px-2.5 py-1 text-sm font-extrabold transition ${CHIP[s.op]} ${active === s.id ? "scale-110 ring-4 ring-sun" : ""}`}
             >
-              {s.op === "repeat" ? `🔁 Lặp ${s.n} lần` : LABEL[s.op]}
+              {chipText(s)}
             </span>
           ))}
         </div>

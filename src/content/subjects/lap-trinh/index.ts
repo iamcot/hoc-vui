@@ -1,5 +1,6 @@
 import type { Subject } from "@/content/types";
 import { unitsVoLong } from "./lessons";
+import { unitsCoBan } from "./co-ban";
 
 /** Môn Lập trình khối lệnh: plan ở docs/plans/lap-trinh.md */
 export const lapTrinh: Subject = {
@@ -12,7 +13,7 @@ export const lapTrinh: Subject = {
   cover: "subject-laptrinh-cover",
   tiers: [
     { id: "vo-long", name: "Vỡ lòng", short: "Đi, rẽ, nhặt sao, sửa lỗi · lớp 1-3", emoji: "🐾", icon: "lt-tier-1", units: unitsVoLong, challenge: { count: 10, pass: 8 } },
-    { id: "co-ban", name: "Cơ bản", short: "Lặp lại, nếu thì, bút vẽ · lớp 3-5", emoji: "🔁", icon: "lt-tier-2", units: [] },
+    { id: "co-ban", name: "Cơ bản", short: "Lặp lại, nếu thì, bút vẽ · lớp 3-5", emoji: "🔁", icon: "lt-tier-2", units: unitsCoBan, challenge: { count: 10, pass: 8 } },
     { id: "trung-cap", name: "Trung cấp", short: "Biến, hàm, sự kiện, mini game · lớp 6-8", emoji: "🎮", icon: "lt-tier-3", units: [] },
     { id: "nang-cao", name: "Nâng cao", short: "Danh sách, tìm kiếm, sắp xếp · lớp 8-10", emoji: "🧠", icon: "lt-tier-4", units: [] },
     { id: "python", name: "Python", short: "Từ khối sang code thật · lớp 9-12", emoji: "🐍", icon: "lt-tier-5", units: [] },

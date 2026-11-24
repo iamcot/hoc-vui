@@ -26,7 +26,7 @@ function simulate(p: Stmt[], d: Dir) {
       if (s.op === "repeat") for (let k = 0; k < s.n; k++) walk(s.body);
       else if (s.op === "left") d = turnLeft(d);
       else if (s.op === "right") d = turnRight(d);
-      else {
+      else if (s.op === "forward") {
         x += [0, 1, 0, -1][d];
         y += [-1, 0, 1, 0][d];
       }
@@ -124,5 +124,90 @@ export const qShortest: QuestionGen = (rng) => {
   ];
   return choiceQ("lt-ngan", `${facing(d)} Mochi cần đi ${goal}. Cả bốn chương trình đều đưa Mochi tới nơi. Chương trình nào **ít khối nhất**?`, sayProgram(good), rng.shuffle(longer).map(sayProgram), rng, {
     hint: "Rẽ phải 3 lần cũng bằng rẽ trái 1 lần, nhưng tốn khối hơn!",
+  });
+};
+
+// ───────────── Cơ bản: lặp, nếu, bút vẽ ─────────────
+const rep = (n: number, body: Stmt[]): Stmt => ({ op: "repeat", n, body });
+
+/** lt-b01: lặp N lần thì đi mấy bước */
+export const qRepeatSteps: QuestionGen = (rng) => {
+  const n = rng.int(2, 6);
+  const k = rng.int(1, 3);
+  const p = [rep(n, fs(k))];
+  const ans = n * k;
+  return choiceQ("lt-lap", `Chạy **${sayProgram(p)}**. Mochi bước tất cả bao nhiêu ô?`, `${ans} ô`, [`${n + k} ô`, `${n} ô`, `${ans + k} ô`, `${Math.max(1, ans - k)} ô`], rng, {
+    hint: "Mỗi vòng lặp Mochi làm hết các khối bên trong một lần.",
+  });
+};
+
+/** lt-b01: chương trình nào giống dãy khối dài */
+export const qRepeatSame: QuestionGen = (rng) => {
+  const n = rng.int(3, 6);
+  const unit: Stmt[] = rng.next() < 0.5 ? [F] : [F, rng.next() < 0.5 ? L : R];
+  const long = Array.from({ length: n }, () => unit).flat();
+  const good = [rep(n, unit)];
+  const wrong = [[rep(n - 1, unit)], [rep(n + 1, unit)], [rep(n, [...unit, F])], [rep(Math.max(2, n - 2), unit)]];
+  return choiceQ("lt-gon", `Chương trình nào làm **y hệt** dãy khối: ${sayProgram(long)}?`, sayProgram(good), wrong.map(sayProgram), rng, {
+    hint: "Tìm phần lặp lại, rồi đếm xem nó lặp mấy lần.",
+  });
+};
+
+/** lt-b02: lặp trong lặp */
+export const qNested: QuestionGen = (rng) => {
+  const a = rng.int(2, 4);
+  const b = rng.int(2, 3);
+  const p = [rep(a, [rep(b, [F]), R])];
+  const ans = a * b;
+  return choiceQ("lt-long", `Chạy **${sayProgram(p)}**. Mochi bước tất cả bao nhiêu ô?`, `${ans} ô`, [`${a + b} ô`, `${ans + 1} ô`, `${ans + a} ô`, `${b} ô`], rng, {
+    hint: "Vòng trong chạy hết rồi vòng ngoài mới sang lần sau. Nhân số lần hai vòng với nhau.",
+  });
+};
+
+/** lt-b03: nếu có tường thì… */
+export const qIfWall: QuestionGen = (rng) => {
+  const d = rng.int(0, 3) as Dir;
+  const wall = rng.next() < 0.5;
+  const turn = rng.next() < 0.5 ? L : R;
+  const p: Stmt[] = [{ op: "if", cond: "W", body: [turn] }];
+  const end = wall ? (turn.op === "left" ? turnLeft(d) : turnRight(d)) : d;
+  return choiceQ(
+    "lt-neu",
+    `${facing(d)} ${wall ? "Ngay trước mặt Mochi là **bức tường**." : "Phía trước Mochi là **đường trống**."} Chạy **${sayProgram(p)}**. Giờ Mochi nhìn về hướng nào?`,
+    dirLabel(end),
+    ([0, 1, 2, 3] as Dir[]).map(dirLabel),
+    rng,
+    { hint: "Khối Nếu chỉ làm khối bên trong khi điều kiện đúng. Sai thì bỏ qua." },
+  );
+};
+
+/** lt-b04: lặp tới khi */
+export const qUntil: QuestionGen = (rng) => {
+  const n = rng.int(3, 9);
+  return choiceQ(
+    "lt-toi-khi",
+    `Lá cờ ở thẳng phía trước, cách Mochi ${n} ô. Chạy **Lặp tới khi tới cờ (Đi tới)**. Mochi bước mấy ô thì dừng?`,
+    `${n} ô`,
+    [`${n - 1} ô`, `${n + 1} ô`, "Đi mãi không dừng", "1 ô"],
+    rng,
+    { hint: "Mỗi vòng Mochi kiểm tra: tới cờ chưa? Tới rồi thì dừng ngay." },
+  );
+};
+
+/** lt-b05, lt-b06: chương trình bút vẽ vẽ ra hình gì */
+const SHAPES: [string, Stmt[]][] = [
+  ["Hình vuông", [rep(4, [F, F, R])]],
+  ["Hình vuông nhỏ", [rep(4, [F, R])]],
+  ["Đường thẳng", [rep(4, [F])]],
+  ["Chữ L", [F, F, F, R, F, F]],
+  ["Bậc thang", [rep(3, [F, R, F, L])]],
+  ["Hình chữ nhật", [rep(2, [F, F, F, R, F, R])]],
+  ["Ô cửa sổ 4 ô", [rep(4, [rep(4, [F, R]), R])]],
+];
+export const qShape: QuestionGen = (rng) => {
+  const [name, p] = rng.pick(SHAPES);
+  const wrong = rng.shuffle(SHAPES.filter(([n]) => n !== name && !(n.startsWith("Hình vuông") && name.startsWith("Hình vuông")))).map(([n]) => n);
+  return choiceQ("lt-ve", `Mochi cầm bút, đi tới đâu vẽ tới đó. Chạy **${sayProgram(p)}** thì vẽ ra hình gì?`, name, wrong, rng, {
+    hint: "Lấy ngón tay vẽ thử theo từng khối trên giấy nhé.",
   });
 };

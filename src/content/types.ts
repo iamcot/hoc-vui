@@ -27,7 +27,7 @@ export type Block =
   | { type: "drill"; text: string; label?: string; keys?: string; focus?: string }
   // ── môn Lập trình khối lệnh ──
   /** lưới nhỏ + chương trình mẫu, bấm "Xem chạy" để Mochi đi theo (program viết kiểu "F F L F", xem lib/code/program.ts) */
-  | { type: "code"; map: string[]; dir: 0 | 1 | 2 | 3; program: string; label?: string };
+  | { type: "code"; map: string[]; dir: 0 | 1 | 2 | 3; program: string; label?: string; draw?: boolean };
 
 export interface LetterItem {
   g: string;
