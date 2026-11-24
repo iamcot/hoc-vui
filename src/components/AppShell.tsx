@@ -138,15 +138,15 @@ function TitleBoard({ dark }: { dark: boolean }) {
 function NavSign({ href, id, label, Icon, on, k }: { href: string; id: string; label: string; Icon: (p: { className?: string }) => React.ReactNode; on: boolean; k: number }) {
   const file = `/assets/img/nav-${id}.webp`;
   const img = hasFile(file);
-  const tilt = [-3, 2, -1.5, 3][k % 4];
-  const shift = ["0.4rem", "1.4rem", "0rem", "1rem"][k % 4];
+  const tilt = [-0.6, 0.5, -0.4, 0.6][k % 4];
+  const shift = ["0.6rem", "1rem", "0.6rem", "1rem"][k % 4];
   const glow = on ? "drop-shadow-[0_0_14px_rgba(255,214,102,0.95)]" : "drop-shadow-[0_5px_5px_rgba(60,35,10,0.35)]";
   return (
     <Link
       href={href}
       aria-current={on ? "page" : undefined}
       className={`group relative z-10 block transition duration-300 ${on ? "-translate-y-1" : "hover:-translate-y-0.5"}`}
-      style={{ marginLeft: shift, marginRight: `calc(1.4rem - ${shift})`, transform: `rotate(${on ? tilt * 1.6 : tilt}deg)`, transformOrigin: "3.4rem 50%" }}
+      style={{ marginLeft: shift, marginRight: `calc(1.4rem - ${shift})`, transform: `rotate(${on ? tilt * 2 : tilt}deg)`, transformOrigin: "3.4rem 50%" }}
     >
       {img ? (
         // 9-slice: giữ nguyên hình tròn (trái) và mũi tên (phải), chỉ kéo dài phần ván giữa -> biển thấp, dài, cân với biển tên
