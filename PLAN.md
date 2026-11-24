@@ -86,6 +86,12 @@ Tông công nghệ cho bé lớn: biển sâu neon, nhân vật **thỏ Bit** (S
 - [ ] Sau này: bài gõ theo thời gian (1 phút), bảng xếp hạng WPM riêng, nhạc nền
 
 ### Giai đoạn 3 · Mở rộng môn
+Wishlist 5 môn mới và kế hoạch chi tiết từng môn: `docs/WISHLIST.md`. Làm lần lượt:
+- [ ] 3a · Kỹ năng số (tin giả, lừa đảo, mật khẩu, chọn tình huống)
+- [ ] 3b · Thám tử logic (mỗi bài một mẹo suy luận + vụ án sinh ngẫu nhiên)
+- [ ] 3c · Lập trình khối lệnh (Blockly + trình chạy từng bước, sau sang Python bằng Pyodide)
+- [ ] 3d · Khám phá Việt Nam (bản đồ 34 tỉnh, thẻ sưu tập)
+- [ ] 3e · Thí nghiệm hóa (phòng thí nghiệm ảo, giải thích tăng dần lớp 1 → 12)
 - [ ] Toán lớp 6 (lý thuyết), Toán lớp 1, Tiếng Anh...
 - [ ] Trình soạn bài cho phụ huynh
 
