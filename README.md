@@ -20,7 +20,7 @@ Không cần Supabase vẫn chạy được (chế độ khách, tiến trình l
 
 ### 1. Supabase (đăng nhập, lưu tiến trình, thi đấu, xếp hạng)
 1. Tạo project tại [supabase.com](https://supabase.com) (region Singapore cho nhanh).
-2. Vào **SQL Editor**, dán toàn bộ [`supabase/migrations/0001_init.sql`](supabase/migrations/0001_init.sql) rồi **Run**.
+2. Vào **SQL Editor**, chạy lần lượt từng file trong [`supabase/migrations/`](supabase/migrations) theo thứ tự số (`0001_init.sql`, rồi `0002_tiers.sql`, ...): dán toàn bộ nội dung file rồi **Run**.
 3. **Authentication > Providers > Email**: bật Email. Nếu muốn con đăng ký xong dùng ngay, tắt **Confirm email**.
 4. **Authentication > URL Configuration**: đặt **Site URL** là địa chỉ Vercel của app (làm sau bước 2).
 5. **Project Settings > API**: chép `Project URL` và `anon public key`.
