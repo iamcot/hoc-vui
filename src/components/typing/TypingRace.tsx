@@ -54,7 +54,7 @@ function raceText(room: Room, round = 0): string {
  * Không có ai cùng đua: đua với hai xe máy (tốc độ cố định) cho vui.
  */
 export function TypingRace({ room }: { room: Room }) {
-  const { data, session, addXp } = useProgress();
+  const { data, session, addXp, awardStars } = useProgress();
   // mỗi lượt đua một đoạn mới; cả phòng cùng số lượt nên cùng đoạn
   const [round, setRound] = useState(0);
   const text = useMemo(() => raceText(room, round), [room, round]);
@@ -164,6 +164,7 @@ export function TypingRace({ room }: { room: Room }) {
       play(r.acc >= 90 ? "levelup" : "complete");
       void chan.current?.send({ type: "broadcast", event: "p", payload: (meRef.current = { ...me, p: 1, wpm: r.wpm, done: true, round: roundRef.current }) });
       addXp("go-phim", Math.min(40, Math.round(r.wpm / 2) + (r.acc >= 90 ? 10 : 0)), `dua:${room.code}`);
+      if (room.rank && room.rank !== "free") awardStars("go-phim", r.acc >= 95 ? 3 : r.acc >= 90 ? 2 : r.acc >= 80 ? 1 : 0, `arena:${room.code}`);
       try {
         await submitEntry(room, { score, correct: r.wpm, time_ms: r.ms }, { name: data.profile.name, avatar: data.profile.avatar }, true);
       } finally {
