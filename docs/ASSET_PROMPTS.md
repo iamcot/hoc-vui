@@ -810,7 +810,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile in a submarine cockpit typing, glowing Vietnamese-style accent marks (hooks, hats, tone marks) floating like bubbles, no full words. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
 ```
 
-### ⬜ `nav-pole.webp`
+### ✅ `nav-pole.webp`
 - Dùng ở: Thân cọc gỗ dọc thanh bên (app lặp ảnh theo chiều dọc, kéo dài suốt màn hình)
 - Kích thước: 1024x1536 · nền trong suốt
 
@@ -818,7 +818,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 A straight vertical wooden post segment, seen from the front, centered, filling the full image height and about 12% of the width, warm light-honey wood with soft grain, cute storybook look, clean dark-brown outline; SEAMLESS vertically: the top and bottom edges must tile perfectly when repeated (no cap, no end, no knots cut at the edges), nothing else in the image. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `nav-title.webp`
+### ✅ `nav-title.webp`
 - Dùng ở: Biển tên app treo trên đầu cọc (app đặt logo và chữ Học Vui lên trên)
 - Kích thước: 1536x1024 · nền trong suốt
 
@@ -826,7 +826,7 @@ A straight vertical wooden post segment, seen from the front, centered, filling 
 A single wide rounded-rectangle wooden name plaque, front view, about 3.2 times wider than tall, filling the image width, warm light-honey wood with soft grain, cute storybook look, clean dark-brown outline, a slightly thicker carved frame border, two small nails in the middle of the top and bottom edges, a tiny green leaf vine curling on one corner, the inner area completely BLANK flat wood for a logo and title, no post, nothing else. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `nav-hoc.webp`
+### ✅ `nav-hoc.webp`
 - Dùng ở: Tấm biển gắn vào cọc ở thanh bên: Học (chữ do app viết đè lên ván trống)
 - Kích thước: 1536x1024 · nền trong suốt
 
@@ -834,7 +834,7 @@ A single wide rounded-rectangle wooden name plaque, front view, about 3.2 times 
 A single wooden arrow-shaped plank sign pointing to the RIGHT, seen straight from the front, nothing else: no post, no stake, no grass; the plank fills the whole image width, about 3.5 times wider than tall, warm light-honey wood with soft grain, cute storybook look, clean dark-brown outline, two small nails near the left end (top and bottom) where it is nailed to a post; at the LEFT end a round painted emblem about 80% of the plank height; the whole area to the right of the emblem is a smooth, completely BLANK flat wood surface reserved for a label. The emblem shows an open storybook with a small sprout. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `nav-thi-dau.webp`
+### ✅ `nav-thi-dau.webp`
 - Dùng ở: Tấm biển gắn vào cọc ở thanh bên: Thi đấu (chữ do app viết đè lên ván trống)
 - Kích thước: 1536x1024 · nền trong suốt
 
@@ -842,7 +842,7 @@ A single wooden arrow-shaped plank sign pointing to the RIGHT, seen straight fro
 A single wooden arrow-shaped plank sign pointing to the RIGHT, seen straight from the front, nothing else: no post, no stake, no grass; the plank fills the whole image width, about 3.5 times wider than tall, warm light-honey wood with soft grain, cute storybook look, clean dark-brown outline, two small nails near the left end (top and bottom) where it is nailed to a post; at the LEFT end a round painted emblem about 80% of the plank height; the whole area to the right of the emblem is a smooth, completely BLANK flat wood surface reserved for a label. The emblem shows a yellow lightning bolt over two crossed pencils. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `nav-xep-hang.webp`
+### ✅ `nav-xep-hang.webp`
 - Dùng ở: Tấm biển gắn vào cọc ở thanh bên: Xếp hạng (chữ do app viết đè lên ván trống)
 - Kích thước: 1536x1024 · nền trong suốt
 
@@ -850,7 +850,7 @@ A single wooden arrow-shaped plank sign pointing to the RIGHT, seen straight fro
 A single wooden arrow-shaped plank sign pointing to the RIGHT, seen straight from the front, nothing else: no post, no stake, no grass; the plank fills the whole image width, about 3.5 times wider than tall, warm light-honey wood with soft grain, cute storybook look, clean dark-brown outline, two small nails near the left end (top and bottom) where it is nailed to a post; at the LEFT end a round painted emblem about 80% of the plank height; the whole area to the right of the emblem is a smooth, completely BLANK flat wood surface reserved for a label. The emblem shows a small golden trophy cup. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `ic-star.webp`
+### ✅ `ic-star.webp`
 - Dùng ở: Icon nhỏ: XP (sao)
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -858,7 +858,7 @@ A single wooden arrow-shaped plank sign pointing to the RIGHT, seen straight fro
 A plump five-pointed golden star with a soft shine. Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
 ```
 
-### ⬜ `ic-fire.webp`
+### ✅ `ic-fire.webp`
 - Dùng ở: Icon nhỏ: Chuỗi ngày học (lửa)
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -866,7 +866,7 @@ A plump five-pointed golden star with a soft shine. Game UI icon in a glossy sof
 A cute round flame, orange outside and yellow inside. Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
 ```
 
-### ⬜ `ic-trophy.webp`
+### ✅ `ic-trophy.webp`
 - Dùng ở: Icon nhỏ: Cúp, bảng xếp hạng, kỷ lục
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -874,7 +874,7 @@ A cute round flame, orange outside and yellow inside. Game UI icon in a glossy s
 A shiny golden trophy cup with two handles on a small base. Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
 ```
 
-### ⬜ `ic-medal-1.webp`
+### ✅ `ic-medal-1.webp`
 - Dùng ở: Icon nhỏ: Hạng nhất
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -882,7 +882,7 @@ A shiny golden trophy cup with two handles on a small base. Game UI icon in a gl
 A round gold medal with a blue ribbon, a star engraved in the middle. Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
 ```
 
-### ⬜ `ic-medal-2.webp`
+### ✅ `ic-medal-2.webp`
 - Dùng ở: Icon nhỏ: Hạng nhì
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -890,7 +890,7 @@ A round gold medal with a blue ribbon, a star engraved in the middle. Game UI ic
 A round silver medal with a blue ribbon, a star engraved in the middle. Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
 ```
 
-### ⬜ `ic-medal-3.webp`
+### ✅ `ic-medal-3.webp`
 - Dùng ở: Icon nhỏ: Hạng ba
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -898,7 +898,7 @@ A round silver medal with a blue ribbon, a star engraved in the middle. Game UI 
 A round bronze medal with a blue ribbon, a star engraved in the middle. Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
 ```
 
-### ⬜ `ic-bolt.webp`
+### ✅ `ic-bolt.webp`
 - Dùng ở: Icon nhỏ: Thi đấu, thử thách, bonus
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -906,7 +906,7 @@ A round bronze medal with a blue ribbon, a star engraved in the middle. Game UI 
 A chunky yellow lightning bolt. Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
 ```
 
-### ⬜ `ic-retry.webp`
+### ✅ `ic-retry.webp`
 - Dùng ở: Icon nhỏ: Chơi lại, làm lại
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -914,7 +914,7 @@ A chunky yellow lightning bolt. Game UI icon in a glossy soft-3D anime sticker s
 Two curved mint-green arrows chasing each other in a circle. Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
 ```
 
-### ⬜ `ic-invite.webp`
+### ✅ `ic-invite.webp`
 - Dùng ở: Icon nhỏ: Mời bạn
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -922,7 +922,7 @@ Two curved mint-green arrows chasing each other in a circle. Game UI icon in a g
 A sky-blue envelope with a pink heart seal and a small paper-plane wing. Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
 ```
 
-### ⬜ `ic-party.webp`
+### ✅ `ic-party.webp`
 - Dùng ở: Icon nhỏ: Chúc mừng, đúng rồi
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -930,7 +930,7 @@ A sky-blue envelope with a pink heart seal and a small paper-plane wing. Game UI
 A party popper cone bursting with colorful confetti. Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
 ```
 
-### ⬜ `ic-sound.webp`
+### ✅ `ic-sound.webp`
 - Dùng ở: Icon nhỏ: Nghe, loa
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -938,7 +938,7 @@ A party popper cone bursting with colorful confetti. Game UI icon in a glossy so
 A rounded blue speaker with two sound waves. Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
 ```
 
-### ⬜ `ic-hint.webp`
+### ✅ `ic-hint.webp`
 - Dùng ở: Icon nhỏ: Gợi ý, mẹo
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -946,7 +946,7 @@ A rounded blue speaker with two sound waves. Game UI icon in a glossy soft-3D an
 A glowing yellow light bulb with a tiny sparkle. Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
 ```
 
-### ⬜ `ic-mic.webp`
+### ✅ `ic-mic.webp`
 - Dùng ở: Icon nhỏ: Đọc to, ghi âm
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -954,7 +954,7 @@ A glowing yellow light bulb with a tiny sparkle. Game UI icon in a glossy soft-3
 A round retro microphone, coral and silver. Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
 ```
 
-### ⬜ `ic-target.webp`
+### ✅ `ic-target.webp`
 - Dùng ở: Icon nhỏ: Bấm theo, không sai phím
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -962,7 +962,7 @@ A round retro microphone, coral and silver. Game UI icon in a glossy soft-3D ani
 A round red and white target with a small arrow in the bullseye. Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
 ```
 
-### ⬜ `ic-rocket.webp`
+### ✅ `ic-rocket.webp`
 - Dùng ở: Icon nhỏ: Thử thách lên lớp
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -970,7 +970,7 @@ A round red and white target with a small arrow in the bullseye. Game UI icon in
 A small white and coral rocket flying up with a little flame. Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
 ```
 
-### ⬜ `ic-flag.webp`
+### ✅ `ic-flag.webp`
 - Dùng ở: Icon nhỏ: Về đích, tạo phòng
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -978,7 +978,7 @@ A small white and coral rocket flying up with a little flame. Game UI icon in a 
 A black and white checkered finish flag waving on a short pole. Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
 ```
 
-### ⬜ `ic-calc.webp`
+### ✅ `ic-calc.webp`
 - Dùng ở: Icon nhỏ: Máy tính
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -986,7 +986,7 @@ A black and white checkered finish flag waving on a short pole. Game UI icon in 
 A small dark-navy scientific calculator with a teal screen and round buttons. Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
 ```
 
-### ⬜ `ic-pencil.webp`
+### ✅ `ic-pencil.webp`
 - Dùng ở: Icon nhỏ: Luyện tập, thử nhanh
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -994,7 +994,7 @@ A small dark-navy scientific calculator with a teal screen and round buttons. Ga
 A yellow pencil with a pink eraser, tilted. Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
 ```
 
-### ⬜ `ic-ticket.webp`
+### ✅ `ic-ticket.webp`
 - Dùng ở: Icon nhỏ: Vào phòng bằng mã
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -1002,7 +1002,7 @@ A yellow pencil with a pink eraser, tilted. Game UI icon in a glossy soft-3D ani
 A lilac admission ticket with a perforated edge and a star. Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
 ```
 
-### ⬜ `ic-scroll.webp`
+### ✅ `ic-scroll.webp`
 - Dùng ở: Icon nhỏ: Bài gõ hay
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -1010,7 +1010,7 @@ A lilac admission ticket with a perforated edge and a star. Game UI icon in a gl
 A rolled paper scroll partly open, cream paper with a red ribbon. Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
 ```
 
-### ⬜ `ic-lock.webp`
+### ✅ `ic-lock.webp`
 - Dùng ở: Icon nhỏ: Chưa mở khóa
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -1018,7 +1018,7 @@ A rolled paper scroll partly open, cream paper with a red ribbon. Game UI icon i
 A chunky golden padlock, closed. Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
 ```
 
-### ⬜ `ic-heart.webp`
+### ✅ `ic-heart.webp`
 - Dùng ở: Icon nhỏ: Mạng sống trong game
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -1026,7 +1026,7 @@ A chunky golden padlock, closed. Game UI icon in a glossy soft-3D anime sticker 
 A plump glossy red heart. Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
 ```
 
-### ⬜ `ic-shark.webp`
+### ✅ `ic-shark.webp`
 - Dùng ở: Icon nhỏ: Vào game cá mập
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -1034,7 +1034,7 @@ A plump glossy red heart. Game UI icon in a glossy soft-3D anime sticker style: 
 A cute small blue shark head with a friendly grin. Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
 ```
 
-### ⬜ `ic-warn.webp`
+### ✅ `ic-warn.webp`
 - Dùng ở: Icon nhỏ: Chú ý
 - Kích thước: 1024x1024 · nền trong suốt
 
