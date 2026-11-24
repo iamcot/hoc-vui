@@ -445,7 +445,7 @@ export function SharkGame({
             <p className="text-cyan-50/85">
               {mode === "survival" ? "Cá đến mãi và nhanh dần. Để cá chạm vào em 3 lần là hết lượt." : `Bắn hạ ${total} con cá bằng cách gõ đúng chữ trên mình chúng.`} Gõ chữ đầu là khóa mục tiêu.
             </p>
-            <p className="font-bold text-white">Đặt tay lên hàng phím nhà rồi bấm <kbd className="rounded-md bg-cyan-400 px-2 py-0.5 font-mono text-[#04102c]">Phím cách</kbd></p>
+            <p className="font-bold text-white">Đặt tay lên hàng phím cơ sở rồi bấm <kbd className="rounded-md bg-cyan-400 px-2 py-0.5 font-mono text-[#04102c]">Phím cách</kbd></p>
             <button onClick={begin} className="btn btn-primary w-full">
               Lặn xuống ▶ <Kbd k=" " />
             </button>

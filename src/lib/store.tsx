@@ -61,6 +61,15 @@ const EMPTY: ProgressData = {
 
 const LS_KEY = "hocvui:v1";
 
+const DEFAULT_NAME = "Bạn nhỏ";
+/** gộp hồ sơ trên máy với trên mạng: mạng còn tên/ảnh mặc định thì giữ của máy */
+function mergeProfile(local: Profile, prof: { display_name: string | null; avatar: string | null } | null): Profile {
+  if (!prof) return local;
+  const name = prof.display_name && prof.display_name !== DEFAULT_NAME ? prof.display_name : local.name || prof.display_name || "";
+  const avatar = prof.avatar && prof.avatar !== "fox" ? prof.avatar : local.avatar || prof.avatar || "fox";
+  return { ...local, name, avatar };
+}
+
 function loadLocal(): ProgressData {
   try {
     const raw = localStorage.getItem(LS_KEY);
@@ -107,7 +116,8 @@ interface Store {
   /** ghi nhớ bài đang học để lần sau vào bản đồ thì tới đúng bài đó */
   setLast(subjectId: string, lessonId: string): void;
   addXp(subjectId: string, amount: number, reason: string): void;
-  setProfile(p: Partial<Profile>): void;
+  /** lưu hồ sơ; trả về false nếu chưa lưu lên mạng được */
+  setProfile(p: Partial<Profile>): Promise<boolean>;
   setSound(on: boolean): void;
   setMusicPref(on: boolean): void;
   setCalcMode(m: ProgressData["calcMode"]): void;
@@ -149,9 +159,11 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
     return () => sub.subscription.unsubscribe();
   }, [sb]);
 
+  // chỉ đồng bộ lại khi đổi tài khoản (Supabase phát lại sự kiện đăng nhập mỗi lần quay lại tab)
+  const uidNow = session?.user.id;
   useEffect(() => {
-    if (!sb || !session) return;
-    const uid = session.user.id;
+    if (!sb || !uidNow) return;
+    const uid = uidNow;
     (async () => {
       const [{ data: prof }, { data: rows }, { data: xpRow }, { data: unl }] = await Promise.all([
         sb.from("profiles").select("display_name, avatar").eq("id", uid).maybeSingle(),
@@ -188,10 +200,16 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
         lessons,
         unlocks,
         xp: Math.max(d.xp, serverXp),
-        profile: prof ? { name: prof.display_name ?? d.profile.name, avatar: prof.avatar ?? d.profile.avatar } : d.profile,
+        profile: mergeProfile(d.profile, prof),
       }));
+      // máy có tên/ảnh mà mạng vẫn là mặc định thì đẩy lên
+      const merged = mergeProfile(local.profile, prof);
+      if (!prof || merged.name !== prof.display_name || merged.avatar !== prof.avatar) {
+        const { error } = await sb.from("profiles").upsert({ id: uid, display_name: merged.name || "Bạn nhỏ", avatar: merged.avatar });
+        if (error) console.warn("Không lưu được hồ sơ:", error.message);
+      }
     })().catch(() => {});
-  }, [sb, session, update]);
+  }, [sb, uidNow, update]);
 
   const syncLesson = useCallback(
     (subjectId: string, lessonId: string, l: LessonState) => {
@@ -259,14 +277,13 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
         if (sb && session) void sb.from("tier_unlocks").upsert({ user_id: session.user.id, subject_id: s, tier_id: tier });
       },
       addXp,
-      setProfile(p) {
+      async setProfile(p) {
+        const next = { ...data.profile, ...p };
         update((d) => ({ ...d, profile: { ...d.profile, ...p } }));
-        if (sb && session) {
-          const row: Record<string, string> = { id: session.user.id };
-          if (p.name !== undefined) row.display_name = p.name;
-          if (p.avatar !== undefined) row.avatar = p.avatar;
-          void sb.from("profiles").upsert(row);
-        }
+        if (!sb || !session) return true;
+        const { error } = await sb.from("profiles").upsert({ id: session.user.id, display_name: next.name || "Bạn nhỏ", avatar: next.avatar });
+        if (error) console.warn("Không lưu được hồ sơ:", error.message);
+        return !error;
       },
       setSound(on) {
         setMuted(!on);

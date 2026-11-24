@@ -18,7 +18,7 @@ export const goPhim: Subject = {
     { id: "dua-xe", name: "Đua xe", short: "Gõ nhanh, xe về trước", emoji: "🏎️", href: "/thi-dau?mon=go-phim", icon: "gp-mode-race" },
   ],
   tiers: [
-    { id: "nha", name: "Hàng nhà", short: "Tám ngón, từng ngón một", emoji: "🏠", icon: "gp-tier-1", units: unitsNha },
+    { id: "nha", name: "Hàng phím cơ sở", short: "A S D F · J K L ; là chỗ đặt sẵn 8 ngón", emoji: "🏠", icon: "gp-tier-1", units: unitsNha },
     { id: "tay", name: "Từng bàn tay", short: "Hàng trên, hàng dưới, đủ chữ cái", emoji: "🖐️", icon: "gp-tier-2", units: unitsTay },
     { id: "phoi", name: "Phối hợp", short: "Hai tay, chữ hoa, dấu câu, số", emoji: "🤝", icon: "gp-tier-3", units: unitsPhoiHop },
     { id: "telex", name: "Telex", short: "Gõ tiếng Việt có dấu", emoji: "🇻🇳", icon: "gp-tier-4", units: unitsTelex },

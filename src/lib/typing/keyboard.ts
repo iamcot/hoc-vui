@@ -86,5 +86,5 @@ export const FINGER_COLOR: Record<Finger, string> = {
   T: "#9aa6c8",
 };
 
-/** hàng phím nhà: chỗ tám ngón đặt sẵn */
+/** hàng phím cơ sở: chỗ tám ngón đặt sẵn */
 export const HOME: Record<Exclude<Finger, "T">, string> = { L5: "a", L4: "s", L3: "d", L2: "f", R2: "j", R3: "k", R4: "l", R5: ";" };

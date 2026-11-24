@@ -66,7 +66,7 @@ const make = (cover: string) => (d: Def): Lesson => ({
   typing: d.spec,
 });
 
-// ───────────────────────── Trình độ 1 · Hàng phím nhà ─────────────────────────
+// ───────────────────────── Trình độ 1 · Hàng phím cơ sở ─────────────────────────
 const nha: Def[] = [
   {
     id: "gp-n01",
@@ -81,6 +81,7 @@ const nha: Def[] = [
         voice: "vo-gp-n01",
         blocks: [
           text("Lưng thẳng, mắt nhìn màn hình, khuỷu tay vuông góc. **Không nhìn bàn phím** khi gõ, nhìn màn hình thôi."),
+          text("Hàng phím giữa **A S D F · J K L ;** gọi là **hàng phím cơ sở**: tám ngón luôn đặt sẵn ở đây, gõ xong phím nào cũng quay về."),
           kb(HOME, "fj", "Hai phím F và J có gờ nổi nhỏ. Hai ngón trỏ đặt lên đó."),
           tip("Mất chỗ? Sờ tìm gờ nổi trên F và J là tay về đúng vị trí, không cần nhìn."),
         ],
@@ -106,7 +107,7 @@ const nha: Def[] = [
       {
         title: "Ngón giữa gõ D và K",
         mood: "happy",
-        blocks: [kb(HOME, "dk"), text("Đặt lại tám ngón lên hàng nhà. Ngón **giữa trái** là D, ngón **giữa phải** là K."), drill("ddd kkk dk kd fd jk dfjk")],
+        blocks: [kb(HOME, "dk"), text("Đặt lại tám ngón lên hàng phím cơ sở. Ngón **giữa trái** là D, ngón **giữa phải** là K."), drill("ddd kkk dk kd fd jk dfjk")],
       },
     ],
   },
@@ -120,21 +121,21 @@ const nha: Def[] = [
       {
         title: "Ngón áp út gõ S và L",
         mood: "think",
-        blocks: [kb(HOME, "sl"), text("Ngón áp út hơi yếu, gõ chậm mà chắc. Các ngón khác vẫn nằm yên trên hàng nhà."), drill("sss lll sl ls sdf jkl lds")],
+        blocks: [kb(HOME, "sl"), text("Ngón áp út hơi yếu, gõ chậm mà chắc. Các ngón khác vẫn nằm yên trên hàng phím cơ sở."), drill("sss lll sl ls sdf jkl lds")],
       },
     ],
   },
   {
     id: "gp-n04",
     title: "Ngón út: A và ;",
-    short: "Đủ tám ngón trên hàng nhà",
+    short: "Đủ tám ngón trên hàng phím cơ sở",
     glyph: "A ;",
     spec: { keys: "asdfjkl;", focus: "a;", unit: "key", count: 22, speed: 1.1 },
     slides: [
       {
         title: "Ngón út giữ hai đầu",
         mood: "wow",
-        blocks: [kb(HOME, "a;"), text("Ngón **út trái** là A, ngón **út phải** là dấu chấm phẩy **;**. Giờ em đã có đủ tám ngón trên hàng nhà!"), drill("aaa ;;; asdf jkl; a; ;a")],
+        blocks: [kb(HOME, "a;"), text("Ngón **út trái** là A, ngón **út phải** là dấu chấm phẩy **;**. Giờ em đã có đủ tám ngón trên hàng phím cơ sở!"), drill("aaa ;;; asdf jkl; a; ;a")],
       },
     ],
   },
@@ -155,14 +156,14 @@ const nha: Def[] = [
   {
     id: "gp-n06",
     title: "Từ đầu tiên",
-    short: "Gõ cả từ trên hàng nhà",
+    short: "Gõ cả từ trên hàng phím cơ sở",
     glyph: "ha ha",
     spec: { keys: HOME, unit: "word", words: ["ha", "la", "da", "ga", "sa", "gala", "hall", "flash", "salad", "glad", "dash", "half", "ask", "flask", "lass", "jak", "kal", "had", "has", "shall"], count: 16, speed: 1.1 },
     slides: [
       {
         title: "Gõ thành từ",
         mood: "cheer",
-        blocks: [kb(HOME), text("Chỉ với hàng nhà, em đã gõ được nhiều từ rồi. Gõ hết từ thì bấm phím cách bằng ngón cái."), drill("ha ha la da ga salad")],
+        blocks: [kb(HOME), text("Chỉ với hàng phím cơ sở, em đã gõ được nhiều từ rồi. Gõ hết từ thì bấm phím cách bằng ngón cái."), drill("ha ha la da ga salad")],
       },
     ],
   },
@@ -185,7 +186,7 @@ const tay: Def[] = [
         title: "Với lên hàng trên",
         mood: "happy",
         voice: "vo-gp-t01",
-        blocks: [kb(HOME + TOP_L, TOP_L), text("Mỗi ngón trái với thẳng lên trên: út Q, áp út W, giữa E, trỏ R và T. Gõ xong là **về hàng nhà**."), drill("fr ft de sw aq fr de sw")],
+        blocks: [kb(HOME + TOP_L, TOP_L), text("Mỗi ngón trái với thẳng lên trên: út Q, áp út W, giữa E, trỏ R và T. Gõ xong là **về hàng phím cơ sở**."), drill("fr ft de sw aq fr de sw")],
       },
     ],
   },
@@ -459,7 +460,7 @@ const telex: Def[] = [
 
 const u = (id: string, title: string, cover: string, defs: Def[]): Unit => ({ id, title, lessons: defs.map(make(cover)) });
 
-export const unitsNha: Unit[] = [u("gp-u-nha", "Tám ngón trên hàng nhà", "gp-cover-nha", nha)];
+export const unitsNha: Unit[] = [u("gp-u-nha", "Tám ngón trên hàng phím cơ sở", "gp-cover-nha", nha)];
 export const unitsTay: Unit[] = [u("gp-u-tay", "Hàng trên, hàng dưới", "gp-cover-tay", tay)];
 export const unitsPhoiHop: Unit[] = [u("gp-u-phoi", "Hai tay phối hợp", "gp-cover-phoi", phoiHop)];
 export const unitsTelex: Unit[] = [u("gp-u-telex", "Gõ có dấu kiểu Telex", "gp-cover-telex", telex)];

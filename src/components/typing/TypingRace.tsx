@@ -29,17 +29,19 @@ interface Racer {
   wpm: number;
   done?: boolean;
   bot?: boolean;
+  /** lượt đua (mỗi lần bấm Đua lại tăng 1) */
+  round?: number;
 }
 
 /** Điểm đua: WPM nhân độ chính xác (gõ ẩu thì xe chậm lại) */
 export const raceScore = (wpm: number, acc: number) => Math.round(wpm * (acc / 100) * 10);
 
 /** Đoạn đua lấy theo mã phòng: cả phòng cùng một đoạn. Dùng từ của trình độ đã chọn. */
-function raceText(room: Room): string {
+function raceText(room: Room, round = 0): string {
   const s = getSubject("go-phim")!;
   const tier = room.tier_id ? getTier(s, room.tier_id) : undefined;
   const lessons = (tier ? tierLessons(tier) : allLessons(s)).filter((l) => l.typing);
-  const rng = makeRng(`race:${room.code}`);
+  const rng = makeRng(round ? `race:${room.code}:${round}` : `race:${room.code}`);
   const parts: string[] = [];
   while (parts.join(" ").length < 90) parts.push(lineFor(rng.pick(lessons).typing!, rng));
   return parts.join(" ").slice(0, 120).replace(/\s+\S*$/, "");
@@ -52,9 +54,12 @@ function raceText(room: Room): string {
  */
 export function TypingRace({ room }: { room: Room }) {
   const { data, session, addXp } = useProgress();
-  const text = useMemo(() => raceText(room), [room]);
+  // mỗi lượt đua một đoạn mới; cả phòng cùng số lượt nên cùng đoạn
+  const [round, setRound] = useState(0);
+  const text = useMemo(() => raceText(room, round), [room, round]);
   const me = useMemo(() => ({ id: session?.user.id ?? `khach-${Math.random().toString(36).slice(2, 7)}`, name: data.profile.name || "Em", avatar: data.profile.avatar }), [session, data.profile]);
   const [phase, setPhase] = useState<"lobby" | "count" | "run" | "done">("lobby");
+  const meRef = useRef<Racer>({ ...me, p: 0, wpm: 0 });
   const [count, setCount] = useState(3);
   const [others, setOthers] = useState<Record<string, Racer>>({});
   const [bots, setBots] = useState<Racer[]>([]);
@@ -77,23 +82,49 @@ export function TypingRace({ room }: { room: Room }) {
     setCount(3);
     play("gp-go", 0.5);
   }, []);
+  const roundRef = useRef(round);
+  roundRef.current = round;
+  /** sang lượt mới: giữ nguyên các bạn trong phòng, xe về vạch xuất phát */
+  const newRound = useCallback((r: number) => {
+    if (r <= roundRef.current) return;
+    setRound(r);
+    setPhase("lobby");
+    setResult(null);
+    setBots([]);
+    setCount(3);
+    setOthers((o) => Object.fromEntries(Object.entries(o).map(([k, v]) => [k, { ...v, p: 0, wpm: 0, done: false }])));
+  }, []);
 
   // kênh trực tiếp của phòng
   useEffect(() => {
     const sb = getSupabase();
     if (!sb) return;
     const c = sb.channel(`race:${room.code}`, { config: { broadcast: { self: false } } });
-    c.on("broadcast", { event: "p" }, ({ payload }) => setOthers((o) => ({ ...o, [payload.id]: payload as Racer })))
-      .on("broadcast", { event: "go" }, () => startCount())
+    c.on("broadcast", { event: "p" }, ({ payload }) => {
+      // bạn đang ở lượt sau thì theo lượt đó; tin của lượt cũ thì bỏ qua
+      if ((payload.round ?? 0) > roundRef.current && phaseRef.current !== "run") newRound(payload.round);
+      if ((payload.round ?? 0) < roundRef.current) return setOthers((o) => ({ ...o, [payload.id]: { ...(payload as Racer), p: 0, wpm: 0, done: false } }));
+      setOthers((o) => ({ ...o, [payload.id]: payload as Racer }));
+    })
+      .on("broadcast", { event: "hi" }, () => void c.send({ type: "broadcast", event: "p", payload: { ...meRef.current, round: roundRef.current } }))
+      .on("broadcast", { event: "bye" }, ({ payload }) => setOthers((o) => Object.fromEntries(Object.entries(o).filter(([k]) => k !== payload.id))))
+      .on("broadcast", { event: "go" }, ({ payload }) => {
+        if ((payload?.round ?? 0) > roundRef.current) newRound(payload.round);
+        startCount();
+      })
+      .on("broadcast", { event: "again" }, ({ payload }) => newRound(payload.round))
       .subscribe((st) => {
-        if (st === "SUBSCRIBED") void c.send({ type: "broadcast", event: "p", payload: { ...me, p: 0, wpm: 0 } });
+        if (st !== "SUBSCRIBED") return;
+        void c.send({ type: "broadcast", event: "p", payload: { ...me, p: 0, wpm: 0, round: roundRef.current } });
+        void c.send({ type: "broadcast", event: "hi", payload: { id: me.id } });
       });
     chan.current = c;
     return () => {
+      void c.send({ type: "broadcast", event: "bye", payload: { id: me.id } });
       void sb.removeChannel(c);
       chan.current = null;
     };
-  }, [room.code, me, startCount]);
+  }, [room.code, me, startCount, newRound]);
 
   // đếm ngược 3-2-1
   useEffect(() => {
@@ -130,7 +161,7 @@ export function TypingRace({ room }: { room: Room }) {
       setResult({ ...r, score });
       setPhase("done");
       play(r.acc >= 90 ? "levelup" : "complete");
-      void chan.current?.send({ type: "broadcast", event: "p", payload: { ...me, p: 1, wpm: r.wpm, done: true } });
+      void chan.current?.send({ type: "broadcast", event: "p", payload: (meRef.current = { ...me, p: 1, wpm: r.wpm, done: true, round: roundRef.current }) });
       addXp("go-phim", Math.min(40, Math.round(r.wpm / 2) + (r.acc >= 90 ? 10 : 0)), `dua:${room.code}`);
       try {
         await submitEntry(room, { score, correct: r.wpm, time_ms: r.ms }, { name: data.profile.name, avatar: data.profile.avatar });
@@ -142,22 +173,30 @@ export function TypingRace({ room }: { room: Room }) {
     (ok, pos) => {
       if (!ok || pos % 3) return;
       const ms = Date.now() - t0.current;
-      void chan.current?.send({ type: "broadcast", event: "p", payload: { ...me, p: pos / t.keys.length, wpm: typingStats(pos, 0, ms).wpm } });
+      void chan.current?.send({ type: "broadcast", event: "p", payload: (meRef.current = { ...me, p: pos / t.keys.length, wpm: typingStats(pos, 0, ms).wpm, round: roundRef.current }) });
     },
   );
 
   const router = useRouter();
   // phím tắt: Space xuất phát, Esc thoát; xong: Enter phòng mới
   useHotkeys(
-    phase === "lobby" ? { " ": () => go(), Escape: () => router.push("/thi-dau?mon=go-phim") } : phase === "done" ? { Enter: () => router.push("/thi-dau?mon=go-phim"), Escape: () => router.push("/hoc/go-phim") } : {},
+    phase === "lobby" ? { " ": () => go(), Escape: () => router.push("/thi-dau?mon=go-phim") } : phase === "done" ? { Enter: () => again(), Escape: () => router.push("/thi-dau?mon=go-phim") } : {},
     phase === "lobby" || phase === "done",
   );
   const myP = t.pos / t.keys.length;
   const live = typingStats(t.pos, t.errors, phase === "run" ? Date.now() - t0.current : 0);
   const racers: Racer[] = [{ ...me, p: phase === "lobby" ? 0 : myP, wpm: result?.wpm ?? live.wpm, done: phase === "done" }, ...Object.values(others), ...bots];
 
+  /** đua lại trong cùng phòng: cả phòng sang lượt mới, ai mới vào cũng được đua */
+  function again() {
+    const r = roundRef.current + 1;
+    void chan.current?.send({ type: "broadcast", event: "again", payload: { round: r } });
+    newRound(r);
+  }
+
   function go() {
-    void chan.current?.send({ type: "broadcast", event: "go", payload: {} });
+    meRef.current = { ...me, p: 0, wpm: 0, round: roundRef.current };
+    void chan.current?.send({ type: "broadcast", event: "go", payload: { round: roundRef.current } });
     startCount();
   }
 
@@ -220,6 +259,7 @@ export function TypingRace({ room }: { room: Room }) {
             <p className="text-cyan-50/90">
               Cả phòng gõ cùng một đoạn. Xe chạy theo số phím em gõ đúng; về đích xếp hạng theo <b>WPM × độ chính xác</b>. Gõ sai phải gõ lại phím đó.
             </p>
+            {round > 0 && <p className="font-display text-lg font-extrabold text-cyan-300">Lượt {round + 1} · đoạn mới</p>}
             <p className="text-sm text-cyan-100/70">{Object.keys(others).length ? `${Object.keys(others).length} bạn đang trong phòng.` : "Chưa có bạn nào vào phòng: em sẽ đua với hai xe máy."}</p>
             <div className="flex flex-wrap justify-center gap-3">
               <button className="btn btn-ghost" onClick={share}>
@@ -254,9 +294,9 @@ export function TypingRace({ room }: { room: Room }) {
                 <button className="btn btn-ghost" onClick={share}>
                   📨 Rủ thêm bạn
                 </button>
-                <Link href="/thi-dau?mon=go-phim" className="btn btn-primary">
-                  Phòng mới <Kbd k="Enter" />
-                </Link>
+                <button className="btn btn-primary" onClick={again}>
+                  🔁 Đua lại <Kbd k="Enter" />
+                </button>
               </div>
             </div>
             <div className="cyber-panel rounded-3xl p-5">

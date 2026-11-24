@@ -119,7 +119,7 @@ Festive outdoor stage at dusk with a podium of three steps, small trophies, bunt
 - Kích thước: 1536x1024
 
 ```text
-Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator sitting next to Xi Xi: a friendly anthropomorphic scientific calculator (dark navy body, light gray keys, small LCD screen showing a smile), tiny arms and legs on a desk with notebooks and pencils, numbers floating like bubbles. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
+Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator sitting next to Xi Xi: a friendly anthropomorphic scientific calculator (dark navy body, light gray keys, small LCD screen showing a smile), tiny arms and legs on a desk with notebooks and pencils, numbers floating like bubbles, characters and main objects placed in the upper 60% of the frame, the bottom third is a calm, simple, darker area (soft shadow or deep-colored floor) with no characters or details so white title text on top stays readable. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
 ### ✅ `subject-soon.webp`
@@ -127,7 +127,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 - Kích thước: 1536x1024
 
 ```text
-A closed gift box with a ribbon on a cloud, small sparkles, mysterious and cute. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
+A closed gift box with a ribbon on a cloud, small sparkles, mysterious and cute, the gift placed in the upper half and smaller, characters and main objects placed in the upper 60% of the frame, the bottom third is a calm, simple, darker area (soft shadow or deep-colored floor) with no characters or details so white title text on top stays readable. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
 ### ✅ `empty-login.webp`
@@ -447,7 +447,7 @@ The student in a design studio with three holographic wireframe solids floating 
 - Kích thước: 1536x1024
 
 ```text
-Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, sitting on a stack of big picture books, holding an open book, a few large soft wooden alphabet blocks around (blank faces, no letters), warm reading nook. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
+Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, sitting on a stack of big picture books, holding an open book, a few large soft wooden alphabet blocks around (blank faces, no letters), warm reading nook, characters and main objects placed in the upper 60% of the frame, the bottom third is a calm, simple, darker area (soft shadow or deep-colored floor) with no characters or details so white title text on top stays readable. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
 ### ✅ `td-cover.webp`
@@ -747,7 +747,7 @@ Round app-icon style badge: a neon hover race car crossing a checkered finish li
 ```
 
 ### ✅ `gp-tier-1.webp`
-- Dùng ở: Huy hiệu trình độ Hàng nhà
+- Dùng ở: Huy hiệu trình độ Hàng phím cơ sở
 - Kích thước: 1024x1024 · nền trong suốt
 
 ```text
@@ -779,7 +779,7 @@ Hexagon tech badge with a glowing keycap that has a small hook and hat accent ma
 ```
 
 ### ✅ `gp-cover-nha.webp`
-- Dùng ở: Bìa các bài Hàng nhà (thẻ Học tiếp)
+- Dùng ở: Bìa các bài Hàng phím cơ sở (thẻ Học tiếp)
 - Kích thước: 1536x1024
 
 ```text
@@ -824,7 +824,7 @@ Cài đặt giọng đọc gợi ý: ElevenLabs Text to Speech, model Multilingu
 | ✅ | `sfx/tick.mp3` | Hiệu ứng | Đếm ngược 3 giây cuối khi thi đấu | Soft clock tick, single, 0.2 seconds |
 | ✅ | `sfx/whoosh.mp3` | Hiệu ứng | Chuyển slide | Very soft paper whoosh, 0.3 seconds |
 | ✅ | `sfx/bgm-learn.mp3` | Nhạc | Nhạc nền khi học bài, làm bài (môn Máy tính, Tập đọc) | Calm lo-fi acoustic loop for children studying, soft piano and ukulele, 80 bpm, seamless loop, 60 seconds |
-| ✅ | `sfx/bgm-home.mp3` | Nhạc | Nhạc nền trang chủ, bản đồ bài, xếp hạng | Light cheerful adventure loop for a kids learning app menu, gentle marimba, soft pizzicato strings and light bells, warm and curious mood, 95 bpm, no vocals, no big drums, seamless loop, 60 seconds |
+| ✅ | `sfx/bgm-home.mp3` | Nhạc | Nhạc nền trang chủ, bản đồ bài, xếp hạng | Bright, bouncy and playful loop for a kids learning app home screen, upbeat ukulele strumming, hand claps, glockenspiel melody, light shaker and kick, sunny happy energy that invites kids to start playing, 118 bpm, major key, no vocals, seamless loop, 60 seconds |
 | ✅ | `sfx/bgm-gp.mp3` | Nhạc | Nhạc nền môn Gõ phím: bản đồ, bài học, bài gõ hay (cyber, tập trung) | Chill synthwave lo-fi loop for focused typing practice, soft analog synth pads, mellow arpeggio, light muted beat, deep-sea cyber city mood, 85 bpm, no vocals, unobtrusive, seamless loop, 75 seconds |
 | ✅ | `sfx/bgm-gp-game.mp3` | Nhạc | Nhạc nền game cá mập và chế độ sinh tồn | Upbeat underwater electronic action loop for a kids typing game, bubbly synth bass, plucky arpeggios, light driving drums, sonar pings, exciting but not stressful, 120 bpm, no vocals, seamless loop, 75 seconds |
 | ✅ | `sfx/bgm-arena.mp3` | Nhạc | Nhạc nền phòng thi đấu (đua xe gõ phím, thi máy tính) | Energetic competition loop for kids, bright synth lead, punchy but soft drums, racing countdown energy, positive and fun, 128 bpm, no vocals, seamless loop, 60 seconds |
@@ -875,7 +875,7 @@ Cài đặt giọng đọc gợi ý: ElevenLabs Text to Speech, model Multilingu
 | ✅ | `sfx/gp-bite.mp3` | Hiệu ứng | Cá chạm vào thợ lặn | Muffled underwater chomp with a short low warning buzz, 0.5 seconds |
 | ✅ | `sfx/gp-wave.mp3` | Hiệu ứng | Bắt đầu lượt, đợt cá mới | Deep sonar ping with soft echo underwater, 1 second |
 | ✅ | `sfx/gp-go.mp3` | Hiệu ứng | Đếm ngược xuất phát đua xe | Three short electronic countdown beeps and a higher go beep, 2 seconds |
-| ✅ | `voice/vo-gp-n01.mp3` | Giọng đọc | Gõ phím · Bài đầu Hàng nhà, câu chào của Bit | Chào em, tớ là Bit! Mình sẽ lặn xuống biển sâu và hạ cá mập bằng bàn phím. Trước tiên, đặt hai ngón trỏ lên phím F và J nhé. |
-| ✅ | `voice/vo-gp-t01.mp3` | Giọng đọc | Gõ phím · Bài đầu Từng bàn tay | Lên hàng trên nào! Ngón nào với lên phím nào thì gõ xong phải về hàng nhà nha. |
+| ✅ | `voice/vo-gp-n01.mp3` | Giọng đọc | Gõ phím · Bài đầu Hàng phím cơ sở, câu chào của Bit | Chào em, tớ là Bit! Mình sẽ lặn xuống biển sâu và hạ cá mập bằng bàn phím. Trước tiên, đặt hai ngón trỏ lên phím F và J nhé. |
+| ✅ | `voice/vo-gp-t01.mp3` | Giọng đọc | Gõ phím · Bài đầu Từng bàn tay | Lên hàng trên nào! Ngón nào với lên phím nào thì gõ xong phải về hàng phím cơ sở nha. |
 | ✅ | `voice/vo-gp-p01.mp3` | Giọng đọc | Gõ phím · Bài đầu Phối hợp | Giờ hai tay cùng chơi. Gõ đều tay, mắt nhìn màn hình là sẽ nhanh thôi. |
 | ✅ | `voice/vo-gp-v01.mp3` | Giọng đọc | Gõ phím · Bài đầu Telex | Gõ tiếng Việt có dấu thôi! Gõ a hai lần là thành chữ â. Học Vui tự ghép chữ cho em. |

@@ -15,6 +15,12 @@ import { Scene } from "@/components/Scene";
 export default function MePage() {
   const { data, session, online, setProfile, setSound, setCalcMode, signOut, streak, lesson } = useProgress();
   const [name, setName] = useState("");
+  const [saved, setSaved] = useState<"" | "ok" | "fail">("");
+  const save = async (p: Parameters<typeof setProfile>[0]) => {
+    const ok = await setProfile(p);
+    setSaved(ok ? "ok" : "fail");
+    setTimeout(() => setSaved(""), 2500);
+  };
   const editingName = name !== "" ? name : data.profile.name;
 
   return (
@@ -47,13 +53,14 @@ export default function MePage() {
                 className="btn btn-primary"
                 disabled={!name.trim() || name === data.profile.name}
                 onClick={() => {
-                  setProfile({ name: name.trim() });
+                  void save({ name: name.trim() });
                   setName("");
                 }}
               >
                 Lưu
               </button>
             </div>
+            {saved && <span className={`mt-1 block text-sm ${saved === "ok" ? "text-mint" : "text-rose-500"}`}>{saved === "ok" ? "✓ Đã lưu" : "Đã lưu trên máy, chưa lưu lên mạng được. Thử lại sau nhé."}</span>}
           </label>
           <div>
             <div className="mb-2 text-sm font-bold text-ink-soft">Ảnh đại diện</div>
@@ -61,7 +68,7 @@ export default function MePage() {
               {AVATARS.map((a) => (
                 <button
                   key={a.id}
-                  onClick={() => setProfile({ avatar: a.id })}
+                  onClick={() => void save({ avatar: a.id })}
                   className={`rounded-full p-1 transition ${data.profile.avatar === a.id ? "bg-sky" : "hover:bg-line"}`}
                   aria-label={a.id}
                 >
@@ -84,44 +91,41 @@ export default function MePage() {
       </div>
 
       <section className="card space-y-4 p-6">
-        <h2 className="font-display text-xl font-extrabold">Tiến trình</h2>
-        {SUBJECTS.filter((s) => s.ready).flatMap((s) => s.tiers.filter((t) => t.units.length > 0).map((tier, ti) => ({ s, tier, ti }))).map(({ s, tier, ti }) => {
-          const ls = tierLessons(tier);
-          const stars = ls.reduce((a, l) => a + lesson(s.id, l.id).stars, 0);
-          const t = data.tests[`${s.id}:${tier.id}`];
-          const lv = t && LEVELS.find((l) => l.id === t.level);
-          const open = tierUnlocked(s, s.tiers.indexOf(tier), lesson, data.unlocks);
+        <h2 className="font-display text-xl font-extrabold">Tiến trình các môn</h2>
+        {SUBJECTS.filter((s) => s.ready).map((s) => {
+          const tiers = s.tiers.filter((t) => t.units.length > 0);
+          const all = tiers.flatMap((t) => tierLessons(t));
+          const done = all.filter((l) => lesson(s.id, l.id).stars > 0).length;
+          const stars = all.reduce((a, l) => a + lesson(s.id, l.id).stars, 0);
           return (
-            <div key={`${s.id}:${tier.id}`} className="space-y-3">
+            <div key={s.id} className="space-y-2 rounded-2xl bg-white/60 p-4">
               <div className="flex flex-wrap items-center gap-3">
                 <span className="font-display text-lg font-extrabold">
-                  {s.emoji} {s.name} · {tier.name}
+                  {s.emoji} {s.name}
                 </span>
-                {open ? (
-                  <span className="chip bg-sun-soft">
-                    ⭐ {stars}/{ls.length * 3} sao
-                  </span>
-                ) : (
-                  <span className="chip bg-line/60">🔒 Chưa mở</span>
-                )}
-                {lv && (
-                  <span className="chip bg-mint-soft">
-                    {lv.emoji} {lv.name} ({t!.pct}%)
-                  </span>
-                )}
+                <span className="text-sm text-ink-soft">
+                  {done}/{all.length} bài · ⭐ {stars}/{all.length * 3}
+                </span>
+                <Link href={`/hoc/${s.id}`} className="ml-auto text-sm font-bold text-sky hover:underline">
+                  Xem lộ trình →
+                </Link>
               </div>
-              <div className="grid grid-cols-5 gap-2 sm:grid-cols-10">
-                {ls.map((l) => {
-                  const st = lesson(s.id, l.id);
+              <div className="h-2.5 overflow-hidden rounded-full bg-line">
+                <div className="h-full rounded-full bg-mint transition-all" style={{ width: `${all.length ? (done / all.length) * 100 : 0}%` }} />
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {tiers.map((tier) => {
+                  const ls = tierLessons(tier);
+                  const n = ls.filter((l) => lesson(s.id, l.id).stars > 0).length;
+                  const t = data.tests[`${s.id}:${tier.id}`];
+                  const lv = t && LEVELS.find((l) => l.id === t.level);
+                  const open = tierUnlocked(s, s.tiers.indexOf(tier), lesson, data.unlocks);
                   return (
-                    <Link
-                      key={l.id}
-                      href={`/hoc/${s.id}/${l.id}`}
-                      title={l.title}
-                      className={`grid aspect-square place-items-center rounded-2xl text-2xl ${st.stars === 3 ? "bg-mint-soft" : st.stars > 0 ? "bg-sun-soft" : st.read ? "bg-sky-soft" : "bg-cream"}`}
-                    >
-                      {l.emoji}
-                    </Link>
+                    <span key={tier.id} className={`chip ${!open ? "bg-line/60 text-ink-soft" : n === ls.length ? "bg-mint-soft" : n > 0 ? "bg-sun-soft" : "bg-cream"}`}>
+                      {open ? "" : "🔒 "}
+                      {tier.name}: {n}/{ls.length}
+                      {lv ? ` · ${lv.emoji} ${lv.name}` : ""}
+                    </span>
                   );
                 })}
               </div>

@@ -130,11 +130,11 @@ const HAND_MASK: Record<string, [number, number, number, number]> = {
   L5: [50, 112, 142, 268], L4: [114, 67, 237, 266], L3: [193, 45, 322, 257], L2: [280, 80, 425, 285], LT: [340, 258, 462, 374],
   R5: [835, 112, 926, 268], R4: [740, 67, 863, 267], R3: [654, 45, 784, 257], R2: [551, 80, 696, 285], RT: [515, 258, 636, 374],
 };
-/** hàng đầu ngón trong ảnh ứng với tâm hàng phím nhà */
+/** hàng đầu ngón trong ảnh ứng với tâm hàng phím cơ sở */
 const HANDS_ROW_Y = 85;
 
 /**
- * Hai bàn tay ảo (viền liền khối, lòng kính mờ) đè lên bàn phím: tám ngón đặt trên hàng nhà, ngón cái trên phím cách.
+ * Hai bàn tay ảo (viền liền khối, lòng kính mờ) đè lên bàn phím: tám ngón đặt trên hàng phím cơ sở, ngón cái trên phím cách.
  * Ngón cần dùng được tô màu trong suốt và duỗi tới phím cần gõ (kèm ngón út giữ Shift nếu cần).
  */
 function Hands({ board, next, onExtra }: { board: React.RefObject<HTMLDivElement | null>; next: string; onExtra: (px: number) => void }) {

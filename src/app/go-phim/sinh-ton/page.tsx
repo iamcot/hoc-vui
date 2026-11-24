@@ -14,7 +14,7 @@ const BEST_KEY = "hocvui:gp-survival-best";
 
 /**
  * Sinh tồn: cá đến mãi, nhanh dần theo đợt, 3 mạng. Chữ trên cá lấy từ những bài em đã học
- * (đã có sao); chưa học bài nào thì dùng hàng phím nhà.
+ * (đã có sao); chưa học bài nào thì dùng hàng phím cơ sở.
  */
 export default function SurvivalPage() {
   const s = getSubject("go-phim")!;

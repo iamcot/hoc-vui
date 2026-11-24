@@ -33,6 +33,10 @@ export const XIXI =
  * Môn công nghệ cho bé lớn (Gõ phím): cùng tinh thần STYLE_TEEN nhưng bối cảnh biển sâu neon,
  * nhân vật là thỏ Bit (vẫn là con vật để còn chất Học Vui). Lớp 1-5 giữ STYLE (Mochi).
  */
+/** ảnh bìa có chữ đè ở dưới: chừa 1/3 dưới tối, trống */
+const TXT =
+  ", characters and main objects placed in the upper 60% of the frame, the bottom third is a calm, simple, darker area (soft shadow or deep-colored floor) with no characters or details so white title text on top stays readable";
+
 export const STYLE_CYBER =
   "Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark";
 
@@ -96,8 +100,8 @@ export const IMAGES: ImageAsset[] = [
   img("bg-lesson", "1536x1024", "Cảnh nền khi học bài, luyện tập, kiểm tra (rất nhạt để đọc chữ)", "Cozy study corner by a big window: wooden desk, a few books, a plant, warm afternoon light, background heavily blurred and very light, mostly empty bright space"),
   img("bg-arena", "1536x1024", "Cảnh nền trang Thi đấu và phòng thi", `${MOCHI} and two friend animals (a fox and a bunny) racing with calculators on a sunny sports field with colorful flags, characters on the left third, open bright sky on the right for text, dynamic but gentle`),
   img("bg-leaderboard", "1536x1024", "Cảnh nền trang Xếp hạng", "Festive outdoor stage at dusk with a podium of three steps, small trophies, bunting flags and twinkling stars, podium on the lower left, open sky for text"),
-  img("subject-fx580-cover", "1536x1024", "Ảnh lớn của môn Máy tính FX580 ở trang chủ (chữ đè lên phần dưới ảnh)", `${MOCHI} sitting next to ${XIXI} on a desk with notebooks and pencils, numbers floating like bubbles`),
-  img("subject-soon", "1536x1024", "Thẻ môn sắp ra mắt", "A closed gift box with a ribbon on a cloud, small sparkles, mysterious and cute"),
+  img("subject-fx580-cover", "1536x1024", "Ảnh lớn của môn Máy tính FX580 ở trang chủ (chữ đè lên phần dưới ảnh)", `${MOCHI} sitting next to ${XIXI} on a desk with notebooks and pencils, numbers floating like bubbles${TXT}`),
+  img("subject-soon", "1536x1024", "Thẻ môn sắp ra mắt", `A closed gift box with a ribbon on a cloud, small sparkles, mysterious and cute, the gift placed in the upper half and smaller${TXT}`),
   img("empty-login", "1024x1024", "Màn hình mời đăng nhập", `${MOCHI} holding a key and smiling at a small door`, true),
 
   // Huy hiệu trình độ
@@ -146,7 +150,7 @@ export const IMAGES: ImageAsset[] = [
   teen("fx9-l06-cover", "Lớp 9 · Bìa bài 6: Hình trụ, nón, cầu", "The student in a design studio with three holographic wireframe solids floating above the desk: a cylinder, a cone and a sphere, soft neon lighting"),
 
   // Môn Tập đọc: ít tranh, chữ là chính
-  img("subject-tapdoc-cover", "1536x1024", "Ảnh lớn của môn Tập đọc ở trang chủ (chữ đè lên phần dưới ảnh)", `${MOCHI.replace(", wearing a small yellow backpack shaped like a calculator", "")}, sitting on a stack of big picture books, holding an open book, a few large soft wooden alphabet blocks around (blank faces, no letters), warm reading nook`),
+  img("subject-tapdoc-cover", "1536x1024", "Ảnh lớn của môn Tập đọc ở trang chủ (chữ đè lên phần dưới ảnh)", `${MOCHI.replace(", wearing a small yellow backpack shaped like a calculator", "")}, sitting on a stack of big picture books, holding an open book, a few large soft wooden alphabet blocks around (blank faces, no letters), warm reading nook${TXT}`),
   img("td-cover", "1536x1024", "Ảnh chung cho thẻ \"Học tiếp\" của môn Tập đọc (chữ to đè lên)", "A cozy empty classroom blackboard corner with soft chalk dust, a small potted plant and a stack of books, large plain empty area in the middle, very soft and light"),
   img("mochi-read", "1024x1024", "Mochi đọc sách: màn hình bé ghi âm đọc to", `${MOCHI.replace(", wearing a small yellow backpack shaped like a calculator", "")}, holding an open book and reading aloud with a small music-note sparkle near its mouth, one ear perked up as if listening, full body`, true),
 
@@ -195,11 +199,11 @@ export const IMAGES: ImageAsset[] = [
   cyber("gp-mode-survival", "1024x1024", "Biểu tượng chế độ Sinh tồn", "Round app-icon style badge: a mechanical shark head with glowing red eye bursting through a ring of three neon hearts", true),
   cyber("gp-mode-passage", "1024x1024", "Biểu tượng chế độ Bài gõ hay", "Round app-icon style badge: a glowing holographic scroll of paper floating above a neon keyboard", true),
   cyber("gp-mode-race", "1024x1024", "Biểu tượng chế độ Đua xe", "Round app-icon style badge: a neon hover race car crossing a checkered finish line", true),
-  cyber("gp-tier-1", "1024x1024", "Huy hiệu trình độ Hàng nhà", "Hexagon tech badge with two glowing keycaps side by side, each with a small raised bump, cyan glow", true),
+  cyber("gp-tier-1", "1024x1024", "Huy hiệu trình độ Hàng phím cơ sở", "Hexagon tech badge with two glowing keycaps side by side, each with a small raised bump, cyan glow", true),
   cyber("gp-tier-2", "1024x1024", "Huy hiệu trình độ Từng bàn tay", "Hexagon tech badge with a robotic glove hand outline made of neon lines, violet glow", true),
   cyber("gp-tier-3", "1024x1024", "Huy hiệu trình độ Phối hợp", "Hexagon tech badge with two neon hands crossing over a keyboard, pink and cyan glow", true),
   cyber("gp-tier-4", "1024x1024", "Huy hiệu trình độ Telex (gõ tiếng Việt)", "Hexagon tech badge with a glowing keycap that has a small hook and hat accent marks floating above it like Vietnamese diacritics, amber glow, no real letters", true),
-  cyber("gp-cover-nha", "1536x1024", "Bìa các bài Hàng nhà (thẻ Học tiếp)", `${BIT} resting both hands on the middle row of a giant glowing keyboard that lies on the seabed like a dance floor`),
+  cyber("gp-cover-nha", "1536x1024", "Bìa các bài Hàng phím cơ sở (thẻ Học tiếp)", `${BIT} resting both hands on the middle row of a giant glowing keyboard that lies on the seabed like a dance floor`),
   cyber("gp-cover-tay", "1536x1024", "Bìa các bài Từng bàn tay", `${BIT} reaching up to a glowing top-row key and down to a bottom-row key of a giant neon keyboard, underwater`),
   cyber("gp-cover-phoi", "1536x1024", "Bìa các bài Phối hợp", `${BIT} typing fast with both hands on a holographic keyboard, light trails following the fingers, a school of neon fish swirling around`),
   cyber("gp-cover-telex", "1536x1024", "Bìa các bài Telex", `${BIT} in a submarine cockpit typing, glowing Vietnamese-style accent marks (hooks, hats, tone marks) floating like bubbles, no full words`),
@@ -221,7 +225,7 @@ export const AUDIO: AudioAsset[] = [
   sfx("whoosh", "Chuyển slide", "Very soft paper whoosh, 0.3 seconds"),
   // nhạc nền: lặp liền mạch, không lời, nhỏ nhẹ để không át giọng đọc
   { id: "bgm-learn", file: "/assets/sfx/bgm-learn.mp3", kind: "music", usage: "Nhạc nền khi học bài, làm bài (môn Máy tính, Tập đọc)", prompt: "Calm lo-fi acoustic loop for children studying, soft piano and ukulele, 80 bpm, seamless loop, 60 seconds" },
-  { id: "bgm-home", file: "/assets/sfx/bgm-home.mp3", kind: "music", usage: "Nhạc nền trang chủ, bản đồ bài, xếp hạng", prompt: "Light cheerful adventure loop for a kids learning app menu, gentle marimba, soft pizzicato strings and light bells, warm and curious mood, 95 bpm, no vocals, no big drums, seamless loop, 60 seconds" },
+  { id: "bgm-home", file: "/assets/sfx/bgm-home.mp3", kind: "music", usage: "Nhạc nền trang chủ, bản đồ bài, xếp hạng", prompt: "Bright, bouncy and playful loop for a kids learning app home screen, upbeat ukulele strumming, hand claps, glockenspiel melody, light shaker and kick, sunny happy energy that invites kids to start playing, 118 bpm, major key, no vocals, seamless loop, 60 seconds" },
   { id: "bgm-gp", file: "/assets/sfx/bgm-gp.mp3", kind: "music", usage: "Nhạc nền môn Gõ phím: bản đồ, bài học, bài gõ hay (cyber, tập trung)", prompt: "Chill synthwave lo-fi loop for focused typing practice, soft analog synth pads, mellow arpeggio, light muted beat, deep-sea cyber city mood, 85 bpm, no vocals, unobtrusive, seamless loop, 75 seconds" },
   { id: "bgm-gp-game", file: "/assets/sfx/bgm-gp-game.mp3", kind: "music", usage: "Nhạc nền game cá mập và chế độ sinh tồn", prompt: "Upbeat underwater electronic action loop for a kids typing game, bubbly synth bass, plucky arpeggios, light driving drums, sonar pings, exciting but not stressful, 120 bpm, no vocals, seamless loop, 75 seconds" },
   { id: "bgm-arena", file: "/assets/sfx/bgm-arena.mp3", kind: "music", usage: "Nhạc nền phòng thi đấu (đua xe gõ phím, thi máy tính)", prompt: "Energetic competition loop for kids, bright synth lead, punchy but soft drums, racing countdown energy, positive and fun, 128 bpm, no vocals, seamless loop, 60 seconds" },
@@ -275,8 +279,8 @@ export const AUDIO: AudioAsset[] = [
   sfx("gp-bite", "Cá chạm vào thợ lặn", "Muffled underwater chomp with a short low warning buzz, 0.5 seconds"),
   sfx("gp-wave", "Bắt đầu lượt, đợt cá mới", "Deep sonar ping with soft echo underwater, 1 second"),
   sfx("gp-go", "Đếm ngược xuất phát đua xe", "Three short electronic countdown beeps and a higher go beep, 2 seconds"),
-  voice("vo-gp-n01", "Gõ phím · Bài đầu Hàng nhà, câu chào của Bit", "Chào em, tớ là Bit! Mình sẽ lặn xuống biển sâu và hạ cá mập bằng bàn phím. Trước tiên, đặt hai ngón trỏ lên phím F và J nhé."),
-  voice("vo-gp-t01", "Gõ phím · Bài đầu Từng bàn tay", "Lên hàng trên nào! Ngón nào với lên phím nào thì gõ xong phải về hàng nhà nha."),
+  voice("vo-gp-n01", "Gõ phím · Bài đầu Hàng phím cơ sở, câu chào của Bit", "Chào em, tớ là Bit! Mình sẽ lặn xuống biển sâu và hạ cá mập bằng bàn phím. Trước tiên, đặt hai ngón trỏ lên phím F và J nhé."),
+  voice("vo-gp-t01", "Gõ phím · Bài đầu Từng bàn tay", "Lên hàng trên nào! Ngón nào với lên phím nào thì gõ xong phải về hàng phím cơ sở nha."),
   voice("vo-gp-p01", "Gõ phím · Bài đầu Phối hợp", "Giờ hai tay cùng chơi. Gõ đều tay, mắt nhìn màn hình là sẽ nhanh thôi."),
   voice("vo-gp-v01", "Gõ phím · Bài đầu Telex", "Gõ tiếng Việt có dấu thôi! Gõ a hai lần là thành chữ â. Học Vui tự ghép chữ cho em."),
 ];
