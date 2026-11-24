@@ -35,7 +35,7 @@ export const XIXI =
  */
 /** ảnh bìa có chữ đè ở dưới: chừa 1/3 dưới tối, trống */
 const TXT =
-  ", characters and main objects placed in the upper 60% of the frame, the bottom third is a calm, simple, darker area (soft shadow or deep-colored floor) with no characters or details so white title text on top stays readable";
+  ", one continuous scene from top to bottom: characters and main objects sit in the upper 60% of the frame, and the same scene simply continues into the bottom third (more of the grass, floor, table or ground in the same colors and lighting, a little softer and less detailed, gently shaded by a natural shadow), with no characters or busy details there so white title text can be laid over it; never a separate flat color band, panel or gradient bar";
 
 export const STYLE_CYBER =
   "Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark";
