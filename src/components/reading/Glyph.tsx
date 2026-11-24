@@ -2,6 +2,7 @@
 import { motion } from "motion/react";
 import type { LetterItem } from "@/content/types";
 import { speak } from "@/lib/speech/tts";
+import { Ico } from "@/components/Ico";
 
 /** màu theo loại: nguyên âm cam, phụ âm xanh, chữ ghép tím, vần xanh lá, thanh hồng */
 export const KIND_COLOR: Record<LetterItem["kind"], { fg: string; bg: string; label: string }> = {
@@ -23,7 +24,7 @@ export function SpeakButton({ text, className = "", label = "Nghe" }: { text: st
       className={`inline-grid h-11 w-11 place-items-center rounded-full bg-white text-xl shadow-[var(--shadow-pop)] active:translate-y-0.5 ${className}`}
       aria-label={`${label}: ${text}`}
     >
-      🔊
+      <Ico n="sound" />
     </button>
   );
 }
@@ -60,7 +61,7 @@ export function GlyphCard({ item, size = "lg", delay = 0 }: { item: LetterItem; 
           {item.g[0].toUpperCase() + item.g.slice(1)}
         </span>
       )}
-      <span className="absolute right-3 top-3 text-base opacity-60 transition group-hover:opacity-100">🔊</span>
+      <span className="absolute right-3 top-3 text-base opacity-60 transition group-hover:opacity-100"><Ico n="sound" /></span>
       <span className={`font-display font-extrabold leading-[1.15] ${font}`} style={{ color: c.fg }}>
         {item.g}
       </span>

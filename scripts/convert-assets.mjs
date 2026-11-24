@@ -35,7 +35,7 @@ async function toWebp(src) {
     img = sharp(trimmed.data).extend({ top: pad, bottom: pad, left: pad, right: pad, background: { r: 0, g: 0, b: 0, alpha: 0 } });
   }
   const sprite = alpha && !/^(bg-|fx-l\d+-(cover|s\d+)|subject-)/.test(name);
-  const max = sprite ? MAX_SPRITE : MAX_WIDE;
+  const max = /^ic-/.test(name) ? 192 : /^nav-/.test(name) ? 720 : sprite ? MAX_SPRITE : MAX_WIDE;
   await img
     .resize({ width: max, height: max, fit: "inside", withoutEnlargement: true })
     .webp({ quality: 80, alphaQuality: 90, effort: 5 })

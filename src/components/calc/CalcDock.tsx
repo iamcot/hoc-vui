@@ -3,6 +3,7 @@ import { useCallback, useEffect, useState, type ReactNode } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { FreeCalc } from "./FreeCalc";
 import { fmtDecimal, fmtResult, type CalcResult } from "@/lib/calc-eval";
+import { Ico } from "@/components/Ico";
 
 /** Kết quả máy ảo gửi sang ô đáp án: dạng hiển thị (phân số) và dạng số thập phân. */
 export type FillDetail = { text: string; dec: string; q?: number; r?: number };
@@ -41,7 +42,7 @@ export function CalcToggle({ dock }: { dock: ReturnType<typeof useCalcDock> }) {
       aria-pressed={dock.open}
       className={`chip shrink-0 font-bold transition ${dock.open ? "bg-ink text-white" : "bg-white text-ink"}`}
     >
-      🧮 <span className="hidden sm:inline">Máy tính</span>
+      <Ico n="calc" /> <span className="hidden sm:inline">Máy tính</span>
       <span className={`ml-1 inline-block h-4 w-7 rounded-full p-0.5 transition ${dock.open ? "bg-mint" : "bg-line"}`}>
         <span className={`block h-3 w-3 rounded-full bg-white transition ${dock.open ? "translate-x-3" : ""}`} />
       </span>

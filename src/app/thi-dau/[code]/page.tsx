@@ -18,6 +18,7 @@ import { IconClose } from "@/components/Icons";
 import { play } from "@/lib/sound";
 import { Scene } from "@/components/Scene";
 import { TypingRace } from "@/components/typing/TypingRace";
+import { Ico, type IcoId } from "@/components/Ico";
 
 export default function RoomPage() {
   return (
@@ -173,7 +174,7 @@ function RoomView() {
               </p>
               <div className="flex flex-wrap justify-center gap-3">
                 <button className="btn btn-ghost" onClick={share}>
-                  {copied ? "Đã chép link ✓" : "📨 Mời bạn"}
+                  {copied ? "Đã chép link ✓" : <><Ico n="invite" /> Mời bạn</>}
                 </button>
                 <button className="btn btn-primary" onClick={start}>
                   Bắt đầu ▶
@@ -191,7 +192,7 @@ function RoomView() {
                 </p>
                 <div className="flex flex-wrap justify-center gap-3">
                   <button className="btn btn-ghost" onClick={share}>
-                    {copied ? "Đã chép link ✓" : "📨 Rủ thêm bạn"}
+                    {copied ? "Đã chép link ✓" : <><Ico n="invite" /> Rủ thêm bạn</>}
                   </button>
                   <Link href="/thi-dau" className="btn btn-primary">
                     Phòng mới
@@ -203,14 +204,14 @@ function RoomView() {
         </motion.section>
 
         <section className="card p-6">
-          <h2 className="mb-4 font-display text-xl font-extrabold">🏆 Bảng điểm phòng</h2>
+          <h2 className="mb-4 font-display text-xl font-extrabold"><Ico n="trophy" /> Bảng điểm phòng</h2>
           {board.length === 0 ? (
             <p className="text-ink-soft">Chưa ai nộp bài. Em là người đầu tiên nhé!</p>
           ) : (
             <ol className="space-y-2">
               {board.map((e, k) => (
                 <li key={e.user_id} className={`flex items-center gap-3 rounded-2xl p-2.5 ${e.me ? "bg-sky-soft" : "bg-cream"}`}>
-                  <span className="w-7 text-center font-display text-lg font-extrabold">{["🥇", "🥈", "🥉"][k] ?? k + 1}</span>
+                  <span className="w-7 text-center font-display text-lg font-extrabold">{k < 3 ? <Ico n={`medal-${k + 1}` as IcoId} /> : k + 1}</span>
                   <Avatar id={e.avatar} size={36} />
                   <span className="flex-1 truncate font-bold">{e.display_name}</span>
                   <span className="text-sm text-ink-soft">{e.correct} đúng</span>

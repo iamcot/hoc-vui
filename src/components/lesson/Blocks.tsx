@@ -12,6 +12,7 @@ import { Blend } from "@/components/reading/Blend";
 import { ReadAloud } from "@/components/reading/ReadAloud";
 import { Keyboard } from "@/components/typing/Keyboard";
 import { TypeLine } from "@/components/typing/TypeLine";
+import { Ico } from "@/components/Ico";
 
 export function BlockView({ b, device, lead }: { b: Block; device?: "fx580" | "keyboard"; lead?: React.ReactNode }) {
   switch (b.type) {
@@ -48,7 +49,7 @@ export function BlockView({ b, device, lead }: { b: Block; device?: "fx580" | "k
     case "tip":
       return (
         <div className={`flex gap-3 rounded-3xl p-4 ${b.tone === "warn" ? "bg-peach-soft" : "bg-sun-soft"}`}>
-          <span className="text-2xl">{b.tone === "warn" ? "⚠️" : "💡"}</span>
+          <span className="text-2xl"><Ico n={b.tone === "warn" ? "warn" : "hint"} /></span>
           <RichText text={b.text} />
         </div>
       );
@@ -92,7 +93,7 @@ function InlineCheck({ q, device }: { q: Extract<Block, { type: "check" }>["ques
   const [done, setDone] = useState(false);
   return (
     <div className="rounded-3xl bg-lilac/10 p-4 sm:p-5">
-      <div className="chip mb-3 bg-lilac/20 text-lilac">✏️ Thử nhanh</div>
+      <div className="chip mb-3 bg-lilac/20 text-lilac"><Ico n="pencil" /> Thử nhanh</div>
       {done ? <p className="font-bold text-mint">Xong rồi! Bấm Tiếp để đi tiếp nhé.</p> : <QuestionCard q={q} device={device} onNext={() => setDone(true)} />}
     </div>
   );

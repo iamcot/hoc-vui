@@ -11,6 +11,7 @@ import { Avatar, AVATARS } from "@/components/Avatar";
 import { Mascot } from "@/components/Mascot";
 import { IconSound } from "@/components/Icons";
 import { Scene } from "@/components/Scene";
+import { Ico } from "@/components/Ico";
 
 export default function MePage() {
   const { data, session, online, setProfile, setSound, setCalcMode, signOut, streak, lesson } = useProgress();
@@ -35,7 +36,7 @@ export default function MePage() {
             <div>
               <div className="font-display text-2xl font-extrabold">{data.profile.name || "Bạn nhỏ"}</div>
               <div className="text-ink-soft">
-                ⭐ {data.xp} XP · 🔥 {streak} ngày liên tiếp
+                <Ico n="star" /> {data.xp} XP · <Ico n="fire" /> {streak} ngày liên tiếp
               </div>
             </div>
           </div>
@@ -82,7 +83,7 @@ export default function MePage() {
               <IconSound off={!data.sound} className="h-5 w-5" /> {data.sound ? "Âm thanh: bật" : "Âm thanh: tắt"}
             </button>
             <button className="btn btn-ghost" onClick={() => setCalcMode(data.calcMode === "virtual" ? "physical" : "virtual")}>
-              🧮 {data.calcMode === "virtual" ? "Dùng máy ảo" : "Dùng máy thật"}
+              <Ico n="calc" /> {data.calcMode === "virtual" ? "Dùng máy ảo" : "Dùng máy thật"}
             </button>
           </div>
         </section>
@@ -104,7 +105,7 @@ export default function MePage() {
                   {s.emoji} {s.name}
                 </span>
                 <span className="text-sm text-ink-soft">
-                  {done}/{all.length} bài · ⭐ {stars}/{all.length * 3}
+                  {done}/{all.length} bài · <Ico n="star" /> {stars}/{all.length * 3}
                 </span>
                 <Link href={`/hoc/${s.id}`} className="ml-auto text-sm font-bold text-sky hover:underline">
                   Xem lộ trình →
@@ -122,7 +123,7 @@ export default function MePage() {
                   const open = tierUnlocked(s, s.tiers.indexOf(tier), lesson, data.unlocks);
                   return (
                     <span key={tier.id} className={`chip ${!open ? "bg-line/60 text-ink-soft" : n === ls.length ? "bg-mint-soft" : n > 0 ? "bg-sun-soft" : "bg-cream"}`}>
-                      {open ? "" : "🔒 "}
+                      {open ? "" : <><Ico n="lock" />{" "}</>}
                       {tier.name}: {n}/{ls.length}
                       {lv ? ` · ${lv.emoji} ${lv.name}` : ""}
                     </span>

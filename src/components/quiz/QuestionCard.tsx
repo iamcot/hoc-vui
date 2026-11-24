@@ -11,6 +11,7 @@ import { play, playVoice } from "@/lib/sound";
 import { speak, speakSeq, stopSpeak } from "@/lib/speech/tts";
 import { ReadAloud } from "@/components/reading/ReadAloud";
 import { TypeLine } from "@/components/typing/TypeLine";
+import { Ico } from "@/components/Ico";
 
 /** đọc đề: lời dẫn rồi tới chữ cần nghe */
 function readOut(q: Question) {
@@ -130,7 +131,7 @@ export function QuestionCard({
       <div className="flex items-center gap-3">
         {(q.say || q.voice) && (
           <button type="button" onClick={() => readOut(q)} className="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-white text-2xl shadow-[var(--shadow-pop)] active:translate-y-0.5" aria-label="Nghe lại đề">
-            🔊
+            <Ico n="sound" />
           </button>
         )}
         <RichText text={q.kind === "type" ? "Gõ lại dòng này, nhìn màn hình nhé" : q.prompt} className="font-display text-xl font-bold sm:text-2xl" />
@@ -250,7 +251,7 @@ export function QuestionCard({
         <div className="flex flex-wrap gap-2 text-sm">
           {q.hint && !hinted && (
             <button className="chip bg-sun-soft text-ink" onClick={() => setHinted(true)}>
-              💡 Gợi ý
+              <Ico n="hint" /> Gợi ý
             </button>
           )}
           {q.keys && !showKeys && device && (
@@ -261,12 +262,12 @@ export function QuestionCard({
                 setShowKeys(true);
               }}
             >
-              🧮 Xem cách bấm
+              <Ico n="calc" /> Xem cách bấm
             </button>
           )}
         </div>
       )}
-      {hinted && q.hint && result === null && <div className="rounded-2xl bg-sun-soft p-3 text-sm">💡 {q.hint}</div>}
+      {hinted && q.hint && result === null && <div className="rounded-2xl bg-sun-soft p-3 text-sm"><Ico n="hint" /> {q.hint}</div>}
       {showKeys && q.keys && result === null && (
         <TryIt
           keys={q.keys}
@@ -292,7 +293,7 @@ export function QuestionCard({
 
       {result !== null && (
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className={`space-y-3 rounded-3xl p-4 ${result ? "bg-mint-soft" : "bg-berry-soft"}`}>
-          <div className="font-display text-xl font-extrabold">{result ? "🎉 Chính xác!" : "Chưa đúng rồi"}</div>
+          <div className="font-display text-xl font-extrabold">{result ? <><Ico n="party" /> Chính xác!</> : "Chưa đúng rồi"}</div>
           {!result && q.kind === "type" && <div>Sai hơi nhiều phím. Gõ chậm lại một chút, đúng trước rồi mới nhanh nhé.</div>}
           {!result && q.kind !== "type" && (
             <div>

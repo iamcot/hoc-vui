@@ -20,6 +20,7 @@ import { speak, stopSpeak } from "@/lib/speech/tts";
 import { Kbd } from "@/components/typing/Kbd";
 import { MusicToggle } from "@/components/Music";
 import { Scene } from "@/components/Scene";
+import { Ico } from "@/components/Ico";
 
 export function LessonPlayer({ subjectId, lessonId }: { subjectId: string; lessonId: string }) {
   const info = getLesson(subjectId, lessonId)!;
@@ -201,12 +202,12 @@ export function LessonPlayer({ subjectId, lessonId }: { subjectId: string; lesso
               <Mascot who={subject.mascot} mood="cheer" size={160} className="floaty mx-auto" />
               <h1 className="font-display text-3xl font-extrabold">Hoàn thành bài học!</h1>
               <p className="text-lg text-ink-soft">
-                Em vừa học xong <b>{lesson.title}</b>. +20 XP ⭐
+                Em vừa học xong <b>{lesson.title}</b>. +20 XP <Ico n="star" />
               </p>
               <p className="text-ink-soft">Giờ luyện tập để lấy sao nhé. Đề mỗi lần một khác, làm bao nhiêu lần cũng được.</p>
               <div className="flex flex-wrap justify-center gap-3">
                 <Link href={`/hoc/${subject.id}/${lesson.id}/luyen-tap`} className="btn btn-primary">
-                  {keys ? "🦈 Vào game" : "✏️ Luyện tập ngay"}
+                  {keys ? <><Ico n="shark" /> Vào game</> : <><Ico n="pencil" /> Luyện tập ngay</>}
                   {keys && <Kbd k="Enter" />}
                 </Link>
                 {next ? (

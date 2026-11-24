@@ -3,29 +3,45 @@ import { useEffect, useId, useRef, useState } from "react";
 import { hasFile, resolveFile } from "@/content/assets";
 import { FINGER_COLOR, FINGER_NAME, HOME, ROWS, fingerOf, keyOf, needsShift, shiftSide, type Finger, type KeyCap } from "@/lib/typing/keyboard";
 
-type Guide = "hand" | "text";
+export type Guide = "hand" | "text" | "pad";
 const GUIDE_KEY = "hocvui:gp-guide";
-/** cách hướng dẫn ngón: ngón tay ảo (mặc định) hay bằng chữ; nhớ trên máy */
-function useGuide(): [Guide, (g: Guide) => void] {
+const GUIDE_EVT = "hocvui:gp-guide";
+/**
+ * cách hướng dẫn: ngón tay ảo (mặc định), bằng chữ, hoặc bàn phím chạm (iPad, không có bàn phím rời).
+ * Nhớ trên máy; máy cảm ứng chưa chọn gì thì mặc định bàn phím chạm. Mọi nơi dùng hook này đồng bộ với nhau.
+ */
+export function useGuide(): [Guide, (g: Guide) => void] {
   const [g, setG] = useState<Guide>("hand");
   useEffect(() => {
     try {
-      if (localStorage.getItem(GUIDE_KEY) === "text") setG("text");
+      const v = localStorage.getItem(GUIDE_KEY);
+      if (v === "text" || v === "pad" || v === "hand") setG(v);
+      else if (matchMedia("(pointer: coarse)").matches && !matchMedia("(any-pointer: fine)").matches) setG("pad");
     } catch {
       /* bỏ qua */
     }
+    const on = (e: Event) => setG((e as CustomEvent<Guide>).detail);
+    window.addEventListener(GUIDE_EVT, on);
+    return () => window.removeEventListener(GUIDE_EVT, on);
   }, []);
   return [
     g,
     (v) => {
-      setG(v);
       try {
         localStorage.setItem(GUIDE_KEY, v);
       } catch {
         /* bỏ qua */
       }
+      window.dispatchEvent(new CustomEvent(GUIDE_EVT, { detail: v }));
     },
   ];
+}
+
+const GUIDE_LABEL: Record<Guide, string> = { hand: "✋ Ngón tay ảo", text: "Aa Bằng chữ", pad: "⌨️ Bàn phím chạm" };
+
+/** gửi phím như bàn phím thật để useKeyInput / useHotkeys nghe được */
+function sendKey(key: string, shiftKey = false) {
+  window.dispatchEvent(new KeyboardEvent("keydown", { key, shiftKey, bubbles: true }));
 }
 
 const capId = (c: KeyCap, ci: number) => (c.fn === "Shift" ? (ci === 0 ? "ShiftL" : "ShiftR") : c.k === " " ? "space" : c.fn ? c.fn : c.k);
@@ -60,49 +76,109 @@ export function Keyboard({
   const all = !keys && !focus;
   const [guide, setGuide] = useGuide();
   const board = useRef<HTMLDivElement>(null);
-  const showHands = next !== undefined && guide === "hand";
+  const typing = next !== undefined;
+  const pad = typing && guide === "pad";
+  const showHands = typing && guide === "hand";
   const [extra, setExtra] = useState(0);
+  // bàn phím chạm: Shift bấm một lần áp cho phím kế tiếp, Caps giữ đến khi bấm lại
+  const [shiftOn, setShiftOn] = useState(false);
+  const [capsOn, setCapsOn] = useState(false);
+  const [tap, setTap] = useState<{ id: string; n: number } | null>(null);
+  useEffect(() => {
+    if (!tap) return;
+    const t = setTimeout(() => setTap(null), 220);
+    return () => clearTimeout(t);
+  }, [tap]);
+  useEffect(() => {
+    if (!pad) return;
+    const down = (e: KeyboardEvent) => {
+      const c = e.key === " " ? ROWS[4][0] : keyOf(e.key);
+      if (!c) return;
+      ROWS.forEach((r) => r.forEach((x, ci) => x === c && setTap({ id: capId(x, ci), n: Date.now() })));
+    };
+    window.addEventListener("keydown", down);
+    return () => window.removeEventListener("keydown", down);
+  }, [pad]);
+  const press = (c: KeyCap, id: string) => {
+    if (c.fn) setTap({ id, n: Date.now() });
+    if (c.fn === "Shift") return setShiftOn((v) => !v);
+    if (c.fn === "Caps") return setCapsOn((v) => !v);
+    if (c.fn === "⌫") return sendKey("Backspace");
+    if (c.fn === "Enter") return sendKey("Enter");
+    if (c.fn === "Tab") return;
+    const up = shiftOn !== (capsOn && /[a-z]/.test(c.k));
+    sendKey(up ? (c.s ?? c.k.toUpperCase()) : c.k, shiftOn);
+    if (shiftOn) setShiftOn(false);
+  };
+  // trong game: nút chọn cách hướng dẫn nằm trên bàn phím, để bàn phím sát đáy màn hình
+  const toolbar = typing && (
+    <div className={`flex flex-wrap items-center justify-center gap-3 ${ghost ? "mb-1.5" : "mt-2"}`}>
+      {guide === "text" && <GuideText next={next} shift={shift} />}
+      <div className="flex rounded-full bg-white/10 p-0.5 text-xs font-bold ring-1 ring-cyan-300/30 backdrop-blur" role="group" aria-label="Cách hướng dẫn ngón">
+        {(["hand", "text", "pad"] as const).map((g) => (
+          <button
+            key={g}
+            onClick={(e) => {
+              setGuide(g);
+              e.currentTarget.blur();
+            }}
+            className={`rounded-full px-3 py-1 transition ${guide === g ? "bg-cyan-400 text-[#04102c]" : "text-cyan-100/80 hover:text-white"}`}
+            aria-pressed={guide === g}
+          >
+            {GUIDE_LABEL[g]}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
 
   return (
     <div className={`select-none ${className}`}>
-      <div ref={board} aria-hidden style={{ marginBottom: showHands ? extra : undefined }} className={`relative mx-auto flex w-full max-w-3xl flex-col rounded-[1.4rem] p-2 ${ghost ? "" : "border border-cyan-300/25 bg-[#0b1233]/85 shadow-[0_0_40px_-10px_rgba(47,211,255,0.5)] backdrop-blur"} ${compact ? "gap-1" : "gap-1.5 sm:p-3"}`}>
+      {ghost && toolbar}
+      <div ref={board} aria-hidden={!pad} style={{ marginBottom: showHands ? extra : undefined, touchAction: pad ? "manipulation" : undefined }} className={`relative mx-auto flex w-full max-w-3xl flex-col rounded-[1.4rem] p-2 ${ghost ? "" : "border border-cyan-300/25 bg-[#0b1233]/85 shadow-[0_0_40px_-10px_rgba(47,211,255,0.5)] backdrop-blur"} ${compact ? "gap-1" : "gap-1.5 sm:p-3"}`}>
         {ROWS.map((r, ri) => (
           <div key={ri} className={`flex ${compact ? "gap-1" : "gap-1.5"} ${ri === 4 ? "justify-center" : ""}`}>
             {r.map((c, ci) => {
               const ch = c.k;
               const isShift = c.fn === "Shift";
+              const id = capId(c, ci);
               const isNext = (nextCap && c === nextCap) || (isShift && ((shift === "L" && ci === 0) || (shift === "R" && ci > 0)));
               const on = all || (ch && (lit.has(ch) || (ch === " " && keys.includes(" "))));
               const isHot = ch && hot.has(ch);
               const bad = pressed && !pressed.ok && keyOf(pressed.ch) === c;
-              return <Cap key={ci} id={capId(c, ci)} c={c} on={!!on || !!isNext} hot={!!isHot} next={!!isNext} bad={!!bad} compact={compact} ghost={ghost} />;
+              const latched = pad && ((isShift && shiftOn) || (c.fn === "Caps" && capsOn));
+              return (
+                <Cap
+                  key={ci}
+                  id={id}
+                  c={c}
+                  on={!!on || !!isNext}
+                  hot={!!isHot || !!latched}
+                  next={!!isNext}
+                  bad={!!bad}
+                  compact={compact && !pad}
+                  ghost={ghost}
+                  tapped={tap?.id === id}
+                  upper={pad && shiftOn !== capsOn}
+                  onPress={pad ? () => press(c, id) : undefined}
+                />
+              );
             })}
           </div>
         ))}
         {showHands && <Hands board={board} next={next} onExtra={setExtra} />}
       </div>
-      {next !== undefined && (
-        <div className="mt-2 flex flex-wrap items-center justify-center gap-3">
-          {guide === "text" && <GuideText next={next} shift={shift} />}
-          <div className="flex rounded-full bg-white/10 p-0.5 text-xs font-bold ring-1 ring-cyan-300/30" role="group" aria-label="Cách hướng dẫn ngón">
-            {(["hand", "text"] as const).map((g) => (
-              <button
-                key={g}
-                onClick={() => setGuide(g)}
-                className={`rounded-full px-3 py-1 transition ${guide === g ? "bg-cyan-400 text-[#04102c]" : "text-cyan-100/80 hover:text-white"}`}
-                aria-pressed={guide === g}
-              >
-                {g === "hand" ? "✋ Ngón tay ảo" : "Aa Bằng chữ"}
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
+      {!ghost && toolbar}
     </div>
   );
 }
 
-function GuideText({ next, shift }: { next: string; shift?: "L" | "R" }) {
+function GuideText({ next, shift }: { next?: string; shift?: "L" | "R" }) {
+  if (next === undefined) return null;
+  return <GuideLine next={next} shift={shift} />;
+}
+
+function GuideLine({ next, shift }: { next: string; shift?: "L" | "R" }) {
   return (
         <p className="text-center text-lg font-bold text-cyan-50 sm:text-xl">
           {next === " " ? "Ngón cái: phím cách" : (
@@ -132,6 +208,9 @@ const HAND_MASK: Record<string, [number, number, number, number]> = {
 };
 /** hàng đầu ngón trong ảnh ứng với tâm hàng phím cơ sở */
 const HANDS_ROW_Y = 85;
+/** chỉ giữ một đoạn cổ tay ngắn: cắt ảnh ở đây, mờ dần từ HANDS_FADE */
+const HANDS_CUT = 440;
+const HANDS_FADE = 360;
 
 /**
  * Hai bàn tay ảo (viền liền khối, lòng kính mờ) đè lên bàn phím: tám ngón đặt trên hàng phím cơ sở, ngón cái trên phím cách.
@@ -156,7 +235,7 @@ function Hands({ board, next, onExtra }: { board: React.RefObject<HTMLDivElement
       // chừa chỗ phía dưới bàn phím cho cẳng tay trong ảnh
       if (hasFile(HANDS_IMG) && out.a && out.f) {
         const sc = (out.f.x - out.a.x) / (TIP_X.index - TIP_X.pinky);
-        onExtra(Math.max(0, Math.round(out.a.y + (HANDS_H - 30 - HANDS_ROW_Y) * sc - b.height)));
+        onExtra(Math.max(0, Math.round(out.a.y + (HANDS_CUT - HANDS_ROW_Y) * sc - b.height)));
       } else onExtra(0);
       setSize({ w: b.width, h: b.height });
     };
@@ -208,18 +287,25 @@ function Hands({ board, next, onExtra }: { board: React.RefObject<HTMLDivElement
     const sc = (p2.x - p5.x) / (x2 - x5);
     return { sc, tx: p5.x - x5 * sc, ty: p5.y - HANDS_ROW_Y * sc };
   };
-  const H = Math.max(size.h, ...(["L", "R"] as const).map((sd) => { const q = place(sd); return q.ty + HANDS_H * q.sc; }));
+  const H = Math.max(size.h, ...(["L", "R"] as const).map((sd) => { const q = place(sd); return q.ty + HANDS_CUT * q.sc; }));
   const src = resolveFile(HANDS_IMG);
 
   return (
     <svg className="pointer-events-none absolute left-0 top-0 w-full overflow-visible" style={{ height: H }} viewBox={`0 0 ${size.w} ${H}`} aria-hidden>
       <defs>
         <clipPath id={`${fid}-L`}>
-          <rect x={0} y={0} width={HANDS_MID} height={HANDS_H} />
+          <rect x={0} y={0} width={HANDS_MID} height={HANDS_CUT} />
         </clipPath>
         <clipPath id={`${fid}-R`}>
-          <rect x={HANDS_MID} y={0} width={HANDS_W - HANDS_MID} height={HANDS_H} />
+          <rect x={HANDS_MID} y={0} width={HANDS_W - HANDS_MID} height={HANDS_CUT} />
         </clipPath>
+        <linearGradient id={`${fid}-g`} gradientUnits="userSpaceOnUse" x1={0} y1={HANDS_FADE} x2={0} y2={HANDS_CUT}>
+          <stop offset={0} stopColor="#fff" />
+          <stop offset={1} stopColor="#000" />
+        </linearGradient>
+        <mask id={`${fid}-m`} maskUnits="userSpaceOnUse" x={0} y={0} width={HANDS_W} height={HANDS_CUT}>
+          <rect x={0} y={0} width={HANDS_W} height={HANDS_CUT} fill={`url(#${fid}-g)`} />
+        </mask>
       </defs>
       {(["L", "R"] as const).map((side) => {
         const { sc, tx, ty } = place(side);
@@ -234,7 +320,9 @@ function Hands({ board, next, onExtra }: { board: React.RefObject<HTMLDivElement
                 if (!hasFile(m)) return null;
                 return <image key={f} href={resolveFile(m)} x={x0} y={y0} width={x1 - x0} height={y1 - y0} opacity={0.55} style={{ filter: `drop-shadow(0 0 10px ${FINGER_COLOR[f]})` }} />;
               })}
-            <image href={src} width={HANDS_W} height={HANDS_H} clipPath={`url(#${fid}-${side})`} opacity={0.9} />
+            <g mask={`url(#${fid}-m)`}>
+              <image href={src} width={HANDS_W} height={HANDS_H} clipPath={`url(#${fid}-${side})`} opacity={0.9} />
+            </g>
           </g>
         );
       })}
@@ -242,26 +330,34 @@ function Hands({ board, next, onExtra }: { board: React.RefObject<HTMLDivElement
   );
 }
 
-function Cap({ id, c, on, hot, next, bad, compact, ghost }: { id: string; c: KeyCap; on: boolean; hot: boolean; next: boolean; bad: boolean; compact: boolean; ghost: boolean }) {
+function Cap({
+  id, c, on, hot, next, bad, compact, ghost, tapped = false, upper = false, onPress,
+}: {
+  id: string; c: KeyCap; on: boolean; hot: boolean; next: boolean; bad: boolean; compact: boolean; ghost: boolean;
+  tapped?: boolean; upper?: boolean; onPress?: () => void;
+}) {
   const color = FINGER_COLOR[c.f];
-  const label = c.fn !== undefined ? c.fn : c.k === ";" ? ";" : c.k.toUpperCase();
+  const label = c.fn !== undefined ? c.fn : onPress ? (upper ? (c.s ?? c.k.toUpperCase()) : c.k) : c.k === ";" ? ";" : c.k.toUpperCase();
   const bump = c.k === "f" || c.k === "j";
   return (
     <div
       data-k={id}
-      className={`relative grid place-items-center rounded-lg font-mono font-bold transition-all duration-150 ${compact ? "h-7 text-[11px] sm:h-8 sm:text-xs" : "h-9 text-xs sm:h-11 sm:text-sm"} ${next ? "key-next" : ""}`}
+      role={onPress ? "button" : undefined}
+      aria-label={onPress ? (c.k === " " ? "Phím cách" : label) : undefined}
+      onPointerDown={onPress ? (e) => { e.preventDefault(); onPress(); } : undefined}
+      className={`relative grid place-items-center rounded-lg font-mono font-bold transition-all duration-150 ${onPress ? "h-11 cursor-pointer text-base sm:h-14 sm:text-lg" : compact ? "h-7 text-[11px] sm:h-8 sm:text-xs" : "h-9 text-xs sm:h-11 sm:text-sm"} ${next ? "key-next" : ""} ${tapped ? "scale-95" : ""}`}
       style={ghost ? {
         flex: `${c.w ?? 1} 1 0`,
         minWidth: 0,
-        color: next ? "#fff" : on ? `color-mix(in srgb, ${color} 55%, #fff)` : "rgb(200 220 255 / 0.45)",
-        background: bad ? "rgb(255 61 110 / 0.45)" : next ? `color-mix(in srgb, ${color} 30%, transparent)` : hot ? `color-mix(in srgb, ${color} 12%, transparent)` : "transparent",
-        boxShadow: next ? `0 0 14px -2px ${color}, inset 0 0 0 2px ${color}` : on ? `inset 0 0 0 1.5px color-mix(in srgb, ${color} 75%, transparent)` : "inset 0 0 0 1px rgb(200 220 255 / 0.25)",
+        color: next ? "#fff" : on ? `color-mix(in srgb, ${color} 55%, #fff)` : onPress ? "rgb(220 235 255 / 0.9)" : "rgb(200 220 255 / 0.45)",
+        background: tapped ? `color-mix(in srgb, ${color} 70%, transparent)` : bad ? "rgb(255 61 110 / 0.45)" : next ? `color-mix(in srgb, ${color} 30%, transparent)` : hot ? `color-mix(in srgb, ${color} 12%, transparent)` : onPress ? "rgb(9 20 64 / 0.62)" : "transparent",
+        boxShadow: next ? `0 0 14px -2px ${color}, inset 0 0 0 2px ${color}` : on ? `inset 0 0 0 1.5px color-mix(in srgb, ${color} 75%, transparent)` : onPress ? "inset 0 0 0 1px rgb(200 220 255 / 0.4)" : "inset 0 0 0 1px rgb(200 220 255 / 0.25)",
         textShadow: "0 1px 3px rgb(0 0 0 / 0.7)",
       } : {
         flex: `${c.w ?? 1} 1 0`,
         minWidth: 0,
         color: on ? "#fff" : "rgb(160 175 220 / 0.45)",
-        background: bad ? "#ff3d6e" : next ? color : on ? `color-mix(in srgb, ${color} ${hot ? 55 : 28}%, #0d1640)` : "#121a45",
+        background: tapped ? `color-mix(in srgb, ${color} 80%, #fff)` : bad ? "#ff3d6e" : next ? color : on ? `color-mix(in srgb, ${color} ${hot ? 55 : 28}%, #0d1640)` : "#121a45",
         boxShadow: next ? `0 0 18px 2px ${color}` : hot ? `0 0 12px -2px ${color}, inset 0 0 0 1.5px ${color}` : on ? `inset 0 0 0 1px color-mix(in srgb, ${color} 60%, transparent)` : "inset 0 0 0 1px rgb(120 140 210 / 0.15)",
         textShadow: next ? "0 1px 2px rgb(0 0 0 / 0.5)" : undefined,
       }}

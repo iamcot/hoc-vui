@@ -6,6 +6,7 @@ import { Keypad } from "./Keypad";
 import { KeySeq } from "./Keys";
 import { useProgress } from "@/lib/store";
 import { play } from "@/lib/sound";
+import { Ico } from "@/components/Ico";
 
 function stepText(s: KeyStep): string {
   if (s.key.id === "SHIFT" || s.key.id === "ALPHA") return "";
@@ -69,7 +70,7 @@ export function TryIt({ keys, result, label, onDone, doneNote, lead }: { keys: s
   return (
     <div className="rounded-3xl bg-sky-soft/60 p-4">
       <div className="mb-3 flex flex-wrap items-center gap-2">
-        <span className="font-display font-extrabold">🎯 {label ?? "Bấm theo"}</span>
+        <span className="font-display font-extrabold"><Ico n="target" /> {label ?? "Bấm theo"}</span>
         <div className="ml-auto inline-flex rounded-full bg-white p-1 text-sm font-bold shadow-sm">
           {(["virtual", "physical"] as const).map((m) => (
             <button
@@ -91,7 +92,7 @@ export function TryIt({ keys, result, label, onDone, doneNote, lead }: { keys: s
             <div className="text-sm">
               {done ? (
                 <div className="space-y-1">
-                  <div className="font-bold text-mint">Giỏi lắm! Em bấm đúng hết rồi 🎉</div>
+                  <div className="font-bold text-mint">Giỏi lắm! Em bấm đúng hết rồi <Ico n="party" /></div>
                   {result && <div className="font-bold">Máy ra: <span className="text-lg text-sky">{result}</span></div>}
                   {doneNote && <div className="text-ink-soft">{doneNote}</div>}
                   <button className="font-bold text-sky underline" onClick={() => setI(0)}>
@@ -128,7 +129,7 @@ export function TryIt({ keys, result, label, onDone, doneNote, lead }: { keys: s
                   Em bấm xong rồi
                 </button>
               )}
-              {physical === "ok" && <p className="font-bold text-mint">Chính xác! Máy của em ra {result} 🎉{doneNote ? ` ${doneNote}` : ""}</p>}
+              {physical === "ok" && <p className="font-bold text-mint">Chính xác! Máy của em ra {result} <Ico n="party" />{doneNote ? ` ${doneNote}` : ""}</p>}
               {physical === "no" && (
                 <p className="text-sm text-berry">
                   Chưa khớp. Bấm AC rồi thử lại thật chậm nhé. Đáp án đúng là <b>{result}</b>.

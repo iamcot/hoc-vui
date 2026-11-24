@@ -13,6 +13,7 @@ import { typingStats, useHotkeys } from "@/components/typing/useKeyInput";
 import { Kbd } from "@/components/typing/Kbd";
 import { useRouter } from "next/navigation";
 import { Confetti } from "@/components/Confetti";
+import { Ico } from "@/components/Ico";
 
 const BEST = "hocvui:gp-passages";
 type Best = Record<string, { wpm: number; acc: number }>;
@@ -43,7 +44,7 @@ export default function PassagesPage() {
           <Kbd k="Escape" />
         </Link>
         <Mascot who="bit" mood="happy" size={56} />
-        <h1 className="ribbon text-2xl sm:text-3xl">📜 Bài gõ hay</h1>
+        <h1 className="ribbon text-2xl sm:text-3xl"><Ico n="scroll" /> Bài gõ hay</h1>
       </div>
       {(["khong-dau", "co-dau"] as const).map((kind) => (
         <section key={kind} className="space-y-3">
@@ -146,7 +147,7 @@ function Typing({ p, onExit, onAgain }: { p: Passage; onExit: () => void; onAgai
             </div>
             <div className="flex justify-center gap-3">
               <button className="btn btn-ghost" onClick={onAgain}>
-                🔁 Gõ lại <Kbd k=" " />
+                <Ico n="retry" /> Gõ lại <Kbd k=" " />
               </button>
               <button className="btn btn-primary" onClick={onExit}>
                 Chọn bài khác <Kbd k="Enter" />

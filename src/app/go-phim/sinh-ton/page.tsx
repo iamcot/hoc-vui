@@ -9,6 +9,7 @@ import { GameResultPanel } from "@/components/typing/GameResult";
 import { Kbd } from "@/components/typing/Kbd";
 import { useHotkeys } from "@/components/typing/useKeyInput";
 import { useRouter } from "next/navigation";
+import { Ico } from "@/components/Ico";
 
 const BEST_KEY = "hocvui:gp-survival-best";
 
@@ -58,7 +59,7 @@ export default function SurvivalPage() {
       {res && (
         <GameResultPanel r={res.r} xp={res.xp} best={res.best}>
           <button className="btn btn-primary" onClick={replay}>
-            🔁 Chơi lại <Kbd k=" " />
+            <Ico n="retry" /> Chơi lại <Kbd k=" " />
           </button>
           <Link href="/hoc/go-phim" className="btn btn-ghost">
             Bản đồ <Kbd k="Escape" />

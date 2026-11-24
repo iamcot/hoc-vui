@@ -8,6 +8,7 @@ import { useProgress } from "@/lib/store";
 import { Avatar } from "@/components/Avatar";
 import { Scene } from "@/components/Scene";
 import { Mascot } from "@/components/Mascot";
+import { Ico } from "@/components/Ico";
 
 export default function RankPage() {
   const { session, online, data } = useProgress();
@@ -28,7 +29,7 @@ export default function RankPage() {
       <Scene image="bg-leaderboard" variant="night" />
       <header className="space-y-3 pt-4 sm:pt-10">
         <h1 className="ribbon text-3xl sm:text-4xl" style={{ ["--ribbon" as string]: "var(--color-sun)" }}>
-          🏆 Bảng xếp hạng
+          <Ico n="trophy" /> Bảng xếp hạng
         </h1>
         <p className="max-w-xl text-lg font-bold text-white drop-shadow">Điểm XP từ học bài, luyện tập, kiểm tra và thi đấu.</p>
       </header>
@@ -80,7 +81,7 @@ export default function RankPage() {
                     transition={{ delay: 0.1 * k }}
                     className={`card flex flex-col items-center gap-2 p-4 text-center ${k === 1 ? "pb-8 pt-6" : ""} ${e.me ? "ring-2 ring-sky" : ""}`}
                   >
-                    <span className="text-3xl">{["🥈", "🥇", "🥉"][k]}</span>
+                    <span className="text-3xl"><Ico n={(["medal-2", "medal-1", "medal-3"] as const)[k]} /></span>
                     <Avatar id={e.avatar} size={k === 1 ? 72 : 56} />
                     <span className="w-full truncate font-bold">{e.display_name}</span>
                     <span className="font-display text-xl font-extrabold text-sky">{e.score} XP</span>

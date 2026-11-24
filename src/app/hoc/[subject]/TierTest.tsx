@@ -16,6 +16,7 @@ import { Art } from "@/components/Art";
 import { Confetti } from "@/components/Confetti";
 import { play } from "@/lib/sound";
 import { Scene } from "@/components/Scene";
+import { Ico } from "@/components/Ico";
 
 /**
  * Bài kiểm tra theo trình độ.
@@ -104,7 +105,7 @@ export function TierTest({ subjectId, tierId, mode }: { subjectId: string; tierI
           <div className="space-y-4">
             {mode === "challenge" ? (
               <>
-                <h1 className="font-display text-4xl font-extrabold">🚀 Thử thách lên {nextTier?.name}</h1>
+                <h1 className="font-display text-4xl font-extrabold"><Ico n="rocket" /> Thử thách lên {nextTier?.name}</h1>
                 <p className="text-lg text-ink-soft">
                   {COUNT} câu trộn từ cả {lessons.length} bài của {tier.name}, làm trong {MINUTES} phút. Đúng từ <b>{ch.pass} câu</b> trở lên là mở luôn {nextTier?.name}, không cần học hết các bài.
                 </p>
@@ -164,7 +165,7 @@ export function TierTest({ subjectId, tierId, mode }: { subjectId: string; tierI
             <Mascot who={s.mascot} mood={correct >= ch.pass ? "cheer" : "oops"} size={180} className="floaty mx-auto" />
             <div className="space-y-2 text-center sm:text-left">
               <p className="text-ink-soft">Thử thách lên {nextTier?.name}</p>
-              <h1 className="font-display text-4xl font-extrabold">{correct >= ch.pass ? `🎉 Đã mở ${nextTier?.name}!` : correct >= ch.pass - 2 ? "Suýt nữa rồi!" : "Chưa qua lần này"}</h1>
+              <h1 className="font-display text-4xl font-extrabold">{correct >= ch.pass ? <><Ico n="party" /> Đã mở {nextTier?.name}!</> : correct >= ch.pass - 2 ? "Suýt nữa rồi!" : "Chưa qua lần này"}</h1>
               <p className="text-lg">
                 Đúng <b>{correct}/{COUNT}</b> câu.{" "}
                 {correct >= ch.pass ? `Em giỏi quá, vào học ${nextTier?.name} thôi.` : `Cần đúng ${ch.pass} câu. Ôn lại mấy bài bên dưới rồi thử lại nhé.`}
@@ -220,7 +221,7 @@ export function TierTest({ subjectId, tierId, mode }: { subjectId: string; tierI
             Làm lại đề khác
           </button>
           <Link href={`/thi-dau?mon=${s.id}&cap=${tier.id}`} className="btn btn-mint">
-            ⚡ Rủ bạn thi đấu
+            <Ico n="bolt" /> Rủ bạn thi đấu
           </Link>
           <Link href={mapHref} className="btn btn-ghost">
             Về bản đồ

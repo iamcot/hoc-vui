@@ -14,6 +14,7 @@ import { Mascot } from "@/components/Mascot";
 import { Confetti } from "@/components/Confetti";
 import { IconStar } from "@/components/Icons";
 import { play } from "@/lib/sound";
+import { Ico } from "@/components/Ico";
 
 const COUNT = 8;
 
@@ -85,10 +86,10 @@ export function Practice({ subjectId, lessonId }: { subjectId: string; lessonId:
             <p className="text-ink-soft">
               {summary.stars === 3 ? "Xuất sắc! Em đã thành thạo bài này." : summary.stars === 2 ? "Tốt lắm! Làm thêm lần nữa để được 3 sao nhé." : summary.stars === 1 ? "Khá rồi, xem lại bài học rồi thử lại nhé." : "Không sao cả, xem lại bài học rồi thử lại nhé."}
             </p>
-            <div className="chip mx-auto bg-sun-soft text-ink">+{summary.xp} XP ⭐</div>
+            <div className="chip mx-auto bg-sun-soft text-ink">+{summary.xp} XP <Ico n="star" /></div>
             <div className="flex flex-wrap justify-center gap-3">
               <button className="btn btn-primary" onClick={start}>
-                🔁 Làm đề khác
+                <Ico n="retry" /> Làm đề khác
               </button>
               {summary.stars < 2 ? (
                 <Link href={`/hoc/${subject.id}/${lesson.id}`} className="btn btn-ghost">

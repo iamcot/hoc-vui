@@ -101,6 +101,24 @@ const cyber = (id: string, size: ImageAsset["size"], usage: string, prompt: stri
   prompt: `${prompt}. ${STYLE_CYBER}${transparent ? ", isolated on a fully transparent background" : ""}.`,
 });
 
+/** icon nhỏ thay cho emoji mặc định (components/Ico.tsx): kiểu sticker game bóng bẩy, đọc rõ ở cỡ 20-28 px */
+export const STYLE_ICON =
+  "Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground";
+const icon = (id: string, usage: string, prompt: string): ImageAsset => ({
+  id: `ic-${id}`,
+  file: `/assets/img/ic-${id}.webp`,
+  size: "1024x1024",
+  usage: `Icon nhỏ: ${usage}`,
+  transparent: true,
+  prompt: `${prompt}. ${STYLE_ICON}, isolated on a fully transparent background.`,
+});
+
+/** cọc biển chỉ đường ở thanh bên: app tự viết chữ lên phần ván trống, nên ván phải để trống bên phải icon */
+const SIGN =
+  "A single cute wooden signpost seen straight from the front, isolated: a wide horizontal arrow-shaped plank sign pointing to the RIGHT nailed onto one short wooden stake; the plank fills the upper 55% of the image and spans about 90% of the width, warm light-honey wood with soft grain and two small nails; at the LEFT end of the plank a round painted emblem (about the plank's height); the rest of the plank to the right of the emblem is a smooth, completely BLANK flat wood area reserved for a label; the stake goes down from under the plank, slightly left of center, into a small tuft of grass with two tiny flowers at the bottom edge";
+const sign = (id: string, usage: string, emblem: string): ImageAsset =>
+  img(`nav-${id}`, "1536x1024", `Biển chỉ đường thanh bên: ${usage} (chữ do app viết đè lên ván trống)`, `${SIGN}. The emblem shows ${emblem}`, true);
+
 const SEA_FISH = "side view, swimming toward the LEFT (head on the left), a large flat dark plate in the middle of the body left empty for a word label, glowing neon outline";
 
 export const IMAGES: ImageAsset[] = [
@@ -225,6 +243,38 @@ export const IMAGES: ImageAsset[] = [
   cyber("gp-cover-tay", "1536x1024", "Bìa các bài Từng bàn tay", `${BIT} reaching up to a glowing top-row key and down to a bottom-row key of a giant neon keyboard, underwater`),
   cyber("gp-cover-phoi", "1536x1024", "Bìa các bài Phối hợp", `${BIT} typing fast with both hands on a holographic keyboard, light trails following the fingers, a school of neon fish swirling around`),
   cyber("gp-cover-telex", "1536x1024", "Bìa các bài Telex", `${BIT} in a submarine cockpit typing, glowing Vietnamese-style accent marks (hooks, hats, tone marks) floating like bubbles, no full words`),
+
+  // Thanh bên: cọc biển chỉ đường
+  sign("hoc", "Học", "an open storybook with a small sprout"),
+  sign("thi-dau", "Thi đấu", "a yellow lightning bolt over two crossed pencils"),
+  sign("xep-hang", "Xếp hạng", "a small golden trophy cup"),
+  sign("toi", "Của tôi", "a smiling child's face with a star badge"),
+
+  // Icon nhỏ thay emoji
+  icon("star", "XP (sao)", "A plump five-pointed golden star with a soft shine"),
+  icon("fire", "Chuỗi ngày học (lửa)", "A cute round flame, orange outside and yellow inside"),
+  icon("trophy", "Cúp, bảng xếp hạng, kỷ lục", "A shiny golden trophy cup with two handles on a small base"),
+  icon("medal-1", "Hạng nhất", "A round gold medal with a blue ribbon, a star engraved in the middle"),
+  icon("medal-2", "Hạng nhì", "A round silver medal with a blue ribbon, a star engraved in the middle"),
+  icon("medal-3", "Hạng ba", "A round bronze medal with a blue ribbon, a star engraved in the middle"),
+  icon("bolt", "Thi đấu, thử thách, bonus", "A chunky yellow lightning bolt"),
+  icon("retry", "Chơi lại, làm lại", "Two curved mint-green arrows chasing each other in a circle"),
+  icon("invite", "Mời bạn", "A sky-blue envelope with a pink heart seal and a small paper-plane wing"),
+  icon("party", "Chúc mừng, đúng rồi", "A party popper cone bursting with colorful confetti"),
+  icon("sound", "Nghe, loa", "A rounded blue speaker with two sound waves"),
+  icon("hint", "Gợi ý, mẹo", "A glowing yellow light bulb with a tiny sparkle"),
+  icon("mic", "Đọc to, ghi âm", "A round retro microphone, coral and silver"),
+  icon("target", "Bấm theo, không sai phím", "A round red and white target with a small arrow in the bullseye"),
+  icon("rocket", "Thử thách lên lớp", "A small white and coral rocket flying up with a little flame"),
+  icon("flag", "Về đích, tạo phòng", "A black and white checkered finish flag waving on a short pole"),
+  icon("calc", "Máy tính", "A small dark-navy scientific calculator with a teal screen and round buttons"),
+  icon("pencil", "Luyện tập, thử nhanh", "A yellow pencil with a pink eraser, tilted"),
+  icon("ticket", "Vào phòng bằng mã", "A lilac admission ticket with a perforated edge and a star"),
+  icon("scroll", "Bài gõ hay", "A rolled paper scroll partly open, cream paper with a red ribbon"),
+  icon("lock", "Chưa mở khóa", "A chunky golden padlock, closed"),
+  icon("heart", "Mạng sống trong game", "A plump glossy red heart"),
+  icon("shark", "Vào game cá mập", "A cute small blue shark head with a friendly grin"),
+  icon("warn", "Chú ý", "A rounded yellow warning triangle with an exclamation shape made of a bar and a dot (not a letter)"),
 ];
 
 const sfx = (id: string, usage: string, prompt: string): AudioAsset => ({ id, file: `/assets/sfx/${id}.mp3`, kind: "sfx", usage, prompt });

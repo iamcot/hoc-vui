@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { TONE_GLYPH, TONE_SAY, blendParts, spellSyllable } from "@/lib/viet";
 import { speakSeq } from "@/lib/speech/tts";
 import { KIND_COLOR } from "./Glyph";
+import { Ico } from "@/components/Ico";
 
 function Tile({ text, color, active, big, sub }: { text: string; color: string; active: boolean; big?: boolean; sub?: string }) {
   return (
@@ -70,7 +71,7 @@ export function Blend({ word, emoji, phrase }: { word: string; emoji?: string; p
       </div>
       <div className="flex flex-wrap items-center justify-center gap-3">
         <button className="btn btn-peach" onClick={play} disabled={busy}>
-          🔊 Đánh vần
+          <Ico n="sound" /> Đánh vần
         </button>
         <span className="rounded-full bg-white/80 px-4 py-2 font-bold text-ink-soft">
           {seq.map((x, i) => (

@@ -7,6 +7,7 @@ import { useProgress } from "@/lib/store";
 import { Mascot } from "@/components/Mascot";
 import { Art } from "@/components/Art";
 import { Scene } from "@/components/Scene";
+import { Ico } from "@/components/Ico";
 
 function greeting() {
   const h = new Date().getHours();
@@ -36,8 +37,8 @@ export default function Home() {
           <h1 className="font-display text-3xl font-extrabold sm:text-4xl">{ready && data.profile.name ? data.profile.name : "bạn nhỏ"}! Hôm nay học gì nào?</h1>
         </div>
         <div className="mb-4 ml-auto flex gap-3">
-          <Stat value={data.xp} label="XP" icon="⭐" cls="bg-sun text-ink" />
-          <Stat value={streak} label="ngày" icon="🔥" cls="bg-peach text-white" />
+          <Stat value={data.xp} label="XP" icon={<Ico n="star" />} cls="bg-sun text-ink" />
+          <Stat value={streak} label="ngày" icon={<Ico n="fire" />} cls="bg-peach text-white" />
         </div>
       </header>
 
@@ -110,7 +111,7 @@ export default function Home() {
   );
 }
 
-function Stat({ value, label, icon, cls }: { value: number; label: string; icon: string; cls: string }) {
+function Stat({ value, label, icon, cls }: { value: number; label: string; icon: React.ReactNode; cls: string }) {
   return (
     <div className={`flex items-center gap-1.5 rounded-full px-4 py-2 font-display text-lg font-extrabold shadow-[var(--shadow-pop)] ${cls}`}>
       {icon} {value} <span className="text-sm font-bold opacity-80">{label}</span>

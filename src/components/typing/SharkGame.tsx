@@ -15,6 +15,7 @@ import { ImeWarning } from "./TypeLine";
 import { typingStats, useHotkeys, useKeyInput } from "./useKeyInput";
 import { Kbd } from "./Kbd";
 import { Diver, FishSprite, type FishKind } from "./Sprites";
+import { Ico } from "@/components/Ico";
 
 export interface GameResult {
   kills: number;
@@ -77,6 +78,16 @@ export function SharkGame({
   const [box, setBox] = useState({ w: 1000, h: 500 });
   const [, setTick] = useState(0);
   const [showKb, setShowKb] = useState(true);
+  // vùng biển dừng ngay trên bàn phím (kể cả bàn tay ảo, bàn phím chạm) để cá không bơi ngang qua phím
+  const foot = useRef<HTMLElement>(null);
+  const [footH, setFootH] = useState(200);
+  useEffect(() => {
+    const el = foot.current;
+    if (!el) return;
+    const ro = new ResizeObserver(() => setFootH(el.offsetHeight));
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
   const [flash, setFlash] = useState<{ ch: string; ok: boolean } | null>(null);
   const [shots, setShots] = useState<{ id: number; y: number; x: number; bonus?: boolean }[]>([]);
   const [hurt, setHurt] = useState(0);
@@ -349,7 +360,7 @@ export function SharkGame({
           <Hud label="WPM" value={live.wpm} />
           <Hud label="Chính xác" value={`${live.acc}%`} />
           {mode === "survival" ? (
-            <span className="hud-chip text-lg tracking-tight">{"♥".repeat(Math.max(0, s.lives))}<span className="text-white/25">{"♥".repeat(3 - Math.max(0, s.lives))}</span></span>
+            <span className="hud-chip text-lg tracking-tight">{[0, 1, 2].map((i) => <Ico key={i} n="heart" className={i < s.lives ? "" : "opacity-25 grayscale"} />)}</span>
           ) : (
             s.combo >= 3 && <span className="hud-chip text-amber-300">x{s.combo} combo</span>
           )}
@@ -357,10 +368,10 @@ export function SharkGame({
       </header>
 
       {/* biển */}
-      <div ref={sea} className="absolute inset-x-0 bottom-0 top-16" style={{ bottom: showKb ? "clamp(150px, 26vh, 230px)" : 40 }}>
+      <div ref={sea} className="absolute inset-x-0 bottom-0 top-16" style={{ bottom: Math.max(40, footH + 8) }}>
         {inBonus && (
           <motion.div initial={{ scale: 0.6, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} className="pointer-events-none absolute left-1/2 top-2 z-10 -translate-x-1/2 rounded-full bg-[#ff4fa3]/90 px-5 py-1.5 font-display text-xl font-extrabold tracking-wide shadow-[0_0_30px_#ff4fa3]">
-            ⚡ BONUS · gõ nhanh hạ sứa +50
+            <Ico n="bolt" /> BONUS · gõ nhanh hạ sứa +50
           </motion.div>
         )}
         <div className="absolute" style={{ left: `${DIVER_X * 100 - 9}%`, top: "50%", width: "min(18vw, 200px)", transform: `translateY(-50%) rotate(${aim}deg)`, transformOrigin: "40% 55%", transition: "transform 0.15s ease-out" }}>
@@ -426,7 +437,7 @@ export function SharkGame({
       </div>
 
       {/* bàn phím gợi ý */}
-      <footer className="absolute inset-x-0 bottom-0 z-20 px-3 pb-3 sm:px-6">
+      <footer ref={foot} className="absolute inset-x-0 bottom-0 z-20 px-3 pb-3 sm:px-6">
         {imeOn && <div className="mx-auto mb-2 max-w-3xl"><ImeWarning /></div>}
         <div className="mb-1 flex justify-end">
           <button className="rounded-full bg-white/10 px-3 py-1 text-xs font-bold text-cyan-100 ring-1 ring-cyan-300/30 hover:bg-white/20" onClick={() => setShowKb((v) => !v)}>

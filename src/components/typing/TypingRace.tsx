@@ -17,6 +17,7 @@ import { ImeWarning, useTypist, type TypeResult } from "./TypeLine";
 import { typingStats, useHotkeys } from "./useKeyInput";
 import { Kbd } from "./Kbd";
 import { useRouter } from "next/navigation";
+import { Ico, type IcoId } from "@/components/Ico";
 
 const COLORS = ["#2fd3ff", "#ff4fa3", "#3ee08f", "#ffb020", "#7c6bff", "#ff7a3d"];
 
@@ -249,7 +250,7 @@ export function TypingRace({ room }: { room: Room }) {
               <motion.div className="absolute top-1/2 w-24 -translate-y-1/2 sm:w-28" animate={{ left: `calc(${r.p * 100}% * 0.74 + 12%)` }} transition={{ type: "spring", stiffness: 120, damping: 20 }}>
                 <Car color={COLORS[i % COLORS.length]} />
               </motion.div>
-              <span className="absolute right-6 top-1/2 -translate-y-1/2 font-mono text-xs font-bold text-white/60">{r.done ? `🏁 ${r.wpm}` : r.wpm ? `${r.wpm} wpm` : ""}</span>
+              <span className="absolute right-6 top-1/2 -translate-y-1/2 font-mono text-xs font-bold text-white/60">{r.done ? <><Ico n="flag" /> {r.wpm}</> : r.wpm ? `${r.wpm} wpm` : ""}</span>
             </div>
           ))}
         </div>
@@ -263,7 +264,7 @@ export function TypingRace({ room }: { room: Room }) {
             <p className="text-sm text-cyan-100/70">{Object.keys(others).length ? `${Object.keys(others).length} bạn đang trong phòng.` : "Chưa có bạn nào vào phòng: em sẽ đua với hai xe máy."}</p>
             <div className="flex flex-wrap justify-center gap-3">
               <button className="btn btn-ghost" onClick={share}>
-                {copied ? "Đã chép link ✓" : "📨 Mời bạn"}
+                {copied ? "Đã chép link ✓" : <><Ico n="invite" /> Mời bạn</>}
               </button>
               <button className="btn btn-primary" onClick={go}>
                 Xuất phát ▶ <Kbd k=" " />
@@ -292,19 +293,19 @@ export function TypingRace({ room }: { room: Room }) {
               </div>
               <div className="flex justify-center gap-3 pt-2">
                 <button className="btn btn-ghost" onClick={share}>
-                  📨 Rủ thêm bạn
+                  <Ico n="invite" /> Rủ thêm bạn
                 </button>
                 <button className="btn btn-primary" onClick={again}>
-                  🔁 Đua lại <Kbd k="Enter" />
+                  <Ico n="retry" /> Đua lại <Kbd k="Enter" />
                 </button>
               </div>
             </div>
             <div className="cyber-panel rounded-3xl p-5">
-              <h2 className="mb-3 font-display text-xl font-extrabold">🏆 Bảng điểm phòng</h2>
+              <h2 className="mb-3 font-display text-xl font-extrabold"><Ico n="trophy" /> Bảng điểm phòng</h2>
               <ol className="space-y-2">
                 {board.map((e, k) => (
                   <li key={e.user_id} className={`flex items-center gap-3 rounded-2xl p-2 ${e.me ? "bg-cyan-400/20" : "bg-white/5"}`}>
-                    <span className="w-7 text-center font-bold">{["🥇", "🥈", "🥉"][k] ?? k + 1}</span>
+                    <span className="w-7 text-center font-bold">{k < 3 ? <Ico n={`medal-${k + 1}` as IcoId} /> : k + 1}</span>
                     <Avatar id={e.avatar} size={30} />
                     <span className="flex-1 truncate font-bold">{e.display_name}</span>
                     <span className="text-sm text-cyan-100/70">{e.correct} WPM</span>

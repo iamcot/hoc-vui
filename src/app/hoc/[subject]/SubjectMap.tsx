@@ -11,6 +11,7 @@ import { IconBack, IconLock, IconStar } from "@/components/Icons";
 import { Mascot } from "@/components/Mascot";
 import { Scene } from "@/components/Scene";
 import { LEVELS } from "@/lib/quiz";
+import { Ico } from "@/components/Ico";
 
 const OFFSETS = [0, 24, 0, -24]; // lệch ngang (%) để con đường uốn lượn
 const ROW = 150; // chiều cao mỗi điểm dừng (px)
@@ -200,7 +201,7 @@ export function SubjectMap({ subjectId }: { subjectId: string }) {
                   </div>
                   {showChallenge && (
                     <Link href={`/hoc/${s.id}/thu-thach/${prev.id}`} className="btn btn-peach shrink-0 px-4 py-2 text-base">
-                      ⚡ Thử thách
+                      <Ico n="bolt" /> Thử thách
                     </Link>
                   )}
                 </div>

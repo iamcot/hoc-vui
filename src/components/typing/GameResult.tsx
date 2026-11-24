@@ -4,6 +4,7 @@ import { IconStar } from "@/components/Icons";
 import { Confetti } from "@/components/Confetti";
 import { Mascot } from "@/components/Mascot";
 import type { GameResult } from "./SharkGame";
+import { Ico } from "@/components/Ico";
 
 /** Bảng kết quả sau một lượt lặn (tông neon) */
 export function GameResultPanel({ r, stars, xp, best, children }: { r: GameResult; stars?: number; xp: number; best?: number; children: React.ReactNode }) {
@@ -26,7 +27,7 @@ export function GameResultPanel({ r, stars, xp, best, children }: { r: GameResul
           <div>
             <div className="text-xs font-bold uppercase tracking-[0.3em] text-cyan-300">Điểm</div>
             <div className="font-display text-6xl font-extrabold">{r.score}</div>
-            {best !== undefined && <div className="text-sm font-bold text-cyan-100/80">{r.score >= best && r.score > 0 ? "Kỷ lục mới! 🏆" : `Kỷ lục: ${best}`}</div>}
+            {best !== undefined && <div className="text-sm font-bold text-cyan-100/80">{r.score >= best && r.score > 0 ? <>Kỷ lục mới! <Ico n="trophy" /></> : `Kỷ lục: ${best}`}</div>}
           </div>
         )}
         <div className="grid grid-cols-3 gap-2">

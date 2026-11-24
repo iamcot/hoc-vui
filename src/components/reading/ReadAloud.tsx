@@ -7,6 +7,7 @@ import { speak, stopSpeak } from "@/lib/speech/tts";
 import { play } from "@/lib/sound";
 import { Mascot } from "@/components/Mascot";
 import { FEEDBACK } from "./feedback";
+import { Ico } from "@/components/Ico";
 
 type State = "idle" | "listening" | "checking" | "done" | "self" | "error";
 
@@ -93,7 +94,7 @@ export function ReadAloud({
 
   return (
     <div className={`rounded-[2rem] bg-white/85 ${compact ? "p-4" : "p-5 sm:p-6"} shadow-[0_12px_30px_-18px_rgba(40,40,120,.5)]`}>
-      {label && <div className="mb-2 text-sm font-extrabold uppercase tracking-wide text-ink-soft">🎙️ {label}</div>}
+      {label && <div className="mb-2 text-sm font-extrabold uppercase tracking-wide text-ink-soft"><Ico n="mic" /> {label}</div>}
       <p className={`font-display font-extrabold leading-snug text-ink ${big}`}>
         {sylls.map((w, i) => {
           if (/^\s+$/.test(w)) return <span key={i}>{w}</span>;
@@ -109,7 +110,7 @@ export function ReadAloud({
 
       <div className="mt-4 flex flex-wrap items-center gap-3">
         <button className="btn btn-ghost" onClick={() => void speak(text)}>
-          🔊 Nghe mẫu
+          <Ico n="sound" /> Nghe mẫu
         </button>
         {canRecord() ? (
           <button
@@ -120,7 +121,7 @@ export function ReadAloud({
             {state === "listening" && (
               <span className="absolute inset-0 -z-0 rounded-full bg-berry/40" style={{ transform: `scale(${1 + level * 0.35})`, transition: "transform 80ms" }} />
             )}
-            <span className="relative text-2xl">{state === "listening" ? "⏹" : "🎙️"}</span>
+            <span className="relative text-2xl">{state === "listening" ? "⏹" : <Ico n="mic" />}</span>
             <span className="relative">{state === "listening" ? "Đang nghe… chạm để dừng" : state === "checking" ? "Đang chấm…" : tries ? "Đọc lại" : "Em đọc nào"}</span>
           </button>
         ) : (
@@ -139,7 +140,7 @@ export function ReadAloud({
             <Mascot mood={res.pass ? "cheer" : "oops"} size={56} />
             <div>
               <div className="font-display text-xl font-extrabold">{res.pass ? FEEDBACK.dung : res.marks.some((m) => m === "tone") ? FEEDBACK.dau : FEEDBACK.lai}</div>
-              {!res.pass && <div className="text-sm text-ink-soft">Mochi nghe được: “{res.heard || "…"}”. Bấm 🔊 nghe mẫu rồi đọc lại.</div>}
+              {!res.pass && <div className="text-sm text-ink-soft">Mochi nghe được: “{res.heard || "…"}”. Bấm <Ico n="sound" /> nghe mẫu rồi đọc lại.</div>}
             </div>
           </motion.div>
         )}

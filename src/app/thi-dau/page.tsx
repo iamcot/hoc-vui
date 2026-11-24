@@ -7,6 +7,7 @@ import { cleanCode, createRoom, ROOM_QUESTIONS, ROOM_SECONDS } from "@/lib/arena
 import { useProgress } from "@/lib/store";
 import { Scene } from "@/components/Scene";
 import Link from "next/link";
+import { Ico } from "@/components/Ico";
 
 export default function ArenaPage() {
   return (
@@ -48,7 +49,7 @@ function Arena() {
       <Scene image="bg-arena" variant="arena" />
       <header className="space-y-3 pt-4 sm:pt-10">
         <h1 className="ribbon text-3xl sm:text-4xl" style={{ ["--ribbon" as string]: "var(--color-peach)" }}>
-          ⚡ Đấu trường
+          <Ico n="bolt" /> Đấu trường
         </h1>
         <p className="max-w-xl text-lg font-bold text-ink text-outline">
           {subject === "go-phim"
@@ -75,7 +76,7 @@ function Arena() {
 
       <div className="grid gap-6 md:grid-cols-2">
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="card flex flex-col gap-4 p-6">
-          <h2 className="font-display text-2xl font-extrabold">🏁 Tạo phòng mới</h2>
+          <h2 className="font-display text-2xl font-extrabold"><Ico n="flag" /> Tạo phòng mới</h2>
           <label className="block text-sm font-bold text-ink-soft">
             Môn và trình độ
             <select value={pick} onChange={(e) => setPick(e.target.value)} className="mt-1 block h-14 w-full rounded-2xl border-2 border-line bg-white px-4 text-base font-bold text-ink">
@@ -93,7 +94,7 @@ function Arena() {
         </motion.div>
 
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05 }} className="card flex flex-col gap-4 p-6">
-          <h2 className="font-display text-2xl font-extrabold">🎟️ Vào phòng của bạn</h2>
+          <h2 className="font-display text-2xl font-extrabold"><Ico n="ticket" /> Vào phòng của bạn</h2>
           <label className="block text-sm font-bold text-ink-soft">
             Mã phòng
           <input

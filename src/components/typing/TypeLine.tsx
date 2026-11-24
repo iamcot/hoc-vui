@@ -4,6 +4,7 @@ import { renderTyped, telexKeys } from "@/lib/typing/telex";
 import { play } from "@/lib/sound";
 import { Keyboard } from "./Keyboard";
 import { typingStats, useKeyInput } from "./useKeyInput";
+import { Ico } from "@/components/Ico";
 
 export interface TypeResult {
   /** chữ bé gõ ra (đã ghép Telex) */
@@ -100,7 +101,7 @@ export function TypeLine({
         )}
       </div>
       {t.imeOn && <ImeWarning />}
-      {t.done && <p className="font-bold text-mint">Xong! {t.errors === 0 ? "Không sai phím nào 🎯" : `Sai ${t.errors} phím.`}</p>}
+      {t.done && <p className="font-bold text-mint">Xong! {t.errors === 0 ? <>Không sai phím nào <Ico n="target" /></> : `Sai ${t.errors} phím.`}</p>}
       {showKeyboard && (<Keyboard keys={keys ?? t.keys.toLowerCase()} focus={focus} next={t.done ? undefined : t.next} pressed={t.flash} compact />
       )}
     </div>

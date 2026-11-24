@@ -8,6 +8,7 @@ import { GameResultPanel } from "./GameResult";
 import { Kbd } from "./Kbd";
 import { useHotkeys } from "./useKeyInput";
 import { useRouter } from "next/navigation";
+import { Ico } from "@/components/Ico";
 
 /** Luyện tập môn Gõ phím: một lượt lặn bắn cá; sao tính theo số cá hạ được và độ chính xác */
 export function TypingPractice({ subjectId, lessonId }: { subjectId: string; lessonId: string }) {
@@ -39,7 +40,7 @@ export function TypingPractice({ subjectId, lessonId }: { subjectId: string; les
       {res && (
         <GameResultPanel r={res.r} stars={res.stars} xp={res.xp}>
           <button className="btn btn-primary" onClick={replay}>
-            🔁 Lặn lại <Kbd k=" " />
+            <Ico n="retry" /> Lặn lại <Kbd k=" " />
           </button>
           <Link href={forward!} className={res.stars < 2 ? "btn btn-ghost" : "btn btn-mint"}>
             {res.stars < 2 ? "Xem lại bài" : next ? "Bài tiếp ▶" : "Kiểm tra trình độ"} <Kbd k="Enter" />
