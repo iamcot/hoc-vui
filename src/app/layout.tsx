@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description: "Học vui mỗi ngày: bài học trực quan, bài tập, kiểm tra, thi đấu cùng bạn bè.",
   manifest: "/manifest.webmanifest",
   appleWebApp: { capable: true, title: "Học Vui", statusBarStyle: "default" },
-  icons: { icon: "/icons/icon.svg", apple: "/icons/icon-192.png" },
+  icons: { icon: [{ url: "/favicon.ico", sizes: "any" }, { url: "/icons/icon-32.png", type: "image/png", sizes: "32x32" }], apple: "/icons/apple-touch-icon.png" },
 };
 
 export const viewport: Viewport = {
