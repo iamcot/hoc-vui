@@ -199,7 +199,7 @@ function lessonGens(l: PhonicsLesson): QuestionGen[] {
       const t = splitTone(w).tone;
       const names = TONES.filter((x) => x !== "ngang").map((x) => TONE_NAME[x].replace("thanh ", "dấu "));
       const ans = TONE_NAME[t].replace("thanh ", "dấu ");
-      return { id: `${l.id}-dau-${w}`, prompt: `Tiếng **${w}** có dấu gì?`, kind: "choice", answer: ans, choices: rng.shuffle([ans, ...pickOthers(rng, names, [ans], 3)]), say: w, voice: [SAY.dau], topic: l.title };
+      return { id: `${l.id}-dau-${w}`, prompt: `Tiếng **${w}** có dấu gì?`, kind: "choice", answer: ans, choices: rng.shuffle([ans, ...pickOthers(rng, names, [ans], 3)]), say: w, voice: [SAY.dau, w], topic: l.title };
     });
   }
 
