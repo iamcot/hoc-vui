@@ -113,7 +113,7 @@ function GuideText({ next, shift }: { next: string; shift?: "L" | "R" }) {
 
 type Pt = { x: number; y: number; w: number; h: number };
 const LEFT: Finger[] = ["L5", "L4", "L3", "L2"];
-const RIGHT: Finger[] = ["R2", "R3", "R4", "R5"];
+const RIGHT: Finger[] = ["R5", "R4", "R3", "R2"]; // út → trỏ như tay trái
 
 /**
  * Hai bàn tay ảo (viền liền khối, lòng kính mờ) đè lên bàn phím: tám ngón đặt trên hàng nhà, ngón cái trên phím cách.
@@ -149,10 +149,8 @@ function Hands({ board, next, onExtra }: { board: React.RefObject<HTMLDivElement
   const kw = pos.a.w;
   const kh = pos.a.h;
   const bottom = size.h;
-  const target = keyOf(next);
   const active = fingerOf(next);
   const sh = shiftSide(next);
-  const targetId = next === " " ? "space" : target ? (target.fn ? target.fn : target.k) : undefined;
 
   const H = size.h + kh * 3.2;
   const P = (x: number, y: number) => `${x.toFixed(1)} ${y.toFixed(1)}`;
@@ -175,11 +173,9 @@ function Hands({ board, next, onExtra }: { board: React.RefObject<HTMLDivElement
     const knuckleY = py - kh * 0.95;
     const shiftKey = pos[side === "L" ? "ShiftL" : "ShiftR"];
     const parts = fingers.map((f, i) => {
-      let tip = { x: home[i].x, y: home[i].y - kh * 0.25 };
+      const tip = { x: home[i].x, y: home[i].y - kh * 0.25 };
       const pinky = f.endsWith("5");
       const holdsShift = sh === side && pinky && !!shiftKey;
-      if (f === active && targetId && pos[targetId]) tip = { x: pos[targetId].x, y: pos[targetId].y - kh * 0.25 };
-      if (holdsShift) tip = { x: shiftKey.x - sg * kw * 0.3, y: shiftKey.y - kh * 0.15 };
       const base = { x: px + (home[i].x - px) * 0.62, y: knuckleY + (pinky ? kh * 0.2 : 0) };
       const wb = kw * (pinky ? 0.52 : f.endsWith("4") ? 0.58 : 0.64);
       return { f, d: fingerD(base, tip, wb, wb * 0.86), lit: fingerD(base, tip, wb, wb * 0.86, 0.1), base, wb, on: f === active || holdsShift };
