@@ -1,6 +1,6 @@
 # Giọng đọc mẫu môn Tập đọc
 
-Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 0. Chưa có file thì app dùng giọng tiếng Việt có sẵn của máy (iPad: giọng Linh).
+Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 1. Chưa có file thì app dùng giọng tiếng Việt có sẵn của máy (iPad: giọng Linh).
 
 ## Cách làm
 
@@ -670,7 +670,7 @@ Sinh tự động bằng `npm run prompts`. 1227 file, còn thiếu 0. Chưa có
 
 | | File | Lời đọc |
 |---|---|---|
-| ✅ | `tv-r_ddocj_laf_rowf_s_ddocj-o7y2w.mp3` | r đọc là rờ, s đọc là sờ, t đọc là tờ. Cùng đọc to nào! |
+| ⬜ | `tv-r_ddocj_laf_rowf_uoons_cong-8l8de.mp3` | r đọc là rờ: uốn cong lưỡi lên, hơi rung, khác với dờ. s đọc là sờ, t đọc là tờ. Cùng đọc to nào! |
 
 ### Đánh vần · v, x, p
 
