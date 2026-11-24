@@ -1,18 +1,11 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
-import { hasFile, resolveFile } from "@/content/assets";
 import type { Mood } from "@/content/types";
 import type { State } from "@/lib/code/run";
 import type { World } from "@/lib/code/world";
 import { FlagArt, Floor, frameOf, Hero, StarArt, useGuide, useSkin, Wall, Water } from "./skin";
 import { HoloStage } from "./HoloStage";
-
-/** ảnh ô lưới nếu đã có file, không thì vẽ bằng CSS/SVG */
-const tileImg = (id: string) => {
-  const f = `/assets/img/${id}.webp`;
-  return hasFile(f) ? resolveFile(f) : null;
-};
 
 /**
  * Sân chơi: lưới nhìn từ trên xuống, Mochi đi theo trạng thái của trình chạy.
@@ -46,10 +39,9 @@ function FlatStage({ world, state, bump, mood = "happy", max = 84, speed = 1 }: 
   }, [world.w, world.h, max, fr.pad, fr.gap]);
 
   const neon = skin.id === "neon";
-  const top = neon ? tileImg("lt-mochi-top") : null;
-  const imgs = neon
-    ? { wall: tileImg("lt-tile-wall"), water: tileImg("lt-tile-water"), star: tileImg("lt-tile-star"), flag: tileImg("lt-tile-flag"), grass: tileImg("lt-tile-grass") }
-    : { wall: null, water: null, star: null, flag: null, grass: null };
+  // ô sân và nhân vật đều vẽ bằng code theo giao diện (không dùng ảnh rời)
+  const top: string | null = null;
+  const imgs: Record<"wall" | "water" | "star" | "flag" | "grass", string | null> = { wall: null, water: null, star: null, flag: null, grass: null };
   const dur = 0.42 / speed;
   const step = cell + fr.gap;
   const at = (x: number, y: number) => ({ left: fr.pad + x * step, top: fr.pad + y * step, width: cell, height: cell });

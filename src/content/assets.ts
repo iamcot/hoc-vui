@@ -294,17 +294,13 @@ export const IMAGES: ImageAsset[] = [
   cyber("bg-lt-lesson", "1536x1024", "Cảnh nền bài học, màn chơi môn Lập trình (rất tối, mờ)", "A cozy futuristic coding lab at night, big holographic screens showing colorful puzzle-piece blocks, a small robot desk lamp, cyan and violet glow, background heavily blurred and dark, mostly empty"),
   img("lt-cover-vo-long", "1536x1024", "Bìa các bài Vỡ lòng môn Lập trình", `${MOCHI}, standing on a grass tile of a big garden grid board, holding a blue puzzle-piece command block (blank, no text), small stone walls and a red flag on other tiles, golden stars here and there`),
   img("lt-cover-co-ban", "1536x1024", "Bìa các bài Cơ bản môn Lập trình (lặp, nếu, bút vẽ)", `${MOCHI}, holding a giant crayon and drawing a neat square spiral path on a big garden grid board, a green looping arrow ribbon circling above, small stone walls on some tiles`),
+  cyber("lt-cover-trung-cap", "1536x1024", "Bìa các bài Trung cấp môn Lập trình (hàm, biến, sự kiện, mini game)", `${BIT}, sitting on a floating neon block platform and snapping together glowing puzzle-piece code blocks into a small arcade game screen, a holographic joystick and floating function brackets made of simple shapes around him`),
+  cyber("lt-cover-nang-cao", "1536x1024", "Bìa các bài Nâng cao môn Lập trình (danh sách, tìm kiếm, sắp xếp, mê cung)", `${BIT}, standing in a dark holographic warehouse beside a row of glowing numbered crates being sorted from short to tall, a translucent maze map hovering in front of his visor`),
   img("lt-tier-1", "1024x1024", "Huy hiệu trình độ Vỡ lòng (môn Lập trình)", "Round badge: a small white cat paw print stepping on a green grid tile with a tiny arrow, mint and sky-blue colors", true),
   img("lt-tier-2", "1024x1024", "Huy hiệu trình độ Cơ bản (môn Lập trình)", "Round badge: a looping circular arrow made of a mint-green puzzle-piece block around a yellow star", true),
   img("lt-tier-3", "1024x1024", "Huy hiệu trình độ Trung cấp (môn Lập trình)", "Round badge: a cute game controller made of colorful puzzle-piece blocks, lilac glow", true),
   img("lt-tier-4", "1024x1024", "Huy hiệu trình độ Nâng cao (môn Lập trình)", "Round badge: a row of bar-chart columns being sorted from short to tall with a small curved arrow, sky blue and coral", true),
   img("lt-tier-5", "1024x1024", "Huy hiệu trình độ Python (môn Lập trình)", "Round badge: a friendly round blue and yellow snake coiled around a pair of curly code brackets made of simple shapes (no letters)", true),
-  img("lt-mochi-top", "1024x1024", "Mochi nhìn từ trên xuống trên lưới (app tự xoay theo hướng đi, ảnh phải nhìn LÊN TRÊN)", `${MOCHI}, seen from directly above (bird's-eye top-down view), walking and facing UP toward the top of the image, round body, ears and scarf visible from above, centered`, true),
-  img("lt-tile-grass", "1024x1024", "Ô cỏ của lưới (lặp nhiều lần, nên đơn giản)", `${TOP}: soft short green grass with a few tiny lighter blades, very simple and even so it tiles well, no objects`),
-  img("lt-tile-wall", "1024x1024", "Ô tường đá của lưới", `${TOP}: a chunky rounded grey stone block with soft moss on one corner, filling most of the tile`, true),
-  img("lt-tile-water", "1024x1024", "Ô nước của lưới", `${TOP}: clear blue pond water with small soft ripples and a lily pad, filling the tile edge to edge`),
-  img("lt-tile-star", "1024x1024", "Ngôi sao cần nhặt trên lưới", "A plump shiny golden five-pointed star, slightly tilted, soft sparkle, centered, small soft shadow", true),
-  img("lt-tile-flag", "1024x1024", "Cờ đích trên lưới", "A small red pennant flag on a short wooden pole planted in a tiny mound of grass, seen from a high three-quarter angle, centered", true),
 ];
 
 const sfx = (id: string, usage: string, prompt: string): AudioAsset => ({ id, file: `/assets/sfx/${id}.mp3`, kind: "sfx", usage, prompt });
