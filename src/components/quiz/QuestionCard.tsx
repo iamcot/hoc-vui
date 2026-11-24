@@ -12,6 +12,7 @@ import { speak, speakSeq, stopSpeak } from "@/lib/speech/tts";
 import { ReadAloud } from "@/components/reading/ReadAloud";
 import { TypeLine } from "@/components/typing/TypeLine";
 import { Ico } from "@/components/Ico";
+import { FakeScreenView } from "@/components/digital/FakeScreen";
 
 /** đọc đề: lời dẫn rồi tới chữ cần nghe */
 function readOut(q: Question) {
@@ -130,7 +131,10 @@ export function QuestionCard({
   };
 
   return (
-    <motion.div key={q.id} initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} className="space-y-5">
+    <motion.div key={q.id} initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} className={q.screen ? "grid items-start gap-5 md:grid-cols-[minmax(0,300px)_minmax(0,1fr)]" : ""}>
+      {/* môn Kỹ năng số: màn hình giả bên trái, trả lời xong thì tô đỏ các dấu hiệu */}
+      {q.screen && <FakeScreenView screen={q.screen} mode={result !== null ? "reveal" : "plain"} />}
+      <div className="min-w-0 space-y-5">
       <div className="flex items-center gap-3">
         {(q.say || q.voice) && (
           <button type="button" onClick={() => readOut(q)} className="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-white text-2xl shadow-[var(--shadow-pop)] active:translate-y-0.5" aria-label="Nghe lại đề">
@@ -172,7 +176,7 @@ export function QuestionCard({
           )}
         </div>
       ) : q.kind === "choice" ? (
-        <div className={`grid gap-3 ${q.big ? "grid-cols-2 sm:grid-cols-4" : "sm:grid-cols-2"}`}>
+        <div className={`grid gap-3 ${q.big ? "grid-cols-2 sm:grid-cols-4" : q.screen ? "" : "sm:grid-cols-2"}`}>
           {q.choices!.map((c) => {
             const picked = input === c;
             const state = result === null ? "" : c === q.answer ? "border-mint bg-mint-soft" : picked ? "border-berry bg-berry-soft" : "opacity-60";
@@ -316,6 +320,7 @@ export function QuestionCard({
           </button>
         </motion.div>
       )}
+      </div>
     </motion.div>
   );
 }

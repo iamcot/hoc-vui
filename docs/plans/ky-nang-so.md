@@ -82,8 +82,12 @@ Màn hình giả vẽ bằng code nên ảnh ít.
 
 ## Tiến độ
 - [x] Plan chi tiết
-- [ ] Kiểu dữ liệu + khung màn hình giả + khối tình huống, soi dấu hiệu
-- [ ] Phòng thử mật khẩu, trò Thật hay giả
-- [ ] Nội dung 4 trình độ (23 bài) + kho tình huống luyện tập
-- [ ] Prompt ảnh, chụp màn hình gửi duyệt
-- [ ] PR
+- [x] Kiểu dữ liệu + khung màn hình giả (7 loại: tin nhắn, SMS, email, trình duyệt, bài đăng, cuộc gọi, game) + khối tình huống, soi dấu hiệu
+- [x] Phòng thử mật khẩu (`/ky-nang-so/mat-khau`), trò Thật hay giả (`/ky-nang-so/that-hay-gia`)
+- [x] Nội dung 4 trình độ (23 bài), mỗi bài 4 câu "Em sẽ làm gì?" + 4 câu "An toàn hay không ổn?"
+- [x] Prompt ảnh (14 ảnh `kns-*`, `subject-kns-cover`, `bg-kns-map` trong `docs/ASSET_PROMPTS.md`), test `tests/ky-nang-so.test.ts`
+- [ ] Bạn duyệt ảnh chụp màn hình và nội dung
+- [ ] Tạo ảnh
+- [x] Giọng chào ngắn: 5 bài nhí + bài đầu mỗi trình độ (`vo-kns-*`, tạo bằng `npm run gen-assets -- --audio`)
+- [x] Kẻ gian (mèo Mun cho bé nhỏ, hacker cho bé lớn) hiện khi chọn sai
+- [ ] Sau này: bảng xếp hạng riêng cho Thật hay giả

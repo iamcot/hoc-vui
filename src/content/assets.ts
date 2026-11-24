@@ -252,6 +252,22 @@ export const IMAGES: ImageAsset[] = [
   cyber("gp-cover-phoi", "1536x1024", "Bìa các bài Phối hợp", `${BIT} typing fast with both hands on a holographic keyboard, light trails following the fingers, a school of neon fish swirling around`),
   cyber("gp-cover-telex", "1536x1024", "Bìa các bài Telex", `${BIT} in a submarine cockpit typing, glowing Vietnamese-style accent marks (hooks, hats, tone marks) floating like bubbles, no full words`),
 
+  // Môn Kỹ năng số: màn hình giả vẽ bằng code, ảnh chỉ cho bìa, huy hiệu, nhân vật. Style theo tuổi: nhí STYLE, lớp 7-9 STYLE_TEEN, lớp 10-12 STYLE_SENIOR
+  img("subject-kns-cover", "1536x1024", "Ảnh lớn của môn Kỹ năng số ở trang chủ (chữ đè lên phần dưới ảnh)", `${MOCHI} holding up a round glowing shield in front of a big friendly smartphone, small floating chat bubbles and a padlock icon around, a sneaky black cat in a tiny mask peeking from behind the phone and backing away${TXT}`),
+  img("kns-tier-1", "1024x1024", "Huy hiệu trình độ An toàn nhí", "Round badge with a small soft-blue shield and a baby chick peeking over it, cream background circle", true),
+  img("kns-tier-2", "1024x1024", "Huy hiệu trình độ Thám hiểm mạng", "Round badge with a shield and a compass over a tiny globe made of chat bubbles, mint green", true),
+  img("kns-tier-3", "1024x1024", "Huy hiệu trình độ Tỉnh táo", "Hexagon tech badge with a glowing magnifying glass over a newspaper icon, mint neon glow", true, STYLE_TEEN),
+  img("kns-tier-4", "1024x1024", "Huy hiệu trình độ Công dân số", "Hexagon tech badge with a glowing globe made of network lines inside a shield, lilac neon glow", true, STYLE_TEEN),
+  img("kns-cover-nhi", "1536x1024", "Bìa các bài An toàn nhí", `${MOCHI} sitting with a tablet on a cozy sofa next to a parent cat, the parent pointing kindly at the screen, a lock and a heart floating above`),
+  img("kns-cover-tham-hiem", "1536x1024", "Bìa các bài Thám hiểm mạng", `${MOCHI} as a little explorer with a map and a shield, walking along a path made of glowing chat bubbles and link icons, a broken fishing hook lying on the side of the path`),
+  teen("kns-cover-tinh-tao", "Bìa các bài Tỉnh táo", "The student scanning floating holographic news cards with a glowing magnifying lens, some cards turning red with warning marks, others mint with check marks, no readable text"),
+  senior("kns-cover-cong-dan", "Bìa các bài Công dân số", "The student standing calmly in front of a large holographic face that is glitching and splitting into pixels (a deepfake being revealed), network lines in the background, restrained neon"),
+  img("kns-villain-kid", "1024x1024", "Kẻ gian ở trình độ nhí (mèo Mun đeo mặt nạ, dễ thương, không đáng sợ)", "A small sneaky black cat wearing a tiny eye mask like a cartoon burglar, holding a fishing rod with a gift box as bait, mischievous but cute, full body", true),
+  img("kns-villain-teen", "1024x1024", "Kẻ gian ở trình độ lớn (hacker áo hoodie, không đáng sợ)", "A faceless hooded figure in a dark hoodie with a glowing mask made of pixels, typing on a floating keyboard, mysterious but not scary, full body", true, STYLE_TEEN),
+  img("kns-mode-truefalse", "1024x1024", "Biểu tượng chế độ Thật hay giả", "Round app-icon style badge: a smartphone with a green check mark on the left half and a red flag on the right half, small lightning bolt on top", true),
+  img("kns-mode-password", "1024x1024", "Biểu tượng chế độ Phòng thử mật khẩu", "Round app-icon style badge: a chunky golden padlock with a strength meter bar of five colored blocks beneath it", true),
+  img("bg-kns-map", "1536x1024", "Cảnh nền bản đồ bài của môn Kỹ năng số", "Top-down view of a cute tiny town where streets are glowing network cables, houses shaped like phones and laptops, little shield-shaped parks, soft and low contrast so map nodes on top stay readable"),
+
   // Thanh bên: cây cọc dọc + các tấm biển
   img("nav-pole", "1024x1536", "Thân cọc gỗ dọc thanh bên (app lặp ảnh theo chiều dọc, kéo dài suốt màn hình)", `A straight vertical wooden post segment, seen from the front, centered, filling the full image height and about 12% of the width, ${WOOD}; SEAMLESS vertically: the top and bottom edges must tile perfectly when repeated (no cap, no end, no knots cut at the edges), nothing else in the image`, true),
   img("nav-title", "1536x1024", "Biển tên app treo trên đầu cọc (app đặt logo và chữ Học Vui lên trên)", `A single wide rounded-rectangle wooden name plaque, front view, about 3.2 times wider than tall, filling the image width, ${WOOD}, a slightly thicker carved frame border, two small nails in the middle of the top and bottom edges, a tiny green leaf vine curling on one corner, the inner area completely BLANK flat wood for a logo and title, no post, nothing else`, true),
@@ -360,6 +376,15 @@ export const AUDIO: AudioAsset[] = [
   voice("vo-gp-t01", "Gõ phím · Bài đầu Từng bàn tay", "Lên hàng trên nào! Ngón nào với lên phím nào thì gõ xong phải về hàng phím cơ sở nha."),
   voice("vo-gp-p01", "Gõ phím · Bài đầu Phối hợp", "Giờ hai tay cùng chơi. Gõ đều tay, mắt nhìn màn hình là sẽ nhanh thôi."),
   voice("vo-gp-v01", "Gõ phím · Bài đầu Telex", "Gõ tiếng Việt có dấu thôi! Gõ a hai lần là thành chữ â. Học Vui tự ghép chữ cho em."),
+  // Kỹ năng số: chỉ một câu chào ngắn ở slide đầu; bé lớn chỉ có bài đầu mỗi trình độ
+  voice("vo-kns-n01", "Kỹ năng số · Người lạ trên mạng", "Chào em! Hôm nay Mochi và em cùng học cách giữ an toàn khi lên mạng. Có người lạ nhắn tin cho em này, em sẽ làm gì nhỉ?"),
+  voice("vo-kns-n02", "Kỹ năng số · Mật khẩu là bí mật", "Mật khẩu giống như chìa khóa nhà mình đó. Bạn thân xin mật khẩu, em có cho không?"),
+  voice("vo-kns-n03", "Kỹ năng số · Hỏi bố mẹ trước khi bấm", "Ôi, game hiện nút mua kim cương kìa! Bấm vào là tiêu tiền thật đấy. Em sẽ làm gì?"),
+  voice("vo-kns-n04", "Kỹ năng số · Thông tin của em", "Nhà em ở đâu, em học trường nào, đó là bí mật của em. Cùng xem nên đăng ảnh thế nào cho an toàn nhé."),
+  voice("vo-kns-n05", "Kỹ năng số · Giờ chơi, giờ nghỉ", "Em chơi được một tiếng rồi đó. Mắt cũng cần nghỉ ngơi. Giờ em làm gì nhỉ?"),
+  voice("vo-kns-k01", "Kỹ năng số · Bài đầu Thám hiểm mạng", "Mật khẩu một hai ba bốn năm sáu bị đoán ra trong chưa tới một giây. Cùng tạo mật khẩu thật mạnh nhé!"),
+  voice("vo-kns-t01", "Kỹ năng số · Bài đầu Tỉnh táo", "Tin càng sốc thì càng phải chậm lại. Cùng tập soi tin giả nhé."),
+  voice("vo-kns-c01", "Kỹ năng số · Bài đầu Công dân số", "Thấy mặt, nghe giọng, vẫn có thể là giả. Hôm nay mình nói về deepfake."),
 ];
 
 /** Giọng đọc mẫu môn Tập đọc (in riêng ở docs/TAPDOC_VOICES.md) */

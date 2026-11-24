@@ -87,7 +87,7 @@ Tông công nghệ cho bé lớn: biển sâu neon, nhân vật **thỏ Bit** (S
 
 ### Giai đoạn 3 · Mở rộng môn
 Wishlist 5 môn mới: `docs/WISHLIST.md`. Plan chi tiết từng môn và luật chung khi cắm môn mới: `docs/plans/`. Mỗi môn làm trên nhánh riêng và mở PR (main đang chạy thật).
-- [ ] 3a · Kỹ năng số (tin giả, lừa đảo, mật khẩu, chọn tình huống)
+- [x] 3a · Kỹ năng số (tin giả, lừa đảo, mật khẩu, chọn tình huống): 4 trình độ, 23 bài, trò Thật hay giả, Phòng thử mật khẩu. Chờ duyệt + ảnh
 - [ ] 3b · Thám tử logic (mỗi bài một mẹo suy luận + vụ án sinh ngẫu nhiên)
 - [ ] 3c · Lập trình khối lệnh (Blockly + trình chạy từng bước, sau sang Python bằng Pyodide)
 - [ ] 3d · Khám phá Việt Nam (bản đồ 34 tỉnh, thẻ sưu tập)
