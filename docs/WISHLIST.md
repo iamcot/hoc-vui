@@ -1,6 +1,8 @@
 # Học Vui · Wishlist môn mới
 
 5 môn bạn chốt ngày 24/11/2026. Làm dần từng môn, môn nào xong phần khung mới sang môn tiếp.
+**Plan chi tiết từng môn** (bài, kỹ thuật, ảnh cần tạo, tiến độ): `docs/plans/`.
+
 Mỗi môn vẫn theo luật chung của app: **một bản đồ liền mạch** kiểu Duolingo, trình độ bị khóa thì mờ + ổ khóa, học vượt bằng **thử thách 10 câu**, **đấu trường** chia Khởi đầu / Trung cấp / Cao cấp theo % bài đã xong, **style ảnh theo tuổi** (Mochi dễ thương cho tiểu học, anime neon công nghệ từ lớp 7). Ảnh bạn tạo từ prompt trong `docs/ASSET_PROMPTS.md`, nội dung bài mình viết.
 
 ## Thứ tự đề xuất
