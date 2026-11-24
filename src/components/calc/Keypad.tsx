@@ -4,7 +4,7 @@ import { FX580_ROWS, type CalcKey } from "@/content/devices/fx580";
 
 const FOOTER_H = 96; // thanh Trước/Tiếp ở đáy + khoảng thở
 
-/** Thu nhỏ máy ảo cho vừa phần màn hình còn lại (laptop, iPad ngang), không nhỏ hơn 60%. */
+/** Thu nhỏ máy ảo cho vừa phần màn hình còn lại (laptop, iPad ngang), không nhỏ hơn 50%. */
 function useFitZoom(on: boolean) {
   const ref = useRef<HTMLDivElement>(null);
   const [z, setZ] = useState(1);
@@ -18,7 +18,7 @@ function useFitZoom(on: boolean) {
       setH(natural);
       const top = el.getBoundingClientRect().top + window.scrollY;
       const room = window.innerHeight - FOOTER_H - Math.min(top, 330);
-      setZ(Math.max(0.6, Math.min(1, room / natural)));
+      setZ(Math.max(0.5, Math.min(1, room / natural)));
     };
     const t = setTimeout(f, 50);
     window.addEventListener("resize", f);
