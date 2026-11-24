@@ -114,10 +114,16 @@ function removeCornerMark(data, w, h) {
   return removed;
 }
 
+// Chỉ xử lý ảnh mới hoặc đã đổi: bỏ qua khi bản .webp đã có và mới hơn ảnh nguồn (npm run dev chạy nhanh).
+// Muốn làm lại tất cả (vd. sau khi sửa cách xoá nền): node scripts/convert-assets.mjs --force
+const FORCE = process.argv.includes("--force");
+const upToDate = (file, out) => !FORCE && existsSync(out) && statSync(out).mtimeMs >= statSync(file).mtimeMs;
+
 async function toWebp(file) {
   let src = file;
   const name = basename(src, extname(src));
   const out = join(OUT_IMG, `${name}.webp`);
+  if (upToDate(file, out)) return;
   let img = sharp(src);
   const meta = await img.metadata();
   let alpha = meta.hasAlpha;
@@ -150,7 +156,7 @@ async function toWebp(file) {
   console.log(`${name}.webp  ${(before / 1024).toFixed(0)}KB → ${(after / 1024).toFixed(0)}KB`);
 }
 
-const srcDir = process.argv[2] ?? "assets-src";
+const srcDir = process.argv.slice(2).find((a) => !a.startsWith("--")) ?? "assets-src";
 mkdirSync(OUT_IMG, { recursive: true });
 mkdirSync("public/assets/voice", { recursive: true });
 mkdirSync("public/assets/sfx", { recursive: true });
@@ -160,7 +166,9 @@ for (const f of walk(srcDir)) {
   if ([".png", ".jpg", ".jpeg"].includes(ext)) await toWebp(f);
   else if ([".mp3", ".m4a", ".wav", ".ogg"].includes(ext)) {
     const dest = /^(vo|tv)-/.test(basename(f)) ? "public/assets/voice" : "public/assets/sfx";
-    copyFileSync(f, join(dest, basename(f)));
+    const to = join(dest, basename(f));
+    if (!FORCE && existsSync(to) && statSync(to).size === statSync(f).size) continue;
+    copyFileSync(f, to);
     console.log(`${basename(f)} → ${dest}`);
   }
 }
