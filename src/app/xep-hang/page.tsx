@@ -10,6 +10,7 @@ import { Avatar } from "@/components/Avatar";
 import { Scene } from "@/components/Scene";
 import { Mascot } from "@/components/Mascot";
 import { Ico } from "@/components/Ico";
+import { Pick } from "@/components/Pick";
 
 type Period = "week" | "month" | "all";
 
@@ -40,7 +41,6 @@ export default function RankPage() {
   const top = rows?.filter((r) => r.pos <= 3).slice(0, 3) ?? [];
   const rest = rows?.filter((r) => !top.includes(r)) ?? [];
   const unit = kind === "progress" ? "bài" : "";
-  const chip = (on: boolean, color = "bg-sky") => `chip px-4 py-2 ${on ? `${color} text-white` : "bg-white text-[#252845]"}`;
 
   return (
     <div className="space-y-6">
@@ -69,49 +69,21 @@ export default function RankPage() {
         </div>
       ) : (
         <>
-          <div className="flex flex-wrap gap-2">
-            {([["week", "Tuần này"], ["month", "Tháng này"], ["all", "Mọi lúc"]] as const).map(([p, label]) => (
-              <button key={p} onClick={() => setPeriod(p)} className={chip(period === p)}>
-                {label}
-              </button>
-            ))}
-            <span className="mx-1 w-px bg-line" />
-            <button onClick={() => setKind("stars")} className={chip(kind === "stars", "bg-berry")}>
-              Nhiều sao nhất
-            </button>
-            <button onClick={() => setKind("progress")} className={chip(kind === "progress", "bg-berry")}>
-              Tiến bộ nhiều nhất
-            </button>
-          </div>
-          <div className="flex flex-wrap gap-2">
-            <button
-              onClick={() => {
-                setSubject(null);
+          {/* một hàng bộ lọc, mỗi bộ lọc là một dropdown */}
+          <div className="flex flex-wrap items-center gap-3">
+            <Pick label="Kỳ" value={period} onChange={(v) => setPeriod(v as Period)} options={[["week", "Tuần này"], ["month", "Tháng này"], ["all", "Mọi lúc"]]} />
+            <Pick label="Bảng" value={kind} onChange={(v) => setKind(v as "stars" | "progress")} options={[["stars", "Nhiều sao nhất"], ["progress", "Tiến bộ nhiều nhất"]]} />
+            <Pick
+              label="Môn"
+              value={subject ?? ""}
+              onChange={(v) => {
+                setSubject(v || null);
                 setRank(null);
               }}
-              className={chip(subject === null, "bg-mint")}
-            >
-              Tất cả môn
-            </button>
-            {SUBJECTS.filter((s) => s.ready).map((s) => (
-              <button key={s.id} onClick={() => setSubject(s.id)} className={chip(subject === s.id, "bg-mint")}>
-                {s.name}
-              </button>
-            ))}
+              options={[["", "Tất cả môn"], ...SUBJECTS.filter((s) => s.ready).map((s) => [s.id, s.name] as [string, string])]}
+            />
+            {subject && kind === "stars" && <Pick label="Hạng" value={rank ?? ""} onChange={(v) => setRank(v || null)} options={[["", "Mọi hạng"], ...RANKS.map((r) => [r.id, r.name] as [string, string])]} />}
           </div>
-          {subject && kind === "stars" && (
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="text-sm font-bold text-white drop-shadow">Hạng:</span>
-              <button onClick={() => setRank(null)} className={chip(rank === null, "bg-peach")}>
-                Mọi hạng
-              </button>
-              {RANKS.map((r) => (
-                <button key={r.id} onClick={() => setRank(r.id)} className={chip(rank === r.id, "bg-peach")}>
-                  {r.name}
-                </button>
-              ))}
-            </div>
-          )}
 
           {rows && rows.length === 0 && <p className="text-ink-soft">Chưa có ai trong bảng này. Học một bài để mở màn nhé!</p>}
 
