@@ -17,4 +17,5 @@ export const tapDoc: Subject = {
   ],
   ready: true,
   stage: "primary",
+  arena: false,
 };
