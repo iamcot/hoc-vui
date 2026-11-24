@@ -64,7 +64,8 @@ lt-p01 Từ khối sang Python · lt-p02 print, biến, input · lt-p03 if/else 
 - [x] Cơ bản: 6 bài, 30 màn (Lặp N lần, Lặp trong lặp, Nếu có tường/đường, Lặp cho tới khi, Bút vẽ, Hoa văn). Bài Nếu và Lặp tới khi có **sân ẩn**: qua sân 1 thì cùng chương trình tự chạy sân 2, 3 (chấm theo bộ dữ liệu ẩn). Bút vẽ so nét vẽ với hình mẫu.
 - [ ] Tạo ảnh `lt-*` (prompt đã có trong `docs/ASSET_PROMPTS.md`), giọng `vo-lt-a01`
 - [ ] Sân chơi tự do + chia sẻ bằng mã
-- [ ] Trung cấp, Nâng cao
+- [x] Trung cấp (6 bài, 27 màn: biến n, hàm, hàm có số n, sự kiện phím + mini game có pin, sân ngẫu nhiên với Nếu/không thì)
+- [x] Nâng cao (6 bài, 24 màn: kho hàng danh sách, lớn/nhỏ nhất, tìm kiếm, nổi bọt, đệ quy, mê cung bám tường)
 - [ ] Pyodide + trình độ Python
 - [ ] Thi đấu
 - [ ] PR (mỗi trình độ một PR)
@@ -76,3 +77,12 @@ lt-p01 Từ khối sang Python · lt-p02 print, biến, input · lt-p03 if/else 
 - Code: `src/lib/code/skins.ts` (danh sách, mặc định, mở khóa), `src/components/code/skin.tsx` (nhân vật, ô sân, nền), `HoloStage.tsx` (sân 3D kính, HUD, radar), `ThemePicker.tsx`. CSS ở cuối `globals.css` (`.lt-skin-*`).
 - Hologram có bảng PREVIEW.PY dịch khối sang Python (`pythonLines`), dòng đang chạy sáng lên: chuẩn bị cho trình độ Python.
 - Đổi giao diện giữa màn thì bàn khối dựng lại, chương trình bé đang ghép giữ nguyên.
+
+## Trung cấp, Nâng cao: bộ chạy mở rộng
+
+- Chữ chương trình (`src/lib/code/program.ts`): `n=3` `n+1` `n(F)` biến n; `ten{...}` hàm, `@ten` gọi, `@ten:3` gọi với n = 3; `#u{...}` khi bấm phím (u l r s); `W?(... | ...)` nếu/không thì; `P` có đường phía trước.
+- Kho hàng (`src/lib/code/list.ts`): `>` sang hộp kế, `^` về hộp đầu, `%` đổi chỗ với hộp kế, `!` nhớ hộp này; điều kiện `E` hộp cuối, `X` số cần tìm, `M`/`N` lớn/nhỏ hơn số nhớ, `S` lớn hơn hộp kế. Chấm khi chạy xong.
+- Bộ chạy chung `interp` (run.ts) lo lặp, nếu, biến, hàm (gọi lồng tối đa 40), dùng cho cả sân lưới và kho hàng.
+- Màn phím: bấm 🎮 Chơi rồi lái bằng nút/phím mũi tên; pin giới hạn số lần bấm. Kiểm thử tìm cách bấm ít nhất (`solveKeys`) để chắc màn qua được và phím đơn giản không đủ pin.
+- Sân ngẫu nhiên: `pick: 3` bốc 3 trong các sân mỗi lần chơi; chấm vẫn soát mọi sân.
+- Chế độ xem thử `?debug=1`: bấm số màn để nhảy, nút 🧪 Lời giải nạp lời giải mẫu.

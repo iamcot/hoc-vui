@@ -10,7 +10,51 @@
 export type Dir = 0 | 1 | 2 | 3;
 
 /** các khối lệnh có trong môn (mỗi màn chỉ mở một phần) */
-export type BlockKind = "forward" | "left" | "right" | "repeat" | "if" | "until";
+export type BlockKind =
+  | "forward"
+  | "left"
+  | "right"
+  | "repeat"
+  | "if"
+  | "until"
+  // Trung cấp: biến n, hàm, hàm có số n, nếu/không thì, sự kiện phím
+  | "set"
+  | "add"
+  | "repeatn"
+  | "def"
+  | "call"
+  | "calln"
+  | "ifelse"
+  | "key"
+  // Nâng cao: kho hàng (danh sách)
+  | "next"
+  | "first"
+  | "swap"
+  | "mem"
+  | "lif"
+  | "lifelse"
+  | "luntil";
+
+/** mục tiêu của màn kho hàng */
+export type ListGoal = "sort" | "max" | "min" | "find" | "last" | "at";
+
+/** màn kho hàng: một hàng hộp có số, robot đứng ở hộp đầu */
+export interface ListSpec {
+  /** các hàng hộp (hàng đầu là sân chính, các hàng sau là sân ẩn) */
+  arrs: number[][];
+  goal: ListGoal;
+  /** số cần tìm (goal find), theo từng hàng */
+  find?: number[];
+  /** vị trí cần tới, đếm từ 0 (goal at) */
+  at?: number;
+}
+
+/** màn điều khiển bằng phím: bé lập trình phím rồi tự chơi */
+export interface KeySpec {
+  pad: ("u" | "l" | "r" | "s")[];
+  /** số lần bấm tối đa (pin) */
+  presses: number;
+}
 
 export interface Level {
   id: string;
@@ -31,6 +75,12 @@ export interface Level {
   alt?: { map: string[]; dir: Dir }[];
   /** màn bút vẽ: hình mẫu là nét do chương trình này vẽ ra; vẽ đúng y hệt là qua màn */
   draw?: string;
+  /** màn kho hàng (bỏ qua map) */
+  list?: ListSpec;
+  /** màn mini game điều khiển bằng phím */
+  keys?: KeySpec;
+  /** sân ngẫu nhiên: mỗi lần chơi bốc ngẫu nhiên `pick` sân trong các sân (chính + ẩn) */
+  pick?: number;
 }
 
 export interface Pos {

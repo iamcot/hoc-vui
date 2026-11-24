@@ -6,12 +6,30 @@ import { parseLevel } from "@/lib/code/world";
 import { traceTrail } from "@/lib/code/grade";
 import { Stage } from "./Stage";
 
-const CHIP = { forward: "bg-sky text-white", left: "bg-lilac text-white", right: "bg-lilac text-white", repeat: "bg-mint text-white", until: "bg-mint text-white", if: "bg-peach text-white" } as const;
+const CHIP: Record<Stmt["op"], string> = {
+  forward: "bg-sky text-white",
+  left: "bg-lilac text-white",
+  right: "bg-lilac text-white",
+  repeat: "bg-mint text-white",
+  until: "bg-mint text-white",
+  if: "bg-peach text-white",
+  def: "bg-pink-500 text-white",
+  call: "bg-pink-500 text-white",
+  key: "bg-sun text-ink",
+  set: "bg-amber-400 text-ink",
+  add: "bg-amber-400 text-ink",
+  next: "bg-sky text-white",
+  first: "bg-sky text-white",
+  swap: "bg-lilac text-white",
+  mem: "bg-amber-400 text-ink",
+};
 const LABEL = { forward: "👣 Đi tới", left: "↺ Rẽ trái", right: "↻ Rẽ phải" } as const;
+const ICON: Partial<Record<Stmt["op"], string>> = { if: "❓", def: "🧩", call: "⚡", set: "📦", add: "📦", key: "⌨️" };
 
 /** gắn id theo vị trí ("2", "2.0"…) để sáng đúng khối ngoài cùng đang chạy */
-const withIds = (p: Stmt[], pre = ""): Stmt[] => p.map((s, i) => ({ ...s, id: pre + i, ...("body" in s ? { body: withIds(s.body, `${pre}${i}.`) } : {}) }) as Stmt);
-const chipText = (s: Stmt) => (s.op === "forward" || s.op === "left" || s.op === "right" ? LABEL[s.op] : `${s.op === "if" ? "❓" : "🔁"} ${sayProgram([s])}`);
+const withIds = (p: Stmt[], pre = ""): Stmt[] =>
+  p.map((s, i) => ({ ...s, id: pre + i, ...("body" in s ? { body: withIds(s.body, `${pre}${i}.`) } : {}), ...(s.op === "if" && s.else ? { else: withIds(s.else, `${pre}${i}.e`) } : {}) }) as Stmt);
+const chipText = (s: Stmt) => (s.op === "forward" || s.op === "left" || s.op === "right" ? LABEL[s.op] : `${ICON[s.op] ?? "🔁"} ${sayProgram([s])}`);
 
 /** Slide bài học: lưới nhỏ + dãy khối mẫu, bấm "Xem chạy" thì Mochi đi theo, khối đang chạy sáng lên */
 export function CodeDemo({ map, dir, program, label, draw }: { map: string[]; dir: 0 | 1 | 2 | 3; program: string; label?: string; draw?: boolean }) {
@@ -56,15 +74,17 @@ export function CodeDemo({ map, dir, program, label, draw }: { map: string[]; di
       </div>
       <div className="flex min-w-0 flex-1 flex-col items-start gap-2">
         <div className="flex flex-wrap gap-1.5">
-          <span className="rounded-xl bg-sun px-2.5 py-1 text-sm font-extrabold text-ink">▶ Khi bấm Chạy</span>
-          {prog.map((s) => (
-            <span
-              key={s.id}
-              className={`rounded-xl px-2.5 py-1 text-sm font-extrabold transition ${CHIP[s.op]} ${active === s.id ? "scale-110 ring-4 ring-sun" : ""}`}
-            >
-              {chipText(s)}
-            </span>
-          ))}
+          {[...prog.filter((s) => s.op === "def"), null, ...prog.filter((s) => s.op !== "def")].map((s) =>
+            s ? (
+              <span key={s.id} className={`rounded-xl px-2.5 py-1 text-sm font-extrabold transition ${CHIP[s.op]} ${active === s.id ? "scale-110 ring-4 ring-sun" : ""}`}>
+                {chipText(s)}
+              </span>
+            ) : (
+              <span key="start" className="rounded-xl bg-sun px-2.5 py-1 text-sm font-extrabold text-ink">
+                ▶ Khi bấm Chạy
+              </span>
+            ),
+          )}
         </div>
         {label && <p className="text-base font-bold text-ink-soft">{label}</p>}
         <button className="btn btn-primary px-5! py-2!" onClick={start}>

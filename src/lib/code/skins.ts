@@ -20,7 +20,7 @@ export interface Skin {
   blockly: {
     renderer: "zelos" | "thrasos";
     font: { family: string; size: number; weight: string };
-    styles: { event: Trio; move: Trio; turn: Trio; loop: Trio; logic: Trio };
+    styles: { event: Trio; move: Trio; turn: Trio; loop: Trio; logic: Trio; func: Trio; data: Trio };
     bg: string;
     flyout: string;
     flyoutOpacity: number;
@@ -44,6 +44,8 @@ export const SKINS: Record<SkinId, Skin> = {
         turn: ["#ff77a8", "#ffb0cc", "#000000"],
         loop: ["#00b46a", "#00e436", "#000000"],
         logic: ["#ff004d", "#ff6b8f", "#000000"],
+        func: ["#83769c", "#c2c3c7", "#000000"],
+        data: ["#ab5236", "#ffccaa", "#000000"],
       },
       bg: "#120a24",
       flyout: "#1d1033",
@@ -66,6 +68,8 @@ export const SKINS: Record<SkinId, Skin> = {
         turn: ["#a66bff", "#c9a4ff", "#7d44d6"],
         loop: ["#2fd9a0", "#86ecc8", "#1ca57a"],
         logic: ["#ff5a7a", "#ff9bb0", "#d93a5a"],
+        func: ["#ff6fcf", "#ffaee6", "#d146a5"],
+        data: ["#f5b700", "#ffd966", "#c79200"],
       },
       bg: "#ffffff",
       flyout: "#eef2ff",
@@ -88,6 +92,8 @@ export const SKINS: Record<SkinId, Skin> = {
         turn: ["#7c4dff", "#a587ff", "#c9b5ff"],
         loop: ["#00c08b", "#43e0b0", "#7dffd9"],
         logic: ["#ff3d8f", "#ff7ab2", "#ffb3d3"],
+        func: ["#d63dff", "#e58aff", "#f0c2ff"],
+        data: ["#e8c400", "#ffe45c", "#fff2a8"],
       },
       bg: "#060d2e",
       flyout: "#0b1648",
@@ -110,6 +116,8 @@ export const SKINS: Record<SkinId, Skin> = {
         turn: ["#b28cff", "#dccbff", "#d4c0ff"],
         loop: ["#7dffb0", "#c9ffe0", "#b5ffd2"],
         logic: ["#ff5fa8", "#ffa8d0", "#ffb8d8"],
+        func: ["#ff8cf0", "#ffc6f7", "#ffd0f8"],
+        data: ["#ffe66d", "#fff3b0", "#fff0a0"],
       },
       bg: "#04161e",
       flyout: "#03141b",
