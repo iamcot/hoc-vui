@@ -1,5 +1,6 @@
 "use client";
 import { startRecording, type Recording, type RecorderHandle } from "./recorder";
+import { duckMusic } from "@/lib/sound";
 
 /**
  * Nghe bé đọc. Ba cách, tự chọn theo thứ tự:
@@ -39,7 +40,9 @@ export function detectEngine(): Promise<Engine> {
     engineP = fetch("/api/nghe")
       .then((r) => (r.ok ? r.json() : { enabled: false }))
       .catch(() => ({ enabled: false }))
-      .then((j: { enabled?: boolean }) => (j.enabled ? "cloud" : SRClass() && !browserBroken ? "browser" : "self"));
+      // Safari trên iPad/iPhone gần như không nhận được tiếng Việt (trả rỗng) và không ghi âm song song được,
+      // nên ở đó không dùng nhận dạng của trình duyệt: ghi âm để bé nghe lại và tự chấm (hoặc dùng "cloud" nếu máy chủ có khóa)
+      .then((j: { enabled?: boolean }) => (j.enabled ? "cloud" : SRClass() && !browserBroken && !isIOS() ? "browser" : "self"));
   return engineP;
 }
 
@@ -66,23 +69,33 @@ export async function listen(hint: string, opts: { onLevel?: (v: number) => void
     const sr = new (SRClass()!)();
     sr.lang = "vi-VN";
     sr.continuous = false;
-    sr.interimResults = false;
+    // Safari (iPad) hay chỉ trả kết quả tạm rồi kết thúc, nên nhận cả kết quả tạm và lấy bản mới nhất
+    sr.interimResults = true;
     sr.maxAlternatives = 5;
     // trên iPad, ghi âm song song có thể giành micro của nhận dạng nên bỏ qua
     // ghi âm song song để bé nghe lại, và để biết lúc bé ngừng đọc thì dừng nghe luôn
     let rec: RecorderHandle | null = null;
-    if (!isIOS()) rec = await startRecording({ onLevel: opts.onLevel, maxSeconds, autoStop: false, onSilence: () => sr.stop() }).catch(() => null);
+    if (isIOS()) duckMusic(true);
+    else rec = await startRecording({ onLevel: opts.onLevel, maxSeconds, autoStop: false, onSilence: () => sr.stop() }).catch(() => null);
     const result = new Promise<Heard>((resolve) => {
-      const alts: string[] = [];
+      let finals: string[] = [];
+      let interim: string[] = [];
       let settled = false;
       const finish = async (eng: Engine) => {
         if (settled) return;
         settled = true;
         rec?.stop();
+        if (isIOS()) duckMusic(false);
+        const alts = [...new Set([...finals, ...interim].map((t) => t.trim()).filter(Boolean))];
         resolve({ engine: eng, alts, recording: rec ? await rec.done : null });
       };
       sr.onresult = (e) => {
-        for (const r of Array.from(e.results)) for (const a of Array.from(r)) if (a.transcript) alts.push(a.transcript);
+        // ghép các đoạn thành câu (cách tốt nhất), cộng thêm các cách nghe khác của từng đoạn
+        const res = Array.from(e.results);
+        const joined = res.map((r) => r[0]?.transcript ?? "").join(" ");
+        const others = res.flatMap((r) => Array.from(r).slice(1).map((a) => a.transcript));
+        if (res.every((r) => r.isFinal)) finals = [joined, ...others];
+        else interim = [joined, ...others];
       };
       sr.onerror = (e) => {
         if (["language-not-supported", "service-not-allowed", "not-allowed", "network"].includes(e.error)) {

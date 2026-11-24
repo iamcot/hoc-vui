@@ -5,7 +5,11 @@ import { setMusic } from "@/lib/sound";
 import { useProgress } from "@/lib/store";
 
 /** bản nhạc nền theo màn hình */
-export function trackFor(path: string): string {
+/** Tập đọc: bé cần tập trung và máy cần nghe rõ giọng bé, nên không có nhạc nền (cũng không hiện nút nhạc) */
+export const noMusic = (path: string) => /^\/hoc\/tap-doc\/.+/.test(path);
+
+export function trackFor(path: string): string | undefined {
+  if (noMusic(path)) return undefined;
   if (/^\/go-phim\/sinh-ton/.test(path) || /^\/hoc\/go-phim\/[^/]+\/luyen-tap/.test(path)) return "bgm-gp-game";
   if (/^\/hoc\/go-phim/.test(path) || /^\/go-phim\//.test(path)) return "bgm-gp";
   if (/^\/thi-dau\/[^/]+/.test(path)) return "bgm-arena";
@@ -23,7 +27,9 @@ export function MusicDirector() {
 /** nút bật/tắt nhạc nền */
 export function MusicToggle({ className = "", dark = false }: { className?: string; dark?: boolean }) {
   const { data, setMusicPref } = useProgress();
+  const path = usePathname();
   const on = data.music;
+  if (noMusic(path)) return null;
   return (
     <button
       onClick={() => setMusicPref(!on)}

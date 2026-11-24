@@ -9,7 +9,7 @@ import { Mascot } from "@/components/Mascot";
 import { FEEDBACK } from "./feedback";
 import { Ico } from "@/components/Ico";
 
-type State = "idle" | "listening" | "checking" | "done" | "self" | "error";
+type State = "idle" | "listening" | "checking" | "done" | "self" | "error" | "unheard";
 
 const MARK_CLS = { ok: "text-mint", tone: "text-sun underline decoration-wavy decoration-2 underline-offset-8", miss: "text-berry underline decoration-wavy decoration-2 underline-offset-8" } as const;
 
@@ -77,6 +77,12 @@ export function ReadAloud({
         if (heard.recording) void speak(FEEDBACK.tu);
         return;
       }
+      // máy không nghe ra chữ nào: không tính là sai, mời đọc lại (lần thứ 2 trở đi cho bố mẹ chấm)
+      if (!heard.alts.length) {
+        setTries((t) => t + 1);
+        setState("unheard");
+        return;
+      }
       setState("checking");
       const r = compareReading(text, heard.alts, strict);
       setRes(r);
@@ -140,7 +146,16 @@ export function ReadAloud({
             <Mascot mood={res.pass ? "cheer" : "oops"} size={56} />
             <div>
               <div className="font-display text-xl font-extrabold">{res.pass ? FEEDBACK.dung : res.marks.some((m) => m === "tone") ? FEEDBACK.dau : FEEDBACK.lai}</div>
-              {!res.pass && <div className="text-sm text-ink-soft">Mochi nghe được: “{res.heard || "…"}”. Bấm <Ico n="sound" /> nghe mẫu rồi đọc lại.</div>}
+              {!res.pass && (
+                <div className="text-sm text-ink-soft">
+                  Mochi nghe thành: <b className="text-ink">“{res.heard || "…"}”</b>. Chữ <span className="text-berry">đỏ</span> là đọc chưa đúng, <span className="text-sun">vàng</span> là sai dấu. Bấm <Ico n="sound" /> nghe mẫu rồi đọc lại.
+                </div>
+              )}
+              {!res.pass && tries >= 2 && (
+                <button className="btn btn-ghost mt-2 text-sm" onClick={() => { setState("idle"); play("correct"); onResult?.(true, "__ok__"); }}>
+                  ✓ Máy nghe nhầm? Bố mẹ chấm đúng
+                </button>
+              )}
             </div>
           </motion.div>
         )}
@@ -160,6 +175,17 @@ export function ReadAloud({
             <button className="btn btn-ghost" onClick={start}>
               ↻ Đọc lại
             </button>
+          </motion.div>
+        )}
+        {state === "unheard" && (
+          <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="mt-4 flex flex-wrap items-center gap-3 rounded-3xl bg-sky-soft p-3">
+            <Mascot mood="think" size={48} />
+            <span className="font-bold">Mochi chưa nghe rõ. Em để máy gần hơn, đọc to và rõ từng tiếng nhé.</span>
+            {tries >= 2 && (
+              <button className="btn btn-mint" onClick={() => { setState("idle"); play("correct"); onResult?.(true, "__ok__"); }}>
+                ✓ Bố mẹ chấm: đọc đúng
+              </button>
+            )}
           </motion.div>
         )}
         {state === "error" && <div className="mt-3 text-sm text-berry">Mochi chưa nghe thấy gì. Em cho phép dùng micro rồi đọc to hơn một chút nhé.</div>}
