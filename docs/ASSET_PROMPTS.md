@@ -24,7 +24,7 @@ File này sinh tự động từ `src/content/assets.ts` bằng `npm run prompts
 - Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator
 - Xi Xi: a friendly anthropomorphic scientific calculator (dark navy body, light gray keys, small LCD screen showing a smile), tiny arms and legs
 
-## Ảnh (97)
+## Ảnh (98)
 
 ### ✅ `mochi-happy.webp`
 - Dùng ở: Mochi vui vẻ: lời chào, slide mở đầu
@@ -650,6 +650,14 @@ A small sleek robotic piranha-like fish with amber glowing fins, side view, swim
 A cyber jellyfish with a violet translucent dome and glowing pink circuit tentacles, front view, the dome has a darker flat center area for a short word label. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
 ```
 
+### ✅ `gp-hands.webp`
+- Dùng ở: Hai bàn tay nét mảnh đặt trên bàn phím ảo (chế độ Ngón tay ảo). App tự canh đầu ngón út trùng phím A và ;
+- Kích thước: 1536x1024 · nền trong suốt
+
+```text
+Two human hands seen from directly above in the classic touch-typing home-row position, as in a typing-tutor diagram: the eight fingertips rest in one straight horizontal row across the image at about 30% from the top, evenly spaced, left pinky fingertip at about 12% from the left edge and right pinky fingertip at about 88%; fingers gently curved and relaxed, natural proportions (middle finger longest, pinky shortest); both thumbs rest a little lower near the center pointing slightly toward each other; wrists and forearms continue straight down to the bottom edge; left and right hands mirror each other. Elegant minimal line drawing: one smooth continuous thin white outline (about 3 px), no fill, no shading, no color, no fingernails detail, no keyboard, no background objects, clean vector look like a premium app icon guide, no text, no letters, no watermark, isolated on a fully transparent background.
+```
+
 ### ✅ `gp-shark.webp`
 - Dùng ở: Cá mập máy (mang một từ)
 - Kích thước: 1536x1024 · nền trong suốt
@@ -802,7 +810,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile in a submarine cockpit typing, glowing Vietnamese-style accent marks (hooks, hats, tone marks) floating like bubbles, no full words. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
 ```
 
-## Âm thanh (59)
+## Âm thanh (63)
 
 Cài đặt giọng đọc gợi ý: ElevenLabs Text to Speech, model Multilingual v2 hoặc v3, giọng nữ trẻ ấm áp (vd. chọn giọng tiếng Việt trong Voice Library), stability ~50%, style thấp, tốc độ chậm vừa. Xuất MP3 44.1kHz.
 
@@ -815,7 +823,11 @@ Cài đặt giọng đọc gợi ý: ElevenLabs Text to Speech, model Multilingu
 | ✅ | `sfx/levelup.mp3` | Hiệu ứng | Kết quả kiểm tra trình độ, lên cấp | Uplifting harp glissando followed by a soft chime, 2.5 seconds |
 | ✅ | `sfx/tick.mp3` | Hiệu ứng | Đếm ngược 3 giây cuối khi thi đấu | Soft clock tick, single, 0.2 seconds |
 | ✅ | `sfx/whoosh.mp3` | Hiệu ứng | Chuyển slide | Very soft paper whoosh, 0.3 seconds |
-| ✅ | `sfx/bgm-learn.mp3` | Nhạc | Nhạc nền nhẹ (tùy chọn, bật trong cài đặt) | Calm lo-fi acoustic loop for children studying, soft piano and ukulele, 80 bpm, seamless loop, 60 seconds |
+| ✅ | `sfx/bgm-learn.mp3` | Nhạc | Nhạc nền khi học bài, làm bài (môn Máy tính, Tập đọc) | Calm lo-fi acoustic loop for children studying, soft piano and ukulele, 80 bpm, seamless loop, 60 seconds |
+| ✅ | `sfx/bgm-home.mp3` | Nhạc | Nhạc nền trang chủ, bản đồ bài, xếp hạng | Light cheerful adventure loop for a kids learning app menu, gentle marimba, soft pizzicato strings and light bells, warm and curious mood, 95 bpm, no vocals, no big drums, seamless loop, 60 seconds |
+| ✅ | `sfx/bgm-gp.mp3` | Nhạc | Nhạc nền môn Gõ phím: bản đồ, bài học, bài gõ hay (cyber, tập trung) | Chill synthwave lo-fi loop for focused typing practice, soft analog synth pads, mellow arpeggio, light muted beat, deep-sea cyber city mood, 85 bpm, no vocals, unobtrusive, seamless loop, 75 seconds |
+| ✅ | `sfx/bgm-gp-game.mp3` | Nhạc | Nhạc nền game cá mập và chế độ sinh tồn | Upbeat underwater electronic action loop for a kids typing game, bubbly synth bass, plucky arpeggios, light driving drums, sonar pings, exciting but not stressful, 120 bpm, no vocals, seamless loop, 75 seconds |
+| ✅ | `sfx/bgm-arena.mp3` | Nhạc | Nhạc nền phòng thi đấu (đua xe gõ phím, thi máy tính) | Energetic competition loop for kids, bright synth lead, punchy but soft drums, racing countdown energy, positive and fun, 128 bpm, no vocals, seamless loop, 60 seconds |
 | ✅ | `voice/vo-l01-s1.mp3` | Giọng đọc | Bài 1, slide 1 | Chào em, tớ là Mochi! Đây là bạn đồng hành mới của chúng mình, máy tính Casio fx năm tám mươi V N X. Tớ gọi bạn ấy là Xi Xi. Cùng làm quen nhé! |
 | ✅ | `voice/vo-l01-s2.mp3` | Giọng đọc | Bài 1, slide 2 | Bấm ON để bật máy. Phím AC xóa hết để làm phép tính mới, còn phím DEL chỉ xóa một chữ số thôi. |
 | ✅ | `voice/vo-l01-s3.mp3` | Giọng đọc | Bài 1, slide 3 | Em có thấy chữ nhỏ màu vàng và màu đỏ trên phím không? Bấm SHIFT để dùng chữ vàng, bấm ALPHA để dùng chữ đỏ. |
