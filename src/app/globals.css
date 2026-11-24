@@ -339,6 +339,12 @@ button {
 .theme-cyber {
   color: #eaf6ff;
 }
+/* nút tròn trắng (đóng, loa...) đổi sang kính tối viền neon */
+.theme-cyber .rounded-full.bg-white {
+  background: rgb(8 16 52 / 0.8);
+  color: #9fe9ff;
+  box-shadow: 0 0 0 1px rgb(47 211 255 / 0.45), 0 0 16px -4px rgb(47 211 255 / 0.6);
+}
 .theme-cyber .border-white {
   border-color: #23357d;
 }

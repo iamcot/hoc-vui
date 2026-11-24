@@ -1,4 +1,5 @@
 "use client";
+import { duckMusic } from "@/lib/sound";
 
 /**
  * Ghi âm giọng bé bằng Web Audio (chạy được trên Safari iPad, Chrome, Edge),
@@ -18,7 +19,14 @@ export interface RecorderHandle {
 const RATE = 16000;
 
 export async function startRecording(opts: { maxSeconds?: number; onLevel?: (v: number) => void; autoStop?: boolean; silenceMs?: number; onSilence?: () => void } = {}): Promise<RecorderHandle> {
-  const stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true, channelCount: 1 } });
+  duckMusic(true);
+  let stream: MediaStream;
+  try {
+    stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true, channelCount: 1 } });
+  } catch (e) {
+    duckMusic(false);
+    throw e;
+  }
   const Ctx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
   const ctx = new Ctx();
   await ctx.resume();
@@ -41,6 +49,7 @@ export async function startRecording(opts: { maxSeconds?: number; onLevel?: (v: 
   const stop = () => {
     if (stopped) return;
     stopped = true;
+    duckMusic(false);
     proc.disconnect();
     src.disconnect();
     stream.getTracks().forEach((t) => t.stop());

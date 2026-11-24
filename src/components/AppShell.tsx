@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import { IconArena, IconLearn, IconMe, IconRank } from "./Icons";
 import { useProgress } from "@/lib/store";
 import { Avatar } from "./Avatar";
+import { MusicDirector, MusicToggle } from "./Music";
 
 const TABS = [
   { href: "/", label: "Học", Icon: IconLearn, match: (p: string) => p === "/" || p.startsWith("/hoc") },
@@ -15,13 +16,25 @@ const TABS = [
 /** Màn hình tập trung (bài học, làm bài, phòng thi) ẩn thanh điều hướng */
 const isFocus = (p: string) => /^\/hoc\/[^/]+\/.+/.test(p) || /^\/thi-dau\/[^/]+/.test(p);
 
+const floatingMusic = (p: string) => p.startsWith("/go-phim/") || p.startsWith("/thi-dau/") || /^\/hoc\/go-phim\/[^/]+\/luyen-tap/.test(p);
+
 export function AppShell({ children }: { children: React.ReactNode }) {
   const path = usePathname();
   const { data, streak } = useProgress();
-  if (isFocus(path)) return <div className="min-h-dvh">{children}</div>;
+  if (isFocus(path) || path.startsWith("/go-phim/"))
+    return (
+      <div className="min-h-dvh">
+        <MusicDirector />
+        {children}
+        {/* bài học và bài tập có nút nhạc trên thanh đầu; game, phòng thi dùng nút nổi */}
+        {floatingMusic(path) && <MusicToggle dark className="fixed bottom-3 right-3 z-40 h-9 w-9" />}
+      </div>
+    );
 
   return (
     <div className="min-h-dvh md:flex">
+      <MusicDirector />
+      <MusicToggle className="fixed right-3 top-3 z-40 md:hidden" />
       {/* Thanh bên cho iPad ngang và laptop */}
       <aside className="sticky top-0 hidden h-dvh w-60 shrink-0 flex-col gap-2 bg-white/65 p-4 shadow-[8px_0_30px_-20px_rgba(40,40,120,0.4)] backdrop-blur-xl md:flex lg:w-64">
         <Link href="/" className="mb-4 flex items-center gap-2 px-2">
@@ -49,6 +62,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
               ⭐ {data.xp} XP · 🔥 {streak}
             </div>
           </div>
+          <MusicToggle className="ml-auto shrink-0" />
         </div>
       </aside>
 

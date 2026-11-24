@@ -18,6 +18,7 @@ const voiceReady = (id: string) => {
 };
 import { speak, stopSpeak } from "@/lib/speech/tts";
 import { Kbd } from "@/components/typing/Kbd";
+import { MusicToggle } from "@/components/Music";
 import { Scene } from "@/components/Scene";
 
 export function LessonPlayer({ subjectId, lessonId }: { subjectId: string; lessonId: string }) {
@@ -108,6 +109,7 @@ export function LessonPlayer({ subjectId, lessonId }: { subjectId: string; lesso
               <span key={k} className={`h-2.5 flex-1 rounded-full transition-colors ${k < i || finished ? "bg-mint" : k === i ? "bg-sky" : "bg-line"}`} />
             ))}
           </div>
+          <MusicToggle />
           <button onClick={() => setSound(!data.sound)} className="grid h-10 w-10 place-items-center rounded-full bg-white shadow-sm" aria-label="Bật tắt âm thanh">
             <IconSound off={!data.sound} className="h-5 w-5" />
           </button>

@@ -176,6 +176,14 @@ export const IMAGES: ImageAsset[] = [
   cyber("gp-bit-diver", "1024x1024", "Thợ lặn trong game cá mập (bên trái màn hình, nhìn sang phải)", `${BIT} in a sleek dark-navy diving suit with cyan neon lines, round glass helmet around the head with the ears inside, small oxygen tank on the back, holding a laser blaster shaped like a compact keyboard pointing to the RIGHT, floating underwater, side three-quarter view facing right`, true),
   cyber("gp-fish", "1024x1024", "Cá nhỏ trong game (mang 1-3 chữ cái)", `A small sleek robotic piranha-like fish with amber glowing fins, ${SEA_FISH}`, true),
   cyber("gp-jelly", "1024x1024", "Sứa trong game (mang 1-3 chữ cái)", "A cyber jellyfish with a violet translucent dome and glowing pink circuit tentacles, front view, the dome has a darker flat center area for a short word label", true),
+  img(
+    "gp-hands",
+    "1536x1024",
+    "Hai bàn tay nét mảnh đặt trên bàn phím ảo (chế độ Ngón tay ảo). App tự canh đầu ngón út trùng phím A và ;",
+    "Two human hands seen from directly above in the classic touch-typing home-row position, as in a typing-tutor diagram: the eight fingertips rest in one straight horizontal row across the image at about 30% from the top, evenly spaced, left pinky fingertip at about 12% from the left edge and right pinky fingertip at about 88%; fingers gently curved and relaxed, natural proportions (middle finger longest, pinky shortest); both thumbs rest a little lower near the center pointing slightly toward each other; wrists and forearms continue straight down to the bottom edge; left and right hands mirror each other",
+    true,
+    "Elegant minimal line drawing: one smooth continuous thin white outline (about 3 px), no fill, no shading, no color, no fingernails detail, no keyboard, no background objects, clean vector look like a premium app icon guide, no text, no letters, no watermark",
+  ),
   cyber("gp-shark", "1536x1024", "Cá mập máy (mang một từ)", `A cool mechanical shark with dark navy armor plates, cyan glowing gill lines and a red glowing eye, sharp but not gory, ${SEA_FISH}`, true),
   cyber("gp-boss", "1536x1024", "Cá mập trùm (mang từ dài, câu)", `A huge boss mechanical shark with magenta neon armor, glowing pink eyes, spiky dorsal fin like a radio antenna, menacing but kid-friendly, ${SEA_FISH}`, true),
   cyber("bg-gp-deep", "1536x1024", "Cảnh nền game cá mập: biển sâu (để trống giữa cho cá bơi qua)", "Wide underwater scene in the deep ocean at night: soft god rays from the surface at the top, a far-away glowing cyber city of coral towers on the seabed at the bottom, floating particles, the middle band left mostly empty and dark-blue so fish sprites and labels stay readable, low contrast at the center"),
@@ -211,7 +219,12 @@ export const AUDIO: AudioAsset[] = [
   sfx("levelup", "Kết quả kiểm tra trình độ, lên cấp", "Uplifting harp glissando followed by a soft chime, 2.5 seconds"),
   sfx("tick", "Đếm ngược 3 giây cuối khi thi đấu", "Soft clock tick, single, 0.2 seconds"),
   sfx("whoosh", "Chuyển slide", "Very soft paper whoosh, 0.3 seconds"),
-  { id: "bgm-learn", file: "/assets/sfx/bgm-learn.mp3", kind: "music", usage: "Nhạc nền nhẹ (tùy chọn, bật trong cài đặt)", prompt: "Calm lo-fi acoustic loop for children studying, soft piano and ukulele, 80 bpm, seamless loop, 60 seconds" },
+  // nhạc nền: lặp liền mạch, không lời, nhỏ nhẹ để không át giọng đọc
+  { id: "bgm-learn", file: "/assets/sfx/bgm-learn.mp3", kind: "music", usage: "Nhạc nền khi học bài, làm bài (môn Máy tính, Tập đọc)", prompt: "Calm lo-fi acoustic loop for children studying, soft piano and ukulele, 80 bpm, seamless loop, 60 seconds" },
+  { id: "bgm-home", file: "/assets/sfx/bgm-home.mp3", kind: "music", usage: "Nhạc nền trang chủ, bản đồ bài, xếp hạng", prompt: "Light cheerful adventure loop for a kids learning app menu, gentle marimba, soft pizzicato strings and light bells, warm and curious mood, 95 bpm, no vocals, no big drums, seamless loop, 60 seconds" },
+  { id: "bgm-gp", file: "/assets/sfx/bgm-gp.mp3", kind: "music", usage: "Nhạc nền môn Gõ phím: bản đồ, bài học, bài gõ hay (cyber, tập trung)", prompt: "Chill synthwave lo-fi loop for focused typing practice, soft analog synth pads, mellow arpeggio, light muted beat, deep-sea cyber city mood, 85 bpm, no vocals, unobtrusive, seamless loop, 75 seconds" },
+  { id: "bgm-gp-game", file: "/assets/sfx/bgm-gp-game.mp3", kind: "music", usage: "Nhạc nền game cá mập và chế độ sinh tồn", prompt: "Upbeat underwater electronic action loop for a kids typing game, bubbly synth bass, plucky arpeggios, light driving drums, sonar pings, exciting but not stressful, 120 bpm, no vocals, seamless loop, 75 seconds" },
+  { id: "bgm-arena", file: "/assets/sfx/bgm-arena.mp3", kind: "music", usage: "Nhạc nền phòng thi đấu (đua xe gõ phím, thi máy tính)", prompt: "Energetic competition loop for kids, bright synth lead, punchy but soft drums, racing countdown energy, positive and fun, 128 bpm, no vocals, seamless loop, 60 seconds" },
 
   voice("vo-l01-s1", "Bài 1, slide 1", "Chào em, tớ là Mochi! Đây là bạn đồng hành mới của chúng mình, máy tính Casio fx năm tám mươi V N X. Tớ gọi bạn ấy là Xi Xi. Cùng làm quen nhé!"),
   voice("vo-l01-s2", "Bài 1, slide 2", "Bấm ON để bật máy. Phím AC xóa hết để làm phép tính mới, còn phím DEL chỉ xóa một chữ số thôi."),

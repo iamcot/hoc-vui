@@ -2,7 +2,7 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 import type { Session } from "@supabase/supabase-js";
 import { getSupabase } from "./supabase";
-import { setMuted } from "./sound";
+import { setMusicOn, setMuted } from "./sound";
 
 export interface LessonState {
   /** đã học hết slide */
@@ -34,6 +34,8 @@ export interface ProgressData {
   unlocks: Record<string, string[]>;
   profile: Profile;
   sound: boolean;
+  /** nhạc nền */
+  music: boolean;
   /** môn máy tính: bấm máy ảo trên màn hình hay máy thật */
   calcMode: "virtual" | "physical";
   /** XP theo ngày, dùng cho chuỗi ngày học: yyyy-mm-dd -> xp */
@@ -51,6 +53,7 @@ const EMPTY: ProgressData = {
   unlocks: {},
   profile: { name: "", avatar: "fox" },
   sound: true,
+  music: true,
   calcMode: "virtual",
   days: {},
   last: {},
@@ -106,6 +109,7 @@ interface Store {
   addXp(subjectId: string, amount: number, reason: string): void;
   setProfile(p: Partial<Profile>): void;
   setSound(on: boolean): void;
+  setMusicPref(on: boolean): void;
   setCalcMode(m: ProgressData["calcMode"]): void;
   signOut(): Promise<void>;
   streak: number;
@@ -125,6 +129,7 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
     const d = loadLocal();
     setData(d);
     setMuted(!d.sound);
+    setMusicOn(d.music);
     setReady(true);
   }, []);
 
@@ -266,6 +271,10 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
       setSound(on) {
         setMuted(!on);
         update((d) => ({ ...d, sound: on }));
+      },
+      setMusicPref(on) {
+        setMusicOn(on);
+        update((d) => ({ ...d, music: on }));
       },
       setCalcMode(m) {
         update((d) => ({ ...d, calcMode: m }));

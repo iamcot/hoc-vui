@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { IconClose } from "@/components/Icons";
 import { Scene } from "@/components/Scene";
+import { MusicToggle } from "@/components/Music";
 
 export function QuizHeader({ closeHref, done, total, right, wide }: { closeHref: string; done: number; total: number; right?: React.ReactNode; wide?: boolean }) {
   return (
@@ -19,6 +20,7 @@ export function QuizHeader({ closeHref, done, total, right, wide }: { closeHref:
           {Math.min(done + 1, total)}/{total}
         </span>
         {right}
+        <MusicToggle />
       </div>
     </header>
     </>
