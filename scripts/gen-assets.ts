@@ -18,10 +18,10 @@
 //   ELEVENLABS_MODEL=eleven_multilingual_v2  (mặc định, đọc được tiếng Việt; hoặc eleven_v3, eleven_flash_v2_5)
 //   OPENAI_IMAGE_MODEL=gpt-image-1 (tùy chọn)
 //
-// File tạo ra nằm ở assets-src/<id>.png | .mp3, sau đó script tự chạy convert-assets (PNG → WebP vào
+// Ảnh tạo ra nằm ở assets-src/<id>.png rồi được chuyển sang WebP; âm thanh ghi thẳng vào public/assets/voice|sfx. Sau đó chạy convert-assets (PNG → WebP vào
 // public/assets/...), scan-assets và in lại docs/ASSET_PROMPTS.md.
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
-import { basename, extname, join } from "node:path";
+import { basename, dirname, extname, join } from "node:path";
 import { AUDIO, IMAGES, TAPDOC_AUDIO, type AudioAsset, type ImageAsset } from "@/content/assets";
 import { REF_INTRO, SRC, cli, loadEnv, mochiFirst, pick, refsFor as refsOf, finalize, whereIs } from "./asset-lib";
 
@@ -136,8 +136,11 @@ async function genAudio(a: AudioAsset) {
     });
   }
   await check(res, a.id);
-  writeFileSync(join(SRC, `${a.id}.mp3`), Buffer.from(await res.arrayBuffer()));
-  return "";
+  // âm thanh ghi thẳng vào chỗ app đọc (public/assets/voice hoặc sfx), không qua assets-src
+  const out = join("public", a.file);
+  mkdirSync(dirname(out), { recursive: true });
+  writeFileSync(out, Buffer.from(await res.arrayBuffer()));
+  return `→ ${out}`;
 }
 
 async function pool<T>(items: T[], n: number, fn: (t: T) => Promise<void>) {
