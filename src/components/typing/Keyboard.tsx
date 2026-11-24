@@ -120,7 +120,19 @@ const LEFT: Finger[] = ["L5", "L4", "L3", "L2"];
 const RIGHT: Finger[] = ["R2", "R3", "R4", "R5"];
 const HANDS_IMG = "/assets/img/gp-hands.webp";
 /** toạ độ (tỉ lệ 0-1) đầu ngón út hai tay trong ảnh gp-hands, và tỉ lệ cao/rộng của ảnh. Chỉnh lại khi có ảnh thật. */
-const HANDS_TIPS = { l5: { x: 0.12, y: 0.3 }, r5: { x: 0.88, y: 0.3 }, ratio: 1024 / 1536 };
+/** ảnh gp-hands (976x660): đầu ngón và gốc ngón tay trái, đo trên ảnh; tay phải lấy đối xứng */
+const HANDS_W = 976;
+const HANDS_H = 660;
+const HANDS_MID = 488;
+const HAND_L: Record<string, { tip: [number, number]; base: [number, number] }> = {
+  L5: { tip: [100, 125], base: [112, 262] },
+  L4: { tip: [200, 85], base: [195, 245] },
+  L3: { tip: [292, 62], base: [282, 248] },
+  L2: { tip: [395, 105], base: [350, 350] },
+  T: { tip: [440, 275], base: [385, 365] },
+};
+/** hàng đầu ngón trong ảnh ứng với tâm hàng phím nhà */
+const HANDS_ROW_Y = 85;
 
 /**
  * Hai bàn tay ảo (viền liền khối, lòng kính mờ) đè lên bàn phím: tám ngón đặt trên hàng nhà, ngón cái trên phím cách.
@@ -142,7 +154,11 @@ function Hands({ board, next, onExtra }: { board: React.RefObject<HTMLDivElement
         out[k.dataset.k!] = { x: r.left - b.left + r.width / 2, y: r.top - b.top + r.height / 2, w: r.width, h: r.height };
       });
       setPos(out);
-      if (out.a) onExtra(hasFile(HANDS_IMG) ? Math.round(out.a.h * 2.2) : 0);
+      // chừa chỗ phía dưới bàn phím cho cẳng tay trong ảnh
+      if (hasFile(HANDS_IMG) && out.a && out.f) {
+        const sc = (out.f.x - out.a.x) / (HAND_L.L2.tip[0] - HAND_L.L5.tip[0]);
+        onExtra(Math.max(0, Math.round(out.a.y + (HANDS_H - 30 - HANDS_ROW_Y) * sc - b.height)));
+      } else onExtra(0);
       setSize({ w: b.width, h: b.height });
     };
     measure();
@@ -159,52 +175,78 @@ function Hands({ board, next, onExtra }: { board: React.RefObject<HTMLDivElement
   const active = fingerOf(next);
   const sh = shiftSide(next);
 
-  // vị trí đầu ngón trên phím (ngón trỏ ở F/J, ngón cái trên phím cách)
-  const tipOf = (f: Finger, side?: "L" | "R"): Pt | undefined =>
-    f === "T" ? { ...pos.space, x: pos.space.x + (side === "L" ? -kw * 1.2 : kw * 1.2) } : pos[HOME[f as keyof typeof HOME]];
-  const lit: { f: Finger; at: Pt }[] = [];
-  if (active === "T") lit.push({ f: "T", at: tipOf("T", "R")! });
-  else if (active && tipOf(active)) lit.push({ f: active, at: tipOf(active)! });
-  if (sh) lit.push({ f: sh === "L" ? "L5" : "R5", at: tipOf(sh === "L" ? "L5" : "R5")! });
-
-  // ảnh bàn tay: đặt sao cho đầu ngón út hai tay trùng phím A và ;
   const right = pos[";"];
-  const img = hasFile(HANDS_IMG) && right ? (() => {
-    const span = right.x - pos.a.x;
-    const w = span / (HANDS_TIPS.r5.x - HANDS_TIPS.l5.x);
-    const h = w * HANDS_TIPS.ratio;
-    return { left: pos.a.x - HANDS_TIPS.l5.x * w, top: pos.a.y - HANDS_TIPS.l5.y * h, w, h };
-  })() : null;
+  const useImg = hasFile(HANDS_IMG) && right && pos.f && pos.j;
+  const lit: { f: Finger; side: "L" | "R" }[] = [];
+  if (active === "T") lit.push({ f: "T", side: "R" });
+  else if (active) lit.push({ f: active, side: active.startsWith("L") ? "L" : "R" });
+  if (sh) lit.push({ f: sh === "L" ? "L5" : "R5", side: sh });
+
+  if (!useImg) {
+    // chưa có ảnh: chỉ đánh dấu chỗ đặt 8 đầu ngón, ngón cần dùng thì sáng
+    return (
+      <div className="pointer-events-none absolute inset-0">
+        {([...LEFT, ...RIGHT] as Finger[]).map((f) => {
+          const at = pos[HOME[f as keyof typeof HOME]];
+          const on = lit.some((l) => l.f === f);
+          return (
+            <span
+              key={f}
+              className="absolute rounded-full transition-all duration-150"
+              style={{ left: at.x - kw * 0.3, top: at.y + kh * 0.05, width: kw * 0.6, height: kh * 0.42, border: `1.5px solid ${on ? FINGER_COLOR[f] : "rgb(235 248 255 / 0.6)"}`, borderBottom: "none", boxShadow: on ? `0 -4px 12px -2px ${FINGER_COLOR[f]}` : undefined }}
+            />
+          );
+        })}
+      </div>
+    );
+  }
+
+  // mỗi bàn tay đặt riêng: đầu ngón út trùng A/;, đầu ngón trỏ trùng F/J
+  const place = (side: "L" | "R") => {
+    const [p5, p2] = side === "L" ? [pos.a, pos.f] : [right, pos.j];
+    const x5 = side === "L" ? HAND_L.L5.tip[0] : HANDS_W - HAND_L.L5.tip[0];
+    const x2 = side === "L" ? HAND_L.L2.tip[0] : HANDS_W - HAND_L.L2.tip[0];
+    const sc = (p2.x - p5.x) / (x2 - x5);
+    return { sc, tx: p5.x - x5 * sc, ty: p5.y - HANDS_ROW_Y * sc };
+  };
+  const H = Math.max(size.h, ...(["L", "R"] as const).map((sd) => { const q = place(sd); return q.ty + HANDS_H * q.sc; }));
+  const src = resolveFile(HANDS_IMG);
 
   return (
-    <div className="pointer-events-none absolute inset-0">
-      {/* vệt sáng dọc theo ngón cần dùng, nằm dưới nét tay */}
-      {lit.map(({ f, at }) => (
-        <div
-          key={f}
-          className="absolute rounded-full"
-          style={{
-            left: at.x - kw * 0.42,
-            top: at.y - kh * 0.45,
-            width: kw * 0.84,
-            height: img ? kh * 2.4 : kh * 0.9,
-            background: `linear-gradient(to bottom, color-mix(in srgb, ${FINGER_COLOR[f]} 70%, transparent), transparent)`,
-            boxShadow: `0 0 18px 2px color-mix(in srgb, ${FINGER_COLOR[f]} 60%, transparent)`,
-            transition: "all 0.15s ease-out",
-          }}
-        />
-      ))}
-      {img ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img src={resolveFile(HANDS_IMG)} alt="" draggable={false} className="absolute max-w-none select-none opacity-90" style={{ left: img.left, top: img.top, width: img.w, height: img.h }} />
-      ) : (
-        // chưa có ảnh: chỉ đánh dấu chỗ đặt 8 đầu ngón + ngón cái
-        ([...LEFT, ...RIGHT] as Finger[]).map((f) => {
-          const at = tipOf(f)!;
-          return <span key={f} className="absolute rounded-full" style={{ left: at.x - kw * 0.3, top: at.y + kh * 0.05, width: kw * 0.6, height: kh * 0.42, border: "1.5px solid rgb(235 248 255 / 0.6)", borderBottom: "none" }} />;
-        })
-      )}
-    </div>
+    <svg className="pointer-events-none absolute left-0 top-0 w-full overflow-visible" style={{ height: H }} viewBox={`0 0 ${size.w} ${H}`} aria-hidden>
+      <defs>
+        <filter id={`${fid}-b`} x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="10" />
+        </filter>
+        <clipPath id={`${fid}-L`}>
+          <rect x={0} y={0} width={HANDS_MID} height={HANDS_H} />
+        </clipPath>
+        <clipPath id={`${fid}-R`}>
+          <rect x={HANDS_MID} y={0} width={HANDS_W - HANDS_MID} height={HANDS_H} />
+        </clipPath>
+      </defs>
+      {(["L", "R"] as const).map((side) => {
+        const { sc, tx, ty } = place(side);
+        const mx = (x: number) => (side === "L" ? x : HANDS_W - x);
+        return (
+          <g key={side} transform={`translate(${tx} ${ty}) scale(${sc})`}>
+            {lit
+              .filter((l) => l.side === side)
+              .map(({ f }) => {
+                const g0 = HAND_L[f === "T" ? "T" : "L" + f.slice(1)];
+                const g = { tip: g0.tip, base: [g0.tip[0] + (g0.base[0] - g0.tip[0]) * 0.7, g0.tip[1] + (g0.base[1] - g0.tip[1]) * 0.7] };
+                return (
+                  <g key={f} style={{ transition: "opacity 0.15s" }}>
+                    <line x1={mx(g.tip[0])} y1={g.tip[1] - 8} x2={mx(g.base[0])} y2={g.base[1]} stroke={FINGER_COLOR[f]} strokeWidth={70} strokeLinecap="round" opacity={0.75} filter={`url(#${fid}-b)`} />
+                    <line x1={mx(g.tip[0])} y1={g.tip[1] + 4} x2={mx(g.base[0])} y2={g.base[1] - 20} stroke={FINGER_COLOR[f]} strokeWidth={44} strokeLinecap="round" opacity={0.45} />
+                  </g>
+                );
+              })}
+            <image href={src} width={HANDS_W} height={HANDS_H} clipPath={`url(#${fid}-${side})`} opacity={0.9} />
+          </g>
+        );
+      })}
+    </svg>
   );
 }
 

@@ -21,7 +21,7 @@ const floatingMusic = (p: string) => p.startsWith("/go-phim/") || p.startsWith("
 export function AppShell({ children }: { children: React.ReactNode }) {
   const path = usePathname();
   const { data, streak } = useProgress();
-  if (isFocus(path) || path.startsWith("/go-phim/"))
+  if (isFocus(path))
     return (
       <div className="min-h-dvh">
         <MusicDirector />
