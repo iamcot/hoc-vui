@@ -346,7 +346,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator presenting a big colorful pie chart and a simple bar chart on a classroom easel, Xi Xi: a friendly anthropomorphic scientific calculator (dark navy body, light gray keys, small LCD screen showing a smile), tiny arms and legs pointing at the chart. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
-### ⬜ `fx8-l01-cover.webp`
+### ✅ `fx8-l01-cover.webp`
 - Dùng ở: Lớp 8 · Bìa bài 1: Giá trị đa thức
 - Kích thước: 1536x1024
 
@@ -354,7 +354,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 The student in a high-tech lab inserting a glowing value into a floating holographic machine, curved data streams flowing out the other side, a futuristic scientific calculator with a glowing holographic display projecting light above it on the desk. Characters: a confident anime teen student about 14 years old, gender-neutral look, short dark hair, navy hoodie with subtle circuit patterns, headphones around the neck; Mochi: a sleek white cat with glowing teal eyes and a light-blue scarf, cool and calm, perched on the student's shoulder. Modern anime illustration for teenagers aged 13 to 15, cinematic lighting, clean sharp line art, cel shading with subtle gradients, cool tech vibe with floating holographic UI panels and soft neon glow. Color palette: sky blue #4F72FF, mint #22B98C and lilac #9B7BFF neon accents over deep navy #1B1F3B and slate tones, a touch of coral #FF8A5C. Stylish and confident, not cute, not babyish, no text, no letters, no numbers, no watermark.
 ```
 
-### ⬜ `fx8-l02-cover.webp`
+### ✅ `fx8-l02-cover.webp`
 - Dùng ở: Lớp 8 · Bìa bài 2: Hằng đẳng thức
 - Kích thước: 1536x1024
 
@@ -362,7 +362,7 @@ The student in a high-tech lab inserting a glowing value into a floating hologra
 The student casting a glowing spell from fingertips, a large square splitting into four neon tiles (two squares, two rectangles) that rearrange in mid-air. Characters: a confident anime teen student about 14 years old, gender-neutral look, short dark hair, navy hoodie with subtle circuit patterns, headphones around the neck; Mochi: a sleek white cat with glowing teal eyes and a light-blue scarf, cool and calm, perched on the student's shoulder. Modern anime illustration for teenagers aged 13 to 15, cinematic lighting, clean sharp line art, cel shading with subtle gradients, cool tech vibe with floating holographic UI panels and soft neon glow. Color palette: sky blue #4F72FF, mint #22B98C and lilac #9B7BFF neon accents over deep navy #1B1F3B and slate tones, a touch of coral #FF8A5C. Stylish and confident, not cute, not babyish, no text, no letters, no numbers, no watermark.
 ```
 
-### ⬜ `fx8-l03-cover.webp`
+### ✅ `fx8-l03-cover.webp`
 - Dùng ở: Lớp 8 · Bìa bài 3: Phương trình bậc nhất
 - Kích thước: 1536x1024
 
@@ -370,7 +370,7 @@ The student casting a glowing spell from fingertips, a large square splitting in
 The student at night in front of a futuristic vault door with a glowing balance-scale lock, reaching out to turn a holographic dial, city lights behind. Characters: a confident anime teen student about 14 years old, gender-neutral look, short dark hair, navy hoodie with subtle circuit patterns, headphones around the neck; Mochi: a sleek white cat with glowing teal eyes and a light-blue scarf, cool and calm, perched on the student's shoulder. Modern anime illustration for teenagers aged 13 to 15, cinematic lighting, clean sharp line art, cel shading with subtle gradients, cool tech vibe with floating holographic UI panels and soft neon glow. Color palette: sky blue #4F72FF, mint #22B98C and lilac #9B7BFF neon accents over deep navy #1B1F3B and slate tones, a touch of coral #FF8A5C. Stylish and confident, not cute, not babyish, no text, no letters, no numbers, no watermark.
 ```
 
-### ⬜ `fx8-l04-cover.webp`
+### ✅ `fx8-l04-cover.webp`
 - Dùng ở: Lớp 8 · Bìa bài 4: Định lí Pythagore
 - Kích thước: 1536x1024
 
@@ -378,7 +378,7 @@ The student at night in front of a futuristic vault door with a glowing balance-
 The student standing on a rooftop at dusk next to a giant glowing right triangle made of light beams, three translucent square panels attached to its sides. Characters: a confident anime teen student about 14 years old, gender-neutral look, short dark hair, navy hoodie with subtle circuit patterns, headphones around the neck; Mochi: a sleek white cat with glowing teal eyes and a light-blue scarf, cool and calm, perched on the student's shoulder. Modern anime illustration for teenagers aged 13 to 15, cinematic lighting, clean sharp line art, cel shading with subtle gradients, cool tech vibe with floating holographic UI panels and soft neon glow. Color palette: sky blue #4F72FF, mint #22B98C and lilac #9B7BFF neon accents over deep navy #1B1F3B and slate tones, a touch of coral #FF8A5C. Stylish and confident, not cute, not babyish, no text, no letters, no numbers, no watermark.
 ```
 
-### ⬜ `fx8-l05-cover.webp`
+### ✅ `fx8-l05-cover.webp`
 - Dùng ở: Lớp 8 · Bìa bài 5: Hàm số bậc nhất
 - Kích thước: 1536x1024
 
@@ -386,7 +386,7 @@ The student standing on a rooftop at dusk next to a giant glowing right triangle
 The student riding an electric scooter along a straight neon road rising across a dark grid like a graph line, distance markers glowing along the road. Characters: a confident anime teen student about 14 years old, gender-neutral look, short dark hair, navy hoodie with subtle circuit patterns, headphones around the neck; Mochi: a sleek white cat with glowing teal eyes and a light-blue scarf, cool and calm, perched on the student's shoulder. Modern anime illustration for teenagers aged 13 to 15, cinematic lighting, clean sharp line art, cel shading with subtle gradients, cool tech vibe with floating holographic UI panels and soft neon glow. Color palette: sky blue #4F72FF, mint #22B98C and lilac #9B7BFF neon accents over deep navy #1B1F3B and slate tones, a touch of coral #FF8A5C. Stylish and confident, not cute, not babyish, no text, no letters, no numbers, no watermark.
 ```
 
-### ⬜ `fx8-l06-cover.webp`
+### ✅ `fx8-l06-cover.webp`
 - Dùng ở: Lớp 8 · Bìa bài 6: Xác suất
 - Kích thước: 1536x1024
 
@@ -394,7 +394,7 @@ The student riding an electric scooter along a straight neon road rising across 
 The student flicking a glowing coin into the air while a translucent die spins mid-air, faint probability arcs and particles around, game-arcade lighting. Characters: a confident anime teen student about 14 years old, gender-neutral look, short dark hair, navy hoodie with subtle circuit patterns, headphones around the neck; Mochi: a sleek white cat with glowing teal eyes and a light-blue scarf, cool and calm, perched on the student's shoulder. Modern anime illustration for teenagers aged 13 to 15, cinematic lighting, clean sharp line art, cel shading with subtle gradients, cool tech vibe with floating holographic UI panels and soft neon glow. Color palette: sky blue #4F72FF, mint #22B98C and lilac #9B7BFF neon accents over deep navy #1B1F3B and slate tones, a touch of coral #FF8A5C. Stylish and confident, not cute, not babyish, no text, no letters, no numbers, no watermark.
 ```
 
-### ⬜ `fx9-l01-cover.webp`
+### ✅ `fx9-l01-cover.webp`
 - Dùng ở: Lớp 9 · Bìa bài 1: Căn bậc hai, căn bậc ba
 - Kích thước: 1536x1024
 
@@ -402,7 +402,7 @@ The student flicking a glowing coin into the air while a translucent die spins m
 The student examining a glowing translucent cube built from smaller cubes floating above an open palm, a digital tree with deep luminous roots in the background. Characters: a confident anime teen student about 14 years old, gender-neutral look, short dark hair, navy hoodie with subtle circuit patterns, headphones around the neck; Mochi: a sleek white cat with glowing teal eyes and a light-blue scarf, cool and calm, perched on the student's shoulder. Modern anime illustration for teenagers aged 13 to 15, cinematic lighting, clean sharp line art, cel shading with subtle gradients, cool tech vibe with floating holographic UI panels and soft neon glow. Color palette: sky blue #4F72FF, mint #22B98C and lilac #9B7BFF neon accents over deep navy #1B1F3B and slate tones, a touch of coral #FF8A5C. Stylish and confident, not cute, not babyish, no text, no letters, no numbers, no watermark.
 ```
 
-### ⬜ `fx9-l02-cover.webp`
+### ✅ `fx9-l02-cover.webp`
 - Dùng ở: Lớp 9 · Bìa bài 2: Hệ phương trình
 - Kích thước: 1536x1024
 
@@ -410,7 +410,7 @@ The student examining a glowing translucent cube built from smaller cubes floati
 The student as a sharp detective in a dark room studying a holographic map where two neon lines cross at one bright point. Characters: a confident anime teen student about 14 years old, gender-neutral look, short dark hair, navy hoodie with subtle circuit patterns, headphones around the neck; Mochi: a sleek white cat with glowing teal eyes and a light-blue scarf, cool and calm, perched on the student's shoulder. Modern anime illustration for teenagers aged 13 to 15, cinematic lighting, clean sharp line art, cel shading with subtle gradients, cool tech vibe with floating holographic UI panels and soft neon glow. Color palette: sky blue #4F72FF, mint #22B98C and lilac #9B7BFF neon accents over deep navy #1B1F3B and slate tones, a touch of coral #FF8A5C. Stylish and confident, not cute, not babyish, no text, no letters, no numbers, no watermark.
 ```
 
-### ⬜ `fx9-l03-cover.webp`
+### ✅ `fx9-l03-cover.webp`
 - Dùng ở: Lớp 9 · Bìa bài 3: Phương trình bậc hai
 - Kích thước: 1536x1024
 
@@ -418,7 +418,7 @@ The student as a sharp detective in a dark room studying a holographic map where
 The student riding a sleek roller coaster whose track is a smooth glowing U-shaped parabola crossing a neon ground line at two points, night sky. Characters: a confident anime teen student about 14 years old, gender-neutral look, short dark hair, navy hoodie with subtle circuit patterns, headphones around the neck; Mochi: a sleek white cat with glowing teal eyes and a light-blue scarf, cool and calm, perched on the student's shoulder. Modern anime illustration for teenagers aged 13 to 15, cinematic lighting, clean sharp line art, cel shading with subtle gradients, cool tech vibe with floating holographic UI panels and soft neon glow. Color palette: sky blue #4F72FF, mint #22B98C and lilac #9B7BFF neon accents over deep navy #1B1F3B and slate tones, a touch of coral #FF8A5C. Stylish and confident, not cute, not babyish, no text, no letters, no numbers, no watermark.
 ```
 
-### ⬜ `fx9-l04-cover.webp`
+### ✅ `fx9-l04-cover.webp`
 - Dùng ở: Lớp 9 · Bìa bài 4: Tỉ số lượng giác
 - Kích thước: 1536x1024
 
@@ -426,7 +426,7 @@ The student riding a sleek roller coaster whose track is a smooth glowing U-shap
 The student on a rooftop aiming a futuristic rangefinder at a tall tower, a glowing right triangle and angle arc projected between them. Characters: a confident anime teen student about 14 years old, gender-neutral look, short dark hair, navy hoodie with subtle circuit patterns, headphones around the neck; Mochi: a sleek white cat with glowing teal eyes and a light-blue scarf, cool and calm, perched on the student's shoulder. Modern anime illustration for teenagers aged 13 to 15, cinematic lighting, clean sharp line art, cel shading with subtle gradients, cool tech vibe with floating holographic UI panels and soft neon glow. Color palette: sky blue #4F72FF, mint #22B98C and lilac #9B7BFF neon accents over deep navy #1B1F3B and slate tones, a touch of coral #FF8A5C. Stylish and confident, not cute, not babyish, no text, no letters, no numbers, no watermark.
 ```
 
-### ⬜ `fx9-l05-cover.webp`
+### ✅ `fx9-l05-cover.webp`
 - Dùng ở: Lớp 9 · Bìa bài 5: Đường tròn
 - Kích thước: 1536x1024
 
@@ -434,7 +434,7 @@ The student on a rooftop aiming a futuristic rangefinder at a tall tower, a glow
 The student standing inside a huge glowing circular ring of light, holographic arcs and a sector highlighted in mint, sci-fi plaza at night. Characters: a confident anime teen student about 14 years old, gender-neutral look, short dark hair, navy hoodie with subtle circuit patterns, headphones around the neck; Mochi: a sleek white cat with glowing teal eyes and a light-blue scarf, cool and calm, perched on the student's shoulder. Modern anime illustration for teenagers aged 13 to 15, cinematic lighting, clean sharp line art, cel shading with subtle gradients, cool tech vibe with floating holographic UI panels and soft neon glow. Color palette: sky blue #4F72FF, mint #22B98C and lilac #9B7BFF neon accents over deep navy #1B1F3B and slate tones, a touch of coral #FF8A5C. Stylish and confident, not cute, not babyish, no text, no letters, no numbers, no watermark.
 ```
 
-### ⬜ `fx9-l06-cover.webp`
+### ✅ `fx9-l06-cover.webp`
 - Dùng ở: Lớp 9 · Bìa bài 6: Hình trụ, nón, cầu
 - Kích thước: 1536x1024
 
@@ -852,7 +852,7 @@ Cài đặt giọng đọc gợi ý: ElevenLabs Text to Speech, model Multilingu
 | ⬜ | `voice/vo9-l04.mp3` | Giọng đọc | Lớp 9 · Bài 4, câu chào | Sin, cos, tan nghe khó nhưng Xi Xi bấm một cái là ra. |
 | ⬜ | `voice/vo9-l05.mp3` | Giọng đọc | Lớp 9 · Bài 5, câu chào | Số pi thần kỳ đang trốn trên phím của Xi Xi đó! |
 | ⬜ | `voice/vo9-l06.mp3` | Giọng đọc | Lớp 9 · Bài 6, câu chào | Lon nước, que kem, quả bóng: mình tính thể tích các khối tròn nhé. |
-| ⬜ | `voice/vo-correct-3.mp3` | Giọng đọc | Khen khi đúng (ngẫu nhiên) | Đúng rồi, em bấm máy giỏi ghê! |
+| ✅ | `voice/vo-correct-3.mp3` | Giọng đọc | Khen khi đúng (ngẫu nhiên) | Đúng rồi, em bấm máy giỏi ghê! |
 | ✅ | `voice/vo-correct-1.mp3` | Giọng đọc | Khen khi đúng (ngẫu nhiên) | Chính xác! Giỏi quá! |
 | ✅ | `voice/vo-correct-2.mp3` | Giọng đọc | Khen khi đúng (ngẫu nhiên) | Tuyệt vời, đúng rồi! |
 | ✅ | `voice/vo-wrong-1.mp3` | Giọng đọc | Động viên khi sai | Chưa đúng rồi, thử xem lại cách bấm nhé. |
