@@ -2,8 +2,14 @@
 import { useEffect, useState, type ReactNode } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { FreeCalc } from "./FreeCalc";
+import { play } from "@/lib/sound";
+import { fmtDecimal, fmtResult, type CalcResult } from "@/lib/calc-eval";
+
+/** Kết quả máy ảo gửi sang ô đáp án: dạng hiển thị (phân số) và dạng số thập phân. */
+export type FillDetail = { text: string; dec: string; q?: number; r?: number };
 
 const KEY = "hocvui:calc-dock";
+export const FILL_EVENT = "hocvui:fill-answer";
 
 /** Bật/tắt máy ảo bấm tự do khi làm bài. Nhớ lựa chọn trên máy này. */
 export function useCalcDock(device?: string) {
@@ -47,6 +53,13 @@ export function CalcToggle({ dock }: { dock: ReturnType<typeof useCalcDock> }) {
 /** Khung bài làm: máy ảo nằm cạnh câu hỏi (iPad, laptop) hoặc trượt lên từ đáy (màn hẹp). */
 export function CalcLayout({ dock, children }: { dock: ReturnType<typeof useCalcDock>; children: ReactNode }) {
   const open = dock.open;
+  const [last, setLast] = useState<CalcResult | null>(null);
+  const fill = () => {
+    if (!last) return;
+    play("tap", 0.4);
+    const detail: FillDetail = { text: fmtResult(last, false), dec: fmtDecimal(last.value), q: last.divr?.q, r: last.divr?.r };
+    window.dispatchEvent(new CustomEvent(FILL_EVENT, { detail }));
+  };
   return (
     <main className={`mx-auto px-4 py-8 sm:px-6 ${open ? "max-w-6xl pb-[70vh] md:pb-8" : "max-w-3xl"}`}>
       <div className={open ? "md:grid md:grid-cols-[minmax(0,1fr)_300px] md:items-start md:gap-6" : ""}>
@@ -61,12 +74,18 @@ export function CalcLayout({ dock, children }: { dock: ReturnType<typeof useCalc
               className="fixed inset-x-0 bottom-0 z-30 max-h-[68vh] overflow-y-auto rounded-t-3xl bg-white/80 px-4 pb-4 pt-2 shadow-[0_-12px_30px_-10px_rgba(35,39,65,0.35)] backdrop-blur md:sticky md:inset-auto md:top-20 md:z-auto md:max-h-none md:overflow-visible md:rounded-none md:bg-transparent md:p-0 md:shadow-none md:backdrop-blur-none"
             >
               <div className="mb-2 flex items-center justify-between text-sm font-bold text-ink-soft">
-                <span>Máy ảo, bấm tự do</span>
+                {last ? (
+                  <button type="button" onClick={fill} className="rounded-full bg-mint px-3 py-1.5 font-bold text-white shadow-sm transition active:scale-95">
+                    ⤵ Điền vào ô đáp án
+                  </button>
+                ) : (
+                  <span>Máy ảo, bấm tự do</span>
+                )}
                 <button type="button" onClick={dock.close} className="rounded-full bg-white px-3 py-1 shadow-sm" aria-label="Tắt máy tính">
                   ✕
                 </button>
               </div>
-              <FreeCalc />
+              <FreeCalc onResult={setLast} />
             </motion.aside>
           )}
         </AnimatePresence>

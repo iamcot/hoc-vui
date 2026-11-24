@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import { FILL_EVENT, type FillDetail } from "@/components/calc/CalcDock";
 import { motion } from "motion/react";
 import type { Question } from "@/content/types";
 import { checkAnswer } from "@/lib/check";
@@ -83,6 +84,26 @@ export function QuestionCard({
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [q.id, q.kind]);
+
+  // nút "Điền vào ô đáp án" của máy ảo bấm tự do
+  useEffect(() => {
+    if (result !== null || q.kind === "choice" || q.kind === "read") return;
+    const h = (e: Event) => {
+      const d = (e as CustomEvent<FillDetail>).detail;
+      if (!d) return;
+      const one = d.q !== undefined ? String(d.q) : q.kind === "fraction" ? d.text : d.dec;
+      if (q.kind === "pair") {
+        if (d.r !== undefined) {
+          setInput(String(d.q));
+          setB(String(d.r));
+        } else if (!input) setInput(d.dec);
+        else setB(d.dec);
+      } else setInput(one);
+      ref.current?.focus();
+    };
+    window.addEventListener(FILL_EVENT, h);
+    return () => window.removeEventListener(FILL_EVENT, h);
+  }, [q.kind, result, input]);
 
   const value = q.kind === "pair" ? `${input};${b}` : input;
 

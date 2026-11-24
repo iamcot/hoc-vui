@@ -53,7 +53,7 @@ function keyToToks(id: string, mod: "S" | "A" | null): Tok[] | null {
 const openCount = (t: Tok[]) => t.reduce((n, x) => n + (x.k === "lp" || x.k === "fn" ? 1 : x.k === "rp" ? -1 : 0), 0);
 
 /** Máy fx-580VN X ảo bấm tự do: tính thật, có Ans, S⇔D, DEL, AC. */
-export function FreeCalc({ onResult }: { onResult?: (text: string) => void }) {
+export function FreeCalc({ onResult }: { onResult?: (r: CalcResult | null) => void }) {
   const [toks, setToks] = useState<Tok[]>([]);
   const [mod, setMod] = useState<"S" | "A" | null>(null);
   const [res, setRes] = useState<CalcResult | null>(null);
@@ -64,8 +64,8 @@ export function FreeCalc({ onResult }: { onResult?: (text: string) => void }) {
 
   const shown = res ? fmtResult(res, dec) : "";
   useEffect(() => {
-    if (shown) onResult?.(shown);
-  }, [shown, onResult]);
+    onResult?.(res);
+  }, [res, onResult]);
 
   function press(k: CalcKey) {
     play("tap", 0.3);
