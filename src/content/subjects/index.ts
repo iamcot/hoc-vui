@@ -1,4 +1,4 @@
-import type { Lesson, Subject, Tier } from "@/content/types";
+import type { Lesson, StageId, Subject, Tier } from "@/content/types";
 import { mayTinh } from "./may-tinh";
 import { tapDoc } from "./tap-doc";
 import { goPhim } from "./go-phim";
@@ -14,8 +14,16 @@ export const SUBJECTS: Subject[] = [
   tapDoc,
   goPhim,
   // Các môn sắp có: hiện trên trang chủ dạng "sắp ra mắt".
-  { id: "toan-lop1", name: "Toán vui", levelsLabel: "Lớp 1", tagline: "Đếm, cộng trừ trong phạm vi 100", emoji: "🍎", color: "#ff9fb2", cover: "subject-soon", tiers: [], ready: false },
-  { id: "tieng-anh-lop6", name: "Tiếng Anh", levelsLabel: "Lớp 6", tagline: "Từ vựng và ngữ pháp", emoji: "🌏", color: "#ffc978", cover: "subject-soon", tiers: [], ready: false },
+  { id: "toan-lop1", name: "Toán vui", levelsLabel: "Lớp 1", tagline: "Đếm, cộng trừ trong phạm vi 100", emoji: "🍎", color: "#ff9fb2", cover: "subject-soon", tiers: [], ready: false, stage: "primary" },
+  { id: "tieng-anh-lop6", name: "Tiếng Anh", levelsLabel: "Lớp 6", tagline: "Từ vựng và ngữ pháp", emoji: "🌏", color: "#ffc978", cover: "subject-soon", tiers: [], ready: false, stage: "secondary" },
+];
+
+/** Nhóm môn trên trang chủ, theo thứ tự hiện. Nhóm chưa có môn nào thì ẩn. */
+export const STAGES: { id: StageId; name: string; ages: string; color: string }[] = [
+  { id: "primary", name: "Tiểu học", ages: "Lớp 1 – 5 · 6 đến 10 tuổi", color: "var(--color-berry)" },
+  { id: "secondary", name: "Trung học cơ sở", ages: "Lớp 6 – 9 · 11 đến 15 tuổi", color: "var(--color-sky)" },
+  { id: "high", name: "Trung học phổ thông", ages: "Lớp 10 – 12", color: "var(--color-lilac)" },
+  { id: "all", name: "Mọi lứa tuổi", ages: "Kỹ năng ai cũng cần, bé lớn hay bé nhỏ đều học được", color: "var(--color-mint)" },
 ];
 
 export const getSubject = (id: string) => SUBJECTS.find((s) => s.id === id);

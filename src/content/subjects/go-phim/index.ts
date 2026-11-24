@@ -24,4 +24,5 @@ export const goPhim: Subject = {
     { id: "telex", name: "Telex", short: "Gõ tiếng Việt có dấu", emoji: "🇻🇳", icon: "gp-tier-4", units: unitsTelex },
   ],
   ready: true,
+  stage: "all",
 };

@@ -156,4 +156,8 @@ export interface Subject {
   modes?: { id: string; name: string; short: string; emoji: string; href: string; icon?: string }[];
   tiers: Tier[];
   ready: boolean;
+  /** cấp học, để trang chủ xếp môn theo nhóm tuổi (xem STAGES) */
+  stage: StageId;
 }
+
+export type StageId = "primary" | "secondary" | "high" | "all";

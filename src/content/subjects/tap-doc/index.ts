@@ -16,4 +16,5 @@ export const tapDoc: Subject = {
     { id: "doc-tron", name: "Đọc trơn", short: "Đọc đoạn văn, bài thơ, hiểu bài", emoji: "🌸", icon: "level-hoa", units: unitsDocTron },
   ],
   ready: true,
+  stage: "primary",
 };

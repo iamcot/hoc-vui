@@ -15,6 +15,7 @@ export const mayTinh: Subject = {
   cover: "subject-fx580-cover",
   device: "fx580",
   ready: true,
+  stage: "secondary",
   tiers: [
     {
       id: "lop6",
