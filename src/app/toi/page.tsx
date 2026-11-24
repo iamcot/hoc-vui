@@ -17,6 +17,7 @@ import { GradeChips, ThemeCards } from "@/components/ThemePicker";
 
 export default function MePage() {
   const { data, session, online, setProfile, setSound, setCalcMode, signOut, streak, lesson } = useProgress();
+  const started = SUBJECTS.filter((s) => s.ready && s.tiers.some((t) => tierLessons(t).some((l) => lesson(s.id, l.id).read || lesson(s.id, l.id).stars > 0)));
   const [name, setName] = useState("");
   const [saved, setSaved] = useState<"" | "ok" | "fail">("");
   const save = async (p: Parameters<typeof setProfile>[0]) => {
@@ -31,7 +32,9 @@ export default function MePage() {
       <Scene variant="meadow" dim />
       <h1 className="ribbon text-3xl">Của tôi</h1>
 
-      <div className="grid gap-6 lg:grid-cols-2">
+      {/* hai cột cao tự nhiên: trái = hồ sơ + tài khoản, phải = tuỳ chỉnh (không ép bằng chiều cao) */}
+      <div className="grid items-start gap-6 lg:grid-cols-2">
+        <div className="space-y-6">
         <section className="card space-y-5 p-6">
           <div className="flex items-center gap-4">
             <Avatar id={data.profile.avatar} size={72} />
@@ -80,15 +83,17 @@ export default function MePage() {
               ))}
             </div>
           </div>
+        </section>
+        <section className="card space-y-4 p-6">{online ? session ? <SignedIn email={emailToLogin(session.user.email ?? "")} onOut={signOut} /> : <AuthForm /> : <Offline />}</section>
+        </div>
+        <section className="card space-y-6 p-6">
           <div className="space-y-2">
             <p className="text-sm font-bold text-ink-soft">Em học lớp mấy?</p>
             <GradeChips />
           </div>
           <div className="space-y-2">
             <p className="text-sm font-bold text-ink-soft">Giao diện</p>
-            <div className="max-w-sm">
-              <ThemeCards />
-            </div>
+            <ThemeCards />
           </div>
           <div className="flex flex-wrap gap-3">
             <button className="btn btn-ghost" onClick={() => setSound(!data.sound)}>
@@ -100,12 +105,13 @@ export default function MePage() {
           </div>
         </section>
 
-        <section className="card space-y-4 p-6">{online ? session ? <SignedIn email={emailToLogin(session.user.email ?? "")} onOut={signOut} /> : <AuthForm /> : <Offline />}</section>
       </div>
 
       <section className="card space-y-4 p-6">
         <h2 className="font-display text-xl font-extrabold">Tiến trình các môn</h2>
-        {SUBJECTS.filter((s) => s.ready).map((s) => {
+        {/* chỉ hiện môn bé đã bắt đầu học (đã đọc hoặc có sao ở ít nhất một bài) */}
+        {started.length === 0 && <p className="text-ink-soft">Em chưa học môn nào. Chọn một môn ở trang chủ để bắt đầu nhé!</p>}
+        {started.map((s) => {
           const tiers = s.tiers.filter((t) => t.units.length > 0);
           const all = tiers.flatMap((t) => tierLessons(t));
           const done = all.filter((l) => lesson(s.id, l.id).stars > 0).length;

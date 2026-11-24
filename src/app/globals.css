@@ -314,6 +314,32 @@ button {
 .theme-cyber .bg-peach-soft {
   background: rgb(255 79 163 / 0.16);
 }
+/* ô trắng / kem / ô nhập trên giao diện Neon: kính tối, chữ sáng (không thì chữ sáng đè lên nền sáng) */
+.theme-cyber .bg-white,
+.theme-cyber .bg-cream,
+.theme-cyber input:not([type="checkbox"]):not([type="radio"]),
+.theme-cyber select,
+.theme-cyber textarea {
+  background: rgb(8 16 52 / 0.78);
+  color: #eaf6ff;
+  border-color: rgb(47 211 255 / 0.4);
+}
+.theme-cyber input::placeholder,
+.theme-cyber textarea::placeholder {
+  color: rgb(190 220 255 / 0.55);
+}
+.theme-cyber select option {
+  background: #0b1238;
+  color: #eaf6ff;
+}
+.theme-cyber .bubble {
+  background: rgb(8 16 52 / 0.82);
+  color: #eaf6ff;
+  box-shadow: 0 0 0 1px rgb(47 211 255 / 0.35);
+}
+.theme-cyber .bubble::before {
+  border-right-color: rgb(8 16 52 / 0.82);
+}
 .theme-cyber .text-outline {
   text-shadow: 0 0 12px rgb(47 211 255 / 0.35);
 }

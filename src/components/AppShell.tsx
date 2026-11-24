@@ -1,5 +1,4 @@
 "use client";
-import { FirstRunPrompt } from "@/components/ThemePicker";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { IconArena, IconLearn, IconMe, IconRank } from "./Icons";
@@ -31,7 +30,6 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     return (
       <div className={`min-h-dvh ${themeCls}`}>
         <MusicDirector />
-        <FirstRunPrompt />
         {children}
         {/* bài học và bài tập có nút nhạc trên thanh đầu; game, phòng thi dùng nút nổi */}
         {floatingMusic(path) && <MusicToggle dark className="fixed bottom-3 right-3 z-40 h-9 w-9" />}
@@ -41,19 +39,18 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   return (
     <div className={`min-h-dvh md:flex ${themeCls}`}>
       <MusicDirector />
-      <FirstRunPrompt />
       <MusicToggle className="fixed right-3 top-3 z-40 md:hidden" />
       {/* Thanh bên: mỗi mục là một cọc biển chỉ đường cắm trên cảnh nền */}
       <aside className={`sticky top-0 hidden h-dvh w-60 shrink-0 flex-col gap-1 bg-gradient-to-r ${dark ? "from-[#030a24]/50 via-[#030a24]/20" : "from-white/45 via-white/20"} to-transparent p-4 md:flex lg:w-64`}>
         {/* biển tên treo trên đầu cọc, các biển mục đóng dọc theo cọc; cọc dừng ở biển cuối */}
         <div className="relative">
-          <NavPole />
+          <NavPole neon={data.theme === "neon"} />
           <Link href="/" className="relative z-10 mx-auto mb-5 block w-fit">
-            <TitleBoard dark={dark} />
+            <TitleBoard dark={dark} neon={data.theme === "neon"} />
           </Link>
           <nav className="relative z-10 flex flex-col gap-3 pb-6">
             {TABS.filter((t) => t.id !== "toi").map(({ href, id, label, Icon, match }, k) => (
-              <NavSign key={href} href={href} id={id} label={label} Icon={Icon} on={match(path)} k={k} />
+              <NavSign key={href} href={href} id={id} label={label} Icon={Icon} on={match(path)} k={k} neon={data.theme === "neon"} />
             ))}
           </nav>
         </div>
@@ -94,11 +91,15 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   );
 }
 
-const POLE = "/assets/img/nav-pole.webp";
-const TITLE = "/assets/img/nav-title.webp";
+/** theme Neon dùng bộ biển riêng (<tên>-neon.webp) nếu đã có ảnh, chưa có thì dùng bộ gỗ */
+function variant(file: string, neon: boolean) {
+  const n = file.replace(/\.webp$/, "-neon.webp");
+  return neon && hasFile(n) ? n : file;
+}
 
 /** cây cọc gỗ dọc: từ sau biển tên xuống tới dưới biển cuối (ảnh nav-pole lặp dọc); chưa có ảnh thì vẽ bằng CSS */
-function NavPole() {
+function NavPole({ neon }: { neon: boolean }) {
+  const POLE = variant("/assets/img/nav-pole.webp", neon);
   const img = hasFile(POLE);
   return (
     <div
@@ -118,7 +119,9 @@ function NavPole() {
 }
 
 /** biển tên app trên đầu cọc: tấm ván (ảnh nav-title nếu có) với logo và chữ Học Vui */
-function TitleBoard({ dark }: { dark: boolean }) {
+function TitleBoard({ dark, neon }: { dark: boolean; neon: boolean }) {
+  const TITLE = variant("/assets/img/nav-title.webp", neon);
+  const neonImg = neon && TITLE.includes("-neon");
   const img = hasFile(TITLE);
   return (
     <div className={`relative flex items-center gap-2 ${img ? "py-3.5 pl-5 pr-7" : "py-2 pl-2 pr-4"} drop-shadow-[0_6px_6px_rgba(60,35,10,0.35)]`}>
@@ -130,7 +133,7 @@ function TitleBoard({ dark }: { dark: boolean }) {
       )}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src="/assets/img/logo.webp" alt="" className="relative h-11 w-auto drop-shadow-sm" />
-      <span className="relative font-display text-2xl font-extrabold tracking-tight text-[#5a3418]">Học Vui</span>
+      <span className={`relative font-display text-2xl font-extrabold tracking-tight ${neonImg ? "text-[#eaf6ff] [text-shadow:0_0_10px_rgb(47_211_255/0.7)]" : "text-[#5a3418]"}`}>Học Vui</span>
     </div>
   );
 }
@@ -139,8 +142,9 @@ function TitleBoard({ dark }: { dark: boolean }) {
  * Một tấm biển gắn vào cây cọc: có ảnh nav-<id>.webp (tấm ván mũi tên, vẽ sẵn icon bên trái) thì cắt 9 mảnh, chữ nằm ở phần ván giữa;
  * chưa có ảnh thì vẽ tấm ván gỗ bằng CSS. Các biển so le nhẹ; mục đang mở nhấc lên, nghiêng thêm, phát sáng.
  */
-function NavSign({ href, id, label, Icon, on, k }: { href: string; id: string; label: string; Icon: (p: { className?: string }) => React.ReactNode; on: boolean; k: number }) {
-  const file = `/assets/img/nav-${id}.webp`;
+function NavSign({ href, id, label, Icon, on, k, neon }: { href: string; id: string; label: string; Icon: (p: { className?: string }) => React.ReactNode; on: boolean; k: number; neon: boolean }) {
+  const file = variant(`/assets/img/nav-${id}.webp`, neon);
+  const neonImg = file.includes("-neon");
   const img = hasFile(file);
   const tilt = [-0.6, 0.5, -0.4, 0.6][k % 4];
   const shift = ["0.6rem", "1rem", "0.6rem", "1rem"][k % 4];
@@ -155,7 +159,7 @@ function NavSign({ href, id, label, Icon, on, k }: { href: string; id: string; l
       {img ? (
         // 9-slice: giữ nguyên hình tròn (trái) và mũi tên (phải), chỉ kéo dài phần ván giữa -> biển thấp, dài, cân với biển tên
         <span
-          className={`relative flex h-[60px] items-center justify-center whitespace-nowrap font-display text-lg font-extrabold text-[#5a3418] [text-shadow:0_1px_0_rgb(255_235_200/0.7)] ${glow}`}
+          className={`relative flex h-[60px] items-center justify-center whitespace-nowrap font-display text-lg font-extrabold ${neonImg ? "text-[#eaf6ff] [text-shadow:0_0_10px_rgb(47_211_255/0.7)]" : "text-[#5a3418] [text-shadow:0_1px_0_rgb(255_235_200/0.7)]"} ${glow}`}
           style={{
             borderStyle: "solid",
             borderWidth: "0 26px 0 56px",

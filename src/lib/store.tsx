@@ -3,6 +3,8 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useRef, use
 import type { Session } from "@supabase/supabase-js";
 import { getSupabase } from "./supabase";
 import { setMusicOn, setMuted } from "./sound";
+import { getSubject } from "@/content/subjects";
+import { rankInfo } from "./ranks";
 
 export interface LessonState {
   /** đã học hết slide */
@@ -120,6 +122,8 @@ interface Store {
   /** ghi nhớ bài đang học để lần sau vào bản đồ thì tới đúng bài đó */
   setLast(subjectId: string, lessonId: string): void;
   addXp(subjectId: string, amount: number, reason: string): void;
+  /** sao tuần cho bảng xếp hạng; máy chủ kiểm trần, chỉ tính khi đã đăng nhập */
+  awardStars(subjectId: string, amount: number, reason: string): void;
   /** lưu hồ sơ; trả về false nếu chưa lưu lên mạng được */
   setProfile(p: Partial<Profile>): Promise<boolean>;
   setSound(on: boolean): void;
@@ -140,8 +144,17 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
   const dataRef = useRef(data);
   dataRef.current = data;
 
+  // Cập nhật gọi trước khi đọc xong dữ liệu trên máy (vd. effect của trang bài học chạy trước effect này)
+  // được xếp hàng rồi áp lên dữ liệu thật, không thì ghi đè mất tiến trình đã lưu.
+  const hydrated = useRef(false);
+  const pending = useRef<((d: ProgressData) => ProgressData)[]>([]);
+
   useEffect(() => {
-    const d = loadLocal();
+    let d = loadLocal();
+    for (const fn of pending.current) d = fn(d);
+    if (pending.current.length) saveLocal(d);
+    pending.current = [];
+    hydrated.current = true;
     setData(d);
     setMuted(!d.sound);
     setMusicOn(d.music);
@@ -149,6 +162,10 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const update = useCallback((fn: (d: ProgressData) => ProgressData) => {
+    if (!hydrated.current) {
+      pending.current.push(fn);
+      return;
+    }
     setData((prev) => {
       const next = fn(prev);
       saveLocal(next);
@@ -233,6 +250,19 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
     [sb, session, update],
   );
 
+  const awardStars = useCallback(
+    (subjectId: string, amount: number, reason: string) => {
+      if (!sb || !session || amount <= 0) return;
+      const d = dataRef.current;
+      const sub = getSubject(subjectId);
+      const rank = sub ? rankInfo(sub, (s, l) => d.lessons[`${s}/${l}`] ?? { read: false, stars: 0, best: 0 }, d.unlocks).rank.id : "start";
+      void sb.rpc("award_stars", { p_subject: subjectId, p_rank: rank, p_amount: amount, p_reason: reason }).then(({ error }) => {
+        if (error) console.warn("Không ghi được sao:", error.message);
+      });
+    },
+    [sb, session],
+  );
+
   const store = useMemo<Store>(() => {
     const lesson = (s: string, l: string) => data.lessons[`${s}/${l}`] ?? { read: false, stars: 0, best: 0 };
     let streak = 0;
@@ -249,6 +279,7 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
       online: Boolean(sb),
       streak,
       lesson,
+      awardStars,
       markRead(s, l) {
         const cur = lesson(s, l);
         if (cur.read) return;
@@ -266,6 +297,10 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
         syncLesson(s, l, next);
         const xp = Math.max(0, correct - hinted) * 5 + (stars > cur.stars ? (stars - cur.stars) * 10 : 0);
         addXp(s, xp, `luyen:${l}`);
+        // sao tuần: bài mới xong (1 lần), thêm sao khi làm tốt hơn, luyện lại thì 1 sao (trần 5/ngày)
+        if (stars > 0 && cur.stars === 0) awardStars(s, stars, `lesson-new:${s}/${l}`);
+        else if (stars > cur.stars) awardStars(s, stars - cur.stars, `lesson:${s}/${l}`);
+        else if (stars > 0) awardStars(s, 1, `practice:${s}/${l}`);
         return { stars, xp };
       },
       recordTest(key, t) {
@@ -309,7 +344,7 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
         setSession(null);
       },
     };
-  }, [data, ready, session, sb, update, syncLesson, addXp]);
+  }, [data, ready, session, sb, update, syncLesson, addXp, awardStars]);
 
   return <Ctx.Provider value={store}>{children}</Ctx.Provider>;
 }
