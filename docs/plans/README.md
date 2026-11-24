@@ -5,7 +5,7 @@ Danh sách và thứ tự ưu tiên: `docs/WISHLIST.md`.
 
 | Môn | File | id môn | Trạng thái |
 |-----|------|--------|-----------|
-| Kỹ năng số | [ky-nang-so.md](ky-nang-so.md) | `ky-nang-so` | Đang làm |
+| Kỹ năng số | [ky-nang-so.md](ky-nang-so.md) | `ky-nang-so` | Bản đầu xong, chờ duyệt |
 | Thám tử logic | [tham-tu-logic.md](tham-tu-logic.md) | `tham-tu` | Chưa bắt đầu |
 | Lập trình khối lệnh | [lap-trinh.md](lap-trinh.md) | `lap-trinh` | Chưa bắt đầu |
 | Khám phá Việt Nam | [kham-pha-vn.md](kham-pha-vn.md) | `viet-nam` | Chưa bắt đầu |

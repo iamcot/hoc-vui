@@ -140,7 +140,11 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
   const dataRef = useRef(data);
   dataRef.current = data;
 
+  // các màn con (vd. bài học ghi "bài đang học") có thể ghi trước khi effect này chạy (effect của con chạy trước cha);
+  // lúc đó phải ghi chồng lên dữ liệu đã lưu trên máy, không phải lên EMPTY, nếu không sẽ xóa mất tiến trình
+  const loaded = useRef(false);
   useEffect(() => {
+    loaded.current = true;
     const d = loadLocal();
     setData(d);
     setMuted(!d.sound);
@@ -150,7 +154,7 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
 
   const update = useCallback((fn: (d: ProgressData) => ProgressData) => {
     setData((prev) => {
-      const next = fn(prev);
+      const next = fn(loaded.current ? prev : loadLocal());
       saveLocal(next);
       return next;
     });

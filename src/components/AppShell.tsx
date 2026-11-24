@@ -17,7 +17,7 @@ const TABS = [
 ];
 
 /** Màn hình tập trung (bài học, làm bài, phòng thi) ẩn thanh điều hướng */
-const isFocus = (p: string) => /^\/hoc\/[^/]+\/.+/.test(p) || /^\/thi-dau\/[^/]+/.test(p);
+const isFocus = (p: string) => /^\/hoc\/[^/]+\/.+/.test(p) || /^\/thi-dau\/[^/]+/.test(p) || p.startsWith("/ky-nang-so/");
 
 const floatingMusic = (p: string) => p.startsWith("/go-phim/") || p.startsWith("/thi-dau/") || /^\/hoc\/go-phim\/[^/]+\/luyen-tap/.test(p);
 

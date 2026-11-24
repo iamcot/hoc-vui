@@ -24,7 +24,7 @@ File này sinh tự động từ `src/content/assets.ts` bằng `npm run prompts
 - Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator
 - Xi Xi: a friendly anthropomorphic scientific calculator (dark navy body, light gray keys, small LCD screen showing a smile), tiny arms and legs
 
-## Ảnh (133)
+## Ảnh (147)
 
 ### ✅ `mochi-happy.webp`
 - Dùng ở: Mochi vui vẻ: lời chào, slide mở đầu
@@ -856,6 +856,118 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 
 ```text
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile in a submarine cockpit typing, glowing Vietnamese-style accent marks (hooks, hats, tone marks) floating like bubbles, no full words. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
+```
+
+### ⬜ `subject-kns-cover.webp`
+- Dùng ở: Ảnh lớn của môn Kỹ năng số ở trang chủ (chữ đè lên phần dưới ảnh)
+- Kích thước: 1536x1024
+
+```text
+Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator holding up a round glowing shield in front of a big friendly smartphone, small floating chat bubbles and a padlock icon around, a sneaky black cat in a tiny mask peeking from behind the phone and backing away, one continuous scene from top to bottom: characters and main objects sit in the upper 60% of the frame, and the same scene simply continues into the bottom third (more of the grass, floor, table or ground in the same colors and lighting, a little softer and less detailed, gently shaded by a natural shadow), with no characters or busy details there so white title text can be laid over it; never a separate flat color band, panel or gradient bar. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
+```
+
+### ⬜ `kns-tier-1.webp`
+- Dùng ở: Huy hiệu trình độ An toàn nhí
+- Kích thước: 1024x1024 · nền trong suốt
+
+```text
+Round badge with a small soft-blue shield and a baby chick peeking over it, cream background circle. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
+```
+
+### ⬜ `kns-tier-2.webp`
+- Dùng ở: Huy hiệu trình độ Thám hiểm mạng
+- Kích thước: 1024x1024 · nền trong suốt
+
+```text
+Round badge with a shield and a compass over a tiny globe made of chat bubbles, mint green. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
+```
+
+### ⬜ `kns-tier-3.webp`
+- Dùng ở: Huy hiệu trình độ Tỉnh táo
+- Kích thước: 1024x1024 · nền trong suốt
+
+```text
+Hexagon tech badge with a glowing magnifying glass over a newspaper icon, mint neon glow. Modern anime illustration for teenagers aged 13 to 15, cinematic lighting, clean sharp line art, cel shading with subtle gradients, cool tech vibe with floating holographic UI panels and soft neon glow. Color palette: sky blue #4F72FF, mint #22B98C and lilac #9B7BFF neon accents over deep navy #1B1F3B and slate tones, a touch of coral #FF8A5C. Stylish and confident, not cute, not babyish, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
+```
+
+### ⬜ `kns-tier-4.webp`
+- Dùng ở: Huy hiệu trình độ Công dân số
+- Kích thước: 1024x1024 · nền trong suốt
+
+```text
+Hexagon tech badge with a glowing globe made of network lines inside a shield, lilac neon glow. Modern anime illustration for teenagers aged 13 to 15, cinematic lighting, clean sharp line art, cel shading with subtle gradients, cool tech vibe with floating holographic UI panels and soft neon glow. Color palette: sky blue #4F72FF, mint #22B98C and lilac #9B7BFF neon accents over deep navy #1B1F3B and slate tones, a touch of coral #FF8A5C. Stylish and confident, not cute, not babyish, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
+```
+
+### ⬜ `kns-cover-nhi.webp`
+- Dùng ở: Bìa các bài An toàn nhí
+- Kích thước: 1536x1024
+
+```text
+Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator sitting with a tablet on a cozy sofa next to a parent cat, the parent pointing kindly at the screen, a lock and a heart floating above. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
+```
+
+### ⬜ `kns-cover-tham-hiem.webp`
+- Dùng ở: Bìa các bài Thám hiểm mạng
+- Kích thước: 1536x1024
+
+```text
+Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator as a little explorer with a map and a shield, walking along a path made of glowing chat bubbles and link icons, a broken fishing hook lying on the side of the path. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
+```
+
+### ⬜ `kns-cover-tinh-tao.webp`
+- Dùng ở: Bìa các bài Tỉnh táo
+- Kích thước: 1536x1024
+
+```text
+The student scanning floating holographic news cards with a glowing magnifying lens, some cards turning red with warning marks, others mint with check marks, no readable text. Characters: a confident anime teen student about 14 years old, gender-neutral look, short dark hair, navy hoodie with subtle circuit patterns, headphones around the neck; Mochi: a sleek white cat with glowing teal eyes and a light-blue scarf, cool and calm, perched on the student's shoulder. Modern anime illustration for teenagers aged 13 to 15, cinematic lighting, clean sharp line art, cel shading with subtle gradients, cool tech vibe with floating holographic UI panels and soft neon glow. Color palette: sky blue #4F72FF, mint #22B98C and lilac #9B7BFF neon accents over deep navy #1B1F3B and slate tones, a touch of coral #FF8A5C. Stylish and confident, not cute, not babyish, no text, no letters, no numbers, no watermark.
+```
+
+### ⬜ `kns-cover-cong-dan.webp`
+- Dùng ở: Bìa các bài Công dân số
+- Kích thước: 1536x1024
+
+```text
+The student standing calmly in front of a large holographic face that is glitching and splitting into pixels (a deepfake being revealed), network lines in the background, restrained neon. Characters: a focused anime student about 15 years old, taller and more mature, short dark hair, navy jacket over a white shirt, wireless earbuds; Mochi: a sleek white cat with glowing teal eyes and a light-blue scarf, cool and calm, perched on the student's shoulder. Modern anime illustration for teenagers aged 15, cinematic lighting, clean sharp line art, cel shading with subtle gradients, cool tech vibe with floating holographic UI panels and soft neon glow. Color palette: sky blue #4F72FF, mint #22B98C and lilac #9B7BFF neon accents over deep navy #1B1F3B and slate tones, a touch of coral #FF8A5C. Stylish and confident, not cute, not babyish, no text, no letters, no numbers, no watermark. More mature and cinematic mood, refined composition, realistic proportions, restrained neon, fewer sparkles.
+```
+
+### ⬜ `kns-villain-kid.webp`
+- Dùng ở: Kẻ gian ở trình độ nhí (mèo Mun đeo mặt nạ, dễ thương, không đáng sợ)
+- Kích thước: 1024x1024 · nền trong suốt
+
+```text
+A small sneaky black cat wearing a tiny eye mask like a cartoon burglar, holding a fishing rod with a gift box as bait, mischievous but cute, full body. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
+```
+
+### ⬜ `kns-villain-teen.webp`
+- Dùng ở: Kẻ gian ở trình độ lớn (hacker áo hoodie, không đáng sợ)
+- Kích thước: 1024x1024 · nền trong suốt
+
+```text
+A faceless hooded figure in a dark hoodie with a glowing mask made of pixels, typing on a floating keyboard, mysterious but not scary, full body. Modern anime illustration for teenagers aged 13 to 15, cinematic lighting, clean sharp line art, cel shading with subtle gradients, cool tech vibe with floating holographic UI panels and soft neon glow. Color palette: sky blue #4F72FF, mint #22B98C and lilac #9B7BFF neon accents over deep navy #1B1F3B and slate tones, a touch of coral #FF8A5C. Stylish and confident, not cute, not babyish, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
+```
+
+### ⬜ `kns-mode-truefalse.webp`
+- Dùng ở: Biểu tượng chế độ Thật hay giả
+- Kích thước: 1024x1024 · nền trong suốt
+
+```text
+Round app-icon style badge: a smartphone with a green check mark on the left half and a red flag on the right half, small lightning bolt on top. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
+```
+
+### ⬜ `kns-mode-password.webp`
+- Dùng ở: Biểu tượng chế độ Phòng thử mật khẩu
+- Kích thước: 1024x1024 · nền trong suốt
+
+```text
+Round app-icon style badge: a chunky golden padlock with a strength meter bar of five colored blocks beneath it. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
+```
+
+### ⬜ `bg-kns-map.webp`
+- Dùng ở: Cảnh nền bản đồ bài của môn Kỹ năng số
+- Kích thước: 1536x1024
+
+```text
+Top-down view of a cute tiny town where streets are glowing network cables, houses shaped like phones and laptops, little shield-shaped parks, soft and low contrast so map nodes on top stay readable. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
 ### ✅ `nav-pole.webp`

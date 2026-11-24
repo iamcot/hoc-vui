@@ -7,7 +7,8 @@ export function practiceSet(subject: Subject, lessonId: string, seed: string, co
   const lesson = allLessons(subject).find((l) => l.id === lessonId);
   if (!lesson) return [];
   const rng = makeRng(`${subject.id}:${lessonId}:${seed}`);
-  return dedupe(Array.from({ length: count * 2 }, () => rng.pick(lesson.practice)(rng))).slice(0, count);
+  // lấy dư rồi bỏ câu trùng (bài có kho câu cố định thì cần bốc nhiều lần mới đủ câu khác nhau)
+  return dedupe(Array.from({ length: count * 4 }, () => rng.pick(lesson.practice)(rng))).slice(0, count);
 }
 
 /** Đề trộn nhiều bài (kiểm tra trình độ, thi đấu). Cùng seed thì cùng đề. */
@@ -20,15 +21,18 @@ export function mixedSet(subject: Subject, seed: string, count: number, lessonId
   while (out.length < count && i < count * 4) {
     const l = order[i % order.length];
     const q = rng.pick(l.practice)(rng);
-    if (!out.some((o) => o.prompt === q.prompt)) out.push({ ...q, id: `${seed}-${out.length}` });
+    if (!out.some((o) => keyOf(o) === keyOf(q))) out.push({ ...q, id: `${seed}-${out.length}` });
     i++;
   }
   return out;
 }
 
+/** hai câu trùng nhau khi cùng đề (môn Kỹ năng số: cùng đề nhưng khác màn hình giả thì vẫn là hai câu) */
+const keyOf = (q: Question) => (q.screen ? `${q.prompt}|${JSON.stringify(q.screen)}` : q.prompt);
+
 function dedupe(qs: Question[]) {
   const seen = new Set<string>();
-  return qs.filter((q) => (seen.has(q.prompt) ? false : (seen.add(q.prompt), true)));
+  return qs.filter((q) => (seen.has(keyOf(q)) ? false : (seen.add(keyOf(q)), true)));
 }
 
 export interface Level {

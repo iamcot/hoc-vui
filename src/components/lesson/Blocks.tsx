@@ -16,6 +16,9 @@ import { ReadAloud } from "@/components/reading/ReadAloud";
 import { Keyboard } from "@/components/typing/Keyboard";
 import { TypeLine } from "@/components/typing/TypeLine";
 import { Ico } from "@/components/Ico";
+import { Scenario } from "@/components/digital/Scenario";
+import { SpotFlags } from "@/components/digital/SpotFlags";
+import { PasswordLab } from "@/components/digital/PasswordLab";
 
 export function BlockView({ b, device, lead }: { b: Block; device?: "fx580" | "keyboard"; lead?: React.ReactNode }) {
   switch (b.type) {
@@ -89,6 +92,12 @@ export function BlockView({ b, device, lead }: { b: Block; device?: "fx580" | "k
       return <SayRow items={b.items} label={b.label} />;
     case "read":
       return <ReadAloud text={b.text} strict={b.strict} label={b.label} />;
+    case "scenario":
+      return <Scenario {...b} />;
+    case "spot":
+      return <SpotFlags screen={b.screen} label={b.label} />;
+    case "password":
+      return <PasswordLab label={b.label} />;
   }
 }
 

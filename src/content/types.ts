@@ -22,7 +22,44 @@ export type Block =
   /** bàn phím có màu theo ngón, sáng các phím của bài */
   | { type: "keyboard"; keys: string; focus?: string; label?: string }
   /** gõ thử một dòng ngay trong slide */
-  | { type: "drill"; text: string; label?: string; keys?: string; focus?: string };
+  | { type: "drill"; text: string; label?: string; keys?: string; focus?: string }
+  // ── môn Kỹ năng số ──
+  /** tình huống trên màn hình giả: chọn cách xử lý, xem chuyện gì xảy ra tiếp */
+  | { type: "scenario"; screen: FakeScreen; ask: string; options: { text: string; good: boolean; then: string }[]; intro?: string }
+  /** chạm tìm các dấu hiệu đáng ngờ ([[...]]) trên màn hình giả */
+  | { type: "spot"; screen: FakeScreen; label?: string }
+  /** phòng thử mật khẩu (chạy trong máy, không lưu) */
+  | { type: "password"; label?: string };
+
+/**
+ * Môn Kỹ năng số: một màn hình giả do app tự vẽ (không cần ảnh).
+ * Trong mọi chuỗi chữ, đoạn [[chữ|giải thích]] là một dấu hiệu đáng ngờ:
+ * khối "spot" cho bé chạm để tìm, các chỗ khác thì tô sáng sau khi bé trả lời.
+ */
+export interface FakeScreen {
+  app: "chat" | "sms" | "email" | "web" | "post" | "call" | "game";
+  /** tên người gửi, tên trang, tên game */
+  title: string;
+  /** số điện thoại, địa chỉ email, đường link */
+  sub?: string;
+  /** emoji ảnh đại diện */
+  avatar?: string;
+  /** có dấu tích xanh (tài khoản đã xác minh) */
+  verified?: boolean;
+  /** tiêu đề email, tiêu đề bài báo, tiêu đề trang */
+  heading?: string;
+  lines: ScreenLine[];
+}
+
+export interface ScreenLine {
+  /** chat/sms: ai nói. Mặc định "them" */
+  from?: "them" | "me";
+  text: string;
+  /** emoji to thay cho ảnh đính kèm */
+  pic?: string;
+  /** nút bấm trong tin, trang (vd. "Nhận quà ngay") */
+  button?: string;
+}
 
 export interface LetterItem {
   g: string;
@@ -74,6 +111,8 @@ export interface Question {
   big?: boolean;
   /** kind "read": false = sai thanh vẫn tính đạt (âm, vần lẻ) */
   strict?: boolean;
+  /** môn Kỹ năng số: màn hình giả hiện cạnh câu hỏi */
+  screen?: FakeScreen;
 }
 
 export type QuestionGen = (rng: Rng) => Question;
