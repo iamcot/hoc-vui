@@ -127,3 +127,25 @@ export async function leaderboard(subject: string | null, days: number | null): 
 export async function myRooms(): Promise<string[]> {
   return Object.keys(localRooms());
 }
+
+export interface StarRow {
+  pos: number;
+  user_id: string;
+  display_name: string;
+  avatar: string;
+  stars: number;
+  me?: boolean;
+}
+
+/** Bảng xếp hạng sao. period: week | month | all; kind: stars | progress (số bài mới học xong). */
+export async function starBoard(opts: { period: "week" | "month" | "all"; subject?: string | null; rank?: string | null; kind?: "stars" | "progress" }): Promise<StarRow[] | null> {
+  const sb = getSupabase();
+  const { data: s } = (await sb?.auth.getSession()) ?? { data: { session: null } };
+  if (!sb || !s.session) return null;
+  const { data, error } = await sb.rpc("star_board", { p_period: opts.period, p_subject: opts.subject ?? null, p_rank: opts.rank ?? null, p_kind: opts.kind ?? "stars", p_limit: 50 });
+  if (error) {
+    console.warn("Không tải được bảng xếp hạng:", error.message);
+    return [];
+  }
+  return ((data ?? []) as StarRow[]).map((r) => ({ ...r, pos: Number(r.pos), stars: Number(r.stars), me: r.user_id === s.session!.user.id }));
+}

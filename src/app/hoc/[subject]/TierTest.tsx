@@ -33,7 +33,7 @@ export function TierTest({ subjectId, tierId, mode }: { subjectId: string; tierI
   const COUNT = mode === "challenge" ? ch.count : 15;
   const MINUTES = mode === "challenge" ? ch.count : 12;
   const mapHref = `/hoc/${s.id}?cap=${tier.id}`;
-  const { recordTest, addXp, unlockTier } = useProgress();
+  const { recordTest, addXp, unlockTier, awardStars } = useProgress();
   const [phase, setPhase] = useState<"intro" | "run" | "done">("intro");
   const [qs, setQs] = useState<Question[]>([]);
   const [i, setI] = useState(0);
@@ -68,6 +68,7 @@ export function TierTest({ subjectId, tierId, mode }: { subjectId: string; tierI
       const passed = correct >= ch.pass;
       if (passed && nextTier) unlockTier(s.id, nextTier.id);
       addXp(s.id, correct * 4 + (passed ? 50 : 0), `thu-thach:${tier.id}`);
+      if (passed) awardStars(s.id, 5, `test:${s.id}:${tier.id}`);
       play(passed ? "levelup" : "wrong");
     } else {
       recordTest(`${s.id}:${tier.id}`, { pct, level: levelFor(pct).id, at: new Date().toISOString(), weak });

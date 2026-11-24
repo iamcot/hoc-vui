@@ -35,7 +35,7 @@ function RoomView() {
   const sp = useSearchParams();
   const fallback = sp.get("mon") ?? SUBJECTS.find((s) => s.ready)!.id;
   const fallbackTier = sp.get("cap");
-  const { data, addXp, session, lesson } = useProgress();
+  const { data, addXp, awardStars, session, lesson } = useProgress();
   const [room, setRoom] = useState<Room | null>(null);
   const [phase, setPhase] = useState<"lobby" | "run" | "done">("lobby");
   const [qs, setQs] = useState<Question[]>([]);
@@ -87,13 +87,18 @@ function RoomView() {
       setPhase("done");
       play(correct >= room.question_count * 0.6 ? "levelup" : "complete");
       addXp(room.subject_id, correct * 6, `thi:${room.code}`);
+      // phòng hạng mới tính sao tuần: 1 sao khi đúng từ 60%, 2 từ 80%, 3 từ 90% (phòng tự do không tính)
+      if (room.rank && room.rank !== FREE_ROOM) {
+        const pct = correct / room.question_count;
+        awardStars(room.subject_id, pct >= 0.9 ? 3 : pct >= 0.8 ? 2 : pct >= 0.6 ? 1 : 0, `arena:${room.code}`);
+      }
       try {
         await submitEntry(room, e, { name: data.profile.name, avatar: data.profile.avatar });
       } finally {
         refresh();
       }
     },
-    [room, addXp, data.profile, refresh],
+    [room, addXp, awardStars, data.profile, refresh],
   );
 
   useEffect(() => {
