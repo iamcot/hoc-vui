@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { getLesson } from "@/content/subjects";
 import { useProgress } from "@/lib/store";
+import { Art } from "@/components/Art";
 import { Mascot } from "@/components/Mascot";
 import { BlockView } from "@/components/lesson/Blocks";
 import { Confetti } from "@/components/Confetti";
@@ -156,6 +157,8 @@ export function LessonPlayer({ subjectId, lessonId }: { subjectId: string; lesso
                 const rest = slide.blocks.filter((b) => b !== img);
                 const hasCalc = rest.some((b) => b.type === "keys" && b.tryIt);
                 const side = img && !hasCalc;
+                // slide có máy bấm: ảnh chỉ là hình nhỏ bên trái, nhường chỗ cho phần máy khỏi phải cuộn
+                const thumb = img && hasCalc && img.type === "image" ? img : null;
                 // môn Tập đọc: khung "em đọc to" đặt cột phải cạnh phần ghép chữ, đỡ phải cuộn
                 const read = slide.blocks.find((b) => b.type === "read");
                 if (read && !img && slide.blocks.length > 1) {
@@ -172,7 +175,8 @@ export function LessonPlayer({ subjectId, lessonId }: { subjectId: string; lesso
                   );
                 }
                 return (
-                  <div className={`card p-5 sm:p-6 [@media(max-height:700px)]:p-4 ${side ? "grid items-start gap-6 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]" : ""}`}>
+                  <div className={`card p-5 sm:p-6 [@media(max-height:700px)]:p-4 ${side ? "grid items-start gap-6 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]" : thumb ? "grid items-start gap-5 md:grid-cols-[170px_minmax(0,1fr)]" : ""}`}>
+                    {thumb && <Art id={thumb.asset} emoji="🖼️" className="mx-auto aspect-[3/2] w-full max-w-[170px] rounded-2xl md:sticky md:top-24" />}
                     {side && (
                       <div className="md:sticky md:top-24">
                         <BlockView b={img} device={subject.device} />
@@ -180,7 +184,7 @@ export function LessonPlayer({ subjectId, lessonId }: { subjectId: string; lesso
                     )}
                     <div className="space-y-5">
                       {(() => {
-                        const list = side ? rest : slide.blocks;
+                        const list = side || thumb ? rest : slide.blocks;
                         // chữ đứng trước máy ảo được đưa vào cột trái, cạnh máy, cho đỡ phải cuộn
                         const ci = list.findIndex((b) => b.type === "keys" && b.tryIt);
                         const pre = ci > 0 && list.slice(0, ci).every((b) => b.type === "text" || b.type === "tip") ? ci : 0;
