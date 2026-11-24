@@ -8,6 +8,7 @@ import type { Question } from "@/content/types";
 import { mixedSet } from "@/lib/quiz";
 import { cleanCode, findRoom, roomBoard, scoreOf, submitEntry, type Entry, type Room } from "@/lib/arena";
 import { useProgress } from "@/lib/store";
+import { FREE_ROOM, RANKS, canJoin, rankInfo } from "@/lib/ranks";
 import { QuestionCard, type AnswerResult } from "@/components/quiz/QuestionCard";
 import { QuizHeader } from "@/components/quiz/QuizHeader";
 import { CalcLayout, CalcToggle, useCalcDock } from "@/components/calc/CalcDock";
@@ -34,7 +35,7 @@ function RoomView() {
   const sp = useSearchParams();
   const fallback = sp.get("mon") ?? SUBJECTS.find((s) => s.ready)!.id;
   const fallbackTier = sp.get("cap");
-  const { data, addXp, session } = useProgress();
+  const { data, addXp, session, lesson } = useProgress();
   const [room, setRoom] = useState<Room | null>(null);
   const [phase, setPhase] = useState<"lobby" | "run" | "done">("lobby");
   const [qs, setQs] = useState<Question[]>([]);
@@ -46,6 +47,11 @@ function RoomView() {
   const [copied, setCopied] = useState(false);
   const startAt = useRef(0);
   const dock = useCalcDock(getSubject(room?.subject_id ?? fallback)?.device);
+  // phòng có hạng: bé chỉ vào phòng cùng hạng hoặc thấp hơn; phòng tự do ai cũng vào
+  const rs = getSubject(room?.subject_id ?? fallback);
+  const myRank = rs ? rankInfo(rs, lesson, data.unlocks) : null;
+  const blocked = !!room && !!myRank && !canJoin(room.rank, myRank.index);
+  const roomRankName = !room || !room.rank || room.rank === FREE_ROOM ? "Phòng tự do" : `Phòng hạng ${RANKS.find((r) => r.id === room.rank)?.name ?? ""}`;
 
   const refresh = useCallback(() => roomBoard(code).then(setBoard), [code]);
 
@@ -164,12 +170,24 @@ function RoomView() {
 
       <main className="mx-auto grid max-w-4xl gap-6 px-4 py-6 sm:px-6 md:grid-cols-[1fr_1fr]">
         <motion.section initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="card space-y-5 p-6 text-center">
-          {phase === "lobby" ? (
+          {phase === "lobby" && blocked ? (
+            <>
+              <Mascot mood="think" size={120} className="floaty mx-auto" />
+              <p className="font-display text-2xl font-extrabold">{roomRankName}</p>
+              <p className="text-ink-soft">
+                Em đang ở hạng {myRank?.rank.name}, phòng này dành cho hạng cao hơn. Học thêm vài bài để lên hạng, hoặc vào một phòng tự do nhé.
+              </p>
+              <Link href="/thi-dau" className="btn btn-primary">
+                Về Đấu trường
+              </Link>
+            </>
+          ) : phase === "lobby" ? (
             <>
               <Mascot mood="wow" size={120} className="floaty mx-auto" />
               <div>
                 <p className="text-sm font-bold text-ink-soft">Mã phòng</p>
                 <p className="font-mono text-5xl font-extrabold tracking-[0.2em] text-sky">{room.code}</p>
+                <p className="mt-1 text-sm font-extrabold text-ink-soft">{roomRankName}</p>
               </div>
               <p className="text-ink-soft">
                 {room.question_count} câu trong {room.seconds / 60} phút. Gửi mã cho bạn để cùng làm một đề.

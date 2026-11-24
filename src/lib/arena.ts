@@ -15,6 +15,8 @@ export interface Room {
   tier_id?: string | null;
   question_count: number;
   seconds: number;
+  /** "free" = phòng tự do, hoặc id hạng (xem lib/ranks) */
+  rank?: string;
 }
 
 export interface Entry {
@@ -50,9 +52,9 @@ function saveLocalRooms(r: ReturnType<typeof localRooms>) {
 }
 
 /** Tạo phòng. Không đăng nhập: phòng chỉ lưu trên máy, nhưng mã vẫn cho ra cùng đề ở máy khác. */
-export async function createRoom(subjectId: string, tierId?: string | null): Promise<Room> {
+export async function createRoom(subjectId: string, tierId?: string | null, rank = "free"): Promise<Room> {
   const sb = getSupabase();
-  const room: Room = { code: newCode(), subject_id: subjectId, tier_id: tierId ?? null, question_count: ROOM_QUESTIONS, seconds: ROOM_SECONDS };
+  const room: Room = { code: newCode(), subject_id: subjectId, tier_id: tierId ?? null, question_count: ROOM_QUESTIONS, seconds: ROOM_SECONDS, rank };
   const { data: s } = (await sb?.auth.getSession()) ?? { data: { session: null } };
   if (sb && s.session) {
     const { error } = await sb.from("challenges").insert(room);
@@ -70,7 +72,7 @@ export async function findRoom(code: string, fallbackSubject: string, fallbackTi
   const sb = getSupabase();
   const { data: s } = (await sb?.auth.getSession()) ?? { data: { session: null } };
   if (sb && s.session) {
-    const { data } = await sb.from("challenges").select("code, subject_id, tier_id, question_count, seconds").eq("code", code).maybeSingle();
+    const { data } = await sb.from("challenges").select("code, subject_id, tier_id, question_count, seconds, rank").eq("code", code).maybeSingle();
     if (data) return data as Room;
   }
   const local = localRooms()[code];

@@ -3,9 +3,11 @@ import Link from "next/link";
 import { motion } from "motion/react";
 import { useEffect, useRef } from "react";
 import { getSubject, tierLessons } from "@/content/subjects";
+import type { Subject } from "@/content/types";
 import type { Tier } from "@/content/types";
 import { challengeOf, continueLessonId, currentTierIndex, tierUnlocked } from "@/lib/tiers";
 import { useProgress } from "@/lib/store";
+import { rankInfo } from "@/lib/ranks";
 import { Art } from "@/components/Art";
 import { IconBack, IconLock, IconStar } from "@/components/Icons";
 import { Mascot } from "@/components/Mascot";
@@ -121,6 +123,7 @@ export function SubjectMap({ subjectId }: { subjectId: string }) {
           <Art id={s.device === "fx580" ? "xixi" : s.cover} emoji={s.emoji} rounded={s.device === "fx580" ? "" : "rounded-full"} contain={s.device === "fx580"} className="h-14 w-14 shrink-0 drop-shadow" />
         )}
         <h1 className="ribbon text-2xl sm:text-3xl">{s.name}</h1>
+        {s.arena !== false && ready && <RankChip s={s} />}
       </div>
 
       {/* lối tắt tới từng trình độ trên cây */}
@@ -406,5 +409,23 @@ function LockVeil() {
     <span className="absolute inset-0 grid place-items-center bg-ink/35">
       <IconLock className="h-8 w-8 text-white" />
     </span>
+  );
+}
+
+/** hạng thi đấu của môn + còn bao nhiêu bài nữa lên hạng (động lực đi hết lộ trình) */
+function RankChip({ s }: { s: Subject }) {
+  const { lesson, data } = useProgress();
+  const r = rankInfo(s, lesson, data.unlocks);
+  return (
+    <div className="flex flex-wrap items-center gap-2 rounded-full bg-white/90 py-1.5 pl-4 pr-2 font-display text-base font-extrabold shadow-[var(--shadow-pop)]">
+      <Ico n="medal-1" /> Hạng {r.rank.name}
+      {r.next ? (
+        <span className="rounded-full bg-sun-soft px-3 py-1 text-sm font-bold text-ink">
+          Còn {r.next.left} bài nữa lên {r.next.name}
+        </span>
+      ) : (
+        <span className="rounded-full bg-mint-soft px-3 py-1 text-sm font-bold text-ink">Hạng cao nhất</span>
+      )}
+    </div>
   );
 }

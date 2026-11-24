@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 import { SUBJECTS } from "@/content/subjects";
 import { cleanCode, createRoom, ROOM_QUESTIONS, ROOM_SECONDS } from "@/lib/arena";
 import { useProgress } from "@/lib/store";
+import { FREE_ROOM, rankInfo } from "@/lib/ranks";
 import { Scene } from "@/components/Scene";
 import Link from "next/link";
 import { Ico } from "@/components/Ico";
@@ -20,7 +21,7 @@ export default function ArenaPage() {
 function Arena() {
   const router = useRouter();
   const params = useSearchParams();
-  const ready = SUBJECTS.filter((s) => s.ready);
+  const ready = SUBJECTS.filter((s) => s.ready && s.arena !== false);
   // lựa chọn = môn + trình độ (vd. "may-tinh:lop7"); bạn vào phòng chọn cùng mục này để có cùng đề
   const options = ready.flatMap((s) => s.tiers.filter((t) => t.units.length > 0).map((t) => ({ value: `${s.id}:${t.id}`, label: `${s.emoji} ${s.name} · ${t.name}` })));
   const initial = params.get("mon") ? `${params.get("mon")}:${params.get("cap") ?? ""}` : "";
@@ -29,13 +30,15 @@ function Arena() {
   const [code, setCode] = useState("");
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState("");
-  const { session, online } = useProgress();
+  const { session, online, lesson, data } = useProgress();
+  const [free, setFree] = useState(false);
+  const mine = rankInfo(ready.find((s) => s.id === subject) ?? ready[0], lesson, data.unlocks);
 
   async function create() {
     setBusy(true);
     setErr("");
     try {
-      const room = await createRoom(subject, tierId);
+      const room = await createRoom(subject, tierId, free ? FREE_ROOM : mine.rank.id);
       router.push(`/thi-dau/${room.code}?mon=${subject}&cap=${tierId}`);
     } catch (e) {
       setErr("Chưa tạo được phòng, thử lại sau nhé.");
@@ -87,6 +90,16 @@ function Arena() {
               ))}
             </select>
           </label>
+          <div className="grid grid-cols-2 gap-2 text-sm font-bold">
+            <button onClick={() => setFree(false)} aria-pressed={!free} className={`rounded-2xl border-2 p-3 text-left ${!free ? "border-sky bg-sky/10" : "border-line"}`}>
+              Phòng hạng {mine.rank.name}
+              <span className="block text-xs font-semibold text-ink-soft">Tính sao tuần. Bạn hạng này hoặc thấp hơn vào được.</span>
+            </button>
+            <button onClick={() => setFree(true)} aria-pressed={free} className={`rounded-2xl border-2 p-3 text-left ${free ? "border-sky bg-sky/10" : "border-line"}`}>
+              Phòng tự do
+              <span className="block text-xs font-semibold text-ink-soft">Ai cũng vào được, chơi vui, không tính sao.</span>
+            </button>
+          </div>
           <button className="btn btn-primary mt-auto w-full" onClick={create} disabled={busy}>
             {busy ? "Đang tạo..." : "Tạo phòng và lấy mã"}
           </button>

@@ -156,6 +156,8 @@ export interface Subject {
   modes?: { id: string; name: string; short: string; emoji: string; href: string; icon?: string }[];
   tiers: Tier[];
   ready: boolean;
+  /** false = môn không có thi đấu trực tiếp (vd. Tập đọc), ẩn khỏi trang Thi đấu */
+  arena?: boolean;
   /** cấp học, để trang chủ xếp môn theo nhóm tuổi (xem STAGES) */
   stage: StageId;
 }
