@@ -314,6 +314,25 @@ button {
 .theme-cyber .bg-peach-soft {
   background: rgb(255 79 163 / 0.16);
 }
+/* các ô báo đúng/sai, gợi ý: nền nhạt trên giao diện sáng đổi thành lớp màu trong suốt trên nền tối */
+.theme-cyber .bg-mint-soft {
+  background: rgb(34 185 140 / 0.2);
+  box-shadow: 0 0 0 1px rgb(34 185 140 / 0.45);
+}
+.theme-cyber .bg-berry-soft,
+.theme-cyber .bg-berry-soft\/70 {
+  background: rgb(255 79 123 / 0.18);
+  box-shadow: 0 0 0 1px rgb(255 79 123 / 0.45);
+}
+.theme-cyber .bg-sky-soft,
+.theme-cyber .bg-sky-soft\/40,
+.theme-cyber .bg-sky-soft\/50 {
+  background: rgb(79 114 255 / 0.2);
+}
+.theme-cyber .bg-line\/70,
+.theme-cyber .bg-line {
+  background: rgb(120 140 220 / 0.25);
+}
 .theme-cyber .text-outline {
   text-shadow: 0 0 12px rgb(47 211 255 / 0.35);
 }
