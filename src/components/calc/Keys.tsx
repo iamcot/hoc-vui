@@ -3,11 +3,11 @@ import type { CalcKey, KeyStep } from "@/content/devices/fx580";
 import { parseKeys } from "@/content/devices/fx580";
 
 const KIND_STYLE: Record<CalcKey["kind"], string> = {
-  mod: "bg-white text-ink border-line",
+  mod: "bg-[#f4f2f8] text-[#252845] border-line",
   fn: "bg-key-fn text-white border-key-fn",
-  num: "bg-[#f4f2f8] text-ink border-[#dcd8e6]",
-  op: "bg-[#f4f2f8] text-ink border-[#dcd8e6]",
-  ctl: "bg-[#ffd6a8] text-ink border-[#f2bd84]",
+  num: "bg-[#f4f2f8] text-[#252845] border-[#dcd8e6]",
+  op: "bg-[#f4f2f8] text-[#252845] border-[#dcd8e6]",
+  ctl: "bg-[#ffd6a8] text-[#252845] border-[#f2bd84]",
   eq: "bg-sky text-white border-sky",
 };
 

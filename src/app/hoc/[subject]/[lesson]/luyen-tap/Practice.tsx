@@ -54,7 +54,7 @@ export function Practice({ subjectId, lessonId }: { subjectId: string; lessonId:
   const correct = answers.filter((a) => a.correct).length;
 
   return (
-    <div className="min-h-dvh">
+    <div className="lesson-light min-h-dvh">
       <QuizHeader closeHref={`/hoc/${subject.id}`} done={answers.length} total={qs.length} wide={dock.open && !summary} right={!summary && <CalcToggle dock={dock} />} />
       {!summary ? (
         <CalcLayout dock={dock}>

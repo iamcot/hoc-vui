@@ -100,7 +100,7 @@ export function LessonPlayer({ subjectId, lessonId }: { subjectId: string; lesso
   });
 
   return (
-    <div className={`flex min-h-dvh flex-col ${subject.look?.theme === "cyber" ? "theme-cyber" : ""}`}>
+    <div className={`flex min-h-dvh flex-col ${subject.look?.theme === "cyber" ? "theme-cyber" : "lesson-light"}`}>
       <Scene image={subject.look?.lesson ?? "bg-lesson"} variant={subject.look?.theme === "cyber" ? "deep" : "desk"} dim={subject.look?.theme !== "cyber"} />
       <header className="sticky top-0 z-20 bg-white/60 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center gap-3 px-4 py-3 sm:px-6">

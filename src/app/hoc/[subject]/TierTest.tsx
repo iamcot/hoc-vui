@@ -98,7 +98,7 @@ export function TierTest({ subjectId, tierId, mode }: { subjectId: string; tierI
 
   if (phase === "intro") {
     return (
-      <div className={`min-h-dvh ${cyber ? "theme-cyber" : ""}`}>
+      <div className={`min-h-dvh ${cyber ? "theme-cyber" : "lesson-light"}`}>
         {cyber && <Scene image={s.look?.lesson} variant="deep" />}
         <QuizHeader closeHref={mapHref} done={0} total={COUNT} />
         <main className="mx-auto grid max-w-4xl items-center gap-8 px-4 py-10 sm:px-6 md:grid-cols-2">
@@ -139,7 +139,7 @@ export function TierTest({ subjectId, tierId, mode }: { subjectId: string; tierI
     const mm = Math.max(0, Math.floor(left / 60));
     const ss = String(Math.max(0, left % 60)).padStart(2, "0");
     return (
-      <div className={`min-h-dvh ${cyber ? "theme-cyber" : ""}`}>
+      <div className={`min-h-dvh ${cyber ? "theme-cyber" : "lesson-light"}`}>
         {cyber && <Scene image={s.look?.lesson} variant="deep" />}
         <QuizHeader
           closeHref={mapHref}
@@ -157,7 +157,7 @@ export function TierTest({ subjectId, tierId, mode }: { subjectId: string; tierI
 
   const { level, pct, correct, byTopic } = result;
   return (
-    <div className="min-h-dvh">
+    <div className="lesson-light min-h-dvh">
       <Scene image="bg-lesson" variant="desk" dim />
       {(mode === "challenge" ? correct >= ch.pass : pct >= 65) && <Confetti />}
       <main className="mx-auto max-w-4xl space-y-6 px-4 py-10 sm:px-6">

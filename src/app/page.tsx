@@ -31,11 +31,6 @@ export default function Home() {
   const lessons = tierLessons(tier);
   const next = lessons.find((l) => l.id === nextId) ?? lessons[0];
   const doneCount = lessons.filter((l) => lessonOf(main.id, l.id).stars > 0).length;
-  // theme sáng: chữ trên thẻ môn để trên nền trắng cho dễ đọc (ảnh Mochi sáng, chữ trắng chìm mất)
-  const light = data.theme !== "neon";
-  const cap = light ? "bg-white px-4 py-3 text-ink" : "absolute inset-x-0 bottom-0 p-4 text-white";
-  const capSub = light ? "text-sm font-semibold text-ink-soft" : "text-sm text-white/90";
-  const shade = light ? "" : "absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 via-45% to-transparent";
 
   return (
     <div className="space-y-10">
@@ -92,7 +87,7 @@ export default function Home() {
                 <h2 className="ribbon text-xl" style={{ ["--ribbon" as string]: st.color }}>
                   {st.name}
                 </h2>
-                <p className={`mb-1 text-sm font-bold ${light ? "rounded-full bg-white/90 px-3 py-1 text-ink shadow-sm" : "pb-1 text-ink-soft"}`}>{st.ages}</p>
+                <p className="pb-1 text-sm font-bold text-ink-soft">{st.ages}</p>
               </div>
               <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {list.map((s, k) => (
@@ -100,22 +95,22 @@ export default function Home() {
                     {s.ready ? (
                       <Link href={`/hoc/${s.id}`} className="group relative block overflow-hidden rounded-[2rem] shadow-[0_18px_40px_-22px_rgba(40,40,120,0.6)]">
                         <Art id={s.cover} emoji={s.emoji} rounded="" className="aspect-[4/3] w-full transition duration-500 group-hover:scale-105" />
-                        {shade && <div className={shade} />}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 via-45% to-transparent" />
                         <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-sm font-extrabold text-sky">{s.levelsLabel}</span>
-                        <div className={cap}>
-                          <h3 className={`font-display text-2xl font-extrabold ${light ? "" : "drop-shadow"}`}>{s.name}</h3>
-                          <p className={capSub}>{s.tagline}</p>
+                        <div className="absolute inset-x-0 bottom-0 p-4 text-white">
+                          <h3 className="font-display text-2xl font-extrabold drop-shadow">{s.name}</h3>
+                          <p className="text-sm text-white/90">{s.tagline}</p>
                         </div>
                       </Link>
                     ) : (
                       // môn sắp có: không ghi tên môn cụ thể, chỉ báo "có môn mới", tránh tạo áp lực/hứa hẹn
                       <div className="relative overflow-hidden rounded-[2rem]">
                         <Art id="subject-soon" emoji="🎁" rounded="" className="aspect-[4/3] w-full saturate-[.85]" />
-                        {shade && <div className={shade} />}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 via-45% to-transparent" />
                         <span className="absolute right-4 top-4 rounded-full bg-sun px-3 py-1 text-xs font-extrabold text-ink">Sắp ra mắt</span>
-                        <div className={cap}>
-                          <h3 className={`font-display text-2xl font-extrabold ${light ? "" : "drop-shadow"}`}>Môn mới đang tới</h3>
-                          <p className={capSub}>Mochi đang chuẩn bị một món quà bất ngờ</p>
+                        <div className="absolute inset-x-0 bottom-0 p-4 text-white">
+                          <h3 className="font-display text-2xl font-extrabold drop-shadow">Môn mới đang tới</h3>
+                          <p className="text-sm text-white/90">Mochi đang chuẩn bị một món quà bất ngờ</p>
                         </div>
                       </div>
                     )}
