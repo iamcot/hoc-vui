@@ -1,5 +1,4 @@
 "use client";
-import { FirstRunPrompt } from "@/components/ThemePicker";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { IconArena, IconLearn, IconMe, IconRank } from "./Icons";
@@ -40,7 +39,6 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   return (
     <div className={`min-h-dvh md:flex ${themeCls}`}>
       <MusicDirector />
-      <FirstRunPrompt />
       <MusicToggle className="fixed right-3 top-3 z-40 md:hidden" />
       {/* Thanh bên: mỗi mục là một cọc biển chỉ đường cắm trên cảnh nền */}
       <aside className={`sticky top-0 hidden h-dvh w-60 shrink-0 flex-col gap-1 bg-gradient-to-r ${dark ? "from-[#030a24]/50 via-[#030a24]/20" : "from-white/45 via-white/20"} to-transparent p-4 md:flex lg:w-64`}>
