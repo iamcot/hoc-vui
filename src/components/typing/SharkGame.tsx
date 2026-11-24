@@ -2,7 +2,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { AnimatePresence, motion } from "motion/react";
+import { motion } from "motion/react";
 import type { TypingSpec } from "@/content/types";
 import { keyChunk } from "@/content/subjects/go-phim/lessons";
 import { makeRng, randomSeed } from "@/lib/rng";
@@ -99,6 +99,8 @@ export function SharkGame({
     bonus: 0,
     bonusUntil: 0,
     bonusLeft: 0,
+    /** chờ cá trên màn hình hết rồi mới thả sứa */
+    bonusPending: false,
     nextBonusAt: BONUS_EVERY,
     pausedAt: 0,
     rng: makeRng(randomSeed()),
@@ -116,7 +118,7 @@ export function SharkGame({
   const bonusText = useCallback(() => {
     const s = g.current;
     const pool = spec.keys.replace(/[^a-z;,.]/g, "") || [...new Set((spec.words ?? []).join("").toLowerCase().replace(/[^a-z]/g, ""))].join("") || "fj";
-    return keyChunk(s.rng, pool, "", 2);
+    return keyChunk(s.rng, pool, "", 1); // sứa thưởng: chỉ 1 chữ
   }, [spec]);
 
   const finish = useCallback(() => {
@@ -135,14 +137,20 @@ export function SharkGame({
       const dt = Math.min(0.05, (now - (s.last || now)) / 1000);
       s.last = now;
       const speed = (spec.speed ?? 1) * (mode === "survival" ? 1 + (s.wave - 1) * 0.09 : 1);
-      // lượt bonus: sứa trồi từ dưới lên, cá ngừng đến
+      // lượt bonus: đợi hết cá trên màn hình, rồi chỉ có sứa trồi từ dưới lên
+      if (s.bonusPending && !s.fish.some((f) => !f.dead)) {
+        s.bonusPending = false;
+        s.bonusLeft = BONUS_JELLIES;
+        s.nextSpawn = now + 300;
+        play("gp-wave", 0.5);
+      }
       if (s.bonusLeft > 0 && now >= s.nextSpawn) {
         const text = bonusText();
         s.fish.push({ id: ++s.seq, text, keys: telexKeys(text), hit: 0, x: 0.3 + s.rng.next() * 0.55, y: 1.12, lane: -1, v: 0.32 + s.rng.next() * 0.08, kind: "jelly", bonus: true });
         s.bonusLeft--;
         s.nextSpawn = now + 650;
       }
-      const inBonus = now < s.bonusUntil;
+      const inBonus = s.bonusPending || s.bonusLeft > 0 || s.fish.some((f) => f.bonus && !f.dead);
       // thả cá
       const alive = s.fish.filter((f) => !f.dead);
       const maxAlive = mode === "survival" ? Math.min(2 + Math.floor(s.wave / 2), 6) : spec.unit === "word" ? 3 : 4;
@@ -193,7 +201,7 @@ export function SharkGame({
 
   const begin = () => {
     const s = g.current;
-    Object.assign(s, { fish: [], target: -1, spawned: 0, kills: 0, escaped: 0, errors: 0, correctKeys: 0, score: 0, combo: 0, lives: 3, wave: 1, nextSpawn: 0, last: 0, start: Date.now(), bonus: 0, bonusUntil: 0, bonusLeft: 0, nextBonusAt: BONUS_EVERY, rng: makeRng(randomSeed()) });
+    Object.assign(s, { fish: [], target: -1, spawned: 0, kills: 0, escaped: 0, errors: 0, correctKeys: 0, score: 0, combo: 0, lives: 3, wave: 1, nextSpawn: 0, last: 0, start: Date.now(), bonus: 0, bonusUntil: 0, bonusLeft: 0, bonusPending: false, nextBonusAt: BONUS_EVERY, rng: makeRng(randomSeed()) });
     setPhase("run");
     play("gp-wave", 0.5);
     raf.current = requestAnimationFrame(loop);
@@ -214,10 +222,7 @@ export function SharkGame({
   };
   const startBonus = () => {
     const s = g.current;
-    s.bonusLeft = BONUS_JELLIES;
-    s.bonusUntil = performance.now() + 5200;
-    s.nextSpawn = performance.now() + 400;
-    play("gp-wave", 0.5);
+    s.bonusPending = true; // không thả thêm cá; hết cá thì sứa lên
   };
 
   // phím tắt: Space bắt đầu/tiếp tục, Esc tạm dừng/thoát
@@ -304,7 +309,7 @@ export function SharkGame({
   const nextKey = target && !target.dead ? target.keys[target.hit] : nearest(s.fish)?.keys[0];
   const elapsed = phase === "run" ? Date.now() - s.start : 0;
   const live = typingStats(s.correctKeys, s.errors, elapsed);
-  const inBonus = phase === "run" && (performance.now() < s.bonusUntil || s.fish.some((f) => f.bonus && !f.dead));
+  const inBonus = phase === "run" && (s.bonusLeft > 0 || s.fish.some((f) => f.bonus && !f.dead));
   // nòng súng của thợ lặn (tính theo % vùng biển) và góc ngắm tới mục tiêu
   const dw = Math.min((typeof window !== "undefined" ? window.innerWidth : box.w) * 0.18, 200); // = min(18vw, 200px)
   const gunX = ((DIVER_X - 0.09) * box.w + dw * 0.9) / box.w;
@@ -374,7 +379,7 @@ export function SharkGame({
             <div
               key={f.id}
               className={`absolute -translate-y-1/2 transition-opacity duration-500 ${f.bonus ? "-translate-x-1/2" : ""}`}
-              style={{ left: `${f.x * 100}%`, top: `${f.y * 100}%`, opacity: killed ? 0 : escaped ? 0.2 : 1, width: f.kind === "boss" ? "min(30vw, 300px)" : f.kind === "shark" ? "min(22vw, 220px)" : "min(14vw, 140px)" }}
+              style={{ left: `${f.x * 100}%`, top: `${f.y * 100}%`, opacity: killed ? 0 : escaped ? 0.2 : 1, width: f.bonus ? "min(8vw, 84px)" : f.kind === "boss" ? "min(30vw, 300px)" : f.kind === "shark" ? "min(22vw, 220px)" : "min(14vw, 140px)" }}
             >
               <div className={`relative ${killed ? "scale-125 blur-sm" : ""} transition-all`}>
                 <FishSprite kind={f.kind} locked={isT} />
@@ -389,33 +394,35 @@ export function SharkGame({
           );
         })}
 
-        {/* tia laser: từ nòng súng chéo thẳng tới con cá */}
-        <svg className="pointer-events-none absolute inset-0 h-full w-full overflow-visible" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden>
-          <AnimatePresence>
-            {shots.map((sh) => {
-              const tx = (sh.bonus ? sh.x : sh.x + 0.05) * 100;
-              const d = `M ${gunX * 100} ${gunY * 100} L ${tx} ${sh.y * 100}`;
-              return (
-                <g key={sh.id}>
-                  <motion.path d={d} stroke={sh.bonus ? "#ff4fa3" : "#2fd3ff"} strokeWidth="10" strokeLinecap="round" vectorEffect="non-scaling-stroke" fill="none" initial={{ opacity: 0.55 }} animate={{ opacity: 0 }} transition={{ duration: 0.4 }} style={{ filter: "blur(3px)" }} />
-                  <motion.path
-                    d={d}
-                    stroke="#fff"
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                    vectorEffect="non-scaling-stroke"
-                    fill="none"
-                    initial={{ opacity: 1 }}
-                    animate={{ opacity: 0 }}
-                    transition={{ duration: 0.4, ease: "easeIn" }}
-                    onAnimationComplete={() => setShots((x) => x.filter((y) => y.id !== sh.id))}
-                  />
-                  <motion.circle cx={tx} cy={sh.y * 100} r="3" fill={sh.bonus ? "#ff4fa3" : "#2fd3ff"} initial={{ scale: 0.2, opacity: 1 }} animate={{ scale: 2.2, opacity: 0 }} transition={{ duration: 0.45 }} style={{ transformOrigin: `${tx}% ${sh.y * 100}%`, transformBox: "fill-box" }} />
-                </g>
-              );
-            })}
-          </AnimatePresence>
-        </svg>
+        {/* đạn laser: một đoạn ngắn bay từ nòng súng tới con cá, chạm thì lóe sáng */}
+        {shots.map((sh) => {
+          const gx = gunX * box.w;
+          const gy = gunY * box.h;
+          const tx = (sh.bonus ? sh.x : sh.x + 0.05) * box.w;
+          const ty = sh.y * box.h;
+          const ang = (Math.atan2(ty - gy, tx - gx) * 180) / Math.PI;
+          const dur = Math.max(0.12, Math.hypot(tx - gx, ty - gy) / 2200);
+          const color = sh.bonus ? "#ff4fa3" : "#2fd3ff";
+          return (
+            <div key={sh.id} className="pointer-events-none absolute left-0 top-0">
+              <motion.div
+                className="absolute h-1.5 w-12 rounded-full"
+                style={{ background: `linear-gradient(90deg, transparent, ${color} 40%, #fff)`, boxShadow: `0 0 12px 3px ${color}`, rotate: ang, originX: 1, originY: 0.5 }}
+                initial={{ x: gx - 48, y: gy - 3 }}
+                animate={{ x: tx - 48, y: ty - 3 }}
+                transition={{ duration: dur, ease: "linear" }}
+              />
+              <motion.div
+                className="absolute h-14 w-14 rounded-full"
+                style={{ left: tx - 28, top: ty - 28, background: `radial-gradient(circle, #fff 0%, ${color} 35%, transparent 70%)` }}
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: [0, 1.4, 1.8], opacity: [0, 1, 0] }}
+                transition={{ delay: dur, duration: 0.35 }}
+                onAnimationComplete={() => setShots((x) => x.filter((y) => y.id !== sh.id))}
+              />
+            </div>
+          );
+        })}
       </div>
 
       {/* bàn phím gợi ý */}
