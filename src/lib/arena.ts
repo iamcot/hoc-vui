@@ -78,13 +78,15 @@ export async function findRoom(code: string, fallbackSubject: string, fallbackTi
   return { code, subject_id: fallbackSubject, tier_id: fallbackTier ?? null, question_count: ROOM_QUESTIONS, seconds: ROOM_SECONDS };
 }
 
-export async function submitEntry(room: Room, e: { score: number; correct: number; time_ms: number }, me: { name: string; avatar: string }) {
+/** keepBest: đua lại nhiều lượt trong một phòng thì giữ điểm cao nhất (mặc định giữ lần đầu cho công bằng) */
+export async function submitEntry(room: Room, e: { score: number; correct: number; time_ms: number }, me: { name: string; avatar: string }, keepBest = false) {
   const sb = getSupabase();
   const { data: s } = (await sb?.auth.getSession()) ?? { data: { session: null } };
   if (sb && s.session) {
     const { error } = await sb.from("challenge_entries").insert({ code: room.code, ...e });
-    // đã nộp rồi thì giữ lần đầu (công bằng cho cả phòng)
+    // đã nộp rồi thì giữ lần đầu (công bằng cho cả phòng), trừ khi đua lại thì giữ điểm cao nhất
     if (error && !String(error.code).startsWith("23")) throw error;
+    if (error && keepBest) await sb.from("challenge_entries").update(e).eq("code", room.code).eq("user_id", s.session.user.id).lt("score", e.score);
     return;
   }
   const all = localRooms();

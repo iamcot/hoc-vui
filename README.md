@@ -20,7 +20,7 @@ Không cần Supabase vẫn chạy được (chế độ khách, tiến trình l
 
 ### 1. Supabase (đăng nhập, lưu tiến trình, thi đấu, xếp hạng)
 1. Tạo project tại [supabase.com](https://supabase.com) (region Singapore cho nhanh).
-2. Vào **SQL Editor**, chạy lần lượt từng file trong [`supabase/migrations/`](supabase/migrations) theo thứ tự số (`0001_init.sql`, rồi `0002_tiers.sql`, ...): dán toàn bộ nội dung file rồi **Run**.
+2. Vào **SQL Editor**, chạy lần lượt từng file trong [`supabase/migrations/`](supabase/migrations) theo thứ tự số (`0001_init.sql`, `0002_tiers.sql`, `0003_grants.sql`, ...): dán toàn bộ nội dung file rồi **Run**.
 3. **Authentication > Providers > Email**: bật Email và **tắt Confirm email** (bắt buộc). Con đăng nhập bằng tên đăng nhập + mật khẩu, không cần email: app tự đổi tên thành email nội bộ `<tên>@hocvui.local` nên không có mail nào được gửi. Quên mật khẩu thì bố mẹ vào **Authentication > Users**, tìm `<tên>@hocvui.local` để đặt lại.
 4. **Authentication > URL Configuration**: đặt **Site URL** là địa chỉ Vercel của app (làm sau bước 2).
 5. **Project Settings > API**: chép `Project URL` và `anon public key`.

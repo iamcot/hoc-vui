@@ -164,7 +164,7 @@ export function TypingRace({ room }: { room: Room }) {
       void chan.current?.send({ type: "broadcast", event: "p", payload: (meRef.current = { ...me, p: 1, wpm: r.wpm, done: true, round: roundRef.current }) });
       addXp("go-phim", Math.min(40, Math.round(r.wpm / 2) + (r.acc >= 90 ? 10 : 0)), `dua:${room.code}`);
       try {
-        await submitEntry(room, { score, correct: r.wpm, time_ms: r.ms }, { name: data.profile.name, avatar: data.profile.avatar });
+        await submitEntry(room, { score, correct: r.wpm, time_ms: r.ms }, { name: data.profile.name, avatar: data.profile.avatar }, true);
       } finally {
         refresh();
       }
