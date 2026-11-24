@@ -13,7 +13,7 @@ export const lapTrinh: Subject = {
   emoji: "🧩",
   color: "#2fd3ff",
   cover: "subject-laptrinh-cover",
-  look: { theme: "cyber", map: "bg-lt-map", lesson: "bg-lt-lesson" },
+  look: { theme: "cyber", map: "bg-lt-map", lesson: "bg-lt-lesson", calm: true },
   tiers: [
     { id: "vo-long", name: "Vỡ lòng", short: "Đi, rẽ, nhặt sao, sửa lỗi · lớp 1-3", emoji: "🐾", icon: "lt-tier-1", units: unitsVoLong, challenge: { count: 10, pass: 8 } },
     { id: "co-ban", name: "Cơ bản", short: "Lặp lại, nếu thì, bút vẽ · lớp 3-5", emoji: "🔁", icon: "lt-tier-2", units: unitsCoBan, challenge: { count: 10, pass: 8 } },

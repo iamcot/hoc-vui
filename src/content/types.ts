@@ -169,7 +169,8 @@ export interface Subject {
   /** nhân vật dẫn chuyện (mặc định Mochi) */
   mascot?: "mochi" | "bit";
   /** cảnh nền riêng của môn; "cyber" = tông tối, neon (môn cho bé lớn) */
-  look?: { theme?: "cyber"; map?: string; lesson?: string };
+  /** calm: ảnh nền bản đồ nhiều chi tiết thì làm mờ, tối bớt cho thẻ bài nổi lên */
+  look?: { theme?: "cyber"; map?: string; lesson?: string; calm?: boolean };
   /** chế độ chơi thêm hiện trên đầu bản đồ (vd. sinh tồn, bài gõ hay) */
   modes?: { id: string; name: string; short: string; emoji: string; href: string; icon?: string }[];
   tiers: Tier[];

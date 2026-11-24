@@ -16,7 +16,7 @@ const PAL: Record<Exclude<Variant, "deep">, { sky: [string, string]; hills: stri
  * Cảnh nền tràn màn hình. Có ảnh thật (vd. bg-home) thì dùng ảnh,
  * chưa có thì vẽ đồi, mây, mặt trời bằng SVG cùng tông màu.
  */
-export function Scene({ image, variant: wanted = "meadow", fixed = true, dim = false }: { image?: string; variant?: Variant; fixed?: boolean; dim?: boolean }) {
+export function Scene({ image, variant: wanted = "meadow", fixed = true, dim = false, calm = false }: { image?: string; variant?: Variant; fixed?: boolean; dim?: boolean; calm?: boolean }) {
   const { data } = useProgress();
   // theme Neon: mọi cảnh sáng đổi sang biển tối; dùng ảnh <tên>-neon nếu đã có, không thì gradient neon
   const neon = data.theme === "neon" && wanted !== "deep";
@@ -30,8 +30,9 @@ export function Scene({ image, variant: wanted = "meadow", fixed = true, dim = f
       <div className={`${fixed ? "fixed left-0 top-0 h-lvh w-full" : "absolute inset-0"} deep-sea -z-10 overflow-hidden`} aria-hidden>
         {src && (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={src} alt="" className="block h-full w-full object-cover" />
+          <img src={src} alt="" className="block h-full w-full object-cover" style={calm ? { filter: "blur(3px) saturate(0.75) brightness(0.6)", transform: "scale(1.03)" } : undefined} />
         )}
+        {calm && src && <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_70%_at_55%_50%,rgb(3_10_36/0.72),rgb(3_10_36/0.35)_70%,rgb(3_10_36/0.15))]" />}
         <div className="light-rays absolute inset-0" />
         <div className="cyber-grid absolute inset-x-0 bottom-0 h-1/3" />
         {dim && <div className="absolute inset-0 bg-[#030a24]/40" />}
