@@ -114,7 +114,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 Festive outdoor stage at dusk with a podium of three steps, small trophies, bunting flags and twinkling stars, podium on the lower left, open sky for text. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
-### ⬜ `bg-home-neon.webp`
+### ✅ `bg-home-neon.webp`
 - Dùng ở: Nền trang chủ theme Neon
 - Kích thước: 1536x1024
 
@@ -122,7 +122,7 @@ Festive outdoor stage at dusk with a podium of three steps, small trophies, bunt
 Wide background of a futuristic rooftop study garden at dusk above a glowing city, a calm teenage student sitting on a bench with a tablet, a sleek white cat with glowing teal eyes and a light-blue scarf beside them, holographic panels floating in the air, leave the left third and the bottom half calm and dark so text and cards can sit on top. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
 ```
 
-### ⬜ `bg-lesson-neon.webp`
+### ✅ `bg-lesson-neon.webp`
 - Dùng ở: Nền bài học, kiểm tra theme Neon
 - Kích thước: 1536x1024
 
@@ -130,7 +130,7 @@ Wide background of a futuristic rooftop study garden at dusk above a glowing cit
 Wide background of a quiet high-tech study room at night, soft desk light, floating holographic notes shown as abstract shapes only, large window with city lights, very calm and low detail in the center where the lesson card sits. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
 ```
 
-### ⬜ `bg-arena-neon.webp`
+### ✅ `bg-arena-neon.webp`
 - Dùng ở: Nền thi đấu theme Neon
 - Kích thước: 1536x1024
 
@@ -138,7 +138,7 @@ Wide background of a quiet high-tech study room at night, soft desk light, float
 Wide background of a futuristic e-sports arena for a quiz battle, two glowing podiums facing each other, a big holographic scoreboard shape with no text, spotlights and neon light beams, excited but not violent. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
 ```
 
-### ⬜ `bg-leaderboard-neon.webp`
+### ✅ `bg-leaderboard-neon.webp`
 - Dùng ở: Nền bảng xếp hạng theme Neon
 - Kích thước: 1536x1024
 
@@ -146,7 +146,7 @@ Wide background of a futuristic e-sports arena for a quiz battle, two glowing po
 Wide background of a night sky observatory deck with three floating glowing podium platforms in gold, silver and bronze tones rising into the stars, aurora in violet and cyan, a sleek white cat watching from the railing, keep the center dark and simple. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
 ```
 
-### ⬜ `theme-pick-mochi.webp`
+### ✅ `theme-pick-mochi.webp`
 - Dùng ở: Ảnh xem trước khi chọn theme Mochi
 - Kích thước: 1024x1024
 
@@ -154,7 +154,7 @@ Wide background of a night sky observatory deck with three floating glowing podi
 Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator waving in a sunny meadow with a little school in the distance, cozy and bright, one continuous scene from top to bottom: characters and main objects sit in the upper 60% of the frame, and the same scene simply continues into the bottom third (more of the grass, floor, table or ground in the same colors and lighting, a little softer and less detailed, gently shaded by a natural shadow), with no characters or busy details there so white title text can be laid over it; never a separate flat color band, panel or gradient bar. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
-### ⬜ `theme-pick-neon.webp`
+### ✅ `theme-pick-neon.webp`
 - Dùng ở: Ảnh xem trước khi chọn theme Neon
 - Kích thước: 1024x1024
 
@@ -898,7 +898,7 @@ A single wooden arrow-shaped plank sign pointing to the RIGHT, seen straight fro
 A single wooden arrow-shaped plank sign pointing to the RIGHT, seen straight from the front, nothing else: no post, no stake, no grass; the plank fills the whole image width, about 3.5 times wider than tall, warm light-honey wood with soft grain, cute storybook look, clean dark-brown outline, two small nails near the left end (top and bottom) where it is nailed to a post; at the LEFT end a round painted emblem about 80% of the plank height; the whole area to the right of the emblem is a smooth, completely BLANK flat wood surface reserved for a label. The emblem shows a small golden trophy cup. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `nav-pole-neon.webp`
+### ✅ `nav-pole-neon.webp`
 - Dùng ở: Trụ thanh bên theme Neon (app lặp ảnh theo chiều dọc)
 - Kích thước: 1024x1536 · nền trong suốt
 
@@ -906,7 +906,7 @@ A single wooden arrow-shaped plank sign pointing to the RIGHT, seen straight fro
 A straight vertical brushed-metal post segment with a thin glowing cyan light strip down its center, seen from the front, centered, filling the full image height and about 12% of the width; SEAMLESS vertically: the top and bottom edges must tile perfectly when repeated (no cap, no end), nothing else in the image. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `nav-title-neon.webp`
+### ✅ `nav-title-neon.webp`
 - Dùng ở: Biển tên app theme Neon (app đặt logo và chữ Học Vui lên trên)
 - Kích thước: 1536x1024 · nền trong suốt
 
@@ -914,7 +914,7 @@ A straight vertical brushed-metal post segment with a thin glowing cyan light st
 A single wide rounded-rectangle sci-fi name plaque, front view, about 3.2 times wider than tall, filling the image width, dark navy glass with a glowing neon cyan frame and small corner brackets, two small glowing bolts at the middle of the top and bottom edges, the inner area completely BLANK dark glass for a logo and title, no post, nothing else. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `nav-hoc-neon.webp`
+### ✅ `nav-hoc-neon.webp`
 - Dùng ở: Biển thanh bên theme Neon: Học (chữ do app viết đè lên phần kính trống; cùng bố cục với nav-hoc)
 - Kích thước: 1536x1024 · nền trong suốt
 
@@ -922,7 +922,7 @@ A single wide rounded-rectangle sci-fi name plaque, front view, about 3.2 times 
 A single arrow-shaped sci-fi sign panel pointing to the RIGHT, seen straight from the front, nothing else: no post, no background scene; the panel fills the whole image width, about 3.5 times wider than tall, made of dark navy glass and brushed metal with a glowing neon cyan edge line, two small glowing bolts near the left end (top and bottom) where it is mounted to a post; at the LEFT end a round glowing emblem about 80% of the panel height; the whole area to the right of the emblem is a smooth, completely BLANK dark glass surface reserved for a label. The emblem shows a glowing holographic open book with a small sprout of light. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `nav-thi-dau-neon.webp`
+### ✅ `nav-thi-dau-neon.webp`
 - Dùng ở: Biển thanh bên theme Neon: Thi đấu (chữ do app viết đè lên phần kính trống; cùng bố cục với nav-thi-dau)
 - Kích thước: 1536x1024 · nền trong suốt
 
@@ -930,7 +930,7 @@ A single arrow-shaped sci-fi sign panel pointing to the RIGHT, seen straight fro
 A single arrow-shaped sci-fi sign panel pointing to the RIGHT, seen straight from the front, nothing else: no post, no background scene; the panel fills the whole image width, about 3.5 times wider than tall, made of dark navy glass and brushed metal with a glowing neon cyan edge line, two small glowing bolts near the left end (top and bottom) where it is mounted to a post; at the LEFT end a round glowing emblem about 80% of the panel height; the whole area to the right of the emblem is a smooth, completely BLANK dark glass surface reserved for a label. The emblem shows a neon yellow lightning bolt over two crossed glowing pencils. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `nav-xep-hang-neon.webp`
+### ✅ `nav-xep-hang-neon.webp`
 - Dùng ở: Biển thanh bên theme Neon: Xếp hạng (chữ do app viết đè lên phần kính trống; cùng bố cục với nav-xep-hang)
 - Kích thước: 1536x1024 · nền trong suốt
 
