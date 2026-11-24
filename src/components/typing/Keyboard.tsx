@@ -120,16 +120,15 @@ const LEFT: Finger[] = ["L5", "L4", "L3", "L2"];
 const RIGHT: Finger[] = ["R2", "R3", "R4", "R5"];
 const HANDS_IMG = "/assets/img/gp-hands.webp";
 /** toạ độ (tỉ lệ 0-1) đầu ngón út hai tay trong ảnh gp-hands, và tỉ lệ cao/rộng của ảnh. Chỉnh lại khi có ảnh thật. */
-/** ảnh gp-hands (976x660): đầu ngón và gốc ngón tay trái, đo trên ảnh; tay phải lấy đối xứng */
+/** ảnh gp-hands (976x660); x đầu ngón út và ngón trỏ tay trái đo trên ảnh (tay phải đối xứng) */
 const HANDS_W = 976;
 const HANDS_H = 660;
 const HANDS_MID = 488;
-const HAND_L: Record<string, { tip: [number, number]; base: [number, number] }> = {
-  L5: { tip: [100, 125], base: [112, 262] },
-  L4: { tip: [200, 85], base: [195, 245] },
-  L3: { tip: [292, 62], base: [282, 248] },
-  L2: { tip: [395, 105], base: [350, 350] },
-  T: { tip: [440, 275], base: [385, 365] },
+const TIP_X = { pinky: 100, index: 395 };
+/** vùng tô màu từng ngón (gp-hand-<id>.webp, tách từ gp-hands): x0, y0, x1, y1 trên ảnh gốc */
+const HAND_MASK: Record<string, [number, number, number, number]> = {
+  L5: [50, 112, 142, 268], L4: [114, 67, 237, 266], L3: [193, 45, 322, 257], L2: [280, 80, 425, 285], LT: [340, 258, 462, 374],
+  R5: [835, 112, 926, 268], R4: [740, 67, 863, 267], R3: [654, 45, 784, 257], R2: [551, 80, 696, 285], RT: [515, 258, 636, 374],
 };
 /** hàng đầu ngón trong ảnh ứng với tâm hàng phím nhà */
 const HANDS_ROW_Y = 85;
@@ -156,7 +155,7 @@ function Hands({ board, next, onExtra }: { board: React.RefObject<HTMLDivElement
       setPos(out);
       // chừa chỗ phía dưới bàn phím cho cẳng tay trong ảnh
       if (hasFile(HANDS_IMG) && out.a && out.f) {
-        const sc = (out.f.x - out.a.x) / (HAND_L.L2.tip[0] - HAND_L.L5.tip[0]);
+        const sc = (out.f.x - out.a.x) / (TIP_X.index - TIP_X.pinky);
         onExtra(Math.max(0, Math.round(out.a.y + (HANDS_H - 30 - HANDS_ROW_Y) * sc - b.height)));
       } else onExtra(0);
       setSize({ w: b.width, h: b.height });
@@ -204,8 +203,8 @@ function Hands({ board, next, onExtra }: { board: React.RefObject<HTMLDivElement
   // mỗi bàn tay đặt riêng: đầu ngón út trùng A/;, đầu ngón trỏ trùng F/J
   const place = (side: "L" | "R") => {
     const [p5, p2] = side === "L" ? [pos.a, pos.f] : [right, pos.j];
-    const x5 = side === "L" ? HAND_L.L5.tip[0] : HANDS_W - HAND_L.L5.tip[0];
-    const x2 = side === "L" ? HAND_L.L2.tip[0] : HANDS_W - HAND_L.L2.tip[0];
+    const x5 = side === "L" ? TIP_X.pinky : HANDS_W - TIP_X.pinky;
+    const x2 = side === "L" ? TIP_X.index : HANDS_W - TIP_X.index;
     const sc = (p2.x - p5.x) / (x2 - x5);
     return { sc, tx: p5.x - x5 * sc, ty: p5.y - HANDS_ROW_Y * sc };
   };
@@ -215,9 +214,6 @@ function Hands({ board, next, onExtra }: { board: React.RefObject<HTMLDivElement
   return (
     <svg className="pointer-events-none absolute left-0 top-0 w-full overflow-visible" style={{ height: H }} viewBox={`0 0 ${size.w} ${H}`} aria-hidden>
       <defs>
-        <filter id={`${fid}-b`} x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur stdDeviation="10" />
-        </filter>
         <clipPath id={`${fid}-L`}>
           <rect x={0} y={0} width={HANDS_MID} height={HANDS_H} />
         </clipPath>
@@ -227,20 +223,16 @@ function Hands({ board, next, onExtra }: { board: React.RefObject<HTMLDivElement
       </defs>
       {(["L", "R"] as const).map((side) => {
         const { sc, tx, ty } = place(side);
-        const mx = (x: number) => (side === "L" ? x : HANDS_W - x);
         return (
           <g key={side} transform={`translate(${tx} ${ty}) scale(${sc})`}>
             {lit
               .filter((l) => l.side === side)
               .map(({ f }) => {
-                const g0 = HAND_L[f === "T" ? "T" : "L" + f.slice(1)];
-                const g = { tip: g0.tip, base: [g0.tip[0] + (g0.base[0] - g0.tip[0]) * 0.7, g0.tip[1] + (g0.base[1] - g0.tip[1]) * 0.7] };
-                return (
-                  <g key={f} style={{ transition: "opacity 0.15s" }}>
-                    <line x1={mx(g.tip[0])} y1={g.tip[1] - 8} x2={mx(g.base[0])} y2={g.base[1]} stroke={FINGER_COLOR[f]} strokeWidth={70} strokeLinecap="round" opacity={0.75} filter={`url(#${fid}-b)`} />
-                    <line x1={mx(g.tip[0])} y1={g.tip[1] + 4} x2={mx(g.base[0])} y2={g.base[1] - 20} stroke={FINGER_COLOR[f]} strokeWidth={44} strokeLinecap="round" opacity={0.45} />
-                  </g>
-                );
+                const id = f === "T" ? `${side}T` : f;
+                const [x0, y0, x1, y1] = HAND_MASK[id];
+                const m = `/assets/img/gp-hand-${id}.webp`;
+                if (!hasFile(m)) return null;
+                return <image key={f} href={resolveFile(m)} x={x0} y={y0} width={x1 - x0} height={y1 - y0} opacity={0.55} style={{ filter: `drop-shadow(0 0 10px ${FINGER_COLOR[f]})` }} />;
               })}
             <image href={src} width={HANDS_W} height={HANDS_H} clipPath={`url(#${fid}-${side})`} opacity={0.9} />
           </g>
