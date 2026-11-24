@@ -289,7 +289,12 @@ export const IMAGES: ImageAsset[] = [
   icon("warn", "Chú ý", "A rounded yellow warning triangle with an exclamation shape made of a bar and a dot (not a letter)"),
 
   // ── Môn Lập trình khối lệnh (Vỡ lòng: Mochi trên lưới, STYLE) ──
-  img("subject-laptrinh-cover", "1536x1024", "Ảnh lớn môn Lập trình ở trang chủ (chữ đè lên phần dưới ảnh)", `${MOCHI.replace(", wearing a small yellow backpack shaped like a calculator", "")}, walking on a giant board game grid of grass tiles toward a red flag, big colorful puzzle-piece shaped command blocks (blue, purple, yellow, blank faces with no text) floating in the air like a path behind it, a few golden stars on the tiles${TXT}`),
+  cyber(
+    "subject-laptrinh-cover",
+    "1536x1024",
+    "Ảnh lớn môn Lập trình ở trang chủ (chữ đè lên phần dưới ảnh), phong cách Hologram",
+    `${BIT}, standing confidently on a floating glass isometric 3D game board made of translucent cyan grid tiles with glowing edges and a mirror-like reflection underneath, a few frosted-glass cube walls on the board, one hand raised controlling a floating holographic code panel; glowing translucent glass command blocks (cyan, violet, mint green, amber, blank faces with no text) snapping together in mid-air like a puzzle chain, a holographic small round white cat projection made of cyan light with scan lines walking along the tiles toward a glowing mint-green portal flag, golden crystal stars hovering above some tiles, thin HUD frame corners and radar circles floating in the air, deep teal-black space background with soft cyan haze, upper half has the action, lower third darker for text`,
+  ),
   cyber("bg-lt-map", "1536x1024", "Cảnh nền bản đồ bài của môn Lập trình (tối, neon)", "Top-down view of a glowing neon circuit-board city at night: cyan and violet light traces like roads, tiny chip buildings, soft pink nodes, very dark navy and low contrast so map nodes on top stay readable"),
   cyber("bg-lt-lesson", "1536x1024", "Cảnh nền bài học, màn chơi môn Lập trình (rất tối, mờ)", "A cozy futuristic coding lab at night, big holographic screens showing colorful puzzle-piece blocks, a small robot desk lamp, cyan and violet glow, background heavily blurred and dark, mostly empty"),
   img("lt-cover-vo-long", "1536x1024", "Bìa các bài Vỡ lòng môn Lập trình", `${MOCHI}, standing on a grass tile of a big garden grid board, holding a blue puzzle-piece command block (blank, no text), small stone walls and a red flag on other tiles, golden stars here and there`),
