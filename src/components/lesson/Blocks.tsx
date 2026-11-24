@@ -16,6 +16,7 @@ import { ReadAloud } from "@/components/reading/ReadAloud";
 import { Keyboard } from "@/components/typing/Keyboard";
 import { TypeLine } from "@/components/typing/TypeLine";
 import { Ico } from "@/components/Ico";
+import { CodeDemo } from "@/components/code/CodeDemo";
 
 export function BlockView({ b, device, lead }: { b: Block; device?: "fx580" | "keyboard"; lead?: React.ReactNode }) {
   switch (b.type) {
@@ -89,6 +90,8 @@ export function BlockView({ b, device, lead }: { b: Block; device?: "fx580" | "k
       return <SayRow items={b.items} label={b.label} />;
     case "read":
       return <ReadAloud text={b.text} strict={b.strict} label={b.label} />;
+    case "code":
+      return <CodeDemo map={b.map} dir={b.dir} program={b.program} label={b.label} />;
   }
 }
 

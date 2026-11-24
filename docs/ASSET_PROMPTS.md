@@ -24,7 +24,7 @@ File này sinh tự động từ `src/content/assets.ts` bằng `npm run prompts
 - Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator
 - Xi Xi: a friendly anthropomorphic scientific calculator (dark navy body, light gray keys, small LCD screen showing a smile), tiny arms and legs
 
-## Ảnh (133)
+## Ảnh (146)
 
 ### ✅ `mochi-happy.webp`
 - Dùng ở: Mochi vui vẻ: lời chào, slide mở đầu
@@ -1090,7 +1090,111 @@ A cute small blue shark head with a friendly grin. Game UI icon in a glossy soft
 A rounded yellow warning triangle with an exclamation shape made of a bar and a dot (not a letter). Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
 ```
 
-## Âm thanh (63)
+### ⬜ `subject-laptrinh-cover.webp`
+- Dùng ở: Ảnh lớn môn Lập trình ở trang chủ (chữ đè lên phần dưới ảnh)
+- Kích thước: 1536x1024
+
+```text
+Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, walking on a giant board game grid of grass tiles toward a red flag, big colorful puzzle-piece shaped command blocks (blue, purple, yellow, blank faces with no text) floating in the air like a path behind it, a few golden stars on the tiles, one continuous scene from top to bottom: characters and main objects sit in the upper 60% of the frame, and the same scene simply continues into the bottom third (more of the grass, floor, table or ground in the same colors and lighting, a little softer and less detailed, gently shaded by a natural shadow), with no characters or busy details there so white title text can be laid over it; never a separate flat color band, panel or gradient bar. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
+```
+
+### ⬜ `lt-cover-vo-long.webp`
+- Dùng ở: Bìa các bài Vỡ lòng môn Lập trình
+- Kích thước: 1536x1024
+
+```text
+Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator, standing on a grass tile of a big garden grid board, holding a blue puzzle-piece command block (blank, no text), small stone walls and a red flag on other tiles, golden stars here and there. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
+```
+
+### ⬜ `lt-tier-1.webp`
+- Dùng ở: Huy hiệu trình độ Vỡ lòng (môn Lập trình)
+- Kích thước: 1024x1024 · nền trong suốt
+
+```text
+Round badge: a small white cat paw print stepping on a green grid tile with a tiny arrow, mint and sky-blue colors. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
+```
+
+### ⬜ `lt-tier-2.webp`
+- Dùng ở: Huy hiệu trình độ Cơ bản (môn Lập trình)
+- Kích thước: 1024x1024 · nền trong suốt
+
+```text
+Round badge: a looping circular arrow made of a mint-green puzzle-piece block around a yellow star. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
+```
+
+### ⬜ `lt-tier-3.webp`
+- Dùng ở: Huy hiệu trình độ Trung cấp (môn Lập trình)
+- Kích thước: 1024x1024 · nền trong suốt
+
+```text
+Round badge: a cute game controller made of colorful puzzle-piece blocks, lilac glow. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
+```
+
+### ⬜ `lt-tier-4.webp`
+- Dùng ở: Huy hiệu trình độ Nâng cao (môn Lập trình)
+- Kích thước: 1024x1024 · nền trong suốt
+
+```text
+Round badge: a row of bar-chart columns being sorted from short to tall with a small curved arrow, sky blue and coral. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
+```
+
+### ⬜ `lt-tier-5.webp`
+- Dùng ở: Huy hiệu trình độ Python (môn Lập trình)
+- Kích thước: 1024x1024 · nền trong suốt
+
+```text
+Round badge: a friendly round blue and yellow snake coiled around a pair of curly code brackets made of simple shapes (no letters). Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
+```
+
+### ⬜ `lt-mochi-top.webp`
+- Dùng ở: Mochi nhìn từ trên xuống trên lưới (app tự xoay theo hướng đi, ảnh phải nhìn LÊN TRÊN)
+- Kích thước: 1024x1024 · nền trong suốt
+
+```text
+Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator, seen from directly above (bird's-eye top-down view), walking and facing UP toward the top of the image, round body, ears and scarf visible from above, centered. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
+```
+
+### ⬜ `lt-tile-grass.webp`
+- Dùng ở: Ô cỏ của lưới (lặp nhiều lần, nên đơn giản)
+- Kích thước: 1024x1024
+
+```text
+TOP-DOWN view seen from directly above, a single square game tile filling the whole image edge to edge: soft short green grass with a few tiny lighter blades, very simple and even so it tiles well, no objects. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
+```
+
+### ⬜ `lt-tile-wall.webp`
+- Dùng ở: Ô tường đá của lưới
+- Kích thước: 1024x1024 · nền trong suốt
+
+```text
+TOP-DOWN view seen from directly above, a single square game tile filling the whole image edge to edge: a chunky rounded grey stone block with soft moss on one corner, filling most of the tile. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
+```
+
+### ⬜ `lt-tile-water.webp`
+- Dùng ở: Ô nước của lưới
+- Kích thước: 1024x1024
+
+```text
+TOP-DOWN view seen from directly above, a single square game tile filling the whole image edge to edge: clear blue pond water with small soft ripples and a lily pad, filling the tile edge to edge. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
+```
+
+### ⬜ `lt-tile-star.webp`
+- Dùng ở: Ngôi sao cần nhặt trên lưới
+- Kích thước: 1024x1024 · nền trong suốt
+
+```text
+A plump shiny golden five-pointed star, slightly tilted, soft sparkle, centered, small soft shadow. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
+```
+
+### ⬜ `lt-tile-flag.webp`
+- Dùng ở: Cờ đích trên lưới
+- Kích thước: 1024x1024 · nền trong suốt
+
+```text
+A small red pennant flag on a short wooden pole planted in a tiny mound of grass, seen from a high three-quarter angle, centered. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
+```
+
+## Âm thanh (64)
 
 Cài đặt giọng đọc gợi ý: ElevenLabs Text to Speech, model Multilingual v2 hoặc v3, giọng nữ trẻ ấm áp (vd. chọn giọng tiếng Việt trong Voice Library), stability ~50%, style thấp, tốc độ chậm vừa. Xuất MP3 44.1kHz.
 
@@ -1159,3 +1263,4 @@ Cài đặt giọng đọc gợi ý: ElevenLabs Text to Speech, model Multilingu
 | ✅ | `voice/vo-gp-t01.mp3` | Giọng đọc | Gõ phím · Bài đầu Từng bàn tay | Lên hàng trên nào! Ngón nào với lên phím nào thì gõ xong phải về hàng phím cơ sở nha. |
 | ✅ | `voice/vo-gp-p01.mp3` | Giọng đọc | Gõ phím · Bài đầu Phối hợp | Giờ hai tay cùng chơi. Gõ đều tay, mắt nhìn màn hình là sẽ nhanh thôi. |
 | ✅ | `voice/vo-gp-v01.mp3` | Giọng đọc | Gõ phím · Bài đầu Telex | Gõ tiếng Việt có dấu thôi! Gõ a hai lần là thành chữ â. Học Vui tự ghép chữ cho em. |
+| ⬜ | `voice/vo-lt-a01.mp3` | Giọng đọc | Lập trình · Bài đầu Vỡ lòng, câu chào của Mochi | Chào em! Hôm nay em làm người ra lệnh, còn tớ làm theo. Xếp các khối lệnh thật đúng để dẫn tớ về lá cờ nhé! |

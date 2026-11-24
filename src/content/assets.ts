@@ -122,6 +122,9 @@ const sign = (id: string, usage: string, emblem: string): ImageAsset =>
 
 const SEA_FISH = "side view, swimming toward the LEFT (head on the left), a large flat dark plate in the middle of the body left empty for a word label, glowing neon outline";
 
+/** ô lưới môn Lập trình: nhìn thẳng từ trên xuống */
+const TOP = "TOP-DOWN view seen from directly above, a single square game tile filling the whole image edge to edge";
+
 export const IMAGES: ImageAsset[] = [
   // Nhân vật
   img("mochi-happy", "1024x1024", "Mochi vui vẻ: lời chào, slide mở đầu", `${MOCHI}, waving one paw and smiling, full body`, true),
@@ -284,6 +287,21 @@ export const IMAGES: ImageAsset[] = [
   icon("heart", "Mạng sống trong game", "A plump glossy red heart"),
   icon("shark", "Vào game cá mập", "A cute small blue shark head with a friendly grin"),
   icon("warn", "Chú ý", "A rounded yellow warning triangle with an exclamation shape made of a bar and a dot (not a letter)"),
+
+  // ── Môn Lập trình khối lệnh (Vỡ lòng: Mochi trên lưới, STYLE) ──
+  img("subject-laptrinh-cover", "1536x1024", "Ảnh lớn môn Lập trình ở trang chủ (chữ đè lên phần dưới ảnh)", `${MOCHI.replace(", wearing a small yellow backpack shaped like a calculator", "")}, walking on a giant board game grid of grass tiles toward a red flag, big colorful puzzle-piece shaped command blocks (blue, purple, yellow, blank faces with no text) floating in the air like a path behind it, a few golden stars on the tiles${TXT}`),
+  img("lt-cover-vo-long", "1536x1024", "Bìa các bài Vỡ lòng môn Lập trình", `${MOCHI}, standing on a grass tile of a big garden grid board, holding a blue puzzle-piece command block (blank, no text), small stone walls and a red flag on other tiles, golden stars here and there`),
+  img("lt-tier-1", "1024x1024", "Huy hiệu trình độ Vỡ lòng (môn Lập trình)", "Round badge: a small white cat paw print stepping on a green grid tile with a tiny arrow, mint and sky-blue colors", true),
+  img("lt-tier-2", "1024x1024", "Huy hiệu trình độ Cơ bản (môn Lập trình)", "Round badge: a looping circular arrow made of a mint-green puzzle-piece block around a yellow star", true),
+  img("lt-tier-3", "1024x1024", "Huy hiệu trình độ Trung cấp (môn Lập trình)", "Round badge: a cute game controller made of colorful puzzle-piece blocks, lilac glow", true),
+  img("lt-tier-4", "1024x1024", "Huy hiệu trình độ Nâng cao (môn Lập trình)", "Round badge: a row of bar-chart columns being sorted from short to tall with a small curved arrow, sky blue and coral", true),
+  img("lt-tier-5", "1024x1024", "Huy hiệu trình độ Python (môn Lập trình)", "Round badge: a friendly round blue and yellow snake coiled around a pair of curly code brackets made of simple shapes (no letters)", true),
+  img("lt-mochi-top", "1024x1024", "Mochi nhìn từ trên xuống trên lưới (app tự xoay theo hướng đi, ảnh phải nhìn LÊN TRÊN)", `${MOCHI}, seen from directly above (bird's-eye top-down view), walking and facing UP toward the top of the image, round body, ears and scarf visible from above, centered`, true),
+  img("lt-tile-grass", "1024x1024", "Ô cỏ của lưới (lặp nhiều lần, nên đơn giản)", `${TOP}: soft short green grass with a few tiny lighter blades, very simple and even so it tiles well, no objects`),
+  img("lt-tile-wall", "1024x1024", "Ô tường đá của lưới", `${TOP}: a chunky rounded grey stone block with soft moss on one corner, filling most of the tile`, true),
+  img("lt-tile-water", "1024x1024", "Ô nước của lưới", `${TOP}: clear blue pond water with small soft ripples and a lily pad, filling the tile edge to edge`),
+  img("lt-tile-star", "1024x1024", "Ngôi sao cần nhặt trên lưới", "A plump shiny golden five-pointed star, slightly tilted, soft sparkle, centered, small soft shadow", true),
+  img("lt-tile-flag", "1024x1024", "Cờ đích trên lưới", "A small red pennant flag on a short wooden pole planted in a tiny mound of grass, seen from a high three-quarter angle, centered", true),
 ];
 
 const sfx = (id: string, usage: string, prompt: string): AudioAsset => ({ id, file: `/assets/sfx/${id}.mp3`, kind: "sfx", usage, prompt });
@@ -360,6 +378,7 @@ export const AUDIO: AudioAsset[] = [
   voice("vo-gp-t01", "Gõ phím · Bài đầu Từng bàn tay", "Lên hàng trên nào! Ngón nào với lên phím nào thì gõ xong phải về hàng phím cơ sở nha."),
   voice("vo-gp-p01", "Gõ phím · Bài đầu Phối hợp", "Giờ hai tay cùng chơi. Gõ đều tay, mắt nhìn màn hình là sẽ nhanh thôi."),
   voice("vo-gp-v01", "Gõ phím · Bài đầu Telex", "Gõ tiếng Việt có dấu thôi! Gõ a hai lần là thành chữ â. Học Vui tự ghép chữ cho em."),
+  voice("vo-lt-a01", "Lập trình · Bài đầu Vỡ lòng, câu chào của Mochi", "Chào em! Hôm nay em làm người ra lệnh, còn tớ làm theo. Xếp các khối lệnh thật đúng để dẫn tớ về lá cờ nhé!"),
 ];
 
 /** Giọng đọc mẫu môn Tập đọc (in riêng ở docs/TAPDOC_VOICES.md) */

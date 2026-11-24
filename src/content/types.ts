@@ -1,4 +1,6 @@
 import type { Rng } from "@/lib/rng";
+import type { Level } from "@/lib/code/world";
+import type { LevelGen } from "@/lib/code/levels";
 
 export type Mood = "happy" | "think" | "wow" | "cheer" | "oops";
 
@@ -22,7 +24,10 @@ export type Block =
   /** bàn phím có màu theo ngón, sáng các phím của bài */
   | { type: "keyboard"; keys: string; focus?: string; label?: string }
   /** gõ thử một dòng ngay trong slide */
-  | { type: "drill"; text: string; label?: string; keys?: string; focus?: string };
+  | { type: "drill"; text: string; label?: string; keys?: string; focus?: string }
+  // ── môn Lập trình khối lệnh ──
+  /** lưới nhỏ + chương trình mẫu, bấm "Xem chạy" để Mochi đi theo (program viết kiểu "F F L F", xem lib/code/program.ts) */
+  | { type: "code"; map: string[]; dir: 0 | 1 | 2 | 3; program: string; label?: string };
 
 export interface LetterItem {
   g: string;
@@ -93,6 +98,15 @@ export interface TypingSpec {
   speed?: number;
 }
 
+/** Môn Lập trình khối lệnh: các màn chơi của một bài */
+export interface CodeSpec {
+  /** màn làm sẵn, chơi lần lượt */
+  levels: Level[];
+  /** thêm màn sinh ngẫu nhiên (có kiểm tra giải được) sau các màn làm sẵn */
+  gen?: LevelGen;
+  genCount?: number;
+}
+
 export interface Lesson {
   id: string;
   title: string;
@@ -108,6 +122,8 @@ export interface Lesson {
   practice: QuestionGen[];
   /** môn Gõ phím: luyện tập là trò chơi cá mập thay cho câu hỏi */
   typing?: TypingSpec;
+  /** môn Lập trình: luyện tập là các màn kéo khối lệnh thay cho câu hỏi */
+  code?: CodeSpec;
 }
 
 export interface Unit {

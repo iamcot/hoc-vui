@@ -34,6 +34,13 @@ lt-d01 Danh sách · lt-d02 Tìm lớn nhất, nhỏ nhất · lt-d03 Tìm kiế
 ### 5. Python (lớp 9–12) · `python`
 lt-p01 Từ khối sang Python · lt-p02 print, biến, input · lt-p03 if/else · lt-p04 for, while · lt-p05 list, string · lt-p06 Hàm · lt-p07 Bài tập theo đề Tin học THPT (chấm bằng test)
 
+## Đã làm (Vỡ lòng)
+- Không dùng JS-Interpreter: khối được đọc thành cây lệnh (`src/lib/code/program.ts`), chạy bằng generator từng bước (`run.ts`), không có eval, giới hạn 400 bước. Đủ cho bộ khối hạn chế; khi sang biến/hàm sẽ cân nhắc lại.
+- Blockly 12 (`blockly/core`, renderer `zelos`, theme Mochi), ảnh giao diện Blockly tự host ở `public/blockly/`.
+- Màn chơi: `Lesson.code` (`CodeSpec`), trang luyện tập tự đổi sang `CodePractice` khi bài có `code`. Slide có khối `code` (lưới nhỏ + nút Xem chạy).
+- Sao của màn: qua màn 1 sao, thừa tối đa 2 khối 2 sao, bằng số khối tối ưu 3 sao. Sao của bài = tổng sao các màn / (số màn × 3). Sau 3 lần chạy sai hiện nút Bỏ qua màn.
+- Thử thách, kiểm tra trình độ, đấu trường dùng câu trắc nghiệm sinh ngẫu nhiên (`lap-trinh/questions.ts`): hướng nhìn sau khi rẽ, chương trình nào đúng, khối nào sai, chương trình nào ít khối nhất.
+
 ## Kỹ thuật
 - Gói: `blockly`, `js-interpreter` (hoặc tự viết interpreter nhỏ cho bộ khối hạn chế), `pyodide` (tải từ CDN, chỉ ở trình độ Python).
 - `src/lib/code/`: `world.ts` (lưới, tường, sao, rùa vẽ), `run.ts` (chạy từng bước, giới hạn bước), `grade.ts` (chấm), `levels.ts` (sinh màn + kiểm tra giải được bằng BFS).
@@ -50,10 +57,12 @@ lt-p01 Từ khối sang Python · lt-p02 print, biến, input · lt-p03 if/else 
 - Bộ ô lưới: cỏ, tường đá, nước, sao, cờ đích (nền trong, nhìn từ trên xuống).
 
 ## Tiến độ
-- [ ] Bản thử: Blockly + chạy từng bước + lưới 5×5, Mochi đi theo khối, chụp màn hình gửi duyệt
-- [ ] Bộ màn chơi dạng dữ liệu, sinh màn ngẫu nhiên có kiểm tra
-- [ ] Bộ chấm + sao theo số khối
-- [ ] Vỡ lòng + Cơ bản (khoảng 30 màn)
+- [x] Bản thử: Blockly + chạy từng bước + lưới, Mochi đi theo khối (chờ bạn duyệt ảnh chụp)
+- [x] Bộ màn chơi dạng dữ liệu, sinh màn ngẫu nhiên có kiểm tra (BFS)
+- [x] Bộ chấm + sao theo số khối
+- [x] Vỡ lòng: 5 bài, 26 màn làm sẵn + màn sinh ngẫu nhiên, câu trắc nghiệm cho thử thách/đấu trường
+- [ ] Cơ bản (lặp, nếu thì, bút vẽ): khối `lt_repeat` và trình chạy đã hỗ trợ lặp, còn thiếu cảm biến tường và rùa vẽ
+- [ ] Tạo ảnh `lt-*` (prompt đã có trong `docs/ASSET_PROMPTS.md`), giọng `vo-lt-a01`
 - [ ] Sân chơi tự do + chia sẻ bằng mã
 - [ ] Trung cấp, Nâng cao
 - [ ] Pyodide + trình độ Python
