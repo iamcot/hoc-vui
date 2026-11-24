@@ -9,7 +9,9 @@ import { Mascot } from "@/components/Mascot";
 import { IconBack, IconClose } from "@/components/Icons";
 import { Keyboard } from "@/components/typing/Keyboard";
 import { ImeWarning, useTypist, type TypeResult } from "@/components/typing/TypeLine";
-import { typingStats } from "@/components/typing/useKeyInput";
+import { typingStats, useHotkeys } from "@/components/typing/useKeyInput";
+import { Kbd } from "@/components/typing/Kbd";
+import { useRouter } from "next/navigation";
 import { Confetti } from "@/components/Confetti";
 
 const BEST = "hocvui:gp-passages";
@@ -26,15 +28,19 @@ const loadBest = (): Best => {
 export default function PassagesPage() {
   const [pick, setPick] = useState<Passage | null>(null);
   const [best, setBest] = useState<Best>({});
+  const [round, setRound] = useState(0);
+  const router = useRouter();
   useEffect(() => setBest(loadBest()), [pick]);
+  useHotkeys({ Escape: () => router.push("/hoc/go-phim") }, !pick);
 
-  if (pick) return <Typing p={pick} onExit={() => setPick(null)} />;
+  if (pick) return <Typing key={round} p={pick} onExit={() => setPick(null)} onAgain={() => setRound((x) => x + 1)} />;
   return (
     <div className="theme-cyber space-y-6">
       <Scene variant="deep" image="bg-gp-lesson" />
       <div className="flex items-center gap-3">
-        <Link href="/hoc/go-phim" className="grid h-12 w-12 place-items-center rounded-full bg-white/90" aria-label="Quay lại">
+        <Link href="/hoc/go-phim" className="flex h-12 items-center gap-1 rounded-full bg-white/90 px-3" aria-label="Quay lại">
           <IconBack className="h-6 w-6" />
+          <Kbd k="Escape" />
         </Link>
         <Mascot who="bit" mood="happy" size={56} />
         <h1 className="ribbon text-2xl sm:text-3xl">📜 Bài gõ hay</h1>
@@ -71,7 +77,7 @@ export default function PassagesPage() {
   );
 }
 
-function Typing({ p, onExit }: { p: Passage; onExit: () => void }) {
+function Typing({ p, onExit, onAgain }: { p: Passage; onExit: () => void; onAgain: () => void }) {
   const { addXp } = useProgress();
   const [res, setRes] = useState<TypeResult | null>(null);
   const [, tick] = useState(0);
@@ -94,14 +100,17 @@ function Typing({ p, onExit }: { p: Passage; onExit: () => void }) {
     return () => clearInterval(i);
   }, []);
   const live = typingStats(t.pos, t.errors, t.ms);
+  // đang gõ: Esc thoát; xong bài: Space gõ lại, Enter/Esc chọn bài khác
+  useHotkeys(res ? { " ": onAgain, Enter: onExit, Escape: onExit } : { Escape: onExit });
   const viet = p.kind === "co-dau";
 
   return (
     <div className="deep-sea fixed inset-0 flex flex-col overflow-y-auto text-white">
       <div className="light-rays pointer-events-none absolute inset-0" />
       <header className="relative z-10 flex items-center gap-3 px-4 py-3 sm:px-6">
-        <button onClick={onExit} className="grid h-11 w-11 place-items-center rounded-full bg-white/10 ring-1 ring-cyan-300/40" aria-label="Thoát">
+        <button onClick={onExit} className="flex h-11 items-center gap-1 rounded-full bg-white/10 px-3 ring-1 ring-cyan-300/40" aria-label="Thoát">
           <IconClose className="h-5 w-5" />
+          <Kbd k="Escape" />
         </button>
         <div className="font-display text-xl font-extrabold">
           {p.emoji} {p.title}
@@ -136,8 +145,11 @@ function Typing({ p, onExit }: { p: Passage; onExit: () => void }) {
               Chính xác {res.acc}% · {Math.round(res.ms / 1000)} giây
             </div>
             <div className="flex justify-center gap-3">
+              <button className="btn btn-ghost" onClick={onAgain}>
+                🔁 Gõ lại <Kbd k=" " />
+              </button>
               <button className="btn btn-primary" onClick={onExit}>
-                Chọn bài khác
+                Chọn bài khác <Kbd k="Enter" />
               </button>
             </div>
           </motion.div>

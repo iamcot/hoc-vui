@@ -14,7 +14,9 @@ import { Avatar } from "@/components/Avatar";
 import { IconClose } from "@/components/Icons";
 import { Keyboard } from "./Keyboard";
 import { ImeWarning, useTypist, type TypeResult } from "./TypeLine";
-import { typingStats } from "./useKeyInput";
+import { typingStats, useHotkeys } from "./useKeyInput";
+import { Kbd } from "./Kbd";
+import { useRouter } from "next/navigation";
 
 const COLORS = ["#2fd3ff", "#ff4fa3", "#3ee08f", "#ffb020", "#7c6bff", "#ff7a3d"];
 
@@ -144,6 +146,12 @@ export function TypingRace({ room }: { room: Room }) {
     },
   );
 
+  const router = useRouter();
+  // phím tắt: Space xuất phát, Esc thoát; xong: Enter phòng mới
+  useHotkeys(
+    phase === "lobby" ? { " ": () => go(), Escape: () => router.push("/thi-dau?mon=go-phim") } : phase === "done" ? { Enter: () => router.push("/thi-dau?mon=go-phim"), Escape: () => router.push("/hoc/go-phim") } : {},
+    phase === "lobby" || phase === "done",
+  );
   const myP = t.pos / t.keys.length;
   const live = typingStats(t.pos, t.errors, phase === "run" ? Date.now() - t0.current : 0);
   const racers: Racer[] = [{ ...me, p: phase === "lobby" ? 0 : myP, wpm: result?.wpm ?? live.wpm, done: phase === "done" }, ...Object.values(others), ...bots];
@@ -218,7 +226,7 @@ export function TypingRace({ room }: { room: Room }) {
                 {copied ? "Đã chép link ✓" : "📨 Mời bạn"}
               </button>
               <button className="btn btn-primary" onClick={go}>
-                Xuất phát ▶
+                Xuất phát ▶ <Kbd k=" " />
               </button>
             </div>
           </div>
@@ -247,7 +255,7 @@ export function TypingRace({ room }: { room: Room }) {
                   📨 Rủ thêm bạn
                 </button>
                 <Link href="/thi-dau?mon=go-phim" className="btn btn-primary">
-                  Phòng mới
+                  Phòng mới <Kbd k="Enter" />
                 </Link>
               </div>
             </div>

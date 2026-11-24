@@ -40,3 +40,34 @@ export function typingStats(correctKeys: number, errors: number, ms: number) {
     acc: correctKeys + errors === 0 ? 100 : Math.round((correctKeys / (correctKeys + errors)) * 100),
   };
 }
+
+/**
+ * Phím tắt chung của môn Gõ phím (hiện ngay trên nút bằng <Kbd>):
+ *   Phím cách  bắt đầu / chơi lại (Lặn xuống, Lặn lại, Xuất phát)
+ *   Enter      đi tiếp (slide sau, Bài tiếp, Hoàn thành)
+ *   Esc        quay lại / thoát / tạm dừng
+ *   Shift+Enter  bỏ qua hướng dẫn, vào game luôn
+ * Không chạy khi đang gõ trong ô nhập.
+ */
+export const HOTKEY = { start: " ", next: "Enter", back: "Escape", skip: "Shift+Enter" } as const;
+type Combo = "Enter" | "Escape" | " " | "Shift+Enter" | "ArrowLeft" | "ArrowRight";
+
+export function useHotkeys(map: Partial<Record<Combo, () => void>>, active = true) {
+  const ref = useRef(map);
+  ref.current = map;
+  useEffect(() => {
+    if (!active) return;
+    const down = (e: KeyboardEvent) => {
+      if (e.ctrlKey || e.metaKey || e.altKey || e.repeat) return;
+      const t = e.target as HTMLElement | null;
+      if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.tagName === "SELECT" || t.isContentEditable)) return;
+      const combo = (e.shiftKey && e.key === "Enter" ? "Shift+Enter" : e.shiftKey ? "" : e.key) as Combo;
+      const fn = ref.current[combo];
+      if (!fn) return;
+      e.preventDefault();
+      fn();
+    };
+    window.addEventListener("keydown", down);
+    return () => window.removeEventListener("keydown", down);
+  }, [active]);
+}

@@ -5,6 +5,9 @@ import { getLesson } from "@/content/subjects";
 import { useProgress } from "@/lib/store";
 import { SharkGame, type GameResult } from "./SharkGame";
 import { GameResultPanel } from "./GameResult";
+import { Kbd } from "./Kbd";
+import { useHotkeys } from "./useKeyInput";
+import { useRouter } from "next/navigation";
 
 /** Luyện tập môn Gõ phím: một lượt lặn bắn cá; sao tính theo số cá hạ được và độ chính xác */
 export function TypingPractice({ subjectId, lessonId }: { subjectId: string; lessonId: string }) {
@@ -22,35 +25,27 @@ export function TypingPractice({ subjectId, lessonId }: { subjectId: string; les
   }
 
   const back = `/hoc/${subject.id}`;
+  const router = useRouter();
+  const replay = () => {
+    setRes(null);
+    setRound((x) => x + 1);
+  };
+  const forward = res && (res.stars < 2 ? `/hoc/${subject.id}/${lesson.id}` : next ? `/hoc/${subject.id}/${next.id}` : `/hoc/${subject.id}/kiem-tra/${tier.id}`);
+  // phím tắt chung: Space chơi lại, Enter đi tiếp, Esc về bản đồ
+  useHotkeys({ " ": replay, Enter: () => forward && router.push(forward), Escape: () => router.push(back) }, !!res);
   return (
     <>
       <SharkGame key={round} spec={lesson.typing!} onFinish={done} exitHref={back} title={lesson.title} />
       {res && (
         <GameResultPanel r={res.r} stars={res.stars} xp={res.xp}>
-          <button
-            className="btn btn-primary"
-            onClick={() => {
-              setRes(null);
-              setRound((x) => x + 1);
-            }}
-          >
-            🔁 Lặn lại
+          <button className="btn btn-primary" onClick={replay}>
+            🔁 Lặn lại <Kbd k=" " />
           </button>
-          {res.stars < 2 ? (
-            <Link href={`/hoc/${subject.id}/${lesson.id}`} className="btn btn-ghost">
-              Xem lại bài
-            </Link>
-          ) : next ? (
-            <Link href={`/hoc/${subject.id}/${next.id}`} className="btn btn-mint">
-              Bài tiếp ▶
-            </Link>
-          ) : (
-            <Link href={`/hoc/${subject.id}/kiem-tra/${tier.id}`} className="btn btn-mint">
-              Kiểm tra trình độ
-            </Link>
-          )}
+          <Link href={forward!} className={res.stars < 2 ? "btn btn-ghost" : "btn btn-mint"}>
+            {res.stars < 2 ? "Xem lại bài" : next ? "Bài tiếp ▶" : "Kiểm tra trình độ"} <Kbd k="Enter" />
+          </Link>
           <Link href={back} className="btn btn-ghost">
-            Bản đồ
+            Bản đồ <Kbd k="Escape" />
           </Link>
         </GameResultPanel>
       )}

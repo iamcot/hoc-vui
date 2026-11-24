@@ -17,6 +17,7 @@ const voiceReady = (id: string) => {
   return !!a && hasFile(a.file);
 };
 import { speak, stopSpeak } from "@/lib/speech/tts";
+import { Kbd } from "@/components/typing/Kbd";
 import { Scene } from "@/components/Scene";
 
 export function LessonPlayer({ subjectId, lessonId }: { subjectId: string; lessonId: string }) {
@@ -28,6 +29,8 @@ export function LessonPlayer({ subjectId, lessonId }: { subjectId: string; lesso
   const [i, setI] = useState(0);
   const [dir, setDir] = useState(1);
   const total = lesson.slides.length;
+  /** môn Gõ phím: hiện phím tắt ngay trên nút */
+  const keys = subject.device === "keyboard";
   const finished = i >= total;
   const raw = lesson.slides[Math.min(i, total - 1)];
   // môn Gõ phím: slide có ô gõ thử thì bàn phím đi kèm ô gõ (sáng phím cần gõ tiếp), không vẽ hai bàn phím
@@ -67,9 +70,17 @@ export function LessonPlayer({ subjectId, lessonId }: { subjectId: string; lesso
   const router = useRouter();
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.ctrlKey || e.metaKey || e.altKey || e.shiftKey) return;
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
       const t = e.target as HTMLElement | null;
       if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.tagName === "SELECT" || t.isContentEditable)) return;
+      // Shift+Enter: bỏ qua hướng dẫn, vào luyện tập (game) luôn
+      if (e.shiftKey) {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          router.push(`/hoc/${subject.id}/${lesson.id}/luyen-tap`);
+        }
+        return;
+      }
       if (e.key === "Enter" || e.key === "ArrowRight") {
         e.preventDefault();
         if (finished) {
@@ -193,7 +204,8 @@ export function LessonPlayer({ subjectId, lessonId }: { subjectId: string; lesso
               <p className="text-ink-soft">Giờ luyện tập để lấy sao nhé. Đề mỗi lần một khác, làm bao nhiêu lần cũng được.</p>
               <div className="flex flex-wrap justify-center gap-3">
                 <Link href={`/hoc/${subject.id}/${lesson.id}/luyen-tap`} className="btn btn-primary">
-                  ✏️ Luyện tập ngay
+                  {keys ? "🦈 Vào game" : "✏️ Luyện tập ngay"}
+                  {keys && <Kbd k="Enter" />}
                 </Link>
                 {next ? (
                   <Link href={`/hoc/${subject.id}/${next.id}`} className="btn btn-ghost">
@@ -214,14 +226,21 @@ export function LessonPlayer({ subjectId, lessonId }: { subjectId: string; lesso
         <footer className="sticky bottom-0 bg-white/60 pb-[env(safe-area-inset-bottom)] backdrop-blur">
           <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
             <button className="btn btn-ghost" onClick={() => go(-1)} disabled={i === 0}>
-              ◀ Trước
+              ◀ Trước{keys && <Kbd k="Escape" />}
             </button>
+            {keys ? (
+              <Link href={`/hoc/${subject.id}/${lesson.id}/luyen-tap`} className="btn btn-ghost">
+                Bỏ qua, vào game <Kbd k="Shift+Enter" />
+              </Link>
+            ) : (
             <span className="hidden text-xs font-bold text-ink-soft md:block">
               <kbd className="rounded border border-current px-1.5 py-0.5 font-mono">Esc</kbd> / <kbd className="rounded border border-current px-1.5 py-0.5 font-mono">←</kbd> quay lại ·{" "}
               <kbd className="rounded border border-current px-1.5 py-0.5 font-mono">Enter</kbd> / <kbd className="rounded border border-current px-1.5 py-0.5 font-mono">→</kbd> đi tiếp
             </span>
+            )}
             <button className="btn btn-primary min-w-36" onClick={() => go(1)}>
               {i === total - 1 ? "Hoàn thành ✓" : "Tiếp ▶"}
+              {keys && <Kbd k="Enter" />}
             </button>
           </div>
         </footer>
