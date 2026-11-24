@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { IconArena, IconLearn, IconMe, IconRank } from "./Icons";
 import { useProgress } from "@/lib/store";
@@ -102,7 +103,7 @@ function NavPole() {
       aria-hidden
       style={
         img
-          ? { backgroundImage: `url(${resolveFile(POLE)})`, backgroundSize: "100% auto", backgroundRepeat: "repeat-y" }
+          ? { backgroundImage: `url(${resolveFile(POLE)})`, backgroundSize: "100% 100%", backgroundRepeat: "no-repeat" }
           : {
               background:
                 "repeating-linear-gradient(180deg, transparent 0 46px, rgb(90 52 20 / 0.18) 46px 48px), linear-gradient(90deg, #7a4c22, #b98450 35%, #c99560 50%, #a06a35 75%, #6e431d)",
@@ -117,7 +118,7 @@ function NavPole() {
 function TitleBoard({ dark }: { dark: boolean }) {
   const img = hasFile(TITLE);
   return (
-    <div className="relative flex items-center gap-2 py-2 pl-2 pr-4 drop-shadow-[0_6px_6px_rgba(60,35,10,0.35)]">
+    <div className={`relative flex items-center gap-2 ${img ? "py-3.5 pl-5 pr-7" : "py-2 pl-2 pr-4"} drop-shadow-[0_6px_6px_rgba(60,35,10,0.35)]`}>
       {img ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img src={resolveFile(TITLE)} alt="" className="absolute inset-0 h-full w-full" />
@@ -138,6 +139,7 @@ function TitleBoard({ dark }: { dark: boolean }) {
 function NavSign({ href, id, label, Icon, on, k }: { href: string; id: string; label: string; Icon: (p: { className?: string }) => React.ReactNode; on: boolean; k: number }) {
   const file = `/assets/img/nav-${id}.webp`;
   const img = hasFile(file);
+  const [aspect, setAspect] = useState(3);
   const tilt = [-3, 2, -1.5, 3][k % 4];
   const shift = ["0.4rem", "1.4rem", "0rem", "1rem"][k % 4];
   const glow = on ? "drop-shadow-[0_0_14px_rgba(255,214,102,0.95)]" : "drop-shadow-[0_5px_5px_rgba(60,35,10,0.35)]";
@@ -151,8 +153,20 @@ function NavSign({ href, id, label, Icon, on, k }: { href: string; id: string; l
       {img ? (
         <div className={`relative ${glow}`}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={resolveFile(file)} alt="" className="block w-full" draggable={false} />
-          <span className="absolute inset-y-0 left-[34%] right-[16%] flex items-center font-display text-xl font-extrabold text-[#5a3418] lg:text-2xl">{label}</span>
+          <img
+            src={resolveFile(file)}
+            alt=""
+            className="block w-full"
+            draggable={false}
+            onLoad={(e) => setAspect(e.currentTarget.naturalWidth / e.currentTarget.naturalHeight)}
+          />
+          {/* chữ nằm giữa phần ván trống: sau hình tròn bên trái (rộng ~ chiều cao ván), trước mũi tên bên phải */}
+          <span
+            className="absolute inset-y-0 z-10 flex items-center justify-center whitespace-nowrap font-display text-xl font-extrabold text-[#5a3418] [text-shadow:0_1px_0_rgb(255_235_200/0.7)] lg:text-2xl"
+            style={{ left: `${(0.08 + 0.9 / aspect) * 100}%`, right: `${(0.42 / aspect) * 100}%` }}
+          >
+            {label}
+          </span>
         </div>
       ) : (
         <span className={`relative flex h-[54px] items-center gap-2.5 pl-3 pr-9 font-display text-lg font-extrabold text-[#5a3418] ${glow}`}>

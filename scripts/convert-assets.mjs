@@ -75,8 +75,43 @@ async function removeBackground(src) {
     const r = data[i * 4], g = data[i * 4 + 1], b = data[i * 4 + 2];
     if (g > Math.max(r, b)) data[i * 4 + 1] = Math.max(r, b);
   }
-  console.log(`  ${basename(src)}: không có nền trong suốt, đã tự xóa nền (${greenBg ? "xanh lá" : bg.length > 1 ? "ô caro" : "màu trơn"})`);
+  const wm = removeCornerMark(data, w, h);
+  console.log(`  ${basename(src)}: không có nền trong suốt, đã tự xóa nền${wm ? " và dấu watermark ở góc" : ""} (${greenBg ? "xanh lá" : bg.length > 1 ? "ô caro" : "màu trơn"})`);
   return sharp(data, { raw: { width: w, height: h, channels: 4 } }).png().toBuffer();
+}
+
+/**
+ * Gemini đóng dấu ngôi sao nhỏ ở góc dưới phải. Sau khi xóa nền, dấu đó thành một mảnh rời:
+ * xóa các mảnh nhỏ nằm trọn trong góc dưới phải (không đụng tới hình chính).
+ */
+function removeCornerMark(data, w, h) {
+  const seen = new Uint8Array(w * h);
+  const x0 = Math.floor(w * 0.8), y0 = Math.floor(h * 0.8);
+  let removed = false;
+  for (let y = y0; y < h; y++)
+    for (let x = x0; x < w; x++) {
+      const s0 = y * w + x;
+      if (seen[s0] || data[s0 * 4 + 3] < 16) continue;
+      const comp = [s0];
+      seen[s0] = 1;
+      let inCorner = true;
+      for (let k = 0; k < comp.length && comp.length < 40000; k++) {
+        const i = comp[k], cx = i % w, cy = (i / w) | 0;
+        if (cx < x0 || cy < y0) inCorner = false;
+        for (const [nx, ny] of [[cx + 1, cy], [cx - 1, cy], [cx, cy + 1], [cx, cy - 1]]) {
+          if (nx < 0 || ny < 0 || nx >= w || ny >= h) continue;
+          const n = ny * w + nx;
+          if (seen[n] || data[n * 4 + 3] < 16) continue;
+          seen[n] = 1;
+          comp.push(n);
+        }
+      }
+      if (inCorner && comp.length < w * h * 0.01) {
+        for (const i of comp) data[i * 4 + 3] = 0;
+        removed = true;
+      }
+    }
+  return removed;
 }
 
 async function toWebp(file) {
