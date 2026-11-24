@@ -1186,7 +1186,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile, standing in a dark holographic warehouse beside a row of glowing numbered crates being sorted from short to tall, a translucent maze map hovering in front of his visor. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
 ```
 
-### ⬜ `lt-holo-mochi-happy.webp`
+### ✅ `lt-holo-mochi-happy.webp`
 - Dùng ở: Lập trình · nhân vật Mochi hologram trên sân Hologram, lúc đứng yên / đang đi
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -1194,7 +1194,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 A cute glowing HOLOGRAM of a chibi white cat with small pointed ears, seen from the front, full body, short round body and a big round head, made entirely of translucent cyan light (#4FF0FF) with a bright white-cyan outline, thin horizontal scan lines across the body, faint wireframe lines, soft outer glow, a calm friendly smile, eyes open and bright. Floating, centered, filling about 85% of the image height, feet at the bottom center; no projector base, no light beam, no floor, no ground shadow (the app draws those). Clean sci-fi game character sprite, crisp vector-like shapes, cute but cool, glowing translucent hologram look with additive cyan light, subtle chromatic edge (faint pink and violet fringe), consistent same character design across all poses, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `lt-holo-mochi-cheer.webp`
+### ✅ `lt-holo-mochi-cheer.webp`
 - Dùng ở: Lập trình · nhân vật Mochi hologram trên sân Hologram, lúc về tới cờ, thắng
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -1202,7 +1202,7 @@ A cute glowing HOLOGRAM of a chibi white cat with small pointed ears, seen from 
 A cute glowing HOLOGRAM of a chibi white cat with small pointed ears, seen from the front, full body, short round body and a big round head, made entirely of translucent cyan light (#4FF0FF) with a bright white-cyan outline, thin horizontal scan lines across the body, faint wireframe lines, soft outer glow, eyes closed in happy upside-down arcs, big joyful smile, one paw raised in a cheer. Floating, centered, filling about 85% of the image height, feet at the bottom center; no projector base, no light beam, no floor, no ground shadow (the app draws those). Clean sci-fi game character sprite, crisp vector-like shapes, cute but cool, glowing translucent hologram look with additive cyan light, subtle chromatic edge (faint pink and violet fringe), consistent same character design across all poses, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `lt-holo-mochi-oops.webp`
+### ✅ `lt-holo-mochi-oops.webp`
 - Dùng ở: Lập trình · nhân vật Mochi hologram trên sân Hologram, lúc đụng tường, sai
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -1210,7 +1210,7 @@ A cute glowing HOLOGRAM of a chibi white cat with small pointed ears, seen from 
 A cute glowing HOLOGRAM of a chibi white cat with small pointed ears, seen from the front, full body, short round body and a big round head, made entirely of translucent cyan light (#4FF0FF) with a bright white-cyan outline, thin horizontal scan lines across the body, faint wireframe lines, soft outer glow, dizzy surprised face with little x-shaped eyes, small worried mouth, one paw on the head. Floating, centered, filling about 85% of the image height, feet at the bottom center; no projector base, no light beam, no floor, no ground shadow (the app draws those). Clean sci-fi game character sprite, crisp vector-like shapes, cute but cool, glowing translucent hologram look with additive cyan light, subtle chromatic edge (faint pink and violet fringe), consistent same character design across all poses, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `lt-holo-bit-happy.webp`
+### ✅ `lt-holo-bit-happy.webp`
 - Dùng ở: Lập trình · nhân vật Bit hologram trên sân Hologram, lúc đứng yên / đang đi
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -1218,7 +1218,7 @@ A cute glowing HOLOGRAM of a chibi white cat with small pointed ears, seen from 
 A cute glowing HOLOGRAM of a chibi rabbit with two long upright ears whose tips glow (cyan left, pink right) and a sleek tech visor band across the eyes, seen from the front, full body, short round body and a big round head, made entirely of translucent cyan light (#4FF0FF) with a bright white-cyan outline, thin horizontal scan lines across the body, faint wireframe lines, soft outer glow, a calm friendly smile, eyes open and bright. Floating, centered, filling about 85% of the image height, feet at the bottom center; no projector base, no light beam, no floor, no ground shadow (the app draws those). Clean sci-fi game character sprite, crisp vector-like shapes, cute but cool, glowing translucent hologram look with additive cyan light, subtle chromatic edge (faint pink and violet fringe), consistent same character design across all poses, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `lt-holo-bit-cheer.webp`
+### ✅ `lt-holo-bit-cheer.webp`
 - Dùng ở: Lập trình · nhân vật Bit hologram trên sân Hologram, lúc về tới cờ, thắng
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -1226,7 +1226,7 @@ A cute glowing HOLOGRAM of a chibi rabbit with two long upright ears whose tips 
 A cute glowing HOLOGRAM of a chibi rabbit with two long upright ears whose tips glow (cyan left, pink right) and a sleek tech visor band across the eyes, seen from the front, full body, short round body and a big round head, made entirely of translucent cyan light (#4FF0FF) with a bright white-cyan outline, thin horizontal scan lines across the body, faint wireframe lines, soft outer glow, eyes closed in happy upside-down arcs, big joyful smile, one paw raised in a cheer. Floating, centered, filling about 85% of the image height, feet at the bottom center; no projector base, no light beam, no floor, no ground shadow (the app draws those). Clean sci-fi game character sprite, crisp vector-like shapes, cute but cool, glowing translucent hologram look with additive cyan light, subtle chromatic edge (faint pink and violet fringe), consistent same character design across all poses, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `lt-holo-bit-oops.webp`
+### ✅ `lt-holo-bit-oops.webp`
 - Dùng ở: Lập trình · nhân vật Bit hologram trên sân Hologram, lúc đụng tường, sai
 - Kích thước: 1024x1024 · nền trong suốt
 
