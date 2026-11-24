@@ -78,8 +78,8 @@ export function CodePractice({ subjectId, lessonId }: { subjectId: string; lesso
   const back = `/hoc/${subject.id}`;
 
   return (
-    <div className="flex h-dvh flex-col">
-      <Scene image="bg-lesson" variant="desk" dim />
+    <div className={`flex h-dvh flex-col ${subject.look?.theme === "cyber" ? "theme-cyber" : ""}`}>
+      <Scene image={subject.look?.lesson ?? "bg-lesson"} variant={subject.look?.theme === "cyber" ? "deep" : "desk"} dim={subject.look?.theme !== "cyber"} />
       <header className="z-20 shrink-0 bg-white/60 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center gap-3 px-3 py-2 sm:px-5">
           <Link href={back} className="grid h-10 w-10 place-items-center rounded-full bg-white shadow-sm" aria-label="Thoát">

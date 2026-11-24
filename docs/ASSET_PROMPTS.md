@@ -24,7 +24,7 @@ File này sinh tự động từ `src/content/assets.ts` bằng `npm run prompts
 - Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator
 - Xi Xi: a friendly anthropomorphic scientific calculator (dark navy body, light gray keys, small LCD screen showing a smile), tiny arms and legs
 
-## Ảnh (147)
+## Ảnh (149)
 
 ### ✅ `mochi-happy.webp`
 - Dùng ở: Mochi vui vẻ: lời chào, slide mở đầu
@@ -1096,6 +1096,22 @@ A rounded yellow warning triangle with an exclamation shape made of a bar and a 
 
 ```text
 Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, walking on a giant board game grid of grass tiles toward a red flag, big colorful puzzle-piece shaped command blocks (blue, purple, yellow, blank faces with no text) floating in the air like a path behind it, a few golden stars on the tiles, one continuous scene from top to bottom: characters and main objects sit in the upper 60% of the frame, and the same scene simply continues into the bottom third (more of the grass, floor, table or ground in the same colors and lighting, a little softer and less detailed, gently shaded by a natural shadow), with no characters or busy details there so white title text can be laid over it; never a separate flat color band, panel or gradient bar. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
+```
+
+### ⬜ `bg-lt-map.webp`
+- Dùng ở: Cảnh nền bản đồ bài của môn Lập trình (tối, neon)
+- Kích thước: 1536x1024
+
+```text
+Top-down view of a glowing neon circuit-board city at night: cyan and violet light traces like roads, tiny chip buildings, soft pink nodes, very dark navy and low contrast so map nodes on top stay readable. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
+```
+
+### ⬜ `bg-lt-lesson.webp`
+- Dùng ở: Cảnh nền bài học, màn chơi môn Lập trình (rất tối, mờ)
+- Kích thước: 1536x1024
+
+```text
+A cozy futuristic coding lab at night, big holographic screens showing colorful puzzle-piece blocks, a small robot desk lamp, cyan and violet glow, background heavily blurred and dark, mostly empty. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
 ```
 
 ### ⬜ `lt-cover-vo-long.webp`

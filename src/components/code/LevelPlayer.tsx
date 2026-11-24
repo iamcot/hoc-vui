@@ -160,10 +160,10 @@ export function LevelPlayer({ level, index, total, onDone }: { level: Level; ind
   return (
     <div className="flex h-full min-h-0 flex-col gap-3 md:flex-row">
       {/* bàn ghép khối */}
-      <div className="relative min-h-[260px] flex-[1.15] overflow-hidden rounded-[1.6rem] bg-white shadow-[0_8px_24px_-14px_rgba(37,40,69,0.5)] ring-1 ring-line">
+      <div className="lt-board relative min-h-[260px] flex-[1.15] overflow-hidden rounded-[1.6rem]">
         <Workspace key={level.id} ref={wsRef} blocks={level.blocks} preset={preset} onChange={(p) => !busy && setProgram(p)} />
-        <div className="pointer-events-none absolute right-3 top-3 rounded-full bg-white/90 px-3 py-1 text-sm font-extrabold text-ink-soft shadow-sm ring-1 ring-line">
-          Khối: <span className={blocks > optimal ? "text-peach" : "text-mint"}>{blocks}</span> · tối ưu {optimal}
+        <div className="hud-chip pointer-events-none absolute right-3 top-3 text-sm font-extrabold text-cyan-100">
+          Khối: <span className={blocks > optimal ? "text-[#ff4fa3]" : "text-[#3dffc5]"}>{blocks}</span> · tối ưu {optimal}
         </div>
       </div>
 
@@ -171,8 +171,8 @@ export function LevelPlayer({ level, index, total, onDone }: { level: Level; ind
       <div className="flex min-h-0 flex-1 flex-col gap-2">
         <div className="flex items-start gap-2">
           <Mascot mood={mood} size={52} className="shrink-0" />
-          <motion.div key={msg ?? level.id} initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} className={`rounded-2xl rounded-tl-sm px-3 py-2 text-[0.95rem] font-bold leading-snug shadow-sm ${status === "fail" ? "bg-peach-soft text-ink" : "bg-white/85 text-ink-soft"}`}>
-            <span className="mr-1 text-xs font-extrabold uppercase tracking-wider text-sky">
+          <motion.div key={msg ?? level.id} initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} className={`rounded-2xl rounded-tl-sm px-3 py-2 text-[0.95rem] font-bold leading-snug shadow-sm ${status === "fail" ? "bg-peach-soft text-ink" : "bg-white/80 text-ink-soft"}`}>
+            <span className="mr-1 text-xs font-extrabold uppercase tracking-wider text-[#2fd3ff]">
               Màn {index + 1}/{total}
             </span>{" "}
             {msg ?? level.hint ?? "Dẫn Mochi tới lá cờ nhé!"}
@@ -185,7 +185,7 @@ export function LevelPlayer({ level, index, total, onDone }: { level: Level; ind
           {worlds.length > 1 && (
             <div className="absolute left-1 top-1 z-10 flex gap-1">
               {worlds.map((_, k) => (
-                <span key={k} className={`rounded-full px-2.5 py-1 text-xs font-extrabold shadow-sm ${k < wi || status === "win" ? "bg-mint text-white" : k === wi ? "bg-sky text-white" : "bg-white text-ink-soft"}`}>
+                <span key={k} className={`rounded-full px-2.5 py-1 text-xs font-extrabold shadow-sm ${k < wi || status === "win" ? "bg-mint text-white" : k === wi ? "bg-sky text-white" : "bg-white/80 text-ink-soft"}`}>
                   Sân {k + 1}
                 </span>
               ))}
@@ -194,11 +194,11 @@ export function LevelPlayer({ level, index, total, onDone }: { level: Level; ind
           <Stage world={world} state={state} bump={bump > 0 && status === "fail"} key={`${level.id}-${wi}-${bump}`} mood={mood} max={104} speed={speed === "fast" ? 2.2 : 1} />
           {status === "win" && (
             <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="absolute inset-0 grid place-items-center">
-              <div className="space-y-3 rounded-[1.6rem] bg-white/92 px-6 py-5 text-center shadow-xl ring-1 ring-line backdrop-blur">
+              <div className="cyber-panel space-y-3 rounded-[1.6rem] px-6 py-5 text-center">
                 <div className="flex justify-center gap-1 text-sun">
                   {[1, 2, 3].map((s) => (
                     <motion.span key={s} initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.15 * s, type: "spring" }}>
-                      <IconStar filled={stars >= s} className={`h-11 w-11 ${stars >= s ? "" : "text-line"}`} />
+                      <IconStar filled={stars >= s} className={`h-11 w-11 ${stars >= s ? "text-amber-300 drop-shadow-[0_0_10px_rgba(255,200,60,0.8)]" : "text-white/20"}`} />
                     </motion.span>
                   ))}
                 </div>

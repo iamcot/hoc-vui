@@ -73,25 +73,25 @@ function define(Blockly: B) {
 }
 
 function theme(Blockly: B) {
-  return Blockly.Theme.defineTheme("hocvui-mochi", {
-    name: "hocvui-mochi",
+  return Blockly.Theme.defineTheme("hocvui-neon", {
+    name: "hocvui-neon",
     base: Blockly.Themes.Classic,
     blockStyles: {
-      lt_event: { colourPrimary: "#ffb81f", colourSecondary: "#ffd36b", colourTertiary: "#d99500" },
-      lt_move: { colourPrimary: "#4f72ff", colourSecondary: "#8fa6ff", colourTertiary: "#3553d6" },
-      lt_turn: { colourPrimary: "#9b7bff", colourSecondary: "#c2adff", colourTertiary: "#7552e6" },
-      lt_loop: { colourPrimary: "#22b98c", colourSecondary: "#6fd8b7", colourTertiary: "#13926c" },
-      lt_logic: { colourPrimary: "#ff8a5c", colourSecondary: "#ffb596", colourTertiary: "#e0643a" },
+      lt_event: { colourPrimary: "#ffb020", colourSecondary: "#ffd27a", colourTertiary: "#ffe6a8" },
+      lt_move: { colourPrimary: "#1a8cff", colourSecondary: "#5fb2ff", colourTertiary: "#2fd3ff" },
+      lt_turn: { colourPrimary: "#7c4dff", colourSecondary: "#a587ff", colourTertiary: "#c9b5ff" },
+      lt_loop: { colourPrimary: "#00c08b", colourSecondary: "#43e0b0", colourTertiary: "#7dffd9" },
+      lt_logic: { colourPrimary: "#ff3d8f", colourSecondary: "#ff7ab2", colourTertiary: "#ffb3d3" },
     },
     categoryStyles: {},
     componentStyles: {
-      workspaceBackgroundColour: "#fffaf3",
-      flyoutBackgroundColour: "#fff0dc",
+      workspaceBackgroundColour: "#060d2e",
+      flyoutBackgroundColour: "#0b1648",
       flyoutOpacity: 1,
-      scrollbarColour: "#e6dcef",
-      scrollbarOpacity: 0.8,
-      insertionMarkerColour: "#252845",
-      insertionMarkerOpacity: 0.25,
+      scrollbarColour: "#2fd3ff",
+      scrollbarOpacity: 0.35,
+      insertionMarkerColour: "#2fd3ff",
+      insertionMarkerOpacity: 0.5,
     },
     fontStyle: { family: "var(--font-nunito), ui-rounded, system-ui, sans-serif", weight: "800", size: 14 },
     startHats: true,

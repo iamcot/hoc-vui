@@ -355,3 +355,38 @@ button {
   background-size: 70px 100%;
   mask-image: linear-gradient(to bottom, transparent 45%, black 50%, transparent 55%);
 }
+
+/* ───────── Môn Lập trình: bàn ghép khối và sân lưới neon ───────── */
+.lt-board {
+  background: #060d2e;
+  box-shadow: 0 0 0 1px rgb(47 211 255 / 0.35), 0 0 40px -12px rgb(47 211 255 / 0.55);
+}
+/* lưới chấm mờ như bảng mạch phía sau khối */
+.lt-board .blocklyMainBackground {
+  stroke: none;
+}
+.lt-board .blocklySvg {
+  background-image: radial-gradient(rgb(47 211 255 / 0.18) 1px, transparent 1.5px);
+  background-size: 22px 22px;
+}
+/* khối phát sáng nhẹ, khối đang chạy sáng rực */
+.lt-board .blocklyBlockCanvas .blocklyPath {
+  filter: drop-shadow(0 0 5px rgb(47 211 255 / 0.35));
+}
+.lt-board .blocklyPathSelected,
+.lt-board .blocklyHighlightedConnectionPath {
+  filter: drop-shadow(0 0 10px #2fd3ff);
+}
+.lt-board .blocklyFlyoutBackground {
+  fill: #0b1648;
+}
+.lt-glow {
+  filter: drop-shadow(0 0 6px currentColor);
+}
+.theme-cyber .bg-sky-soft {
+  background: rgb(47 211 255 / 0.14);
+  box-shadow: inset 0 0 0 1px rgb(47 211 255 / 0.4);
+}
+.theme-cyber .text-sky {
+  color: #7fe3ff;
+}
