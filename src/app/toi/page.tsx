@@ -17,6 +17,7 @@ import { GradeChips, ThemeCards } from "@/components/ThemePicker";
 
 export default function MePage() {
   const { data, session, online, setProfile, setSound, setCalcMode, signOut, streak, lesson } = useProgress();
+  const started = SUBJECTS.filter((s) => s.ready && s.tiers.some((t) => tierLessons(t).some((l) => lesson(s.id, l.id).read || lesson(s.id, l.id).stars > 0)));
   const [name, setName] = useState("");
   const [saved, setSaved] = useState<"" | "ok" | "fail">("");
   const save = async (p: Parameters<typeof setProfile>[0]) => {
@@ -105,7 +106,9 @@ export default function MePage() {
 
       <section className="card space-y-4 p-6">
         <h2 className="font-display text-xl font-extrabold">Tiến trình các môn</h2>
-        {SUBJECTS.filter((s) => s.ready).map((s) => {
+        {/* chỉ hiện môn bé đã bắt đầu học (đã đọc hoặc có sao ở ít nhất một bài) */}
+        {started.length === 0 && <p className="text-ink-soft">Em chưa học môn nào. Chọn một môn ở trang chủ để bắt đầu nhé!</p>}
+        {started.map((s) => {
           const tiers = s.tiers.filter((t) => t.units.length > 0);
           const all = tiers.flatMap((t) => tierLessons(t));
           const done = all.filter((l) => lesson(s.id, l.id).stars > 0).length;
