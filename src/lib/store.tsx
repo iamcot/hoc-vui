@@ -144,8 +144,17 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
   const dataRef = useRef(data);
   dataRef.current = data;
 
+  // Cập nhật gọi trước khi đọc xong dữ liệu trên máy (vd. effect của trang bài học chạy trước effect này)
+  // được xếp hàng rồi áp lên dữ liệu thật, không thì ghi đè mất tiến trình đã lưu.
+  const hydrated = useRef(false);
+  const pending = useRef<((d: ProgressData) => ProgressData)[]>([]);
+
   useEffect(() => {
-    const d = loadLocal();
+    let d = loadLocal();
+    for (const fn of pending.current) d = fn(d);
+    if (pending.current.length) saveLocal(d);
+    pending.current = [];
+    hydrated.current = true;
     setData(d);
     setMuted(!d.sound);
     setMusicOn(d.music);
@@ -153,6 +162,10 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const update = useCallback((fn: (d: ProgressData) => ProgressData) => {
+    if (!hydrated.current) {
+      pending.current.push(fn);
+      return;
+    }
     setData((prev) => {
       const next = fn(prev);
       saveLocal(next);

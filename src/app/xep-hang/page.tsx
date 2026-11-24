@@ -50,7 +50,7 @@ export default function RankPage() {
           <Ico n="trophy" /> Bảng xếp hạng
         </h1>
         <p className="max-w-xl text-lg font-bold text-white drop-shadow">Sao có từ học bài, luyện tập, kiểm tra và thi đấu. Bảng tuần chốt lúc 0 giờ thứ Hai, còn {daysToReset()} ngày nữa.</p>
-        <p className="inline-flex items-center gap-2 rounded-full bg-sun px-4 py-1.5 text-sm font-extrabold text-[#252845]">
+        <p className="inline-flex items-center gap-2 rounded-full bg-sun px-4 py-1.5 text-sm font-extrabold text-ink">
           <Ico n="medal-1" /> Phần thưởng do SuGaMi trao tặng cho các bạn đứng đầu bảng tuần và tháng
         </p>
       </header>
