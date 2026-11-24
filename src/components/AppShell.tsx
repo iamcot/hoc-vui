@@ -42,17 +42,18 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       {/* Thanh bên cho iPad ngang và laptop */}
       {/* Thanh bên: mỗi mục là một cọc biển chỉ đường cắm trên cảnh nền */}
       <aside className={`sticky top-0 hidden h-dvh w-60 shrink-0 flex-col gap-1 bg-gradient-to-r ${dark ? "from-[#030a24]/50 via-[#030a24]/20" : "from-white/45 via-white/20"} to-transparent p-4 md:flex lg:w-64`}>
-        <Link href="/" className="mb-4 flex items-center gap-2 px-2">
+        <Link href="/" className="relative z-10 mb-4 flex items-center gap-2 px-2">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/assets/img/logo.webp" alt="" className="h-12 w-auto drop-shadow-sm" />
           <span className={`font-display text-2xl font-extrabold tracking-tight ${dark ? "text-white drop-shadow" : ""}`}>Học Vui</span>
         </Link>
-        <nav className="flex flex-col">
+        <NavPole />
+        <nav className="relative z-10 flex flex-col gap-3">
           {TABS.map(({ href, id, label, Icon, match }, k) => (
             <NavSign key={href} href={href} id={id} label={label} Icon={Icon} on={match(path)} k={k} />
           ))}
         </nav>
-        <div className="mt-auto flex items-center gap-3 rounded-2xl bg-white/70 p-3">
+        <div className="relative z-10 mt-auto mb-6 flex items-center gap-3 rounded-2xl bg-white/80 p-3 backdrop-blur">
           <Avatar id={data.profile.avatar} size={40} />
           <div className="min-w-0 text-sm">
             <div className="truncate font-bold">{data.profile.name || "Bạn nhỏ"}</div>
@@ -86,50 +87,84 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   );
 }
 
+const POLE = "/assets/img/nav-pole.webp";
+const POLE_TOP = "/assets/img/nav-pole-top.webp";
+const POLE_BASE = "/assets/img/nav-pole-base.webp";
+
+/** cây cọc gỗ dọc suốt thanh bên (ảnh nav-pole lặp theo chiều dọc, có mũ cọc và chân cỏ); chưa có ảnh thì vẽ bằng CSS */
+function NavPole() {
+  const img = hasFile(POLE);
+  return (
+    <div className="pointer-events-none absolute inset-y-0 left-[3.4rem] z-0 w-6" aria-hidden>
+      <div
+        className="absolute inset-x-0 bottom-0 top-3 rounded-t-md"
+        style={
+          img
+            ? { backgroundImage: `url(${resolveFile(POLE)})`, backgroundSize: "100% auto", backgroundRepeat: "repeat-y" }
+            : {
+                background:
+                  "repeating-linear-gradient(180deg, transparent 0 46px, rgb(90 52 20 / 0.18) 46px 48px), linear-gradient(90deg, #7a4c22, #b98450 35%, #c99560 50%, #a06a35 75%, #6e431d)",
+                boxShadow: "inset 0 0 0 1px rgb(70 40 15 / 0.45), 4px 0 10px -4px rgb(40 25 10 / 0.35)",
+              }
+        }
+      />
+      {hasFile(POLE_TOP) ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src={resolveFile(POLE_TOP)} alt="" className="absolute -left-3 top-0 w-12" />
+      ) : (
+        <span className="absolute -left-1 top-1 h-4 w-8 rounded-full bg-gradient-to-b from-[#c99560] to-[#7a4c22] shadow-[inset_0_0_0_1px_rgb(70_40_15/0.45)]" />
+      )}
+      {hasFile(POLE_BASE) ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src={resolveFile(POLE_BASE)} alt="" className="absolute -left-10 bottom-0 w-[6.5rem]" />
+      ) : (
+        <span className="absolute -left-8 bottom-0 h-6 w-[5.5rem] rounded-t-full bg-gradient-to-b from-[#7fd08e] to-[#4fae6a]" />
+      )}
+    </div>
+  );
+}
+
 /**
- * Một cọc biển chỉ đường: có ảnh nav-<id>.webp (tấm ván mũi tên trên cọc, vẽ sẵn icon bên trái) thì chữ đè lên phần ván trống;
- * chưa có ảnh thì vẽ tấm ván gỗ bằng CSS. Mục đang mở: biển nhấc lên, nghiêng nhẹ, phát sáng.
+ * Một tấm biển gắn vào cây cọc: có ảnh nav-<id>.webp (tấm ván mũi tên, vẽ sẵn icon bên trái) thì chữ đè lên phần ván trống;
+ * chưa có ảnh thì vẽ tấm ván gỗ bằng CSS. Các biển so le nhẹ; mục đang mở nhấc lên, nghiêng thêm, phát sáng.
  */
 function NavSign({ href, id, label, Icon, on, k }: { href: string; id: string; label: string; Icon: (p: { className?: string }) => React.ReactNode; on: boolean; k: number }) {
   const file = `/assets/img/nav-${id}.webp`;
   const img = hasFile(file);
-  const tilt = k % 2 ? 2 : -2;
+  const tilt = [-3, 2, -1.5, 3][k % 4];
+  const shift = ["0.4rem", "1.4rem", "0rem", "1rem"][k % 4];
+  const glow = on ? "drop-shadow-[0_0_14px_rgba(255,214,102,0.95)]" : "drop-shadow-[0_5px_5px_rgba(60,35,10,0.35)]";
   return (
     <Link
       href={href}
       aria-current={on ? "page" : undefined}
-      className={`group relative block transition duration-300 ${k % 2 ? "ml-5 mr-0" : "ml-0 mr-5"} ${on ? "-translate-y-1" : "hover:-translate-y-0.5"}`}
-      style={{ transform: `rotate(${on ? tilt * 1.5 : tilt * 0.5}deg)` }}
+      className={`group relative z-10 block transition duration-300 ${on ? "-translate-y-1" : "hover:-translate-y-0.5"}`}
+      style={{ marginLeft: shift, marginRight: `calc(1.4rem - ${shift})`, transform: `rotate(${on ? tilt * 1.6 : tilt}deg)`, transformOrigin: "3.4rem 50%" }}
     >
       {img ? (
-        <div className={`relative aspect-[3/2] w-full ${on ? "drop-shadow-[0_0_14px_rgba(255,214,102,0.95)]" : "drop-shadow-md"}`}>
+        <div className={`relative ${glow}`}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={resolveFile(file)} alt="" className="absolute inset-0 h-full w-full object-contain" draggable={false} />
-          <span className="absolute left-[36%] right-[14%] top-[17%] flex h-[34%] items-center font-display text-xl font-extrabold text-[#5a3418] lg:text-2xl">{label}</span>
+          <img src={resolveFile(file)} alt="" className="block w-full" draggable={false} />
+          <span className="absolute inset-y-0 left-[34%] right-[16%] flex items-center font-display text-xl font-extrabold text-[#5a3418] lg:text-2xl">{label}</span>
         </div>
       ) : (
-        <div className="relative h-[92px]">
-          {/* cọc gỗ */}
-          <span className="absolute bottom-0 left-[22%] top-6 w-3 rounded-b-sm bg-gradient-to-r from-[#8a5a2b] via-[#b07a43] to-[#7a4c22] shadow-[inset_0_0_0_1px_rgba(70,40,15,0.5)]" />
-          <span className="absolute bottom-0 left-[14%] h-3 w-12 rounded-full bg-[#6cc47f]/80 blur-[1px]" />
-          {/* tấm ván mũi tên */}
+        <span className={`relative flex h-[54px] items-center gap-2.5 pl-3 pr-9 font-display text-lg font-extrabold text-[#5a3418] ${glow}`}>
           <span
-            className={`absolute left-0 right-0 top-1 flex h-[52px] items-center gap-2.5 pl-4 pr-8 font-display text-lg font-extrabold text-[#5a3418] ${on ? "drop-shadow-[0_0_12px_rgba(255,214,102,0.95)]" : "drop-shadow-[0_4px_4px_rgba(60,35,10,0.35)]"}`}
-          >
-            <span
-              className="absolute inset-0 -z-0"
-              style={{
-                clipPath: "polygon(0 8%, 84% 0, 100% 50%, 84% 100%, 0 92%)",
-                background: on ? "linear-gradient(180deg,#ffe2a8,#f2b866 55%,#d9933f)" : "linear-gradient(180deg,#f3cf98,#dca869 55%,#c48a4c)",
-              }}
-            />
-            <span className="absolute inset-x-2 top-[46%] -z-0 h-px bg-[#a86f35]/40" />
-            <span className="relative grid h-8 w-8 shrink-0 place-items-center rounded-full bg-[#fff5e2] text-[#c0622f] shadow-[inset_0_0_0_2px_#a86f35]">
-              <Icon className="h-5 w-5" />
-            </span>
-            <span className="relative">{label}</span>
+            className="absolute inset-0"
+            style={{
+              clipPath: "polygon(0 6%, 86% 0, 100% 50%, 86% 100%, 0 94%)",
+              background: on ? "linear-gradient(180deg,#ffe2a8,#f2b866 55%,#d9933f)" : "linear-gradient(180deg,#f3cf98,#dca869 55%,#c48a4c)",
+            }}
+          />
+          <span className="absolute inset-x-2 top-[48%] h-px bg-[#a86f35]/40" />
+          {/* đinh đóng vào cọc */}
+          <span className="absolute left-[2.6rem] top-1.5 h-1.5 w-1.5 rounded-full bg-[#5a3418]/70" />
+          <span className="absolute bottom-1.5 left-[2.6rem] h-1.5 w-1.5 rounded-full bg-[#5a3418]/70" />
+          <span className="relative grid h-8 w-8 shrink-0 place-items-center rounded-full bg-[#fff5e2] text-[#c0622f] shadow-[inset_0_0_0_2px_#a86f35]">
+            <Icon className="h-5 w-5" />
           </span>
-        </div>
+          <span className="relative pl-3">{label}</span>
+        </span>
       )}
     </Link>
   );

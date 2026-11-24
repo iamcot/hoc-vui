@@ -24,7 +24,7 @@ File này sinh tự động từ `src/content/assets.ts` bằng `npm run prompts
 - Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator
 - Xi Xi: a friendly anthropomorphic scientific calculator (dark navy body, light gray keys, small LCD screen showing a smile), tiny arms and legs
 
-## Ảnh (126)
+## Ảnh (129)
 
 ### ✅ `mochi-happy.webp`
 - Dùng ở: Mochi vui vẻ: lời chào, slide mở đầu
@@ -810,36 +810,60 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile in a submarine cockpit typing, glowing Vietnamese-style accent marks (hooks, hats, tone marks) floating like bubbles, no full words. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
 ```
 
+### ⬜ `nav-pole.webp`
+- Dùng ở: Thân cọc gỗ dọc thanh bên (app lặp ảnh theo chiều dọc, kéo dài suốt màn hình)
+- Kích thước: 1024x1536 · nền trong suốt
+
+```text
+A straight vertical wooden post segment, seen from the front, centered, filling the full image height and about 12% of the width, warm light-honey wood with soft grain, cute storybook look, clean dark-brown outline; SEAMLESS vertically: the top and bottom edges must tile perfectly when repeated (no cap, no end, no knots cut at the edges), nothing else in the image. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
+```
+
+### ⬜ `nav-pole-top.webp`
+- Dùng ở: Mũ đầu cọc (trên cùng thanh bên)
+- Kích thước: 1024x1024 · nền trong suốt
+
+```text
+The rounded top cap of a vertical wooden post, front view, a small cute carved round top with a tiny leaf sprouting, warm light-honey wood with soft grain, cute storybook look, clean dark-brown outline, the post width at the bottom edge equals about 25% of the image width, nothing else. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
+```
+
+### ⬜ `nav-pole-base.webp`
+- Dùng ở: Chân cọc cắm trong bụi cỏ (dưới cùng thanh bên)
+- Kích thước: 1024x1024 · nền trong suốt
+
+```text
+A soft grassy mound with a few tiny flowers and a small stone, front view, the mound is wide and low, with a gap in the middle top where a wooden post goes into the ground (post not drawn), nothing else. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
+```
+
 ### ⬜ `nav-hoc.webp`
-- Dùng ở: Biển chỉ đường thanh bên: Học (chữ do app viết đè lên ván trống)
+- Dùng ở: Tấm biển gắn vào cọc ở thanh bên: Học (chữ do app viết đè lên ván trống)
 - Kích thước: 1536x1024 · nền trong suốt
 
 ```text
-A single cute wooden signpost seen straight from the front, isolated: a wide horizontal arrow-shaped plank sign pointing to the RIGHT nailed onto one short wooden stake; the plank fills the upper 55% of the image and spans about 90% of the width, warm light-honey wood with soft grain and two small nails; at the LEFT end of the plank a round painted emblem (about the plank's height); the rest of the plank to the right of the emblem is a smooth, completely BLANK flat wood area reserved for a label; the stake goes down from under the plank, slightly left of center, into a small tuft of grass with two tiny flowers at the bottom edge. The emblem shows an open storybook with a small sprout. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
+A single wooden arrow-shaped plank sign pointing to the RIGHT, seen straight from the front, nothing else: no post, no stake, no grass; the plank fills the whole image width, about 3.5 times wider than tall, warm light-honey wood with soft grain, cute storybook look, clean dark-brown outline, two small nails near the left end (top and bottom) where it is nailed to a post; at the LEFT end a round painted emblem about 80% of the plank height; the whole area to the right of the emblem is a smooth, completely BLANK flat wood surface reserved for a label. The emblem shows an open storybook with a small sprout. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
 ### ⬜ `nav-thi-dau.webp`
-- Dùng ở: Biển chỉ đường thanh bên: Thi đấu (chữ do app viết đè lên ván trống)
+- Dùng ở: Tấm biển gắn vào cọc ở thanh bên: Thi đấu (chữ do app viết đè lên ván trống)
 - Kích thước: 1536x1024 · nền trong suốt
 
 ```text
-A single cute wooden signpost seen straight from the front, isolated: a wide horizontal arrow-shaped plank sign pointing to the RIGHT nailed onto one short wooden stake; the plank fills the upper 55% of the image and spans about 90% of the width, warm light-honey wood with soft grain and two small nails; at the LEFT end of the plank a round painted emblem (about the plank's height); the rest of the plank to the right of the emblem is a smooth, completely BLANK flat wood area reserved for a label; the stake goes down from under the plank, slightly left of center, into a small tuft of grass with two tiny flowers at the bottom edge. The emblem shows a yellow lightning bolt over two crossed pencils. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
+A single wooden arrow-shaped plank sign pointing to the RIGHT, seen straight from the front, nothing else: no post, no stake, no grass; the plank fills the whole image width, about 3.5 times wider than tall, warm light-honey wood with soft grain, cute storybook look, clean dark-brown outline, two small nails near the left end (top and bottom) where it is nailed to a post; at the LEFT end a round painted emblem about 80% of the plank height; the whole area to the right of the emblem is a smooth, completely BLANK flat wood surface reserved for a label. The emblem shows a yellow lightning bolt over two crossed pencils. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
 ### ⬜ `nav-xep-hang.webp`
-- Dùng ở: Biển chỉ đường thanh bên: Xếp hạng (chữ do app viết đè lên ván trống)
+- Dùng ở: Tấm biển gắn vào cọc ở thanh bên: Xếp hạng (chữ do app viết đè lên ván trống)
 - Kích thước: 1536x1024 · nền trong suốt
 
 ```text
-A single cute wooden signpost seen straight from the front, isolated: a wide horizontal arrow-shaped plank sign pointing to the RIGHT nailed onto one short wooden stake; the plank fills the upper 55% of the image and spans about 90% of the width, warm light-honey wood with soft grain and two small nails; at the LEFT end of the plank a round painted emblem (about the plank's height); the rest of the plank to the right of the emblem is a smooth, completely BLANK flat wood area reserved for a label; the stake goes down from under the plank, slightly left of center, into a small tuft of grass with two tiny flowers at the bottom edge. The emblem shows a small golden trophy cup. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
+A single wooden arrow-shaped plank sign pointing to the RIGHT, seen straight from the front, nothing else: no post, no stake, no grass; the plank fills the whole image width, about 3.5 times wider than tall, warm light-honey wood with soft grain, cute storybook look, clean dark-brown outline, two small nails near the left end (top and bottom) where it is nailed to a post; at the LEFT end a round painted emblem about 80% of the plank height; the whole area to the right of the emblem is a smooth, completely BLANK flat wood surface reserved for a label. The emblem shows a small golden trophy cup. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
 ### ⬜ `nav-toi.webp`
-- Dùng ở: Biển chỉ đường thanh bên: Của tôi (chữ do app viết đè lên ván trống)
+- Dùng ở: Tấm biển gắn vào cọc ở thanh bên: Của tôi (chữ do app viết đè lên ván trống)
 - Kích thước: 1536x1024 · nền trong suốt
 
 ```text
-A single cute wooden signpost seen straight from the front, isolated: a wide horizontal arrow-shaped plank sign pointing to the RIGHT nailed onto one short wooden stake; the plank fills the upper 55% of the image and spans about 90% of the width, warm light-honey wood with soft grain and two small nails; at the LEFT end of the plank a round painted emblem (about the plank's height); the rest of the plank to the right of the emblem is a smooth, completely BLANK flat wood area reserved for a label; the stake goes down from under the plank, slightly left of center, into a small tuft of grass with two tiny flowers at the bottom edge. The emblem shows a smiling child's face with a star badge. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
+A single wooden arrow-shaped plank sign pointing to the RIGHT, seen straight from the front, nothing else: no post, no stake, no grass; the plank fills the whole image width, about 3.5 times wider than tall, warm light-honey wood with soft grain, cute storybook look, clean dark-brown outline, two small nails near the left end (top and bottom) where it is nailed to a post; at the LEFT end a round painted emblem about 80% of the plank height; the whole area to the right of the emblem is a smooth, completely BLANK flat wood surface reserved for a label. The emblem shows a smiling child's face with a star badge. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
 ### ⬜ `ic-star.webp`

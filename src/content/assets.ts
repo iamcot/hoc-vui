@@ -113,11 +113,12 @@ const icon = (id: string, usage: string, prompt: string): ImageAsset => ({
   prompt: `${prompt}. ${STYLE_ICON}, isolated on a fully transparent background.`,
 });
 
-/** cọc biển chỉ đường ở thanh bên: app tự viết chữ lên phần ván trống, nên ván phải để trống bên phải icon */
+/** thanh bên: một cây cọc gỗ dọc suốt từ trên xuống, các tấm biển gắn so le lên đó; chữ do app viết đè lên phần ván trống */
+const WOOD = "warm light-honey wood with soft grain, cute storybook look, clean dark-brown outline";
 const SIGN =
-  "A single cute wooden signpost seen straight from the front, isolated: a wide horizontal arrow-shaped plank sign pointing to the RIGHT nailed onto one short wooden stake; the plank fills the upper 55% of the image and spans about 90% of the width, warm light-honey wood with soft grain and two small nails; at the LEFT end of the plank a round painted emblem (about the plank's height); the rest of the plank to the right of the emblem is a smooth, completely BLANK flat wood area reserved for a label; the stake goes down from under the plank, slightly left of center, into a small tuft of grass with two tiny flowers at the bottom edge";
+  `A single wooden arrow-shaped plank sign pointing to the RIGHT, seen straight from the front, nothing else: no post, no stake, no grass; the plank fills the whole image width, about 3.5 times wider than tall, ${WOOD}, two small nails near the left end (top and bottom) where it is nailed to a post; at the LEFT end a round painted emblem about 80% of the plank height; the whole area to the right of the emblem is a smooth, completely BLANK flat wood surface reserved for a label`;
 const sign = (id: string, usage: string, emblem: string): ImageAsset =>
-  img(`nav-${id}`, "1536x1024", `Biển chỉ đường thanh bên: ${usage} (chữ do app viết đè lên ván trống)`, `${SIGN}. The emblem shows ${emblem}`, true);
+  img(`nav-${id}`, "1536x1024", `Tấm biển gắn vào cọc ở thanh bên: ${usage} (chữ do app viết đè lên ván trống)`, `${SIGN}. The emblem shows ${emblem}`, true);
 
 const SEA_FISH = "side view, swimming toward the LEFT (head on the left), a large flat dark plate in the middle of the body left empty for a word label, glowing neon outline";
 
@@ -244,7 +245,10 @@ export const IMAGES: ImageAsset[] = [
   cyber("gp-cover-phoi", "1536x1024", "Bìa các bài Phối hợp", `${BIT} typing fast with both hands on a holographic keyboard, light trails following the fingers, a school of neon fish swirling around`),
   cyber("gp-cover-telex", "1536x1024", "Bìa các bài Telex", `${BIT} in a submarine cockpit typing, glowing Vietnamese-style accent marks (hooks, hats, tone marks) floating like bubbles, no full words`),
 
-  // Thanh bên: cọc biển chỉ đường
+  // Thanh bên: cây cọc dọc + các tấm biển
+  img("nav-pole", "1024x1536", "Thân cọc gỗ dọc thanh bên (app lặp ảnh theo chiều dọc, kéo dài suốt màn hình)", `A straight vertical wooden post segment, seen from the front, centered, filling the full image height and about 12% of the width, ${WOOD}; SEAMLESS vertically: the top and bottom edges must tile perfectly when repeated (no cap, no end, no knots cut at the edges), nothing else in the image`, true),
+  img("nav-pole-top", "1024x1024", "Mũ đầu cọc (trên cùng thanh bên)", `The rounded top cap of a vertical wooden post, front view, a small cute carved round top with a tiny leaf sprouting, ${WOOD}, the post width at the bottom edge equals about 25% of the image width, nothing else`, true),
+  img("nav-pole-base", "1024x1024", "Chân cọc cắm trong bụi cỏ (dưới cùng thanh bên)", "A soft grassy mound with a few tiny flowers and a small stone, front view, the mound is wide and low, with a gap in the middle top where a wooden post goes into the ground (post not drawn), nothing else", true),
   sign("hoc", "Học", "an open storybook with a small sprout"),
   sign("thi-dau", "Thi đấu", "a yellow lightning bolt over two crossed pencils"),
   sign("xep-hang", "Xếp hạng", "a small golden trophy cup"),
