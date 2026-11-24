@@ -12,6 +12,7 @@ import { Mascot } from "@/components/Mascot";
 import { IconSound } from "@/components/Icons";
 import { Scene } from "@/components/Scene";
 import { Ico } from "@/components/Ico";
+import { Art } from "@/components/Art";
 
 export default function MePage() {
   const { data, session, online, setProfile, setSound, setCalcMode, signOut, streak, lesson } = useProgress();
@@ -101,8 +102,9 @@ export default function MePage() {
           return (
             <div key={s.id} className="space-y-2 rounded-2xl bg-white/60 p-4">
               <div className="flex flex-wrap items-center gap-3">
-                <span className="font-display text-lg font-extrabold">
-                  {s.emoji} {s.name}
+                <span className="flex items-center gap-2 font-display text-lg font-extrabold">
+                  <Art id={s.device === "fx580" ? "xixi" : s.cover} emoji={s.emoji} rounded={s.device === "fx580" ? "" : "rounded-full"} contain={s.device === "fx580"} className="h-9 w-9 shrink-0" />
+                  {s.name}
                 </span>
                 <span className="text-sm text-ink-soft">
                   {done}/{all.length} bài · <Ico n="star" /> {stars}/{all.length * 3}

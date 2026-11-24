@@ -17,6 +17,7 @@ import { Confetti } from "@/components/Confetti";
 import { IconClose } from "@/components/Icons";
 import { play } from "@/lib/sound";
 import { Scene } from "@/components/Scene";
+import { Art } from "@/components/Art";
 import { TypingRace } from "@/components/typing/TypingRace";
 import { Ico, type IcoId } from "@/components/Ico";
 
@@ -155,8 +156,9 @@ function RoomView() {
         <Link href="/thi-dau" className="grid h-10 w-10 place-items-center rounded-full bg-white shadow-sm" aria-label="Thoát">
           <IconClose className="h-5 w-5" />
         </Link>
-        <span className="ribbon text-lg">
-          {subject.emoji} {subject.name}{tier ? ` · ${tier.name}` : ""}
+        <span className="ribbon flex items-center gap-2 text-lg">
+          <Art id={subject.device === "fx580" ? "xixi" : subject.cover} emoji={subject.emoji} rounded={subject.device === "fx580" ? "" : "rounded-full"} contain={subject.device === "fx580"} className="h-7 w-7 shrink-0" />
+          {subject.name}{tier ? ` · ${tier.name}` : ""}
         </span>
       </header>
 
