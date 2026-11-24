@@ -3,7 +3,8 @@ import assert from "node:assert/strict";
 import { getSubject, allLessons } from "@/content/subjects";
 import { parseLevel, solve } from "@/lib/code/world";
 import { runAll } from "@/lib/code/run";
-import { countBlocks, parseProgram, programText, type Stmt } from "@/lib/code/program";
+import { countBlocks, parseProgram, programText, pythonLines, type Stmt } from "@/lib/code/program";
+import { defaultSkin, pickSkin, SKIN_ORDER, SKINS } from "@/lib/code/skins";
 import { grade, optimalOf, worldsOf } from "@/lib/code/grade";
 import { genLevel } from "@/lib/code/levels";
 import { makeRng } from "@/lib/rng";
@@ -105,4 +106,25 @@ test("trình chạy: đụng tường thì dừng, vòng lặp dài bị chặn"
   const star = parseLevel({ id: "s", map: ["S*", "G."], dir: 2, blocks: [] });
   assert.equal(runAll(star, parseProgram("F")).outcome, "stars");
   assert.equal(runAll(star, parseProgram("L F R F R F")).outcome, "win");
+});
+
+test("giao diện: mặc định theo trình độ, chỉ dùng giao diện đã mở khóa", () => {
+  assert.equal(defaultSkin("vo-long"), "pixel");
+  assert.equal(defaultSkin("co-ban"), "robot");
+  assert.equal(defaultSkin("nang-cao"), "holo");
+  const open = (t: string) => t === "vo-long" || t === "co-ban";
+  assert.equal(pickSkin(null, "co-ban", open), "robot");
+  assert.equal(pickSkin("pixel", "co-ban", open), "pixel");
+  assert.equal(pickSkin("holo", "co-ban", open), "robot", "Hologram chưa mở thì về mặc định");
+  assert.equal(pickSkin("lung-tung", "vo-long", open), "pixel");
+  for (const id of SKIN_ORDER) assert.ok(getSubject("lap-trinh")!.tiers.some((t) => t.id === SKINS[id].tier), `${id} mở ở trình độ có thật`);
+});
+
+test("xem trước Python: dịch khối ra code có thụt lề", () => {
+  const lines = pythonLines(parseProgram("F 3(F R) U(W?(L) F)"));
+  assert.deepEqual(
+    lines.map((l) => "    ".repeat(l.indent) + l.text),
+    ["di_toi()", "for i in range(3):", "    di_toi()", "    re_phai()", "while not toi_co():", "    if co_tuong_truoc():", "        re_trai()", "    di_toi()"],
+  );
+  assert.deepEqual(pythonLines(parseProgram("2()")).map((l) => l.text), ["for i in range(2):", "pass"]);
 });

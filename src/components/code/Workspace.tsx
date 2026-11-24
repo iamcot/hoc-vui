@@ -3,6 +3,7 @@ import { forwardRef, useEffect, useImperativeHandle, useRef } from "react";
 import type * as BlocklyT from "blockly/core";
 import type { Cond, Stmt } from "@/lib/code/program";
 import type { BlockKind } from "@/lib/code/world";
+import type { Skin } from "@/lib/code/skins";
 
 /**
  * Bàn ghép khối (Blockly). Chỉ hiện các khối màn này cho dùng, đọc chương trình
@@ -72,28 +73,25 @@ function define(Blockly: B) {
   ]);
 }
 
-function theme(Blockly: B) {
-  return Blockly.Theme.defineTheme("hocvui-neon", {
-    name: "hocvui-neon",
+/** chủ đề Blockly theo giao diện; `family` là tên font đã đổi từ biến CSS ra tên thật để đo chữ đúng */
+function theme(Blockly: B, skin: Skin, family: string) {
+  const k = skin.blockly;
+  const st = (c: [string, string, string]) => ({ colourPrimary: c[0], colourSecondary: c[1], colourTertiary: c[2] });
+  return Blockly.Theme.defineTheme(`hocvui-${skin.id}`, {
+    name: `hocvui-${skin.id}`,
     base: Blockly.Themes.Classic,
-    blockStyles: {
-      lt_event: { colourPrimary: "#ffb020", colourSecondary: "#ffd27a", colourTertiary: "#ffe6a8" },
-      lt_move: { colourPrimary: "#1a8cff", colourSecondary: "#5fb2ff", colourTertiary: "#2fd3ff" },
-      lt_turn: { colourPrimary: "#7c4dff", colourSecondary: "#a587ff", colourTertiary: "#c9b5ff" },
-      lt_loop: { colourPrimary: "#00c08b", colourSecondary: "#43e0b0", colourTertiary: "#7dffd9" },
-      lt_logic: { colourPrimary: "#ff3d8f", colourSecondary: "#ff7ab2", colourTertiary: "#ffb3d3" },
-    },
+    blockStyles: { lt_event: st(k.styles.event), lt_move: st(k.styles.move), lt_turn: st(k.styles.turn), lt_loop: st(k.styles.loop), lt_logic: st(k.styles.logic) },
     categoryStyles: {},
     componentStyles: {
-      workspaceBackgroundColour: "#060d2e",
-      flyoutBackgroundColour: "#0b1648",
-      flyoutOpacity: 1,
-      scrollbarColour: "#2fd3ff",
+      workspaceBackgroundColour: k.bg,
+      flyoutBackgroundColour: k.flyout,
+      flyoutOpacity: k.flyoutOpacity,
+      scrollbarColour: k.accent,
       scrollbarOpacity: 0.35,
-      insertionMarkerColour: "#2fd3ff",
+      insertionMarkerColour: k.accent,
       insertionMarkerOpacity: 0.5,
     },
-    fontStyle: { family: "var(--font-nunito), ui-rounded, system-ui, sans-serif", weight: "800", size: 14 },
+    fontStyle: { family, weight: k.font.weight, size: k.font.size },
     startHats: true,
   });
 }
@@ -127,16 +125,13 @@ function read(b: BlocklyT.Block | null): Stmt[] {
   return out;
 }
 
-export const Workspace = forwardRef<WorkspaceHandle, { blocks: BlockKind[]; preset: Stmt[]; onChange: (p: Stmt[]) => void }>(function Workspace({ blocks, preset, onChange }, ref) {
+export const Workspace = forwardRef<WorkspaceHandle, { blocks: BlockKind[]; preset: Stmt[]; skin: Skin; onChange: (p: Stmt[]) => void }>(function Workspace({ blocks, preset, skin, onChange }, ref) {
   const host = useRef<HTMLDivElement>(null);
   const ws = useRef<BlocklyT.WorkspaceSvg | null>(null);
   const cb = useRef(onChange);
   cb.current = onChange;
 
-  useImperativeHandle(ref, () => ({
-    highlight: (id) => ws.current?.highlightBlock(id),
-    setLocked: (locked) => ws.current?.setIsReadOnly(locked),
-  }));
+  useImperativeHandle(ref, () => ({ highlight: (id) => ws.current?.highlightBlock(id), setLocked: (locked) => ws.current?.setIsReadOnly(locked) }));
 
   useEffect(() => {
     let alive = true;
@@ -147,11 +142,19 @@ export const Workspace = forwardRef<WorkspaceHandle, { blocks: BlockKind[]; pres
       if (!alive || !host.current) return;
       Blockly.setLocale(vi as unknown as { [key: string]: string });
       define(Blockly);
+      const cs = getComputedStyle(host.current);
+      const family = skin.blockly.font.family.replace(/var\((--[\w-]+)\)/g, (_, v: string) => cs.getPropertyValue(v).trim() || "sans-serif");
+      try {
+        await document.fonts.load(`${skin.blockly.font.weight} ${skin.blockly.font.size}px ${family}`, "Đi tới");
+      } catch {
+        /* font chưa tải được thì Blockly vẫn vẽ bằng font dự phòng */
+      }
+      if (!alive || !host.current) return;
       const big = window.innerWidth >= 1100;
       const w = Blockly.inject(host.current, {
         toolbox: { kind: "flyoutToolbox", contents: blocks.map((k) => ({ kind: "block", type: TYPE[k] })) },
-        renderer: "zelos",
-        theme: theme(Blockly),
+        renderer: skin.blockly.renderer,
+        theme: theme(Blockly, skin, family),
         media: "/blockly/",
         sounds: false,
         trashcan: false,
@@ -182,7 +185,7 @@ export const Workspace = forwardRef<WorkspaceHandle, { blocks: BlockKind[]; pres
       ws.current?.dispose();
       ws.current = null;
     };
-    // màn mới thì component được dựng lại (key), không cần theo dõi blocks/preset
+    // màn mới hoặc đổi giao diện thì component được dựng lại (key), không cần theo dõi blocks/preset/skin
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

@@ -68,3 +68,11 @@ lt-p01 Từ khối sang Python · lt-p02 print, biến, input · lt-p03 if/else 
 - [ ] Pyodide + trình độ Python
 - [ ] Thi đấu
 - [ ] PR (mỗi trình độ một PR)
+
+## Giao diện (theme) theo trình độ
+
+- 4 giao diện: **Pixel** (mặc định Vỡ lòng), **Xưởng robot** (mặc định Cơ bản, Trung cấp), **Neon** (mở ở Trung cấp, chỉ là lựa chọn thêm), **Hologram** (mặc định Nâng cao, Python).
+- Nút "Giao diện" trên thanh đầu bài mở popup chọn. Giao diện của trình độ chưa mở thì khóa. Lựa chọn lưu ở `localStorage` (`hocvui:lt-skin`), chọn rồi mà chưa mở khóa thì về mặc định.
+- Code: `src/lib/code/skins.ts` (danh sách, mặc định, mở khóa), `src/components/code/skin.tsx` (nhân vật, ô sân, nền), `HoloStage.tsx` (sân 3D kính, HUD, radar), `ThemePicker.tsx`. CSS ở cuối `globals.css` (`.lt-skin-*`).
+- Hologram có bảng PREVIEW.PY dịch khối sang Python (`pythonLines`), dòng đang chạy sáng lên: chuẩn bị cho trình độ Python.
+- Đổi giao diện giữa màn thì bàn khối dựng lại, chương trình bé đang ghép giữ nguyên.

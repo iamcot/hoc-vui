@@ -65,3 +65,25 @@ export const sayProgram = (p: Stmt[]): string =>
       return BLOCK_LABEL[s.op];
     })
     .join(" · ");
+
+/** một dòng code Python dịch từ khối (cho bảng xem trước ở giao diện Hologram) */
+export interface PyLine {
+  indent: number;
+  text: string;
+  /** id khối sinh ra dòng này, để tô sáng dòng đang chạy */
+  id?: string;
+}
+
+const PY_COND: Record<Cond, string> = { W: "co_tuong_truoc()", A: "co_duong_trai()", D: "co_duong_phai()", G: "toi_co()" };
+
+export function pythonLines(p: Stmt[], indent = 0): PyLine[] {
+  return p.flatMap((s): PyLine[] => {
+    if (s.op === "forward") return [{ indent, text: "di_toi()", id: s.id }];
+    if (s.op === "left") return [{ indent, text: "re_trai()", id: s.id }];
+    if (s.op === "right") return [{ indent, text: "re_phai()", id: s.id }];
+    if (!hasBody(s)) return [];
+    const head = s.op === "repeat" ? `for i in range(${s.n}):` : s.op === "until" ? `while not ${PY_COND[s.cond]}:` : `if ${PY_COND[s.cond]}:`;
+    const body = pythonLines(s.body, indent + 1);
+    return [{ indent, text: head, id: s.id }, ...(body.length ? body : [{ indent: indent + 1, text: "pass" }])];
+  });
+}
