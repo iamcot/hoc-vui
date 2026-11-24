@@ -38,6 +38,8 @@ export interface DigitalLesson {
   emoji: string;
   /** câu dẫn ngắn ở slide đầu */
   intro: string;
+  /** id giọng chào ở slide đầu (chỉ tự phát khi đã có file) */
+  voice?: string;
   scenario: Omit<Extract<Block, { type: "scenario" }>, "type">;
   spot: FakeScreen;
   spotLabel?: string;
@@ -78,10 +80,10 @@ const verdictQ =
   });
 
 /** dựng bài học chuẩn: Tình huống → Soi dấu hiệu → (thêm) → Ghi nhớ → Thử nhanh */
-export function buildLesson(l: DigitalLesson, cover: string): Lesson {
+export function buildLesson(l: DigitalLesson, cover: string, villain: "kid" | "teen" = "kid"): Lesson {
   const first = l.drills[0];
   const slides: Slide[] = [
-    { title: l.title, mood: "think", blocks: [{ type: "scenario", ...l.scenario, intro: l.intro }] },
+    { title: l.title, mood: "think", voice: l.voice, blocks: [{ type: "scenario", ...l.scenario, intro: l.intro, villain }] },
     { title: "Soi dấu hiệu", mood: "wow", blocks: [{ type: "spot", screen: l.spot, label: l.spotLabel }] },
     ...(l.extra ?? []),
     {

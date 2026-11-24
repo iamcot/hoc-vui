@@ -1202,7 +1202,7 @@ A cute small blue shark head with a friendly grin. Game UI icon in a glossy soft
 A rounded yellow warning triangle with an exclamation shape made of a bar and a dot (not a letter). Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
 ```
 
-## Âm thanh (63)
+## Âm thanh (71)
 
 Cài đặt giọng đọc gợi ý: ElevenLabs Text to Speech, model Multilingual v2 hoặc v3, giọng nữ trẻ ấm áp (vd. chọn giọng tiếng Việt trong Voice Library), stability ~50%, style thấp, tốc độ chậm vừa. Xuất MP3 44.1kHz.
 
@@ -1271,3 +1271,11 @@ Cài đặt giọng đọc gợi ý: ElevenLabs Text to Speech, model Multilingu
 | ✅ | `voice/vo-gp-t01.mp3` | Giọng đọc | Gõ phím · Bài đầu Từng bàn tay | Lên hàng trên nào! Ngón nào với lên phím nào thì gõ xong phải về hàng phím cơ sở nha. |
 | ✅ | `voice/vo-gp-p01.mp3` | Giọng đọc | Gõ phím · Bài đầu Phối hợp | Giờ hai tay cùng chơi. Gõ đều tay, mắt nhìn màn hình là sẽ nhanh thôi. |
 | ✅ | `voice/vo-gp-v01.mp3` | Giọng đọc | Gõ phím · Bài đầu Telex | Gõ tiếng Việt có dấu thôi! Gõ a hai lần là thành chữ â. Học Vui tự ghép chữ cho em. |
+| ⬜ | `voice/vo-kns-n01.mp3` | Giọng đọc | Kỹ năng số · Người lạ trên mạng | Chào em! Hôm nay Mochi và em cùng học cách giữ an toàn khi lên mạng. Có người lạ nhắn tin cho em này, em sẽ làm gì nhỉ? |
+| ⬜ | `voice/vo-kns-n02.mp3` | Giọng đọc | Kỹ năng số · Mật khẩu là bí mật | Mật khẩu giống như chìa khóa nhà mình đó. Bạn thân xin mật khẩu, em có cho không? |
+| ⬜ | `voice/vo-kns-n03.mp3` | Giọng đọc | Kỹ năng số · Hỏi bố mẹ trước khi bấm | Ôi, game hiện nút mua kim cương kìa! Bấm vào là tiêu tiền thật đấy. Em sẽ làm gì? |
+| ⬜ | `voice/vo-kns-n04.mp3` | Giọng đọc | Kỹ năng số · Thông tin của em | Nhà em ở đâu, em học trường nào, đó là bí mật của em. Cùng xem nên đăng ảnh thế nào cho an toàn nhé. |
+| ⬜ | `voice/vo-kns-n05.mp3` | Giọng đọc | Kỹ năng số · Giờ chơi, giờ nghỉ | Em chơi được một tiếng rồi đó. Mắt cũng cần nghỉ ngơi. Giờ em làm gì nhỉ? |
+| ⬜ | `voice/vo-kns-k01.mp3` | Giọng đọc | Kỹ năng số · Bài đầu Thám hiểm mạng | Mật khẩu một hai ba bốn năm sáu bị đoán ra trong chưa tới một giây. Cùng tạo mật khẩu thật mạnh nhé! |
+| ⬜ | `voice/vo-kns-t01.mp3` | Giọng đọc | Kỹ năng số · Bài đầu Tỉnh táo | Tin càng sốc thì càng phải chậm lại. Cùng tập soi tin giả nhé. |
+| ⬜ | `voice/vo-kns-c01.mp3` | Giọng đọc | Kỹ năng số · Bài đầu Công dân số | Thấy mặt, nghe giọng, vẫn có thể là giả. Hôm nay mình nói về deepfake. |

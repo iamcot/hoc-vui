@@ -5,7 +5,8 @@ import { THAM_HIEM } from "./tham-hiem";
 import { TINH_TAO } from "./tinh-tao";
 import { CONG_DAN } from "./cong-dan";
 
-const unit = (id: string, title: string, cover: string, list: DigitalLesson[]): Unit[] => [{ id, title, lessons: list.map((l) => buildLesson(l, cover)) }];
+/** kẻ gian hiện khi bé chọn sai: mèo Mun dễ thương cho bé nhỏ, hacker áo hoodie cho bé lớn */
+const unit = (id: string, title: string, cover: string, list: DigitalLesson[], villain: "kid" | "teen" = "kid"): Unit[] => [{ id, title, lessons: list.map((l) => buildLesson(l, cover, villain)) }];
 
 export const kyNangSo: Subject = {
   id: "ky-nang-so",
@@ -23,8 +24,8 @@ export const kyNangSo: Subject = {
   tiers: [
     { id: "nhi", name: "An toàn nhí", short: "Người lạ, mật khẩu, hỏi bố mẹ trước khi bấm", emoji: "🐣", icon: "kns-tier-1", units: unit("kns-u-nhi", "An toàn nhí", "kns-cover-nhi", NHI), challenge: { count: 10, pass: 8 } },
     { id: "tham-hiem", name: "Thám hiểm mạng", short: "Mật khẩu mạnh, trúng thưởng, link lạ, game", emoji: "🧭", icon: "kns-tier-2", units: unit("kns-u-tham-hiem", "Thám hiểm mạng", "kns-cover-tham-hiem", THAM_HIEM), challenge: { count: 10, pass: 8 } },
-    { id: "tinh-tao", name: "Tỉnh táo", short: "Tin giả, kiểm chứng, bắt nạt mạng, OTP", emoji: "🔍", icon: "kns-tier-3", units: unit("kns-u-tinh-tao", "Tỉnh táo", "kns-cover-tinh-tao", TINH_TAO), challenge: { count: 10, pass: 8 } },
-    { id: "cong-dan", name: "Công dân số", short: "Deepfake, lừa việc làm, dấu chân số, AI", emoji: "🌐", icon: "kns-tier-4", units: unit("kns-u-cong-dan", "Công dân số", "kns-cover-cong-dan", CONG_DAN) },
+    { id: "tinh-tao", name: "Tỉnh táo", short: "Tin giả, kiểm chứng, bắt nạt mạng, OTP", emoji: "🔍", icon: "kns-tier-3", units: unit("kns-u-tinh-tao", "Tỉnh táo", "kns-cover-tinh-tao", TINH_TAO, "teen"), challenge: { count: 10, pass: 8 } },
+    { id: "cong-dan", name: "Công dân số", short: "Deepfake, lừa việc làm, dấu chân số, AI", emoji: "🌐", icon: "kns-tier-4", units: unit("kns-u-cong-dan", "Công dân số", "kns-cover-cong-dan", CONG_DAN, "teen") },
   ],
   ready: true,
   stage: "all",

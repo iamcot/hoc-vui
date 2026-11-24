@@ -4,6 +4,7 @@ import { D, F, L, S, type DigitalLesson } from "./builder";
 export const NHI: DigitalLesson[] = [
   {
     id: "kns-n01",
+    voice: "vo-kns-n01",
     title: "Người lạ trên mạng",
     short: "Không kể chuyện riêng cho người lạ",
     emoji: "🦊",
@@ -42,6 +43,7 @@ export const NHI: DigitalLesson[] = [
   },
   {
     id: "kns-n02",
+    voice: "vo-kns-n02",
     title: "Mật khẩu là bí mật",
     short: "Chỉ em và bố mẹ biết",
     emoji: "🔑",
@@ -73,6 +75,7 @@ export const NHI: DigitalLesson[] = [
   },
   {
     id: "kns-n03",
+    voice: "vo-kns-n03",
     title: "Hỏi bố mẹ trước khi bấm",
     short: "Quảng cáo, nút tải, mua trong game",
     emoji: "🛑",
@@ -104,6 +107,7 @@ export const NHI: DigitalLesson[] = [
   },
   {
     id: "kns-n04",
+    voice: "vo-kns-n04",
     title: "Thông tin của em",
     short: "Tên, nhà, trường, ảnh là bí mật",
     emoji: "🏠",
@@ -135,6 +139,7 @@ export const NHI: DigitalLesson[] = [
   },
   {
     id: "kns-n05",
+    voice: "vo-kns-n05",
     title: "Giờ chơi, giờ nghỉ",
     short: "Màn hình vừa đủ, mắt khỏe, ngủ ngon",
     emoji: "⏰",

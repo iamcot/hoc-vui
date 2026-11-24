@@ -4,6 +4,7 @@ import { D, F, L, S, type DigitalLesson } from "./builder";
 export const CONG_DAN: DigitalLesson[] = [
   {
     id: "kns-c01",
+    voice: "vo-kns-c01",
     title: "Deepfake và giọng nói giả",
     short: "Thấy mặt, nghe giọng vẫn có thể là giả",
     emoji: "🤖",
@@ -110,7 +111,7 @@ export const CONG_DAN: DigitalLesson[] = [
         { text: "Đăng nhưng ghi \"không có ý vi phạm\"", good: false, then: "Ghi câu đó không thay được giấy phép. Vẫn là vi phạm bản quyền." },
       ],
     },
-    spot: S("post", "Bài thuyết trình của Tú", { avatar: "📊" }, L("[[Ảnh tải từ trang nhiếp ảnh, xóa chữ ký của tác giả|Xóa tên tác giả là không tôn trọng và vi phạm.]]", { pic: "🌄" }), L("[[Chép nguyên đoạn văn trên mạng, không ngoặc kép|Đạo văn.]]"), L("[[Không có trang Nguồn tham khảo|Không ghi nguồn.]]"), L("Biểu đồ tự vẽ từ số liệu của Tổng cục Thống kê (có ghi nguồn)")),
+    spot: S("post", "Bài thuyết trình của Tú", { avatar: "📊" }, L("[[Ảnh tải từ trang nhiếp ảnh, xóa chữ ký của tác giả|Xóa tên tác giả là không tôn trọng và vi phạm.]]", { pic: "🌄" }), L("[[Chép nguyên đoạn văn trên mạng, không ngoặc kép|Đạo văn.]]"), L("[[Không có trang Nguồn tham khảo|Không ghi nguồn.]]"), L("Biểu đồ tự vẽ từ số liệu của Cục Thống kê (có ghi nguồn)")),
     learn: "Cách dùng đúng: **tự làm** là tốt nhất; dùng **kho miễn phí có giấy phép** (Creative Commons, ảnh, nhạc miễn phí bản quyền) và làm đúng điều kiện; **trích dẫn ngắn có ghi nguồn**; chép ý thì **viết lại bằng lời mình** và vẫn ghi nguồn. Dùng AI tạo nội dung cũng phải **nói rõ** khi nộp bài.",
     remember: "**Không phải của mình: xin phép, dùng đúng giấy phép, ghi nguồn.**",
     drills: [

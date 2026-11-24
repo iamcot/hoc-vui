@@ -88,4 +88,6 @@ Màn hình giả vẽ bằng code nên ảnh ít.
 - [x] Prompt ảnh (14 ảnh `kns-*`, `subject-kns-cover`, `bg-kns-map` trong `docs/ASSET_PROMPTS.md`), test `tests/ky-nang-so.test.ts`
 - [ ] Bạn duyệt ảnh chụp màn hình và nội dung
 - [ ] Tạo ảnh
-- [ ] Sau này: giọng đọc câu chào cho trình độ nhí, bảng xếp hạng riêng cho Thật hay giả
+- [x] Giọng chào ngắn: 5 bài nhí + bài đầu mỗi trình độ (`vo-kns-*`, tạo bằng `npm run gen-assets -- --audio`)
+- [x] Kẻ gian (mèo Mun cho bé nhỏ, hacker cho bé lớn) hiện khi chọn sai
+- [ ] Sau này: bảng xếp hạng riêng cho Thật hay giả

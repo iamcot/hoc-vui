@@ -25,7 +25,7 @@ export type Block =
   | { type: "drill"; text: string; label?: string; keys?: string; focus?: string }
   // ── môn Kỹ năng số ──
   /** tình huống trên màn hình giả: chọn cách xử lý, xem chuyện gì xảy ra tiếp */
-  | { type: "scenario"; screen: FakeScreen; ask: string; options: { text: string; good: boolean; then: string }[]; intro?: string }
+  | { type: "scenario"; screen: FakeScreen; ask: string; options: { text: string; good: boolean; then: string }[]; intro?: string; villain?: "kid" | "teen" }
   /** chạm tìm các dấu hiệu đáng ngờ ([[...]]) trên màn hình giả */
   | { type: "spot"; screen: FakeScreen; label?: string }
   /** phòng thử mật khẩu (chạy trong máy, không lưu) */

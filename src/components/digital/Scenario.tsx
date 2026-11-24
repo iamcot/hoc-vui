@@ -5,12 +5,13 @@ import type { Block } from "@/content/types";
 import { FakeScreenView } from "./FakeScreen";
 import { Mascot } from "@/components/Mascot";
 import { RichText } from "@/components/RichText";
+import { Art } from "@/components/Art";
 import { play } from "@/lib/sound";
 
 type Props = Extract<Block, { type: "scenario" }>;
 
 /** Tình huống: màn hình giả bên trái, "Em sẽ làm gì?" bên phải. Chọn xong thấy chuyện gì xảy ra, thử lựa chọn khác cũng được. */
-export function Scenario({ screen, ask, options, intro }: Props) {
+export function Scenario({ screen, ask, options, intro, villain = "kid" }: Props) {
   const [pick, setPick] = useState<number | null>(null);
   const [tried, setTried] = useState<Set<number>>(new Set());
   const o = pick === null ? null : options[pick];
@@ -42,7 +43,14 @@ export function Scenario({ screen, ask, options, intro }: Props) {
         <AnimatePresence mode="wait">
           {o && (
             <motion.div key={pick} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className={`flex items-start gap-3 rounded-3xl p-4 ${o.good ? "bg-mint-soft" : "bg-berry-soft"}`}>
-              <Mascot mood={o.good ? "cheer" : "oops"} size={56} className="shrink-0" />
+              {o.good ? (
+                <Mascot mood="cheer" size={56} className="shrink-0" />
+              ) : (
+                // chọn sai: kẻ gian "thắng" một ván, bé thấy rõ ai được lợi
+                <motion.div initial={{ x: 16, opacity: 0 }} animate={{ x: 0, opacity: 1 }} className="shrink-0">
+                  <Art id={`kns-villain-${villain}`} emoji={villain === "kid" ? "😼" : "🕶️"} contain rounded="rounded-2xl" className="h-14 w-14" label="Kẻ gian" />
+                </motion.div>
+              )}
               <div className="space-y-1">
                 <div className="font-display text-lg font-extrabold">{o.good ? "Chuẩn luôn!" : "Ôi, chuyện gì đã xảy ra…"}</div>
                 <RichText text={o.then} className="text-[15px]" />

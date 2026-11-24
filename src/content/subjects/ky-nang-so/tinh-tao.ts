@@ -4,6 +4,7 @@ import { D, F, L, ME, S, type DigitalLesson } from "./builder";
 export const TINH_TAO: DigitalLesson[] = [
   {
     id: "kns-t01",
+    voice: "vo-kns-t01",
     title: "Tin giả là gì",
     short: "Giật gân, gây sợ, giục chia sẻ",
     emoji: "📰",
@@ -52,7 +53,7 @@ export const TINH_TAO: DigitalLesson[] = [
     learn: "3 bước kiểm tra: **1) Ai nói?** Có tên người, tòa soạn, cơ quan không? **2) Ai nói giống vậy?** Tìm thêm ít nhất 2 nguồn uy tín. **3) Khi nào?** Tin cũ, ảnh cũ hay bị đăng lại. Trang có dấu tích xanh, báo có tòa soạn đáng tin hơn trang lạ.",
     remember: "**Ai nói? Ai nữa? Khi nào?**",
     drills: [
-      D(S("web", "Tìm kiếm", { sub: "tim-kiem", avatar: "🔎" }, "Nguồn nào nên tin hơn khi tìm số dân Việt Nam?"), "Nguồn nào đáng tin nhất về số dân Việt Nam?", "Tổng cục Thống kê", ["Một bình luận nhiều like", "Một video không rõ người làm", "Trang tin lạ mới lập"], "Cơ quan thống kê nhà nước là nguồn gốc của số liệu dân số."),
+      D(S("web", "Tìm kiếm", { sub: "tim-kiem", avatar: "🔎" }, "Nguồn nào nên tin hơn khi tìm số dân Việt Nam?"), "Nguồn nào đáng tin nhất về số dân Việt Nam?", "Cục Thống kê", ["Một bình luận nhiều like", "Một video không rõ người làm", "Trang tin lạ mới lập"], "Cơ quan thống kê nhà nước là nguồn gốc của số liệu dân số."),
       D(S("post", "Tin Hay Mỗi Ngày", { avatar: "📣", sub: "Đăng hôm nay" }, L("Bão lớn đang vào miền Trung!", { pic: "🌀" })), "Ảnh bão trông quen quen. Cách kiểm tra nhanh?", "Tìm ảnh ngược để xem ảnh có từ bao giờ", ["Đếm số like", "Xem người đăng có nhiều bạn không"], "Tìm kiếm bằng hình ảnh cho biết ảnh xuất hiện lần đầu ở đâu, khi nào."),
       D(S("chat", "Bạn Hùng", { avatar: "🐺" }, "Tớ đọc được trên mạng: tắt Wi-Fi ban đêm là lên điểm. Chuẩn luôn!"), "Bạn kể \"đọc trên mạng\". Em nên hỏi gì?", "Cậu đọc ở đâu, ai viết vậy?", ["Bao nhiêu người thích bài đó?", "Bài đó có ảnh đẹp không?"], "Hỏi nguồn là bước đầu tiên để kiểm tra mọi thông tin."),
       D(S("web", "Bách khoa mở", { sub: "bach-khoa.wiki", avatar: "📖" }, "Thông tin ở đây ai cũng có thể sửa."), "Em dùng trang bách khoa mở làm bài. Cách dùng đúng?", "Đọc để hiểu, rồi kiểm tra ở nguồn được trích dẫn", ["Chép nguyên văn", "Tin hết vì là bách khoa"], "Trang mở hữu ích nhưng ai cũng sửa được, nên xem nguồn trích dẫn ở cuối."),
@@ -146,7 +147,7 @@ export const TINH_TAO: DigitalLesson[] = [
     remember: "**OTP: chỉ mình em gõ, không đọc cho ai.**",
     drills: [
       D(S("chat", "Bạn Nam", { avatar: "🐻" }, "Tớ nhầm số, mã xác nhận gửi vào máy cậu. Đọc giúp tớ với!"), "Bạn nhờ đọc mã xác nhận gửi \"nhầm\" vào máy em. Em làm gì?", "Không đọc, gọi điện hỏi lại bạn", ["Đọc mã cho bạn", "Chụp màn hình mã gửi bạn"], "Tài khoản bạn có thể đã bị chiếm, kẻ gian đang lấy tài khoản của em."),
-      D(S("web", "Cài đặt bảo mật", { sub: "tai-khoan.hocvui.vn", verified: true, avatar: "⚙️" }, L("Bật xác minh 2 bước?", { button: "Bật" })), "Ứng dụng gợi ý bật xác minh 2 bước. Em làm gì?", "Bật cùng bố mẹ", ["Tắt đi cho đỡ phiền", "Bỏ qua mãi"], "Hai lớp khóa: lộ mật khẩu kẻ gian vẫn không vào được."),
+      D(S("web", "Cài đặt bảo mật", { sub: "tai-khoan.sugami.vn", verified: true, avatar: "⚙️" }, L("Bật xác minh 2 bước?", { button: "Bật" })), "Ứng dụng gợi ý bật xác minh 2 bước. Em làm gì?", "Bật cùng bố mẹ", ["Tắt đi cho đỡ phiền", "Bỏ qua mãi"], "Hai lớp khóa: lộ mật khẩu kẻ gian vẫn không vào được."),
       D(S("web", "Xác nhận nhận quà", { sub: "nhanqua-game.top", avatar: "🎁" }, L("Nhập mã OTP vừa gửi về máy để nhận skin.", { button: "Xác nhận" })), "Trang lạ xin nhập OTP để nhận quà. Em làm gì?", "Không nhập, thoát ra", ["Nhập mã", "Nhập sai mã cho vui"], "Gõ OTP vào trang lạ cũng như đưa chìa khóa cho kẻ gian."),
       D(S("sms", "Thông báo", { sub: "Game Rồng Lửa" }, "Ma xac nhan doi mat khau: 551204. Neu khong phai ban, bo qua tin nay."), "Em không đổi mật khẩu mà nhận mã này. Em làm gì?", "Không đưa mã cho ai, đổi mật khẩu và báo bố mẹ", ["Bỏ qua, không sao", "Gửi mã cho bạn hỏi"], "Có người đang thử vào tài khoản của em."),
     ],

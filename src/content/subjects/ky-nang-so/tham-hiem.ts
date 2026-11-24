@@ -4,12 +4,13 @@ import { D, F, L, ME, S, type DigitalLesson } from "./builder";
 export const THAM_HIEM: DigitalLesson[] = [
   {
     id: "kns-k01",
+    voice: "vo-kns-k01",
     title: "Mật khẩu mạnh",
     short: "Dài, khó đoán, mỗi nơi một cái",
     emoji: "🔐",
     intro: "Kẻ gian dùng máy tính đoán hàng tỉ mật khẩu mỗi giây. Mật khẩu ngắn, dễ đoán thì bị dò ra trong nháy mắt.",
     scenario: {
-      screen: S("web", "Tạo tài khoản", { sub: "hocvui.vn/dang-ky", verified: true, avatar: "🐱", heading: "Đặt mật khẩu" }, L("Mật khẩu: 123456", { button: "Tạo tài khoản" })),
+      screen: S("web", "Tạo tài khoản", { sub: "learn.sugami.vn/dang-ky", verified: true, avatar: "🐱", heading: "Đặt mật khẩu" }, L("Mật khẩu: 123456", { button: "Tạo tài khoản" })),
       ask: "Em định đặt mật khẩu là 123456 cho dễ nhớ. Nên làm gì?",
       options: [
         { text: "Giữ 123456, dễ nhớ nhất", good: false, then: "123456 là mật khẩu bị dùng nhiều nhất thế giới. Kẻ gian thử nó **đầu tiên**, vào được tài khoản trong chưa tới 1 giây." },
@@ -17,20 +18,20 @@ export const THAM_HIEM: DigitalLesson[] = [
         { text: "Dùng ngày sinh của em", good: false, then: "Ngày sinh ai cũng tìm được trên mạng, máy dò lại hay thử ngày tháng trước." },
       ],
     },
-    spot: S("web", "Kiểm tra mật khẩu", { sub: "hocvui.vn", verified: true, avatar: "🔎" }, L("Mật khẩu của Tí: [[Ti2014|Tên + năm sinh: kiểu đầu tiên kẻ gian thử.]]"), L("Dùng [[cho cả game, email và mạng xã hội|Một mật khẩu cho mọi nơi: lộ một chỗ là mất tất cả.]]"), L("Tí [[dán mật khẩu lên màn hình|Viết mật khẩu chỗ ai cũng thấy.]] cho khỏi quên.")),
+    spot: S("web", "Kiểm tra mật khẩu", { sub: "learn.sugami.vn", verified: true, avatar: "🔎" }, L("Mật khẩu của Tí: [[Ti2014|Tên + năm sinh: kiểu đầu tiên kẻ gian thử.]]"), L("Dùng [[cho cả game, email và mạng xã hội|Một mật khẩu cho mọi nơi: lộ một chỗ là mất tất cả.]]"), L("Tí [[dán mật khẩu lên màn hình|Viết mật khẩu chỗ ai cũng thấy.]] cho khỏi quên.")),
     extra: [{ title: "Phòng thử mật khẩu", mood: "wow", blocks: [{ type: "text", text: "Gõ thử vài mật khẩu bịa ra (đừng gõ mật khẩu thật) và xem máy dò ra trong bao lâu." }, { type: "password" }] }],
     learn: "Mật khẩu mạnh: **dài từ 12 ký tự**, ghép **vài từ** có số và ký hiệu, **không** dùng tên, ngày sinh, 123456. Mỗi tài khoản quan trọng **một mật khẩu riêng**.",
     remember: "**Dài hơn là mạnh hơn.** Ghép 4 từ thành một câu chuyện nhỏ.",
     drills: [
-      D(S("web", "Đặt mật khẩu", { sub: "hocvui.vn", verified: true }, "Chọn mật khẩu nào mạnh nhất?"), "Mật khẩu nào mạnh nhất?", "Chim-Hot-Tren!Cay-29", ["matkhau123", "Nam2014", "qwerty"], "Dài, nhiều từ, có số và ký hiệu. Các cái kia đều nằm trong danh sách máy dò thử trước."),
+      D(S("web", "Đặt mật khẩu", { sub: "learn.sugami.vn", verified: true }, "Chọn mật khẩu nào mạnh nhất?"), "Mật khẩu nào mạnh nhất?", "Chim-Hot-Tren!Cay-29", ["matkhau123", "Nam2014", "qwerty"], "Dài, nhiều từ, có số và ký hiệu. Các cái kia đều nằm trong danh sách máy dò thử trước."),
       D(S("chat", "Bạn Khoa", { avatar: "🦁" }, "Tớ dùng một mật khẩu cho tất cả, đỡ phải nhớ!"), "Bạn dùng một mật khẩu cho mọi tài khoản. Em khuyên bạn thế nào?", "Mỗi tài khoản quan trọng một mật khẩu riêng", ["Thế là tiện nhất", "Đổi mật khẩu thành 1111"], "Một trang bị lộ thì kẻ gian thử mật khẩu đó ở mọi nơi khác."),
       D(S("web", "Ghi chú", { sub: "ghi-chu", avatar: "📝" }, "Mật khẩu email: Hoa-Sen-12-Do!"), "Em sợ quên mật khẩu. Cách nào tốt?", "Nhờ bố mẹ lưu bằng trình quản lý mật khẩu", ["Viết lên giấy dán ở bàn học", "Gửi vào nhóm lớp để nhớ"], "Trình quản lý mật khẩu khóa mọi mật khẩu bằng một mật khẩu chính, an toàn hơn giấy dán."),
       D(S("sms", "Thông báo", { sub: "Ứng dụng học" }, "Có người vừa đăng nhập tài khoản của bạn từ một máy lạ."), "Nhận báo có người lạ đăng nhập tài khoản. Em làm gì trước tiên?", "Đổi mật khẩu ngay và báo bố mẹ", ["Không làm gì", "Xóa tin nhắn đi"], "Đổi mật khẩu để đẩy người lạ ra ngoài, rồi bật thêm bảo mật cùng bố mẹ."),
     ],
     verdicts: [
-      F(S("web", "Gợi ý mật khẩu", { sub: "hocvui.vn", verified: true }, "Mật khẩu: Ca-Voi-Xanh+Bay-88"), false, "Dài, nhiều từ, có số và ký hiệu: rất mạnh."),
-      F(S("web", "Gợi ý mật khẩu", { sub: "hocvui.vn", verified: true }, "Mật khẩu: 12345678"), true, "Một trong những mật khẩu bị dò ra nhanh nhất."),
-      F(S("web", "Gợi ý mật khẩu", { sub: "hocvui.vn", verified: true }, "Mật khẩu: Lan15082013"), true, "Tên + ngày sinh: rất dễ đoán."),
+      F(S("web", "Gợi ý mật khẩu", { sub: "learn.sugami.vn", verified: true }, "Mật khẩu: Ca-Voi-Xanh+Bay-88"), false, "Dài, nhiều từ, có số và ký hiệu: rất mạnh."),
+      F(S("web", "Gợi ý mật khẩu", { sub: "learn.sugami.vn", verified: true }, "Mật khẩu: 12345678"), true, "Một trong những mật khẩu bị dò ra nhanh nhất."),
+      F(S("web", "Gợi ý mật khẩu", { sub: "learn.sugami.vn", verified: true }, "Mật khẩu: Lan15082013"), true, "Tên + ngày sinh: rất dễ đoán."),
       F(S("chat", "Mẹ", { avatar: "👩" }, "Mẹ bật xác minh 2 bước cho tài khoản của con rồi nhé."), false, "Thêm một lớp khóa nữa, càng an toàn."),
     ],
   },
@@ -84,16 +85,16 @@ export const THAM_HIEM: DigitalLesson[] = [
     learn: "Đọc đường link **từ phải sang trái**: phần ngay trước dấu **/** đầu tiên mới là tên trang thật. Coi chừng chữ thừa, chữ đổi (0 thay o, rn thay m), đuôi lạ như .top .xyz .click.",
     remember: "Link lạ: **không bấm**. Muốn vào thì **tự gõ địa chỉ**.",
     drills: [
-      D(S("web", "Chọn link thật", { sub: "trình duyệt" }, "Link nào là trang Học Vui thật?"), "Link nào là trang thật của Học Vui?", "hocvui.vn/dang-nhap", ["hocvui.vn.dang-nhap.xyz", "hoc-vui-free.top", "hocvui-vn.click"], "Tên trang là phần ngay trước dấu / đầu tiên: hocvui.vn. Các link kia có tên thật là .xyz, .top, .click."),
+      D(S("web", "Chọn link thật", { sub: "trình duyệt" }, "Link nào là trang Học Vui thật?"), "Link nào là trang thật của Học Vui?", "learn.sugami.vn/dang-nhap", ["learn.sugami.vn.dang-nhap.xyz", "hoc-vui-free.top", "hocvui-vn.click"], "Tên trang là phần ngay trước dấu / đầu tiên: learn.sugami.vn. Các link kia có tên thật là .xyz, .top, .click."),
       D(S("chat", "Bạn Minh", { avatar: "🐧", heading: "Tài khoản Minh có thể đã bị lấy" }, L("Ê xem video này hài lắm: vid-hai.click/xem", { button: "vid-hai.click" })), "Bạn gửi link lạ kèm lời rủ xem. Em làm gì?", "Hỏi lại Minh bằng cách khác trước khi bấm", ["Bấm luôn vì là bạn", "Gửi tiếp cho cả lớp"], "Tài khoản bạn có thể đã bị kẻ gian dùng để gửi link."),
       D(S("web", "Tải game", { sub: "minecraft-free-download.xyz", avatar: "⛏️" }, L("Tải bản đầy đủ miễn phí!", { button: "Tải về" })), "Trang lạ cho tải game trả phí miễn phí. Em làm gì?", "Không tải, chỉ tải ở kho ứng dụng có bố mẹ", ["Tải về cài thử", "Tải cho cả bạn"], "Bản \"miễn phí\" ở trang lạ thường kèm phần mềm xấu."),
-      D(S("email", "Hỗ trợ tài khoản", { sub: "hotro@hocvu1.vn", heading: "Xác minh tài khoản ngay" }, L("Bấm để xác minh, nếu không tài khoản sẽ bị xóa.", { button: "Xác minh" })), "Email từ hocvu1.vn (số 1 thay chữ i) bảo xác minh. Em làm gì?", "Không bấm, báo bố mẹ, xóa email", ["Bấm xác minh", "Trả lời email hỏi lại"], "Đổi một chữ trong tên trang là trò quen thuộc của trang giả."),
+      D(S("email", "Hỗ trợ tài khoản", { sub: "hotro@learn.sugarni.vn", heading: "Xác minh tài khoản ngay" }, L("Bấm để xác minh, nếu không tài khoản sẽ bị xóa.", { button: "Xác minh" })), "Email từ learn.sugarni.vn (chữ rn giả làm chữ m) bảo xác minh. Em làm gì?", "Không bấm, báo bố mẹ, xóa email", ["Bấm xác minh", "Trả lời email hỏi lại"], "Đổi một chữ trong tên trang là trò quen thuộc của trang giả."),
     ],
     verdicts: [
-      F(S("web", "Học Vui", { sub: "hocvui.vn/hoc/ky-nang-so", verified: true, avatar: "🐱" }, "Bài 3: Link lạ và trang web giả"), false, "Đúng tên trang hocvui.vn, có ổ khóa."),
-      F(S("web", "Học Vui", { sub: "hocvui.vn.nhan-qua.top", avatar: "🐱" }, L("Nhập mật khẩu nhận quà", { button: "Nhận" })), true, "Tên thật của trang là nhan-qua.top."),
+      F(S("web", "Học Vui", { sub: "learn.sugami.vn/hoc/ky-nang-so", verified: true, avatar: "🐱" }, "Bài 3: Link lạ và trang web giả"), false, "Đúng tên trang learn.sugami.vn, có ổ khóa."),
+      F(S("web", "Học Vui", { sub: "learn.sugami.vn.nhan-qua.top", avatar: "🐱" }, L("Nhập mật khẩu nhận quà", { button: "Nhận" })), true, "Tên thật của trang là nhan-qua.top."),
       F(S("sms", "Giao hàng", { sub: "+84 86 xxx xx45" }, "Don hang cua ban bi giu. Cap nhat dia chi: giao-hang-nhanh.click"), true, "Tin giao hàng giả kèm link lạ."),
-      F(S("chat", "Bố", { avatar: "👨" }, "Bài hát con thích đây: hocvui.vn/nhac"), false, "Bố gửi link đúng trang quen."),
+      F(S("chat", "Bố", { avatar: "👨" }, "Bài hát con thích đây: learn.sugami.vn/nhac"), false, "Bố gửi link đúng trang quen."),
     ],
   },
   {

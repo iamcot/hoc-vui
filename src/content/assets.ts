@@ -376,6 +376,15 @@ export const AUDIO: AudioAsset[] = [
   voice("vo-gp-t01", "Gõ phím · Bài đầu Từng bàn tay", "Lên hàng trên nào! Ngón nào với lên phím nào thì gõ xong phải về hàng phím cơ sở nha."),
   voice("vo-gp-p01", "Gõ phím · Bài đầu Phối hợp", "Giờ hai tay cùng chơi. Gõ đều tay, mắt nhìn màn hình là sẽ nhanh thôi."),
   voice("vo-gp-v01", "Gõ phím · Bài đầu Telex", "Gõ tiếng Việt có dấu thôi! Gõ a hai lần là thành chữ â. Học Vui tự ghép chữ cho em."),
+  // Kỹ năng số: chỉ một câu chào ngắn ở slide đầu; bé lớn chỉ có bài đầu mỗi trình độ
+  voice("vo-kns-n01", "Kỹ năng số · Người lạ trên mạng", "Chào em! Hôm nay Mochi và em cùng học cách giữ an toàn khi lên mạng. Có người lạ nhắn tin cho em này, em sẽ làm gì nhỉ?"),
+  voice("vo-kns-n02", "Kỹ năng số · Mật khẩu là bí mật", "Mật khẩu giống như chìa khóa nhà mình đó. Bạn thân xin mật khẩu, em có cho không?"),
+  voice("vo-kns-n03", "Kỹ năng số · Hỏi bố mẹ trước khi bấm", "Ôi, game hiện nút mua kim cương kìa! Bấm vào là tiêu tiền thật đấy. Em sẽ làm gì?"),
+  voice("vo-kns-n04", "Kỹ năng số · Thông tin của em", "Nhà em ở đâu, em học trường nào, đó là bí mật của em. Cùng xem nên đăng ảnh thế nào cho an toàn nhé."),
+  voice("vo-kns-n05", "Kỹ năng số · Giờ chơi, giờ nghỉ", "Em chơi được một tiếng rồi đó. Mắt cũng cần nghỉ ngơi. Giờ em làm gì nhỉ?"),
+  voice("vo-kns-k01", "Kỹ năng số · Bài đầu Thám hiểm mạng", "Mật khẩu một hai ba bốn năm sáu bị đoán ra trong chưa tới một giây. Cùng tạo mật khẩu thật mạnh nhé!"),
+  voice("vo-kns-t01", "Kỹ năng số · Bài đầu Tỉnh táo", "Tin càng sốc thì càng phải chậm lại. Cùng tập soi tin giả nhé."),
+  voice("vo-kns-c01", "Kỹ năng số · Bài đầu Công dân số", "Thấy mặt, nghe giọng, vẫn có thể là giả. Hôm nay mình nói về deepfake."),
 ];
 
 /** Giọng đọc mẫu môn Tập đọc (in riêng ở docs/TAPDOC_VOICES.md) */
