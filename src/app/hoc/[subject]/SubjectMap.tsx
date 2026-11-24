@@ -284,7 +284,7 @@ export function SubjectMap({ subjectId }: { subjectId: string }) {
                     ▶ Học tiếp
                   </Link>
                 )}
-                {current && <Mascot who={s.mascot} mood="cheer" size={64} className={`floaty pointer-events-none absolute -top-10 ${labelLeft ? "-left-12" : "-right-12"} drop-shadow`} />}
+                {current && <Mascot who={s.tiers[st.ti]?.mascot ?? s.mascot} mood="cheer" size={64} className={`floaty pointer-events-none absolute -top-10 ${labelLeft ? "-left-12" : "-right-12"} drop-shadow`} />}
               </motion.div>
             );
           }
@@ -349,7 +349,7 @@ export function SubjectMap({ subjectId }: { subjectId: string }) {
               <div key={i} className="absolute -translate-x-1/2 -translate-y-1/2 opacity-80" style={style}>
                 <div className="relative">
                   <span className={`grid h-28 w-28 place-items-center rounded-full border-[6px] border-white bg-lilac/70 ${NODE}`}>
-                    <Mascot who={s.mascot} mood="think" size={72} />
+                    <Mascot who={s.tiers[st.ti]?.mascot ?? s.mascot} mood="think" size={72} />
                   </span>
                   <span className={`${LABEL} ${side}`}>
                     <span className="block font-display text-xl font-extrabold text-ink text-outline">Đang soạn</span>

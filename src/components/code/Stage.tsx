@@ -5,7 +5,7 @@ import { hasFile, resolveFile } from "@/content/assets";
 import type { Mood } from "@/content/types";
 import type { State } from "@/lib/code/run";
 import type { World } from "@/lib/code/world";
-import { FlagArt, Floor, frameOf, Hero, StarArt, useSkin, Wall, Water } from "./skin";
+import { FlagArt, Floor, frameOf, Hero, StarArt, useGuide, useSkin, Wall, Water } from "./skin";
 import { HoloStage } from "./HoloStage";
 
 /** ảnh ô lưới nếu đã có file, không thì vẽ bằng CSS/SVG */
@@ -27,6 +27,7 @@ export function Stage(props: { world: World; state: State; bump?: boolean; mood?
 
 function FlatStage({ world, state, bump, mood = "happy", max = 84, speed = 1 }: { world: World; state: State; bump?: boolean; mood?: Mood; max?: number; speed?: number }) {
   const skin = useSkin();
+  const guide = useGuide();
   const fr = frameOf(skin);
   const box = useRef<HTMLDivElement>(null);
   const [cell, setCell] = useState(48);
@@ -103,7 +104,7 @@ function FlatStage({ world, state, bump, mood = "happy", max = 84, speed = 1 }: 
             ) : (
               <>
                 {neon && <div className="absolute inset-[8%] rounded-full" style={{ background: "radial-gradient(circle, rgb(47 211 255 / 0.45), transparent 70%)" }} />}
-                <Hero skin={skin} mood={mood} size={Math.round(cell * (world.target ? 0.62 : skin.id === "neon" ? 0.92 : 0.8))} />
+                <Hero skin={skin} guide={guide} mood={mood} size={Math.round(cell * (world.target ? 0.62 : skin.id === "neon" ? 0.92 : 0.8))} />
                 {/* mũi tên hướng nhìn: quay theo Mochi */}
                 <motion.div className="pointer-events-none absolute inset-0" initial={false} animate={{ rotate: state.dir * 90 }} transition={{ duration: dur }}>
                   <svg viewBox="0 0 40 40" className="absolute left-1/2 -translate-x-1/2" style={{ width: cell * 0.42, top: -cell * 0.2 }}>

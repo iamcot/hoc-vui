@@ -10,7 +10,7 @@ import { optimalOf, presetOf, starsFor, worldsOf } from "@/lib/code/grade";
 import type { Level } from "@/lib/code/world";
 import { Stage } from "./Stage";
 import { Workspace, type WorkspaceHandle } from "./Workspace";
-import { Hero, useSkin } from "./skin";
+import { Hero, useGuide, useSkin } from "./skin";
 
 type Status = "edit" | "running" | "paused" | "win" | "fail";
 
@@ -55,6 +55,7 @@ export function LevelPlayer({ level, index, total, onDone }: { level: Level; ind
   const gen = useRef<Generator<Step, Outcome> | null>(null);
   const wsRef = useRef<WorkspaceHandle>(null);
   const skin = useSkin();
+  const guide = useGuide();
   /** khối đang chạy (tô sáng dòng code xem trước) */
   const [curId, setCurId] = useState<string | null>(null);
   const blocks = countBlocks(program);
@@ -179,7 +180,7 @@ export function LevelPlayer({ level, index, total, onDone }: { level: Level; ind
       <div className="flex min-h-0 flex-1 flex-col gap-2">
         <div className="flex items-start gap-2">
           <div className="lt-hero-chip grid shrink-0 place-items-center">
-            <Hero skin={skin} mood={mood} size={skin.id === "neon" ? 52 : 46} />
+            <Hero skin={skin} guide={guide} mood={mood} size={skin.id === "neon" ? 52 : 46} />
           </div>
           <motion.div
             key={msg ?? level.id}

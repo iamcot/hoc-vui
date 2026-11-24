@@ -19,6 +19,12 @@ const Ctx = createContext<Skin>(SKINS.neon);
 export const SkinProvider = Ctx.Provider;
 export const useSkin = () => useContext(Ctx);
 
+/** nhân vật dẫn chuyện của trình độ: Mochi ở 2 cấp đầu, thỏ Bit ngầu từ Trung cấp */
+export type Guide = "mochi" | "bit";
+const GuideCtx = createContext<Guide>("mochi");
+export const GuideProvider = GuideCtx.Provider;
+export const useGuide = () => useContext(GuideCtx);
+
 /* ───────── nhân vật ───────── */
 
 const PIXEL_CAT = ["..x......x..", ".xxx....xxx.", ".xxxxxxxxxx.", "xxxxxxxxxxxx", "xxkxxxxxkxxx", "xxkxxxxxkxxx", "xxxxxppxxxxx", "xxxxxxxxxxxx", ".xxxxxxxxxx.", "..xx....xx.."];
@@ -117,12 +123,52 @@ export function HoloCat({ size, mood, beam }: { size: number; mood: Mood; beam?:
   );
 }
 
-/** nhân vật theo giao diện */
-export function Hero({ skin, size, mood = "happy" }: { skin: Skin; size: number; mood?: Mood }) {
+/** Bit hologram: thỏ khung dây, kính visor sáng (giao diện Hologram ở trình độ cao) */
+export function HoloBit({ size, mood, beam }: { size: number; mood: Mood; beam?: boolean }) {
+  const h = beam ? size * 1.28 : size;
+  const visor = mood === "oops" ? "#ffb547" : mood === "cheer" ? "#ff5fa8" : "#eaffff";
+  return (
+    <svg width={size} height={h} viewBox={beam ? "0 0 58 74" : "4 -2 50 52"} style={{ overflow: "visible" }} aria-hidden>
+      <defs>
+        <linearGradient id="lt-holo-beam-b" x1="0" y1="1" x2="0" y2="0">
+          <stop offset="0" stopColor="#4ff0ff" stopOpacity=".55" />
+          <stop offset="1" stopColor="#4ff0ff" stopOpacity="0" />
+        </linearGradient>
+        <pattern id="lt-holo-lines-b" width="4" height="3" patternUnits="userSpaceOnUse">
+          <rect width="4" height="1.2" fill="#bffbff" opacity=".5" />
+        </pattern>
+      </defs>
+      {beam && <path d="M6 72 L29 22 L52 72Z" fill="url(#lt-holo-beam-b)" />}
+      <g style={{ filter: "drop-shadow(0 0 5px #4ff0ff)" }}>
+        {/* tai dài có đèn */}
+        <path d="M20 18 C 14 -4, 24 -6, 25 15 M38 18 C 44 -4, 34 -6, 33 15" fill="#4ff0ff22" stroke="#bffbff" strokeWidth={1.6} />
+        <circle cx={18.5} cy={1.5} r={2} fill="#4ff0ff" />
+        <circle cx={39.5} cy={1.5} r={2} fill="#ff5fa8" />
+        <ellipse cx={29} cy={31} rx={18} ry={16} fill="#4ff0ff28" stroke="#bffbff" strokeWidth={1.8} />
+        <ellipse cx={29} cy={31} rx={18} ry={16} fill="url(#lt-holo-lines-b)" />
+        {/* kính visor */}
+        <rect x={14} y={24} width={30} height={9} rx={4.5} fill="#031c24" stroke="#bffbff" strokeWidth={1.2} />
+        <rect x={16.5} y={26.5} width={25} height={4} rx={2} fill={visor} opacity={0.95} />
+        <path d="M24 39 q5 4 10 0" stroke="#eaffff" strokeWidth={1.6} fill="none" strokeLinecap="round" />
+      </g>
+      {beam && <ellipse cx={29} cy={72} rx={20} ry={5} fill="none" stroke="#4ff0ff" strokeWidth={1.5} />}
+    </svg>
+  );
+}
+
+/** nhân vật theo giao diện (Neon luôn là thỏ Bit như môn Gõ phím; Hologram theo nhân vật của trình độ) */
+export function Hero({ skin, size, mood = "happy", guide = "mochi" }: { skin: Skin; size: number; mood?: Mood; guide?: Guide }) {
   if (skin.id === "pixel") return <PixelCat size={size} mood={mood} />;
   if (skin.id === "robot") return <RobotCat size={size} mood={mood} />;
-  if (skin.id === "holo") return <HoloCat size={size} mood={mood} />;
-  return <Mascot mood={mood} size={size} />;
+  if (skin.id === "holo") return guide === "bit" ? <HoloBit size={size} mood={mood} /> : <HoloCat size={size} mood={mood} />;
+  // ảnh Bit là dáng đứng cả người: phóng to và chỉ lấy nửa trên cho vừa một ô
+  return (
+    <div className="relative overflow-hidden" style={{ width: size, height: size }}>
+      <div className="absolute" style={{ left: -size / 2, top: -size * 0.04 }}>
+        <Mascot who="bit" mood={mood} size={size * 2} />
+      </div>
+    </div>
+  );
 }
 
 /* ───────── ô sân, sao, cờ ───────── */

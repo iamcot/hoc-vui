@@ -150,6 +150,8 @@ export interface Tier {
   units: Unit[];
   /** thử thách vượt cấp lấy từ trình độ này: số câu và số câu đúng để đạt */
   challenge?: { count: number; pass: number };
+  /** nhân vật dẫn chuyện riêng của trình độ này (không đặt thì theo môn) */
+  mascot?: "mochi" | "bit";
 }
 
 export interface Subject {

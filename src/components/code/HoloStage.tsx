@@ -5,7 +5,7 @@ import type { Mood } from "@/content/types";
 import type { State } from "@/lib/code/run";
 import type { World } from "@/lib/code/world";
 import { SKINS } from "@/lib/code/skins";
-import { FlagArt, HoloCat, StarArt } from "./skin";
+import { FlagArt, HoloBit, HoloCat, StarArt, useGuide } from "./skin";
 import { Lines } from "./Stage";
 
 /** góc nhìn sân 3D */
@@ -23,6 +23,7 @@ const UPRIGHT = `rotateZ(${-RZ}deg) rotateX(${-RX}deg)`;
  * Mochi là hình chiếu hologram. Thêm HUD: tọa độ, hướng, tinh thể và radar mini.
  */
 export function HoloStage({ world, state, bump, mood = "happy", max = 84, speed = 1 }: { world: World; state: State; bump?: boolean; mood?: Mood; max?: number; speed?: number }) {
+  const guide = useGuide();
   const box = useRef<HTMLDivElement>(null);
   const [cell, setCell] = useState(44);
   /** khung nhỏ (ảnh xem trước trong popup) thì bỏ HUD */
@@ -129,7 +130,7 @@ export function HoloStage({ world, state, bump, mood = "happy", max = 84, speed 
               <div className="absolute left-1/2 top-1/2" style={{ transformStyle: "preserve-3d" }}>
                 <div className="absolute bottom-0 left-0 grid -translate-x-1/2 justify-items-center" style={{ transform: UPRIGHT, transformOrigin: "50% 100%" }}>
                   <motion.div key={bump ? "bump" : "ok"} animate={bump ? { x: [0, 6, -6, 4, 0], rotate: [0, -8, 8, 0] } : {}} transition={{ duration: 0.45 }} className="relative">
-                    <HoloCat size={s * 1.05} mood={mood} beam />
+                    {guide === "bit" ? <HoloBit size={s * 1.05} mood={mood} beam /> : <HoloCat size={s * 1.05} mood={mood} beam />}
                   </motion.div>
                 </div>
               </div>
