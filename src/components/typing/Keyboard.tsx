@@ -39,6 +39,7 @@ export function Keyboard({
   next,
   pressed,
   compact = false,
+  ghost = false,
   className = "",
 }: {
   keys?: string;
@@ -47,6 +48,8 @@ export function Keyboard({
   /** phím vừa bấm sai (đỏ thoáng qua) */
   pressed?: { ch: string; ok: boolean } | null;
   compact?: boolean;
+  /** chỉ vẽ nét, không nền (dùng trong game để thấy cảnh phía sau) */
+  ghost?: boolean;
   className?: string;
 }) {
   const lit = new Set([...keys.toLowerCase()]);
@@ -61,7 +64,7 @@ export function Keyboard({
 
   return (
     <div className={`select-none ${className}`}>
-      <div ref={board} aria-hidden style={{ marginBottom: showHands ? extra : undefined }} className={`relative mx-auto flex w-full max-w-3xl flex-col rounded-[1.4rem] border border-cyan-300/25 bg-[#0b1233]/85 p-2 shadow-[0_0_40px_-10px_rgba(47,211,255,0.5)] backdrop-blur ${compact ? "gap-1" : "gap-1.5 sm:p-3"}`}>
+      <div ref={board} aria-hidden style={{ marginBottom: showHands ? extra : undefined }} className={`relative mx-auto flex w-full max-w-3xl flex-col rounded-[1.4rem] p-2 ${ghost ? "" : "border border-cyan-300/25 bg-[#0b1233]/85 shadow-[0_0_40px_-10px_rgba(47,211,255,0.5)] backdrop-blur"} ${compact ? "gap-1" : "gap-1.5 sm:p-3"}`}>
         {ROWS.map((r, ri) => (
           <div key={ri} className={`flex ${compact ? "gap-1" : "gap-1.5"} ${ri === 4 ? "justify-center" : ""}`}>
             {r.map((c, ci) => {
@@ -71,7 +74,7 @@ export function Keyboard({
               const on = all || (ch && (lit.has(ch) || (ch === " " && keys.includes(" "))));
               const isHot = ch && hot.has(ch);
               const bad = pressed && !pressed.ok && keyOf(pressed.ch) === c;
-              return <Cap key={ci} id={capId(c, ci)} c={c} on={!!on || !!isNext} hot={!!isHot} next={!!isNext} bad={!!bad} compact={compact} />;
+              return <Cap key={ci} id={capId(c, ci)} c={c} on={!!on || !!isNext} hot={!!isHot} next={!!isNext} bad={!!bad} compact={compact} ghost={ghost} />;
             })}
           </div>
         ))}
@@ -135,7 +138,7 @@ function Hands({ board, next, onExtra }: { board: React.RefObject<HTMLDivElement
         out[k.dataset.k!] = { x: r.left - b.left + r.width / 2, y: r.top - b.top + r.height / 2, w: r.width, h: r.height };
       });
       setPos(out);
-      if (out.a) onExtra(Math.round(out.a.h * 3.1));
+      if (out.a) onExtra(Math.round(out.a.h * 2.7));
       setSize({ w: b.width, h: b.height });
     };
     measure();
@@ -152,69 +155,87 @@ function Hands({ board, next, onExtra }: { board: React.RefObject<HTMLDivElement
   const active = fingerOf(next);
   const sh = shiftSide(next);
 
-  const H = size.h + kh * 3.2;
+  const H = size.h + kh * 3;
   const P = (x: number, y: number) => `${x.toFixed(1)} ${y.toFixed(1)}`;
-  /** ngón tay: thuôn từ gốc (cắm sâu vào lòng bàn tay) tới đầu ngón tròn */
-  const fingerD = (base: { x: number; y: number }, tip: { x: number; y: number }, wb: number, wt: number, ext = 0.7) => {
-    const len = Math.hypot(tip.x - base.x, tip.y - base.y) || 1;
-    const ux = (tip.x - base.x) / len, uy = (tip.y - base.y) / len;
-    const nx = -uy, ny = ux;
-    const b0 = { x: base.x - ux * kh * ext, y: base.y - uy * kh * ext };
-    const t0 = { x: tip.x - ux * wt * 0.5, y: tip.y - uy * wt * 0.5 };
-    return `M${P(b0.x + nx * wb / 2, b0.y + ny * wb / 2)} L${P(t0.x + nx * wt / 2, t0.y + ny * wt / 2)} A${wt / 2} ${wt / 2} 0 0 0 ${P(t0.x - nx * wt / 2, t0.y - ny * wt / 2)} L${P(b0.x - nx * wb / 2, b0.y - ny * wb / 2)} Z`;
+  type V = { x: number; y: number };
+  const add = (p: V, q: V, k = 1): V => ({ x: p.x + q.x * k, y: p.y + q.y * k });
+
+  /** một ngón: từ khớp K tới đầu ngón T, trả về 2 mép và tâm cung đầu ngón */
+  const digit = (K: V, T: V, w: number, sg: number) => {
+    const len = Math.hypot(T.x - K.x, T.y - K.y) || 1;
+    const u = { x: (T.x - K.x) / len, y: (T.y - K.y) / len };
+    const n = { x: -u.y * sg, y: u.x * sg }; // hướng về phía ngón cái
+    const hb = w / 2, ht = w * 0.43;
+    const c = add(T, u, -ht);
+    return { aB: add(K, n, -hb), aT: add(c, n, -ht), bT: add(c, n, ht), bB: add(K, n, hb), ht };
   };
+  const capsule = (d: ReturnType<typeof digit>, sweep: number) =>
+    `M${P(d.aB.x, d.aB.y)} L${P(d.aT.x, d.aT.y)} A${d.ht} ${d.ht} 0 0 ${sweep} ${P(d.bT.x, d.bT.y)} L${P(d.bB.x, d.bB.y)} Z`;
 
   const hand = (side: "L" | "R") => {
     const fingers = side === "L" ? LEFT : RIGHT;
     const sg = side === "L" ? 1 : -1; // hướng về phía ngón cái
+    const sweep = side === "L" ? 1 : 0;
     const home = fingers.map((f) => pos[HOME[f as keyof typeof HOME]]);
-    const px = (home[0].x + home[3].x) / 2 + sg * kw * 0.3;
-    const py = bottom + kh * 1.7;
-    const knuckleY = py - kh * 0.95;
-    const shiftKey = pos[side === "L" ? "ShiftL" : "ShiftR"];
-    const parts = fingers.map((f, i) => {
-      const tip = { x: home[i].x, y: home[i].y - kh * 0.25 };
+    const px = (home[0].x + home[3].x) / 2 + sg * kw * 0.25;
+    const knuckleY = bottom + kh * 0.55;
+    const ds = fingers.map((f, i) => {
       const pinky = f.endsWith("5");
-      const holdsShift = sh === side && pinky && !!shiftKey;
-      const base = { x: px + (home[i].x - px) * 0.62, y: knuckleY + (pinky ? kh * 0.2 : 0) };
-      const wb = kw * (pinky ? 0.52 : f.endsWith("4") ? 0.58 : 0.64);
-      return { f, d: fingerD(base, tip, wb, wb * 0.86), lit: fingerD(base, tip, wb, wb * 0.86, 0.1), base, wb, on: f === active || holdsShift };
+      const T = { x: home[i].x, y: home[i].y - kh * 0.1 };
+      const K = { x: px + (home[i].x - px) * 0.82, y: knuckleY + (pinky ? kh * 0.35 : i === 1 ? kh * 0.05 : 0) };
+      const w = kw * (pinky ? 0.6 : f.endsWith("4") ? 0.68 : f.endsWith("3") ? 0.72 : 0.72);
+      return { f, d: digit(K, T, w, sg), on: f === active || (sh === side && pinky) };
     });
-    const tipT = { x: home[3].x + sg * kw * 1.2, y: pos.space.y };
-    const tb = { x: px + sg * kw * 1.05, y: py + kh * 0.15 };
-    const thumb = { f: "T" as Finger, d: fingerD(tb, tipT, kw * 0.78, kw * 0.62), lit: fingerD(tb, tipT, kw * 0.78, kw * 0.62, 0), on: active === "T" && side === "R" };
-    // lòng bàn tay: mép ngón út → khớp ngón trỏ → mô ngón cái → cổ tay
-    const o = parts[0], ix = parts[3];
-    const out = { x: o.base.x - sg * o.wb * 0.55, y: o.base.y };
-    const inn = { x: ix.base.x + sg * ix.wb * 0.55, y: ix.base.y };
-    const palm = `M${P(out.x, out.y)} Q${P((out.x + inn.x) / 2, knuckleY - kh * 0.25)} ${P(inn.x, inn.y)} Q${P(px + sg * kw * 1.75, py - kh * 0.2)} ${P(px + sg * kw * 1.25, py + kh * 0.7)} L${P(px + sg * kw * 0.95, H + 2)} L${P(px - sg * kw * 1.35, H + 2)} L${P(px - sg * kw * 1.55, py + kh * 0.5)} Q${P(px - sg * kw * 1.85, py - kh * 0.3)} ${P(out.x, out.y)} Z`;
-    return { shapes: [palm, ...parts.map((q) => q.d), thumb.d], lit: [...parts, thumb].filter((q) => q.on) };
+    // ngón cái: gốc ở mô ngón cái, đầu ngón trên phím cách
+    const tRoot = { x: px + sg * kw * 1.6, y: knuckleY + kh * 1.8 };
+    const tTip = { x: home[3].x + sg * kw * 1.0, y: pos.space.y + kh * 0.15 };
+    const th = digit(tRoot, tTip, kw * 0.8, sg);
+    const thumbOn = active === "T" && side === "R";
+
+    const web = (p: V, q: V) => ` Q${P((p.x + q.x) / 2, Math.max(p.y, q.y) + kh * 0.3)} ${P(q.x, q.y)}`;
+    const wristIn = { x: px + sg * kw * 0.95, y: H + 4 };
+    const wristOut = { x: px - sg * kw * 1.25, y: H + 4 };
+    let d = `M${P(wristOut.x, wristOut.y)} C${P(wristOut.x - sg * kw * 0.2, bottom + kh * 1.9)} ${P(ds[0].d.aB.x - sg * kw * 0.15, ds[0].d.aB.y + kh * 0.7)} ${P(ds[0].d.aB.x, ds[0].d.aB.y)}`;
+    ds.forEach(({ d: g }, i) => {
+      if (i > 0) d += web(ds[i - 1].d.bB, g.aB);
+      d += ` L${P(g.aT.x, g.aT.y)} A${g.ht} ${g.ht} 0 0 ${sweep} ${P(g.bT.x, g.bT.y)} L${P(g.bB.x, g.bB.y)}`;
+    });
+    // từ ngón trỏ vòng xuống kẽ ngón cái rồi ra ngón cái
+    const tl = Math.hypot(th.aB.x - th.aT.x, th.aB.y - th.aT.y) || 1;
+    const c2 = add(th.aB, { x: (th.aB.x - th.aT.x) / tl, y: (th.aB.y - th.aT.y) / tl }, kh * 0.45);
+    d += ` C${P(ds[3].d.bB.x, ds[3].d.bB.y + kh * 0.6)} ${P(c2.x, c2.y)} ${P(th.aB.x, th.aB.y)}`;
+    d += ` L${P(th.aT.x, th.aT.y)} A${th.ht} ${th.ht} 0 0 ${sweep} ${P(th.bT.x, th.bT.y)} L${P(th.bB.x, th.bB.y)}`;
+    d += ` Q${P(th.bB.x, wristIn.y - kh * 0.6)} ${P(wristIn.x, wristIn.y)} Z`;
+
+    const lit = [...ds.filter((x) => x.on).map((x) => ({ f: x.f, p: capsule(x.d, sweep) })), ...(thumbOn ? [{ f: "T" as Finger, p: capsule(th, sweep) }] : [])];
+    return { d, lit };
   };
   const hands = [hand("L"), hand("R")];
-  const all = hands.flatMap((h) => h.shapes);
 
   return (
     <svg className="pointer-events-none absolute left-0 top-0 w-full overflow-visible" style={{ height: H }} viewBox={`0 0 ${size.w} ${H}`} aria-hidden>
       <defs>
-        <filter id={fid} filterUnits="userSpaceOnUse" x={-20} y={-20} width={size.w + 40} height={H + 40}>
-          <feMorphology in="SourceAlpha" operator="dilate" radius="1.6" result="fat" />
-          <feComposite in="fat" in2="SourceAlpha" operator="out" result="edge" />
-          <feFlood floodColor="#dff6ff" floodOpacity="0.85" />
-          <feComposite in2="edge" operator="in" />
-        </filter>
+        <linearGradient id={`${fid}-g`} gradientUnits="userSpaceOnUse" x1="0" y1={bottom + kh * 1.2} x2="0" y2={H}>
+          <stop offset="0" stopColor="#fff" />
+          <stop offset="1" stopColor="#fff" stopOpacity="0" />
+        </linearGradient>
+        <mask id={`${fid}-m`} maskUnits="userSpaceOnUse" x={0} y={0} width={size.w} height={H}>
+          <rect width={size.w} height={H} fill={`url(#${fid}-g)`} />
+        </mask>
       </defs>
-      {/* lòng tay kính mờ, không che chữ trên phím */}
-      <g opacity={0.09}>{all.map((d, i) => <path key={i} d={d} fill="#bfe9ff" />)}</g>
-      {hands.flatMap((h) => h.lit).map((q) => (
-        <path key={q.f} d={q.lit} fill={FINGER_COLOR[q.f]} fillOpacity={0.4} style={{ filter: `drop-shadow(0 0 6px ${FINGER_COLOR[q.f]})` }} />
-      ))}
-      {/* viền ngoài liền một khối: bàn tay + ngón */}
-      <g filter={`url(#${fid})`}>{all.map((d, i) => <path key={i} d={d} fill="#fff" />)}</g>
+      <g mask={`url(#${fid}-m)`}>
+        {hands.flatMap((h) => h.lit).map((q) => (
+          <path key={q.f} d={q.p} fill={FINGER_COLOR[q.f]} fillOpacity={0.42} style={{ filter: `drop-shadow(0 0 8px ${FINGER_COLOR[q.f]})` }} />
+        ))}
+        {hands.map((h, i) => (
+          <path key={i} d={h.d} fill="rgb(190 230 255 / 0.07)" stroke="rgb(223 246 255 / 0.8)" strokeWidth={1.6} strokeLinejoin="round" strokeLinecap="round" />
+        ))}
+      </g>
     </svg>
   );
 }
 
-function Cap({ id, c, on, hot, next, bad, compact }: { id: string; c: KeyCap; on: boolean; hot: boolean; next: boolean; bad: boolean; compact: boolean }) {
+function Cap({ id, c, on, hot, next, bad, compact, ghost }: { id: string; c: KeyCap; on: boolean; hot: boolean; next: boolean; bad: boolean; compact: boolean; ghost: boolean }) {
   const color = FINGER_COLOR[c.f];
   const label = c.fn !== undefined ? c.fn : c.k === ";" ? ";" : c.k.toUpperCase();
   const bump = c.k === "f" || c.k === "j";
@@ -222,7 +243,14 @@ function Cap({ id, c, on, hot, next, bad, compact }: { id: string; c: KeyCap; on
     <div
       data-k={id}
       className={`relative grid place-items-center rounded-lg font-mono font-bold transition-all duration-150 ${compact ? "h-7 text-[11px] sm:h-8 sm:text-xs" : "h-9 text-xs sm:h-11 sm:text-sm"} ${next ? "key-next" : ""}`}
-      style={{
+      style={ghost ? {
+        flex: `${c.w ?? 1} 1 0`,
+        minWidth: 0,
+        color: next ? "#fff" : on ? `color-mix(in srgb, ${color} 55%, #fff)` : "rgb(200 220 255 / 0.45)",
+        background: bad ? "rgb(255 61 110 / 0.45)" : next ? `color-mix(in srgb, ${color} 30%, transparent)` : hot ? `color-mix(in srgb, ${color} 12%, transparent)` : "transparent",
+        boxShadow: next ? `0 0 14px -2px ${color}, inset 0 0 0 2px ${color}` : on ? `inset 0 0 0 1.5px color-mix(in srgb, ${color} 75%, transparent)` : "inset 0 0 0 1px rgb(200 220 255 / 0.25)",
+        textShadow: "0 1px 3px rgb(0 0 0 / 0.7)",
+      } : {
         flex: `${c.w ?? 1} 1 0`,
         minWidth: 0,
         color: on ? "#fff" : "rgb(160 175 220 / 0.45)",

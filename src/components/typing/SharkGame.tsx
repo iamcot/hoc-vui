@@ -433,7 +433,7 @@ export function SharkGame({
             {showKb ? "Ẩn bàn phím" : "Hiện bàn phím"}
           </button>
         </div>
-        {showKb && <Keyboard keys={spec.unit === "key" ? spec.keys : ""} focus={spec.focus} next={phase === "run" ? nextKey : undefined} pressed={flash} compact />}
+        {showKb && <Keyboard ghost keys={spec.unit === "key" ? spec.keys : ""} focus={spec.focus} next={phase === "run" ? nextKey : undefined} pressed={flash} compact />}
       </footer>
 
       {/* màn bắt đầu */}
