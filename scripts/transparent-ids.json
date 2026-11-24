@@ -69,5 +69,16 @@
  "ic-lock",
  "ic-heart",
  "ic-shark",
- "ic-warn"
+ "ic-warn",
+ "lt-holo-mochi-happy",
+ "lt-holo-mochi-cheer",
+ "lt-holo-mochi-oops",
+ "lt-holo-bit-happy",
+ "lt-holo-bit-cheer",
+ "lt-holo-bit-oops",
+ "lt-tier-1",
+ "lt-tier-2",
+ "lt-tier-3",
+ "lt-tier-4",
+ "lt-tier-5"
 ]

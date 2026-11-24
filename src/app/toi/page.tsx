@@ -29,7 +29,7 @@ export default function MePage() {
 
   return (
     <div className="space-y-6">
-      <Scene variant="meadow" dim />
+      <Scene image="bg-home" variant="meadow" dim />
       <h1 className="ribbon text-3xl">Của tôi</h1>
 
       {/* hai cột cao tự nhiên: trái = hồ sơ + tài khoản, phải = tuỳ chỉnh (không ép bằng chiều cao) */}

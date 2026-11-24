@@ -56,6 +56,10 @@ const TXT =
 export const STYLE_CYBER =
   "Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark";
 
+/** nhân vật hologram trên sân Lập trình: dễ thương nhưng "ngầu", toàn bằng ánh sáng */
+export const STYLE_HOLO =
+  "Clean sci-fi game character sprite, crisp vector-like shapes, cute but cool, glowing translucent hologram look with additive cyan light, subtle chromatic edge (faint pink and violet fringe), consistent same character design across all poses, no text, no letters, no numbers, no watermark";
+
 export const BIT =
   "Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile";
 
@@ -127,6 +131,9 @@ const sign = (id: string, usage: string, emblem: string): ImageAsset =>
   img(`nav-${id}`, "1536x1024", `Tấm biển gắn vào cọc ở thanh bên: ${usage} (chữ do app viết đè lên ván trống)`, `${SIGN}. The emblem shows ${emblem}`, true);
 
 const SEA_FISH = "side view, swimming toward the LEFT (head on the left), a large flat dark plate in the middle of the body left empty for a word label, glowing neon outline";
+
+/** ô lưới môn Lập trình: nhìn thẳng từ trên xuống */
+const TOP = "TOP-DOWN view seen from directly above, a single square game tile filling the whole image edge to edge";
 
 export const IMAGES: ImageAsset[] = [
   // Nhân vật
@@ -296,6 +303,44 @@ export const IMAGES: ImageAsset[] = [
   icon("heart", "Mạng sống trong game", "A plump glossy red heart"),
   icon("shark", "Vào game cá mập", "A cute small blue shark head with a friendly grin"),
   icon("warn", "Chú ý", "A rounded yellow warning triangle with an exclamation shape made of a bar and a dot (not a letter)"),
+
+  // ── Môn Lập trình khối lệnh (Vỡ lòng: Mochi trên lưới, STYLE) ──
+  cyber(
+    "subject-laptrinh-cover",
+    "1536x1024",
+    "Ảnh lớn môn Lập trình ở trang chủ (chữ đè lên phần dưới ảnh), phong cách Hologram",
+    `${BIT}, standing confidently on a floating glass isometric 3D game board made of translucent cyan grid tiles with glowing edges and a mirror-like reflection underneath, a few frosted-glass cube walls on the board, one hand raised controlling a floating holographic code panel; glowing translucent glass command blocks (cyan, violet, mint green, amber, blank faces with no text) snapping together in mid-air like a puzzle chain, a holographic small round white cat projection made of cyan light with scan lines walking along the tiles toward a glowing mint-green portal flag, golden crystal stars hovering above some tiles, thin HUD frame corners and radar circles floating in the air, deep teal-black space background with soft cyan haze, upper half has the action, lower third darker for text`,
+  ),
+  cyber("bg-lt-map", "1536x1024", "Cảnh nền bản đồ bài của môn Lập trình (tối, neon)", "A calm, minimal dark background: deep navy to teal-black gradient with a faint glowing circuit-trace pattern, very thin and sparse cyan lines only near the left and right edges, a few tiny soft bokeh dots, the whole center (60% of the width) almost empty and smooth, very low contrast and low saturation, no buildings, no trees, no big shapes, so map cards and text on top stay easy to read"),
+  cyber("bg-lt-lesson", "1536x1024", "Cảnh nền bài học, màn chơi môn Lập trình (rất tối, mờ)", "A cozy futuristic coding lab at night, big holographic screens showing colorful puzzle-piece blocks, a small robot desk lamp, cyan and violet glow, background heavily blurred and dark, mostly empty"),
+  img("lt-cover-vo-long", "1536x1024", "Bìa các bài Vỡ lòng môn Lập trình", `${MOCHI}, standing on a grass tile of a big garden grid board, holding a blue puzzle-piece command block (blank, no text), small stone walls and a red flag on other tiles, golden stars here and there`),
+  img("lt-cover-co-ban", "1536x1024", "Bìa các bài Cơ bản môn Lập trình (lặp, nếu, bút vẽ)", `${MOCHI}, holding a giant crayon and drawing a neat square spiral path on a big garden grid board, a green looping arrow ribbon circling above, small stone walls on some tiles`),
+  cyber("lt-cover-trung-cap", "1536x1024", "Bìa các bài Trung cấp môn Lập trình (hàm, biến, sự kiện, mini game)", `${BIT}, sitting on a floating neon block platform and snapping together glowing puzzle-piece code blocks into a small arcade game screen, a holographic joystick and floating function brackets made of simple shapes around him`),
+  cyber("lt-cover-nang-cao", "1536x1024", "Bìa các bài Nâng cao môn Lập trình (danh sách, tìm kiếm, sắp xếp, mê cung)", `${BIT}, standing in a dark holographic warehouse beside a row of glowing numbered crates being sorted from short to tall, a translucent maze map hovering in front of his visor`),
+  // nhân vật hologram trên sân (giao diện Hologram): thay hình vẽ SVG khi có file; bệ chiếu và tia sáng vẫn do app vẽ
+  ...(["mochi", "bit"] as const).flatMap((who) =>
+    (
+      [
+        ["happy", "đứng yên / đang đi", "a calm friendly smile, eyes open and bright"],
+        ["cheer", "về tới cờ, thắng", "eyes closed in happy upside-down arcs, big joyful smile, one paw raised in a cheer"],
+        ["oops", "đụng tường, sai", "dizzy surprised face with little x-shaped eyes, small worried mouth, one paw on the head"],
+      ] as const
+    ).map(([mood, when, face]) =>
+      img(
+        `lt-holo-${who}-${mood}`,
+        "1024x1024",
+        `Lập trình · nhân vật ${who === "mochi" ? "Mochi" : "Bit"} hologram trên sân Hologram, lúc ${when}`,
+        `A cute glowing HOLOGRAM of ${who === "mochi" ? "a chibi white cat with small pointed ears" : "a chibi rabbit with two long upright ears whose tips glow (cyan left, pink right) and a sleek tech visor band across the eyes"}, seen from the front, full body, short round body and a big round head, made entirely of translucent cyan light (#4FF0FF) with a bright white-cyan outline, thin horizontal scan lines across the body, faint wireframe lines, soft outer glow, ${face}. Floating, centered, filling about 85% of the image height, feet at the bottom center; no projector base, no light beam, no floor, no ground shadow (the app draws those)`,
+        true,
+        STYLE_HOLO,
+      ),
+    ),
+  ),
+  img("lt-tier-1", "1024x1024", "Huy hiệu trình độ Vỡ lòng (môn Lập trình)", "Round badge: a small white cat paw print stepping on a green grid tile with a tiny arrow, mint and sky-blue colors", true),
+  img("lt-tier-2", "1024x1024", "Huy hiệu trình độ Cơ bản (môn Lập trình)", "Round badge: a looping circular arrow made of a mint-green puzzle-piece block around a yellow star", true),
+  img("lt-tier-3", "1024x1024", "Huy hiệu trình độ Trung cấp (môn Lập trình)", "Round badge: a cute game controller made of colorful puzzle-piece blocks, lilac glow", true),
+  img("lt-tier-4", "1024x1024", "Huy hiệu trình độ Nâng cao (môn Lập trình)", "Round badge: a row of bar-chart columns being sorted from short to tall with a small curved arrow, sky blue and coral", true),
+  img("lt-tier-5", "1024x1024", "Huy hiệu trình độ Python (môn Lập trình)", "Round badge: a friendly round blue and yellow snake coiled around a pair of curly code brackets made of simple shapes (no letters)", true),
 ];
 
 const sfx = (id: string, usage: string, prompt: string): AudioAsset => ({ id, file: `/assets/sfx/${id}.mp3`, kind: "sfx", usage, prompt });
@@ -368,10 +413,17 @@ export const AUDIO: AudioAsset[] = [
   sfx("gp-bite", "Cá chạm vào thợ lặn", "Muffled underwater chomp with a short low warning buzz, 0.5 seconds"),
   sfx("gp-wave", "Bắt đầu lượt, đợt cá mới", "Deep sonar ping with soft echo underwater, 1 second"),
   sfx("gp-go", "Đếm ngược xuất phát đua xe", "Three short electronic countdown beeps and a higher go beep, 2 seconds"),
+  sfx("lt-step", "Lập trình · nhân vật bước một ô", "Tiny soft robotic footstep blip, light and bouncy, 0.12 seconds"),
+  sfx("lt-turn", "Lập trình · nhân vật quay người", "Short soft servo whirr turning, cute robot, 0.2 seconds"),
+  sfx("lt-bump", "Lập trình · đụng tường", "Soft cartoon thud against a wall with a tiny dizzy boing, friendly, 0.4 seconds"),
+  sfx("lt-run", "Lập trình · bấm Chạy chương trình", "Short rising electronic power-up chirp, clean synth, 0.5 seconds"),
+  sfx("lt-swap", "Lập trình · kho hàng: đổi chỗ hai hộp", "Quick whoosh of two boxes sliding past each other with a soft wooden clack, 0.4 seconds"),
+  sfx("lt-key", "Lập trình · bấm phím điều khiển trong mini game", "Retro 8-bit game button blip, short and crisp, 0.1 seconds"),
   voice("vo-gp-n01", "Gõ phím · Bài đầu Hàng phím cơ sở, câu chào của Bit", "Chào em, tớ là Bit! Mình sẽ lặn xuống biển sâu và hạ cá mập bằng bàn phím. Trước tiên, đặt hai ngón trỏ lên phím F và J nhé."),
   voice("vo-gp-t01", "Gõ phím · Bài đầu Từng bàn tay", "Lên hàng trên nào! Ngón nào với lên phím nào thì gõ xong phải về hàng phím cơ sở nha."),
   voice("vo-gp-p01", "Gõ phím · Bài đầu Phối hợp", "Giờ hai tay cùng chơi. Gõ đều tay, mắt nhìn màn hình là sẽ nhanh thôi."),
   voice("vo-gp-v01", "Gõ phím · Bài đầu Telex", "Gõ tiếng Việt có dấu thôi! Gõ a hai lần là thành chữ â. Học Vui tự ghép chữ cho em."),
+  voice("vo-lt-a01", "Lập trình · Bài đầu Vỡ lòng, câu chào của Mochi", "Chào em! Hôm nay em làm người ra lệnh, còn tớ làm theo. Xếp các khối lệnh thật đúng để dẫn tớ về lá cờ nhé!"),
 ];
 
 /** Giọng đọc mẫu môn Tập đọc (in riêng ở docs/TAPDOC_VOICES.md) */

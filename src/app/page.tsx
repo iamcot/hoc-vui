@@ -1,4 +1,5 @@
 "use client";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { STAGES, SUBJECTS, tierLessons } from "@/content/subjects";
@@ -16,14 +17,20 @@ function greeting() {
 
 export default function Home() {
   const { data, lesson, streak, ready } = useProgress();
+  // lần vẽ đầu (cả lúc hydrate) luôn như khi chưa có tiến trình, để HTML server và client khớp nhau; có dữ liệu thật mới đổi thẻ "Học tiếp"
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  const known = mounted && ready;
   const live = SUBJECTS.filter((s) => s.ready);
   // thẻ "Học tiếp": môn học gần nhất, đúng bài đang học dở
-  const main = live.find((s) => s.id === data.lastSubject) ?? live[0];
-  const nextId = continueLessonId(main, lesson, data.unlocks, data.last?.[main.id]);
-  const tier = main.tiers.find((t) => tierLessons(t).some((l) => l.id === nextId)) ?? main.tiers[currentTierIndex(main, lesson, data.unlocks)];
+  const main = (known && live.find((s) => s.id === data.lastSubject)) || live[0];
+  const unlocks = known ? data.unlocks : {};
+  const lessonOf: typeof lesson = (sid, lid) => (known ? lesson(sid, lid) : ({ stars: 0 } as ReturnType<typeof lesson>));
+  const nextId = continueLessonId(main, lessonOf, unlocks, known ? data.last?.[main.id] : undefined);
+  const tier = main.tiers.find((t) => tierLessons(t).some((l) => l.id === nextId)) ?? main.tiers[currentTierIndex(main, lessonOf, unlocks)];
   const lessons = tierLessons(tier);
   const next = lessons.find((l) => l.id === nextId) ?? lessons[0];
-  const doneCount = lessons.filter((l) => lesson(main.id, l.id).stars > 0).length;
+  const doneCount = lessons.filter((l) => lessonOf(main.id, l.id).stars > 0).length;
 
   return (
     <div className="space-y-10">

@@ -102,7 +102,7 @@ export function TierTest({ subjectId, tierId, mode }: { subjectId: string; tierI
         {cyber && <Scene image={s.look?.lesson} variant="deep" />}
         <QuizHeader closeHref={mapHref} done={0} total={COUNT} />
         <main className="mx-auto grid max-w-4xl items-center gap-8 px-4 py-10 sm:px-6 md:grid-cols-2">
-          <Mascot who={s.mascot} mood="think" size={220} className="floaty mx-auto" />
+          <Mascot who={tier.mascot ?? s.mascot} mood="think" size={220} className="floaty mx-auto" />
           <div className="space-y-4">
             {mode === "challenge" ? (
               <>
@@ -163,7 +163,7 @@ export function TierTest({ subjectId, tierId, mode }: { subjectId: string; tierI
       <main className="mx-auto max-w-4xl space-y-6 px-4 py-10 sm:px-6">
         {mode === "challenge" ? (
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="card grid items-center gap-6 p-6 sm:grid-cols-[200px_1fr] sm:p-8">
-            <Mascot who={s.mascot} mood={correct >= ch.pass ? "cheer" : "oops"} size={180} className="floaty mx-auto" />
+            <Mascot who={tier.mascot ?? s.mascot} mood={correct >= ch.pass ? "cheer" : "oops"} size={180} className="floaty mx-auto" />
             <div className="space-y-2 text-center sm:text-left">
               <p className="text-ink-soft">Thử thách lên {nextTier?.name}</p>
               <h1 className="font-display text-4xl font-extrabold">{correct >= ch.pass ? <><Ico n="party" /> Đã mở {nextTier?.name}!</> : correct >= ch.pass - 2 ? "Suýt nữa rồi!" : "Chưa qua lần này"}</h1>

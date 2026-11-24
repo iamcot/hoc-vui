@@ -34,6 +34,13 @@ lt-d01 Danh sách · lt-d02 Tìm lớn nhất, nhỏ nhất · lt-d03 Tìm kiế
 ### 5. Python (lớp 9–12) · `python`
 lt-p01 Từ khối sang Python · lt-p02 print, biến, input · lt-p03 if/else · lt-p04 for, while · lt-p05 list, string · lt-p06 Hàm · lt-p07 Bài tập theo đề Tin học THPT (chấm bằng test)
 
+## Đã làm (Vỡ lòng)
+- Không dùng JS-Interpreter: khối được đọc thành cây lệnh (`src/lib/code/program.ts`), chạy bằng generator từng bước (`run.ts`), không có eval, giới hạn 400 bước. Đủ cho bộ khối hạn chế; khi sang biến/hàm sẽ cân nhắc lại.
+- Blockly 12 (`blockly/core`, renderer `zelos`, theme Mochi), ảnh giao diện Blockly tự host ở `public/blockly/`.
+- Một bài là **một luồng liền**: vào bài thì xem 1-2 slide hướng dẫn rồi chơi luôn các màn, cùng một trang, không tách Bài học / Luyện tập. Bài đã đọc hướng dẫn thì vào thẳng màn chơi (nút 📖 trên thanh tiến độ để xem lại). Dữ liệu: `Lesson.code` (`CodeSpec`), trang bài và trang `luyen-tap` đều dùng `CodePractice`. Slide có khối `code` (lưới nhỏ + nút Xem chạy).
+- Sao của màn: qua màn 1 sao, thừa tối đa 2 khối 2 sao, bằng số khối tối ưu 3 sao. Sao của bài = tổng sao các màn / (số màn × 3). Sau 3 lần chạy sai hiện nút Bỏ qua màn.
+- Thử thách, kiểm tra trình độ, đấu trường dùng câu trắc nghiệm sinh ngẫu nhiên (`lap-trinh/questions.ts`): hướng nhìn sau khi rẽ, chương trình nào đúng, khối nào sai, chương trình nào ít khối nhất.
+
 ## Kỹ thuật
 - Gói: `blockly`, `js-interpreter` (hoặc tự viết interpreter nhỏ cho bộ khối hạn chế), `pyodide` (tải từ CDN, chỉ ở trình độ Python).
 - `src/lib/code/`: `world.ts` (lưới, tường, sao, rùa vẽ), `run.ts` (chạy từng bước, giới hạn bước), `grade.ts` (chấm), `levels.ts` (sinh màn + kiểm tra giải được bằng BFS).
@@ -50,12 +57,32 @@ lt-p01 Từ khối sang Python · lt-p02 print, biến, input · lt-p03 if/else 
 - Bộ ô lưới: cỏ, tường đá, nước, sao, cờ đích (nền trong, nhìn từ trên xuống).
 
 ## Tiến độ
-- [ ] Bản thử: Blockly + chạy từng bước + lưới 5×5, Mochi đi theo khối, chụp màn hình gửi duyệt
-- [ ] Bộ màn chơi dạng dữ liệu, sinh màn ngẫu nhiên có kiểm tra
-- [ ] Bộ chấm + sao theo số khối
-- [ ] Vỡ lòng + Cơ bản (khoảng 30 màn)
+- [x] Bản thử: Blockly + chạy từng bước + lưới, Mochi đi theo khối (chờ bạn duyệt ảnh chụp)
+- [x] Bộ màn chơi dạng dữ liệu, sinh màn ngẫu nhiên có kiểm tra (BFS)
+- [x] Bộ chấm + sao theo số khối
+- [x] Vỡ lòng: 5 bài, 26 màn làm sẵn + màn sinh ngẫu nhiên, câu trắc nghiệm cho thử thách/đấu trường
+- [x] Cơ bản: 6 bài, 30 màn (Lặp N lần, Lặp trong lặp, Nếu có tường/đường, Lặp cho tới khi, Bút vẽ, Hoa văn). Bài Nếu và Lặp tới khi có **sân ẩn**: qua sân 1 thì cùng chương trình tự chạy sân 2, 3 (chấm theo bộ dữ liệu ẩn). Bút vẽ so nét vẽ với hình mẫu.
+- [ ] Tạo ảnh `lt-*` (prompt đã có trong `docs/ASSET_PROMPTS.md`), giọng `vo-lt-a01`
 - [ ] Sân chơi tự do + chia sẻ bằng mã
-- [ ] Trung cấp, Nâng cao
+- [x] Trung cấp (6 bài, 27 màn: biến n, hàm, hàm có số n, sự kiện phím + mini game có pin, sân ngẫu nhiên với Nếu/không thì)
+- [x] Nâng cao (6 bài, 24 màn: kho hàng danh sách, lớn/nhỏ nhất, tìm kiếm, nổi bọt, đệ quy, mê cung bám tường)
 - [ ] Pyodide + trình độ Python
 - [ ] Thi đấu
 - [ ] PR (mỗi trình độ một PR)
+
+## Giao diện (theme) theo trình độ
+
+- 4 giao diện: **Pixel** (mặc định Vỡ lòng), **Xưởng robot** (mặc định Cơ bản, Trung cấp), **Neon** (mở ở Trung cấp, chỉ là lựa chọn thêm), **Hologram** (mặc định Nâng cao, Python).
+- Nút "Giao diện" trên thanh đầu bài mở popup chọn. Giao diện của trình độ chưa mở thì khóa. Lựa chọn lưu ở `localStorage` (`hocvui:lt-skin`), chọn rồi mà chưa mở khóa thì về mặc định.
+- Code: `src/lib/code/skins.ts` (danh sách, mặc định, mở khóa), `src/components/code/skin.tsx` (nhân vật, ô sân, nền), `HoloStage.tsx` (sân 3D kính, HUD, radar), `ThemePicker.tsx`. CSS ở cuối `globals.css` (`.lt-skin-*`).
+- Hologram có bảng PREVIEW.PY dịch khối sang Python (`pythonLines`), dòng đang chạy sáng lên: chuẩn bị cho trình độ Python.
+- Đổi giao diện giữa màn thì bàn khối dựng lại, chương trình bé đang ghép giữ nguyên.
+
+## Trung cấp, Nâng cao: bộ chạy mở rộng
+
+- Chữ chương trình (`src/lib/code/program.ts`): `n=3` `n+1` `n(F)` biến n; `ten{...}` hàm, `@ten` gọi, `@ten:3` gọi với n = 3; `#u{...}` khi bấm phím (u l r s); `W?(... | ...)` nếu/không thì; `P` có đường phía trước.
+- Kho hàng (`src/lib/code/list.ts`): `>` sang hộp kế, `^` về hộp đầu, `%` đổi chỗ với hộp kế, `!` nhớ hộp này; điều kiện `E` hộp cuối, `X` số cần tìm, `M`/`N` lớn/nhỏ hơn số nhớ, `S` lớn hơn hộp kế. Chấm khi chạy xong.
+- Bộ chạy chung `interp` (run.ts) lo lặp, nếu, biến, hàm (gọi lồng tối đa 40), dùng cho cả sân lưới và kho hàng.
+- Màn phím: bấm 🎮 Chơi rồi lái bằng nút/phím mũi tên; pin giới hạn số lần bấm. Kiểm thử tìm cách bấm ít nhất (`solveKeys`) để chắc màn qua được và phím đơn giản không đủ pin.
+- Sân ngẫu nhiên: `pick: 3` bốc 3 trong các sân mỗi lần chơi; chấm vẫn soát mọi sân.
+- Chế độ xem thử `?debug=1`: bấm số màn để nhảy, nút 🧪 Lời giải nạp lời giải mẫu.

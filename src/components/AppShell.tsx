@@ -124,10 +124,10 @@ function TitleBoard({ dark, neon }: { dark: boolean; neon: boolean }) {
   const neonImg = neon && TITLE.includes("-neon");
   const img = hasFile(TITLE);
   return (
-    <div className={`relative flex items-center gap-2 ${img ? "py-3.5 pl-5 pr-7" : "py-2 pl-2 pr-4"} drop-shadow-[0_6px_6px_rgba(60,35,10,0.35)]`}>
+    <div className={`relative flex items-center gap-2 ${neonImg ? "py-3.5 pl-6 pr-10" : img ? "py-3.5 pl-5 pr-7" : "py-2 pl-2 pr-4"} drop-shadow-[0_6px_6px_rgba(60,35,10,0.35)]`}>
       {img ? (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={resolveFile(TITLE)} alt="" className="absolute inset-0 h-full w-full" />
+        <img src={resolveFile(TITLE)} alt="" className={`absolute ${neonImg ? "-inset-x-[7%] -inset-y-[20%] h-[140%] w-[114%]" : "inset-0 h-full w-full"}`} />
       ) : (
         <span className={`absolute inset-0 rounded-[1.1rem] ${dark ? "bg-[linear-gradient(180deg,#e9c48c,#c9965a)]" : "bg-[linear-gradient(180deg,#f6d6a2,#dca869_60%,#c48a4c)]"} shadow-[inset_0_0_0_2px_rgb(120_75_35/0.55),inset_0_-4px_0_rgb(120_75_35/0.25)]`} />
       )}
@@ -159,13 +159,13 @@ function NavSign({ href, id, label, Icon, on, k, neon }: { href: string; id: str
       {img ? (
         // 9-slice: giữ nguyên hình tròn (trái) và mũi tên (phải), chỉ kéo dài phần ván giữa -> biển thấp, dài, cân với biển tên
         <span
-          className={`relative flex h-[60px] items-center justify-center whitespace-nowrap font-display text-lg font-extrabold ${neonImg ? "text-[#eaf6ff] [text-shadow:0_0_10px_rgb(47_211_255/0.7)]" : "text-[#5a3418] [text-shadow:0_1px_0_rgb(255_235_200/0.7)]"} ${glow}`}
-          style={{
-            borderStyle: "solid",
-            borderWidth: "0 26px 0 56px",
-            borderImage: `url(${resolveFile(file)}) 0 140 0 300 fill / 0 26px 0 56px stretch`,
-            paddingLeft: "0.25rem",
-          }}
+          className={`relative flex items-center justify-center whitespace-nowrap font-display text-lg font-extrabold ${neonImg ? "h-[86px] text-[#eaf6ff] [text-shadow:0_0_10px_rgb(47_211_255/0.7)]" : "h-[60px] text-[#5a3418] [text-shadow:0_1px_0_rgb(255_235_200/0.7)]"} ${glow}`}
+          style={
+            neonImg
+              ? // ảnh neon có viền trong suốt ~15% quanh tấm biển: phóng to cho phần biển thấy được cao bằng biển gỗ (60px), lề âm bù viền
+                { borderStyle: "solid", borderWidth: "0 60px 0 81px", borderImage: `url(${resolveFile(file)}) 0 220 0 300 fill / 0 60px 0 81px stretch`, margin: "-13px", paddingLeft: "0.25rem" }
+              : { borderStyle: "solid", borderWidth: "0 26px 0 56px", borderImage: `url(${resolveFile(file)}) 0 140 0 300 fill / 0 26px 0 56px stretch`, paddingLeft: "0.25rem" }
+          }
         >
           {label}
         </span>
