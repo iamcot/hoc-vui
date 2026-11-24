@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { motion } from "motion/react";
 import { SUBJECTS, tierLessons } from "@/content/subjects";
-import { currentTierIndex } from "@/lib/tiers";
+import { continueLessonId, currentTierIndex } from "@/lib/tiers";
 import { useProgress } from "@/lib/store";
 import { Mascot } from "@/components/Mascot";
 import { Art } from "@/components/Art";
@@ -17,10 +17,12 @@ export default function Home() {
   const { data, lesson, streak, ready } = useProgress();
   const live = SUBJECTS.filter((s) => s.ready);
   const soon = SUBJECTS.filter((s) => !s.ready);
-  const main = live[0];
-  const tier = main.tiers[currentTierIndex(main, lesson, data.unlocks)];
+  // thẻ "Học tiếp": môn học gần nhất, đúng bài đang học dở
+  const main = live.find((s) => s.id === data.lastSubject) ?? live[0];
+  const nextId = continueLessonId(main, lesson, data.unlocks, data.last?.[main.id]);
+  const tier = main.tiers.find((t) => tierLessons(t).some((l) => l.id === nextId)) ?? main.tiers[currentTierIndex(main, lesson, data.unlocks)];
   const lessons = tierLessons(tier);
-  const next = lessons.find((l) => lesson(main.id, l.id).stars === 0) ?? lessons[0];
+  const next = lessons.find((l) => l.id === nextId) ?? lessons[0];
   const doneCount = lessons.filter((l) => lesson(main.id, l.id).stars > 0).length;
 
   return (

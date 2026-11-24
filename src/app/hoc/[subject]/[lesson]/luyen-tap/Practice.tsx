@@ -19,7 +19,8 @@ const COUNT = 8;
 
 export function Practice({ subjectId, lessonId }: { subjectId: string; lessonId: string }) {
   const { subject, tier, lesson, next } = getLesson(subjectId, lessonId)!;
-  const { recordPractice } = useProgress();
+  const { recordPractice, setLast } = useProgress();
+  useEffect(() => setLast(subject.id, lesson.id), [subject.id, lesson.id, setLast]);
   const [qs, setQs] = useState<Question[]>([]);
   const [i, setI] = useState(0);
   const [answers, setAnswers] = useState<AnswerResult[]>([]);
@@ -53,7 +54,7 @@ export function Practice({ subjectId, lessonId }: { subjectId: string; lessonId:
 
   return (
     <div className="min-h-dvh">
-      <QuizHeader closeHref={`/hoc/${subject.id}?cap=${tier.id}`} done={answers.length} total={qs.length} wide={dock.open && !summary} right={!summary && <CalcToggle dock={dock} />} />
+      <QuizHeader closeHref={`/hoc/${subject.id}`} done={answers.length} total={qs.length} wide={dock.open && !summary} right={!summary && <CalcToggle dock={dock} />} />
       {!summary ? (
         <CalcLayout dock={dock}>
           <div className="card p-5 sm:p-8">

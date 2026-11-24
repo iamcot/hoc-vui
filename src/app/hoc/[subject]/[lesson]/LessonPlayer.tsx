@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { getLesson } from "@/content/subjects";
@@ -21,7 +22,9 @@ import { Scene } from "@/components/Scene";
 export function LessonPlayer({ subjectId, lessonId }: { subjectId: string; lessonId: string }) {
   const info = getLesson(subjectId, lessonId)!;
   const { subject, tier, lesson, index, next } = info;
-  const { markRead, data, setSound } = useProgress();
+  const { markRead, data, setSound, setLast } = useProgress();
+  // nhớ bài đang học: thoát ra rồi vào lại bản đồ thì tới đúng bài này
+  useEffect(() => setLast(subject.id, lesson.id), [subject.id, lesson.id, setLast]);
   const [i, setI] = useState(0);
   const [dir, setDir] = useState(1);
   const total = lesson.slides.length;
@@ -60,12 +63,33 @@ export function LessonPlayer({ subjectId, lessonId }: { subjectId: string; lesso
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  // phím tắt: Enter / → sang slide sau, Esc / ← quay lại. Ở màn hoàn thành, Enter vào luyện tập.
+  const router = useRouter();
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.ctrlKey || e.metaKey || e.altKey || e.shiftKey) return;
+      const t = e.target as HTMLElement | null;
+      if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.tagName === "SELECT" || t.isContentEditable)) return;
+      if (e.key === "Enter" || e.key === "ArrowRight") {
+        e.preventDefault();
+        if (finished) {
+          if (e.key === "Enter") router.push(`/hoc/${subject.id}/${lesson.id}/luyen-tap`);
+        } else go(1);
+      } else if (e.key === "Escape" || e.key === "ArrowLeft") {
+        e.preventDefault();
+        if (i > 0) go(-1);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  });
+
   return (
     <div className={`flex min-h-dvh flex-col ${subject.look?.theme === "cyber" ? "theme-cyber" : ""}`}>
       <Scene image={subject.look?.lesson ?? "bg-lesson"} variant={subject.look?.theme === "cyber" ? "deep" : "desk"} dim={subject.look?.theme !== "cyber"} />
       <header className="sticky top-0 z-20 bg-white/60 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center gap-3 px-4 py-3 sm:px-6">
-          <Link href={`/hoc/${subject.id}?cap=${tier.id}`} className="grid h-10 w-10 place-items-center rounded-full bg-white shadow-sm" aria-label="Đóng bài học">
+          <Link href={`/hoc/${subject.id}`} className="grid h-10 w-10 place-items-center rounded-full bg-white shadow-sm" aria-label="Đóng bài học">
             <IconClose className="h-5 w-5" />
           </Link>
           <div className="flex flex-1 gap-1.5">
@@ -192,6 +216,10 @@ export function LessonPlayer({ subjectId, lessonId }: { subjectId: string; lesso
             <button className="btn btn-ghost" onClick={() => go(-1)} disabled={i === 0}>
               ◀ Trước
             </button>
+            <span className="hidden text-xs font-bold text-ink-soft md:block">
+              <kbd className="rounded border border-current px-1.5 py-0.5 font-mono">Esc</kbd> / <kbd className="rounded border border-current px-1.5 py-0.5 font-mono">←</kbd> quay lại ·{" "}
+              <kbd className="rounded border border-current px-1.5 py-0.5 font-mono">Enter</kbd> / <kbd className="rounded border border-current px-1.5 py-0.5 font-mono">→</kbd> đi tiếp
+            </span>
             <button className="btn btn-primary min-w-36" onClick={() => go(1)}>
               {i === total - 1 ? "Hoàn thành ✓" : "Tiếp ▶"}
             </button>

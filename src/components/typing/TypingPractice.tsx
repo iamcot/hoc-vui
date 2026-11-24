@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getLesson } from "@/content/subjects";
 import { useProgress } from "@/lib/store";
 import { SharkGame, type GameResult } from "./SharkGame";
@@ -9,7 +9,8 @@ import { GameResultPanel } from "./GameResult";
 /** Luyện tập môn Gõ phím: một lượt lặn bắn cá; sao tính theo số cá hạ được và độ chính xác */
 export function TypingPractice({ subjectId, lessonId }: { subjectId: string; lessonId: string }) {
   const { subject, tier, lesson, next } = getLesson(subjectId, lessonId)!;
-  const { recordPractice } = useProgress();
+  const { recordPractice, setLast } = useProgress();
+  useEffect(() => setLast(subject.id, lesson.id), [subject.id, lesson.id, setLast]);
   const [round, setRound] = useState(0);
   const [res, setRes] = useState<{ r: GameResult; stars: number; xp: number } | null>(null);
 
@@ -20,7 +21,7 @@ export function TypingPractice({ subjectId, lessonId }: { subjectId: string; les
     setRes({ r, stars, xp });
   }
 
-  const back = `/hoc/${subject.id}?cap=${tier.id}`;
+  const back = `/hoc/${subject.id}`;
   return (
     <>
       <SharkGame key={round} spec={lesson.typing!} onFinish={done} exitHref={back} title={lesson.title} />

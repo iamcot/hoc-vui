@@ -31,3 +31,19 @@ export function currentTierIndex(s: Subject, lesson: LessonFn, unlocks: Record<s
   });
   return best;
 }
+
+/**
+ * Bài "học tiếp" của một môn: bài mở gần nhất (học xong rồi thì bài kế tiếp nếu đã mở);
+ * chưa có bài nào được lưu thì lấy bài đầu tiên chưa có sao của trình độ hiện tại.
+ */
+export function continueLessonId(s: Subject, lesson: LessonFn, unlocks: Record<string, string[]>, last?: string) {
+  const all = s.tiers.flatMap((t, ti) => tierLessons(t).map((l) => ({ l, ti })));
+  const k = all.findIndex((x) => x.l.id === last);
+  if (k >= 0 && tierUnlocked(s, all[k].ti, lesson, unlocks)) {
+    const nx = all[k + 1];
+    if (lesson(s.id, all[k].l.id).stars === 0 || !nx || !tierUnlocked(s, nx.ti, lesson, unlocks)) return all[k].l.id;
+    return nx.l.id;
+  }
+  const cur = tierLessons(s.tiers[currentTierIndex(s, lesson, unlocks)]);
+  return (cur.find((l) => lesson(s.id, l.id).stars === 0) ?? cur[cur.length - 1])?.id;
+}

@@ -38,6 +38,10 @@ export interface ProgressData {
   calcMode: "virtual" | "physical";
   /** XP theo ngày, dùng cho chuỗi ngày học: yyyy-mm-dd -> xp */
   days: Record<string, number>;
+  /** bài đang học dở của từng môn (mở gần nhất): subjectId -> lessonId */
+  last: Record<string, string>;
+  /** môn học gần nhất */
+  lastSubject?: string;
 }
 
 const EMPTY: ProgressData = {
@@ -49,6 +53,7 @@ const EMPTY: ProgressData = {
   sound: true,
   calcMode: "virtual",
   days: {},
+  last: {},
 };
 
 const LS_KEY = "hocvui:v1";
@@ -96,6 +101,8 @@ interface Store {
   /** key: subjectId:tierId */
   recordTest(key: string, t: TestState): void;
   unlockTier(subjectId: string, tierId: string): void;
+  /** ghi nhớ bài đang học để lần sau vào bản đồ thì tới đúng bài đó */
+  setLast(subjectId: string, lessonId: string): void;
   addXp(subjectId: string, amount: number, reason: string): void;
   setProfile(p: Partial<Profile>): void;
   setSound(on: boolean): void;
@@ -236,6 +243,10 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
       recordTest(key, t) {
         update((d) => ({ ...d, tests: { ...d.tests, [key]: t } }));
         if (sb && session) void sb.from("level_tests").insert({ user_id: session.user.id, subject_id: key, pct: t.pct, level: t.level });
+      },
+      setLast(s, l) {
+        if (data.last?.[s] === l && data.lastSubject === s) return;
+        update((d) => ({ ...d, last: { ...(d.last ?? {}), [s]: l }, lastSubject: s }));
       },
       unlockTier(s, tier) {
         if (data.unlocks[s]?.includes(tier)) return;

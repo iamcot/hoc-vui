@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 import { useEffect, useRef } from "react";
 import { getSubject, tierLessons } from "@/content/subjects";
 import type { Tier } from "@/content/types";
-import { challengeOf, currentTierIndex, tierUnlocked } from "@/lib/tiers";
+import { challengeOf, continueLessonId, currentTierIndex, tierUnlocked } from "@/lib/tiers";
 import { useProgress } from "@/lib/store";
 import { Art } from "@/components/Art";
 import { IconBack, IconLock, IconStar } from "@/components/Icons";
@@ -44,8 +44,8 @@ export function SubjectMap({ subjectId }: { subjectId: string }) {
 
   const open = s.tiers.map((_, i) => tierUnlocked(s, i, lesson, data.unlocks));
   const cur = currentTierIndex(s, lesson, data.unlocks);
-  const curLessons = tierLessons(s.tiers[cur]);
-  const currentId = (curLessons.find((l) => lesson(s.id, l.id).stars === 0) ?? curLessons[curLessons.length - 1])?.id;
+  // bài đang học: bài mở gần nhất (học xong rồi thì bài kế tiếp); chưa học bài nào thì bài đầu chưa có sao
+  const currentId = continueLessonId(s, lesson, data.unlocks, data.last?.[s.id]);
 
   const stops: Stop[] = [];
   s.tiers.forEach((t, ti) => {
@@ -270,6 +270,14 @@ export function SubjectMap({ subjectId }: { subjectId: string }) {
                 ) : (
                   <Link href={`/hoc/${s.id}/${st.id}`} className="group relative block">
                     {circle}
+                  </Link>
+                )}
+                {current && (
+                  <Link
+                    href={`/hoc/${s.id}/${st.id}`}
+                    className="absolute -top-9 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap rounded-full bg-sky px-3 py-1 text-sm font-extrabold text-white shadow-[var(--shadow-pop)] floaty"
+                  >
+                    ▶ Học tiếp
                   </Link>
                 )}
                 {current && <Mascot who={s.mascot} mood="cheer" size={64} className={`floaty pointer-events-none absolute -top-10 ${labelLeft ? "-left-12" : "-right-12"} drop-shadow`} />}
