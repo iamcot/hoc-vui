@@ -112,7 +112,7 @@ export function SubjectMap({ subjectId }: { subjectId: string }) {
 
   return (
     <div className={`space-y-4 ${cyber ? "theme-cyber" : ""}`}>
-      <Scene image={s.look?.map ?? "bg-map"} variant={cyber ? "deep" : "map"} calm={s.look?.calm} />
+      <Scene image={s.look?.map ?? "bg-map"} variant={cyber ? "deep" : "map"} calm={s.look?.calm ?? true} />
       <div className="flex flex-wrap items-center gap-3">
         <Link href="/" className="grid h-12 w-12 place-items-center rounded-full bg-white/90 shadow-[var(--shadow-pop)]" aria-label="Quay lại">
           <IconBack className="h-6 w-6" />

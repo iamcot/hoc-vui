@@ -44,7 +44,7 @@ export function Scene({ image, variant: wanted = "meadow", fixed = true, dim = f
     <div className={`${fixed ? "fixed left-0 top-0 h-lvh w-full" : "absolute inset-0"} -z-10 overflow-hidden`} aria-hidden>
       {src ? (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={src} alt="" className="block h-full w-full object-cover" />
+        <img src={src} alt="" className="block h-full w-full object-cover" style={calm ? { filter: "blur(3px) saturate(0.8)", transform: "scale(1.03)" } : undefined} />
       ) : (
         <svg className="block h-full w-full" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
           <defs>
@@ -82,6 +82,7 @@ export function Scene({ image, variant: wanted = "meadow", fixed = true, dim = f
           </g>
         </svg>
       )}
+      {calm && src && <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_70%_at_55%_50%,rgb(255_255_255/0.55),rgb(255_255_255/0.25)_70%,rgb(255_255_255/0.1))]" />}
       {dim && <div className="absolute inset-0 bg-white/45" />}
     </div>
   );
