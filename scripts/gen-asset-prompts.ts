@@ -55,3 +55,5 @@ tv.push("");
 writeFileSync("docs/TAPDOC_VOICES.md", tv.join("\n"));
 writeFileSync("docs/tapdoc-voices.json", JSON.stringify(TAPDOC_AUDIO.map((a) => ({ id: a.id, file: a.file, text: a.prompt, group: a.usage })), null, 1) + "\n");
 console.log(`docs/TAPDOC_VOICES.md: ${TAPDOC_AUDIO.length} giọng đọc Tập đọc`);
+// danh sách ảnh cần nền trong suốt, để convert-assets tự xóa nền khi ảnh tải về còn nền (Gemini…)
+writeFileSync("scripts/transparent-ids.json", JSON.stringify(IMAGES.filter((i) => i.transparent).map((i) => i.id), null, 1) + "\n");

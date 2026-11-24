@@ -55,8 +55,12 @@ function open(target: string) {
 const ratio = (s: ImageAsset["size"]) =>
   s === "1024x1024" ? "Square image, 1:1." : s === "1536x1024" ? "Wide landscape image, 3:2." : "Tall portrait image, 2:3.";
 
+/** Gemini và vài công cụ không xuất được nền trong suốt: nhờ nền xanh lá trơn, convert-assets sẽ tự xóa */
+const TRANSPARENT_ASK =
+  " Export as PNG with a transparent background. If a transparent background is not possible, put the subject on a plain, perfectly flat solid bright green background (#00FF00) with no shadow, no gradient, no checkerboard pattern and no ground, and keep green out of the subject's outline.";
+
 function promptFor(a: ImageAsset, refs: string[]) {
-  return `${refs.length ? REF_INTRO : ""}${a.prompt} ${ratio(a.size)}${a.transparent ? " Export as PNG with a transparent background." : ""}`;
+  return `${refs.length ? REF_INTRO : ""}${a.prompt} ${ratio(a.size)}${a.transparent ? TRANSPARENT_ASK : ""}`;
 }
 
 /** đặt ảnh tham chiếu vào một thư mục riêng, đánh số để dễ kéo vào ChatGPT */

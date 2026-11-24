@@ -5,7 +5,7 @@
 // - Cũng quét public/assets/img: PNG/JPG nào lỡ để ở đó sẽ được đổi sang WebP và xoá bản gốc
 //   (chạy tự động trước mỗi lần build/dev).
 // - File .mp3/.m4a/.wav trong thư mục nguồn: tên vo-* và tv-* (giọng Tập đọc) vào public/assets/voice, còn lại vào public/assets/sfx.
-import { readdirSync, statSync, mkdirSync, copyFileSync, unlinkSync, existsSync } from "node:fs";
+import { readdirSync, statSync, mkdirSync, copyFileSync, unlinkSync, existsSync, readFileSync } from "node:fs";
 import { join, extname, basename } from "node:path";
 import sharp from "sharp";
 
@@ -22,12 +22,83 @@ function walk(dir) {
   });
 }
 
-async function toWebp(src) {
+/** ảnh cần nền trong suốt (sinh bởi npm run prompts) */
+const TRANSPARENT = new Set(existsSync("scripts/transparent-ids.json") ? JSON.parse(readFileSync("scripts/transparent-ids.json", "utf8")) : []);
+
+/**
+ * Xóa nền trơn (trắng, xanh lá, hay ô caro giả trong suốt) của ảnh tải từ công cụ không xuất được PNG trong suốt.
+ * Lấy màu ở viền ảnh, loang từ viền vào các điểm gần màu đó; nét viền nhân vật chặn lại nên phần trắng bên trong không mất.
+ */
+async function removeBackground(src) {
+  const { data, info } = await sharp(src).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
+  const { width: w, height: h } = info;
+  const px = (i) => [data[i * 4], data[i * 4 + 1], data[i * 4 + 2]];
+  // màu nền: tối đa 2 màu hay gặp nhất trên viền (ô caro có 2 màu)
+  const count = new Map();
+  const border = [];
+  for (let x = 0; x < w; x++) border.push(x, (h - 1) * w + x);
+  for (let y = 0; y < h; y++) border.push(y * w, y * w + w - 1);
+  for (const i of border) {
+    const [r, g, b] = px(i);
+    const k = `${r >> 4},${g >> 4},${b >> 4}`;
+    count.set(k, (count.get(k) ?? 0) + 1);
+  }
+  const top = [...count.entries()].sort((a, b) => b[1] - a[1]).slice(0, 2).filter(([, n]) => n > border.length * 0.08);
+  const bg = top.map(([k]) => k.split(",").map((v) => +v * 16 + 8));
+  if (!bg.length) return null;
+  const dist = (i) => {
+    const [r, g, b] = px(i);
+    return Math.min(...bg.map(([R, G, B]) => Math.hypot(r - R, g - G, b - B)));
+  };
+  const TOL = 48;
+  const seen = new Uint8Array(w * h);
+  const stack = border.filter((i) => dist(i) < TOL);
+  for (const i of stack) seen[i] = 1;
+  while (stack.length) {
+    const i = stack.pop();
+    data[i * 4 + 3] = 0;
+    const x = i % w, y = (i / w) | 0;
+    for (const [nx, ny] of [[x + 1, y], [x - 1, y], [x, y + 1], [x, y - 1]]) {
+      if (nx < 0 || ny < 0 || nx >= w || ny >= h) continue;
+      const n = ny * w + nx;
+      if (seen[n]) continue;
+      seen[n] = 1;
+      const d = dist(n);
+      if (d < TOL) stack.push(n);
+      else if (d < TOL * 2.2) data[n * 4 + 3] = Math.round(255 * ((d - TOL) / (TOL * 1.2))); // mép mềm
+    }
+  }
+  // bớt ánh xanh ở mép khi nền là xanh lá
+  const greenBg = bg.some(([r, g, b]) => g > 180 && r < 120 && b < 120);
+  if (greenBg) for (let i = 0; i < w * h; i++) {
+    if (data[i * 4 + 3] === 0) continue;
+    const r = data[i * 4], g = data[i * 4 + 1], b = data[i * 4 + 2];
+    if (g > Math.max(r, b)) data[i * 4 + 1] = Math.max(r, b);
+  }
+  console.log(`  ${basename(src)}: không có nền trong suốt, đã tự xóa nền (${greenBg ? "xanh lá" : bg.length > 1 ? "ô caro" : "màu trơn"})`);
+  return sharp(data, { raw: { width: w, height: h, channels: 4 } }).png().toBuffer();
+}
+
+async function toWebp(file) {
+  let src = file;
   const name = basename(src, extname(src));
   const out = join(OUT_IMG, `${name}.webp`);
   let img = sharp(src);
   const meta = await img.metadata();
-  const alpha = meta.hasAlpha;
+  let alpha = meta.hasAlpha;
+  // ảnh cần trong suốt mà tải về vẫn có nền (Gemini, JPG...) hoặc PNG có kênh alpha nhưng kín nền
+  if (TRANSPARENT.has(name)) {
+    const st = alpha ? await sharp(src).stats() : null;
+    const opaque = !alpha || (st && st.channels[3] && st.channels[3].min === 255);
+    if (opaque) {
+      const buf = await removeBackground(src);
+      if (buf) {
+        src = buf;
+        img = sharp(buf);
+        alpha = true;
+      }
+    }
+  }
   if (alpha) {
     // cắt viền trong suốt, chừa lề 3%
     const trimmed = await sharp(src).trim({ threshold: 1 }).toBuffer({ resolveWithObject: true });
@@ -40,7 +111,7 @@ async function toWebp(src) {
     .resize({ width: max, height: max, fit: "inside", withoutEnlargement: true })
     .webp({ quality: 80, alphaQuality: 90, effort: 5 })
     .toFile(out);
-  const before = statSync(src).size, after = statSync(out).size;
+  const before = statSync(file).size, after = statSync(out).size;
   console.log(`${name}.webp  ${(before / 1024).toFixed(0)}KB → ${(after / 1024).toFixed(0)}KB`);
 }
 
