@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { IconArena, IconLearn, IconMe, IconRank } from "./Icons";
 import { useProgress } from "@/lib/store";
@@ -139,7 +138,6 @@ function TitleBoard({ dark }: { dark: boolean }) {
 function NavSign({ href, id, label, Icon, on, k }: { href: string; id: string; label: string; Icon: (p: { className?: string }) => React.ReactNode; on: boolean; k: number }) {
   const file = `/assets/img/nav-${id}.webp`;
   const img = hasFile(file);
-  const [aspect, setAspect] = useState(3);
   const tilt = [-3, 2, -1.5, 3][k % 4];
   const shift = ["0.4rem", "1.4rem", "0rem", "1rem"][k % 4];
   const glow = on ? "drop-shadow-[0_0_14px_rgba(255,214,102,0.95)]" : "drop-shadow-[0_5px_5px_rgba(60,35,10,0.35)]";
@@ -158,12 +156,11 @@ function NavSign({ href, id, label, Icon, on, k }: { href: string; id: string; l
             alt=""
             className="block w-full"
             draggable={false}
-            onLoad={(e) => setAspect(e.currentTarget.naturalWidth / e.currentTarget.naturalHeight)}
           />
-          {/* chữ nằm giữa phần ván trống: sau hình tròn bên trái (rộng ~ chiều cao ván), trước mũi tên bên phải */}
+          {/* chữ nằm giữa phần ván trống: sau hình tròn bên trái (~37% bề ngang), trước mũi tên bên phải */}
           <span
-            className="absolute inset-y-0 z-10 flex items-center justify-center whitespace-nowrap font-display text-xl font-extrabold text-[#5a3418] [text-shadow:0_1px_0_rgb(255_235_200/0.7)] lg:text-2xl"
-            style={{ left: `${(0.08 + 0.9 / aspect) * 100}%`, right: `${(0.42 / aspect) * 100}%` }}
+            className="absolute inset-y-0 z-10 flex items-center justify-center whitespace-nowrap font-display text-lg font-extrabold text-[#5a3418] [text-shadow:0_1px_0_rgb(255_235_200/0.7)] lg:text-xl"
+            style={{ left: "37%", right: "16%" }}
           >
             {label}
           </span>
