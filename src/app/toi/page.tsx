@@ -13,6 +13,7 @@ import { IconSound } from "@/components/Icons";
 import { Scene } from "@/components/Scene";
 import { Ico } from "@/components/Ico";
 import { Art } from "@/components/Art";
+import { GradeChips, ThemeCards } from "@/components/ThemePicker";
 
 export default function MePage() {
   const { data, session, online, setProfile, setSound, setCalcMode, signOut, streak, lesson } = useProgress();
@@ -77,6 +78,16 @@ export default function MePage() {
                   <Avatar id={a.id} size={52} />
                 </button>
               ))}
+            </div>
+          </div>
+          <div className="space-y-2">
+            <p className="text-sm font-bold text-ink-soft">Em học lớp mấy?</p>
+            <GradeChips />
+          </div>
+          <div className="space-y-2">
+            <p className="text-sm font-bold text-ink-soft">Giao diện</p>
+            <div className="max-w-sm">
+              <ThemeCards />
             </div>
           </div>
           <div className="flex flex-wrap gap-3">

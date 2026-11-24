@@ -38,6 +38,10 @@ export interface ProgressData {
   music: boolean;
   /** môn máy tính: bấm máy ảo trên màn hình hay máy thật */
   calcMode: "virtual" | "physical";
+  /** lớp bé chọn ở lần mở đầu ("1".."9", "later" = bố mẹ chọn sau); chưa có = chưa hỏi */
+  grade?: string;
+  /** giao diện: mochi (sáng, dễ thương) hoặc neon (tối, ngầu) */
+  theme?: "mochi" | "neon";
   /** XP theo ngày, dùng cho chuỗi ngày học: yyyy-mm-dd -> xp */
   days: Record<string, number>;
   /** bài đang học dở của từng môn (mở gần nhất): subjectId -> lessonId */
@@ -121,6 +125,7 @@ interface Store {
   setSound(on: boolean): void;
   setMusicPref(on: boolean): void;
   setCalcMode(m: ProgressData["calcMode"]): void;
+  setLook(p: { grade?: string; theme?: "mochi" | "neon" }): void;
   signOut(): Promise<void>;
   streak: number;
 }
@@ -295,6 +300,9 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
       },
       setCalcMode(m) {
         update((d) => ({ ...d, calcMode: m }));
+      },
+      setLook(p) {
+        update((d) => ({ ...d, ...p }));
       },
       async signOut() {
         await sb?.auth.signOut();

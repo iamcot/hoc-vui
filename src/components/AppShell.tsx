@@ -1,4 +1,5 @@
 "use client";
+import { FirstRunPrompt } from "@/components/ThemePicker";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { IconArena, IconLearn, IconMe, IconRank } from "./Icons";
@@ -24,11 +25,13 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const path = usePathname();
   const { data, streak } = useProgress();
   // các trang môn Gõ phím có nền biển tối
-  const dark = /^\/(hoc\/)?go-phim/.test(path);
+  const dark = /^\/(hoc\/)?go-phim/.test(path) || data.theme === "neon";
+  const themeCls = data.theme === "neon" ? "theme-cyber" : "";
   if (isFocus(path))
     return (
-      <div className="min-h-dvh">
+      <div className={`min-h-dvh ${themeCls}`}>
         <MusicDirector />
+        <FirstRunPrompt />
         {children}
         {/* bài học và bài tập có nút nhạc trên thanh đầu; game, phòng thi dùng nút nổi */}
         {floatingMusic(path) && <MusicToggle dark className="fixed bottom-3 right-3 z-40 h-9 w-9" />}
@@ -36,8 +39,9 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     );
 
   return (
-    <div className="min-h-dvh md:flex">
+    <div className={`min-h-dvh md:flex ${themeCls}`}>
       <MusicDirector />
+      <FirstRunPrompt />
       <MusicToggle className="fixed right-3 top-3 z-40 md:hidden" />
       {/* Thanh bên: mỗi mục là một cọc biển chỉ đường cắm trên cảnh nền */}
       <aside className={`sticky top-0 hidden h-dvh w-60 shrink-0 flex-col gap-1 bg-gradient-to-r ${dark ? "from-[#030a24]/50 via-[#030a24]/20" : "from-white/45 via-white/20"} to-transparent p-4 md:flex lg:w-64`}>
@@ -54,8 +58,8 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           </nav>
         </div>
         {/* thẻ của bé thay cho mục "Của tôi" */}
-        <div className={`relative z-10 mt-auto flex items-center gap-2 rounded-2xl p-2 backdrop-blur transition ${path.startsWith("/toi") ? "bg-white shadow-[0_0_0_3px_var(--color-sun)]" : "bg-white/80"}`}>
-          <Link href="/toi" className="flex min-w-0 flex-1 items-center gap-3 rounded-xl p-1 hover:bg-cream" aria-label="Của tôi">
+        <div className={`relative z-10 mt-auto flex items-center gap-2 rounded-2xl p-2 backdrop-blur transition ${path.startsWith("/toi") ? `${dark ? "bg-[#16225c]" : "bg-white"} shadow-[0_0_0_3px_var(--color-sun)]` : "bg-white/80"}`}>
+          <Link href="/toi" className="flex min-w-0 flex-1 items-center gap-3 rounded-xl p-1 hover:bg-cream/20" aria-label="Của tôi">
             <Avatar id={data.profile.avatar} size={40} />
             <div className="min-w-0 text-sm">
               <div className="truncate font-bold">{data.profile.name || "Bạn nhỏ"}</div>

@@ -1,5 +1,6 @@
 "use client";
 import { imageById, resolveFile } from "@/content/assets";
+import { useProgress } from "@/lib/store";
 
 type Variant = "meadow" | "map" | "arena" | "desk" | "night" | "deep";
 
@@ -15,7 +16,12 @@ const PAL: Record<Exclude<Variant, "deep">, { sky: [string, string]; hills: stri
  * Cảnh nền tràn màn hình. Có ảnh thật (vd. bg-home) thì dùng ảnh,
  * chưa có thì vẽ đồi, mây, mặt trời bằng SVG cùng tông màu.
  */
-export function Scene({ image, variant = "meadow", fixed = true, dim = false }: { image?: string; variant?: Variant; fixed?: boolean; dim?: boolean }) {
+export function Scene({ image, variant: wanted = "meadow", fixed = true, dim = false }: { image?: string; variant?: Variant; fixed?: boolean; dim?: boolean }) {
+  const { data } = useProgress();
+  // theme Neon: mọi cảnh sáng đổi sang biển tối; dùng ảnh <tên>-neon nếu đã có, không thì gradient neon
+  const neon = data.theme === "neon" && wanted !== "deep";
+  const variant: Variant = neon ? "deep" : wanted;
+  if (neon) image = image ? `${image}-neon` : undefined;
   const asset = image ? imageById(image) : undefined;
   const src = asset ? resolveFile(asset.file) : undefined;
   if (variant === "deep") {
