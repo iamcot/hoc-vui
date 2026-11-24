@@ -24,7 +24,7 @@ File này sinh tự động từ `src/content/assets.ts` bằng `npm run prompts
 - Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator
 - Xi Xi: a friendly anthropomorphic scientific calculator (dark navy body, light gray keys, small LCD screen showing a smile), tiny arms and legs
 
-## Ảnh (127)
+## Ảnh (133)
 
 ### ✅ `mochi-happy.webp`
 - Dùng ở: Mochi vui vẻ: lời chào, slide mở đầu
@@ -112,6 +112,54 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 
 ```text
 Festive outdoor stage at dusk with a podium of three steps, small trophies, bunting flags and twinkling stars, podium on the lower left, open sky for text. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
+```
+
+### ⬜ `bg-home-neon.webp`
+- Dùng ở: Nền trang chủ theme Neon
+- Kích thước: 1536x1024
+
+```text
+Wide background of a futuristic rooftop study garden at dusk above a glowing city, a calm teenage student sitting on a bench with a tablet, a sleek white cat with glowing teal eyes and a light-blue scarf beside them, holographic panels floating in the air, leave the left third and the bottom half calm and dark so text and cards can sit on top. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
+```
+
+### ⬜ `bg-lesson-neon.webp`
+- Dùng ở: Nền bài học, kiểm tra theme Neon
+- Kích thước: 1536x1024
+
+```text
+Wide background of a quiet high-tech study room at night, soft desk light, floating holographic notes shown as abstract shapes only, large window with city lights, very calm and low detail in the center where the lesson card sits. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
+```
+
+### ⬜ `bg-arena-neon.webp`
+- Dùng ở: Nền thi đấu theme Neon
+- Kích thước: 1536x1024
+
+```text
+Wide background of a futuristic e-sports arena for a quiz battle, two glowing podiums facing each other, a big holographic scoreboard shape with no text, spotlights and neon light beams, excited but not violent. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
+```
+
+### ⬜ `bg-leaderboard-neon.webp`
+- Dùng ở: Nền bảng xếp hạng theme Neon
+- Kích thước: 1536x1024
+
+```text
+Wide background of a night sky observatory deck with three floating glowing podium platforms in gold, silver and bronze tones rising into the stars, aurora in violet and cyan, a sleek white cat watching from the railing, keep the center dark and simple. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
+```
+
+### ⬜ `theme-pick-mochi.webp`
+- Dùng ở: Ảnh xem trước khi chọn theme Mochi
+- Kích thước: 1024x1024
+
+```text
+Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator waving in a sunny meadow with a little school in the distance, cozy and bright, one continuous scene from top to bottom: characters and main objects sit in the upper 60% of the frame, and the same scene simply continues into the bottom third (more of the grass, floor, table or ground in the same colors and lighting, a little softer and less detailed, gently shaded by a natural shadow), with no characters or busy details there so white title text can be laid over it; never a separate flat color band, panel or gradient bar. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
+```
+
+### ⬜ `theme-pick-neon.webp`
+- Dùng ở: Ảnh xem trước khi chọn theme Neon
+- Kích thước: 1024x1024
+
+```text
+A cool teenage student in a hoodie with headphones, a sleek white cat with glowing teal eyes on their shoulder, standing in front of floating holographic panels in a dark neon city. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
 ```
 
 ### ✅ `subject-fx580-cover.webp`
