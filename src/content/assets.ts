@@ -56,6 +56,10 @@ const TXT =
 export const STYLE_CYBER =
   "Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark";
 
+/** nhân vật hologram trên sân Lập trình: dễ thương nhưng "ngầu", toàn bằng ánh sáng */
+export const STYLE_HOLO =
+  "Clean sci-fi game character sprite, crisp vector-like shapes, cute but cool, glowing translucent hologram look with additive cyan light, subtle chromatic edge (faint pink and violet fringe), consistent same character design across all poses, no text, no letters, no numbers, no watermark";
+
 export const BIT =
   "Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile";
 
@@ -313,6 +317,25 @@ export const IMAGES: ImageAsset[] = [
   img("lt-cover-co-ban", "1536x1024", "Bìa các bài Cơ bản môn Lập trình (lặp, nếu, bút vẽ)", `${MOCHI}, holding a giant crayon and drawing a neat square spiral path on a big garden grid board, a green looping arrow ribbon circling above, small stone walls on some tiles`),
   cyber("lt-cover-trung-cap", "1536x1024", "Bìa các bài Trung cấp môn Lập trình (hàm, biến, sự kiện, mini game)", `${BIT}, sitting on a floating neon block platform and snapping together glowing puzzle-piece code blocks into a small arcade game screen, a holographic joystick and floating function brackets made of simple shapes around him`),
   cyber("lt-cover-nang-cao", "1536x1024", "Bìa các bài Nâng cao môn Lập trình (danh sách, tìm kiếm, sắp xếp, mê cung)", `${BIT}, standing in a dark holographic warehouse beside a row of glowing numbered crates being sorted from short to tall, a translucent maze map hovering in front of his visor`),
+  // nhân vật hologram trên sân (giao diện Hologram): thay hình vẽ SVG khi có file; bệ chiếu và tia sáng vẫn do app vẽ
+  ...(["mochi", "bit"] as const).flatMap((who) =>
+    (
+      [
+        ["happy", "đứng yên / đang đi", "a calm friendly smile, eyes open and bright"],
+        ["cheer", "về tới cờ, thắng", "eyes closed in happy upside-down arcs, big joyful smile, one paw raised in a cheer"],
+        ["oops", "đụng tường, sai", "dizzy surprised face with little x-shaped eyes, small worried mouth, one paw on the head"],
+      ] as const
+    ).map(([mood, when, face]) =>
+      img(
+        `lt-holo-${who}-${mood}`,
+        "1024x1024",
+        `Lập trình · nhân vật ${who === "mochi" ? "Mochi" : "Bit"} hologram trên sân Hologram, lúc ${when}`,
+        `A cute glowing HOLOGRAM of ${who === "mochi" ? "a chibi white cat with small pointed ears" : "a chibi rabbit with two long upright ears whose tips glow (cyan left, pink right) and a sleek tech visor band across the eyes"}, seen from the front, full body, short round body and a big round head, made entirely of translucent cyan light (#4FF0FF) with a bright white-cyan outline, thin horizontal scan lines across the body, faint wireframe lines, soft outer glow, ${face}. Floating, centered, filling about 85% of the image height, feet at the bottom center; no projector base, no light beam, no floor, no ground shadow (the app draws those)`,
+        true,
+        STYLE_HOLO,
+      ),
+    ),
+  ),
   img("lt-tier-1", "1024x1024", "Huy hiệu trình độ Vỡ lòng (môn Lập trình)", "Round badge: a small white cat paw print stepping on a green grid tile with a tiny arrow, mint and sky-blue colors", true),
   img("lt-tier-2", "1024x1024", "Huy hiệu trình độ Cơ bản (môn Lập trình)", "Round badge: a looping circular arrow made of a mint-green puzzle-piece block around a yellow star", true),
   img("lt-tier-3", "1024x1024", "Huy hiệu trình độ Trung cấp (môn Lập trình)", "Round badge: a cute game controller made of colorful puzzle-piece blocks, lilac glow", true),

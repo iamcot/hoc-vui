@@ -4,6 +4,10 @@ import { JetBrains_Mono, Space_Grotesk, VT323 } from "next/font/google";
 import { Mascot } from "@/components/Mascot";
 import type { Mood } from "@/content/types";
 import { SKINS, type Skin } from "@/lib/code/skins";
+import { resolveFile } from "@/content/assets";
+
+/** ảnh nhân vật hologram đã vẽ (public/assets/img/lt-holo-<ai>-<mood>.webp); thiếu mood thì lấy "happy", chưa có thì vẽ SVG */
+const holoImg = (who: "mochi" | "bit", mood: Mood) => resolveFile(`/assets/img/lt-holo-${who}-${mood}.webp`) ?? resolveFile(`/assets/img/lt-holo-${who}-happy.webp`);
 
 /**
  * Giao diện của môn Lập trình: ngữ cảnh + hình vẽ từng giao diện (nhân vật, ô sân, sao, cờ).
@@ -143,6 +147,7 @@ function RobotBit({ size, mood }: { size: number; mood: Mood }) {
 /** Mochi hologram: khung dây phát sáng, có vạch quét. `beam` thêm bệ chiếu và tia sáng (dùng trên sân 3D) */
 export function HoloCat({ size, mood, beam }: { size: number; mood: Mood; beam?: boolean }) {
   const h = beam ? size * 1.28 : size;
+  const pic = holoImg("mochi", mood);
   return (
     <svg width={size} height={h} viewBox={beam ? "0 0 58 74" : "4 4 50 46"} style={{ overflow: "visible" }} aria-hidden>
       <defs>
@@ -155,23 +160,27 @@ export function HoloCat({ size, mood, beam }: { size: number; mood: Mood; beam?:
         </pattern>
       </defs>
       {beam && <path d="M6 72 L29 22 L52 72Z" fill="url(#lt-holo-beam)" />}
-      <g style={{ filter: "drop-shadow(0 0 5px #4ff0ff)" }}>
-        <path d="M14 22 L17 6 L26 15 Z M44 22 L41 6 L32 15 Z" fill="#4ff0ff30" stroke="#bffbff" strokeWidth={1.6} strokeLinejoin="round" />
-        <ellipse cx={29} cy={30} rx={19} ry={17} fill="#4ff0ff28" stroke="#bffbff" strokeWidth={1.8} />
-        <ellipse cx={29} cy={30} rx={19} ry={17} fill="url(#lt-holo-lines)" />
-        <path d="M12 30 Q29 22 46 30 M14 38 Q29 32 44 38" stroke="#4ff0ff" strokeWidth={0.7} fill="none" opacity={0.7} />
-        {mood === "cheer" ? (
-          <path d="M19 30 q3 -4 6 0 M33 30 q3 -4 6 0" stroke="#eaffff" strokeWidth={2} fill="none" strokeLinecap="round" />
-        ) : mood === "oops" ? (
-          <path d="M19.5 26.5 l5 5 M24.5 26.5 l-5 5 M33.5 26.5 l5 5 M38.5 26.5 l-5 5" stroke="#ff5fa8" strokeWidth={2} strokeLinecap="round" />
-        ) : (
-          <>
-            <circle cx={22} cy={29} r={2.8} fill="#eaffff" />
-            <circle cx={36} cy={29} r={2.8} fill="#eaffff" />
-          </>
-        )}
-        <path d="M26 36 q3 3 6 0" stroke="#eaffff" strokeWidth={1.6} fill="none" strokeLinecap="round" />
-      </g>
+      {pic ? (
+        <image href={pic} x={2} y={beam ? 0 : 2} width={54} height={54} preserveAspectRatio="xMidYMax meet" style={{ filter: "drop-shadow(0 0 4px #4ff0ff)" }} />
+      ) : (
+        <g style={{ filter: "drop-shadow(0 0 5px #4ff0ff)" }}>
+          <path d="M14 22 L17 6 L26 15 Z M44 22 L41 6 L32 15 Z" fill="#4ff0ff30" stroke="#bffbff" strokeWidth={1.6} strokeLinejoin="round" />
+          <ellipse cx={29} cy={30} rx={19} ry={17} fill="#4ff0ff28" stroke="#bffbff" strokeWidth={1.8} />
+          <ellipse cx={29} cy={30} rx={19} ry={17} fill="url(#lt-holo-lines)" />
+          <path d="M12 30 Q29 22 46 30 M14 38 Q29 32 44 38" stroke="#4ff0ff" strokeWidth={0.7} fill="none" opacity={0.7} />
+          {mood === "cheer" ? (
+            <path d="M19 30 q3 -4 6 0 M33 30 q3 -4 6 0" stroke="#eaffff" strokeWidth={2} fill="none" strokeLinecap="round" />
+          ) : mood === "oops" ? (
+            <path d="M19.5 26.5 l5 5 M24.5 26.5 l-5 5 M33.5 26.5 l5 5 M38.5 26.5 l-5 5" stroke="#ff5fa8" strokeWidth={2} strokeLinecap="round" />
+          ) : (
+            <>
+              <circle cx={22} cy={29} r={2.8} fill="#eaffff" />
+              <circle cx={36} cy={29} r={2.8} fill="#eaffff" />
+            </>
+          )}
+          <path d="M26 36 q3 3 6 0" stroke="#eaffff" strokeWidth={1.6} fill="none" strokeLinecap="round" />
+        </g>
+      )}
       {beam && <ellipse cx={29} cy={72} rx={20} ry={5} fill="none" stroke="#4ff0ff" strokeWidth={1.5} />}
     </svg>
   );
@@ -181,6 +190,7 @@ export function HoloCat({ size, mood, beam }: { size: number; mood: Mood; beam?:
 export function HoloBit({ size, mood, beam }: { size: number; mood: Mood; beam?: boolean }) {
   const h = beam ? size * 1.28 : size;
   const visor = mood === "oops" ? "#ffb547" : mood === "cheer" ? "#ff5fa8" : "#eaffff";
+  const pic = holoImg("bit", mood);
   return (
     <svg width={size} height={h} viewBox={beam ? "0 0 58 74" : "4 -2 50 52"} style={{ overflow: "visible" }} aria-hidden>
       <defs>
@@ -193,18 +203,22 @@ export function HoloBit({ size, mood, beam }: { size: number; mood: Mood; beam?:
         </pattern>
       </defs>
       {beam && <path d="M6 72 L29 22 L52 72Z" fill="url(#lt-holo-beam-b)" />}
-      <g style={{ filter: "drop-shadow(0 0 5px #4ff0ff)" }}>
-        {/* tai dài có đèn */}
-        <path d="M20 18 C 14 -4, 24 -6, 25 15 M38 18 C 44 -4, 34 -6, 33 15" fill="#4ff0ff22" stroke="#bffbff" strokeWidth={1.6} />
-        <circle cx={18.5} cy={1.5} r={2} fill="#4ff0ff" />
-        <circle cx={39.5} cy={1.5} r={2} fill="#ff5fa8" />
-        <ellipse cx={29} cy={31} rx={18} ry={16} fill="#4ff0ff28" stroke="#bffbff" strokeWidth={1.8} />
-        <ellipse cx={29} cy={31} rx={18} ry={16} fill="url(#lt-holo-lines-b)" />
-        {/* kính visor */}
-        <rect x={14} y={24} width={30} height={9} rx={4.5} fill="#031c24" stroke="#bffbff" strokeWidth={1.2} />
-        <rect x={16.5} y={26.5} width={25} height={4} rx={2} fill={visor} opacity={0.95} />
-        <path d="M24 39 q5 4 10 0" stroke="#eaffff" strokeWidth={1.6} fill="none" strokeLinecap="round" />
-      </g>
+      {pic ? (
+        <image href={pic} x={2} y={beam ? -6 : -4} width={54} height={60} preserveAspectRatio="xMidYMax meet" style={{ filter: "drop-shadow(0 0 4px #4ff0ff)" }} />
+      ) : (
+        <g style={{ filter: "drop-shadow(0 0 5px #4ff0ff)" }}>
+          {/* tai dài có đèn */}
+          <path d="M20 18 C 14 -4, 24 -6, 25 15 M38 18 C 44 -4, 34 -6, 33 15" fill="#4ff0ff22" stroke="#bffbff" strokeWidth={1.6} />
+          <circle cx={18.5} cy={1.5} r={2} fill="#4ff0ff" />
+          <circle cx={39.5} cy={1.5} r={2} fill="#ff5fa8" />
+          <ellipse cx={29} cy={31} rx={18} ry={16} fill="#4ff0ff28" stroke="#bffbff" strokeWidth={1.8} />
+          <ellipse cx={29} cy={31} rx={18} ry={16} fill="url(#lt-holo-lines-b)" />
+          {/* kính visor */}
+          <rect x={14} y={24} width={30} height={9} rx={4.5} fill="#031c24" stroke="#bffbff" strokeWidth={1.2} />
+          <rect x={16.5} y={26.5} width={25} height={4} rx={2} fill={visor} opacity={0.95} />
+          <path d="M24 39 q5 4 10 0" stroke="#eaffff" strokeWidth={1.6} fill="none" strokeLinecap="round" />
+        </g>
+      )}
       {beam && <ellipse cx={29} cy={72} rx={20} ry={5} fill="none" stroke="#4ff0ff" strokeWidth={1.5} />}
     </svg>
   );

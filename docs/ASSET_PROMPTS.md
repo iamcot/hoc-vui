@@ -24,7 +24,7 @@ File này sinh tự động từ `src/content/assets.ts` bằng `npm run prompts
 - Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator
 - Xi Xi: a friendly anthropomorphic scientific calculator (dark navy body, light gray keys, small LCD screen showing a smile), tiny arms and legs
 
-## Ảnh (150)
+## Ảnh (156)
 
 ### ✅ `mochi-happy.webp`
 - Dùng ở: Mochi vui vẻ: lời chào, slide mở đầu
@@ -1130,7 +1130,7 @@ A cute small blue shark head with a friendly grin. Game UI icon in a glossy soft
 A rounded yellow warning triangle with an exclamation shape made of a bar and a dot (not a letter). Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
 ```
 
-### ⬜ `subject-laptrinh-cover.webp`
+### ✅ `subject-laptrinh-cover.webp`
 - Dùng ở: Ảnh lớn môn Lập trình ở trang chủ (chữ đè lên phần dưới ảnh), phong cách Hologram
 - Kích thước: 1536x1024
 
@@ -1138,7 +1138,7 @@ A rounded yellow warning triangle with an exclamation shape made of a bar and a 
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile, standing confidently on a floating glass isometric 3D game board made of translucent cyan grid tiles with glowing edges and a mirror-like reflection underneath, a few frosted-glass cube walls on the board, one hand raised controlling a floating holographic code panel; glowing translucent glass command blocks (cyan, violet, mint green, amber, blank faces with no text) snapping together in mid-air like a puzzle chain, a holographic small round white cat projection made of cyan light with scan lines walking along the tiles toward a glowing mint-green portal flag, golden crystal stars hovering above some tiles, thin HUD frame corners and radar circles floating in the air, deep teal-black space background with soft cyan haze, upper half has the action, lower third darker for text. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
 ```
 
-### ⬜ `bg-lt-map.webp`
+### ✅ `bg-lt-map.webp`
 - Dùng ở: Cảnh nền bản đồ bài của môn Lập trình (tối, neon)
 - Kích thước: 1536x1024
 
@@ -1146,7 +1146,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 A calm, minimal dark background: deep navy to teal-black gradient with a faint glowing circuit-trace pattern, very thin and sparse cyan lines only near the left and right edges, a few tiny soft bokeh dots, the whole center (60% of the width) almost empty and smooth, very low contrast and low saturation, no buildings, no trees, no big shapes, so map cards and text on top stay easy to read. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
 ```
 
-### ⬜ `bg-lt-lesson.webp`
+### ✅ `bg-lt-lesson.webp`
 - Dùng ở: Cảnh nền bài học, màn chơi môn Lập trình (rất tối, mờ)
 - Kích thước: 1536x1024
 
@@ -1154,7 +1154,7 @@ A calm, minimal dark background: deep navy to teal-black gradient with a faint g
 A cozy futuristic coding lab at night, big holographic screens showing colorful puzzle-piece blocks, a small robot desk lamp, cyan and violet glow, background heavily blurred and dark, mostly empty. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
 ```
 
-### ⬜ `lt-cover-vo-long.webp`
+### ✅ `lt-cover-vo-long.webp`
 - Dùng ở: Bìa các bài Vỡ lòng môn Lập trình
 - Kích thước: 1536x1024
 
@@ -1162,7 +1162,7 @@ A cozy futuristic coding lab at night, big holographic screens showing colorful 
 Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator, standing on a grass tile of a big garden grid board, holding a blue puzzle-piece command block (blank, no text), small stone walls and a red flag on other tiles, golden stars here and there. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
-### ⬜ `lt-cover-co-ban.webp`
+### ✅ `lt-cover-co-ban.webp`
 - Dùng ở: Bìa các bài Cơ bản môn Lập trình (lặp, nếu, bút vẽ)
 - Kích thước: 1536x1024
 
@@ -1170,7 +1170,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator, holding a giant crayon and drawing a neat square spiral path on a big garden grid board, a green looping arrow ribbon circling above, small stone walls on some tiles. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
-### ⬜ `lt-cover-trung-cap.webp`
+### ✅ `lt-cover-trung-cap.webp`
 - Dùng ở: Bìa các bài Trung cấp môn Lập trình (hàm, biến, sự kiện, mini game)
 - Kích thước: 1536x1024
 
@@ -1178,7 +1178,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile, sitting on a floating neon block platform and snapping together glowing puzzle-piece code blocks into a small arcade game screen, a holographic joystick and floating function brackets made of simple shapes around him. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
 ```
 
-### ⬜ `lt-cover-nang-cao.webp`
+### ✅ `lt-cover-nang-cao.webp`
 - Dùng ở: Bìa các bài Nâng cao môn Lập trình (danh sách, tìm kiếm, sắp xếp, mê cung)
 - Kích thước: 1536x1024
 
@@ -1186,7 +1186,55 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile, standing in a dark holographic warehouse beside a row of glowing numbered crates being sorted from short to tall, a translucent maze map hovering in front of his visor. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
 ```
 
-### ⬜ `lt-tier-1.webp`
+### ⬜ `lt-holo-mochi-happy.webp`
+- Dùng ở: Lập trình · nhân vật Mochi hologram trên sân Hologram, lúc đứng yên / đang đi
+- Kích thước: 1024x1024 · nền trong suốt
+
+```text
+A cute glowing HOLOGRAM of a chibi white cat with small pointed ears, seen from the front, full body, short round body and a big round head, made entirely of translucent cyan light (#4FF0FF) with a bright white-cyan outline, thin horizontal scan lines across the body, faint wireframe lines, soft outer glow, a calm friendly smile, eyes open and bright. Floating, centered, filling about 85% of the image height, feet at the bottom center; no projector base, no light beam, no floor, no ground shadow (the app draws those). Clean sci-fi game character sprite, crisp vector-like shapes, cute but cool, glowing translucent hologram look with additive cyan light, subtle chromatic edge (faint pink and violet fringe), consistent same character design across all poses, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
+```
+
+### ⬜ `lt-holo-mochi-cheer.webp`
+- Dùng ở: Lập trình · nhân vật Mochi hologram trên sân Hologram, lúc về tới cờ, thắng
+- Kích thước: 1024x1024 · nền trong suốt
+
+```text
+A cute glowing HOLOGRAM of a chibi white cat with small pointed ears, seen from the front, full body, short round body and a big round head, made entirely of translucent cyan light (#4FF0FF) with a bright white-cyan outline, thin horizontal scan lines across the body, faint wireframe lines, soft outer glow, eyes closed in happy upside-down arcs, big joyful smile, one paw raised in a cheer. Floating, centered, filling about 85% of the image height, feet at the bottom center; no projector base, no light beam, no floor, no ground shadow (the app draws those). Clean sci-fi game character sprite, crisp vector-like shapes, cute but cool, glowing translucent hologram look with additive cyan light, subtle chromatic edge (faint pink and violet fringe), consistent same character design across all poses, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
+```
+
+### ⬜ `lt-holo-mochi-oops.webp`
+- Dùng ở: Lập trình · nhân vật Mochi hologram trên sân Hologram, lúc đụng tường, sai
+- Kích thước: 1024x1024 · nền trong suốt
+
+```text
+A cute glowing HOLOGRAM of a chibi white cat with small pointed ears, seen from the front, full body, short round body and a big round head, made entirely of translucent cyan light (#4FF0FF) with a bright white-cyan outline, thin horizontal scan lines across the body, faint wireframe lines, soft outer glow, dizzy surprised face with little x-shaped eyes, small worried mouth, one paw on the head. Floating, centered, filling about 85% of the image height, feet at the bottom center; no projector base, no light beam, no floor, no ground shadow (the app draws those). Clean sci-fi game character sprite, crisp vector-like shapes, cute but cool, glowing translucent hologram look with additive cyan light, subtle chromatic edge (faint pink and violet fringe), consistent same character design across all poses, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
+```
+
+### ⬜ `lt-holo-bit-happy.webp`
+- Dùng ở: Lập trình · nhân vật Bit hologram trên sân Hologram, lúc đứng yên / đang đi
+- Kích thước: 1024x1024 · nền trong suốt
+
+```text
+A cute glowing HOLOGRAM of a chibi rabbit with two long upright ears whose tips glow (cyan left, pink right) and a sleek tech visor band across the eyes, seen from the front, full body, short round body and a big round head, made entirely of translucent cyan light (#4FF0FF) with a bright white-cyan outline, thin horizontal scan lines across the body, faint wireframe lines, soft outer glow, a calm friendly smile, eyes open and bright. Floating, centered, filling about 85% of the image height, feet at the bottom center; no projector base, no light beam, no floor, no ground shadow (the app draws those). Clean sci-fi game character sprite, crisp vector-like shapes, cute but cool, glowing translucent hologram look with additive cyan light, subtle chromatic edge (faint pink and violet fringe), consistent same character design across all poses, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
+```
+
+### ⬜ `lt-holo-bit-cheer.webp`
+- Dùng ở: Lập trình · nhân vật Bit hologram trên sân Hologram, lúc về tới cờ, thắng
+- Kích thước: 1024x1024 · nền trong suốt
+
+```text
+A cute glowing HOLOGRAM of a chibi rabbit with two long upright ears whose tips glow (cyan left, pink right) and a sleek tech visor band across the eyes, seen from the front, full body, short round body and a big round head, made entirely of translucent cyan light (#4FF0FF) with a bright white-cyan outline, thin horizontal scan lines across the body, faint wireframe lines, soft outer glow, eyes closed in happy upside-down arcs, big joyful smile, one paw raised in a cheer. Floating, centered, filling about 85% of the image height, feet at the bottom center; no projector base, no light beam, no floor, no ground shadow (the app draws those). Clean sci-fi game character sprite, crisp vector-like shapes, cute but cool, glowing translucent hologram look with additive cyan light, subtle chromatic edge (faint pink and violet fringe), consistent same character design across all poses, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
+```
+
+### ⬜ `lt-holo-bit-oops.webp`
+- Dùng ở: Lập trình · nhân vật Bit hologram trên sân Hologram, lúc đụng tường, sai
+- Kích thước: 1024x1024 · nền trong suốt
+
+```text
+A cute glowing HOLOGRAM of a chibi rabbit with two long upright ears whose tips glow (cyan left, pink right) and a sleek tech visor band across the eyes, seen from the front, full body, short round body and a big round head, made entirely of translucent cyan light (#4FF0FF) with a bright white-cyan outline, thin horizontal scan lines across the body, faint wireframe lines, soft outer glow, dizzy surprised face with little x-shaped eyes, small worried mouth, one paw on the head. Floating, centered, filling about 85% of the image height, feet at the bottom center; no projector base, no light beam, no floor, no ground shadow (the app draws those). Clean sci-fi game character sprite, crisp vector-like shapes, cute but cool, glowing translucent hologram look with additive cyan light, subtle chromatic edge (faint pink and violet fringe), consistent same character design across all poses, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
+```
+
+### ✅ `lt-tier-1.webp`
 - Dùng ở: Huy hiệu trình độ Vỡ lòng (môn Lập trình)
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -1194,7 +1242,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 Round badge: a small white cat paw print stepping on a green grid tile with a tiny arrow, mint and sky-blue colors. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `lt-tier-2.webp`
+### ✅ `lt-tier-2.webp`
 - Dùng ở: Huy hiệu trình độ Cơ bản (môn Lập trình)
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -1202,7 +1250,7 @@ Round badge: a small white cat paw print stepping on a green grid tile with a ti
 Round badge: a looping circular arrow made of a mint-green puzzle-piece block around a yellow star. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `lt-tier-3.webp`
+### ✅ `lt-tier-3.webp`
 - Dùng ở: Huy hiệu trình độ Trung cấp (môn Lập trình)
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -1210,7 +1258,7 @@ Round badge: a looping circular arrow made of a mint-green puzzle-piece block ar
 Round badge: a cute game controller made of colorful puzzle-piece blocks, lilac glow. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `lt-tier-4.webp`
+### ✅ `lt-tier-4.webp`
 - Dùng ở: Huy hiệu trình độ Nâng cao (môn Lập trình)
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -1218,7 +1266,7 @@ Round badge: a cute game controller made of colorful puzzle-piece blocks, lilac 
 Round badge: a row of bar-chart columns being sorted from short to tall with a small curved arrow, sky blue and coral. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `lt-tier-5.webp`
+### ✅ `lt-tier-5.webp`
 - Dùng ở: Huy hiệu trình độ Python (môn Lập trình)
 - Kích thước: 1024x1024 · nền trong suốt
 
