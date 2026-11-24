@@ -37,7 +37,7 @@ lt-p01 Từ khối sang Python · lt-p02 print, biến, input · lt-p03 if/else 
 ## Đã làm (Vỡ lòng)
 - Không dùng JS-Interpreter: khối được đọc thành cây lệnh (`src/lib/code/program.ts`), chạy bằng generator từng bước (`run.ts`), không có eval, giới hạn 400 bước. Đủ cho bộ khối hạn chế; khi sang biến/hàm sẽ cân nhắc lại.
 - Blockly 12 (`blockly/core`, renderer `zelos`, theme Mochi), ảnh giao diện Blockly tự host ở `public/blockly/`.
-- Màn chơi: `Lesson.code` (`CodeSpec`), trang luyện tập tự đổi sang `CodePractice` khi bài có `code`. Slide có khối `code` (lưới nhỏ + nút Xem chạy).
+- Một bài là **một luồng liền**: vào bài thì xem 1-2 slide hướng dẫn rồi chơi luôn các màn, cùng một trang, không tách Bài học / Luyện tập. Bài đã đọc hướng dẫn thì vào thẳng màn chơi (nút 📖 trên thanh tiến độ để xem lại). Dữ liệu: `Lesson.code` (`CodeSpec`), trang bài và trang `luyen-tap` đều dùng `CodePractice`. Slide có khối `code` (lưới nhỏ + nút Xem chạy).
 - Sao của màn: qua màn 1 sao, thừa tối đa 2 khối 2 sao, bằng số khối tối ưu 3 sao. Sao của bài = tổng sao các màn / (số màn × 3). Sau 3 lần chạy sai hiện nút Bỏ qua màn.
 - Thử thách, kiểm tra trình độ, đấu trường dùng câu trắc nghiệm sinh ngẫu nhiên (`lap-trinh/questions.ts`): hướng nhìn sau khi rẽ, chương trình nào đúng, khối nào sai, chương trình nào ít khối nhất.
 

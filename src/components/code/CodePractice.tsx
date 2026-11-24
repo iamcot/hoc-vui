@@ -1,12 +1,15 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
-import { motion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import { getLesson } from "@/content/subjects";
 import { useProgress } from "@/lib/store";
 import { makeRng, randomSeed } from "@/lib/rng";
 import { genLevel } from "@/lib/code/levels";
 import type { Level } from "@/lib/code/world";
+import type { Slide } from "@/content/types";
+import { BlockView } from "@/components/lesson/Blocks";
+import { playVoice, stopVoice } from "@/lib/sound";
 import { play } from "@/lib/sound";
 import { Scene } from "@/components/Scene";
 import { MusicToggle } from "@/components/Music";
@@ -16,11 +19,29 @@ import { Confetti } from "@/components/Confetti";
 import { Ico } from "@/components/Ico";
 import { LevelPlayer, type LevelResult } from "./LevelPlayer";
 
-/** Luyện tập môn Lập trình: chơi lần lượt các màn của bài, thêm màn sinh ngẫu nhiên; sao của bài = tổng sao các màn */
+/**
+ * Bài học môn Lập trình, một luồng liền: vài slide hướng dẫn ngắn → các màn chơi → kết quả.
+ * Bài đã đọc hướng dẫn rồi thì vào thẳng màn chơi (bấm 📖 để xem lại).
+ * Sao của bài = tổng sao các màn; có thêm màn sinh ngẫu nhiên nên chơi lại mỗi lần một khác.
+ */
 export function CodePractice({ subjectId, lessonId }: { subjectId: string; lessonId: string }) {
   const { subject, tier, lesson, next } = getLesson(subjectId, lessonId)!;
   const spec = lesson.code!;
-  const { recordPractice, setLast } = useProgress();
+  const { recordPractice, setLast, markRead, data, ready } = useProgress();
+  /** đang xem slide hướng dẫn thứ mấy (null = đang chơi) */
+  const [slide, setSlide] = useState<number | null>(null);
+  const [introChecked, setIntroChecked] = useState(false);
+  useEffect(() => {
+    if (!ready || introChecked) return;
+    setIntroChecked(true);
+    if (!data.lessons[`${subject.id}/${lesson.id}`]?.read) setSlide(0);
+  }, [ready, introChecked, data.lessons, subject.id, lesson.id]);
+  const nextSlide = () => {
+    if (slide === null) return;
+    if (slide + 1 < lesson.slides.length) return setSlide(slide + 1);
+    markRead(subject.id, lesson.id);
+    setSlide(null);
+  };
   useEffect(() => setLast(subject.id, lesson.id), [subject.id, lesson.id, setLast]);
   const [seed, setSeed] = useState<string | null>(null);
   useEffect(() => setSeed(randomSeed()), []);
@@ -53,7 +74,7 @@ export function CodePractice({ subjectId, lessonId }: { subjectId: string; lesso
     setSummary(null);
   };
 
-  if (!levels.length) return null;
+  if (!levels.length || !introChecked) return null;
   const back = `/hoc/${subject.id}`;
 
   return (
@@ -68,10 +89,19 @@ export function CodePractice({ subjectId, lessonId }: { subjectId: string; lesso
             {lesson.emoji} {lesson.title}
           </span>
           <div className="flex flex-1 items-center justify-center gap-1.5">
+            <button
+              onClick={() => setSlide(slide === null ? 0 : null)}
+              className={`grid h-7 min-w-7 place-items-center rounded-full px-1.5 text-xs font-extrabold ${slide !== null ? "bg-sky text-white ring-4 ring-sky-soft" : "bg-white text-ink-soft"}`}
+              aria-label="Hướng dẫn"
+              title="Xem hướng dẫn"
+            >
+              📖
+            </button>
+            <span className="h-0.5 w-3 rounded bg-line" />
             {levels.map((_, k) => (
               <span
                 key={k}
-                className={`grid h-7 w-7 place-items-center rounded-full text-xs font-extrabold ${k < results.length ? (results[k].stars ? "bg-mint text-white" : "bg-line text-ink-soft") : k === i ? "bg-sky text-white ring-4 ring-sky-soft" : "bg-white text-ink-soft"}`}
+                className={`grid h-7 w-7 place-items-center rounded-full text-xs font-extrabold ${k < results.length ? (results[k].stars ? "bg-mint text-white" : "bg-line text-ink-soft") : k === i && slide === null ? "bg-sky text-white ring-4 ring-sky-soft" : "bg-white text-ink-soft"}`}
               >
                 {k < results.length && results[k].stars ? "★" : k + 1}
               </span>
@@ -90,7 +120,9 @@ export function CodePractice({ subjectId, lessonId }: { subjectId: string; lesso
         </div>
       </div>
 
-      {!summary ? (
+      {slide !== null ? (
+        <Intro slides={lesson.slides} i={slide} lessonNo={allLessonsIndex(subject.id, lesson.id)} onPrev={() => setSlide(Math.max(0, slide - 1))} onNext={nextSlide} />
+      ) : !summary ? (
         <main className="mx-auto min-h-0 w-full max-w-7xl flex-1 px-3 pb-3 pt-2 sm:px-5">
           <LevelPlayer key={`${seed}-${i}`} level={levels[i]} index={i} total={levels.length} onDone={done} />
         </main>
@@ -120,9 +152,15 @@ export function CodePractice({ subjectId, lessonId }: { subjectId: string; lesso
                 <Ico n="retry" /> Chơi lại
               </button>
               {summary.stars < 2 ? (
-                <Link href={`/hoc/${subject.id}/${lesson.id}`} className="btn btn-ghost">
-                  Xem lại bài
-                </Link>
+                <button
+                  className="btn btn-ghost"
+                  onClick={() => {
+                    again();
+                    setSlide(0);
+                  }}
+                >
+                  📖 Xem lại hướng dẫn
+                </button>
               ) : next ? (
                 <Link href={`/hoc/${subject.id}/${next.id}`} className="btn btn-mint">
                   Bài tiếp ▶
@@ -137,5 +175,59 @@ export function CodePractice({ subjectId, lessonId }: { subjectId: string; lesso
         </main>
       )}
     </div>
+  );
+}
+
+const allLessonsIndex = (subjectId: string, lessonId: string) => (getLesson(subjectId, lessonId)?.index ?? 0) + 1;
+
+/** slide hướng dẫn đầu bài, cùng khung với màn chơi để không phải chuyển trang */
+function Intro({ slides, i, lessonNo, onPrev, onNext }: { slides: Slide[]; i: number; lessonNo: number; onPrev: () => void; onNext: () => void }) {
+  const s = slides[i];
+  useEffect(() => {
+    if (i === 0) playVoice(s.voice);
+    return () => stopVoice();
+  }, [i, s.voice]);
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Enter" || e.key === "ArrowRight") onNext();
+      else if (e.key === "ArrowLeft") onPrev();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  });
+  const last = i === slides.length - 1;
+  return (
+    <>
+      <main className="mx-auto w-full max-w-5xl flex-1 overflow-y-auto px-4 py-3 sm:px-6">
+        <AnimatePresence mode="wait">
+          <motion.article key={i} initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -30 }} transition={{ duration: 0.22 }} className="space-y-3">
+            <div className="flex items-center gap-3">
+              <Mascot mood={s.mood} size={64} className="floaty shrink-0 [@media(max-height:620px)]:hidden" />
+              <div>
+                <div className="text-sm font-bold text-ink-soft">
+                  Bài {lessonNo} · Hướng dẫn {i + 1}/{slides.length}
+                </div>
+                <h1 className="font-display text-2xl font-extrabold leading-tight sm:text-3xl">{s.title}</h1>
+              </div>
+            </div>
+            <div className="card space-y-4 p-5 sm:p-6 [@media(max-height:620px)]:space-y-3 [@media(max-height:620px)]:p-4">
+              {s.blocks.map((b, k) => (
+                <BlockView key={k} b={b} />
+              ))}
+            </div>
+          </motion.article>
+        </AnimatePresence>
+      </main>
+      <footer className="shrink-0 bg-white/60 pb-[env(safe-area-inset-bottom)] backdrop-blur">
+        <div className="mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 py-2.5 sm:px-6">
+          <button className="btn btn-ghost" onClick={onPrev} disabled={i === 0}>
+            ◀ Trước
+          </button>
+          <button className="btn btn-primary min-w-40" onClick={onNext}>
+            {last ? "Bắt đầu chơi ▶" : "Tiếp ▶"}
+          </button>
+        </div>
+      </footer>
+    </>
   );
 }
