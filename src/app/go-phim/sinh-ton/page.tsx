@@ -10,6 +10,7 @@ import { Kbd } from "@/components/typing/Kbd";
 import { useHotkeys } from "@/components/typing/useKeyInput";
 import { useRouter } from "next/navigation";
 import { Ico } from "@/components/Ico";
+import { submitRecord } from "@/lib/arena";
 
 const BEST_KEY = "hocvui:gp-survival-best";
 
@@ -40,6 +41,8 @@ export default function SurvivalPage() {
     } catch {
       /* chế độ riêng tư */
     }
+    // kỷ lục Sinh tồn lên bảng xếp hạng (máy chủ chỉ giữ khi vượt kỷ lục tuần của em)
+    if (r.score > 0) void submitRecord("survival", r.score);
     const xp = Math.min(60, Math.round(r.kills * 1.5));
     addXp(s.id, xp, `sinh-ton:${Date.now()}`);
     setRes({ r, xp, best });

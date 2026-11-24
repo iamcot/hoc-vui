@@ -6,7 +6,9 @@ import { getSubject, getTier, tierLessons, allLessons } from "@/content/subjects
 import { lineFor } from "@/content/subjects/go-phim/lessons";
 import { makeRng } from "@/lib/rng";
 import { getSupabase } from "@/lib/supabase";
-import { roomBoard, submitEntry, type Entry, type Room } from "@/lib/arena";
+import { RACE_MODES, roomBoard, roomHref, startRoom, submitEntry, type Entry, type Room } from "@/lib/arena";
+import { PASSAGES, lengthOf, type PassageLength } from "@/content/subjects/go-phim/passages";
+import { rankLessonIds, rankName } from "@/lib/ranks";
 import { useProgress } from "@/lib/store";
 import { play } from "@/lib/sound";
 import { hasFile, resolveFile } from "@/content/assets";
@@ -37,15 +39,32 @@ interface Racer {
 /** Điểm đua: WPM nhân độ chính xác (gõ ẩu thì xe chậm lại) */
 export const raceScore = (wpm: number, acc: number) => Math.round(wpm * (acc / 100) * 10);
 
-/** Đoạn đua lấy theo mã phòng: cả phòng cùng một đoạn. Dùng từ của trình độ đã chọn. */
-function raceText(room: Room, round = 0): string {
+/** độ dài đoạn văn theo cấp phòng: Sơ cấp ngắn, Trung cấp vừa, Cao cấp dài, tự do ngắn hoặc vừa */
+const LENGTHS: Record<string, PassageLength[]> = { start: ["ngan"], mid: ["vua"], high: ["dai"] };
+
+/**
+ * Đoạn đua lấy theo mã phòng và lượt: cả phòng cùng một đoạn.
+ * Chế độ "random": chữ và từ trộn từ các bài của cấp phòng; "vi" / "en": một đoạn văn (Sơ cấp gõ tiếng Việt không dấu).
+ */
+function raceText(room: Room, round = 0): { text: string; title?: string } {
   const s = getSubject("go-phim")!;
-  const tier = room.tier_id ? getTier(s, room.tier_id) : undefined;
-  const lessons = (tier ? tierLessons(tier) : allLessons(s)).filter((l) => l.typing);
   const rng = makeRng(round ? `race:${room.code}:${round}` : `race:${room.code}`);
+  const mode = room.mode ?? (room.tier_id ? "random" : "vi");
+  if (mode === "vi" || mode === "en") {
+    const kind = mode === "en" ? "en" : room.rank === "start" ? "khong-dau" : "co-dau";
+    const want = LENGTHS[room.rank ?? ""] ?? ["ngan", "vua"];
+    const all = PASSAGES.filter((p) => p.kind === kind);
+    const pool = all.filter((p) => want.includes(lengthOf(p)));
+    const p = rng.pick(pool.length ? pool : all);
+    return { text: p.text, title: `${p.emoji} ${p.title}` };
+  }
+  const tier = room.tier_id ? getTier(s, room.tier_id) : undefined;
+  const ids = tier ? undefined : rankLessonIds(s, room.rank);
+  let lessons = (tier ? tierLessons(tier) : allLessons(s)).filter((l) => l.typing && (!ids || ids.includes(l.id)));
+  if (!lessons.length) lessons = allLessons(s).filter((l) => l.typing);
   const parts: string[] = [];
   while (parts.join(" ").length < 90) parts.push(lineFor(rng.pick(lessons).typing!, rng));
-  return parts.join(" ").slice(0, 120).replace(/\s+\S*$/, "");
+  return { text: parts.join(" ").slice(0, 120).replace(/\s+\S*$/, "") };
 }
 
 /**
@@ -53,11 +72,15 @@ function raceText(room: Room, round = 0): string {
  * Có Supabase: thấy xe của bạn bè chạy trực tiếp (Realtime broadcast), ai bấm "Xuất phát" thì cả phòng đếm ngược.
  * Không có ai cùng đua: đua với hai xe máy (tốc độ cố định) cho vui.
  */
-export function TypingRace({ room }: { room: Room }) {
+export function TypingRace({ room, host = true }: { room: Room; host?: boolean }) {
   const { data, session, addXp, awardStars } = useProgress();
   // mỗi lượt đua một đoạn mới; cả phòng cùng số lượt nên cùng đoạn
   const [round, setRound] = useState(0);
-  const text = useMemo(() => raceText(room, round), [room, round]);
+  const race = useMemo(() => raceText(room, round), [room, round]);
+  const text = race.text;
+  // phòng công khai: chỉ chủ phòng bấm xuất phát được, các bạn chờ
+  const canGo = !room.is_public || host;
+  const modeName = RACE_MODES.find((m) => m.id === (room.mode ?? (room.tier_id ? "random" : "vi")))?.name;
   const me = useMemo(() => ({ id: session?.user.id ?? `khach-${Math.random().toString(36).slice(2, 7)}`, name: data.profile.name || "Em", avatar: data.profile.avatar }), [session, data.profile]);
   const [phase, setPhase] = useState<"lobby" | "count" | "run" | "done">("lobby");
   const meRef = useRef<Racer>({ ...me, p: 0, wpm: 0 });
@@ -182,7 +205,7 @@ export function TypingRace({ room }: { room: Room }) {
   const router = useRouter();
   // phím tắt: Space xuất phát, Esc thoát; xong: Enter phòng mới
   useHotkeys(
-    phase === "lobby" ? { " ": () => go(), Escape: () => router.push("/thi-dau?mon=go-phim") } : phase === "done" ? { Enter: () => again(), Escape: () => router.push("/thi-dau?mon=go-phim") } : {},
+    phase === "lobby" ? { " ": () => canGo && go(), Escape: () => router.push("/thi-dau?mon=go-phim") } : phase === "done" ? { Enter: () => again(), Escape: () => router.push("/thi-dau?mon=go-phim") } : {},
     phase === "lobby" || phase === "done",
   );
   const myP = t.pos / t.keys.length;
@@ -197,13 +220,14 @@ export function TypingRace({ room }: { room: Room }) {
   }
 
   function go() {
+    if (host) void startRoom(room);
     meRef.current = { ...me, p: 0, wpm: 0, round: roundRef.current };
     void chan.current?.send({ type: "broadcast", event: "go", payload: { round: roundRef.current } });
     startCount();
   }
 
   async function share() {
-    const link = `${location.origin}/thi-dau/${room.code}?mon=go-phim${room.tier_id ? `&cap=${room.tier_id}` : ""}`;
+    const link = `${location.origin}${roomHref(room)}`;
     const msg = `Vào Học Vui đua gõ phím với tớ! Mã phòng: ${room.code}`;
     try {
       if (navigator.share) await navigator.share({ title: "Học Vui", text: msg, url: link });
@@ -229,7 +253,9 @@ export function TypingRace({ room }: { room: Room }) {
         </Link>
         <div>
           <div className="font-display text-xl font-extrabold">🏎️ Đua xe gõ phím</div>
-          <div className="text-xs font-bold uppercase tracking-widest text-cyan-300/80">Phòng {room.code}</div>
+          <div className="text-xs font-bold uppercase tracking-widest text-cyan-300/80">
+            Phòng {room.code} · {rankName(room.rank)} · {modeName}
+          </div>
         </div>
         <div className="ml-auto flex gap-2 font-mono font-bold">
           <span className="hud-chip">{result?.wpm ?? live.wpm} WPM</span>
@@ -261,25 +287,41 @@ export function TypingRace({ room }: { room: Room }) {
             <p className="text-cyan-50/90">
               Cả phòng gõ cùng một đoạn. Xe chạy theo số phím em gõ đúng; về đích xếp hạng theo <b>WPM × độ chính xác</b>. Gõ sai phải gõ lại phím đó.
             </p>
-            {round > 0 && <p className="font-display text-lg font-extrabold text-cyan-300">Lượt {round + 1} · đoạn mới</p>}
+            {(round > 0 || race.title) && (
+              <p className="font-display text-lg font-extrabold text-cyan-300">
+                {round > 0 ? `Lượt ${round + 1} · đoạn mới` : ""}
+                {round > 0 && race.title ? " · " : ""}
+                {race.title}
+                {race.title ? ` (${text.length} ký tự)` : ""}
+              </p>
+            )}
             <p className="text-sm text-cyan-100/70">{Object.keys(others).length ? `${Object.keys(others).length} bạn đang trong phòng.` : "Chưa có bạn nào vào phòng: em sẽ đua với hai xe máy."}</p>
             <div className="flex flex-wrap justify-center gap-3">
               <button className="btn btn-ghost" onClick={share}>
                 {copied ? "Đã chép link ✓" : <><Ico n="invite" /> Mời bạn</>}
               </button>
-              <button className="btn btn-primary" onClick={go}>
-                Xuất phát ▶ <Kbd k=" " />
-              </button>
+              {canGo ? (
+                <button className="btn btn-primary" onClick={go}>
+                  Xuất phát ▶ <Kbd k=" " />
+                </button>
+              ) : (
+                <span className="btn btn-ghost pointer-events-none animate-pulse">Chờ chủ phòng xuất phát…</span>
+              )}
             </div>
           </div>
         )}
         {phase === "count" && <div className="py-6 text-center font-display text-8xl font-extrabold text-cyan-300 [text-shadow:0_0_30px_#2fd3ff]">{count || "GO!"}</div>}
         {(phase === "run" || phase === "done") && (
-          <div className="cyber-panel rounded-3xl p-5 font-mono text-xl font-bold leading-relaxed sm:text-2xl">
+          <div className={`cyber-panel rounded-3xl p-5 font-mono font-bold leading-relaxed ${text.length > 300 ? "text-lg sm:text-xl" : "text-xl sm:text-2xl"}`}>
             <span className="text-cyan-300 [text-shadow:0_0_10px_rgba(47,211,255,0.7)]">{t.rendered}</span>
             <span className="caret" />
             <span className="text-white/80">{text.slice(t.rendered.length)}</span>
           </div>
+        )}
+        {phase === "run" && /[^\x00-\x7f]/.test(text) && (
+          <p className="text-center font-mono text-sm text-cyan-100/60">
+            Phím tiếp (Telex): <span className="text-white">{t.keys.slice(t.pos, t.pos + 12)}</span>
+          </p>
         )}
         {t.imeOn && <ImeWarning />}
         {phase === "run" && <Keyboard next={t.next} pressed={t.flash} compact />}

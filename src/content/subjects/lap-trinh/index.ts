@@ -22,5 +22,7 @@ export const lapTrinh: Subject = {
     { id: "python", name: "Python", short: "Từ khối sang code thật · lớp 9-12", emoji: "🐍", icon: "lt-tier-5", units: [], mascot: "bit" },
   ],
   ready: true,
+  // đấu trường hiện chỉ mở cho Máy tính Casio và Đua xe gõ phím
+  arena: false,
   stage: "all",
 };

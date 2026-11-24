@@ -44,7 +44,7 @@ export function Scene({ image, variant: wanted = "meadow", fixed = true, dim = f
     <div className={`${fixed ? "fixed left-0 top-0 h-lvh w-full" : "absolute inset-0"} -z-10 overflow-hidden`} aria-hidden>
       {src ? (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={src} alt="" className="block h-full w-full object-cover" style={calm ? { filter: "blur(3px) saturate(0.8)", transform: "scale(1.03)" } : undefined} />
+        <img src={src} alt="" className="block h-full w-full object-cover" style={calm ? { filter: "blur(3px) saturate(0.8) brightness(0.93)", transform: "scale(1.03)" } : { filter: "brightness(0.94) saturate(0.95)" }} />
       ) : (
         <svg className="block h-full w-full" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
           <defs>
