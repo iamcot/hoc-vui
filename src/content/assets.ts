@@ -117,6 +117,12 @@ const icon = (id: string, usage: string, prompt: string): ImageAsset => ({
 const WOOD = "warm light-honey wood with soft grain, cute storybook look, clean dark-brown outline";
 const SIGN =
   `A single wooden arrow-shaped plank sign pointing to the RIGHT, seen straight from the front, nothing else: no post, no stake, no grass; the plank fills the whole image width, about 3.5 times wider than tall, ${WOOD}, two small nails near the left end (top and bottom) where it is nailed to a post; at the LEFT end a round painted emblem about 80% of the plank height; the whole area to the right of the emblem is a smooth, completely BLANK flat wood surface reserved for a label`;
+/** bộ biển cho theme Neon: tấm kính tối viền sáng, gắn vào trụ kim loại phát sáng */
+const NEON_SIGN =
+  "A single arrow-shaped sci-fi sign panel pointing to the RIGHT, seen straight from the front, nothing else: no post, no background scene; the panel fills the whole image width, about 3.5 times wider than tall, made of dark navy glass and brushed metal with a glowing neon cyan edge line, two small glowing bolts near the left end (top and bottom) where it is mounted to a post; at the LEFT end a round glowing emblem about 80% of the panel height; the whole area to the right of the emblem is a smooth, completely BLANK dark glass surface reserved for a label";
+const neonSign = (id: string, usage: string, emblem: string): ImageAsset =>
+  cyber(`nav-${id}-neon`, "1536x1024", `Biển thanh bên theme Neon: ${usage} (chữ do app viết đè lên phần kính trống; cùng bố cục với nav-${id})`, `${NEON_SIGN}. The emblem shows ${emblem}`, true);
+
 const sign = (id: string, usage: string, emblem: string): ImageAsset =>
   img(`nav-${id}`, "1536x1024", `Tấm biển gắn vào cọc ở thanh bên: ${usage} (chữ do app viết đè lên ván trống)`, `${SIGN}. The emblem shows ${emblem}`, true);
 
@@ -258,6 +264,12 @@ export const IMAGES: ImageAsset[] = [
   sign("hoc", "Học", "an open storybook with a small sprout"),
   sign("thi-dau", "Thi đấu", "a yellow lightning bolt over two crossed pencils"),
   sign("xep-hang", "Xếp hạng", "a small golden trophy cup"),
+  // Bộ biển Neon (thay bộ gỗ khi bé chọn theme Neon; chưa có ảnh thì dùng bộ gỗ)
+  cyber("nav-pole-neon", "1024x1536", "Trụ thanh bên theme Neon (app lặp ảnh theo chiều dọc)", "A straight vertical brushed-metal post segment with a thin glowing cyan light strip down its center, seen from the front, centered, filling the full image height and about 12% of the width; SEAMLESS vertically: the top and bottom edges must tile perfectly when repeated (no cap, no end), nothing else in the image", true),
+  cyber("nav-title-neon", "1536x1024", "Biển tên app theme Neon (app đặt logo và chữ Học Vui lên trên)", "A single wide rounded-rectangle sci-fi name plaque, front view, about 3.2 times wider than tall, filling the image width, dark navy glass with a glowing neon cyan frame and small corner brackets, two small glowing bolts at the middle of the top and bottom edges, the inner area completely BLANK dark glass for a logo and title, no post, nothing else", true),
+  neonSign("hoc", "Học", "a glowing holographic open book with a small sprout of light"),
+  neonSign("thi-dau", "Thi đấu", "a neon yellow lightning bolt over two crossed glowing pencils"),
+  neonSign("xep-hang", "Xếp hạng", "a small glowing golden trophy cup"),
 
   // Icon nhỏ thay emoji
   icon("star", "XP (sao)", "A plump five-pointed golden star with a soft shine"),

@@ -19,7 +19,7 @@ export function ThemeCards() {
     { id: "neon", name: "Neon", hint: "Tối, ngầu, công nghệ", emoji: "🌌" },
   ];
   return (
-    <div className="grid grid-cols-2 gap-3">
+    <div className="grid max-w-md grid-cols-2 gap-3">
       {items.map((t) => (
         <button
           key={t.id}
@@ -27,7 +27,7 @@ export function ThemeCards() {
           aria-pressed={cur === t.id}
           className={`group overflow-hidden rounded-3xl text-left transition ${cur === t.id ? "ring-4 ring-sun shadow-[0_0_24px_-4px_rgba(255,184,31,0.8)]" : "opacity-85 ring-2 ring-white/40 hover:opacity-100"}`}
         >
-          <Art id={`theme-pick-${t.id}`} emoji={t.emoji} rounded="" className="aspect-square w-full" />
+          <Art id={`theme-pick-${t.id}`} emoji={t.emoji} rounded="" className="aspect-[16/9] w-full" />
           <div className={`px-3 py-2 ${t.id === "neon" ? "bg-[#0b1238] text-white" : "bg-white text-ink"}`}>
             <div className="font-display text-lg font-extrabold leading-tight">{t.name}</div>
             <div className={`text-xs font-bold ${t.id === "neon" ? "text-white/70" : "text-ink-soft"}`}>{t.hint}</div>
@@ -47,11 +47,11 @@ export function GradeChips({ onPick }: { onPick?: (g: string) => void }) {
   return (
     <div className="flex flex-wrap gap-2">
       {GRADES.map((g) => (
-        <button key={g} onClick={() => pick(g)} className={`chip px-4 py-2 text-base ${data.grade === g ? "bg-sky text-white" : "bg-white text-ink"}`}>
+        <button key={g} onClick={() => pick(g)} className={`chip px-4 py-2 text-base ring-1 ring-ink/15 ${data.grade === g ? "bg-sky text-white ring-0" : "bg-white text-ink"}`}>
           Lớp {g}
         </button>
       ))}
-      <button onClick={() => pick("later")} className={`chip px-4 py-2 text-base ${data.grade === "later" ? "bg-sky text-white" : "bg-white text-ink"}`}>
+      <button onClick={() => pick("later")} className={`chip px-4 py-2 text-base ring-1 ring-ink/15 ${data.grade === "later" ? "bg-sky text-white ring-0" : "bg-white text-ink"}`}>
         Bố mẹ chọn sau
       </button>
     </div>

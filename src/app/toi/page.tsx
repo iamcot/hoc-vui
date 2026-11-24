@@ -87,9 +87,7 @@ export default function MePage() {
           </div>
           <div className="space-y-2">
             <p className="text-sm font-bold text-ink-soft">Giao diện</p>
-            <div className="max-w-sm">
-              <ThemeCards />
-            </div>
+            <ThemeCards />
           </div>
           <div className="flex flex-wrap gap-3">
             <button className="btn btn-ghost" onClick={() => setSound(!data.sound)}>
