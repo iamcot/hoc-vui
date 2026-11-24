@@ -57,11 +57,14 @@ export function QuestionCard({
   mode = "learn",
   onNext,
   device,
+  onGuide,
 }: {
   q: Question;
   mode?: "learn" | "race";
   onNext: (r: AnswerResult) => void;
   device?: "fx580" | "keyboard";
+  /** báo khi bé mở "Xem cách bấm" (để ẩn máy ảo bấm tự do bên cạnh) */
+  onGuide?: () => void;
 }) {
   const [input, setInput] = useState("");
   const [b, setB] = useState("");
@@ -260,6 +263,7 @@ export function QuestionCard({
               onClick={() => {
                 setHinted(true);
                 setShowKeys(true);
+                onGuide?.();
               }}
             >
               <Ico n="calc" /> Xem cách bấm

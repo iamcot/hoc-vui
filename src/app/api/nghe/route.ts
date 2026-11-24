@@ -127,11 +127,11 @@ async function awsTranscribe(wav: Buffer): Promise<string[]> {
 
 /** Azure Speech, REST cho đoạn ngắn (dưới 60 giây), WAV PCM 16 kHz, lấy 5 kết quả tốt nhất */
 async function azureRecognize(wav: Buffer): Promise<string[]> {
-  const region = process.env.AZURE_SPEECH_REGION ?? "southeastasia";
+  const region = (process.env.AZURE_SPEECH_REGION ?? "southeastasia").trim().toLowerCase().replace(/\s+/g, "");
   const r = await fetch(`https://${region}.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=vi-VN&format=detailed&profanity=raw`, {
     method: "POST",
     headers: {
-      "Ocp-Apim-Subscription-Key": process.env.AZURE_SPEECH_KEY!,
+      "Ocp-Apim-Subscription-Key": process.env.AZURE_SPEECH_KEY!.trim(),
       "Content-Type": "audio/wav; codecs=audio/pcm; samplerate=16000",
       Accept: "application/json",
     },

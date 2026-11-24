@@ -6,6 +6,9 @@ import { RichText } from "@/components/RichText";
 import { Art } from "@/components/Art";
 import { KeySeq } from "@/components/calc/Keys";
 import { TryIt } from "@/components/calc/TryIt";
+import { FreeCalc } from "@/components/calc/FreeCalc";
+import { sendToAnswer } from "@/components/calc/CalcDock";
+import { useProgress } from "@/lib/store";
 import { QuestionCard } from "@/components/quiz/QuestionCard";
 import { LettersRow, SayRow } from "@/components/reading/Glyph";
 import { Blend } from "@/components/reading/Blend";
@@ -91,10 +94,24 @@ export function BlockView({ b, device, lead }: { b: Block; device?: "fx580" | "k
 
 function InlineCheck({ q, device }: { q: Extract<Block, { type: "check" }>["question"]; device?: "fx580" | "keyboard" }) {
   const [done, setDone] = useState(false);
+  const [guided, setGuided] = useState(false);
+  const { data } = useProgress();
+  // máy ảo hiện sẵn bên cạnh câu hỏi (bấm = là điền đáp án); mở "Xem cách bấm" thì dùng máy của phần hướng dẫn
+  const calc = device === "fx580" && data.calcMode === "virtual" && !done && !guided;
   return (
     <div className="rounded-3xl bg-lilac/10 p-4 sm:p-5">
       <div className="chip mb-3 bg-lilac/20 text-lilac"><Ico n="pencil" /> Thử nhanh</div>
-      {done ? <p className="font-bold text-mint">Xong rồi! Bấm Tiếp để đi tiếp nhé.</p> : <QuestionCard q={q} device={device} onNext={() => setDone(true)} />}
+      <div className={calc ? "grid items-start gap-4 md:grid-cols-[minmax(0,1fr)_280px]" : ""}>
+        <div className="min-w-0">
+          {done ? <p className="font-bold text-mint">Xong rồi! Bấm Tiếp để đi tiếp nhé.</p> : <QuestionCard q={q} device={device} onNext={() => setDone(true)} onGuide={() => setGuided(true)} />}
+        </div>
+        {calc && (
+          <div>
+            <p className="mb-1 text-center text-xs font-bold text-ink-soft">Bấm = là điền vào ô đáp án</p>
+            <FreeCalc onResult={sendToAnswer} />
+          </div>
+        )}
+      </div>
     </div>
   );
 }

@@ -31,7 +31,7 @@ const norm = (s: string) => s.toLowerCase().replace(/\s+/g, "").replace(/,/g, ".
 
 /** Bấm theo: máy ảo hướng dẫn từng phím, hoặc máy thật rồi nhập kết quả. */
 export function TryIt({ keys, result, label, onDone, doneNote, lead }: { keys: string[]; result?: string; label?: string; onDone?: () => void; doneNote?: string; lead?: React.ReactNode }) {
-  const { data, setCalcMode } = useProgress();
+  const { data } = useProgress();
   const mode = data.calcMode;
   const steps = useMemo(() => parseKeys(keys), [keys]);
   const [i, setI] = useState(0);
@@ -71,17 +71,6 @@ export function TryIt({ keys, result, label, onDone, doneNote, lead }: { keys: s
     <div className="rounded-3xl bg-sky-soft/60 p-4">
       <div className="mb-3 flex flex-wrap items-center gap-2">
         <span className="font-display font-extrabold"><Ico n="target" /> {label ?? "Bấm theo"}</span>
-        <div className="ml-auto inline-flex rounded-full bg-white p-1 text-sm font-bold shadow-sm">
-          {(["virtual", "physical"] as const).map((m) => (
-            <button
-              key={m}
-              onClick={() => setCalcMode(m)}
-              className={`rounded-full px-3 py-1 transition ${mode === m ? "bg-sky text-white" : "text-ink-soft"}`}
-            >
-              {m === "virtual" ? "Máy ảo" : "Máy thật"}
-            </button>
-          ))}
-        </div>
       </div>
 
       <div className={mode === "virtual" ? "grid items-start gap-4 md:grid-cols-[1fr_auto]" : ""}>

@@ -1,64 +1,59 @@
 "use client";
-import { useCallback, useEffect, useState, type ReactNode } from "react";
+import { type ReactNode } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { FreeCalc } from "./FreeCalc";
 import { fmtDecimal, fmtResult, type CalcResult } from "@/lib/calc-eval";
-import { Ico } from "@/components/Ico";
+import { useProgress } from "@/lib/store";
 
 /** Kết quả máy ảo gửi sang ô đáp án: dạng hiển thị (phân số) và dạng số thập phân. */
 export type FillDetail = { text: string; dec: string; q?: number; r?: number };
 
-const KEY = "hocvui:calc-dock";
 export const FILL_EVENT = "hocvui:fill-answer";
 
-/** Bật/tắt máy ảo bấm tự do khi làm bài. Nhớ lựa chọn trên máy này. */
+/** bấm "=" trên máy ảo: kết quả tự chép vào ô đáp án đang mở */
+export function sendToAnswer(r: CalcResult | null) {
+  if (!r) return;
+  const detail: FillDetail = { text: fmtResult(r, false), dec: fmtDecimal(r.value), q: r.divr?.q, r: r.divr?.r };
+  window.dispatchEvent(new CustomEvent(FILL_EVENT, { detail }));
+}
+
+/** Máy ảo khi làm bài: hiện khi chọn "Máy ảo" (một lựa chọn chung cho cả app, nút ở thanh trên). */
 export function useCalcDock(device?: string) {
+  const { data, setCalcMode } = useProgress();
   const enabled = device === "fx580";
-  const [open, setOpen] = useState(false);
-  useEffect(() => {
-    try {
-      if (localStorage.getItem(KEY) === "1") setOpen(true);
-    } catch {
-      /* không có localStorage */
-    }
-  }, []);
-  const set = (v: boolean) => {
-    setOpen(v);
-    try {
-      localStorage.setItem(KEY, v ? "1" : "0");
-    } catch {
-      /* bỏ qua */
-    }
-  };
-  return { enabled, open: enabled && open, toggle: () => set(!open), close: () => set(false) };
+  const open = enabled && data.calcMode === "virtual";
+  return { enabled, open, toggle: () => setCalcMode(open ? "physical" : "virtual"), close: () => setCalcMode("physical") };
+}
+
+/** nút duy nhất chọn Máy ảo / Máy thật (thanh trên của bài học, luyện tập, kiểm tra, phòng thi) */
+export function CalcModeToggle({ className = "" }: { className?: string }) {
+  const { data, setCalcMode } = useProgress();
+  return (
+    <div className={`inline-flex shrink-0 rounded-full bg-white p-1 text-sm font-bold shadow-sm ${className}`} role="group" aria-label="Dùng máy tính">
+      {(["virtual", "physical"] as const).map((m) => (
+        <button
+          key={m}
+          type="button"
+          onClick={() => setCalcMode(m)}
+          aria-pressed={data.calcMode === m}
+          className={`rounded-full px-3 py-1 transition ${data.calcMode === m ? "bg-sky text-white" : "text-ink-soft"}`}
+        >
+          {m === "virtual" ? "Máy ảo" : "Máy thật"}
+        </button>
+      ))}
+    </div>
+  );
 }
 
 export function CalcToggle({ dock }: { dock: ReturnType<typeof useCalcDock> }) {
   if (!dock.enabled) return null;
-  return (
-    <button
-      type="button"
-      onClick={dock.toggle}
-      aria-pressed={dock.open}
-      className={`chip shrink-0 font-bold transition ${dock.open ? "bg-ink text-white" : "bg-white text-ink"}`}
-    >
-      <Ico n="calc" /> <span className="hidden sm:inline">Máy tính</span>
-      <span className={`ml-1 inline-block h-4 w-7 rounded-full p-0.5 transition ${dock.open ? "bg-mint" : "bg-line"}`}>
-        <span className={`block h-3 w-3 rounded-full bg-white transition ${dock.open ? "translate-x-3" : ""}`} />
-      </span>
-    </button>
-  );
+  return <CalcModeToggle />;
 }
 
 /** Khung bài làm: máy ảo nằm cạnh câu hỏi (iPad, laptop) hoặc trượt lên từ đáy (màn hẹp). */
 export function CalcLayout({ dock, children }: { dock: ReturnType<typeof useCalcDock>; children: ReactNode }) {
   const open = dock.open;
-  // bấm "=" là kết quả tự chép vào ô đáp án
-  const onResult = useCallback((r: CalcResult | null) => {
-    if (!r) return;
-    const detail: FillDetail = { text: fmtResult(r, false), dec: fmtDecimal(r.value), q: r.divr?.q, r: r.divr?.r };
-    window.dispatchEvent(new CustomEvent(FILL_EVENT, { detail }));
-  }, []);
+  const onResult = sendToAnswer;
   return (
     <main className={`mx-auto px-4 py-8 sm:px-6 ${open ? "max-w-6xl pb-[70vh] md:pb-8" : "max-w-3xl"}`}>
       <div className={open ? "md:grid md:grid-cols-[minmax(0,1fr)_300px] md:items-start md:gap-6" : ""}>
