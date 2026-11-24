@@ -1,3 +1,4 @@
+import { isDebug } from "./debug";
 import type { Subject, Tier } from "@/content/types";
 import { tierLessons } from "@/content/subjects";
 import type { LessonState } from "./store";
@@ -18,7 +19,7 @@ export function tierDone(s: Subject, t: Tier, lesson: LessonFn) {
  * hoặc trình độ trước đã mở và đã học xong.
  */
 export function tierUnlocked(s: Subject, i: number, lesson: LessonFn, unlocks: Record<string, string[]>): boolean {
-  if (i <= 0) return true;
+  if (i <= 0 || isDebug()) return true;
   if (unlocks[s.id]?.includes(s.tiers[i].id)) return true;
   return tierUnlocked(s, i - 1, lesson, unlocks) && tierDone(s, s.tiers[i - 1], lesson);
 }

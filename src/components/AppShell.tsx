@@ -39,7 +39,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       <aside className="sticky top-0 hidden h-dvh w-60 shrink-0 flex-col gap-2 bg-white/65 p-4 shadow-[8px_0_30px_-20px_rgba(40,40,120,0.4)] backdrop-blur-xl md:flex lg:w-64">
         <Link href="/" className="mb-4 flex items-center gap-2 px-2">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/assets/img/logo-mark.webp" alt="" className="h-11 w-11 drop-shadow-sm" />
+          <img src="/assets/img/logo.webp" alt="" className="h-12 w-auto drop-shadow-sm" />
           <span className="font-display text-2xl font-extrabold tracking-tight">Học Vui</span>
         </Link>
         {TABS.map(({ href, label, Icon, match }) => {
