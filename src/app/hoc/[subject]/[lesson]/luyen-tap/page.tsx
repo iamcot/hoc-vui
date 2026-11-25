@@ -3,6 +3,7 @@ import { SUBJECTS, allLessons, getLesson } from "@/content/subjects";
 import { Practice } from "./Practice";
 import { TypingPractice } from "@/components/typing/TypingPractice";
 import { CodePractice } from "@/components/code/CodePractice";
+import { ChemPractice } from "@/components/lab/ChemPractice";
 
 export function generateStaticParams() {
   return SUBJECTS.filter((s) => s.ready).flatMap((s) => allLessons(s).map((l) => ({ subject: s.id, lesson: l.id })));
@@ -14,5 +15,6 @@ export default async function Page({ params }: { params: Promise<{ subject: stri
   if (!info) notFound();
   if (info.lesson.typing) return <TypingPractice subjectId={subject} lessonId={lesson} />;
   if (info.lesson.code) return <CodePractice subjectId={subject} lessonId={lesson} />;
+  if (info.lesson.lab) return <ChemPractice subjectId={subject} lessonId={lesson} />;
   return <Practice subjectId={subject} lessonId={lesson} />;
 }

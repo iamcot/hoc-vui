@@ -21,7 +21,9 @@ export function tierDone(s: Subject, t: Tier, lesson: LessonFn) {
 export function tierUnlocked(s: Subject, i: number, lesson: LessonFn, unlocks: Record<string, string[]>): boolean {
   if (i <= 0 || isDebug()) return true;
   if (unlocks[s.id]?.includes(s.tiers[i].id)) return true;
-  return tierUnlocked(s, i - 1, lesson, unlocks) && tierDone(s, s.tiers[i - 1], lesson);
+  // trình độ trước còn đang soạn (chưa có bài) thì không chặn đường lên trình độ sau
+  const prev = s.tiers[i - 1];
+  return tierUnlocked(s, i - 1, lesson, unlocks) && (prev.units.length === 0 || tierDone(s, prev, lesson));
 }
 
 /** Trình độ mở mặc định: cao nhất đã mở mà có bài. */

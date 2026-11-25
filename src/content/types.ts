@@ -1,6 +1,7 @@
 import type { Rng } from "@/lib/rng";
 import type { Level } from "@/lib/code/world";
 import type { LevelGen } from "@/lib/code/levels";
+import type { LabLesson } from "@/lib/chem/types";
 
 export type Mood = "happy" | "think" | "wow" | "cheer" | "oops";
 
@@ -124,6 +125,8 @@ export interface Lesson {
   typing?: TypingSpec;
   /** môn Lập trình: luyện tập là các màn kéo khối lệnh thay cho câu hỏi */
   code?: CodeSpec;
+  /** môn Thí nghiệm hoá: bài học là các thí nghiệm trên bàn ảo, luyện tập là nhiệm vụ + câu hỏi */
+  lab?: LabLesson;
 }
 
 export interface Unit {

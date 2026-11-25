@@ -91,7 +91,7 @@ Wishlist 5 môn mới: `docs/WISHLIST.md`. Plan chi tiết từng môn và luậ
 - [ ] 3b · Thám tử logic (mỗi bài một mẹo suy luận + vụ án sinh ngẫu nhiên)
 - [ ] 3c · Lập trình khối lệnh (Blockly + trình chạy từng bước, sau sang Python bằng Pyodide). Đã có: Vỡ lòng (5 bài, 26 màn), Cơ bản (6 bài, 30 màn)
 - [ ] 3d · Khám phá Việt Nam (bản đồ 34 tỉnh, thẻ sưu tập)
-- [ ] 3e · Thí nghiệm hóa (phòng thí nghiệm ảo, giải thích tăng dần lớp 1 → 12)
+- [ ] 3e · Thí nghiệm hóa (phòng thí nghiệm ảo, giải thích tăng dần lớp 1 → 12) · bản thử đã có: 5 bài Nhí, 1 bài THCS
 - [ ] Toán lớp 6 (lý thuyết), Toán lớp 1, Tiếng Anh...
 - [ ] Trình soạn bài cho phụ huynh
 
