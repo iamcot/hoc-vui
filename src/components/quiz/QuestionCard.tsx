@@ -58,6 +58,7 @@ export function QuestionCard({
   onNext,
   device,
   onGuide,
+  noMinus,
 }: {
   q: Question;
   mode?: "learn" | "race";
@@ -65,6 +66,8 @@ export function QuestionCard({
   device?: "fx580" | "keyboard";
   /** báo khi bé mở "Xem cách bấm" (để ẩn máy ảo bấm tự do bên cạnh) */
   onGuide?: () => void;
+  /** ẩn phím “−” (môn không có số âm) */
+  noMinus?: boolean;
 }) {
   const [input, setInput] = useState("");
   const [b, setB] = useState("");
@@ -240,7 +243,7 @@ export function QuestionCard({
           </div>
           {result === null && (
             <div className="flex gap-2">
-              {["−", q.kind === "fraction" ? "/" : ","].map((s) => (
+              {(noMinus ? [] : ["−"]).concat(q.kind === "fraction" ? "/" : ",").map((s) => (
                 <button key={s} onClick={() => insert(s === "−" ? "-" : s)} className="h-10 w-10 rounded-xl border border-line bg-white font-bold">
                   {s}
                 </button>

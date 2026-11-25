@@ -152,8 +152,8 @@ export function LabNode({ subjectId, lessonId, mode }: { subjectId: string; less
                   <span className="lab-soft ml-3 text-base">✅ {correct}</span>
                 </div>
               </div>
-              <div className="rounded-2xl bg-white p-1 text-ink">
-                <QuestionCard key={qs[qi].id} q={qs[qi]} onNext={onNext} device={subject.device} />
+              <div className="lab-q p-1">
+                <QuestionCard key={qs[qi].id} q={qs[qi]} onNext={onNext} device={subject.device} noMinus />
               </div>
             </div>
           ) : (
