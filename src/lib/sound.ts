@@ -9,8 +9,12 @@ export function setMuted(m: boolean) {
   muted = m;
 }
 
-/** Phát âm thanh theo id trong danh mục. Chưa có file thì im lặng. */
-export function play(id: string, volume = 0.6) {
+/**
+ * Phát âm thanh theo id trong danh mục. Chưa có file thì im lặng.
+ * Độ to đã cân bằng sẵn trong file (scripts/normalize-audio.mjs: giọng đọc làm chuẩn, chúc mừng nhỏ hơn giọng
+ * một chút, tiếng chạm/gõ nhỏ nhất) nên mặc định phát ở mức 1; chỉ truyền volume khi thật cần nhỏ hơn.
+ */
+export function play(id: string, volume = 1) {
   if (muted || typeof window === "undefined") return;
   const asset = audioById(id);
   if (!asset || !hasFile(asset.file)) return;

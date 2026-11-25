@@ -32,10 +32,10 @@ type AnyState = State | ListState;
 const startOf = (w: AnyWorld): AnyState => (isList(w) ? initList(w) : initState(w));
 
 /** phát âm thanh riêng của môn nếu đã có file, chưa có thì dùng âm chung */
-const sfx = (id: string, fallback: string | null, vol = 0.35) => {
+const sfx = (id: string, fallback: string | null) => {
   const a = audioById(id);
-  if (a && hasFile(a.file)) play(id, vol);
-  else if (fallback) play(fallback, vol * 0.7);
+  if (a && hasFile(a.file)) play(id);
+  else if (fallback) play(fallback);
 };
 
 const KEY_OF: Record<string, Key> = { ArrowUp: "u", ArrowLeft: "l", ArrowRight: "r", " ": "s" };
@@ -134,7 +134,7 @@ export function LevelPlayer({ level, index, total, onDone }: { level: Level; ind
         setStatus("fail");
         setFails((f) => f + 1);
         setMsg("Hết pin rồi! Thử cho mỗi phím làm được nhiều việc hơn để bấm ít lần hơn nhé.");
-        play("wrong", 0.4);
+        play("wrong");
         wsRef.current?.setLocked(false);
       } else setStatus("play");
       wsRef.current?.highlight(null);
@@ -143,7 +143,7 @@ export function LevelPlayer({ level, index, total, onDone }: { level: Level; ind
     wsRef.current?.setLocked(false);
     if (o === "win" && wiRef.current + 1 < worlds.length) {
       // qua sân này rồi: thử tiếp sân ẩn với đúng chương trình đó
-      play("correct", 0.4);
+      play("correct");
       const k = wiRef.current + 1;
       goWorld(k);
       setState(startOf(worlds[k]));
@@ -160,7 +160,7 @@ export function LevelPlayer({ level, index, total, onDone }: { level: Level; ind
       setStatus("fail");
       setFails((f) => f + 1);
       setMsg(failText(o));
-      play("wrong", 0.4);
+      play("wrong");
     }
   }
 
@@ -181,7 +181,7 @@ export function LevelPlayer({ level, index, total, onDone }: { level: Level; ind
       setBump(0);
       if (wiRef.current === 0) setMsg(keyMode ? "Bấm phím để chơi!" : null);
       wsRef.current?.setLocked(true);
-      sfx("lt-run", null, 0.4);
+      sfx("lt-run", null);
     }
     const r = gen.current.next();
     if (r.done) {
@@ -200,19 +200,19 @@ export function LevelPlayer({ level, index, total, onDone }: { level: Level; ind
     setCurId(st.blockId ?? null);
     if (st.kind === "bump") {
       setBump((b) => b + 1);
-      sfx("lt-bump", null, 0.45);
-    } else if (st.kind === "star") play("correct", 0.35);
+      sfx("lt-bump", null);
+    } else if (st.kind === "star") play("correct");
     else if (st.kind === "swap") sfx("lt-swap", "tap");
-    else if (st.kind === "turn") sfx("lt-turn", "tap", 0.3);
-    else if (st.kind === "move") sfx("lt-step", "tap", 0.3);
-    else play("tap", 0.2);
+    else if (st.kind === "turn") sfx("lt-turn", "tap");
+    else if (st.kind === "move") sfx("lt-step", "tap");
+    else play("tap");
   }
 
   /** màn phím: bấm một phím thì chạy khối của phím đó tiếp từ chỗ đang đứng */
   function press(k: Key) {
     if (status !== "play") return;
     const body = handlersOf(program).get(k);
-    sfx("lt-key", "tap", 0.35);
+    sfx("lt-key", "tap");
     if (!body) {
       setMsg(`Phím ${KEY_LABEL[k]} chưa có lệnh nào. Thêm khối ⌨️ Khi bấm phím ${KEY_LABEL[k]} nhé.`);
       return;

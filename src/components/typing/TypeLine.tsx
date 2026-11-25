@@ -44,7 +44,7 @@ export function useTypist(text: string, onDone?: (r: TypeResult) => void, active
       s.pos++;
       setPos(s.pos);
       setFlash({ ch, ok: true });
-      play("gp-key", 0.25);
+      play("gp-key");
       onKey?.(true, s.pos);
       if (s.pos >= keys.length) {
         s.done = true;
@@ -55,7 +55,7 @@ export function useTypist(text: string, onDone?: (r: TypeResult) => void, active
       s.errors++;
       setErrors(s.errors);
       setFlash({ ch, ok: false });
-      play("gp-miss", 0.35);
+      play("gp-miss");
       onKey?.(false, s.pos);
     }
   }, active);

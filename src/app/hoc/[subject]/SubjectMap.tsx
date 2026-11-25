@@ -361,7 +361,7 @@ export function SubjectMap({ subjectId }: { subjectId: string }) {
           }
           return (
             <div key={i} className="absolute -translate-x-1/2 -translate-y-1/2" style={style}>
-              <Link href={`/thi-dau?mon=${s.id}&cap=${tier.id}`} className="group relative block">
+              <Link href={`/thi-dau?mon=${s.id}`} className="group relative block">
                 <span className={`relative block h-28 w-28 overflow-hidden rounded-full border-[6px] border-white ${NODE}`}>
                   <Art id="bg-arena" emoji="⚡" rounded="rounded-full" className="h-full w-full" />
                 </span>
@@ -418,7 +418,7 @@ function RankChip({ s }: { s: Subject }) {
   const r = rankInfo(s, lesson, data.unlocks);
   return (
     <div className="flex flex-wrap items-center gap-2 rounded-full bg-white/90 py-1.5 pl-4 pr-2 font-display text-base font-extrabold shadow-[var(--shadow-pop)]">
-      <Ico n="medal-1" /> Hạng {r.rank.name}
+      <Ico n="medal-1" /> Thi đấu: {r.rank.name}
       {r.next ? (
         <span className="rounded-full bg-sun-soft px-3 py-1 text-sm font-bold text-ink">
           Còn {r.next.left} bài nữa lên {r.next.name}

@@ -46,7 +46,7 @@ export function TryIt({ keys, result, label, onDone, doneNote, lead }: { keys: s
   function press(k: CalcKey) {
     if (done) return;
     if (k.id === steps[i].key.id) {
-      play("tap", 0.4);
+      play("tap");
       const n = i + 1;
       setI(n);
       if (n >= steps.length) {
@@ -54,7 +54,7 @@ export function TryIt({ keys, result, label, onDone, doneNote, lead }: { keys: s
         onDone?.();
       }
     } else {
-      play("wrong", 0.4);
+      play("wrong");
       setShake((x) => x + 1);
     }
   }

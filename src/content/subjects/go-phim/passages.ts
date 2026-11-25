@@ -1,28 +1,141 @@
 /**
- * Bài gõ hay: đoạn văn, ca dao, chuyện vui để gõ. Bài không dấu cho bé mới tập,
- * bài có dấu (gõ Telex trong app) sau khi học trình độ Telex.
- * Ca dao, tục ngữ là văn học dân gian; các đoạn còn lại tự viết.
+ * Bài gõ hay: đoạn văn, ca dao, chuyện vui để gõ, có đủ đoạn ngắn, vừa, dài để đo WPM.
+ * Ba loại: tiếng Việt không dấu (cho bé mới tập), tiếng Việt có dấu (gõ Telex trong app), tiếng Anh.
+ * Có thêm thể loại: truyện cổ tích, truyện thiếu nhi, văn học hiện đại, thơ ca, khám phá.
+ * Nguồn: ca dao, tục ngữ là văn học dân gian; các đoạn trích nguyên văn (có `source`) đều từ tác phẩm đã hết hạn bản quyền
+ * (Nguyễn Du, Hồ Xuân Hương, Nguyễn Khuyến, Bà Huyện Thanh Quan, Thạch Lam, và sách thiếu nhi tiếng Anh in trước 1930);
+ * truyện cổ tích và các truyện "kể lại" là lời tự viết theo cốt truyện quen thuộc; còn lại tự viết.
  */
+export type PassageKind = "co-dau" | "khong-dau" | "en";
+export type PassageGenre = "co-tich" | "thieu-nhi" | "hien-dai" | "tho" | "kham-pha";
 export interface Passage {
   id: string;
   title: string;
   emoji: string;
-  /** "khong-dau" | "co-dau" */
-  kind: "khong-dau" | "co-dau";
+  genre: PassageGenre;
+  kind: PassageKind;
   text: string;
+  /** tác giả, tác phẩm (đoạn trích hoặc kể lại) */
+  source?: string;
 }
 
+export const GENRES: { id: PassageGenre; name: string }[] = [
+  { id: "co-tich", name: "Cổ tích, ngụ ngôn" },
+  { id: "thieu-nhi", name: "Truyện thiếu nhi" },
+  { id: "hien-dai", name: "Văn hiện đại" },
+  { id: "tho", name: "Thơ, ca dao" },
+  { id: "kham-pha", name: "Khám phá" },
+];
+
+/** bỏ dấu tiếng Việt để có bản cho bạn mới tập */
+const plain = (t: string) => t.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/đ/g, "d").replace(/Đ/g, "D");
+
+export const PASSAGE_KINDS: { id: PassageKind; name: string; hint: string }[] = [
+  { id: "co-dau", name: "Tiếng Việt có dấu", hint: "Gõ Telex (học xong trình độ Telex)" },
+  { id: "khong-dau", name: "Tiếng Việt không dấu", hint: "Cho bạn mới tập, chưa cần bỏ dấu" },
+  { id: "en", name: "Tiếng Anh", hint: "Đoạn văn tiếng Anh dễ đọc" },
+];
+
+export type PassageLength = "ngan" | "vua" | "dai";
+export const LENGTH_NAME: Record<PassageLength, string> = { ngan: "Ngắn", vua: "Vừa", dai: "Dài" };
+/** ngắn dưới 150 ký tự, vừa tới 350, dài hơn nữa */
+export const lengthOf = (p: Passage): PassageLength => (p.text.length < 150 ? "ngan" : p.text.length <= 350 ? "vua" : "dai");
+/** đoạn đủ dài thì WPM mới đáng tin, mới tính kỷ lục */
+export const RECORD_MIN_CHARS = 120;
+export const RECORD_MIN_ACC = 85;
+
+/** Tác phẩm kinh điển tiếng Việt: cổ tích kể lại, thơ ca trích nguyên văn, văn hiện đại */
+const CLASSICS_VI: Passage[] = [
+  // ── cổ tích, ngụ ngôn: lời kể lại ──
+  { id: "ct-01", title: "Thánh Gióng", emoji: "🐎", genre: "co-tich", kind: "co-dau", source: "Truyền thuyết Việt Nam, kể lại", text: "Ngày xưa, ở làng Gióng có một cậu bé lên ba mà chưa biết nói, biết cười. Khi giặc Ân kéo đến, sứ giả đi khắp nơi tìm người tài. Cậu bé bỗng cất tiếng nói: mẹ ra mời sứ giả vào đây. Từ hôm đó, Gióng lớn nhanh như thổi, ăn bao nhiêu cũng không no. Gióng mặc áo giáp sắt, cưỡi ngựa sắt, cầm roi sắt xông ra trận. Roi gãy, Gióng nhổ những bụi tre bên đường quật vào giặc. Thắng giặc xong, Gióng cưỡi ngựa bay về trời." },
+  { id: "ct-02", title: "Sơn Tinh, Thủy Tinh", emoji: "⛰️", genre: "co-tich", kind: "co-dau", source: "Truyền thuyết Việt Nam, kể lại", text: "Vua Hùng có người con gái tên Mị Nương, xinh đẹp hiền dịu. Hai chàng trai đến cầu hôn: Sơn Tinh ở vùng núi và Thủy Tinh ở miền biển. Vua hẹn ai mang sính lễ đến trước sẽ được cưới công chúa. Sáng hôm sau, Sơn Tinh đến trước và rước Mị Nương về núi. Thủy Tinh đến sau, nổi giận dâng nước đánh Sơn Tinh. Nước dâng cao bao nhiêu, núi lại mọc cao bấy nhiêu. Cuối cùng Thủy Tinh đành rút quân, nhưng năm nào cũng dâng nước báo thù." },
+  { id: "ct-03", title: "Cây khế", emoji: "⭐", genre: "co-tich", kind: "co-dau", source: "Truyện cổ tích Việt Nam, kể lại", text: "Người anh tham lam lấy hết ruộng vườn, chỉ chia cho em một cây khế. Một hôm, có con chim lạ bay đến ăn khế và nói: ăn một quả, trả cục vàng, may túi ba gang, mang đi mà đựng. Người em may túi đúng ba gang, được chim chở ra đảo lấy vàng rồi trở nên khá giả. Người anh biết chuyện liền đổi hết gia tài lấy cây khế, may túi thật to. Ra đến đảo, anh nhét đầy vàng, túi nặng quá, chim chao cánh và người anh rơi xuống biển." },
+  { id: "ct-04", title: "Sự tích dưa hấu", emoji: "🍉", genre: "co-tich", kind: "co-dau", source: "Truyện cổ tích Việt Nam, kể lại", text: "Mai An Tiêm bị đày ra một hòn đảo hoang giữa biển. Một hôm, chim bay qua thả xuống mấy hạt giống lạ. An Tiêm đem gieo, chăm tưới mỗi ngày. Dây leo mọc xanh tốt, kết thành những quả to, vỏ xanh, ruột đỏ, hạt đen, ăn ngọt mát. An Tiêm khắc tên mình lên quả rồi thả xuống biển. Người trong đất liền vớt được, tìm ra đảo đổi gạo lấy dưa. Từ đó, nước ta có giống dưa hấu." },
+  { id: "ct-05", title: "Sự tích Hồ Gươm", emoji: "🐢", genre: "co-tich", kind: "co-dau", source: "Truyền thuyết Việt Nam, kể lại", text: "Lê Lợi được thần cho mượn thanh gươm báu để đánh giặc Minh. Có gươm thần, nghĩa quân đánh đâu thắng đó. Sau khi đất nước yên bình, nhà vua đi thuyền dạo trên hồ Tả Vọng. Bỗng một con rùa vàng lớn nổi lên, xin vua trả lại gươm cho Long Quân. Vua nâng gươm, rùa há miệng đớp lấy rồi lặn xuống đáy hồ. Từ đó hồ mang tên hồ Hoàn Kiếm, tức là hồ trả gươm." },
+  { id: "ct-06", title: "Con Rồng cháu Tiên", emoji: "🐉", genre: "co-tich", kind: "co-dau", source: "Truyền thuyết Việt Nam, kể lại", text: "Lạc Long Quân là con thần biển, Âu Cơ là con thần núi. Hai người gặp nhau, kết duyên vợ chồng. Âu Cơ sinh ra một cái bọc trăm trứng, nở thành một trăm người con khỏe mạnh. Lạc Long Quân đưa năm mươi con xuống biển, Âu Cơ đưa năm mươi con lên núi. Người con trưởng làm vua, lấy hiệu là Hùng Vương. Vì thế người Việt tự hào mình là con Rồng cháu Tiên." },
+  { id: "ct-07", title: "Rùa và Thỏ", emoji: "🐇", genre: "co-tich", kind: "co-dau", source: "Ngụ ngôn Aesop, kể lại", text: "Thỏ chê Rùa chậm chạp, Rùa liền rủ Thỏ chạy thi. Vừa xuất phát, Thỏ đã chạy vụt đi rất xa. Thấy Rùa còn lâu mới tới, Thỏ nằm dưới gốc cây ngủ một giấc. Rùa cứ chậm rãi bò, không dừng lại phút nào. Khi Thỏ tỉnh dậy thì Rùa đã gần tới đích. Thỏ cắm cổ chạy nhưng không kịp nữa. Chậm mà chắc còn hơn nhanh mà chủ quan." },
+  { id: "ct-08", title: "Ếch ngồi đáy giếng", emoji: "🐸", genre: "co-tich", kind: "co-dau", source: "Truyện ngụ ngôn, kể lại", text: "Có con ếch sống lâu năm trong một cái giếng. Nhìn lên chỉ thấy bầu trời bé bằng cái vung, ếch tưởng mình là chúa tể. Một năm trời mưa to, nước giếng dềnh lên, ếch ra được ngoài. Nó nghênh ngang đi lại, chẳng thèm để ý xung quanh, và bị một con trâu giẫm bẹp." },
+  { id: "ct-09", title: "Đẽo cày giữa đường", emoji: "🪓", genre: "co-tich", kind: "co-dau", source: "Truyện ngụ ngôn, kể lại", text: "Anh nông dân đẽo cày bên đường. Ai đi qua góp ý một câu, anh lại đẽo theo một kiểu. Cuối cùng cái cày nhỏ xíu, chẳng dùng được việc gì." },
+  { id: "ct-10", title: "Tấm Cám", emoji: "🐟", genre: "co-tich", kind: "co-dau", source: "Truyện cổ tích Việt Nam, kể lại", text: "Tấm hiền lành, chăm chỉ, còn Cám lười biếng. Dì ghẻ bắt hai chị em đi bắt tép, ai được nhiều sẽ thưởng yếm đỏ. Tấm mải miết bắt đầy giỏ, Cám lừa chị gội đầu rồi trút hết tép sang giỏ mình. Tấm ngồi khóc, Bụt hiện lên hỏi: vì sao con khóc? Bụt bảo Tấm nuôi con cá bống còn sót lại trong giỏ. Từ đó, Tấm có một người bạn nhỏ, ngày ngày chia cho bống một bát cơm." },
+  { id: "ct-11", title: "Vịt con xấu xí", emoji: "🦢", genre: "co-tich", kind: "co-dau", source: "Theo truyện của Andersen, kể lại", text: "Trong ổ trứng của vịt mẹ có một quả to nhất nở ra chú vịt con lông xám, chân dài, trông rất lạ. Các bạn trong sân chê chú xấu xí, đuổi chú đi. Chú lang thang qua đầm lầy, qua một mùa đông giá lạnh, chẳng ai muốn chơi cùng. Mùa xuân đến, chú bay ra hồ và soi mình xuống nước. Chú không còn là vịt con xấu xí nữa, mà là một chú thiên nga trắng muốt, xinh đẹp." },
+  { id: "ct-12", title: "Cô bé bán diêm", emoji: "🔥", genre: "co-tich", kind: "co-dau", source: "Theo truyện của Andersen, kể lại", text: "Đêm giao thừa, tuyết rơi trắng phố. Một cô bé đầu trần, chân đất đi bán diêm mà cả ngày chưa bán được bao nhiêu. Cô ngồi nép vào góc tường, quẹt một que diêm để sưởi. Ánh lửa hiện ra một lò sưởi ấm áp. Que thứ hai hiện ra bàn ăn thơm phức. Que thứ ba hiện ra cây thông Noel lấp lánh. Rồi cô thấy bà nội hiền hậu mỉm cười, dang tay đón cô." },
+  // ── truyện thiếu nhi thế giới: lời kể lại ──
+  { id: "tn-01", title: "Alice ở xứ sở thần tiên", emoji: "🐇", genre: "thieu-nhi", kind: "co-dau", source: "Theo Lewis Carroll, kể lại", text: "Alice đang ngồi buồn chán bên bờ sông thì một chú thỏ trắng mắc áo gi lê chạy vụt qua, rút đồng hồ ra xem và lẩm bẩm: chết rồi, muộn mất rồi! Tò mò, Alice chạy theo và nhảy xuống một cái hang thỏ. Cô rơi mãi, rơi mãi, qua những ngăn tủ, kệ sách và lọ mứt cam. Khi chạm đất, Alice thấy mình đứng trong một hành lang dài có rất nhiều cánh cửa nhỏ." },
+  { id: "tn-02", title: "Pinocchio", emoji: "🤥", genre: "thieu-nhi", kind: "co-dau", source: "Theo Carlo Collodi, kể lại", text: "Bác thợ mộc Geppetto đẽo một chú bé bằng gỗ và đặt tên là Pinocchio. Chú biết nói, biết chạy, nhưng rất nghịch ngợm. Mỗi lần Pinocchio nói dối, chiếc mũi gỗ của chú lại dài ra thêm một đoạn. Sau bao nhiêu chuyến phiêu lưu, Pinocchio học được cách trung thực và thương bố. Một buổi sáng thức dậy, chú thấy mình đã trở thành một cậu bé thật." },
+  { id: "tn-03", title: "Peter Pan", emoji: "🧚", genre: "thieu-nhi", kind: "co-dau", source: "Theo J. M. Barrie, kể lại", text: "Peter Pan là cậu bé không bao giờ lớn. Một đêm, cậu bay qua cửa sổ nhà Wendy cùng cô tiên nhỏ Tinker Bell. Chỉ cần một chút bụi tiên và một ý nghĩ vui vẻ, Wendy và các em cũng bay được. Cả bọn bay qua những mái nhà London, đến hòn đảo Neverland, nơi có nàng tiên cá, người da đỏ và thuyền trưởng Móc." },
+  // ── văn học hiện đại ──
+  { id: "hd-01", title: "Hai đứa trẻ: buổi chiều", emoji: "🌇", genre: "hien-dai", kind: "co-dau", source: "Thạch Lam, Hai đứa trẻ (trích)", text: "Tiếng trống thu không trên cái chòi của huyện nhỏ; từng tiếng một vang ra để gọi buổi chiều. Phương tây đỏ rực như lửa cháy và những đám mây ánh hồng như hòn than sắp tàn. Dãy tre làng trước mặt đen lại và cắt hình rõ rệt trên nền trời." },
+  { id: "hd-02", title: "Hai đứa trẻ: chiều êm ả", emoji: "🐸", genre: "hien-dai", kind: "co-dau", source: "Thạch Lam, Hai đứa trẻ (trích)", text: "Chiều, chiều rồi. Một chiều êm ả như ru, văng vẳng tiếng ếch nhái kêu ran ngoài đồng ruộng theo gió nhẹ đưa vào. Trong cửa hàng hơi tối, muỗi đã bắt đầu vo ve. Liên ngồi yên lặng bên mấy quả thuốc sơn đen; đôi mắt chị bóng tối ngập đầy dần và cái buồn của buổi chiều quê thấm thía vào tâm hồn ngây thơ của chị." },
+  { id: "hd-03", title: "Gió lạnh đầu mùa", emoji: "🧥", genre: "hien-dai", kind: "co-dau", source: "Theo truyện ngắn của Thạch Lam, kể lại", text: "Sáng hôm ấy gió bấc thổi về, trời lạnh hẳn. Mẹ lấy trong rương ra những chiếc áo ấm cho Sơn và chị Lan. Ra chợ chơi, Sơn thấy cô bé Hiên đứng co ro bên cột quán, chỉ mặc một chiếc áo rách vai. Sơn chợt nhớ đến đứa em đã mất và thấy thương Hiên quá. Hai chị em chạy về nhà, lấy chiếc áo bông cũ đem cho Hiên mặc. Tối hôm đó, mẹ biết chuyện, không mắng mà còn khen hai con biết thương người." },
+  // ── thơ, ca dao: nguyên văn ──
+  { id: "th-01", title: "Truyện Kiều: mở đầu", emoji: "📜", genre: "tho", kind: "co-dau", source: "Nguyễn Du, Truyện Kiều", text: "Trăm năm trong cõi người ta, chữ tài chữ mệnh khéo là ghét nhau. Trải qua một cuộc bể dâu, những điều trông thấy mà đau đớn lòng." },
+  { id: "th-02", title: "Truyện Kiều: cảnh ngày xuân", emoji: "🌸", genre: "tho", kind: "co-dau", source: "Nguyễn Du, Truyện Kiều", text: "Ngày xuân con én đưa thoi, thiều quang chín chục đã ngoài sáu mươi. Cỏ non xanh tận chân trời, cành lê trắng điểm một vài bông hoa." },
+  { id: "th-03", title: "Bánh trôi nước", emoji: "🍡", genre: "tho", kind: "co-dau", source: "Hồ Xuân Hương", text: "Thân em vừa trắng lại vừa tròn, bảy nổi ba chìm với nước non. Rắn nát mặc dầu tay kẻ nặn, mà em vẫn giữ tấm lòng son." },
+  { id: "th-04", title: "Thu điếu", emoji: "🎣", genre: "tho", kind: "co-dau", source: "Nguyễn Khuyến", text: "Ao thu lạnh lẽo nước trong veo, một chiếc thuyền câu bé tẻo teo. Sóng biếc theo làn hơi gợn tí, lá vàng trước gió khẽ đưa vèo." },
+  { id: "th-05", title: "Qua Đèo Ngang", emoji: "🏔️", genre: "tho", kind: "co-dau", source: "Bà Huyện Thanh Quan", text: "Bước tới Đèo Ngang, bóng xế tà, cỏ cây chen đá, lá chen hoa. Lom khom dưới núi, tiều vài chú, lác đác bên sông, chợ mấy nhà." },
+  { id: "th-06", title: "Rủ nhau xem cảnh Kiếm Hồ", emoji: "🏯", genre: "tho", kind: "co-dau", source: "Ca dao", text: "Rủ nhau xem cảnh Kiếm Hồ, xem cầu Thê Húc, xem chùa Ngọc Sơn. Đài Nghiên, Tháp Bút chưa sờn, hỏi ai gây dựng nên non nước này?" },
+];
+
+/** Classic English: đoạn trích nguyên văn từ sách thiếu nhi đã hết hạn bản quyền, cổ tích và ngụ ngôn */
+const CLASSICS_EN: Passage[] = [
+  { id: "ce-01", title: "Alice in Wonderland", emoji: "🐇", genre: "thieu-nhi", kind: "en", source: "Lewis Carroll, 1865", text: "Alice was beginning to get very tired of sitting by her sister on the bank, and of having nothing to do: once or twice she had peeped into the book her sister was reading, but it had no pictures or conversations in it, \"and what is the use of a book,\" thought Alice, \"without pictures or conversations?\"" },
+  { id: "ce-02", title: "Peter Pan", emoji: "🧚", genre: "thieu-nhi", kind: "en", source: "J. M. Barrie, 1911", text: "All children, except one, grow up. They soon know that they will grow up, and the way Wendy knew was this. One day when she was two years old she was playing in a garden, and she plucked another flower and ran with it to her mother. I suppose she must have looked rather delightful, for Mrs. Darling put her hand to her heart and cried, \"Oh, why can't you remain like this for ever!\"" },
+  { id: "ce-03", title: "The Wind in the Willows", emoji: "🦫", genre: "thieu-nhi", kind: "en", source: "Kenneth Grahame, 1908", text: "The Mole had been working very hard all the morning, spring-cleaning his little home. First with brooms, then with dusters; then on ladders and steps and chairs, with a brush and a pail of whitewash; till he had dust in his throat and eyes, and splashes of whitewash all over his black fur, and an aching back and weary arms." },
+  { id: "ce-04", title: "The Wizard of Oz", emoji: "🌪️", genre: "thieu-nhi", kind: "en", source: "L. Frank Baum, 1900", text: "Dorothy lived in the midst of the great Kansas prairies, with Uncle Henry, who was a farmer, and Aunt Em, who was the farmer's wife. Their house was small, for the lumber to build it had to be carried by wagon many miles." },
+  { id: "ce-05", title: "The Velveteen Rabbit", emoji: "🐰", genre: "thieu-nhi", kind: "en", source: "Margery Williams, 1922", text: "There was once a velveteen rabbit, and in the beginning he was really splendid. He was fat and bunchy, as a rabbit should be; his coat was spotted brown and white, he had real thread whiskers, and his ears were lined with pink sateen." },
+  { id: "ce-06", title: "Black Beauty", emoji: "🐴", genre: "thieu-nhi", kind: "en", source: "Anna Sewell, 1877", text: "The first place that I can well remember was a large pleasant meadow with a pond of clear water in it. Some shady trees overhung the pond, and rushes and water-lilies grew at the deep end." },
+  { id: "ce-07", title: "Little Women", emoji: "🎄", genre: "hien-dai", kind: "en", source: "Louisa May Alcott, 1868", text: "\"Christmas won't be Christmas without any presents,\" grumbled Jo, lying on the rug. \"It's so dreadful to be poor!\" sighed Meg, looking down at her old dress. \"We've got Father and Mother, and each other,\" said Beth contentedly from her corner." },
+  { id: "ce-08", title: "The Secret Garden", emoji: "🗝️", genre: "hien-dai", kind: "en", source: "Frances Hodgson Burnett, 1911", text: "When Mary Lennox was sent to Misselthwaite Manor to live with her uncle everybody said she was the most disagreeable-looking child ever seen. It was true, too. She had a little thin face and a little thin body, thin light hair and a sour expression." },
+  { id: "ce-09", title: "A Tale of Two Cities", emoji: "🏙️", genre: "hien-dai", kind: "en", source: "Charles Dickens, 1859", text: "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the spring of hope, it was the winter of despair." },
+  { id: "ce-10", title: "Snow White", emoji: "❄️", genre: "co-tich", kind: "en", source: "Brothers Grimm", text: "Once upon a time in the middle of winter, when the flakes of snow were falling like feathers from the sky, a queen sat at a window sewing, and the frame of the window was made of black ebony." },
+  { id: "ce-11", title: "The Little Match Girl", emoji: "🔥", genre: "co-tich", kind: "en", source: "Hans Christian Andersen", text: "It was terribly cold and nearly dark on the last evening of the old year, and the snow was falling fast. In this cold and darkness there went along the street a poor little girl, bareheaded, and with naked feet." },
+  { id: "ce-12", title: "The Tortoise and the Hare", emoji: "🐢", genre: "co-tich", kind: "en", source: "Aesop, retold", text: "The Hare laughed at the Tortoise for being so slow. \"Let us race,\" said the Tortoise. The Hare ran far ahead, then lay down for a nap. The Tortoise kept going, slow and steady, and crossed the finish line first." },
+  { id: "ce-13", title: "The Lion and the Mouse", emoji: "🦁", genre: "co-tich", kind: "en", source: "Aesop, retold", text: "A little mouse woke a sleeping lion. The lion was about to eat him, but the mouse begged, \"Let me go, and one day I will help you.\" The lion laughed and let him go. Later the lion was caught in a hunter's net, and the mouse chewed the ropes until the lion was free. Even the smallest friend can be a great help." },
+  { id: "ce-15", title: "The Star", emoji: "✨", genre: "tho", kind: "en", source: "Jane Taylor, 1806", text: "Twinkle, twinkle, little star, how I wonder what you are! Up above the world so high, like a diamond in the sky." },
+  { id: "ce-16", title: "My Shadow", emoji: "👤", genre: "tho", kind: "en", source: "Robert Louis Stevenson, 1885", text: "I have a little shadow that goes in and out with me, and what can be the use of him is more than I can see. He is very, very like me from the heels up to the head; and I see him jump before me, when I jump into my bed." },
+  { id: "ce-14", title: "Treasure Island", emoji: "🏴‍☠️", genre: "thieu-nhi", kind: "en", source: "Robert Louis Stevenson, 1883", text: "Fifteen men on the dead man's chest, yo-ho-ho, and a bottle of rum!" },
+];
+
 export const PASSAGES: Passage[] = [
-  { id: "bh-01", title: "Mười người bạn", emoji: "🖐️", kind: "khong-dau", text: "Em co muoi ngon tay. Moi ngon co mot nhiem vu rieng. Khi ca muoi ngon cung lam viec, em go nhanh nhu gio." },
-  { id: "bh-02", title: "Cá mập đói bụng", emoji: "🦈", kind: "khong-dau", text: "Con ca map boi qua rang san ho. No tim thay mot chiec ban phim cu. No can thu mot phim va keu: that kho an!" },
-  { id: "bh-03", title: "Thỏ Bit lặn biển", emoji: "🐰", kind: "khong-dau", text: "Tho Bit doi mu lan, bat den xanh va lan xuong bien sau. Duoi day bien co mot thanh pho phat sang. Bit go mat khau de mo cong." },
-  { id: "bh-04", title: "Bí mật hàng phím cơ sở", emoji: "🏠", kind: "khong-dau", text: "asdf jkl; la hang phim co so. Ngon tay di dau roi cung ve nha. Go xong mot phim, ngon tay lai nam yen tren hang phim co so." },
-  { id: "bh-05", title: "Có công mài sắt", emoji: "⚒️", kind: "co-dau", text: "Có công mài sắt, có ngày nên kim." },
-  { id: "bh-06", title: "Công cha nghĩa mẹ", emoji: "⛰️", kind: "co-dau", text: "Công cha như núi Thái Sơn, nghĩa mẹ như nước trong nguồn chảy ra." },
-  { id: "bh-07", title: "Bầu ơi thương lấy bí cùng", emoji: "🎃", kind: "co-dau", text: "Bầu ơi thương lấy bí cùng, tuy rằng khác giống nhưng chung một giàn." },
-  { id: "bh-08", title: "Biển sâu bí ẩn", emoji: "🌊", kind: "co-dau", text: "Ở nơi sâu nhất của đại dương, ánh sáng mặt trời không chiếu tới. Nhiều loài cá tự phát sáng để tìm đường và tìm bạn." },
-  { id: "bh-09", title: "Cá mập có răng mới", emoji: "🦷", kind: "co-dau", text: "Cá mập thay răng suốt đời. Một chiếc răng rụng, chiếc răng mới ở hàng sau sẽ tiến lên thay ngay." },
-  { id: "bh-10", title: "Máy tính đầu tiên", emoji: "🖥️", kind: "co-dau", text: "Những chiếc máy tính đầu tiên to bằng cả căn phòng. Ngày nay, chiếc điện thoại trong túi em còn mạnh hơn chúng rất nhiều lần." },
-  { id: "bh-11", title: "Đi một ngày đàng", emoji: "🧭", kind: "co-dau", text: "Đi một ngày đàng, học một sàng khôn." },
-  { id: "bh-12", title: "Gõ phím đúng cách", emoji: "⌨️", kind: "co-dau", text: "Ngồi thẳng lưng, mắt nhìn màn hình, tay đặt trên hàng phím cơ sở. Gõ đúng trước, rồi tốc độ sẽ tự đến." },
+  { id: "bh-01", title: "Mười người bạn", emoji: "🖐️", genre: "thieu-nhi", kind: "khong-dau", text: "Em co muoi ngon tay. Moi ngon co mot nhiem vu rieng. Khi ca muoi ngon cung lam viec, em go nhanh nhu gio." },
+  { id: "bh-02", title: "Cá mập đói bụng", emoji: "🦈", genre: "thieu-nhi", kind: "khong-dau", text: "Con ca map boi qua rang san ho. No tim thay mot chiec ban phim cu. No can thu mot phim va keu: that kho an!" },
+  { id: "bh-03", title: "Thỏ Bit lặn biển", emoji: "🐰", genre: "thieu-nhi", kind: "khong-dau", text: "Tho Bit doi mu lan, bat den xanh va lan xuong bien sau. Duoi day bien co mot thanh pho phat sang. Bit go mat khau de mo cong." },
+  { id: "bh-04", title: "Bí mật hàng phím cơ sở", emoji: "🏠", genre: "thieu-nhi", kind: "khong-dau", text: "asdf jkl; la hang phim co so. Ngon tay di dau roi cung ve nha. Go xong mot phim, ngon tay lai nam yen tren hang phim co so." },
+  { id: "bh-05", title: "Có công mài sắt", emoji: "⚒️", genre: "tho", kind: "co-dau", text: "Có công mài sắt, có ngày nên kim." },
+  { id: "bh-06", title: "Công cha nghĩa mẹ", emoji: "⛰️", genre: "tho", kind: "co-dau", text: "Công cha như núi Thái Sơn, nghĩa mẹ như nước trong nguồn chảy ra." },
+  { id: "bh-07", title: "Bầu ơi thương lấy bí cùng", emoji: "🎃", genre: "tho", kind: "co-dau", text: "Bầu ơi thương lấy bí cùng, tuy rằng khác giống nhưng chung một giàn." },
+  { id: "bh-08", title: "Biển sâu bí ẩn", emoji: "🌊", genre: "kham-pha", kind: "co-dau", text: "Ở nơi sâu nhất của đại dương, ánh sáng mặt trời không chiếu tới. Nhiều loài cá tự phát sáng để tìm đường và tìm bạn." },
+  { id: "bh-09", title: "Cá mập có răng mới", emoji: "🦷", genre: "kham-pha", kind: "co-dau", text: "Cá mập thay răng suốt đời. Một chiếc răng rụng, chiếc răng mới ở hàng sau sẽ tiến lên thay ngay." },
+  { id: "bh-10", title: "Máy tính đầu tiên", emoji: "🖥️", genre: "kham-pha", kind: "co-dau", text: "Những chiếc máy tính đầu tiên to bằng cả căn phòng. Ngày nay, chiếc điện thoại trong túi em còn mạnh hơn chúng rất nhiều lần." },
+  { id: "bh-11", title: "Đi một ngày đàng", emoji: "🧭", genre: "tho", kind: "co-dau", text: "Đi một ngày đàng, học một sàng khôn." },
+  { id: "bh-12", title: "Gõ phím đúng cách", emoji: "⌨️", genre: "kham-pha", kind: "co-dau", text: "Ngồi thẳng lưng, mắt nhìn màn hình, tay đặt trên hàng phím cơ sở. Gõ đúng trước, rồi tốc độ sẽ tự đến." },
+  // ── tiếng Việt có dấu: vừa và dài ──
+  { id: "bh-13", title: "Bầu trời đêm", emoji: "🌌", genre: "thieu-nhi", kind: "co-dau", text: "Khi trời tối hẳn, em ngước lên và thấy hàng nghìn ngôi sao nhỏ. Có ngôi sao sáng rực, có ngôi sao chỉ lấp lánh rất khẽ. Ánh sáng của chúng phải đi qua một quãng đường rất xa, rất lâu mới tới được mắt em." },
+  { id: "bh-14", title: "Chú mèo hay ngủ", emoji: "🐱", genre: "thieu-nhi", kind: "co-dau", text: "Nhà em có một chú mèo lông vàng tên là Bông. Buổi sáng, Bông nằm phơi nắng trên bậu cửa sổ. Buổi trưa, Bông cuộn tròn trong chiếc giỏ mây. Đến tối, Bông mới tỉnh táo, chạy khắp nhà đuổi theo cái bóng của chính mình." },
+  { id: "bh-15", title: "Cây xoài của ông", emoji: "🥭", genre: "thieu-nhi", kind: "co-dau", text: "Ông em trồng một cây xoài ở góc vườn từ khi bố em còn nhỏ. Mùa hè năm nào cây cũng sai trĩu quả. Ông bảo: muốn ăn quả ngọt thì phải chăm cây từ lúc nó còn bé, tưới nước đều, nhổ cỏ và kiên nhẫn chờ đợi." },
+  { id: "bh-16", title: "Ngày đầu đến lớp", emoji: "🎒", genre: "thieu-nhi", kind: "co-dau", text: "Sáng hôm ấy, mẹ dắt em đến trường. Sân trường rộng, cờ đỏ bay phấp phới. Em hơi run, tay nắm chặt quai cặp. Cô giáo mỉm cười, cúi xuống hỏi tên em. Chỉ một lúc sau, em đã có người bạn đầu tiên ngồi cùng bàn, bạn ấy cho em mượn bút chì màu xanh." },
+  { id: "bh-17", title: "Chuyến đi biển", emoji: "🏖️", genre: "thieu-nhi", kind: "co-dau", text: "Mùa hè vừa rồi, cả nhà em đi biển. Nước biển trong xanh, sóng vỗ rì rào vào bờ cát trắng. Em và anh trai xây một lâu đài cát thật to, có tường thành, có tháp canh và cả một con hào nhỏ. Đến chiều, thủy triều lên, sóng cuốn lâu đài đi mất. Anh trai cười bảo: không sao, ngày mai mình xây cái to hơn. Buổi tối, cả nhà ngồi ăn hải sản, nghe gió biển thổi mát rượi. Em mong mùa hè năm sau lại được quay về đây." },
+  { id: "bh-18", title: "Con đường đến trường", emoji: "🚲", genre: "thieu-nhi", kind: "co-dau", text: "Con đường từ nhà em đến trường dài chừng hai cây số. Hai bên đường có hàng cây bàng tỏa bóng mát. Mùa xuân, lá bàng non xanh mướt như những ngọn nến nhỏ. Mùa hè, tán bàng xòe rộng che nắng cho chúng em. Mùa thu, lá chuyển sang màu đỏ cam rất đẹp. Còn mùa đông, cây trút hết lá, chỉ còn những cành khẳng khiu chờ đến ngày nảy lộc. Ngày nào em cũng đạp xe qua con đường ấy và thấy nó đổi khác một chút." },
+  { id: "bh-19", title: "Robot nhỏ biết lắng nghe", emoji: "🤖", genre: "thieu-nhi", kind: "co-dau", text: "Trong phòng thí nghiệm của trường có một chú robot nhỏ. Chú không biết bay, cũng không biết nói nhiều. Nhưng mỗi khi có bạn nào buồn, chú lại lăn đến gần, bật đèn xanh và kiên nhẫn chờ bạn kể chuyện. Các bạn bảo nhau: robot ấy được lập trình để lắng nghe. Thầy giáo cười và nói rằng lắng nghe là một việc mà con người cũng cần học mỗi ngày. Từ đó, cả lớp thi nhau làm người bạn biết lắng nghe giống chú robot nhỏ." },
+  { id: "bh-20", title: "Ăn quả nhớ kẻ trồng cây", emoji: "🌳", genre: "tho", kind: "co-dau", text: "Ăn quả nhớ kẻ trồng cây. Uống nước nhớ nguồn." },
+  // ── tiếng Việt không dấu: vừa và dài ──
+  { id: "bh-21", title: "Ban phim than ky", emoji: "⌨️", genre: "kham-pha", kind: "khong-dau", text: "Ban phim co rat nhieu phim. Hang tren cung la cac so. Hang giua la hang phim co so, noi tam ngon tay nghi ngoi. Phim cach dai nhat nam o duoi cung, ngon cai bam vao no moi khi go xong mot tu." },
+  { id: "bh-22", title: "Ca heo thong minh", emoji: "🐬", genre: "kham-pha", kind: "khong-dau", text: "Ca heo la loai vat rat thong minh. Chung song thanh dan, goi nhau bang tieng huyt sao va biet giup do nhau khi gap nguy hiem. Co nhung chu ca heo con biet choi dua voi song bien, nhay vot len khoi mat nuoc roi lan xuong that sau." },
+  { id: "bh-23", title: "Buoi sang o nong trai", emoji: "🐓", genre: "thieu-nhi", kind: "khong-dau", text: "Troi vua hung sang, chu ga trong da gay o o o. Bac nong dan mo cua chuong cho dan bo ra dong. Dan vit lach bach xuong ao tam. Chu cho vang chay quanh san, vay duoi chao moi nguoi. Mot ngay moi o nong trai bat dau that ron rang. Ai cung co mot viec rieng, nhung tat ca cung lam cho nong trai tro nen vui ve va am no." },
+  { id: "bh-24", title: "Hanh tinh do", emoji: "🪐", genre: "kham-pha", kind: "khong-dau", text: "Sao Hoa duoc goi la hanh tinh do vi mat dat cua no phu mot lop bui mau do cam. Tren Sao Hoa co nui lua rat cao va nhung hem nui rat sau. Cac nha khoa hoc da gui nhieu robot len do de chup anh, khoan dat va tim hieu xem ngay xua noi day co nuoc hay khong. Biet dau mai sau, mot ban nho hom nay se tro thanh nguoi dau tien dat chan len hanh tinh do." },
+  { id: "bh-25", title: "Bi quyet go nhanh", emoji: "🏎️", genre: "kham-pha", kind: "khong-dau", text: "Muon go nhanh, truoc het phai go dung. Moi ngon tay chi phu trach mot vai phim. Mat nhin man hinh, khong nhin ban phim. Luc dau se cham, nhung neu tap deu moi ngay muoi lam phut, ngon tay se tu nho duong di. Sau vai tuan, em se thay minh go nhanh hon ma khong can co gang. Dieu quan trong nhat la kien nhan va giu tu the ngoi dung de lung khong bi moi." },
+  // ── tiếng Anh ──
+  { id: "en-01", title: "My cat", emoji: "🐈", genre: "thieu-nhi", kind: "en", text: "I have a little cat. She likes to sleep in the sun and play with a ball of yarn." },
+  { id: "en-02", title: "The rainbow", emoji: "🌈", genre: "thieu-nhi", kind: "en", text: "After the rain, a rainbow came out. It had red, orange, yellow, green, blue and purple. We ran outside to see it before it was gone." },
+  { id: "en-03", title: "A busy bee", emoji: "🐝", genre: "kham-pha", kind: "en", text: "The bee flies from flower to flower all day long. It drinks sweet nectar and carries yellow pollen on its legs. Back at the hive, the bees work together to make honey for the cold winter." },
+  { id: "en-04", title: "The robot friend", emoji: "🤖", genre: "thieu-nhi", kind: "en", text: "Tom built a small robot out of old boxes, bottle caps and a few wires. The robot could not talk, but it could blink its lights and roll across the floor. Every morning, Tom said hello, and the robot blinked twice to say hello back." },
+  { id: "en-05", title: "Under the sea", emoji: "🐠", genre: "kham-pha", kind: "en", text: "Deep under the sea, there is a quiet world full of color. Bright fish swim between the corals, a turtle glides slowly past, and a shy octopus hides inside a rock. Some fish make their own light so they can find their way in the dark water far below the waves." },
+  { id: "en-06", title: "Learning to type", emoji: "⌨️", genre: "kham-pha", kind: "en", text: "When you learn to type, start with your fingers on the home row. Your left hand rests on A, S, D and F, and your right hand rests on J, K, L and the semicolon. Keep your eyes on the screen, not on your hands. At first it feels slow, but if you practice a little every day, your fingers will learn the way by themselves. Soon you will type faster than you can write with a pencil, and you will make fewer mistakes too." },
+  { id: "en-07", title: "A trip to the moon", emoji: "🚀", genre: "thieu-nhi", kind: "en", text: "One night, Lily dreamed that she flew to the moon in a silver rocket. The ground was gray and dusty, and every step made her bounce high into the air. She looked back and saw the Earth, a bright blue ball floating in the dark sky. It looked so small and so beautiful. Lily picked up a small moon rock, put it in her pocket and waved goodbye to the stars. When she woke up, she looked in her pocket, but all she found was a little gray button." },
+  { id: "en-08", title: "The four seasons", emoji: "🍂", genre: "thieu-nhi", kind: "en", text: "In spring, new leaves grow and flowers open in the warm sun. In summer, the days are long and we swim in the cool river. In autumn, the leaves turn red and gold and fall softly to the ground. In winter, the air is cold, the trees are bare and we drink hot milk at home. Every season has something special, and each one teaches us that change can be beautiful." },
+  // ── cổ tích, ngụ ngôn (kể lại) ──
+  ...CLASSICS_VI,
+  // bản không dấu của các truyện cổ tích, cho bạn mới tập
+  ...CLASSICS_VI.filter((p) => p.source?.includes("kể lại")).map((p) => ({ ...p, id: `${p.id}-kd`, kind: "khong-dau" as const, text: plain(p.text) })),
+  ...CLASSICS_EN,
 ];
