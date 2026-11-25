@@ -63,6 +63,6 @@ Dụng cụ, dung dịch, hiệu ứng vẽ bằng code. Ảnh chỉ cho:
 - [x] Sự cố khi làm sai (trào bọt, nổ natri) + thẻ Vì sao + Sổ sự cố
 - [x] Xếp lớp cho học sinh cấp 2 (bỏ qua bài dễ), Biết rồi? Thử 3 câu, Sổ tay ôn nhanh
 - [x] 4 theme phòng lab (Nắng, Giả kim, Neon, Phân tử), dụng cụ kính bóng gương
-- [ ] Hóa THCS (1 bài: phản ứng hoá học), THPT (cân bằng phương trình)
+- [x] Hóa THCS (2 bài: phản ứng hoá học, cân bằng phương trình), THPT (1 bài: cân bằng phương trình khó)
 - [ ] Thi đấu cân bằng phương trình
 - [ ] PR (mỗi trình độ một PR)

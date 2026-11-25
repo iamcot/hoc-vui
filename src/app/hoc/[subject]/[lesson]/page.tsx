@@ -3,6 +3,7 @@ import { SUBJECTS, allLessons, getLesson } from "@/content/subjects";
 import { LessonPlayer } from "./LessonPlayer";
 import { CodePractice } from "@/components/code/CodePractice";
 import { ChemLesson } from "@/components/lab/ChemLesson";
+import { BalanceLesson } from "@/components/lab/BalanceLesson";
 
 export function generateStaticParams() {
   return SUBJECTS.filter((s) => s.ready).flatMap((s) => allLessons(s).map((l) => ({ subject: s.id, lesson: l.id })));
@@ -16,5 +17,6 @@ export default async function Page({ params }: { params: Promise<{ subject: stri
   if (info.lesson.code) return <CodePractice subjectId={subject} lessonId={lesson} />;
   // môn Thí nghiệm hoá học: bàn thí nghiệm thay cho slide
   if (info.lesson.lab) return <ChemLesson subjectId={subject} lessonId={lesson} />;
+  if (info.lesson.balance) return <BalanceLesson subjectId={subject} lessonId={lesson} />;
   return <LessonPlayer subjectId={subject} lessonId={lesson} />;
 }

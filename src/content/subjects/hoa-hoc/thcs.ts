@@ -1,7 +1,7 @@
 import type { Lesson, Unit } from "@/content/types";
 import { ph } from "@/lib/chem/lab";
 import { identify } from "./nhi";
-import { bank } from "./q";
+import { balanceBank, bank } from "./q";
 
 /** Hoá học THCS (lớp 8–9): phản ứng, phương trình, axit bazơ. Giao diện Lab neon, Bit dẫn chuyện */
 
@@ -113,4 +113,27 @@ const c01: Lesson = {
   ],
 };
 
-export const unitsThcs: Unit[] = [{ id: "hh-thcs-1", title: "Phản ứng hoá học", lessons: [c01] }];
+/** Bài cân bằng phương trình (THCS): từ dễ đến vừa, mỗi vòng một phương trình */
+const c02: Lesson = {
+  id: "hh-c02",
+  title: "Cân bằng phương trình",
+  short: "Hai vế phải có số nguyên tử bằng nhau",
+  emoji: "⚖️",
+  cover: "hh-cover-c01",
+  minutes: 8,
+  slides: [],
+  balance: {
+    intro: "Trong phản ứng, **nguyên tử không tự mất đi hay sinh ra**. Nên số nguyên tử mỗi nguyên tố ở hai vế phải **bằng nhau**. Con chỉnh **hệ số** trước mỗi chất nhé!",
+    rounds: [
+      { eq: "Na + H₂O → NaOH + H₂", name: "Natri gặp nước", hint: "Bắt đầu từ H: vế phải có 3 H nhưng vế trái có 2.", why: "2Na + 2H₂O → 2NaOH + H₂. Mỗi vế có 2 Na, 4 H, 2 O." },
+      { eq: "Fe + O₂ → Fe₂O₃", name: "Sắt bị gỉ", hint: "Số O chẵn bên trái (O₂), lẻ bên phải (O₃): thử hệ số 2 cho Fe₂O₃ rồi 3 cho O₂.", why: "4Fe + 3O₂ → 2Fe₂O₃. Mỗi vế có 4 Fe và 6 O." },
+      { eq: "H₂ + O₂ → H₂O", name: "Hiđro cháy tạo nước", why: "2H₂ + O₂ → 2H₂O. Mỗi vế có 4 H và 2 O." },
+      { eq: "CH₄ + O₂ → CO₂ + H₂O", name: "Khí metan cháy", hint: "Cân bằng C, rồi H, cuối cùng mới tới O.", why: "CH₄ + 2O₂ → CO₂ + 2H₂O. Mỗi vế có 1 C, 4 H, 4 O." },
+      { eq: "Al + HCl → AlCl₃ + H₂", name: "Nhôm tan trong axit", hint: "Cl: vế phải có 3, nên HCl cần hệ số 3 hoặc 6.", why: "2Al + 6HCl → 2AlCl₃ + 3H₂. Mỗi vế có 2 Al, 6 H, 6 Cl." },
+    ],
+    remember: "Cân bằng phương trình: chỉnh hệ số (không đổi chỉ số trong công thức) cho số nguyên tử mỗi nguyên tố hai vế bằng nhau.",
+  },
+  practice: [balanceBank("can-bang", ["Na + H₂O → NaOH + H₂", "Fe + O₂ → Fe₂O₃", "H₂ + O₂ → H₂O", "CH₄ + O₂ → CO₂ + H₂O", "Al + HCl → AlCl₃ + H₂", "Mg + O₂ → MgO", "P + O₂ → P₂O₅", "Zn + HCl → ZnCl₂ + H₂"])],
+};
+
+export const unitsThcs: Unit[] = [{ id: "hh-thcs-1", title: "Phản ứng hoá học", lessons: [c01, c02] }];

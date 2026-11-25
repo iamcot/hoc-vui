@@ -127,6 +127,15 @@ export interface Lesson {
   code?: CodeSpec;
   /** môn Thí nghiệm hoá: bài học là các thí nghiệm trên bàn ảo, luyện tập là nhiệm vụ + câu hỏi */
   lab?: LabLesson;
+  /** môn Thí nghiệm hoá: bài cân bằng phương trình (chọn hệ số cho từng chất) */
+  balance?: BalanceSpec;
+}
+
+/** Bài cân bằng phương trình: mỗi vòng một phương trình, bé chỉnh hệ số cho đến khi hai vế bằng nhau */
+export interface BalanceSpec {
+  intro: string;
+  rounds: { eq: string; /** tên phản ứng, vd. "Sắt gỉ" */ name: string; hint?: string; why: string }[];
+  remember: string;
 }
 
 export interface Unit {
