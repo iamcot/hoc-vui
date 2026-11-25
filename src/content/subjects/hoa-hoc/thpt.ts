@@ -8,7 +8,7 @@ const p01: Lesson = {
   title: "Cân bằng phương trình khó",
   short: "Nhiều nguyên tố, nhiều chất, nhóm ngoặc",
   emoji: "🧬",
-  cover: "hh-cover-c01",
+  cover: "hh-cover-p01",
   minutes: 10,
   slides: [],
   balance: {

@@ -2,6 +2,7 @@ import type { Lesson, Unit } from "@/content/types";
 import { ph } from "@/lib/chem/lab";
 import { identify } from "./nhi";
 import { balanceBank, bank } from "./q";
+import { l8Class, l8Conc, l8Conserve, l8Mol, l9Organic, l9Series, l9Stoich } from "./luyen";
 
 /** Hoá học THCS (lớp 8–9): phản ứng, phương trình, axit bazơ. Giao diện Lab neon, Bit dẫn chuyện */
 
@@ -119,7 +120,7 @@ const c02: Lesson = {
   title: "Cân bằng phương trình",
   short: "Hai vế phải có số nguyên tử bằng nhau",
   emoji: "⚖️",
-  cover: "hh-cover-c01",
+  cover: "hh-cover-c02",
   minutes: 8,
   slides: [],
   balance: {
@@ -136,4 +137,9 @@ const c02: Lesson = {
   practice: [balanceBank("can-bang", ["Na + H₂O → NaOH + H₂", "Fe + O₂ → Fe₂O₃", "H₂ + O₂ → H₂O", "CH₄ + O₂ → CO₂ + H₂O", "Al + HCl → AlCl₃ + H₂", "Mg + O₂ → MgO", "P + O₂ → P₂O₅", "Zn + HCl → ZnCl₂ + H₂"])],
 };
 
-export const unitsThcs: Unit[] = [{ id: "hh-thcs-1", title: "Phản ứng hoá học", lessons: [c01, c02] }];
+export const unitsThcs: Unit[] = [
+  { id: "hh-thcs-l8a", title: "Lớp 8 · Phản ứng hoá học", lessons: [c01, c02, l8Conserve, l8Mol, l8Conc] },
+  { id: "hh-thcs-l8b", title: "Lớp 8 · Axit, bazơ, muối", lessons: [l8Class] },
+  { id: "hh-thcs-l9a", title: "Lớp 9 · Kim loại", lessons: [l9Series, l9Stoich] },
+  { id: "hh-thcs-l9b", title: "Lớp 9 · Hợp chất hữu cơ", lessons: [l9Organic] },
+];

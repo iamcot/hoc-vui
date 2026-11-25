@@ -14,9 +14,9 @@ export const hoaHoc: Subject = {
   cover: "subject-hoahoc-cover",
   look: { map: "bg-hh-nang", lesson: "bg-hh-nang", calm: true },
   modes: [
-    { id: "hh-xep-lop", name: "Xếp lớp", short: "Học lớp 6 trở lên? Nhảy cóc bài dễ", emoji: "🎯", href: "/hoa-hoc/xep-lop" },
-    { id: "hh-so-tay", name: "Sổ tay", short: "Thí nghiệm đã làm, sự cố, ôn nhanh", emoji: "📓", href: "/hoa-hoc/so-tay" },
-    { id: "hh-bang", name: "Bảng tuần hoàn", short: "Mỗi nhóm một tính cách, đi săn nguyên tố", emoji: "🧩", href: "/hoa-hoc/bang-tuan-hoan" },
+    { id: "hh-xep-lop", name: "Xếp lớp", short: "Học lớp 6 trở lên? Nhảy cóc bài dễ", emoji: "🎯", href: "/hoa-hoc/xep-lop", icon: "hh-mode-xep-lop" },
+    { id: "hh-so-tay", name: "Sổ tay", short: "Thí nghiệm đã làm, sự cố, ôn nhanh", emoji: "📓", href: "/hoa-hoc/so-tay", icon: "hh-mode-so-tay" },
+    { id: "hh-bang", name: "Bảng tuần hoàn", short: "Mỗi nhóm một tính cách, đi săn nguyên tố", emoji: "🧩", href: "/hoa-hoc/bang-tuan-hoan", icon: "hh-mode-bang" },
   ],
   tiers: [
     { id: "nhi", name: "Nhí", short: "Tan, nổi chìm, đổi màu, núi lửa · lớp 1-3", emoji: "🧪", icon: "hh-tier-1", units: unitsNhi, challenge: { count: 10, pass: 8 } },
