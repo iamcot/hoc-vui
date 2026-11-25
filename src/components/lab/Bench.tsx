@@ -11,22 +11,72 @@ import { LabScene } from "./LabScene";
 const SIZE: Record<Vessel["shape"], number> = { beaker: 36, erlen: 36, flask: 34, jar: 32, tube: 34, cyl: 34 };
 
 /** ống nhỏ giọt / lọ trên kệ */
-function Bottle({ color, kind }: { color: string; kind: string }) {
+function Bottle({ color, kind, cls }: { color: string; kind: string; cls?: string }) {
   if (kind === "solid")
     return (
-      <svg viewBox="0 0 40 40" className="h-7 w-7 shrink-0">
+      <svg viewBox="0 0 40 40" className={cls ?? "h-7 w-7 shrink-0"}>
         <path d="M6 18 Q6 34 20 34 Q34 34 34 18 Z" fill="#ffffff55" stroke="#cfd6ff" strokeWidth="1.5" />
         <ellipse cx="20" cy="18" rx="14" ry="4" fill="#ffffff66" stroke="#cfd6ff" strokeWidth="1.5" />
         <path d="M11 22 Q20 14 29 22 Q28 30 20 31 Q12 30 11 22Z" fill={color} stroke="#0002" />
       </svg>
     );
   return (
-    <svg viewBox="0 0 40 60" className="h-8 w-6 shrink-0">
+    <svg viewBox="0 0 40 60" className={cls ?? "h-8 w-6 shrink-0"}>
       <rect x="13" y="2" width="14" height="10" rx="2" fill="#5d6283" />
       <path d="M10 14 H30 L34 22 V54 Q34 58 30 58 H10 Q6 58 6 54 V22 Z" fill="#ffffff33" stroke="#cfd6ff" strokeWidth="1.5" />
       <path d="M7 30 H33 V54 Q33 57 30 57 H10 Q7 57 7 54Z" fill={color} opacity=".92" />
       <rect x="9" y="22" width="3.5" height="30" rx="1.5" fill="#fff" opacity=".55" />
     </svg>
+  );
+}
+
+/** Rót hoá chất vào cốc: lọ to ngang cốc, nghiêng sát miệng cốc, dòng chảy, tung toé, kèm tên chất để bé để ý. `w` là bề rộng cốc (biểu thức CSS) */
+function Pour({ chemId, w }: { chemId: string; w: string }) {
+  const c = chem(chemId);
+  if (!c) return null;
+  const color = c.color;
+  const u = (f: number) => `calc(${w} * ${f})`;
+  const dots = Array.from({ length: 10 }, (_, i) => i);
+  const splash = (
+    <span className="pointer-events-none absolute left-1/2 top-[40%] z-20">
+      {dots.map((i) => (
+        <i key={i} className="pour-splash absolute rounded-full" style={{ width: u(0.07), height: u(0.07), background: color, boxShadow: "0 0 0 2px #fff8", ["--dx" as string]: u((i - 4.5) * 0.1), ["--dy" as string]: u(-0.18 - ((i * 7) % 5) * 0.07) }} />
+      ))}
+    </span>
+  );
+  const label = (
+    <span className="pour-label lab-accent pointer-events-none absolute z-30 whitespace-nowrap rounded-full px-4 py-1.5 font-display text-xl font-extrabold shadow-lg sm:text-2xl" style={{ top: u(-0.5), left: u(0.58) }}>
+      {c.emoji ?? (c.kind === "solid" ? "🥄" : "💧")} {c.name}
+    </span>
+  );
+  if (c.kind === "object")
+    return (
+      <>
+        {label}
+        <span className="pour-obj pointer-events-none absolute left-1/2 z-30 leading-none drop-shadow-lg" style={{ fontSize: u(0.55), ["--t0" as string]: u(-0.9) }}>
+          {c.emoji}
+        </span>
+        {splash}
+      </>
+    );
+  const solid = c.kind === "solid";
+  return (
+    <>
+      {label}
+      <span className="pour-bottle pointer-events-none absolute z-30 flex items-center justify-center" style={{ left: u(-0.35), top: u(-0.86), width: u(0.7), height: u(1.05) }}>
+        {solid ? <span className="leading-none" style={{ fontSize: u(0.7) }}>🥄</span> : <Bottle color={color} kind={c.kind} cls="h-full w-full drop-shadow-lg" />}
+      </span>
+      {solid ? (
+        <span className="pointer-events-none absolute left-1/2 z-20 w-0" style={{ top: u(-0.2), height: `calc(40% + ${u(0.2)})` }}>
+          {Array.from({ length: 10 }, (_, i) => (
+            <i key={i} className="pour-grain absolute rounded-full" style={{ width: u(0.07), height: u(0.07), background: color, left: u(((i * 5) % 11) / 100 - 0.05), animationDelay: `${0.62 + i * 0.06}s`, boxShadow: "0 0 0 1px #0003" }} />
+          ))}
+        </span>
+      ) : (
+        <span className="pour-stream pointer-events-none absolute left-1/2 z-20 rounded-full" style={{ top: u(-0.2), width: u(0.09), marginLeft: u(-0.045), height: `calc(40% + ${u(0.2)})`, background: `linear-gradient(90deg, ${color}, #ffffffaa 45%, ${color})`, boxShadow: `0 0 10px ${color}` }} />
+      )}
+      {splash}
+    </>
   );
 }
 
@@ -106,7 +156,7 @@ export function Bench({ state, setState, shelf, tools = [], theme, formulas, rig
   const t = LAB_THEMES[theme];
   const [pick, setPick] = useState<string | null>(null);
   const [sel, setSel] = useState<string>(state.vessels[0]?.id ?? "");
-  const [drops, setDrops] = useState<{ k: number; vessel: string; icon: string }[]>([]);
+  const [drops, setDrops] = useState<{ k: number; vessel: string; chem: string }[]>([]);
   const [splints, setSplints] = useState<Record<string, { k: number; type: "splint-out" | "splint-relight" | "splint-pop" | "splint-none" }>>({});
   const [phShow, setPhShow] = useState(false);
   const [drag, setDrag] = useState<{ id: string; x: number; y: number; moved: boolean } | null>(null);
@@ -164,9 +214,10 @@ export function Bench({ state, setState, shelf, tools = [], theme, formulas, rig
       if (locked) return;
       const c = chem(chemId);
       const k = ++kRef.current;
-      setDrops((d) => [...d, { k, vessel: vesselId, icon: c?.emoji ?? (c?.kind === "solid" ? "🥄" : "💧") }]);
-      window.setTimeout(() => setDrops((d) => d.filter((x) => x.k !== k)), 600);
-      window.setTimeout(() => setState((s) => addChem(s, vesselId, chemId)), 300);
+      setDrops((d) => [...d, { k, vessel: vesselId, chem: chemId }]);
+      window.setTimeout(() => setDrops((d) => d.filter((x) => x.k !== k)), 1800);
+      // phần rót diễn ra ~0,65 giây rồi chất mới vào cốc (khớp lúc dòng chảy chạm mặt nước)
+      window.setTimeout(() => setState((s) => addChem(s, vesselId, chemId)), c?.kind === "object" ? 600 : 650);
       setSel(vesselId);
     },
     [locked, setState],
@@ -256,7 +307,7 @@ export function Bench({ state, setState, shelf, tools = [], theme, formulas, rig
       </div>
 
       {/* dụng cụ trên bàn */}
-      <div className="absolute bottom-[21%] left-0 z-[5] flex items-end justify-center gap-[3cqw] px-4" style={{ right: rightPad }}>
+      <div className={`absolute bottom-[21%] left-0 flex items-end justify-center gap-[3cqw] px-4 ${drops.length ? "z-[25]" : "z-[5]"}`} style={{ right: rightPad }}>
         {state.vessels.map((v) => {
           const asp = shapeAspect(v.shape);
           const w = `min(${(SIZE[v.shape] * (under ? 0.82 : 1)) / asp / (n > 3 ? 1.25 : 1)}cqh, calc((100cqw - ${rightPad}) * ${n > 2 ? 0.8 : 0.6} / ${n}))`;
@@ -292,9 +343,7 @@ export function Bench({ state, setState, shelf, tools = [], theme, formulas, rig
               {drops
                 .filter((d) => d.vessel === v.id)
                 .map((d) => (
-                  <span key={d.k} className="lab-drop pointer-events-none absolute -top-10 left-1/2 z-10 -ml-3 text-2xl">
-                    {d.icon}
-                  </span>
+                  <Pour key={d.k} chemId={d.chem} w={w} />
                 ))}
               <button
                 data-vessel={v.id}

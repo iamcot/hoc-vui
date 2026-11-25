@@ -144,3 +144,42 @@
 .sib-flame { animation: sib-flame 0.25s ease-in-out infinite alternate; transform-origin: 50% 100%; }
 @keyframes sib-flame { 0% { transform: scale(0.9) rotate(-4deg); } 100% { transform: scale(1.15) rotate(4deg); } }
 .lab-calm .sib-ball, .lab-calm .sib-flame { animation: none; }
+
+/* Rót hoá chất: lọ nghiêng, dòng chảy, tung toé */
+.pour-bottle { animation: pour-bottle 1.7s ease-in-out both; transform-origin: 50% 55%; }
+@keyframes pour-bottle {
+  0% { opacity: 0; transform: translate(-60%, -40%) rotate(0deg) scale(0.7); }
+  18% { opacity: 1; transform: translate(0, 0) rotate(0deg) scale(1); }
+  36%, 78% { opacity: 1; transform: rotate(105deg) scale(1); }
+  100% { opacity: 0; transform: translate(-60%, -40%) rotate(0deg) scale(0.8); }
+}
+.pour-stream { transform-origin: top; animation: pour-stream 1.7s linear both; }
+@keyframes pour-stream {
+  0%, 33% { transform: scaleY(0); opacity: 1; }
+  41% { transform: scaleY(1); }
+  76% { transform: scaleY(1); opacity: 1; }
+  86%, 100% { transform: scaleY(1); opacity: 0; }
+}
+.pour-grain { top: 0; opacity: 0; animation: pour-grain 0.55s ease-in both; }
+@keyframes pour-grain { 0% { top: 0; opacity: 1; } 100% { top: 100%; opacity: 1; } }
+.pour-splash { left: 0; top: 0; opacity: 0; animation: pour-splash 0.7s ease-out 0.68s both; }
+@keyframes pour-splash {
+  0% { opacity: 1; transform: translate(0, 0) scale(1); }
+  100% { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(0.4); }
+}
+.pour-label { animation: pour-label 1.7s ease-out both; }
+@keyframes pour-label {
+  0% { opacity: 0; transform: translate(0, 10px) scale(0.7); }
+  12% { opacity: 1; transform: translate(0, 0) scale(1.08); }
+  20%, 84% { opacity: 1; transform: translate(0, 0) scale(1); }
+  100% { opacity: 0; transform: translate(0, -8px) scale(1); }
+}
+.pour-obj { top: var(--t0); animation: pour-obj 1.2s cubic-bezier(0.5, 0, 0.9, 0.6) both; }
+@keyframes pour-obj {
+  0% { top: var(--t0); opacity: 0; transform: translateX(-50%) scale(1.3) rotate(-20deg); }
+  15% { opacity: 1; }
+  55% { top: 34%; opacity: 1; transform: translateX(-50%) scale(1) rotate(10deg); }
+  70% { top: 34%; opacity: 0; transform: translateX(-50%) scale(0.5); }
+  100% { opacity: 0; transform: translateX(-50%) scale(0.5); }
+}
+.lab-calm .pour-bottle, .lab-calm .pour-splash { animation-duration: 0.01s; }
