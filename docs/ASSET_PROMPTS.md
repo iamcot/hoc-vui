@@ -1274,7 +1274,7 @@ Round badge: a row of bar-chart columns being sorted from short to tall with a s
 Round badge: a friendly round blue and yellow snake coiled around a pair of curly code brackets made of simple shapes (no letters). Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `subject-hoahoc-cover.webp`
+### ✅ `subject-hoahoc-cover.webp`
 - Dùng ở: Ảnh lớn môn Thí nghiệm hoá ở trang chủ (chữ đè lên phần dưới ảnh)
 - Kích thước: 1536x1024
 
@@ -1282,7 +1282,7 @@ Round badge: a friendly round blue and yellow snake coiled around a pair of curl
 Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator, now also wearing round safety goggles and a tiny white lab coat, happily pouring a glowing purple liquid from a beaker into a bubbling flask on a wooden lab table, colorful foam and soft sparkles rising, test tubes in a rack (pink, green, blue), a red cabbage and a lemon nearby, one continuous scene from top to bottom: characters and main objects sit in the upper 60% of the frame, and the same scene simply continues into the bottom third (more of the grass, floor, table or ground in the same colors and lighting, a little softer and less detailed, gently shaded by a natural shadow), with no characters or busy details there so white title text can be laid over it; never a separate flat color band, panel or gradient bar. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
-### ⬜ `bg-hh-nang.webp`
+### ✅ `bg-hh-nang.webp`
 - Dùng ở: Thí nghiệm hoá · nền giao diện Phòng lab nắng (Nhí): bản đồ, bài học, thực hành
 - Kích thước: 1536x1024
 
@@ -1290,7 +1290,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 A cozy sunny home kitchen turned into a kids' science corner: a big window with peach striped curtains, blue sky and green hills outside, potted plants on the sill, a round wall clock, wooden wall shelves with glass jars of colorful ingredients (lemon juice, pink, green, purple), lemons and a red cabbage, a small rack of hanging utensils, white subway-tile backsplash, honey-colored wooden counter with visible grain, a soft diagonal sunbeam with floating dust sparkles. Layout: the bottom 30% is an empty, glossy lab bench top seen slightly from above that softly reflects the room, nothing standing on it (glassware is drawn by the app); the middle band behind where glassware will stand is calm and uncluttered; details sit on the walls and in the upper corners. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
-### ⬜ `bg-hh-giakim.webp`
+### ✅ `bg-hh-giakim.webp`
 - Dùng ở: Thí nghiệm hoá · nền giao diện Xưởng giả kim (KHTN)
 - Kích thước: 1536x1024
 
@@ -1298,7 +1298,7 @@ A cozy sunny home kitchen turned into a kids' science corner: a big window with 
 Interior of a friendly alchemist's workshop: warm stone brick walls, a tall arched window showing a starry night and a full moon, four wooden shelves of curvy glass potion bottles glowing softly in emerald, violet, coral, sky blue and gold, bundles of dried herbs hanging from the ceiling, a brass hanging lantern, thick candles with warm halos, a brass armillary sphere, floating golden dust motes, polished dark walnut bench with a thin brass trim. Layout: the bottom 30% is an empty, glossy lab bench top seen slightly from above that softly reflects the room, nothing standing on it (glassware is drawn by the app); the middle band behind where glassware will stand is calm and uncluttered; details sit on the walls and in the upper corners. Warm storybook fantasy illustration for kids aged 9 to 12, an alchemist's workshop mood, clean confident line art, soft cel shading, candle-lit amber glow. Palette: dark walnut wood #3D2512, aged brass #A7773F, parchment #F3E2BF, warm amber #E0A84A, with potion accents emerald #46D18A, violet #9B5BD6, sky #4FB3FF. Magical but educational, not spooky, no skulls, no text, no letters, no numbers, no watermark.
 ```
 
-### ⬜ `bg-hh-neon.webp`
+### ✅ `bg-hh-neon.webp`
 - Dùng ở: Thí nghiệm hoá · nền giao diện Lab neon (Hoá THCS)
 - Kích thước: 1536x1024
 
@@ -1306,7 +1306,7 @@ Interior of a friendly alchemist's workshop: warm stone brick walls, a tall arch
 A dark futuristic chemistry lab at night: hexagon-patterned dark wall panels, a large glass fume hood in the center with a glowing cyan frame and inner light, a holographic line-chart panel on the left and a floating grid of colored glowing tiles (abstract periodic table, no symbols) on the right, thick pipes along the ceiling with neon piping, a hot-pink neon strip across the wall, tiny floating light particles, black glass bench with a cyan edge light. Layout: the bottom 30% is an empty, glossy lab bench top seen slightly from above that softly reflects the room, nothing standing on it (glassware is drawn by the app); the middle band behind where glassware will stand is calm and uncluttered; details sit on the walls and in the upper corners. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
 ```
 
-### ⬜ `bg-hh-phantu.webp`
+### ✅ `bg-hh-phantu.webp`
 - Dùng ở: Thí nghiệm hoá · nền giao diện Viện phân tử (Hoá THPT)
 - Kích thước: 1536x1024
 
@@ -1314,7 +1314,7 @@ A dark futuristic chemistry lab at night: hexagon-patterned dark wall panels, a 
 A bright high-tech research lab: white wall panels with thin seams, long ceiling light strips, a wide window showing a soft blue city skyline, a large glossy ball-and-stick molecule model floating on the right (black, red, blue and white spheres), a small white data screen with a bar chart, a slim white robotic pipette arm, very clean and airy, white epoxy bench. Layout: the bottom 30% is an empty, glossy lab bench top seen slightly from above that softly reflects the room, nothing standing on it (glassware is drawn by the app); the middle band behind where glassware will stand is calm and uncluttered; details sit on the walls and in the upper corners. Clean modern scientific illustration for students aged 16 to 18, bright research laboratory, crisp vector-like shapes, soft studio lighting, glass and white surfaces. Palette: white #F4F8FF, pale steel #DFE9F7, lab blue #3A7BFF, teal #3FD0C9, small coral accents #FF5B5B. Precise, calm, premium, no text, no letters, no numbers, no watermark.
 ```
 
-### ⬜ `hh-tier-1.webp`
+### ✅ `hh-tier-1.webp`
 - Dùng ở: Huy hiệu trình độ Nhí (môn Hoá)
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -1322,7 +1322,7 @@ A bright high-tech research lab: white wall panels with thin seams, long ceiling
 Round badge: a small bubbling beaker with a green sprout, mint and sky-blue colors. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `hh-tier-2.webp`
+### ✅ `hh-tier-2.webp`
 - Dùng ở: Huy hiệu trình độ Khoa học tự nhiên (môn Hoá)
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -1330,7 +1330,7 @@ Round badge: a small bubbling beaker with a green sprout, mint and sky-blue colo
 Round badge: a magnifier over a sparkling crystal, amber and lilac. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `hh-tier-3.webp`
+### ✅ `hh-tier-3.webp`
 - Dùng ở: Huy hiệu trình độ Hoá THCS
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -1338,7 +1338,7 @@ Round badge: a magnifier over a sparkling crystal, amber and lilac. Soft anime i
 Round badge: an erlenmeyer flask with a swirling glowing pink reaction. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `hh-tier-4.webp`
+### ✅ `hh-tier-4.webp`
 - Dùng ở: Huy hiệu trình độ Hoá THPT
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -1346,7 +1346,7 @@ Round badge: an erlenmeyer flask with a swirling glowing pink reaction. Soft ani
 Round badge: a glowing atom with three orbit rings, sky blue. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `hh-cover-a01.webp`
+### ✅ `hh-cover-a01.webp`
 - Dùng ở: Bìa bài Tan hay không tan (Hoá Nhí)
 - Kích thước: 1536x1024
 
@@ -1354,7 +1354,7 @@ Round badge: a glowing atom with three orbit rings, sky blue. Soft anime illustr
 Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator, wearing round safety goggles, stirring a glass of water with a spoon on a sunny lab bench, small bowls of salt, sugar, sand and a bottle of cooking oil beside it. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
-### ⬜ `hh-cover-a02.webp`
+### ✅ `hh-cover-a02.webp`
 - Dùng ở: Bìa bài Nổi hay chìm (Hoá Nhí)
 - Kích thước: 1536x1024
 
@@ -1362,7 +1362,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator, wearing round safety goggles, peeking at a tall glass of water where an egg floats in the middle, a wooden block and a coin beside the glass. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
-### ⬜ `hh-cover-a03.webp`
+### ✅ `hh-cover-a03.webp`
 - Dùng ở: Bìa bài Nước bắp cải đổi màu (Hoá Nhí)
 - Kích thước: 1536x1024
 
@@ -1370,7 +1370,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator, wearing round safety goggles, holding a dropper above a row of four glasses with purple, pink, violet and green cabbage juice, half a red cabbage and a lemon on the bench. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
-### ⬜ `hh-cover-a04.webp`
+### ✅ `hh-cover-a04.webp`
 - Dùng ở: Bìa bài Núi lửa baking soda (Hoá Nhí)
 - Kích thước: 1536x1024
 
@@ -1378,7 +1378,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator, wearing round safety goggles, cheering beside a small clay volcano with pink foam bubbling out of the top, a bottle of vinegar and a box of baking soda (no text) on a tray. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
-### ⬜ `hh-cover-a05.webp`
+### ✅ `hh-cover-a05.webp`
 - Dùng ở: Bìa bài Nước đá, nước, hơi nước (Hoá Nhí)
 - Kích thước: 1536x1024
 
@@ -1386,7 +1386,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator, wearing round safety goggles, watching a glass beaker with ice cubes over a small burner flame, wisps of steam rising and water drops on a lid. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
-### ⬜ `hh-cover-c01.webp`
+### ✅ `hh-cover-c01.webp`
 - Dùng ở: Bìa bài Phản ứng hoá học (Hoá THCS)
 - Kích thước: 1536x1024
 
@@ -1394,7 +1394,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile, wearing safety goggles, holding a glowing wooden splint above an erlenmeyer flask full of fizzing bubbles in a neon lab, a beaker of pink liquid beside it. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
 ```
 
-### ⬜ `mochi-boom.webp`
+### ✅ `mochi-boom.webp`
 - Dùng ở: Thí nghiệm hoá · Mochi sau khi làm sai (lấm lem, lông xù)
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -1402,7 +1402,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator, wearing round safety goggles pushed crooked on its head, fur puffed up and frizzy, face smudged with gray soot, a tiny puff of smoke above the head, blinking in surprise, funny not hurt, full body. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `mochi-foam.webp`
+### ✅ `mochi-foam.webp`
 - Dùng ở: Thí nghiệm hoá · Mochi dính bọt khi trào bọt (Nhí)
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -1410,7 +1410,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator, covered in fluffy pink-white foam bubbles on its head and paws, laughing and surprised, a few bubbles floating around, full body. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `bit-boom.webp`
+### ✅ `bit-boom.webp`
 - Dùng ở: Thí nghiệm hoá · Bit sau vụ nổ (THCS trở lên)
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -1418,7 +1418,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile, visor cracked and pushed up, silver fur and hair blown back and frizzy, face smudged with soot, coughing with one hand waving away a small smoke puff, embarrassed grin, not hurt, full body. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `bit-safe.webp`
+### ✅ `bit-safe.webp`
 - Dùng ở: Thí nghiệm hoá · Bit nhắc an toàn
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -1426,7 +1426,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile, wearing clear safety goggles and blue nitrile gloves, giving a confident thumbs-up while holding tongs, full body. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `fx-boom.webp`
+### ✅ `fx-boom.webp`
 - Dùng ở: Thí nghiệm hoá · quả nổ lúc BÙM (app phóng to rồi mờ dần)
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -1434,7 +1434,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 A single cartoon explosion burst seen from the front, bright white-yellow core, orange and red jagged flame petals, a ring of dark smoke at the edges, centered. Bold clean anime game visual effect, high contrast, crisp shapes, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `fx-smoke-1.webp`
+### ✅ `fx-smoke-1.webp`
 - Dùng ở: Thí nghiệm hoá · một cụm khói rời (app ghép thành đám khói cuộn)
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -1442,7 +1442,7 @@ A single cartoon explosion burst seen from the front, bright white-yellow core, 
 One soft puffy cartoon smoke cloud, neutral light gray with gentle shading, soft edges, centered, shape variation 1 of 3. Bold clean anime game visual effect, high contrast, crisp shapes, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `fx-smoke-2.webp`
+### ✅ `fx-smoke-2.webp`
 - Dùng ở: Thí nghiệm hoá · một cụm khói rời (app ghép thành đám khói cuộn)
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -1450,7 +1450,7 @@ One soft puffy cartoon smoke cloud, neutral light gray with gentle shading, soft
 One soft puffy cartoon smoke cloud, neutral light gray with gentle shading, soft edges, centered, shape variation 2 of 3. Bold clean anime game visual effect, high contrast, crisp shapes, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `fx-smoke-3.webp`
+### ✅ `fx-smoke-3.webp`
 - Dùng ở: Thí nghiệm hoá · một cụm khói rời (app ghép thành đám khói cuộn)
 - Kích thước: 1024x1024 · nền trong suốt
 
@@ -1458,7 +1458,7 @@ One soft puffy cartoon smoke cloud, neutral light gray with gentle shading, soft
 One soft puffy cartoon smoke cloud, neutral light gray with gentle shading, soft edges, centered, shape variation 3 of 3. Bold clean anime game visual effect, high contrast, crisp shapes, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `fx-crack.webp`
+### ✅ `fx-crack.webp`
 - Dùng ở: Thí nghiệm hoá · vết nứt kính phủ màn hình sau tiếng nổ
 - Kích thước: 1536x1024 · nền trong suốt
 
