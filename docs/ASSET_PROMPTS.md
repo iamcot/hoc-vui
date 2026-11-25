@@ -1542,17 +1542,17 @@ Cài đặt giọng đọc gợi ý: ElevenLabs Text to Speech, model Multilingu
 | ✅ | `voice/vo-gp-p01.mp3` | Giọng đọc | Gõ phím · Bài đầu Phối hợp | Giờ hai tay cùng chơi. Gõ đều tay, mắt nhìn màn hình là sẽ nhanh thôi. |
 | ✅ | `voice/vo-gp-v01.mp3` | Giọng đọc | Gõ phím · Bài đầu Telex | Gõ tiếng Việt có dấu thôi! Gõ a hai lần là thành chữ â. Học Vui tự ghép chữ cho em. |
 | ⬜ | `voice/vo-lt-a01.mp3` | Giọng đọc | Lập trình · Bài đầu Vỡ lòng, câu chào của Mochi | Chào em! Hôm nay em làm người ra lệnh, còn tớ làm theo. Xếp các khối lệnh thật đúng để dẫn tớ về lá cờ nhé! |
-| ⬜ | `sfx/hh-drop.mp3` | Hiệu ứng | Thí nghiệm hoá · nhỏ 1 giọt | Single water droplet falling into a glass beaker, small plink, 0.3 seconds |
-| ⬜ | `sfx/hh-pour.mp3` | Hiệu ứng | Thí nghiệm hoá · rót dung dịch | Liquid pouring from a beaker into another glass, 1 second |
-| ⬜ | `sfx/hh-solid.mp3` | Hiệu ứng | Thí nghiệm hoá · thả bột, hạt rắn | Small handful of salt grains sprinkled into water, tiny ticks, 0.4 seconds |
-| ⬜ | `sfx/hh-plop.mp3` | Hiệu ứng | Thí nghiệm hoá · thả đồ vật vào nước | Small object plopping into water, soft splash, 0.4 seconds |
-| ⬜ | `sfx/hh-stir.mp3` | Hiệu ứng | Thí nghiệm hoá · khuấy | Glass stirring rod clinking gently against a glass beaker, 1 second |
-| ⬜ | `sfx/hh-fizz.mp3` | Hiệu ứng | Thí nghiệm hoá · sủi bọt | Fizzing bubbles in a glass of liquid, carbonated hiss, 2 seconds |
-| ⬜ | `sfx/hh-sizzle.mp3` | Hiệu ứng | Thí nghiệm hoá · natri xèo xèo trên nước | Sizzling hiss of hot metal on water, crackling, 2 seconds |
-| ⬜ | `sfx/hh-foam.mp3` | Hiệu ứng | Thí nghiệm hoá · bọt trào (Nhí làm sai) | Cartoon foam overflowing with bubbly gurgle and squishy sounds, playful, 1.5 seconds |
-| ⬜ | `sfx/hh-warn.mp3` | Hiệu ứng | Thí nghiệm hoá · cảnh báo sắp nổ | Short rising electronic warning beep alarm, tense but not scary, 1 second |
-| ⬜ | `sfx/hh-boom.mp3` | Hiệu ứng | Thí nghiệm hoá · nổ | Cartoon explosion boom with a deep thump, short debris rattle, not realistic, not too loud, 1.5 seconds |
-| ⬜ | `sfx/hh-glass.mp3` | Hiệu ứng | Thí nghiệm hoá · kính vỡ | Small glass beaker shattering, tinkling shards, 1 second |
-| ⬜ | `sfx/hh-pop.mp3` | Hiệu ứng | Thí nghiệm hoá · khí hiđro nổ lách tách | Small sharp squeaky pop, 0.3 seconds |
-| ⬜ | `sfx/hh-flame.mp3` | Hiệu ứng | Thí nghiệm hoá · bật lửa, que đóm bùng cháy | Soft whoosh of a flame igniting, 0.8 seconds |
-| ⬜ | `sfx/hh-chime.mp3` | Hiệu ứng | Thí nghiệm hoá · đạt mục tiêu | Magical soft shimmer chime, three rising notes, 0.8 seconds |
+| ✅ | `sfx/hh-drop.mp3` | Hiệu ứng | Thí nghiệm hoá · nhỏ 1 giọt | Single water droplet falling into a glass beaker, small plink, 0.3 seconds |
+| ✅ | `sfx/hh-pour.mp3` | Hiệu ứng | Thí nghiệm hoá · rót dung dịch | Liquid pouring from a beaker into another glass, 1 second |
+| ✅ | `sfx/hh-solid.mp3` | Hiệu ứng | Thí nghiệm hoá · thả bột, hạt rắn | Small handful of salt grains sprinkled into water, tiny ticks, 0.4 seconds |
+| ✅ | `sfx/hh-plop.mp3` | Hiệu ứng | Thí nghiệm hoá · thả đồ vật vào nước | Small object plopping into water, soft splash, 0.4 seconds |
+| ✅ | `sfx/hh-stir.mp3` | Hiệu ứng | Thí nghiệm hoá · khuấy | Glass stirring rod clinking gently against a glass beaker, 1 second |
+| ✅ | `sfx/hh-fizz.mp3` | Hiệu ứng | Thí nghiệm hoá · sủi bọt | Fizzing bubbles in a glass of liquid, carbonated hiss, 2 seconds |
+| ✅ | `sfx/hh-sizzle.mp3` | Hiệu ứng | Thí nghiệm hoá · natri xèo xèo trên nước | Sizzling hiss of hot metal on water, crackling, 2 seconds |
+| ✅ | `sfx/hh-foam.mp3` | Hiệu ứng | Thí nghiệm hoá · bọt trào (Nhí làm sai) | Cartoon foam overflowing with bubbly gurgle and squishy sounds, playful, 1.5 seconds |
+| ✅ | `sfx/hh-warn.mp3` | Hiệu ứng | Thí nghiệm hoá · cảnh báo sắp nổ | Short rising electronic warning beep alarm, tense but not scary, 1 second |
+| ✅ | `sfx/hh-boom.mp3` | Hiệu ứng | Thí nghiệm hoá · nổ | Cartoon explosion boom with a deep thump, short debris rattle, not realistic, not too loud, 1.5 seconds |
+| ✅ | `sfx/hh-glass.mp3` | Hiệu ứng | Thí nghiệm hoá · kính vỡ | Small glass beaker shattering, tinkling shards, 1 second |
+| ✅ | `sfx/hh-pop.mp3` | Hiệu ứng | Thí nghiệm hoá · khí hiđro nổ lách tách | Small sharp squeaky pop, 0.3 seconds |
+| ✅ | `sfx/hh-flame.mp3` | Hiệu ứng | Thí nghiệm hoá · bật lửa, que đóm bùng cháy | Soft whoosh of a flame igniting, 0.8 seconds |
+| ✅ | `sfx/hh-chime.mp3` | Hiệu ứng | Thí nghiệm hoá · đạt mục tiêu | Magical soft shimmer chime, three rising notes, 0.8 seconds |
