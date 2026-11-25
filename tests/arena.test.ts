@@ -23,5 +23,8 @@ test("bài gõ hay: đủ ba loại, mỗi loại có đoạn ngắn và đoạn
     assert.ok(mine.some((p) => lengthOf(p) === "ngan"), `${k.id}: có đoạn ngắn`);
     assert.ok(mine.some((p) => lengthOf(p) === "dai"), `${k.id}: có đoạn dài`);
   }
+  for (const g of ["co-tich", "thieu-nhi", "hien-dai", "tho"]) {
+    for (const k of PASSAGE_KINDS) if (k.id !== "khong-dau" || g === "co-tich") assert.ok(PASSAGES.some((p) => p.genre === g && p.kind === k.id), `${k.id}: có thể loại ${g}`);
+  }
   for (const p of PASSAGES.filter((x) => x.kind !== "co-dau")) assert.match(p.text, /^[\x20-\x7e]+$/, `${p.id}: chỉ ký tự gõ thẳng được`);
 });

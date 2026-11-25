@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
-import { LENGTH_NAME, PASSAGES, PASSAGE_KINDS, RECORD_MIN_ACC, RECORD_MIN_CHARS, lengthOf, type Passage, type PassageKind } from "@/content/subjects/go-phim/passages";
+import { GENRES, LENGTH_NAME, PASSAGES, PASSAGE_KINDS, RECORD_MIN_ACC, RECORD_MIN_CHARS, lengthOf, type Passage, type PassageGenre, type PassageKind } from "@/content/subjects/go-phim/passages";
 import { submitRecord } from "@/lib/arena";
 import { useProgress } from "@/lib/store";
 import { Scene } from "@/components/Scene";
@@ -34,6 +34,7 @@ export default function PassagesPage() {
   const [best, setBest] = useState<Best>({});
   const [round, setRound] = useState(0);
   const [kind, setKind] = useState<PassageKind>("co-dau");
+  const [genre, setGenre] = useState<PassageGenre | "all">("all");
   const router = useRouter();
   useEffect(() => setBest(loadBest()), [pick]);
   useEffect(() => {
@@ -46,6 +47,7 @@ export default function PassagesPage() {
   }, []);
   function choose(k: PassageKind) {
     setKind(k);
+    setGenre("all");
     try {
       localStorage.setItem(KIND_KEY, k);
     } catch {
@@ -57,7 +59,9 @@ export default function PassagesPage() {
   if (pick) return <Typing key={round} p={pick} onExit={() => setPick(null)} onAgain={() => setRound((x) => x + 1)} />;
   const info = PASSAGE_KINDS.find((k) => k.id === kind)!;
   // ngắn trước, dài sau
-  const list = PASSAGES.filter((p) => p.kind === kind).sort((a, b) => a.text.length - b.text.length);
+  const ofKind = PASSAGES.filter((p) => p.kind === kind);
+  const genres = GENRES.filter((g) => ofKind.some((p) => p.genre === g.id));
+  const list = ofKind.filter((p) => genre === "all" || p.genre === genre).sort((a, b) => a.text.length - b.text.length);
   return (
     <div className="theme-cyber space-y-6">
       <Scene variant="deep" image="bg-gp-lesson" />
@@ -82,6 +86,19 @@ export default function PassagesPage() {
           </button>
         ))}
       </div>
+      <div className="flex flex-wrap items-center gap-1.5" role="tablist" aria-label="Thể loại">
+        {[{ id: "all" as const, name: "Tất cả" }, ...genres].map((g) => (
+          <button
+            key={g.id}
+            role="tab"
+            aria-selected={g.id === genre}
+            onClick={() => setGenre(g.id)}
+            className={`rounded-full px-3 py-1 text-sm font-bold ring-1 transition ${g.id === genre ? "bg-amber-300 text-[#1a1033] ring-amber-200" : "bg-white/5 text-cyan-50/90 ring-cyan-300/25 hover:bg-white/10"}`}
+          >
+            {g.name}
+          </button>
+        ))}
+      </div>
       <p className="text-sm font-semibold text-cyan-100/80">
         {info.hint}. Đoạn từ {RECORD_MIN_CHARS} ký tự, chính xác từ {RECORD_MIN_ACC}% được tính vào <Link href="/xep-hang/wpm" className="font-bold text-cyan-300 underline">bảng xếp hạng WPM</Link>.
       </p>
@@ -98,6 +115,7 @@ export default function PassagesPage() {
             <span className="text-3xl">{p.emoji}</span>
             <span className="min-w-0 flex-1">
               <span className="block font-display text-lg font-extrabold leading-tight">{p.title}</span>
+              {p.source && <span className="block text-xs font-semibold italic text-amber-200/90">{p.source}</span>}
               <span className="line-clamp-2 text-sm text-cyan-100/70">{p.text}</span>
               <span className="mt-1.5 flex flex-wrap gap-1.5">
                 <span className="rounded-full bg-white/10 px-2 py-0.5 text-xs font-bold text-cyan-100/90 ring-1 ring-cyan-300/30">
@@ -157,6 +175,7 @@ function Typing({ p, onExit, onAgain }: { p: Passage; onExit: () => void; onAgai
         </button>
         <div className="font-display text-xl font-extrabold">
           {p.emoji} {p.title}
+          {p.source && <span className="block text-xs font-semibold italic text-amber-200/90">{p.source}</span>}
         </div>
         <div className="ml-auto flex gap-2 font-mono font-bold">
           <span className="hud-chip">{live.wpm} WPM</span>

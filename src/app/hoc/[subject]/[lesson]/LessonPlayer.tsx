@@ -65,7 +65,7 @@ export function LessonPlayer({ subjectId, lessonId }: { subjectId: string; lesso
 
   const go = (d: number) => {
     setDir(d);
-    play("whoosh", 0.3);
+    play("whoosh");
     setI((x) => Math.max(0, Math.min(total, x + d)));
     window.scrollTo({ top: 0, behavior: "smooth" });
   };

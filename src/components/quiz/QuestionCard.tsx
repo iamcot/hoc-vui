@@ -148,7 +148,7 @@ export function QuestionCard({
           onDone={(r) => {
             // gõ phải đúng từng phím mới đi tiếp, nên đạt hay không tính theo độ chính xác
             const ok = r.acc >= 90;
-            play(ok ? "correct" : "wrong", 0.5);
+            play(ok ? "correct" : "wrong");
             setTimeout(() => (mode === "race" ? onNext({ correct: ok, input: `${r.wpm}wpm ${r.acc}%`, hinted }) : setResult(ok)), mode === "race" ? 350 : 0);
           }}
         />

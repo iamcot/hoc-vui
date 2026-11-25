@@ -153,7 +153,7 @@ export function SharkGame({
         s.bonusPending = false;
         s.bonusLeft = BONUS_JELLIES;
         s.nextSpawn = now + 300;
-        play("gp-wave", 0.5);
+        play("gp-wave");
       }
       if (s.bonusLeft > 0 && now >= s.nextSpawn) {
         const text = bonusText();
@@ -192,7 +192,7 @@ export function SharkGame({
           s.escaped++;
           s.combo = 0;
           if (s.target === f.id) s.target = -1;
-          play("gp-bite", 0.5);
+          play("gp-bite");
           setHurt(now);
           if (mode === "survival") s.lives--;
         }
@@ -214,7 +214,7 @@ export function SharkGame({
     const s = g.current;
     Object.assign(s, { fish: [], target: -1, spawned: 0, kills: 0, escaped: 0, errors: 0, correctKeys: 0, score: 0, combo: 0, lives: 3, wave: 1, nextSpawn: 0, last: 0, start: Date.now(), bonus: 0, bonusUntil: 0, bonusLeft: 0, bonusPending: false, nextBonusAt: BONUS_EVERY, rng: makeRng(randomSeed()) });
     setPhase("run");
-    play("gp-wave", 0.5);
+    play("gp-wave");
     raf.current = requestAnimationFrame(loop);
   };
   useEffect(() => () => cancelAnimationFrame(raf.current), []);
@@ -282,12 +282,12 @@ export function SharkGame({
       t.hit++;
       s.correctKeys++;
       setFlash({ ch, ok: true });
-      play("gp-key", 0.25);
+      play("gp-key");
       if (t.hit >= t.keys.length) {
         t.dead = performance.now();
         s.target = -1;
         setShots((sh) => [...sh.slice(-4), { id: t!.id, y: t!.y, x: t!.x, bonus: t!.bonus }]);
-        play("gp-hit", 0.5);
+        play("gp-hit");
         if (t.bonus) {
           s.bonus++;
           s.score += 50;
@@ -312,7 +312,7 @@ export function SharkGame({
     s.errors++;
     s.combo = 0;
     setFlash({ ch, ok: false });
-    play("gp-miss", 0.35);
+    play("gp-miss");
   }
 
   const s = g.current;

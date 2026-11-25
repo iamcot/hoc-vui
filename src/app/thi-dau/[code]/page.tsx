@@ -86,7 +86,7 @@ function RoomView() {
     const t = setInterval(() => {
       const l = Math.ceil((room!.seconds * 1000 - (Date.now() - startAt.current)) / 1000);
       setLeft(l);
-      if (l <= 3 && l > 0) play("tick", 0.4);
+      if (l <= 3 && l > 0) play("tick");
     }, 250);
     return () => clearInterval(t);
   }, [phase, room]);

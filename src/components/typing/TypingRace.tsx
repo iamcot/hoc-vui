@@ -56,7 +56,7 @@ function raceText(room: Room, round = 0): { text: string; title?: string } {
     const all = PASSAGES.filter((p) => p.kind === kind);
     const pool = all.filter((p) => want.includes(lengthOf(p)));
     const p = rng.pick(pool.length ? pool : all);
-    return { text: p.text, title: `${p.emoji} ${p.title}` };
+    return { text: p.text, title: `${p.emoji} ${p.title}${p.source ? ` (${p.source})` : ""}` };
   }
   const tier = room.tier_id ? getTier(s, room.tier_id) : undefined;
   const ids = tier ? undefined : rankLessonIds(s, room.rank);
@@ -104,7 +104,7 @@ export function TypingRace({ room, host = true }: { room: Room; host?: boolean }
     if (phaseRef.current !== "lobby") return;
     setPhase("count");
     setCount(3);
-    play("gp-go", 0.5);
+    play("gp-go");
   }, []);
   const roundRef = useRef(round);
   roundRef.current = round;
