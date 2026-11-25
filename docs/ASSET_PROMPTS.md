@@ -24,7 +24,7 @@ File này sinh tự động từ `src/content/assets.ts` bằng `npm run prompts
 - Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator
 - Xi Xi: a friendly anthropomorphic scientific calculator (dark navy body, light gray keys, small LCD screen showing a smile), tiny arms and legs
 
-## Ảnh (180)
+## Ảnh (192)
 
 ### ✅ `mochi-happy.webp`
 - Dùng ở: Mochi vui vẻ: lời chào, slide mở đầu
@@ -1392,6 +1392,102 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 
 ```text
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile, wearing safety goggles, holding a glowing wooden splint above an erlenmeyer flask full of fizzing bubbles in a neon lab, a beaker of pink liquid beside it. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
+```
+
+### ✅ `hh-cover-c02.webp`
+- Dùng ở: Bìa bài Cân bằng phương trình (Hoá THCS)
+- Kích thước: 1536x1024
+
+```text
+Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile, wearing safety goggles, standing beside a huge glowing two-pan balance scale with colorful glowing atom spheres on both pans, perfectly level, in a neon lab. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
+```
+
+### ✅ `hh-cover-l8-mol.webp`
+- Dùng ở: Bìa bài Luyện mol và khối lượng (Hoá THCS lớp 8)
+- Kích thước: 1536x1024
+
+```text
+Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile, wearing safety goggles, next to a digital lab scale with a small glass dish of white powder, a glowing mole-shaped hologram hovering above it. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
+```
+
+### ✅ `hh-cover-l8-nd.webp`
+- Dùng ở: Bìa bài Luyện nồng độ dung dịch (Hoá THCS lớp 8)
+- Kích thước: 1536x1024
+
+```text
+Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile, wearing safety goggles, pouring blue liquid from a beaker into a tall measuring cylinder with glowing graduation lines, two flasks of light and dark blue solution beside it. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
+```
+
+### ✅ `hh-cover-l8-btkl.webp`
+- Dùng ở: Bìa bài Luyện bảo toàn khối lượng (Hoá THCS lớp 8)
+- Kích thước: 1536x1024
+
+```text
+Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile, wearing safety goggles, watching a sealed glass flask on a lab scale showing the same number before and after a small reaction, glowing equals sign hologram. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
+```
+
+### ✅ `hh-cover-l8-loai.webp`
+- Dùng ở: Bìa bài Luyện phân loại hợp chất (Hoá THCS lớp 8)
+- Kích thước: 1536x1024
+
+```text
+Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile, wearing safety goggles, sorting small glowing test tubes into four labeled-by-color trays (red, blue, green, yellow, no text) on a neon lab bench. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
+```
+
+### ✅ `hh-cover-l9-dayhd.webp`
+- Dùng ở: Bìa bài Luyện dãy hoạt động kim loại (Hoá THCS lớp 9)
+- Kích thước: 1536x1024
+
+```text
+Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile, wearing safety goggles, a copper-colored nail dropped into a blue copper sulfate solution in a beaker, a ladder of glowing metal-colored steps rising behind it. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
+```
+
+### ✅ `hh-cover-l9-pthh.webp`
+- Dùng ở: Bìa bài Luyện tính theo PTHH (Hoá THCS lớp 9)
+- Kích thước: 1536x1024
+
+```text
+Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile, wearing safety goggles, a glass flask connected by a tube to an upside-down graduated cylinder collecting bubbles of gas in a water trough, neon lab. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
+```
+
+### ✅ `hh-cover-l9-hcht.webp`
+- Dùng ở: Bìa bài Luyện hữu cơ cơ bản (Hoá THCS lớp 9)
+- Kích thước: 1536x1024
+
+```text
+Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile, wearing safety goggles, beside a glowing ball-and-stick molecule of methane and a small blue Bunsen flame, a bottle of vinegar on the bench (no text). Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
+```
+
+### ✅ `hh-cover-p01.webp`
+- Dùng ở: Bìa bài Cân bằng phương trình khó (Hoá THPT)
+- Kích thước: 1536x1024
+
+```text
+Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile, wearing white lab coat and safety goggles, in a bright high-tech lab, pointing at a large floating holographic chemical equation made of colored spheres balanced on a glossy seesaw, no readable text. Clean modern scientific illustration for students aged 16 to 18, bright research laboratory, crisp vector-like shapes, soft studio lighting, glass and white surfaces. Palette: white #F4F8FF, pale steel #DFE9F7, lab blue #3A7BFF, teal #3FD0C9, small coral accents #FF5B5B. Precise, calm, premium, no text, no letters, no numbers, no watermark.
+```
+
+### ✅ `hh-mode-xep-lop.webp`
+- Dùng ở: Biểu tượng chế độ Xếp lớp (môn Hoá)
+- Kích thước: 1024x1024 · nền trong suốt
+
+```text
+Round app-icon style badge: a small ladder with a glowing target at the top and a flask climbing it, mint and amber colors. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
+```
+
+### ✅ `hh-mode-so-tay.webp`
+- Dùng ở: Biểu tượng chế độ Sổ tay (môn Hoá)
+- Kích thước: 1024x1024 · nền trong suốt
+
+```text
+Round app-icon style badge: an open notebook with a flask sticker and a small pencil, soft lilac and cream colors. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
+```
+
+### ✅ `hh-mode-bang.webp`
+- Dùng ở: Biểu tượng chế độ Bảng tuần hoàn (môn Hoá)
+- Kích thước: 1024x1024 · nền trong suốt
+
+```text
+Round app-icon style badge: a small colorful periodic-table grid of rounded squares in rainbow colors with a sparkle, no letters. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
 ### ✅ `mochi-boom.webp`
