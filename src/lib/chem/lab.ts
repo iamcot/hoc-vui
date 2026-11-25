@@ -274,6 +274,49 @@ function react(s: LabState, v: Vessel) {
     addLog(s, `fizz:${v.id}`);
     checkFoam(s, v);
   }
+  metals(s, v);
+  watchPh(s, v);
+}
+
+const acidOf = (v: Vessel) => Object.entries(v.liquid).reduce((a, [id, n]) => a + (chem(id)?.acid ?? 0) * n, 0);
+
+/** kim loại gặp axit (sinh H₂) và kim loại đẩy kim loại khỏi muối */
+function metals(s: LabState, v: Vessel) {
+  const acid = acidOf(v);
+  for (const m of ["zn", "fe"]) {
+    if (!v.objects.includes(m)) continue;
+    if (acid > 0.05 && !s.log.includes(`h2:${v.id}:${m}`)) {
+      const amt = Math.min(1.4, acid * 0.5);
+      for (const [id, n] of Object.entries(v.liquid)) if (chem(id)?.acid) v.liquid[id] = n * 0.75;
+      v.gas = { id: "H2", amt: (v.gas?.id === "H2" ? v.gas.amt : 0) + amt };
+      v.bubbles = 1;
+      v.foam += amt * 0.8;
+      s.events.push({ type: "fizz", vessel: v.id, amt });
+      addLog(s, `h2:${v.id}:${m}`);
+      addLog(s, `h2:${m}`);
+      checkFoam(s, v);
+    }
+    const cu = v.liquid.cuso4 ?? 0;
+    if (cu > 0.05 && !s.log.includes(`displace:${v.id}:${m}`)) {
+      v.liquid.cuso4 = cu * 0.3;
+      const salt = m === "fe" ? "feso4" : "znso4";
+      v.liquid[salt] = (v.liquid[salt] ?? 0) + cu * 0.7;
+      v.ppt = "#c8642c";
+      s.events.push({ type: "color", vessel: v.id });
+      addLog(s, `displace:${v.id}:${m}`);
+      addLog(s, `displace:${m}`);
+    }
+  }
+  if (v.objects.includes("cu") && acid > 0.05) addLog(s, "nogas:cu");
+}
+
+/** ghi lại các mốc pH (trung hoà, kiềm) để chấm bài */
+function watchPh(s: LabState, v: Vessel) {
+  if (volume(v) <= 0) return;
+  const p = ph(v);
+  if (v.liquid.naoh && Math.abs(p - 7) < 0.05) addLog(s, `neutral:${v.id}`);
+  if (p > 8.2) addLog(s, `alkaline:${v.id}`);
+  if (p > 8.2 && v.liquid.phenol) addLog(s, `pink:${v.id}`);
 }
 
 function checkFoam(s: LabState, v: Vessel) {
@@ -480,5 +523,6 @@ export function vesselTags(v: Vessel): string[] {
   const out: string[] = [];
   if (v.bubbles > 0.5 && v.gas) out.push(v.gas.id === "CO2" ? "Sủi bọt khí!" : v.gas.id === "H2" ? "Xèo xèo, có khí!" : "Có khí");
   if (v.temp >= 99.5 && volume(v) > 0) out.push("Sôi rồi!");
+  if (v.ppt === "#c8642c") out.push("Có lớp đồng đỏ bám vào!");
   return out;
 }

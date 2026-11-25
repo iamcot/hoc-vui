@@ -57,6 +57,13 @@ export const CHEMS: Record<string, Chem> = Object.fromEntries(
     C({ id: "phenol", name: "Phenolphtalein", kind: "indicator", color: "#f4f0ff", ph: 7, note: "Chất chỉ thị: không màu trong axit và nước, hồng trong bazơ" }),
     C({ id: "naoh", name: "Natri hiđroxit", formula: "NaOH", kind: "liquid", color: "#e9f4ff", base: 1.5, ph: 13, note: "Bazơ mạnh, ăn da. Sinh ra khi natri gặp nước" }),
     C({ id: "natri", name: "Natri (mẩu nhỏ)", formula: "Na", kind: "metal", color: "#d9dce6", note: "Kim loại mềm, phản ứng mạnh với nước. Chỉ dùng mẩu bằng hạt đậu xanh" }),
+    C({ id: "hcl", name: "Axit clohiđric", formula: "HCl", kind: "liquid", color: "#eef6ff", acid: 1.5, ph: 1.5, emoji: "🧪", note: "Axit mạnh trong phòng thí nghiệm, loãng. Làm đỏ giấy quỳ, ăn mòn tay" }),
+    C({ id: "cuso4", name: "Đồng sunfat", formula: "CuSO₄", kind: "liquid", color: "#2f8fe8", emoji: "🔵", note: "Dung dịch màu xanh lam đặc trưng của muối đồng" }),
+    C({ id: "feso4", name: "Sắt(II) sunfat", formula: "FeSO₄", kind: "liquid", color: "#a9d8b8", note: "Dung dịch xanh lục nhạt, sinh ra khi sắt đẩy đồng" }),
+    C({ id: "znso4", name: "Kẽm sunfat", formula: "ZnSO₄", kind: "liquid", color: "#eaf4ff", note: "Dung dịch không màu" }),
+    C({ id: "zn", name: "Viên kẽm", formula: "Zn", kind: "object", color: "#b9c2d4", density: 7.1, emoji: "🔘", note: "Kim loại xám bạc, đứng trước hiđro trong dãy hoạt động" }),
+    C({ id: "fe", name: "Đinh sắt", formula: "Fe", kind: "object", color: "#8d95a8", density: 7.9, emoji: "🔩", note: "Đinh sắt sạch, đứng trước đồng trong dãy hoạt động" }),
+    C({ id: "cu", name: "Dây đồng", formula: "Cu", kind: "object", color: "#c9743a", density: 8.9, emoji: "🟤", note: "Kim loại màu đỏ, đứng sau hiđro trong dãy hoạt động" }),
     C({ id: "natri-to", name: "Natri (mẩu to)", formula: "Na", kind: "metal", color: "#d9dce6", note: "Mẩu to bằng viên kẹo… có an toàn không?" }),
   ].map((c) => [c.id, c]),
 );
