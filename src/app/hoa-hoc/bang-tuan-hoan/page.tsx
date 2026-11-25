@@ -126,7 +126,7 @@ export default function PeriodicPage() {
 
   useEffect(() => {
     if (!data.sound || sib) return;
-    const t = window.setTimeout(() => void speak(plain(say), { rate: LAB_RATE }), 250);
+    const t = window.setTimeout(() => void speak(plain(say), { rate: LAB_RATE, fileOnly: true }), 250);
     return () => {
       window.clearTimeout(t);
       stopSpeak();

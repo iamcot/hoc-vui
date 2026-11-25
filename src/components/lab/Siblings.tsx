@@ -145,7 +145,7 @@ export function Siblings({ onClose, onShowColumn, who }: { onClose: () => void; 
 
   useEffect(() => {
     if (!data.sound) return;
-    const t = window.setTimeout(() => void speak(plain(say), { rate: LAB_RATE }), 250);
+    const t = window.setTimeout(() => void speak(plain(say), { rate: LAB_RATE, fileOnly: true }), 250);
     return () => {
       window.clearTimeout(t);
       stopSpeak();

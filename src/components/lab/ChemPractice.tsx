@@ -136,7 +136,7 @@ function Run({ subjectId, lessonId, seed, again }: { subjectId: string; lessonId
   const { data } = useProgress();
   useEffect(() => {
     if (!data.sound || phase === "quiz" || phase === "result") return;
-    const t = window.setTimeout(() => void speak(plain(say), { rate: LAB_RATE }), 250);
+    const t = window.setTimeout(() => void speak(plain(say), { rate: LAB_RATE, fileOnly: true }), 250);
     return () => {
       window.clearTimeout(t);
       stopSpeak();

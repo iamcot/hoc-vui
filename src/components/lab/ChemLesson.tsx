@@ -209,7 +209,7 @@ export function ChemLesson({ subjectId, lessonId }: { subjectId: string; lessonI
   const { data } = useProgress();
   useEffect(() => {
     if (!data.sound || !speech) return;
-    const t = window.setTimeout(() => void speak(plain(speech), { rate: LAB_RATE }), 250);
+    const t = window.setTimeout(() => void speak(plain(speech), { rate: LAB_RATE, fileOnly: true }), 250);
     return () => {
       window.clearTimeout(t);
       stopSpeak();
