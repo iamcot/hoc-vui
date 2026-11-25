@@ -46,7 +46,7 @@ export function LabTopBar({ href, title, progress, children, onTheme }: { href: 
         <IconClose className="h-5 w-5" />
       </Link>
       <div className="lab-panel flex min-w-0 flex-1 items-center gap-3 rounded-full px-4 py-1.5">
-        <b className="truncate font-display text-sm sm:text-base">{title}</b>
+        <b className="truncate font-display text-base sm:text-lg">{title}</b>
         {progress !== undefined && (
           <div className="hidden h-2 min-w-16 flex-1 overflow-hidden rounded-full sm:block" style={{ background: "var(--lab-line)" }}>
             <div className="h-full rounded-full transition-all duration-500" style={{ width: `${Math.round(progress * 100)}%`, background: "var(--lab-accent)" }} />
@@ -54,7 +54,7 @@ export function LabTopBar({ href, title, progress, children, onTheme }: { href: 
         )}
         {children}
       </div>
-      <button onClick={onTheme} className="lab-chip flex h-10 shrink-0 items-center whitespace-nowrap rounded-full px-3 text-sm font-extrabold" aria-label="Đổi phòng lab">
+      <button onClick={onTheme} className="lab-chip flex h-10 shrink-0 items-center whitespace-nowrap rounded-full px-3 text-base font-extrabold" aria-label="Đổi phòng lab">
         🎨<span className="hidden whitespace-nowrap sm:inline"> Phòng lab</span>
       </button>
       <button onClick={() => setSound(!data.sound)} className="lab-chip grid h-10 w-10 shrink-0 place-items-center rounded-full" aria-label={data.sound ? "Tắt tiếng" : "Bật tiếng"}>

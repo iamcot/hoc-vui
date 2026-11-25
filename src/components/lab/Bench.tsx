@@ -231,20 +231,20 @@ export function Bench({ state, setState, shelf, tools = [], theme, formulas, rig
                 e.preventDefault();
                 setDrag({ id, x: e.clientX, y: e.clientY, moved: false });
               }}
-              className={`lab-chip lab-pick flex touch-none items-center gap-1.5 rounded-2xl px-2.5 py-1.5 text-left text-sm font-bold ${pick === id ? "on" : ""} ${hint?.chem === id && pick !== id && !locked ? "lab-hint" : ""}`}
+              className={`lab-chip lab-pick flex touch-none items-center gap-2 rounded-2xl px-3 py-2 text-left text-base font-bold sm:text-lg ${pick === id ? "on" : ""} ${hint?.chem === id && pick !== id && !locked ? "lab-hint" : ""}`}
               aria-pressed={pick === id}
               disabled={locked}
             >
               {c.kind === "object" ? <span className="text-2xl leading-none">{c.emoji}</span> : <Bottle color={c.color} kind={c.kind} />}
               <span className="leading-tight">
                 {c.name}
-                {formulas && c.formula && <span className="lab-mono block text-[0.7rem] opacity-75">{c.formula}</span>}
+                {formulas && c.formula && <span className="lab-mono block text-[0.8rem] opacity-75 sm:text-sm">{c.formula}</span>}
               </span>
-              <span className="hidden text-[0.65rem] opacity-50 md:inline">{i + 1}</span>
+              <span className="hidden text-xs opacity-50 md:inline">{i + 1}</span>
             </button>
           );
         })}
-        {pick && !guide && <span className="lab-accent self-center rounded-full px-3 py-1 text-xs font-extrabold">Chạm vào dụng cụ để thả {chem(pick)?.name.toLowerCase()}</span>}
+        {pick && !guide && <span className="lab-accent self-center rounded-full px-3 py-1 text-sm font-extrabold">Chạm vào dụng cụ để thả {chem(pick)?.name.toLowerCase()}</span>}
       </div>
       {guide}
       </div>
@@ -266,12 +266,12 @@ export function Bench({ state, setState, shelf, tools = [], theme, formulas, rig
               {/* nhãn trạng thái */}
               <div className="pointer-events-none absolute -top-9 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-1">
                 {tags.map((x) => (
-                  <span key={x} className="lab-accent lab-pop-in whitespace-nowrap rounded-full px-2.5 py-0.5 text-xs font-extrabold">
+                  <span key={x} className="lab-accent lab-pop-in whitespace-nowrap rounded-full px-3 py-1 text-sm font-extrabold sm:text-base">
                     {x}
                   </span>
                 ))}
                 {sp && (
-                  <span className="lab-pop-in whitespace-nowrap rounded-full bg-white px-2.5 py-0.5 text-xs font-extrabold text-ink">
+                  <span className="lab-pop-in whitespace-nowrap rounded-full bg-white px-3 py-1 text-sm font-extrabold text-ink sm:text-base">
                     {sp.type === "splint-out" ? "Que đóm tắt!" : sp.type === "splint-relight" ? "Bùng cháy sáng!" : sp.type === "splint-pop" ? "Lách tách, nổ nhẹ!" : "Que đóm vẫn cháy bình thường"}
                   </span>
                 )}
@@ -322,9 +322,9 @@ export function Bench({ state, setState, shelf, tools = [], theme, formulas, rig
                 {tools.includes("heat") && <Burner on={v.heating} />}
               </button>
               <div className="mt-1 flex items-center gap-1">
-                {v.label && <span className="lab-chip rounded-full px-2 py-0.5 font-display text-sm font-extrabold">{v.label}</span>}
-                {showTemp && <span className="lab-mono rounded-md bg-[#1d2a1d] px-1.5 py-0.5 text-xs font-bold text-[#9dff8a]">{Math.round(v.temp)}°C</span>}
-                {phShow && volume(v) > 0 && <span className="lab-mono rounded-md bg-[#1d2a1d] px-1.5 py-0.5 text-xs font-bold text-[#7fe7ff]">pH {ph(v).toFixed(1)}</span>}
+                {v.label && <span className="lab-chip rounded-full px-3 py-0.5 font-display text-lg font-extrabold">{v.label}</span>}
+                {showTemp && <span className="lab-mono rounded-md bg-[#1d2a1d] px-2 py-0.5 text-sm font-bold text-[#9dff8a] sm:text-base">{Math.round(v.temp)}°C</span>}
+                {phShow && volume(v) > 0 && <span className="lab-mono rounded-md bg-[#1d2a1d] px-2 py-0.5 text-sm font-bold text-[#7fe7ff] sm:text-base">pH {ph(v).toFixed(1)}</span>}
               </div>
               {under?.(v.id)}
               <span className="sr-only">{colorName(v)}</span>
@@ -337,27 +337,27 @@ export function Bench({ state, setState, shelf, tools = [], theme, formulas, rig
       {(tools.some((x) => x !== "thermo") || onReset) && (
         <div className="absolute bottom-3 left-0 z-10 flex flex-wrap justify-center gap-2 px-3" style={{ right: rightPad }}>
           {tools.includes("stir") && (
-            <button className={`lab-chip rounded-2xl px-3 py-2 text-sm font-extrabold ${hint?.tool === "stir" && !locked ? "lab-hint" : ""}`} onClick={() => tool("stir")} disabled={locked}>
+            <button className={`lab-chip rounded-2xl px-4 py-2.5 text-base font-extrabold sm:text-lg ${hint?.tool === "stir" && !locked ? "lab-hint" : ""}`} onClick={() => tool("stir")} disabled={locked}>
               🥄 Khuấy
             </button>
           )}
           {tools.includes("heat") && (
-            <button className={`${state.vessels.find((v) => v.id === (sel || state.vessels[0]?.id))?.heating ? "lab-accent" : "lab-chip"} rounded-2xl px-3 py-2 text-sm font-extrabold ${hint?.tool === "heat" && !locked ? "lab-hint" : ""}`} onClick={() => tool("heat")} disabled={locked}>
+            <button className={`${state.vessels.find((v) => v.id === (sel || state.vessels[0]?.id))?.heating ? "lab-accent" : "lab-chip"} rounded-2xl px-4 py-2.5 text-base font-extrabold sm:text-lg ${hint?.tool === "heat" && !locked ? "lab-hint" : ""}`} onClick={() => tool("heat")} disabled={locked}>
               🔥 {state.vessels.find((v) => v.id === (sel || state.vessels[0]?.id))?.heating ? "Tắt lửa" : "Đun nóng"}
             </button>
           )}
           {tools.includes("splint") && (
-            <button className={`lab-chip rounded-2xl px-3 py-2 text-sm font-extrabold ${hint?.tool === "splint" && !locked ? "lab-hint" : ""}`} onClick={() => tool("splint")} disabled={locked}>
+            <button className={`lab-chip rounded-2xl px-4 py-2.5 text-base font-extrabold sm:text-lg ${hint?.tool === "splint" && !locked ? "lab-hint" : ""}`} onClick={() => tool("splint")} disabled={locked}>
               🪵 Que đóm
             </button>
           )}
           {tools.includes("ph") && (
-            <button className={`${phShow ? "lab-accent" : "lab-chip"} rounded-2xl px-3 py-2 text-sm font-extrabold`} onClick={() => tool("ph")}>
+            <button className={`${phShow ? "lab-accent" : "lab-chip"} rounded-2xl px-4 py-2.5 text-base font-extrabold sm:text-lg`} onClick={() => tool("ph")}>
               📟 Đo pH
             </button>
           )}
           {onReset && (
-            <button className="lab-chip rounded-2xl px-3 py-2 text-sm font-extrabold" onClick={onReset}>
+            <button className="lab-chip rounded-2xl px-4 py-2.5 text-base font-extrabold sm:text-lg" onClick={onReset}>
               ↺ Làm lại
             </button>
           )}
@@ -369,7 +369,7 @@ export function Bench({ state, setState, shelf, tools = [], theme, formulas, rig
         <div className="absolute left-0 top-[34%] z-20 flex flex-col items-center gap-2 px-4 text-center" style={{ right: rightPad }}>
           {!guide && <div className="font-display text-3xl font-extrabold text-[#ff4f6e] drop-shadow-[0_0_14px_#ff3b5c] sm:text-4xl">⚠ NÓNG LÊN QUÁ NHANH!</div>}
           <button className="lab-btn bg-[#ff3b5c] text-lg text-white shadow-[0_0_24px_#ff3b5c]" onClick={() => setState((s) => stopDanger(s))}>
-            ✋ Dừng lại! <span className="lab-mono text-sm">{left.toFixed(1)}s</span>
+            ✋ Dừng lại! <span className="lab-mono text-base">{left.toFixed(1)}s</span>
           </button>
         </div>
       )}

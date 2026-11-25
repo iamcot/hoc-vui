@@ -17,7 +17,7 @@ export const plain = (text: string) => text.replace(/\*\*/g, "").replace(/[\u{1F
 /** đoạn nhỏ trên đầu bong bóng: 🧪 BƯỚC 1/2 ▬▬ */
 export function Tag({ children, dots, color }: { children: React.ReactNode; dots?: ("ok" | "on" | "")[]; color?: string }) {
   return (
-    <div className="lab-soft mb-1 flex items-center gap-2 text-[0.5em] font-extrabold tracking-wider" style={color ? { color } : undefined}>
+    <div className="lab-soft mb-1 flex items-center gap-2 text-[0.55em] font-extrabold tracking-wider" style={color ? { color } : undefined}>
       {children}
       {dots && (
         <span className="flex gap-1">

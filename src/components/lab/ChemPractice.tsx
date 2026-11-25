@@ -55,6 +55,7 @@ function Run({ subjectId, lessonId, seed, again }: { subjectId: string; lessonId
   const [state, setState] = useState<LabState>(() => initLab(mission.vessels));
   const [phase, setPhase] = useState<"mission" | "checked" | "quiz" | "result">("mission");
   const [picks, setPicks] = useState<Record<string, string>>({});
+  const [openPick, setOpenPick] = useState<string | null>(null);
   const [score, setScore] = useState(0);
   const [slips, setSlips] = useState(0);
   const [fx, setFx] = useState<null | "boom" | "splat">(null);
@@ -151,7 +152,7 @@ function Run({ subjectId, lessonId, seed, again }: { subjectId: string; lessonId
         <div className={plain(say).length > 120 ? "text-[0.82em]" : ""}>
           <Say text={say} />
         </div>
-        {slips > 0 && phase === "mission" && <div className="mt-1 text-[0.55em] font-bold text-[#ff4f7b]">Sự cố: {slips} (mỗi lần trừ 1 điểm)</div>}
+        {slips > 0 && phase === "mission" && <div className="mt-1 text-[0.65em] font-bold text-[#ff4f7b]">Sự cố: {slips} (mỗi lần trừ 1 điểm)</div>}
         {phase === "mission" && idn && all && (
           <button className="lab-btn lab-btn-main mt-3 text-[0.75em]" onClick={submit}>
             Nộp kết quả ✓
@@ -183,28 +184,43 @@ function Run({ subjectId, lessonId, seed, again }: { subjectId: string; lessonId
           idn
             ? (v) => {
                 const right = phase === "checked" ? picks[v] === idn.answers[v] : null;
+                const open = openPick === v;
                 return (
-                  <div className="relative z-10 mt-1.5 flex flex-wrap justify-center gap-1 whitespace-nowrap">
-                    {idn.options.map((o) => {
-                      const on = picks[v] === o;
-                      const truth = phase === "checked" && idn.answers[v] === o;
-                      return (
-                        <button
-                          key={o}
-                          disabled={phase !== "mission"}
-                          onClick={() => setPicks((p) => ({ ...p, [v]: o }))}
-                          className={`rounded-xl px-2 py-1 text-xs font-extrabold ${on ? (right === false ? "bg-[#ff4f7b] text-white" : right ? "bg-[#22b98c] text-white" : "lab-accent") : truth ? "bg-[#22b98c33] ring-2 ring-[#22b98c]" : "lab-chip"}`}
-                        >
-                          {o}
-                        </button>
-                      );
-                    })}
+                  <div className="relative z-20 mt-2 flex flex-col items-center">
+                    <button
+                      disabled={phase !== "mission"}
+                      onClick={() => setOpenPick(open ? null : v)}
+                      className={`whitespace-nowrap rounded-2xl px-4 py-2 text-base font-extrabold sm:text-lg ${right === false ? "bg-[#ff4f7b] text-white" : right ? "bg-[#22b98c] text-white" : picks[v] ? "lab-accent" : state.log.some((k) => k.startsWith(`add:${v}:`)) ? "lab-chip lab-hint" : "lab-chip"}`}
+                    >
+                      {picks[v] ?? "Chọn tên ▾"}
+                    </button>
+                    {right === false && <span className="mt-1 whitespace-nowrap text-sm font-extrabold text-[#22b98c] sm:text-base">✓ {idn.answers[v]}</span>}
                   </div>
                 );
               }
             : undefined
         }
       />
+      {idn && openPick && phase === "mission" && (
+        <div className="absolute inset-0 z-40 flex items-center justify-center bg-black/35 p-3" onClick={() => setOpenPick(null)}>
+          <div className="lab-sheet lab-pop-in flex w-full max-w-sm flex-col gap-2 rounded-3xl p-5" onClick={(e) => e.stopPropagation()}>
+            <div className="font-display text-2xl font-extrabold">Cốc {openPick} là…</div>
+            {idn.options.map((o) => (
+              <button
+                key={o}
+                autoFocus={picks[openPick] === o}
+                onClick={() => {
+                  setPicks((p) => ({ ...p, [openPick]: o }));
+                  setOpenPick(null);
+                }}
+                className={`rounded-2xl px-4 py-3 text-left font-display text-xl font-extrabold ${picks[openPick] === o ? "lab-accent" : "lab-chip"}`}
+              >
+                {o}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
       <LabTopBar href={`/hoc/${subject.id}`} title={`🎯 Thực hành · ${lesson.title}`} progress={progress} onTheme={() => setPicker(true)} />
 
       {(phase === "quiz" || phase === "result") && (

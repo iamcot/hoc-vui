@@ -311,7 +311,7 @@ export function ChemLesson({ subjectId, lessonId }: { subjectId: string; lessonI
             {steps.map((x, i) => {
               const ok = i < si || si < 0;
               return (
-                <span key={x.text} className={`whitespace-nowrap rounded-full px-2 py-0.5 text-xs font-extrabold ${ok ? "bg-[#22b98c] text-white" : i === si ? "lab-accent" : "lab-soft"}`} style={ok || i === si ? undefined : { boxShadow: "0 0 0 1px var(--lab-line)" }}>
+                <span key={x.text} className={`whitespace-nowrap rounded-full px-2.5 py-0.5 text-sm font-extrabold ${ok ? "bg-[#22b98c] text-white" : i === si ? "lab-accent" : "lab-soft"}`} style={ok || i === si ? undefined : { boxShadow: "0 0 0 1px var(--lab-line)" }}>
                   {ok ? "✓ " : ""}
                   {x.text}
                 </span>
@@ -326,8 +326,8 @@ export function ChemLesson({ subjectId, lessonId }: { subjectId: string; lessonI
         <div className="lab-sheet lab-pop-in absolute inset-x-3 bottom-3 z-30 mx-auto flex max-w-3xl flex-wrap items-center gap-3 rounded-3xl p-4 sm:p-5">
           <div className="min-w-[15rem] flex-1">
             <div className="rounded-2xl bg-[#fff6d8] px-4 py-2.5 text-[#4a3500]">
-              <div className="text-xs font-extrabold">📓 GHI NHỚ · đã cất vào Sổ tay</div>
-              <p className="font-display text-base font-extrabold leading-snug sm:text-lg">{exp.remember}</p>
+              <div className="text-sm font-extrabold">📓 GHI NHỚ · đã cất vào Sổ tay</div>
+              <p className="font-display text-lg font-extrabold leading-snug sm:text-xl">{exp.remember}</p>
             </div>
             {exp.equation && formulas && (
               <div className="mt-2">
@@ -340,10 +340,10 @@ export function ChemLesson({ subjectId, lessonId }: { subjectId: string; lessonI
               {ei + 1 < exps.length ? "Thí nghiệm tiếp ▶" : "Xong bài ▶"}
             </button>
             <div className="flex gap-2">
-              <button className="lab-btn lab-btn-ghost flex-1 px-3 text-xs" onClick={() => setDeep(true)}>
+              <button className="lab-btn lab-btn-ghost flex-1 px-3 text-sm" onClick={() => setDeep(true)}>
                 🔬 Giải thích sâu
               </button>
-              <button className="lab-btn lab-btn-ghost px-3 text-xs" onClick={() => begin(ei)}>
+              <button className="lab-btn lab-btn-ghost px-3 text-sm" onClick={() => begin(ei)}>
                 ↺ Làm lại
               </button>
             </div>
