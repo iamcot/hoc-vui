@@ -13,6 +13,8 @@ export function Say({ text }: { text: string }) {
   );
 }
 export const plain = (text: string) => text.replace(/\*\*/g, "").replace(/[\u{1F300}-\u{1FAFF}☀-➿]/gu, "").trim();
+/** tốc độ đọc trong phòng lab: nhanh hơn mặc định (0.8) 1.2 lần */
+export const LAB_RATE = 0.96;
 
 /** đoạn nhỏ trên đầu bong bóng: 🧪 BƯỚC 1/2 ▬▬ */
 export function Tag({ children, dots, color }: { children: React.ReactNode; dots?: ("ok" | "on" | "")[]; color?: string }) {

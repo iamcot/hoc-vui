@@ -45,7 +45,7 @@ export function speak(text: string, opts: { rate?: number; id?: string } = {}): 
     return new Promise((res) => {
       const a = new Audio(src);
       current = a;
-      a.playbackRate = opts.rate && opts.rate < 1 ? 0.9 : 1;
+      a.playbackRate = opts.rate && opts.rate < 0.9 ? 0.9 : 1;
       a.onended = () => res();
       a.onerror = () => {
         missing.add(file);

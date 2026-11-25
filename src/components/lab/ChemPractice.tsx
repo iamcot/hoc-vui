@@ -19,7 +19,7 @@ import { Bench } from "./Bench";
 import { BoomFx, IncidentCard, SplatFx } from "./Fx";
 import { LabShell } from "./LabScene";
 import { LabThemePicker, LabTopBar, useLabPrefs } from "./LabChrome";
-import { Guide, Say, Tag, plain } from "./Guide";
+import { Guide, LAB_RATE, Say, Tag, plain } from "./Guide";
 import { speak, stopSpeak } from "@/lib/speech/tts";
 import { depthOf } from "./ChemLesson";
 
@@ -136,7 +136,7 @@ function Run({ subjectId, lessonId, seed, again }: { subjectId: string; lessonId
   const { data } = useProgress();
   useEffect(() => {
     if (!data.sound || phase === "quiz" || phase === "result") return;
-    const t = window.setTimeout(() => void speak(plain(say)), 250);
+    const t = window.setTimeout(() => void speak(plain(say), { rate: LAB_RATE }), 250);
     return () => {
       window.clearTimeout(t);
       stopSpeak();
