@@ -58,7 +58,7 @@ Dụng cụ, dung dịch, hiệu ứng vẽ bằng code. Ảnh chỉ cho:
 ## Tiến độ
 - [x] Bản thử: 1 cốc dung dịch + bọt khí + đổi màu + kết tủa (giấm + baking soda, bắp cải tím), chụp màn hình/quay video gửi duyệt
 - [x] Bảng phản ứng dạng dữ liệu + 4 lớp giải thích
-- [ ] Bàn thí nghiệm kéo thả (xong), bảng tuần hoàn (chưa)
+- [x] Bàn thí nghiệm kéo thả, bảng tuần hoàn (118 nguyên tố, nhóm có tính cách, đi săn)
 - [ ] Nhà khoa học nhí (xong 5 bài), Khoa học tự nhiên (chưa có bài)
 - [x] Sự cố khi làm sai (trào bọt, nổ natri) + thẻ Vì sao + Sổ sự cố
 - [x] Xếp lớp cho học sinh cấp 2 (bỏ qua bài dễ), Biết rồi? Thử 3 câu, Sổ tay ôn nhanh
