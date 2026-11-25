@@ -135,6 +135,7 @@ export function ChemLesson({ subjectId, lessonId }: { subjectId: string; lessonI
   };
 
   // ---------- Mochi nói gì, chỉ vào đâu ----------
+  const [picked, setPicked] = useState<string | null>(null);
   const steps = exp.goal.steps ?? [];
   const si = steps.findIndex((x) => !x.done(state.log, state));
   const cur = si >= 0 ? steps[si] : undefined;
@@ -174,8 +175,12 @@ export function ChemLesson({ subjectId, lessonId }: { subjectId: string; lessonI
       warn = true;
     } else if (cur) {
       const added = cur.chem ? state.log.some((k) => k === `add:${cur.vessel}:${cur.chem}` || (!cur.vessel && k === `add:${cur.chem}`)) : true;
+      const vName = (id?: string) => {
+        const v = state.vessels.find((x) => x.id === id);
+        return v?.label ? `cốc ${v.label}` : "cốc";
+      };
       if (!added) {
-        say = cur.say ?? cur.text;
+        say = picked && picked === cur.chem ? `Rồi! Giờ chạm vào **${vName(cur.vessel)}** để thả vào nhé.` : (cur.say ?? cur.text);
         hint = { chem: cur.chem, vessel: cur.vessel };
       } else {
         say = cur.chem ? (cur.then ?? cur.say ?? cur.text) : (cur.say ?? cur.text);
@@ -300,6 +305,7 @@ export function ChemLesson({ subjectId, lessonId }: { subjectId: string; lessonI
         locked={locked}
         onReset={phase === "do" ? () => reset(exp) : undefined}
         hint={hint}
+        onPick={setPicked}
         guide={guide}
         dim={phase === "intro" || phase === "predict" || phase === "done" || phase === "skip"}
       />

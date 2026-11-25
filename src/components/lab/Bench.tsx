@@ -98,9 +98,11 @@ export interface BenchProps {
   dim?: boolean;
   /** thêm nội dung dưới nhãn mỗi dụng cụ (chọn đáp án nhận biết) */
   under?: (vesselId: string) => React.ReactNode;
+  /** báo lọ đang cầm (để Mochi đổi lời: "giờ chạm vào cốc") */
+  onPick?: (chemId: string | null) => void;
 }
 
-export function Bench({ state, setState, shelf, tools = [], theme, formulas, rightPad = "0px", onEvent, locked, onReset, hint, guide, dim, under }: BenchProps) {
+export function Bench({ state, setState, shelf, tools = [], theme, formulas, rightPad = "0px", onEvent, locked, onReset, hint, guide, dim, under, onPick }: BenchProps) {
   const t = LAB_THEMES[theme];
   const [pick, setPick] = useState<string | null>(null);
   const [sel, setSel] = useState<string>(state.vessels[0]?.id ?? "");
@@ -109,6 +111,9 @@ export function Bench({ state, setState, shelf, tools = [], theme, formulas, rig
   const [phShow, setPhShow] = useState(false);
   const [drag, setDrag] = useState<{ id: string; x: number; y: number; moved: boolean } | null>(null);
   const kRef = useRef(0);
+  const onPickRef = useRef(onPick);
+  onPickRef.current = onPick;
+  useEffect(() => onPickRef.current?.(pick), [pick]);
   const onEventRef = useRef(onEvent);
   onEventRef.current = onEvent;
 
@@ -231,7 +236,7 @@ export function Bench({ state, setState, shelf, tools = [], theme, formulas, rig
                 e.preventDefault();
                 setDrag({ id, x: e.clientX, y: e.clientY, moved: false });
               }}
-              className={`lab-chip lab-pick flex touch-none items-center gap-2 rounded-2xl px-3 py-2 text-left text-base font-bold sm:text-lg ${pick === id ? "on" : ""} ${hint?.chem === id && pick !== id && !locked ? "lab-hint" : ""}`}
+              className={`lab-chip lab-pick relative flex touch-none items-center gap-2 rounded-2xl px-3 py-2 text-left text-base font-bold sm:text-lg ${pick === id ? "on" : ""} ${hint?.chem === id && pick !== id && !locked ? "lab-hint" : ""}`}
               aria-pressed={pick === id}
               disabled={locked}
             >
@@ -241,6 +246,7 @@ export function Bench({ state, setState, shelf, tools = [], theme, formulas, rig
                 {formulas && c.formula && <span className="lab-mono block text-[0.8rem] opacity-75 sm:text-sm">{c.formula}</span>}
               </span>
               <span className="hidden text-xs opacity-50 md:inline">{i + 1}</span>
+              {hint?.chem === id && pick !== id && !locked && <span className="lab-finger pointer-events-none absolute -bottom-11 left-1/2 z-30 text-4xl">👆</span>}
             </button>
           );
         })}
@@ -277,7 +283,7 @@ export function Bench({ state, setState, shelf, tools = [], theme, formulas, rig
                 )}
               </div>
               {sp && <Splint key={sp.k} result={sp.type} />}
-              {hint?.vessel === v.id && !locked && (
+              {hint?.vessel === v.id && !locked && (!hint.chem || pick === hint.chem) && (
                 <>
                   <div className="lab-hint pointer-events-none absolute -inset-2 bottom-6 z-[4] rounded-[1.8rem]" />
                   {!hint.tool && <span className="lab-finger pointer-events-none absolute -top-12 left-1/2 z-10 text-4xl">👇</span>}
