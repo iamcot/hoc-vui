@@ -14,11 +14,14 @@ const hand = Patrick_Hand({ subsets: ["latin", "vietnamese"], weight: "400", var
 export function LabScene({ theme }: { theme: LabThemeId }) {
   const asset = imageById(`bg-hh-${theme}`);
   const src = asset ? resolveFile(asset.file) : undefined;
+  const veil = LAB_THEMES[theme].dark ? "rgba(8,10,30,0.30)" : "rgba(255,250,240,0.32)";
   if (src)
     return (
       <div className="absolute inset-0 overflow-hidden" aria-hidden>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={src} alt="" className="h-full w-full object-cover" />
+        <img src={src} alt="" className="h-full w-full scale-[1.02] object-cover" style={{ filter: "blur(2.5px) saturate(0.85)" }} />
+        {/* lớp phủ nhẹ phía tường để cốc kính và chữ nổi lên trên nền nhiều chi tiết */}
+        <div className="absolute inset-0" style={{ background: `linear-gradient(to bottom, ${veil} 0%, ${veil} 66%, transparent 80%)` }} />
       </div>
     );
   return <div className="lab-scene absolute inset-0 overflow-hidden" aria-hidden dangerouslySetInnerHTML={{ __html: SCENE_HTML[theme] }} />;
