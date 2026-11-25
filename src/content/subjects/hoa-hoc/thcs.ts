@@ -29,8 +29,8 @@ const c01: Lesson = {
         goal: {
           text: "Rót giấm vào bình, rồi bấm Que đóm khi bình đang sủi bọt.",
           steps: [
-            { text: "Rót giấm, thấy sủi bọt", done: (l) => has(l, "fizz") },
-            { text: "Thử khí bằng que đóm", done: (l) => has(l, "splint-out") },
+            { text: "Sủi bọt", done: (l) => has(l, "fizz"), say: "Rót **giấm** vào bình có **NaHCO₃**. Quan sát hiện tượng.", chem: "giam", vessel: "A" },
+            { text: "Thử que đóm", done: (l) => has(l, "splint-out"), say: "Có **khí** thoát ra! Bấm **🪵 Que đóm** để thử xem là khí gì.", tool: "splint" },
           ],
           done: (l) => has(l, "splint-out"),
         },
@@ -66,6 +66,7 @@ const c01: Lesson = {
         goal: {
           text: "Thả natri vào cốc để dung dịch chuyển màu hồng.",
           hint: "Natri phản ứng rất mạnh, chỉ cần mẩu nhỏ.",
+          steps: [{ text: "Dung dịch hồng", done: (l, s) => has(l, "natri") && ph(s.vessels[0]) > 8.2, say: "Thả **natri** vào cốc nước. Chọn đúng **cỡ mẩu** nhé!", vessel: "A" }],
           done: (l, s) => has(l, "natri") && ph(s.vessels[0]) > 8.2,
         },
         observe: ["Mẩu natri chạy trên mặt nước, xèo xèo", "Có khí thoát ra, cốc nóng lên", "Dung dịch chuyển hồng: đã tạo ra bazơ NaOH"],

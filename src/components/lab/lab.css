@@ -107,3 +107,33 @@
 @media (min-width: 768px) {
   .lab-layout { --lab-pad: calc(min(25rem, 40vw) + 1.5rem); }
 }
+
+/* Mochi dẫn bài: lọ / cốc / nút cần bấm sáng viền vàng, ngón tay nhún */
+@keyframes lab-hint { 50% { box-shadow: 0 0 0 4px #ffb81f, 0 0 0 14px #ffb81f22; } }
+.lab-hint { box-shadow: 0 0 0 4px #ffb81f, 0 0 0 8px #ffb81f55; animation: lab-hint 1.2s ease-in-out infinite; }
+@keyframes lab-finger { 50% { transform: translate(-50%, 8px); } }
+.lab-finger { transform: translateX(-50%); animation: lab-finger 0.9s ease-in-out infinite; filter: drop-shadow(0 4px 6px #0005); }
+.lab-calm .lab-hint, .lab-calm .lab-finger { animation: none; }
+/* bong bóng lời Mochi */
+.lab-say { position: relative; background: #fff; color: #252845; border-radius: 1.6rem; box-shadow: 0 0 0 3px #ffffffaa, 0 12px 30px rgba(0, 0, 0, 0.22); }
+.lab-say::before { content: ""; position: absolute; left: -15px; top: 1.6rem; border: 11px solid transparent; border-right: 16px solid #fff; border-left: 0; }
+.lab-say b { color: #7b4dff; }
+.lab-say .lab-soft { color: #8a8fb0; }
+.lab-dark .lab-say { background: #0f1a3a; color: #e9f3ff; box-shadow: 0 0 0 2px #2fd3ff, 0 0 26px #2fd3ff55; }
+.lab-dark .lab-say::before { border-right-color: #2fd3ff; }
+.lab-dark .lab-say b { color: #7fe7ff; }
+[data-lab-theme="giakim"] .lab-say { background: #f6e7c4; color: #3d2512; box-shadow: 0 0 0 2px #c9a24a, 0 12px 30px rgba(0, 0, 0, 0.35); }
+[data-lab-theme="giakim"] .lab-say::before { border-right-color: #f6e7c4; }
+[data-lab-theme="giakim"] .lab-say b { color: #9a3d12; }
+[data-lab-theme="giakim"] .lab-say .lab-soft { color: #7a5a3a; }
+.lab-mascot { animation: lab-bob 2.4s ease-in-out infinite; filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.25)); }
+@keyframes lab-bob { 50% { transform: translateY(-6px); } }
+.lab-calm .lab-mascot { animation: none; }
+/* nút trong bong bóng */
+.lab-say .lab-opt { background: #f3efff; color: #252845; box-shadow: 0 3px 0 rgba(0, 0, 0, 0.12); }
+.lab-dark .lab-say .lab-opt { background: #1b2a55; color: #e9f3ff; }
+[data-lab-theme="giakim"] .lab-say .lab-opt { background: #fff8e6; color: #3d2512; }
+/* thẻ dưới đáy (ghi nhớ, kết quả) */
+.lab-sheet { background: #fff; color: #252845; box-shadow: 0 14px 40px rgba(0, 0, 0, 0.3); }
+.lab-dark .lab-sheet { background: #0f1a3a; color: #e9f3ff; box-shadow: 0 0 0 2px #2fd3ff88, 0 14px 40px #0008; }
+[data-lab-theme="giakim"] .lab-sheet { background: #f6e7c4; color: #3d2512; }

@@ -12,14 +12,30 @@ export const DEPTHS: { id: Depth; name: string; emoji: string }[] = [
 
 export type Tool = "stir" | "heat" | "splint" | "ph" | "thermo";
 
+export interface Step {
+  /** nhãn ngắn trên dải nhiệm vụ */
+  text: string;
+  done: (log: string[], s: LabState) => boolean;
+  /** câu Mochi nói, **chữ đậm** */
+  say?: string;
+  /** lọ cần dùng (sáng viền) và cốc cần thả vào (ngón tay chỉ) */
+  chem?: string;
+  vessel?: string;
+  /** sau khi đã thả `chem`: bấm nút này, Mochi nói `then` */
+  tool?: Tool;
+  then?: string;
+  /** sau khi đã thả `chem`: lọ tiếp theo cần dùng */
+  thenChem?: string;
+}
+
 export interface Goal {
   /** việc bé cần làm, hiện trong khung bên phải */
   text: string;
   done: (log: string[], s: LabState) => boolean;
   /** gợi ý khi bé loay hoay */
   hint?: string;
-  /** các bước nhỏ (đánh dấu ✓ dần) */
-  steps?: { text: string; done: (log: string[], s: LabState) => boolean }[];
+  /** các bước nhỏ (đánh dấu ✓ dần). Mochi đọc `say`, chỉ vào lọ `chem` và dụng cụ `vessel` */
+  steps?: Step[];
 }
 
 export interface Experiment {

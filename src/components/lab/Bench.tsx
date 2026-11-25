@@ -90,9 +90,17 @@ export interface BenchProps {
   /** khoá thao tác (đang xem kết quả) */
   locked?: boolean;
   onReset?: () => void;
+  /** Mochi chỉ: lọ sáng viền, ngón tay chỉ cốc, nút dụng cụ sáng */
+  hint?: { chem?: string; vessel?: string; tool?: Tool };
+  /** bong bóng Mochi, nằm ngay dưới kệ */
+  guide?: React.ReactNode;
+  /** làm mờ bàn (lúc đoán, lúc xem kết quả) */
+  dim?: boolean;
+  /** thêm nội dung dưới nhãn mỗi dụng cụ (chọn đáp án nhận biết) */
+  under?: (vesselId: string) => React.ReactNode;
 }
 
-export function Bench({ state, setState, shelf, tools = [], theme, formulas, rightPad = "0px", onEvent, locked, onReset }: BenchProps) {
+export function Bench({ state, setState, shelf, tools = [], theme, formulas, rightPad = "0px", onEvent, locked, onReset, hint, guide, dim, under }: BenchProps) {
   const t = LAB_THEMES[theme];
   const [pick, setPick] = useState<string | null>(null);
   const [sel, setSel] = useState<string>(state.vessels[0]?.id ?? "");
@@ -208,8 +216,10 @@ export function Bench({ state, setState, shelf, tools = [], theme, formulas, rig
     <div className="lab-bench absolute inset-0 overflow-hidden select-none">
       <LabScene theme={theme} />
       {danger && <div className="lab-pulse-red pointer-events-none absolute inset-0 z-30" />}
-      {/* kệ chất */}
-      <div className="absolute left-3 top-[4.6rem] z-10 flex flex-wrap gap-2 sm:left-5" style={{ right: `calc(${rightPad} + 1rem)` }}>
+      {dim && <div className="lab-pop-in pointer-events-none absolute inset-0 z-[9] bg-[#141028]/45 backdrop-blur-[2px]" />}
+      {/* kệ chất + bong bóng Mochi */}
+      <div className="pointer-events-none absolute left-3 top-[4.4rem] z-20 flex flex-col gap-2 sm:left-5" style={{ right: `calc(${rightPad} + 1rem)` }}>
+      <div className="pointer-events-auto flex flex-wrap gap-2">
         {shelf.map((id, i) => {
           const c = chem(id);
           if (!c) return null;
@@ -221,7 +231,7 @@ export function Bench({ state, setState, shelf, tools = [], theme, formulas, rig
                 e.preventDefault();
                 setDrag({ id, x: e.clientX, y: e.clientY, moved: false });
               }}
-              className={`lab-chip lab-pick flex touch-none items-center gap-1.5 rounded-2xl px-2.5 py-1.5 text-left text-sm font-bold ${pick === id ? "on" : ""}`}
+              className={`lab-chip lab-pick flex touch-none items-center gap-1.5 rounded-2xl px-2.5 py-1.5 text-left text-sm font-bold ${pick === id ? "on" : ""} ${hint?.chem === id && pick !== id && !locked ? "lab-hint" : ""}`}
               aria-pressed={pick === id}
               disabled={locked}
             >
@@ -234,14 +244,16 @@ export function Bench({ state, setState, shelf, tools = [], theme, formulas, rig
             </button>
           );
         })}
-        {pick && <span className="lab-accent self-center rounded-full px-3 py-1 text-xs font-extrabold">Chạm vào dụng cụ để thả {chem(pick)?.name.toLowerCase()}</span>}
+        {pick && !guide && <span className="lab-accent self-center rounded-full px-3 py-1 text-xs font-extrabold">Chạm vào dụng cụ để thả {chem(pick)?.name.toLowerCase()}</span>}
+      </div>
+      {guide}
       </div>
 
       {/* dụng cụ trên bàn */}
       <div className="absolute bottom-[21%] left-0 z-[5] flex items-end justify-center gap-[3cqw] px-4" style={{ right: rightPad }}>
         {state.vessels.map((v) => {
           const asp = shapeAspect(v.shape);
-          const w = `min(${SIZE[v.shape] / asp / (n > 3 ? 1.25 : 1)}cqh, calc((100cqw - ${rightPad}) * ${n > 2 ? 0.8 : 0.6} / ${n}))`;
+          const w = `min(${(SIZE[v.shape] * (under ? 0.82 : 1)) / asp / (n > 3 ? 1.25 : 1)}cqh, calc((100cqw - ${rightPad}) * ${n > 2 ? 0.8 : 0.6} / ${n}))`;
           const lq = liquidColor(v);
           const tags = vesselTags(v);
           const sp = splints[v.id];
@@ -265,6 +277,12 @@ export function Bench({ state, setState, shelf, tools = [], theme, formulas, rig
                 )}
               </div>
               {sp && <Splint key={sp.k} result={sp.type} />}
+              {hint?.vessel === v.id && !locked && (
+                <>
+                  <div className="lab-hint pointer-events-none absolute -inset-2 bottom-6 z-[4] rounded-[1.8rem]" />
+                  {!hint.tool && <span className="lab-finger pointer-events-none absolute -top-12 left-1/2 z-10 text-4xl">👇</span>}
+                </>
+              )}
               {drops
                 .filter((d) => d.vessel === v.id)
                 .map((d) => (
@@ -308,6 +326,7 @@ export function Bench({ state, setState, shelf, tools = [], theme, formulas, rig
                 {showTemp && <span className="lab-mono rounded-md bg-[#1d2a1d] px-1.5 py-0.5 text-xs font-bold text-[#9dff8a]">{Math.round(v.temp)}°C</span>}
                 {phShow && volume(v) > 0 && <span className="lab-mono rounded-md bg-[#1d2a1d] px-1.5 py-0.5 text-xs font-bold text-[#7fe7ff]">pH {ph(v).toFixed(1)}</span>}
               </div>
+              {under?.(v.id)}
               <span className="sr-only">{colorName(v)}</span>
             </div>
           );
@@ -318,17 +337,17 @@ export function Bench({ state, setState, shelf, tools = [], theme, formulas, rig
       {(tools.some((x) => x !== "thermo") || onReset) && (
         <div className="absolute bottom-3 left-0 z-10 flex flex-wrap justify-center gap-2 px-3" style={{ right: rightPad }}>
           {tools.includes("stir") && (
-            <button className="lab-chip rounded-2xl px-3 py-2 text-sm font-extrabold" onClick={() => tool("stir")} disabled={locked}>
+            <button className={`lab-chip rounded-2xl px-3 py-2 text-sm font-extrabold ${hint?.tool === "stir" && !locked ? "lab-hint" : ""}`} onClick={() => tool("stir")} disabled={locked}>
               🥄 Khuấy
             </button>
           )}
           {tools.includes("heat") && (
-            <button className={`${state.vessels.find((v) => v.id === (sel || state.vessels[0]?.id))?.heating ? "lab-accent" : "lab-chip"} rounded-2xl px-3 py-2 text-sm font-extrabold`} onClick={() => tool("heat")} disabled={locked}>
+            <button className={`${state.vessels.find((v) => v.id === (sel || state.vessels[0]?.id))?.heating ? "lab-accent" : "lab-chip"} rounded-2xl px-3 py-2 text-sm font-extrabold ${hint?.tool === "heat" && !locked ? "lab-hint" : ""}`} onClick={() => tool("heat")} disabled={locked}>
               🔥 {state.vessels.find((v) => v.id === (sel || state.vessels[0]?.id))?.heating ? "Tắt lửa" : "Đun nóng"}
             </button>
           )}
           {tools.includes("splint") && (
-            <button className="lab-chip rounded-2xl px-3 py-2 text-sm font-extrabold" onClick={() => tool("splint")} disabled={locked}>
+            <button className={`lab-chip rounded-2xl px-3 py-2 text-sm font-extrabold ${hint?.tool === "splint" && !locked ? "lab-hint" : ""}`} onClick={() => tool("splint")} disabled={locked}>
               🪵 Que đóm
             </button>
           )}
@@ -348,7 +367,7 @@ export function Bench({ state, setState, shelf, tools = [], theme, formulas, rig
       {/* natri mẩu to: còn chút thời gian để dừng */}
       {danger && (
         <div className="absolute left-0 top-[34%] z-20 flex flex-col items-center gap-2 px-4 text-center" style={{ right: rightPad }}>
-          <div className="font-display text-3xl font-extrabold text-[#ff4f6e] drop-shadow-[0_0_14px_#ff3b5c] sm:text-4xl">⚠ NÓNG LÊN QUÁ NHANH!</div>
+          {!guide && <div className="font-display text-3xl font-extrabold text-[#ff4f6e] drop-shadow-[0_0_14px_#ff3b5c] sm:text-4xl">⚠ NÓNG LÊN QUÁ NHANH!</div>}
           <button className="lab-btn bg-[#ff3b5c] text-lg text-white shadow-[0_0_24px_#ff3b5c]" onClick={() => setState((s) => stopDanger(s))}>
             ✋ Dừng lại! <span className="lab-mono text-sm">{left.toFixed(1)}s</span>
           </button>

@@ -46,10 +46,10 @@ const a01: Lesson = {
           text: "Kéo từng chất vào một cốc nước, rồi chọn cốc và bấm Khuấy.",
           hint: "Chạm vào cốc để chọn, rồi bấm nút 🥄 Khuấy ở dưới.",
           steps: [
-            { text: "Muối", done: (l) => has(l, "dissolve:muoi") },
-            { text: "Đường", done: (l) => has(l, "dissolve:duong") },
-            { text: "Cát", done: (l) => has(l, "nodissolve:cat") },
-            { text: "Dầu ăn", done: (l) => has(l, "nodissolve:dau-an") },
+            { text: "Muối", done: (l) => has(l, "dissolve:muoi"), say: "Thả **muối** vào **cốc 1**.", chem: "muoi", vessel: "A", tool: "stir", then: "Giờ bấm **🥄 Khuấy** xem muối thế nào nhé!" },
+            { text: "Đường", done: (l) => has(l, "dissolve:duong"), say: "Thả **đường** vào **cốc 2**.", chem: "duong", vessel: "B", tool: "stir", then: "Giờ bấm **🥄 Khuấy** xem đường thế nào nhé!" },
+            { text: "Cát", done: (l) => has(l, "nodissolve:cat"), say: "Thả **cát** vào **cốc 3**.", chem: "cat", vessel: "C", tool: "stir", then: "Giờ bấm **🥄 Khuấy** xem cát thế nào nhé!" },
+            { text: "Dầu ăn", done: (l) => has(l, "nodissolve:dau-an"), say: "Thả **dầu ăn** vào **cốc 4**.", chem: "dau-an", vessel: "D", tool: "stir", then: "Giờ bấm **🥄 Khuấy** xem dầu ăn thế nào nhé!" },
           ],
           done: (l) => ["dissolve:muoi", "dissolve:duong", "nodissolve:cat", "nodissolve:dau-an"].every((k) => has(l, k)),
         },
@@ -117,8 +117,8 @@ const a02: Lesson = {
           text: "Thả ít nhất 4 đồ vật vào cốc. Sau đó làm cho quả trứng nổi lên.",
           hint: "Trứng chìm trong nước lọc. Thử cho thật nhiều muối rồi khuấy xem!",
           steps: [
-            { text: "Thả 4 đồ vật", done: (_, s) => s.vessels[0].objects.length >= 4 },
-            { text: "Làm trứng nổi lên", done: (l) => has(l, "float:trung") },
+            { text: "Thả 4 đồ vật", done: (_, s) => s.vessels[0].objects.length >= 4, say: "Thả **4 đồ vật** vào cốc nước. Cái nào **nổi**, cái nào **chìm**?", vessel: "A" },
+            { text: "Làm trứng nổi lên", done: (l) => has(l, "float:trung"), say: "Thả **quả trứng** vào cốc xem nào!", chem: "trung", vessel: "A", tool: "stir", thenChem: "muoi", then: "Trứng chìm rồi! Thêm thật nhiều **muối**, rồi bấm **🥄 Khuấy** nhé." },
           ],
           done: (l, s) => s.vessels[0].objects.length >= 4 && has(l, "float:trung"),
         },
@@ -188,8 +188,8 @@ const a03: Lesson = {
           text: "Nhỏ mỗi chất vào một cốc. Làm một cốc thành màu hồng và một cốc thành màu xanh.",
           hint: "Chất chua (chanh, giấm) và chất nhờn (xà phòng, baking soda) cho màu khác nhau. Baking soda là bột, nhớ khuấy cho tan.",
           steps: [
-            { text: "Một cốc màu hồng", done: (_, s) => s.vessels.some((v) => v.liquid["bap-cai"] && ph(v) < 5) },
-            { text: "Một cốc màu xanh", done: (_, s) => s.vessels.some((v) => v.liquid["bap-cai"] && ph(v) > 8.4) },
+            { text: "Cốc hồng", done: (_, s) => s.vessels.some((v) => v.liquid["bap-cai"] && ph(v) < 5), say: "Nhỏ **nước chanh** vào **cốc 1** nhé!", chem: "chanh", vessel: "A" },
+            { text: "Cốc xanh", done: (_, s) => s.vessels.some((v) => v.liquid["bap-cai"] && ph(v) > 8.4), say: "Giờ thử **nước xà phòng** vào **cốc 2**.", chem: "xa-phong", vessel: "B" },
           ],
           done: (_, s) => s.vessels.some((v) => ph(v) < 5) && s.vessels.some((v) => ph(v) > 8.4),
         },
@@ -258,6 +258,7 @@ const a04: Lesson = {
         goal: {
           text: "Rót giấm từng chút để bọt dâng lên gần miệng cốc mà không tràn ra ngoài.",
           hint: "Rót một lần, đợi bọt xẹp bớt rồi mới rót tiếp.",
+          steps: [{ text: "Bọt dâng gần miệng, không tràn", done: foamOk, say: "Rót **giấm** vào cốc. Rót **từng chút** thôi nhé!", chem: "giam", vessel: "A", then: "Bọt đang lên! Rót **thêm một chút** nữa, nhìn kỹ bọt nha." , thenChem: "giam" }],
           done: foamOk,
         },
         observe: ["Sủi bọt rất mạnh, bọt dâng lên như núi lửa", "Bọt là do chất khí mới sinh ra", "Cốc hơi lạnh đi một chút"],
@@ -319,9 +320,9 @@ const a05: Lesson = {
         goal: {
           text: "Bấm Đun nóng. Theo dõi nhiệt kế cho tới khi nước sôi và thấy giọt nước đọng trên đĩa kính.",
           steps: [
-            { text: "Đá tan hết", done: (l) => has(l, "melt") },
-            { text: "Nước sôi (100°C)", done: (l) => has(l, "boil") },
-            { text: "Hơi nước đọng trên đĩa", done: (l) => has(l, "condense") },
+            { text: "Đá tan", done: (l) => has(l, "melt"), say: "Bấm **🔥 Đun nóng** để đun cốc đá. Nhìn **nhiệt kế** nhé!", tool: "heat" },
+            { text: "Sôi 100°C", done: (l) => has(l, "boil"), say: "Đá tan thành **nước** rồi! Đun tiếp tới **100°C** xem sao." },
+            { text: "Giọt đọng", done: (l) => has(l, "condense"), say: "Nước **sôi** rồi, hơi bay lên! Nhìn **đĩa kính** trên miệng cốc nhé." },
           ],
           done: (l) => has(l, "condense"),
         },

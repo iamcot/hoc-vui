@@ -2,15 +2,16 @@
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { getLesson } from "@/content/subjects";
-import type { Question } from "@/content/types";
+import type { Mood, Question } from "@/content/types";
 import { INCIDENTS } from "@/content/subjects/hoa-hoc/incidents";
 import { useProgress } from "@/lib/store";
 import { practiceSet } from "@/lib/quiz";
 import { randomSeed } from "@/lib/rng";
-import { initLab, type LabEvent, type LabState } from "@/lib/chem/lab";
+import { initLab, level, type LabEvent, type LabState } from "@/lib/chem/lab";
 import { loadNotes, noteExperiment, noteIncident, noteSkipped } from "@/lib/chem/notebook";
 import { sfx } from "@/lib/chem/sfx";
-import { DEPTHS, type Depth, type Experiment, type Incident } from "@/lib/chem/types";
+import { DEPTHS, type Depth, type Experiment, type Incident, type Tool } from "@/lib/chem/types";
+import { speak, stopSpeak } from "@/lib/speech/tts";
 import { Mascot } from "@/components/Mascot";
 import { Confetti } from "@/components/Confetti";
 import { QuestionCard } from "@/components/quiz/QuestionCard";
@@ -18,6 +19,7 @@ import { Bench } from "./Bench";
 import { BoomFx, Equation, IncidentCard, SplatFx } from "./Fx";
 import { LabShell } from "./LabScene";
 import { LabThemePicker, LabTopBar, useLabPrefs } from "./LabChrome";
+import { Guide, Say, Tag, plain } from "./Guide";
 
 type Phase = "intro" | "predict" | "do" | "explain" | "done" | "skip";
 
@@ -47,7 +49,7 @@ export function ChemLesson({ subjectId, lessonId }: { subjectId: string; lessonI
   const [fx, setFx] = useState<null | "boom" | "splat">(null);
   const [inc, setInc] = useState<{ inc: Incident; count: string } | null>(null);
   const [toast, setToast] = useState<string | null>(null);
-  const [hint, setHint] = useState(false);
+  const [hintOn, setHint] = useState(false);
   const [picker, setPicker] = useState(false);
   const failed = useRef(false);
 
@@ -132,155 +134,235 @@ export function ChemLesson({ subjectId, lessonId }: { subjectId: string; lessonI
     setPhase("skip");
   };
 
+  // ---------- Mochi nói gì, chỉ vào đâu ----------
+  const steps = exp.goal.steps ?? [];
+  const si = steps.findIndex((x) => !x.done(state.log, state));
+  const cur = si >= 0 ? steps[si] : undefined;
+  const [praise, setPraise] = useState(false);
+  const prevSi = useRef(0);
+  useEffect(() => {
+    if (phase !== "do") {
+      prevSi.current = 0;
+      return;
+    }
+    const at = si < 0 ? steps.length : si;
+    if (at > prevSi.current && si >= 0) {
+      setPraise(true);
+      const t = window.setTimeout(() => setPraise(false), 2600);
+      prevSi.current = at;
+      return () => window.clearTimeout(t);
+    }
+    prevSi.current = at;
+  }, [si, phase, steps.length]);
+
+  const foamy = state.vessels.some((v) => !v.spilled && v.foam > 0.05 && level(v) + v.foam / v.cap > 0.85);
+  let say = exp.goal.text;
+  let mood: Mood = "happy";
+  let hint: { chem?: string; vessel?: string; tool?: Tool } | undefined;
+  let warn = false;
+  if (phase === "do") {
+    if (state.danger) {
+      say = "Nóng lên quá nhanh! Bấm **✋ Dừng lại** ngay!";
+      mood = "oops";
+      warn = true;
+    } else if (won) {
+      say = "Thành công rồi! 🎉 Giỏi quá!";
+      mood = "cheer";
+    } else if (foamy) {
+      say = "Bọt lên cao rồi! **Dừng tay**, đợi bọt xẹp bớt nhé.";
+      mood = "oops";
+      warn = true;
+    } else if (cur) {
+      const added = cur.chem ? state.log.some((k) => k === `add:${cur.vessel}:${cur.chem}` || (!cur.vessel && k === `add:${cur.chem}`)) : true;
+      if (!added) {
+        say = cur.say ?? cur.text;
+        hint = { chem: cur.chem, vessel: cur.vessel };
+      } else {
+        say = cur.chem ? (cur.then ?? cur.say ?? cur.text) : (cur.say ?? cur.text);
+        hint = { chem: cur.thenChem, vessel: cur.vessel, tool: cur.tool };
+      }
+      if (praise) {
+        say = `Giỏi lắm! ${say}`;
+        mood = "wow";
+      }
+    }
+  }
+  const depthNow: Depth = exp.explain[depthOf(tier.id)] ? depthOf(tier.id) : (DEPTHS.find((d) => exp.explain[d.id])?.id ?? "nhi");
+  const guessLine = exp.predict && guess !== null ? (guess === exp.predict.answer ? "Con đoán **đúng** rồi! 🎯 " : `Kết quả là **${exp.predict.choices[exp.predict.answer].label.toLowerCase()}** nhé. `) : "";
+  const speech =
+    phase === "intro"
+      ? `Chào con! Hôm nay mình làm ${lesson.title}.`
+      : phase === "predict"
+        ? (exp.predict?.q ?? "")
+        : phase === "do"
+          ? say
+          : phase === "explain"
+            ? guessLine + (exp.explain[depthNow] ?? "")
+            : phase === "done"
+              ? `Xong bài ${lesson.title}!`
+              : "";
+  const { data } = useProgress();
+  useEffect(() => {
+    if (!data.sound || !speech) return;
+    const t = window.setTimeout(() => void speak(plain(speech)), 250);
+    return () => {
+      window.clearTimeout(t);
+      stopSpeak();
+    };
+  }, [speech, data.sound]);
+
+  const [deep, setDeep] = useState(false);
   const step = phase === "predict" ? 0 : phase === "do" ? 1 : phase === "explain" ? 2 : -1;
   const progress = phase === "intro" || phase === "skip" ? 0 : phase === "done" ? 1 : (ei + (step + 1) / 3) / exps.length;
   const locked = phase !== "do" || !!inc || !!fx;
   const depths = DEPTHS.filter((d) => exp.explain[d.id]);
   const shownDepth = exp.explain[depth] ? depth : (depths[depths.length - 1]?.id ?? "nhi");
+  const long = (t: string) => plain(t).length > 130;
+  const tagSteps = (k: number) => ["Đoán", "Làm", "Hiểu"].map((_, i) => (i < k ? "ok" : i === k ? "on" : "")) as ("ok" | "on" | "")[];
+
+  const guide =
+    phase === "intro" ? (
+      <Guide who={who} mood="happy" wide>
+        <Tag>{tier.name.toUpperCase()}</Tag>
+        Chào con! Hôm nay mình làm <b>{lesson.title}</b>.
+        <div className="mt-2 flex flex-col gap-1 text-[0.62em]">
+          {exps.map((x, i) => (
+            <span key={x.id}>
+              {x.emoji} Thí nghiệm {i + 1}: {x.title}
+              {x.safety && !x.safety.home && <span className="ml-1 text-[#ff4f7b]">· chỉ ở phòng lab</span>}
+            </span>
+          ))}
+        </div>
+        <div className="mt-3 flex flex-wrap gap-2 text-[0.75em]">
+          <button className="lab-btn lab-btn-main" onClick={() => begin(0)} autoFocus>
+            Bắt đầu ▶
+          </button>
+          {lesson.practice.length > 0 && (
+            <button className="lab-opt rounded-2xl px-4 py-2 text-[0.8em] font-extrabold" onClick={startSkip}>
+              Biết rồi? Thử 3 câu
+            </button>
+          )}
+        </div>
+      </Guide>
+    ) : phase === "predict" && exp.predict ? (
+      <Guide who={who} mood="think" wide>
+        <Tag dots={tagSteps(0)}>
+          🤔 ĐOÁN TRƯỚC · THÍ NGHIỆM {ei + 1}/{exps.length}
+        </Tag>
+        <p className="lab-soft mb-1 text-[0.6em] font-bold leading-snug">{exp.intro}</p>
+        {exp.predict.q}
+        <div className="mt-3 flex flex-wrap gap-2 text-[0.8em]">
+          {exp.predict.choices.map((c, i) => (
+            <button
+              key={c.label}
+              className="lab-opt flex items-center gap-2 rounded-2xl px-4 py-2 font-extrabold transition active:scale-95"
+              onClick={() => {
+                setGuess(i);
+                setPhase("do");
+              }}
+            >
+              {c.color && <span className="h-7 w-7 shrink-0 rounded-full" style={{ background: c.color, boxShadow: "inset 0 -3px 6px #0003, 0 0 0 2px #fff" }} />}
+              {c.emoji && <span>{c.emoji}</span>}
+              {c.label}
+            </button>
+          ))}
+        </div>
+      </Guide>
+    ) : phase === "do" ? (
+      <Guide key={`${ei}-${si}-${warn}`} who={who} mood={mood}>
+        <Tag dots={steps.length > 1 ? steps.map((x, i) => (i < si || si < 0 ? "ok" : i === si ? "on" : "")) : undefined} color={warn ? "#ff4f7b" : undefined}>
+          {warn ? "⚠ CẨN THẬN" : steps.length > 1 && si >= 0 ? `🧪 BƯỚC ${si + 1}/${steps.length}` : "🧪 LÀM THÍ NGHIỆM"}
+        </Tag>
+        <Say text={say} />
+        {hintOn && exp.goal.hint && !won && !warn && <div className="mt-2 rounded-xl bg-[#ffefc4] px-3 py-1.5 text-[0.6em] font-bold text-[#6b4a00]">💡 {exp.goal.hint}</div>}
+      </Guide>
+    ) : phase === "explain" ? (
+      <Guide who={who} mood="cheer" wide>
+        <Tag dots={tagSteps(2)}>💡 VÌ SAO?</Tag>
+        <div className={long(exp.explain[depthNow] ?? "") ? "text-[0.8em]" : ""}>
+          <Say text={guessLine} />
+          {exp.explain[depthNow]}
+        </div>
+      </Guide>
+    ) : null;
 
   return (
-    <LabShell theme={prefs.theme} calm={prefs.calm} className="lab-layout fixed inset-0 flex flex-col overflow-hidden md:block">
-      <div className="relative h-[56dvh] shrink-0 md:absolute md:inset-0 md:h-auto">
-        <Bench
-          key={`${ei}`}
-          state={state}
-          setState={setState}
-          shelf={exp.shelf}
-          tools={exp.tools}
-          theme={prefs.theme}
-          formulas={formulas}
-          rightPad="var(--lab-pad)"
-          onEvent={onEvent}
-          locked={locked}
-          onReset={phase === "do" ? () => reset(exp) : undefined}
-        />
-        {toast && <div className="lab-pop-in absolute left-1/2 top-[38%] z-40 -translate-x-1/2 rounded-full bg-[#22b98c] px-5 py-2 font-display text-lg font-extrabold text-white shadow-lg md:left-[calc((100%-var(--lab-pad))/2)]">{toast}</div>}
-      </div>
+    <LabShell theme={prefs.theme} calm={prefs.calm} className="fixed inset-0 overflow-hidden">
+      <Bench
+        key={`${ei}`}
+        state={state}
+        setState={setState}
+        shelf={exp.shelf}
+        tools={exp.tools}
+        theme={prefs.theme}
+        formulas={formulas}
+        onEvent={onEvent}
+        locked={locked}
+        onReset={phase === "do" ? () => reset(exp) : undefined}
+        hint={hint}
+        guide={guide}
+        dim={phase === "intro" || phase === "predict" || phase === "done" || phase === "skip"}
+      />
+      {toast && <div className="lab-pop-in absolute left-1/2 top-[45%] z-40 -translate-x-1/2 rounded-full bg-[#22b98c] px-5 py-2 font-display text-lg font-extrabold text-white shadow-lg">{toast}</div>}
 
-      <LabTopBar href={`/hoc/${subject.id}`} title={`${lesson.emoji} ${lesson.title}`} progress={progress} onTheme={() => setPicker(true)}>
-        {step >= 0 && (
-          <div className="hidden shrink-0 items-center gap-1 lg:flex">
-            {["Đoán", "Làm", "Hiểu"].map((x, i) => (
-              <span key={x} className={`rounded-full px-2 py-0.5 text-xs font-extrabold ${i === step ? "lab-accent" : i < step ? "lab-soft" : "lab-soft opacity-50"}`}>
-                {i < step ? "✓ " : ""}
-                {x}
-              </span>
-            ))}
+      <LabTopBar href={`/hoc/${subject.id}`} title={phase === "intro" || phase === "done" || phase === "skip" ? `${lesson.emoji} ${lesson.title}` : `${exp.emoji} ${exp.title}`} progress={progress} onTheme={() => setPicker(true)}>
+        {phase === "do" && steps.length > 0 && (
+          <div className="flex shrink-0 items-center gap-1">
+            {steps.map((x, i) => {
+              const ok = i < si || si < 0;
+              return (
+                <span key={x.text} className={`whitespace-nowrap rounded-full px-2 py-0.5 text-xs font-extrabold ${ok ? "bg-[#22b98c] text-white" : i === si ? "lab-accent" : "lab-soft"}`} style={ok || i === si ? undefined : { boxShadow: "0 0 0 1px var(--lab-line)" }}>
+                  {ok ? "✓ " : ""}
+                  {x.text}
+                </span>
+              );
+            })}
           </div>
         )}
       </LabTopBar>
 
-      {/* khung chữ: bên phải (iPad, laptop), bên dưới (điện thoại) */}
-      <aside className="lab-panel relative z-20 flex min-h-0 flex-1 flex-col gap-3 overflow-y-auto p-4 md:absolute md:bottom-3 md:right-3 md:top-[4.2rem] md:w-[min(25rem,40vw)] md:rounded-3xl md:p-5">
-        {phase === "intro" && (
-          <>
-            <div className="flex items-center gap-3">
-              <Mascot who={who} mood="happy" size={64} className="shrink-0" />
-              <div>
-                <div className="lab-soft text-xs font-extrabold tracking-wider">{tier.name.toUpperCase()}</div>
-                <h1 className="font-display text-2xl font-extrabold leading-tight">{lesson.title}</h1>
-              </div>
+      {/* xem kết quả: ghi nhớ + đi tiếp */}
+      {phase === "explain" && (
+        <div className="lab-sheet lab-pop-in absolute inset-x-3 bottom-3 z-30 mx-auto flex max-w-3xl flex-wrap items-center gap-3 rounded-3xl p-4 sm:p-5">
+          <div className="min-w-[15rem] flex-1">
+            <div className="rounded-2xl bg-[#fff6d8] px-4 py-2.5 text-[#4a3500]">
+              <div className="text-xs font-extrabold">📓 GHI NHỚ · đã cất vào Sổ tay</div>
+              <p className="font-display text-base font-extrabold leading-snug sm:text-lg">{exp.remember}</p>
             </div>
-            <p className="lab-soft text-sm">{lesson.short}</p>
-            <ol className="flex flex-col gap-2">
-              {exps.map((x, i) => (
-                <li key={x.id} className="lab-chip flex items-center gap-3 rounded-2xl px-3 py-2">
-                  <span className="text-2xl">{x.emoji}</span>
-                  <b className="flex-1 text-sm">
-                    Thí nghiệm {i + 1}: {x.title}
-                  </b>
-                  {x.safety && !x.safety.home && <span className="text-xs font-bold text-[#ff4f7b]">⚠ chỉ ở lab</span>}
-                </li>
-              ))}
-            </ol>
-            <div className="lab-soft text-xs">Mỗi thí nghiệm: 🤔 Đoán → 🧪 Làm → 💡 Hiểu → 📓 Ghi nhớ</div>
-            <span className="flex-1" />
-            <button className="lab-btn lab-btn-main text-lg" onClick={() => begin(0)} autoFocus>
-              Bắt đầu ▶
+            {exp.equation && formulas && (
+              <div className="mt-2">
+                <Equation parts={exp.equation} />
+              </div>
+            )}
+          </div>
+          <div className="flex flex-col gap-2">
+            <button className="lab-btn lab-btn-main text-lg" onClick={() => (ei + 1 < exps.length ? begin(ei + 1) : setPhase("done"))} autoFocus>
+              {ei + 1 < exps.length ? "Thí nghiệm tiếp ▶" : "Xong bài ▶"}
             </button>
-            {lesson.practice.length > 0 && (
-              <button className="lab-btn lab-btn-ghost text-sm" onClick={startSkip}>
-                Biết rồi? Thử 3 câu để qua bài
+            <div className="flex gap-2">
+              <button className="lab-btn lab-btn-ghost flex-1 px-3 text-xs" onClick={() => setDeep(true)}>
+                🔬 Giải thích sâu
               </button>
-            )}
-          </>
-        )}
-
-        {phase === "predict" && exp.predict && (
-          <>
-            <Head exp={exp} i={ei} n={exps.length} tag="🤔 ĐOÁN TRƯỚC" />
-            <p className="text-sm">{exp.intro}</p>
-            <p className="font-display text-lg font-extrabold leading-snug">{exp.predict.q}</p>
-            <div className="flex flex-col gap-2">
-              {exp.predict.choices.map((c, i) => (
-                <button
-                  key={c.label}
-                  className="lab-chip flex items-center gap-3 rounded-2xl px-3 py-2.5 text-left font-bold"
-                  onClick={() => {
-                    setGuess(i);
-                    setPhase("do");
-                  }}
-                >
-                  {c.color && <span className="h-7 w-7 shrink-0 rounded-full" style={{ background: c.color, boxShadow: "inset 0 -3px 6px #0003, 0 0 0 2px #fff8" }} />}
-                  {c.emoji && <span className="text-2xl">{c.emoji}</span>}
-                  {c.label}
-                </button>
-              ))}
+              <button className="lab-btn lab-btn-ghost px-3 text-xs" onClick={() => begin(ei)}>
+                ↺ Làm lại
+              </button>
             </div>
-            <div className="lab-soft text-xs">Đoán sai cũng không sao. Làm xong mình xem kết quả nhé!</div>
-          </>
-        )}
+          </div>
+        </div>
+      )}
 
-        {phase === "do" && (
-          <>
-            <Head exp={exp} i={ei} n={exps.length} tag="🧪 LÀM THÍ NGHIỆM" />
-            {!exp.predict && <p className="text-sm">{exp.intro}</p>}
-            <div className="rounded-2xl p-3" style={{ boxShadow: "0 0 0 2px var(--lab-accent)" }}>
-              <div className="lab-soft text-xs font-extrabold">NHIỆM VỤ</div>
-              <p className="font-display text-lg font-extrabold leading-snug">{exp.goal.text}</p>
-              {exp.goal.steps && (
-                <ul className="mt-2 flex flex-col gap-1">
-                  {exp.goal.steps.map((s) => {
-                    const ok = s.done(state.log, state);
-                    return (
-                      <li key={s.text} className={`flex items-center gap-2 text-sm font-bold ${ok ? "" : "lab-soft"}`}>
-                        <span className={`grid h-5 w-5 place-items-center rounded-full text-xs ${ok ? "bg-[#22b98c] text-white" : ""}`} style={ok ? undefined : { boxShadow: "0 0 0 1.5px var(--lab-line)" }}>
-                          {ok ? "✓" : ""}
-                        </span>
-                        {s.text}
-                      </li>
-                    );
-                  })}
-                </ul>
-              )}
-            </div>
-            <div className="lab-soft text-sm">
-              <b>Cách làm:</b> kéo lọ trên kệ thả vào dụng cụ, hoặc chạm lọ rồi chạm dụng cụ.
-            </div>
-            {hint && exp.goal.hint && <div className="lab-pop-in rounded-2xl bg-[#ffefc4] px-3 py-2 text-sm font-bold text-[#6b4a00]">💡 {exp.goal.hint}</div>}
-            {exp.safety && (
-              <div className={`rounded-2xl px-3 py-2 text-xs font-bold ${exp.safety.home ? "bg-[#22b98c22]" : "bg-[#ff4f7b22]"}`}>
-                🦺 {exp.safety.text}
-              </div>
-            )}
-            {won && <div className="lab-pop-in text-center font-display text-xl font-extrabold">✨ Thành công rồi!</div>}
-          </>
-        )}
-
-        {phase === "explain" && (
-          <>
-            <Head exp={exp} i={ei} n={exps.length} tag="💡 VÌ SAO?" />
-            {exp.predict && guess !== null && (
-              <div className={`rounded-2xl px-3 py-2 text-sm font-bold ${guess === exp.predict.answer ? "bg-[#22b98c22]" : "bg-[#ffb81f22]"}`}>
-                {guess === exp.predict.answer ? "🎯 Con đoán đúng: " : "🤔 Con đoán “" + exp.predict.choices[guess].label + "”, kết quả là: "}
-                {exp.predict.choices[exp.predict.answer].label}
-              </div>
-            )}
+      {/* giải thích sâu: những gì quan sát được + các cấp giải thích */}
+      {deep && phase === "explain" && (
+        <div className="fixed inset-0 z-[55] flex items-center justify-center bg-black/40 p-3" onClick={() => setDeep(false)}>
+          <div className="lab-sheet lab-pop-in flex max-h-[94dvh] w-full max-w-2xl flex-col gap-3 overflow-y-auto rounded-3xl p-5 sm:p-6" onClick={(e) => e.stopPropagation()}>
+            <h2 className="font-display text-2xl font-extrabold">
+              {exp.emoji} {exp.title}
+            </h2>
             <div>
-              <div className="lab-soft mb-1 text-xs font-extrabold">CON ĐÃ THẤY</div>
-              <ul className="flex flex-col gap-1">
+              <div className="text-xs font-extrabold opacity-60">CON ĐÃ THẤY</div>
+              <ul className="mt-1 flex flex-col gap-1">
                 {exp.observe.map((o) => (
-                  <li key={o} className="flex gap-2 text-sm">
+                  <li key={o} className="flex gap-2 text-base">
                     <span>👀</span>
                     {o}
                   </li>
@@ -290,90 +372,85 @@ export function ChemLesson({ subjectId, lessonId }: { subjectId: string; lessonI
             {depths.length > 1 && (
               <div className="flex flex-wrap gap-1">
                 {depths.map((d) => (
-                  <button key={d.id} onClick={() => setDepth(d.id)} className={`rounded-xl px-2.5 py-1 text-xs font-extrabold ${shownDepth === d.id ? "lab-accent" : "lab-chip"}`}>
+                  <button key={d.id} onClick={() => setDepth(d.id)} className={`rounded-xl px-3 py-1 text-sm font-extrabold ${shownDepth === d.id ? "lab-accent" : "lab-chip"}`}>
                     {d.emoji} {d.name}
                   </button>
                 ))}
               </div>
             )}
-            <p className="text-base leading-relaxed">{exp.explain[shownDepth]}</p>
+            <p className="text-lg leading-relaxed">{exp.explain[shownDepth]}</p>
             {exp.equation && (shownDepth === "thcs" || shownDepth === "thpt") && <Equation parts={exp.equation} />}
-            <div className="rounded-2xl bg-[#fff6d8] p-3 text-[#4a3500]">
-              <div className="text-xs font-extrabold">📓 GHI NHỚ · đã cất vào Sổ tay</div>
-              <p className="font-display text-base font-extrabold leading-snug">{exp.remember}</p>
-            </div>
-            <span className="flex-1" />
-            <div className="flex gap-2">
-              <button className="lab-btn lab-btn-ghost text-sm" onClick={() => begin(ei)}>
-                ↺ Làm lại
-              </button>
-              <button className="lab-btn lab-btn-main flex-1 text-lg" onClick={() => (ei + 1 < exps.length ? begin(ei + 1) : setPhase("done"))} autoFocus>
-                {ei + 1 < exps.length ? "Thí nghiệm tiếp ▶" : "Xong bài ▶"}
-              </button>
-            </div>
-          </>
-        )}
+            {exp.safety && <div className={`rounded-2xl px-3 py-2 text-sm font-bold ${exp.safety.home ? "bg-[#22b98c22]" : "bg-[#ff4f7b22]"}`}>🦺 {exp.safety.text}</div>}
+            <button className="lab-btn lab-btn-main self-end" onClick={() => setDeep(false)}>
+              Đã hiểu ✓
+            </button>
+          </div>
+        </div>
+      )}
 
-        {phase === "done" && (
-          <>
-            <Confetti />
-            <div className="flex flex-col items-center gap-2 text-center">
-              <Mascot who={who} mood="cheer" size={96} />
-              <h2 className="font-display text-2xl font-extrabold">Xong bài {lesson.title}!</h2>
-              <p className="lab-soft text-sm">Con đã làm {exps.length} thí nghiệm. Ghi nhớ đã cất vào Sổ tay.</p>
-            </div>
-            <ul className="flex flex-col gap-2">
-              {exps.map((x) => (
-                <li key={x.id} className="lab-chip rounded-2xl px-3 py-2 text-sm">
-                  {x.emoji} <b>{x.remember}</b>
-                </li>
-              ))}
-            </ul>
-            <span className="flex-1" />
-            <Link href={`/hoc/${subject.id}/${lesson.id}/luyen-tap`} className="lab-btn lab-btn-main text-lg">
-              🎯 Thực hành nhiệm vụ
-            </Link>
-            <div className="flex gap-2">
-              {next && (
-                <Link href={`/hoc/${subject.id}/${next.id}`} className="lab-btn lab-btn-ghost flex-1 text-sm">
-                  Bài tiếp ▶
-                </Link>
-              )}
-              <Link href={`/hoc/${subject.id}`} className="lab-btn lab-btn-ghost flex-1 text-sm">
-                Về bản đồ
-              </Link>
-            </div>
-          </>
-        )}
-
-        {phase === "skip" && quiz && (
-          <>
-            {quiz.i < quiz.qs.length ? (
+      {(phase === "done" || (phase === "skip" && quiz)) && (
+        <div className="absolute inset-0 z-30 flex items-center justify-center p-3 pt-16">
+          <div className="lab-sheet lab-pop-in flex max-h-full w-full max-w-xl flex-col gap-3 overflow-y-auto rounded-3xl p-5 sm:p-6">
+            {phase === "done" && (
               <>
-                <div className="lab-soft text-xs font-extrabold tracking-wider">
-                  THỬ NHANH · CÂU {quiz.i + 1}/{quiz.qs.length} · đúng 2 câu là qua bài
+                <Confetti />
+                <div className="flex flex-col items-center gap-2 text-center">
+                  <Mascot who={who} mood="cheer" size={110} />
+                  <h2 className="font-display text-3xl font-extrabold">Xong bài {lesson.title}!</h2>
+                  <p className="text-sm opacity-70">Con đã làm {exps.length} thí nghiệm. Ghi nhớ đã cất vào Sổ tay.</p>
                 </div>
-                <div className="rounded-2xl bg-white p-3 text-ink">
-                  <QuestionCard key={quiz.qs[quiz.i].id} q={quiz.qs[quiz.i]} onNext={(r) => setQuiz((z) => (z ? { ...z, i: z.i + 1, ok: z.ok + (r.correct ? 1 : 0) } : z))} />
+                <ul className="flex flex-col gap-2">
+                  {exps.map((x) => (
+                    <li key={x.id} className="rounded-2xl bg-[#fff6d8] px-3 py-2 text-sm text-[#4a3500]">
+                      {x.emoji} <b>{x.remember}</b>
+                    </li>
+                  ))}
+                </ul>
+                <Link href={`/hoc/${subject.id}/${lesson.id}/luyen-tap`} className="lab-btn lab-btn-main text-lg">
+                  🎯 Thực hành nhiệm vụ
+                </Link>
+                <div className="flex gap-2">
+                  {next && (
+                    <Link href={`/hoc/${subject.id}/${next.id}`} className="lab-btn lab-btn-ghost flex-1 text-sm">
+                      Bài tiếp ▶
+                    </Link>
+                  )}
+                  <Link href={`/hoc/${subject.id}`} className="lab-btn lab-btn-ghost flex-1 text-sm">
+                    Về bản đồ
+                  </Link>
                 </div>
               </>
-            ) : (
-              <SkipResult
-                ok={quiz.ok}
-                n={quiz.qs.length}
-                who={who}
-                onPass={() => {
-                  recordPractice(subject.id, lesson.id, 1, 2);
-                  markRead(subject.id, lesson.id);
-                  noteSkipped([lesson.id]);
-                }}
-                nextHref={next ? `/hoc/${subject.id}/${next.id}` : `/hoc/${subject.id}`}
-                onLearn={() => begin(0)}
-              />
             )}
-          </>
-        )}
-      </aside>
+            {phase === "skip" && quiz && (
+              <>
+                {quiz.i < quiz.qs.length ? (
+                  <>
+                    <div className="text-xs font-extrabold tracking-wider opacity-60">
+                      THỬ NHANH · CÂU {quiz.i + 1}/{quiz.qs.length} · đúng 2 câu là qua bài
+                    </div>
+                    <div className="rounded-2xl bg-white p-1 text-ink">
+                      <QuestionCard key={quiz.qs[quiz.i].id} q={quiz.qs[quiz.i]} onNext={(r) => setQuiz((z) => (z ? { ...z, i: z.i + 1, ok: z.ok + (r.correct ? 1 : 0) } : z))} />
+                    </div>
+                  </>
+                ) : (
+                  <SkipResult
+                    ok={quiz.ok}
+                    n={quiz.qs.length}
+                    who={who}
+                    onPass={() => {
+                      recordPractice(subject.id, lesson.id, 1, 2);
+                      markRead(subject.id, lesson.id);
+                      noteSkipped([lesson.id]);
+                    }}
+                    nextHref={next ? `/hoc/${subject.id}/${next.id}` : `/hoc/${subject.id}`}
+                    onLearn={() => begin(0)}
+                  />
+                )}
+              </>
+            )}
+          </div>
+        </div>
+      )}
 
       {fx === "boom" && <BoomFx onDone={fxDone} calm={prefs.calm} who={who} />}
       {fx === "splat" && <SplatFx onDone={fxDone} />}
@@ -391,19 +468,6 @@ export function ChemLesson({ subjectId, lessonId }: { subjectId: string; lessonI
       )}
       {picker && <LabThemePicker prefs={prefs} onClose={() => setPicker(false)} />}
     </LabShell>
-  );
-}
-
-function Head({ exp, i, n, tag }: { exp: Experiment; i: number; n: number; tag: string }) {
-  return (
-    <div>
-      <div className="lab-soft text-xs font-extrabold tracking-wider">
-        {tag} · THÍ NGHIỆM {i + 1}/{n}
-      </div>
-      <h2 className="font-display text-xl font-extrabold leading-tight">
-        {exp.emoji} {exp.title}
-      </h2>
-    </div>
   );
 }
 

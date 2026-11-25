@@ -19,6 +19,8 @@ import { Bench } from "./Bench";
 import { BoomFx, IncidentCard, SplatFx } from "./Fx";
 import { LabShell } from "./LabScene";
 import { LabThemePicker, LabTopBar, useLabPrefs } from "./LabChrome";
+import { Guide, Say, Tag, plain } from "./Guide";
+import { speak, stopSpeak } from "@/lib/speech/tts";
 import { depthOf } from "./ChemLesson";
 
 const QUIZ = 5;
@@ -118,138 +120,148 @@ function Run({ subjectId, lessonId, seed, again }: { subjectId: string; lessonId
   };
 
   const progress = phase === "mission" || phase === "checked" ? 0.15 : phase === "quiz" ? 0.3 + (0.7 * qi) / QUIZ : 1;
+  const ids = idn ? Object.keys(idn.answers) : [];
+  const all = ids.every((v) => picks[v]);
+  const say =
+    phase === "checked"
+      ? `Nhiệm vụ được **${score}/${MAX_MISSION} điểm**!${score === MAX_MISSION ? " Xuất sắc! 🎉" : ""}`
+      : won
+        ? "Đạt rồi! ✨"
+        : idn
+          ? all
+            ? "Chọn xong rồi! Bấm **Nộp kết quả** nhé."
+            : mission.brief + " Rồi **chọn tên** dưới mỗi cốc."
+          : `${mission.brief} ${mission.goal?.text ?? ""}`;
+  const { data } = useProgress();
+  useEffect(() => {
+    if (!data.sound || phase === "quiz" || phase === "result") return;
+    const t = window.setTimeout(() => void speak(plain(say)), 250);
+    return () => {
+      window.clearTimeout(t);
+      stopSpeak();
+    };
+  }, [say, data.sound, phase]);
+
+  const guide =
+    phase === "mission" || phase === "checked" ? (
+      <Guide who={who} mood={phase === "checked" ? (score >= 2 ? "cheer" : "think") : won ? "cheer" : "happy"} wide>
+        <Tag>
+          🎯 NHIỆM VỤ · {mission.title.toUpperCase()}
+        </Tag>
+        <div className={plain(say).length > 120 ? "text-[0.82em]" : ""}>
+          <Say text={say} />
+        </div>
+        {slips > 0 && phase === "mission" && <div className="mt-1 text-[0.55em] font-bold text-[#ff4f7b]">Sự cố: {slips} (mỗi lần trừ 1 điểm)</div>}
+        {phase === "mission" && idn && all && (
+          <button className="lab-btn lab-btn-main mt-3 text-[0.75em]" onClick={submit}>
+            Nộp kết quả ✓
+          </button>
+        )}
+        {phase === "checked" && (
+          <button className="lab-btn lab-btn-main mt-3 text-[0.75em]" onClick={() => setPhase("quiz")} autoFocus>
+            Sang {QUIZ} câu hỏi ▶
+          </button>
+        )}
+      </Guide>
+    ) : null;
 
   return (
-    <LabShell theme={prefs.theme} calm={prefs.calm} className="lab-layout fixed inset-0 flex flex-col overflow-hidden md:block">
-      <div className="relative h-[56dvh] shrink-0 md:absolute md:inset-0 md:h-auto">
-        <Bench
-          state={state}
-          setState={setState}
-          shelf={mission.shelf}
-          tools={mission.tools}
-          theme={prefs.theme}
-          formulas={formulas}
-          rightPad="var(--lab-pad)"
-          onEvent={onEvent}
-          locked={phase !== "mission" || !!fx || !!inc}
-          onReset={phase === "mission" ? reset : undefined}
-        />
-      </div>
+    <LabShell theme={prefs.theme} calm={prefs.calm} className="fixed inset-0 overflow-hidden">
+      <Bench
+        state={state}
+        setState={setState}
+        shelf={mission.shelf}
+        tools={mission.tools}
+        theme={prefs.theme}
+        formulas={formulas}
+        onEvent={onEvent}
+        locked={phase !== "mission" || !!fx || !!inc}
+        onReset={phase === "mission" ? reset : undefined}
+        guide={guide}
+        dim={phase === "quiz" || phase === "result"}
+        under={
+          idn
+            ? (v) => {
+                const right = phase === "checked" ? picks[v] === idn.answers[v] : null;
+                return (
+                  <div className="relative z-10 mt-1.5 flex flex-wrap justify-center gap-1 whitespace-nowrap">
+                    {idn.options.map((o) => {
+                      const on = picks[v] === o;
+                      const truth = phase === "checked" && idn.answers[v] === o;
+                      return (
+                        <button
+                          key={o}
+                          disabled={phase !== "mission"}
+                          onClick={() => setPicks((p) => ({ ...p, [v]: o }))}
+                          className={`rounded-xl px-2 py-1 text-xs font-extrabold ${on ? (right === false ? "bg-[#ff4f7b] text-white" : right ? "bg-[#22b98c] text-white" : "lab-accent") : truth ? "bg-[#22b98c33] ring-2 ring-[#22b98c]" : "lab-chip"}`}
+                        >
+                          {o}
+                        </button>
+                      );
+                    })}
+                  </div>
+                );
+              }
+            : undefined
+        }
+      />
       <LabTopBar href={`/hoc/${subject.id}`} title={`🎯 Thực hành · ${lesson.title}`} progress={progress} onTheme={() => setPicker(true)} />
 
-      <aside className="lab-panel relative z-20 flex min-h-0 flex-1 flex-col gap-3 overflow-y-auto p-4 md:absolute md:bottom-3 md:right-3 md:top-[4.2rem] md:w-[min(25rem,40vw)] md:rounded-3xl md:p-5">
-        {(phase === "mission" || phase === "checked") && (
-          <>
-            <div>
-              <div className="lab-soft text-xs font-extrabold tracking-wider">NHIỆM VỤ · {MAX_MISSION} ĐIỂM</div>
-              <h2 className="font-display text-xl font-extrabold leading-tight">{mission.title}</h2>
-            </div>
-            <p className="text-sm">{mission.brief}</p>
-            {mission.goal && (
-              <div className="rounded-2xl p-3" style={{ boxShadow: "0 0 0 2px var(--lab-accent)" }}>
-                <p className="font-display text-base font-extrabold leading-snug">{mission.goal.text}</p>
-                {won && <div className="lab-pop-in mt-1 font-display text-lg font-extrabold">✨ Đạt rồi!</div>}
-              </div>
-            )}
-            {idn && (
-              <div className="flex flex-col gap-2">
-                {Object.keys(idn.answers).map((v) => {
-                  const right = phase === "checked" ? picks[v] === idn.answers[v] : null;
-                  return (
-                    <div key={v} className="rounded-2xl p-2.5" style={{ boxShadow: `0 0 0 ${right === null ? 1 : 2}px ${right === null ? "var(--lab-line)" : right ? "#22b98c" : "#ff4f7b"}` }}>
-                      <div className="mb-1.5 text-sm font-extrabold">
-                        Cốc {v}: <span className="lab-soft">{idn.ask}</span>
-                        {right === false && <span className="ml-1 text-[#ff4f7b]">→ {idn.answers[v]}</span>}
-                        {right && <span className="ml-1 text-[#22b98c]">✓</span>}
-                      </div>
-                      <div className="flex flex-wrap gap-1.5">
-                        {idn.options.map((o) => (
-                          <button
-                            key={o}
-                            disabled={phase !== "mission"}
-                            onClick={() => setPicks((p) => ({ ...p, [v]: o }))}
-                            className={`rounded-xl px-2.5 py-1 text-xs font-extrabold ${picks[v] === o ? "lab-accent" : "lab-chip"}`}
-                          >
-                            {o}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            )}
-            {slips > 0 && phase === "mission" && <div className="text-xs font-bold text-[#ff4f7b]">Sự cố: {slips} (mỗi lần trừ 1 điểm)</div>}
-            <span className="flex-1" />
-            {phase === "mission" && idn && (
-              <button className="lab-btn lab-btn-main text-lg" disabled={Object.keys(idn.answers).some((v) => !picks[v])} onClick={submit}>
-                Nộp kết quả ✓
-              </button>
-            )}
-            {phase === "checked" && (
+      {(phase === "quiz" || phase === "result") && (
+        <div className="absolute inset-0 z-30 flex items-center justify-center p-3 pt-16">
+          <div className="lab-sheet lab-pop-in flex max-h-full w-full max-w-xl flex-col gap-3 overflow-y-auto rounded-3xl p-5 sm:p-6">
+            {phase === "quiz" && qs[qi] && (
               <>
-                <div className="text-center font-display text-2xl font-extrabold">
-                  Nhiệm vụ: {score}/{MAX_MISSION} điểm
+                <div className="text-xs font-extrabold tracking-wider opacity-60">
+                  CÂU {qi + 1}/{QUIZ} · nhiệm vụ đã được {score}/{MAX_MISSION} điểm
                 </div>
-                <button className="lab-btn lab-btn-main text-lg" onClick={() => setPhase("quiz")} autoFocus>
-                  Sang {QUIZ} câu hỏi ▶
-                </button>
+                <div className="rounded-2xl bg-white p-1 text-ink">
+                  <QuestionCard
+                    key={qs[qi].id}
+                    q={qs[qi]}
+                    onNext={(r) => {
+                      const c = ok + (r.correct ? 1 : 0);
+                      setOk(c);
+                      if (qi + 1 >= qs.length) finish(c);
+                      else setQi(qi + 1);
+                    }}
+                  />
+                </div>
               </>
             )}
-          </>
-        )}
-
-        {phase === "quiz" && qs[qi] && (
-          <>
-            <div className="lab-soft text-xs font-extrabold tracking-wider">
-              CÂU {qi + 1}/{QUIZ}
-            </div>
-            <div className="rounded-2xl bg-white p-3 text-ink">
-              <QuestionCard
-                key={qs[qi].id}
-                q={qs[qi]}
-                onNext={(r) => {
-                  const c = ok + (r.correct ? 1 : 0);
-                  setOk(c);
-                  if (qi + 1 >= qs.length) finish(c);
-                  else setQi(qi + 1);
-                }}
-              />
-            </div>
-          </>
-        )}
-
-        {phase === "result" && res && (
-          <div className="flex flex-col items-center gap-3 text-center">
-            {res.stars >= 2 && <Confetti />}
-            <Mascot who={who} mood={res.stars >= 2 ? "cheer" : "think"} size={96} />
-            <div className="flex gap-1">
-              {[1, 2, 3].map((i) => (
-                <IconStar key={i} className={`h-10 w-10 ${i <= res.stars ? "text-sun" : "opacity-25"}`} />
-              ))}
-            </div>
-            <h2 className="font-display text-2xl font-extrabold">
-              {score + ok}/{MAX_MISSION + QUIZ} điểm
-            </h2>
-            <p className="lab-soft text-sm">
-              Nhiệm vụ {score}/{MAX_MISSION} · Câu hỏi {ok}/{QUIZ} · +{res.xp} XP
-            </p>
-            <button className="lab-btn lab-btn-main w-full text-lg" onClick={again}>
-              ↺ Nhiệm vụ khác
-            </button>
-            <div className="flex w-full gap-2">
-              {next && (
-                <Link href={`/hoc/${subject.id}/${next.id}`} className="lab-btn lab-btn-ghost flex-1 text-sm">
-                  Bài tiếp ▶
-                </Link>
-              )}
-              <Link href={`/hoc/${subject.id}`} className="lab-btn lab-btn-ghost flex-1 text-sm">
-                Về bản đồ
-              </Link>
-            </div>
+            {phase === "result" && res && (
+              <div className="flex flex-col items-center gap-3 text-center">
+                {res.stars >= 2 && <Confetti />}
+                <Mascot who={who} mood={res.stars >= 2 ? "cheer" : "think"} size={110} />
+                <div className="flex gap-1">
+                  {[1, 2, 3].map((i) => (
+                    <IconStar key={i} className={`h-10 w-10 ${i <= res.stars ? "text-sun" : "opacity-25"}`} />
+                  ))}
+                </div>
+                <h2 className="font-display text-3xl font-extrabold">
+                  {score + ok}/{MAX_MISSION + QUIZ} điểm
+                </h2>
+                <p className="text-sm opacity-70">
+                  Nhiệm vụ {score}/{MAX_MISSION} · Câu hỏi {ok}/{QUIZ} · +{res.xp} XP
+                </p>
+                <button className="lab-btn lab-btn-main w-full text-lg" onClick={again}>
+                  ↺ Nhiệm vụ khác
+                </button>
+                <div className="flex w-full gap-2">
+                  {next && (
+                    <Link href={`/hoc/${subject.id}/${next.id}`} className="lab-btn lab-btn-ghost flex-1 text-sm">
+                      Bài tiếp ▶
+                    </Link>
+                  )}
+                  <Link href={`/hoc/${subject.id}`} className="lab-btn lab-btn-ghost flex-1 text-sm">
+                    Về bản đồ
+                  </Link>
+                </div>
+              </div>
+            )}
           </div>
-        )}
-      </aside>
+        </div>
+      )}
 
       {fx === "boom" && <BoomFx onDone={fxDone} calm={prefs.calm} who={who} />}
       {fx === "splat" && <SplatFx onDone={fxDone} />}
