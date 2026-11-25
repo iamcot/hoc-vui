@@ -133,6 +133,8 @@ export interface Lesson {
 
 /** Bài cân bằng phương trình: mỗi vòng một phương trình, bé chỉnh hệ số cho đến khi hai vế bằng nhau */
 export interface BalanceSpec {
+  /** chế độ thi đấu: mỗi vòng có đồng hồ đếm ngược, chấm điểm theo thời gian và combo */
+  race?: { seconds: number };
   intro: string;
   rounds: { eq: string; /** tên phản ứng, vd. "Sắt gỉ" */ name: string; hint?: string; why: string }[];
   remember: string;

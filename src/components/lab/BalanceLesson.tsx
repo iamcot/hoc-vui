@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { getLesson } from "@/content/subjects";
 import { useProgress } from "@/lib/store";
 import { firstWrong, isBalanced, parseEquation, solve, tally } from "@/lib/chem/balance";
@@ -37,6 +37,17 @@ export function BalanceLesson({ subjectId, lessonId }: { subjectId: string; less
   const [okCount, setOkCount] = useState(0);
   const [picker, setPicker] = useState(false);
 
+  // chế độ thi đấu
+  const race = spec.race;
+  const leftRef = useRef(0);
+  const [left, setLeft] = useState(0);
+  const [score, setScore] = useState(0);
+  const [combo, setCombo] = useState(0);
+  const [gain, setGain] = useState<number | null>(null);
+  const [timeUp, setTimeUp] = useState(false);
+  const [best, setBest] = useState<number | null>(null);
+  const comboRef = useRef(0);
+
   const n = spec.rounds.length;
   const round = ri >= 0 && ri < n ? spec.rounds[ri] : null;
   const eq = round ? eqs[ri] : null;
@@ -50,6 +61,12 @@ export function BalanceLesson({ subjectId, lessonId }: { subjectId: string; less
     setHinted(false);
     setHintText(null);
     setSolved(false);
+    setTimeUp(false);
+    setGain(null);
+    if (race) {
+      leftRef.current = race.seconds;
+      setLeft(race.seconds);
+    }
   };
 
   // đúng rồi: chờ chút cho bé ngắm rồi hiện lời giải thích
@@ -59,15 +76,52 @@ export function BalanceLesson({ subjectId, lessonId }: { subjectId: string; less
       sfx("chime");
       setSolved(true);
       if (!hinted) setOkCount((c) => c + 1);
+      if (race && !hinted) {
+        const g = Math.round((100 + leftRef.current * 8) * (1 + 0.5 * Math.min(comboRef.current, 4)));
+        comboRef.current += 1;
+        setCombo(comboRef.current);
+        setGain(g);
+        setScore((x) => x + g);
+      }
     }, 900);
     return () => window.clearTimeout(t);
-  }, [minimal, solved, hinted]);
+  }, [minimal, solved, hinted]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // đồng hồ đếm ngược: dừng khi đã cân bằng xong; hết giờ thì hiện đáp án
+  useEffect(() => {
+    if (!race || ri < 0 || ri >= n || solved || minimal) return;
+    const t = window.setInterval(() => {
+      leftRef.current = Math.max(0, leftRef.current - 0.1);
+      setLeft(leftRef.current);
+      if (leftRef.current <= 0) {
+        window.clearInterval(t);
+        const sol = solve(eqs[ri]);
+        if (sol) setCoefs(sol);
+        comboRef.current = 0;
+        setCombo(0);
+        setTimeUp(true);
+        setSolved(true);
+        sfx("warn");
+      }
+    }, 100);
+    return () => window.clearInterval(t);
+  }, [race, ri, n, solved, minimal, eqs]);
 
   const finished = ri === n;
   useEffect(() => {
     if (!finished) return;
     recordPractice(subject.id, lesson.id, okCount, n);
     markRead(subject.id, lesson.id);
+    if (race) {
+      const key = `hh-race-${lesson.id}`;
+      try {
+        const old = Number(localStorage.getItem(key) ?? 0);
+        setBest(Math.max(old, score));
+        if (score > old) localStorage.setItem(key, String(score));
+      } catch {
+        setBest(score);
+      }
+    }
   }, [finished]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const change = (i: number, d: number) => {
@@ -103,7 +157,7 @@ export function BalanceLesson({ subjectId, lessonId }: { subjectId: string; less
       : finished
         ? `Xong bài ${lesson.title}!`
         : solved
-          ? round!.why
+          ? `${timeUp ? "Hết giờ rồi! Đáp án nè. " : gain ? `+${gain} điểm${comboRef.current >= 3 ? ` · combo ×${comboRef.current}` : ""}! ` : ""}${round!.why}`
           : balanced && !minimal
             ? "Hai vế bằng nhau rồi, nhưng còn **rút gọn** được nữa. Chia đều các hệ số nhé!"
             : (hintText ?? `Chỉnh **hệ số** để số nguyên tử mỗi nguyên tố hai vế **bằng nhau**.`);
@@ -139,7 +193,7 @@ export function BalanceLesson({ subjectId, lessonId }: { subjectId: string; less
         ) : !finished ? (
           <Guide key={`${ri}-${solved}-${balanced}-${hintText}`} who={who} mood={mood} wide={solved}>
             <Tag dots={spec.rounds.map((_, i) => (i < ri || (i === ri && solved) ? "ok" : i === ri ? "on" : ""))} color={balanced && !minimal ? "#e08a00" : undefined}>
-              ⚖️ VÒNG {ri + 1}/{n}
+              {race ? "🏁 THI ĐẤU" : "⚖️ VÒNG"} {ri + 1}/{n}
             </Tag>
             <Say text={say} />
             {solved && (
@@ -152,6 +206,21 @@ export function BalanceLesson({ subjectId, lessonId }: { subjectId: string; less
           </Guide>
         ) : null}
       </div>
+
+      {race && round && !finished && (
+        <div className="pointer-events-none absolute right-3 top-[4.4rem] z-20 flex w-44 flex-col gap-1.5 sm:w-52">
+          <div className="lab-panel rounded-2xl px-3 py-2">
+            <div className="flex items-baseline justify-between font-display font-extrabold">
+              <span className={`text-2xl ${left <= 8 && !solved ? "text-[#ff4f7b]" : ""}`}>⏱ {Math.ceil(left)}s</span>
+              <span className="text-2xl">⭐ {score}</span>
+            </div>
+            <div className="mt-1 h-2.5 overflow-hidden rounded-full bg-black/30">
+              <div className="h-full rounded-full transition-[width] duration-100" style={{ width: `${(left / race.seconds) * 100}%`, background: left <= 8 ? "#ff4f7b" : "var(--lab-accent)" }} />
+            </div>
+            {combo >= 2 && <div className="mt-1 text-center text-lg font-extrabold text-[#ffb020]">🔥 Combo ×{combo}</div>}
+          </div>
+        </div>
+      )}
 
       {round && eq && (
         <div className="absolute inset-x-0 bottom-0 top-[40%] z-10 flex flex-col items-center justify-center gap-3 px-3 pb-3">
@@ -183,7 +252,7 @@ export function BalanceLesson({ subjectId, lessonId }: { subjectId: string; less
             ))}
           </div>
 
-          {!solved && (
+          {!solved && !race && (
             <div className="flex gap-2">
               <button className="lab-btn lab-btn-ghost text-base sm:text-lg" onClick={hint}>
                 💡 Gợi ý
@@ -208,6 +277,11 @@ export function BalanceLesson({ subjectId, lessonId }: { subjectId: string; less
               <p className="text-base opacity-80">
                 Tự cân bằng đúng <b>{okCount}/{n}</b> phương trình.
               </p>
+              {race && (
+                <p className="font-display text-2xl font-extrabold">
+                  ⭐ {score} điểm{best !== null && (score >= best ? " · 🏆 Kỷ lục mới!" : ` · Kỷ lục ${best}`)}
+                </p>
+              )}
             </div>
             <div className="rounded-2xl bg-[#fff6d8] px-3 py-2 text-base text-[#4a3500]">
               ⚖️ <b>{spec.remember}</b>

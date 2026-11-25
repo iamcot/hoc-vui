@@ -138,8 +138,35 @@ const c02: Lesson = {
   practice: [balanceBank("can-bang", ["Na + H₂O → NaOH + H₂", "Fe + O₂ → Fe₂O₃", "H₂ + O₂ → H₂O", "CH₄ + O₂ → CO₂ + H₂O", "Al + HCl → AlCl₃ + H₂", "Mg + O₂ → MgO", "P + O₂ → P₂O₅", "Zn + HCl → ZnCl₂ + H₂"])],
 };
 
+/** Thi cân bằng phương trình: đua với đồng hồ, đúng liên tiếp được combo */
+const c03: Lesson = {
+  id: "hh-c03",
+  title: "Thi cân bằng phương trình",
+  short: "Đua với đồng hồ, đúng liên tiếp được combo",
+  emoji: "🏁",
+  cover: "hh-cover-c03",
+  minutes: 6,
+  slides: [],
+  balance: {
+    race: { seconds: 30 },
+    intro: "**Thi đấu!** Mỗi phương trình con có **30 giây**. Cân bằng càng nhanh càng nhiều điểm, đúng liên tiếp được **combo** nhân điểm. Không có gợi ý, hết giờ là mất vòng. Sẵn sàng chưa?",
+    rounds: [
+      { eq: "Mg + O₂ → MgO", name: "Magie cháy", why: "2Mg + O₂ → 2MgO." },
+      { eq: "P + O₂ → P₂O₅", name: "Photpho cháy", why: "4P + 5O₂ → 2P₂O₅." },
+      { eq: "Zn + HCl → ZnCl₂ + H₂", name: "Kẽm tan trong axit", why: "Zn + 2HCl → ZnCl₂ + H₂." },
+      { eq: "C₂H₄ + O₂ → CO₂ + H₂O", name: "Etilen cháy", why: "C₂H₄ + 3O₂ → 2CO₂ + 2H₂O." },
+      { eq: "Al + O₂ → Al₂O₃", name: "Nhôm cháy", why: "4Al + 3O₂ → 2Al₂O₃." },
+      { eq: "NaOH + H₂SO₄ → Na₂SO₄ + H₂O", name: "Trung hoà bằng axit sunfuric", why: "2NaOH + H₂SO₄ → Na₂SO₄ + 2H₂O." },
+      { eq: "Fe + Cl₂ → FeCl₃", name: "Sắt cháy trong clo", why: "2Fe + 3Cl₂ → 2FeCl₃." },
+      { eq: "C₂H₆ + O₂ → CO₂ + H₂O", name: "Etan cháy", why: "2C₂H₆ + 7O₂ → 4CO₂ + 6H₂O." },
+    ],
+    remember: "Cân bằng nhanh: bắt đầu từ nguyên tố xuất hiện ít nhất, để O (và H) làm sau cùng.",
+  },
+  practice: [balanceBank("can-bang-thi", ["Mg + O₂ → MgO", "Al + O₂ → Al₂O₃", "C₂H₆ + O₂ → CO₂ + H₂O", "Fe + Cl₂ → FeCl₃", "NaOH + H₂SO₄ → Na₂SO₄ + H₂O"])],
+};
+
 export const unitsThcs: Unit[] = [
-  { id: "hh-thcs-l8a", title: "Lớp 8 · Phản ứng hoá học", lessons: [c01, c02, l8Conserve, l8Mol, l8Conc] },
+  { id: "hh-thcs-l8a", title: "Lớp 8 · Phản ứng hoá học", lessons: [c01, c02, c03, l8Conserve, l8Mol, l8Conc] },
   { id: "hh-thcs-l8b", title: "Lớp 8 · Axit, bazơ, muối", lessons: [l8Neutral, l8Class] },
   { id: "hh-thcs-l9a", title: "Lớp 9 · Kim loại", lessons: [l9Acid, l9Displace, l9Series, l9Stoich] },
   { id: "hh-thcs-l9b", title: "Lớp 9 · Hợp chất hữu cơ", lessons: [l9Organic] },
