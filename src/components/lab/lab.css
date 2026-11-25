@@ -137,3 +137,10 @@
 .lab-sheet { background: #fff; color: #252845; box-shadow: 0 14px 40px rgba(0, 0, 0, 0.3); }
 .lab-dark .lab-sheet { background: #0f1a3a; color: #e9f3ff; box-shadow: 0 0 0 2px #2fd3ff88, 0 14px 40px #0008; }
 [data-lab-theme="giakim"] .lab-sheet { background: #f6e7c4; color: #3d2512; }
+
+/* Anh em cùng cột */
+.sib-ball { animation: sib-skate var(--sp, 3s) ease-in-out infinite alternate; }
+@keyframes sib-skate { 0% { left: 12%; } 100% { left: 68%; } }
+.sib-flame { animation: sib-flame 0.25s ease-in-out infinite alternate; transform-origin: 50% 100%; }
+@keyframes sib-flame { 0% { transform: scale(0.9) rotate(-4deg); } 100% { transform: scale(1.15) rotate(4deg); } }
+.lab-calm .sib-ball, .lab-calm .sib-flame { animation: none; }
