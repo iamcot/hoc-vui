@@ -28,10 +28,10 @@ File này sinh tự động từ `src/content/assets.ts` bằng `npm run prompts
 
 | Tạo bằng | Lệnh | Tổng | Còn thiếu |
 |---|---|---|---|
-| local (icon vuông nền trong suốt) | `npm run gen-local` | 84 | 25 |
+| local (icon vuông nền trong suốt) | `npm run gen-local` | 84 | 23 |
 | gpt (nền, bìa, nhân vật) | `npm run asset-helper -- --gen gpt` | 139 | 0 |
 
-**Còn thiếu, tạo bằng local (25):** `hh-chem-nuoc`, `hh-chem-bap-cai`, `hh-chem-chanh`, `hh-chem-giam`, `hh-chem-xa-phong`, `hh-chem-baking-soda`, `hh-chem-muoi`, `hh-chem-duong`, `hh-chem-cat`, `hh-chem-dau-an`, `hh-chem-da`, `hh-chem-go`, `hh-chem-dong-xu`, `hh-chem-qua-chanh`, `hh-chem-trung`, `hh-chem-vit`, `hh-chem-phenol`, `hh-chem-naoh`, `hh-chem-natri`, `hh-chem-natri-to`, `hh-chem-hcl`, `hh-chem-cuso4`, `hh-chem-zn`, `hh-chem-fe`, `hh-chem-cu`
+**Còn thiếu, tạo bằng local (23):** `hh-chem-bap-cai`, `hh-chem-chanh`, `hh-chem-giam`, `hh-chem-xa-phong`, `hh-chem-baking-soda`, `hh-chem-muoi`, `hh-chem-duong`, `hh-chem-cat`, `hh-chem-dau-an`, `hh-chem-da`, `hh-chem-go`, `hh-chem-qua-chanh`, `hh-chem-trung`, `hh-chem-vit`, `hh-chem-phenol`, `hh-chem-naoh`, `hh-chem-natri`, `hh-chem-natri-to`, `hh-chem-hcl`, `hh-chem-cuso4`, `hh-chem-zn`, `hh-chem-fe`, `hh-chem-cu`
 
 ### ✅ `mochi-happy.webp`
 - Dùng ở: Mochi vui vẻ: lời chào, slide mở đầu
@@ -1734,10 +1734,10 @@ Round app-icon style badge: an open notebook with a flask sticker and a small pe
 Round app-icon style badge: a small colorful periodic-table grid of rounded squares in rainbow colors with a sparkle, no letters. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `hh-chem-nuoc.webp`
+### ✅ `hh-chem-nuoc.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Nước (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
-- Tạo bằng: local ⬜ · gpt ⬜. Nên dùng **local**: `npm run gen-local -- --only hh-chem-nuoc`
+- Tạo bằng: local ✅ · gpt ✅ (đã có file)
 
 ```text
 Game item icon, a single round glass bottle with a cork stopper filled with clear light-blue water, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, only this one object floating alone in the middle of an empty frame, no hands, no table, no ground shadow, no sparkles, no stars, no particles, no extra items. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -1842,10 +1842,10 @@ Game item icon, a single smooth grey stone with a lighter top, centered, slightl
 Game item icon, a single small block of light wood with visible grain and a round cut end, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, only this one object floating alone in the middle of an empty frame, no hands, no table, no ground shadow, no sparkles, no stars, no particles, no extra items. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `hh-chem-dong-xu.webp`
+### ✅ `hh-chem-dong-xu.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Đồng xu (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
-- Tạo bằng: local ⬜ · gpt ⬜. Nên dùng **local**: `npm run gen-local -- --only hh-chem-dong-xu`
+- Tạo bằng: local ✅ · gpt ✅ (đã có file)
 
 ```text
 Game item icon, a single shiny golden coin with a simple star in the middle, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, only this one object floating alone in the middle of an empty frame, no hands, no table, no ground shadow, no sparkles, no stars, no particles, no extra items. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
