@@ -71,7 +71,14 @@ export interface ImageAsset {
   prompt: string;
   /** nền trong suốt */
   transparent?: boolean;
+  /** tạo bằng đâu: "local" (npm run gen-local, hợp với icon) hay "gpt" (npm run asset-helper, hợp với nền, bìa, nhân vật). Không ghi thì tự suy ra, xem genOf */
+  gen?: "local" | "gpt";
 }
+
+/** icon vuông nền trong suốt, không có nhân vật: model chạy trên máy vẽ tốt; còn lại nên dùng ChatGPT */
+export const genOf = (a: ImageAsset): "local" | "gpt" =>
+  a.gen ??
+  (a.transparent && a.size === "1024x1024" && !/Mochi:|Bit:|Xi Xi:/.test(a.prompt) && !/^(mochi|bit|xixi|avatar|gp-bit)-/.test(a.id) ? "local" : "gpt");
 
 export interface AudioAsset {
   id: string;

@@ -26,9 +26,15 @@ File này sinh tự động từ `src/content/assets.ts` bằng `npm run prompts
 
 ## Ảnh (223)
 
+| Tạo bằng | Lệnh | Tổng | Còn thiếu |
+|---|---|---|---|
+| local (icon vuông nền trong suốt) | `npm run gen-local` | 84 | 25 |
+| gpt (nền, bìa, nhân vật) | `npm run asset-helper -- --gen gpt` | 139 | 0 |
+
 ### ✅ `mochi-happy.webp`
 - Dùng ở: Mochi vui vẻ: lời chào, slide mở đầu
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only mochi-happy`)
 
 ```text
 Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator, waving one paw and smiling, full body. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -37,6 +43,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 ### ✅ `mochi-think.webp`
 - Dùng ở: Mochi suy nghĩ: slide giải thích
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only mochi-think`)
 
 ```text
 Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator, paw on chin, thinking, small question mark sparkle above head, full body. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -45,6 +52,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 ### ✅ `mochi-wow.webp`
 - Dùng ở: Mochi ngạc nhiên: mẹo hay, phím mới
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only mochi-wow`)
 
 ```text
 Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator, eyes wide with stars, both paws up in surprise, full body. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -53,6 +61,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 ### ✅ `mochi-cheer.webp`
 - Dùng ở: Mochi cổ vũ: trả lời đúng, hoàn thành bài
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only mochi-cheer`)
 
 ```text
 Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator, jumping with joy, confetti around, full body. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -61,6 +70,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 ### ✅ `mochi-oops.webp`
 - Dùng ở: Mochi an ủi: trả lời sai
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only mochi-oops`)
 
 ```text
 Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator, sweat drop, sheepish encouraging smile, holding a tiny eraser, full body. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -69,6 +79,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 ### ✅ `xixi.webp`
 - Dùng ở: Xi Xi: thẻ môn FX580, trang giới thiệu
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only xixi`)
 
 ```text
 Xi Xi: a friendly anthropomorphic scientific calculator (dark navy body, light gray keys, small LCD screen showing a smile), tiny arms and legs, standing and giving a thumbs up, full body. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -77,6 +88,7 @@ Xi Xi: a friendly anthropomorphic scientific calculator (dark navy body, light g
 ### ✅ `bg-home.webp`
 - Dùng ở: Cảnh nền màn hình Học (trang chủ), tràn toàn màn hình phía sau nội dung
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only bg-home`)
 
 ```text
 Wide landscape of a dreamy morning sky over gentle green hills and a cute small school building far away, soft clouds, floating paper planes, large calm empty sky area in the upper middle for text, low detail at the edges. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
@@ -85,6 +97,7 @@ Wide landscape of a dreamy morning sky over gentle green hills and a cute small 
 ### ✅ `bg-map.webp`
 - Dùng ở: Cảnh nền bản đồ bài học FX580, phía sau con đường bài học
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only bg-map`)
 
 ```text
 Wide storybook landscape seen slightly from above: meadows, a small river with a wooden bridge, scattered trees, a hill with a flag far away, very soft and low contrast so icons on top stay readable, no path drawn. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
@@ -93,6 +106,7 @@ Wide storybook landscape seen slightly from above: meadows, a small river with a
 ### ✅ `bg-lesson.webp`
 - Dùng ở: Cảnh nền khi học bài, luyện tập, kiểm tra (rất nhạt để đọc chữ)
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only bg-lesson`)
 
 ```text
 Cozy study corner by a big window: wooden desk, a few books, a plant, warm afternoon light, background heavily blurred and very light, mostly empty bright space. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
@@ -101,6 +115,7 @@ Cozy study corner by a big window: wooden desk, a few books, a plant, warm after
 ### ✅ `bg-arena.webp`
 - Dùng ở: Cảnh nền trang Thi đấu và phòng thi
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only bg-arena`)
 
 ```text
 Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator and two friend animals (a fox and a bunny) racing with calculators on a sunny sports field with colorful flags, characters on the left third, open bright sky on the right for text, dynamic but gentle. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
@@ -109,6 +124,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 ### ✅ `bg-leaderboard.webp`
 - Dùng ở: Cảnh nền trang Xếp hạng
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only bg-leaderboard`)
 
 ```text
 Festive outdoor stage at dusk with a podium of three steps, small trophies, bunting flags and twinkling stars, podium on the lower left, open sky for text. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
@@ -117,6 +133,7 @@ Festive outdoor stage at dusk with a podium of three steps, small trophies, bunt
 ### ✅ `bg-home-neon.webp`
 - Dùng ở: Nền trang chủ theme Neon
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only bg-home-neon`)
 
 ```text
 Wide background of a futuristic rooftop study garden at dusk above a glowing city, a calm teenage student sitting on a bench with a tablet, a sleek white cat with glowing teal eyes and a light-blue scarf beside them, holographic panels floating in the air, leave the left third and the bottom half calm and dark so text and cards can sit on top. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
@@ -125,6 +142,7 @@ Wide background of a futuristic rooftop study garden at dusk above a glowing cit
 ### ✅ `bg-lesson-neon.webp`
 - Dùng ở: Nền bài học, kiểm tra theme Neon
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only bg-lesson-neon`)
 
 ```text
 Wide background of a quiet high-tech study room at night, soft desk light, floating holographic notes shown as abstract shapes only, large window with city lights, very calm and low detail in the center where the lesson card sits. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
@@ -133,6 +151,7 @@ Wide background of a quiet high-tech study room at night, soft desk light, float
 ### ✅ `bg-arena-neon.webp`
 - Dùng ở: Nền thi đấu theme Neon
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only bg-arena-neon`)
 
 ```text
 Wide background of a futuristic e-sports arena for a quiz battle, two glowing podiums facing each other, a big holographic scoreboard shape with no text, spotlights and neon light beams, excited but not violent. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
@@ -141,6 +160,7 @@ Wide background of a futuristic e-sports arena for a quiz battle, two glowing po
 ### ✅ `bg-leaderboard-neon.webp`
 - Dùng ở: Nền bảng xếp hạng theme Neon
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only bg-leaderboard-neon`)
 
 ```text
 Wide background of a night sky observatory deck with three floating glowing podium platforms in gold, silver and bronze tones rising into the stars, aurora in violet and cyan, a sleek white cat watching from the railing, keep the center dark and simple. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
@@ -149,6 +169,7 @@ Wide background of a night sky observatory deck with three floating glowing podi
 ### ✅ `theme-pick-mochi.webp`
 - Dùng ở: Ảnh xem trước khi chọn theme Mochi
 - Kích thước: 1024x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only theme-pick-mochi`)
 
 ```text
 Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator waving in a sunny meadow with a little school in the distance, cozy and bright, one continuous scene from top to bottom: characters and main objects sit in the upper 60% of the frame, and the same scene simply continues into the bottom third (more of the grass, floor, table or ground in the same colors and lighting, a little softer and less detailed, gently shaded by a natural shadow), with no characters or busy details there so white title text can be laid over it; never a separate flat color band, panel or gradient bar. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
@@ -157,6 +178,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 ### ✅ `theme-pick-neon.webp`
 - Dùng ở: Ảnh xem trước khi chọn theme Neon
 - Kích thước: 1024x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only theme-pick-neon`)
 
 ```text
 A cool teenage student in a hoodie with headphones, a sleek white cat with glowing teal eyes on their shoulder, standing in front of floating holographic panels in a dark neon city. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
@@ -165,6 +187,7 @@ A cool teenage student in a hoodie with headphones, a sleek white cat with glowi
 ### ✅ `subject-fx580-cover.webp`
 - Dùng ở: Ảnh lớn của môn Máy tính FX580 ở trang chủ (chữ đè lên phần dưới ảnh)
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only subject-fx580-cover`)
 
 ```text
 Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator sitting next to Xi Xi: a friendly anthropomorphic scientific calculator (dark navy body, light gray keys, small LCD screen showing a smile), tiny arms and legs on a desk with notebooks and pencils, numbers floating like bubbles, one continuous scene from top to bottom: characters and main objects sit in the upper 60% of the frame, and the same scene simply continues into the bottom third (more of the grass, floor, table or ground in the same colors and lighting, a little softer and less detailed, gently shaded by a natural shadow), with no characters or busy details there so white title text can be laid over it; never a separate flat color band, panel or gradient bar. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
@@ -173,6 +196,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 ### ✅ `subject-soon.webp`
 - Dùng ở: Thẻ môn sắp ra mắt
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only subject-soon`)
 
 ```text
 A closed gift box with a ribbon on a cloud, small sparkles, mysterious and cute, the gift placed in the upper half and smaller, one continuous scene from top to bottom: characters and main objects sit in the upper 60% of the frame, and the same scene simply continues into the bottom third (more of the grass, floor, table or ground in the same colors and lighting, a little softer and less detailed, gently shaded by a natural shadow), with no characters or busy details there so white title text can be laid over it; never a separate flat color band, panel or gradient bar. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
@@ -181,6 +205,7 @@ A closed gift box with a ribbon on a cloud, small sparkles, mysterious and cute,
 ### ✅ `empty-login.webp`
 - Dùng ở: Màn hình mời đăng nhập
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only empty-login`)
 
 ```text
 Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator holding a key and smiling at a small door. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -189,6 +214,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 ### ✅ `level-mam.webp`
 - Dùng ở: Huy hiệu trình độ Hạt mầm
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only level-mam`)
 
 ```text
 Round badge with a tiny sprout in soil, soft green and cream. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -197,6 +223,7 @@ Round badge with a tiny sprout in soil, soft green and cream. Soft anime illustr
 ### ✅ `level-choi.webp`
 - Dùng ở: Huy hiệu trình độ Chồi non
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only level-choi`)
 
 ```text
 Round badge with a young plant with three leaves, soft green. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -205,6 +232,7 @@ Round badge with a young plant with three leaves, soft green. Soft anime illustr
 ### ✅ `level-cay.webp`
 - Dùng ở: Huy hiệu trình độ Cây xanh
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only level-cay`)
 
 ```text
 Round badge with a small lush tree, soft green and sky blue. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -213,6 +241,7 @@ Round badge with a small lush tree, soft green and sky blue. Soft anime illustra
 ### ✅ `level-hoa.webp`
 - Dùng ở: Huy hiệu trình độ Cây nở hoa
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only level-hoa`)
 
 ```text
 Round badge with a tree in full pink blossom, sparkles. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -221,6 +250,7 @@ Round badge with a tree in full pink blossom, sparkles. Soft anime illustration 
 ### ✅ `avatar-fox.webp`
 - Dùng ở: Ảnh đại diện: fox
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only avatar-fox`)
 
 ```text
 Cute chibi fox face portrait in a circle, friendly expression, light pastel background circle. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -229,6 +259,7 @@ Cute chibi fox face portrait in a circle, friendly expression, light pastel back
 ### ✅ `avatar-bunny.webp`
 - Dùng ở: Ảnh đại diện: bunny
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only avatar-bunny`)
 
 ```text
 Cute chibi bunny face portrait in a circle, friendly expression, light pastel background circle. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -237,6 +268,7 @@ Cute chibi bunny face portrait in a circle, friendly expression, light pastel ba
 ### ✅ `avatar-panda.webp`
 - Dùng ở: Ảnh đại diện: panda
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only avatar-panda`)
 
 ```text
 Cute chibi panda face portrait in a circle, friendly expression, light pastel background circle. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -245,6 +277,7 @@ Cute chibi panda face portrait in a circle, friendly expression, light pastel ba
 ### ✅ `avatar-owl.webp`
 - Dùng ở: Ảnh đại diện: owl
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only avatar-owl`)
 
 ```text
 Cute chibi owl face portrait in a circle, friendly expression, light pastel background circle. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -253,6 +286,7 @@ Cute chibi owl face portrait in a circle, friendly expression, light pastel back
 ### ✅ `avatar-bear.webp`
 - Dùng ở: Ảnh đại diện: bear
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only avatar-bear`)
 
 ```text
 Cute chibi bear face portrait in a circle, friendly expression, light pastel background circle. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -261,6 +295,7 @@ Cute chibi bear face portrait in a circle, friendly expression, light pastel bac
 ### ✅ `avatar-penguin.webp`
 - Dùng ở: Ảnh đại diện: penguin
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only avatar-penguin`)
 
 ```text
 Cute chibi penguin face portrait in a circle, friendly expression, light pastel background circle. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -269,6 +304,7 @@ Cute chibi penguin face portrait in a circle, friendly expression, light pastel 
 ### ✅ `fx-l01-cover.webp`
 - Dùng ở: Bìa bài 1: Làm quen với Xi Xi
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only fx-l01-cover`)
 
 ```text
 Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator shaking hands with Xi Xi: a friendly anthropomorphic scientific calculator (dark navy body, light gray keys, small LCD screen showing a smile), tiny arms and legs on a sunny desk. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
@@ -277,6 +313,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 ### ✅ `fx-l02-cover.webp`
 - Dùng ở: Bìa bài 2: Thứ tự phép tính
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only fx-l02-cover`)
 
 ```text
 Cute operator symbols (+, −, ×, ÷ and parentheses) standing in a queue like children lining up, the parentheses at the front. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
@@ -285,6 +322,7 @@ Cute operator symbols (+, −, ×, ÷ and parentheses) standing in a queue like 
 ### ✅ `fx-l03-cover.webp`
 - Dùng ở: Bìa bài 3: Lũy thừa
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only fx-l03-cover`)
 
 ```text
 Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator riding a small rocket that leaves a trail of doubling stars. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
@@ -293,6 +331,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 ### ✅ `fx-l04-cover.webp`
 - Dùng ở: Bìa bài 4: Chia có dư
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only fx-l04-cover`)
 
 ```text
 Colorful candies being shared into seven small bowls, two candies left over in the middle. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
@@ -301,6 +340,7 @@ Colorful candies being shared into seven small bowls, two candies left over in t
 ### ✅ `fx-l05-cover.webp`
 - Dùng ở: Bìa bài 5: Số nguyên tố
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only fx-l05-cover`)
 
 ```text
 Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator as a detective with a magnifying glass looking at glowing prime number gems 2, 3, 5, 7. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
@@ -309,6 +349,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 ### ✅ `fx-l06-cover.webp`
 - Dùng ở: Bìa bài 6: ƯCLN, BCNN
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only fx-l06-cover`)
 
 ```text
 Gift boxes split into equal groups on one side and two blinking lighthouses on the other side. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
@@ -317,6 +358,7 @@ Gift boxes split into equal groups on one side and two blinking lighthouses on t
 ### ✅ `fx-l07-cover.webp`
 - Dùng ở: Bìa bài 7: Số nguyên âm
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only fx-l07-cover`)
 
 ```text
 A cute thermometer character standing in snowy mountains, a small submarine below the sea surface in the same scene. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
@@ -325,6 +367,7 @@ A cute thermometer character standing in snowy mountains, a small submarine belo
 ### ✅ `fx-l08-cover.webp`
 - Dùng ở: Bìa bài 8: Phân số
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only fx-l08-cover`)
 
 ```text
 Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator with a pizza cut into 8 slices, three slices taken. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
@@ -333,6 +376,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 ### ✅ `fx-l09-cover.webp`
 - Dùng ở: Bìa bài 9: Thập phân và phần trăm
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only fx-l09-cover`)
 
 ```text
 A cozy little stationery shop with discount tags showing a percent symbol. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
@@ -341,6 +385,7 @@ A cozy little stationery shop with discount tags showing a percent symbol. Soft 
 ### ✅ `fx-l10-cover.webp`
 - Dùng ở: Bìa bài 10: Chu vi, diện tích
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only fx-l10-cover`)
 
 ```text
 A garden seen from above divided into rectangle, rhombus, parallelogram and trapezoid flower beds. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
@@ -349,6 +394,7 @@ A garden seen from above divided into rectangle, rhombus, parallelogram and trap
 ### ✅ `fx7-l01-cover.webp`
 - Dùng ở: Lớp 7 · Bìa bài 1: Số hữu tỉ
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only fx7-l01-cover`)
 
 ```text
 The student walking along a giant number line painted on a park path; to the left the path turns into cool blue ice (negative numbers), to the right warm sunlight; holding a glowing crystal shaped like a fraction bar. Characters: a cheerful anime student about 12 years old with natural proportions, short brown hair, white school shirt with a light-blue cardigan and a navy backpack; Mochi: a white cat with teal eyes and a light-blue scarf, normal cat proportions, calm and curious, sitting near the student. Bright modern slice-of-life school anime illustration for kids aged 12, natural body proportions (not chibi, no oversized heads), clean confident line art, soft cel shading, fresh daylight with gentle highlights. Color palette: sky blue #4F72FF, mint #22B98C, coral #FF8A5C, sunny yellow #FFB81F, lilac #9B7BFF over clean whites and light slate. Friendly and energetic, a little more grown-up than a picture book, not babyish, no text, no letters, no numbers, no watermark.
@@ -357,6 +403,7 @@ The student walking along a giant number line painted on a park path; to the lef
 ### ✅ `fx7-l02-cover.webp`
 - Dùng ở: Lớp 7 · Bìa bài 2: Lũy thừa số hữu tỉ
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only fx7-l02-cover`)
 
 ```text
 The student launching a model rocket on the school field, its smoke trail climbing in bigger and bigger steps like a staircase, a modern dark-navy scientific calculator with a softly lit screen (no face) clipped to the launch pad. Characters: a cheerful anime student about 12 years old with natural proportions, short brown hair, white school shirt with a light-blue cardigan and a navy backpack; Mochi: a white cat with teal eyes and a light-blue scarf, normal cat proportions, calm and curious, sitting near the student. Bright modern slice-of-life school anime illustration for kids aged 12, natural body proportions (not chibi, no oversized heads), clean confident line art, soft cel shading, fresh daylight with gentle highlights. Color palette: sky blue #4F72FF, mint #22B98C, coral #FF8A5C, sunny yellow #FFB81F, lilac #9B7BFF over clean whites and light slate. Friendly and energetic, a little more grown-up than a picture book, not babyish, no text, no letters, no numbers, no watermark.
@@ -365,6 +412,7 @@ The student launching a model rocket on the school field, its smoke trail climbi
 ### ✅ `fx7-l03-cover.webp`
 - Dùng ở: Lớp 7 · Bìa bài 3: Căn bậc hai
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only fx7-l03-cover`)
 
 ```text
 The student measuring one side of a square garden plot on a school rooftop garden with a tape measure, a young plant with visible roots growing in a clear planter beside. Characters: a cheerful anime student about 12 years old with natural proportions, short brown hair, white school shirt with a light-blue cardigan and a navy backpack; Mochi: a white cat with teal eyes and a light-blue scarf, normal cat proportions, calm and curious, sitting near the student. Bright modern slice-of-life school anime illustration for kids aged 12, natural body proportions (not chibi, no oversized heads), clean confident line art, soft cel shading, fresh daylight with gentle highlights. Color palette: sky blue #4F72FF, mint #22B98C, coral #FF8A5C, sunny yellow #FFB81F, lilac #9B7BFF over clean whites and light slate. Friendly and energetic, a little more grown-up than a picture book, not babyish, no text, no letters, no numbers, no watermark.
@@ -373,6 +421,7 @@ The student measuring one side of a square garden plot on a school rooftop garde
 ### ✅ `fx7-l04-cover.webp`
 - Dùng ở: Lớp 7 · Bìa bài 4: Tỉ lệ thức
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only fx7-l04-cover`)
 
 ```text
 The student in a bright science lab balancing a modern two-pan scale holding two equal groups of colorful blocks, a notebook open on the bench. Characters: a cheerful anime student about 12 years old with natural proportions, short brown hair, white school shirt with a light-blue cardigan and a navy backpack; Mochi: a white cat with teal eyes and a light-blue scarf, normal cat proportions, calm and curious, sitting near the student. Bright modern slice-of-life school anime illustration for kids aged 12, natural body proportions (not chibi, no oversized heads), clean confident line art, soft cel shading, fresh daylight with gentle highlights. Color palette: sky blue #4F72FF, mint #22B98C, coral #FF8A5C, sunny yellow #FFB81F, lilac #9B7BFF over clean whites and light slate. Friendly and energetic, a little more grown-up than a picture book, not babyish, no text, no letters, no numbers, no watermark.
@@ -381,6 +430,7 @@ The student in a bright science lab balancing a modern two-pan scale holding two
 ### ✅ `fx7-l05-cover.webp`
 - Dùng ở: Lớp 7 · Bìa bài 5: Đại lượng tỉ lệ
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only fx7-l05-cover`)
 
 ```text
 The student and two classmates at a café table sharing a big pizza cut into slices of different sizes, a notebook with a simple chart beside the plates. Characters: a cheerful anime student about 12 years old with natural proportions, short brown hair, white school shirt with a light-blue cardigan and a navy backpack; Mochi: a white cat with teal eyes and a light-blue scarf, normal cat proportions, calm and curious, sitting near the student. Bright modern slice-of-life school anime illustration for kids aged 12, natural body proportions (not chibi, no oversized heads), clean confident line art, soft cel shading, fresh daylight with gentle highlights. Color palette: sky blue #4F72FF, mint #22B98C, coral #FF8A5C, sunny yellow #FFB81F, lilac #9B7BFF over clean whites and light slate. Friendly and energetic, a little more grown-up than a picture book, not babyish, no text, no letters, no numbers, no watermark.
@@ -389,6 +439,7 @@ The student and two classmates at a café table sharing a big pizza cut into sli
 ### ✅ `fx7-l06-cover.webp`
 - Dùng ở: Lớp 7 · Bìa bài 6: Thống kê
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only fx7-l06-cover`)
 
 ```text
 The student presenting a colorful pie chart and bar chart on a large classroom screen, classmates seen from behind watching. Characters: a cheerful anime student about 12 years old with natural proportions, short brown hair, white school shirt with a light-blue cardigan and a navy backpack; Mochi: a white cat with teal eyes and a light-blue scarf, normal cat proportions, calm and curious, sitting near the student. Bright modern slice-of-life school anime illustration for kids aged 12, natural body proportions (not chibi, no oversized heads), clean confident line art, soft cel shading, fresh daylight with gentle highlights. Color palette: sky blue #4F72FF, mint #22B98C, coral #FF8A5C, sunny yellow #FFB81F, lilac #9B7BFF over clean whites and light slate. Friendly and energetic, a little more grown-up than a picture book, not babyish, no text, no letters, no numbers, no watermark.
@@ -397,6 +448,7 @@ The student presenting a colorful pie chart and bar chart on a large classroom s
 ### ✅ `fx8-l01-cover.webp`
 - Dùng ở: Lớp 8 · Bìa bài 1: Giá trị đa thức
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only fx8-l01-cover`)
 
 ```text
 The student in a high-tech lab inserting a glowing value into a floating holographic machine, curved data streams flowing out the other side, a futuristic scientific calculator with a glowing holographic display projecting light above it on the desk. Characters: a confident anime teen student about 14 years old, gender-neutral look, short dark hair, navy hoodie with subtle circuit patterns, headphones around the neck; Mochi: a sleek white cat with glowing teal eyes and a light-blue scarf, cool and calm, perched on the student's shoulder. Modern anime illustration for teenagers aged 13 to 15, cinematic lighting, clean sharp line art, cel shading with subtle gradients, cool tech vibe with floating holographic UI panels and soft neon glow. Color palette: sky blue #4F72FF, mint #22B98C and lilac #9B7BFF neon accents over deep navy #1B1F3B and slate tones, a touch of coral #FF8A5C. Stylish and confident, not cute, not babyish, no text, no letters, no numbers, no watermark.
@@ -405,6 +457,7 @@ The student in a high-tech lab inserting a glowing value into a floating hologra
 ### ✅ `fx8-l02-cover.webp`
 - Dùng ở: Lớp 8 · Bìa bài 2: Hằng đẳng thức
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only fx8-l02-cover`)
 
 ```text
 The student casting a glowing spell from fingertips, a large square splitting into four neon tiles (two squares, two rectangles) that rearrange in mid-air. Characters: a confident anime teen student about 14 years old, gender-neutral look, short dark hair, navy hoodie with subtle circuit patterns, headphones around the neck; Mochi: a sleek white cat with glowing teal eyes and a light-blue scarf, cool and calm, perched on the student's shoulder. Modern anime illustration for teenagers aged 13 to 15, cinematic lighting, clean sharp line art, cel shading with subtle gradients, cool tech vibe with floating holographic UI panels and soft neon glow. Color palette: sky blue #4F72FF, mint #22B98C and lilac #9B7BFF neon accents over deep navy #1B1F3B and slate tones, a touch of coral #FF8A5C. Stylish and confident, not cute, not babyish, no text, no letters, no numbers, no watermark.
@@ -413,6 +466,7 @@ The student casting a glowing spell from fingertips, a large square splitting in
 ### ✅ `fx8-l03-cover.webp`
 - Dùng ở: Lớp 8 · Bìa bài 3: Phương trình bậc nhất
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only fx8-l03-cover`)
 
 ```text
 The student at night in front of a futuristic vault door with a glowing balance-scale lock, reaching out to turn a holographic dial, city lights behind. Characters: a confident anime teen student about 14 years old, gender-neutral look, short dark hair, navy hoodie with subtle circuit patterns, headphones around the neck; Mochi: a sleek white cat with glowing teal eyes and a light-blue scarf, cool and calm, perched on the student's shoulder. Modern anime illustration for teenagers aged 13 to 15, cinematic lighting, clean sharp line art, cel shading with subtle gradients, cool tech vibe with floating holographic UI panels and soft neon glow. Color palette: sky blue #4F72FF, mint #22B98C and lilac #9B7BFF neon accents over deep navy #1B1F3B and slate tones, a touch of coral #FF8A5C. Stylish and confident, not cute, not babyish, no text, no letters, no numbers, no watermark.
@@ -421,6 +475,7 @@ The student at night in front of a futuristic vault door with a glowing balance-
 ### ✅ `fx8-l04-cover.webp`
 - Dùng ở: Lớp 8 · Bìa bài 4: Định lí Pythagore
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only fx8-l04-cover`)
 
 ```text
 The student standing on a rooftop at dusk next to a giant glowing right triangle made of light beams, three translucent square panels attached to its sides. Characters: a confident anime teen student about 14 years old, gender-neutral look, short dark hair, navy hoodie with subtle circuit patterns, headphones around the neck; Mochi: a sleek white cat with glowing teal eyes and a light-blue scarf, cool and calm, perched on the student's shoulder. Modern anime illustration for teenagers aged 13 to 15, cinematic lighting, clean sharp line art, cel shading with subtle gradients, cool tech vibe with floating holographic UI panels and soft neon glow. Color palette: sky blue #4F72FF, mint #22B98C and lilac #9B7BFF neon accents over deep navy #1B1F3B and slate tones, a touch of coral #FF8A5C. Stylish and confident, not cute, not babyish, no text, no letters, no numbers, no watermark.
@@ -429,6 +484,7 @@ The student standing on a rooftop at dusk next to a giant glowing right triangle
 ### ✅ `fx8-l05-cover.webp`
 - Dùng ở: Lớp 8 · Bìa bài 5: Hàm số bậc nhất
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only fx8-l05-cover`)
 
 ```text
 The student riding an electric scooter along a straight neon road rising across a dark grid like a graph line, distance markers glowing along the road. Characters: a confident anime teen student about 14 years old, gender-neutral look, short dark hair, navy hoodie with subtle circuit patterns, headphones around the neck; Mochi: a sleek white cat with glowing teal eyes and a light-blue scarf, cool and calm, perched on the student's shoulder. Modern anime illustration for teenagers aged 13 to 15, cinematic lighting, clean sharp line art, cel shading with subtle gradients, cool tech vibe with floating holographic UI panels and soft neon glow. Color palette: sky blue #4F72FF, mint #22B98C and lilac #9B7BFF neon accents over deep navy #1B1F3B and slate tones, a touch of coral #FF8A5C. Stylish and confident, not cute, not babyish, no text, no letters, no numbers, no watermark.
@@ -437,6 +493,7 @@ The student riding an electric scooter along a straight neon road rising across 
 ### ✅ `fx8-l06-cover.webp`
 - Dùng ở: Lớp 8 · Bìa bài 6: Xác suất
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only fx8-l06-cover`)
 
 ```text
 The student flicking a glowing coin into the air while a translucent die spins mid-air, faint probability arcs and particles around, game-arcade lighting. Characters: a confident anime teen student about 14 years old, gender-neutral look, short dark hair, navy hoodie with subtle circuit patterns, headphones around the neck; Mochi: a sleek white cat with glowing teal eyes and a light-blue scarf, cool and calm, perched on the student's shoulder. Modern anime illustration for teenagers aged 13 to 15, cinematic lighting, clean sharp line art, cel shading with subtle gradients, cool tech vibe with floating holographic UI panels and soft neon glow. Color palette: sky blue #4F72FF, mint #22B98C and lilac #9B7BFF neon accents over deep navy #1B1F3B and slate tones, a touch of coral #FF8A5C. Stylish and confident, not cute, not babyish, no text, no letters, no numbers, no watermark.
@@ -445,6 +502,7 @@ The student flicking a glowing coin into the air while a translucent die spins m
 ### ✅ `fx9-l01-cover.webp`
 - Dùng ở: Lớp 9 · Bìa bài 1: Căn bậc hai, căn bậc ba
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only fx9-l01-cover`)
 
 ```text
 The student examining a glowing translucent cube built from smaller cubes floating above an open palm, a digital tree with deep luminous roots in the background. Characters: a focused anime student about 15 years old, taller and more mature, short dark hair, navy jacket over a white shirt, wireless earbuds; Mochi: a sleek white cat with glowing teal eyes and a light-blue scarf, cool and calm, perched on the student's shoulder. Modern anime illustration for teenagers aged 15, cinematic lighting, clean sharp line art, cel shading with subtle gradients, cool tech vibe with floating holographic UI panels and soft neon glow. Color palette: sky blue #4F72FF, mint #22B98C and lilac #9B7BFF neon accents over deep navy #1B1F3B and slate tones, a touch of coral #FF8A5C. Stylish and confident, not cute, not babyish, no text, no letters, no numbers, no watermark. More mature and cinematic mood, refined composition, realistic proportions, restrained neon, fewer sparkles.
@@ -453,6 +511,7 @@ The student examining a glowing translucent cube built from smaller cubes floati
 ### ✅ `fx9-l02-cover.webp`
 - Dùng ở: Lớp 9 · Bìa bài 2: Hệ phương trình
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only fx9-l02-cover`)
 
 ```text
 The student as a sharp detective in a dark room studying a holographic map where two neon lines cross at one bright point. Characters: a focused anime student about 15 years old, taller and more mature, short dark hair, navy jacket over a white shirt, wireless earbuds; Mochi: a sleek white cat with glowing teal eyes and a light-blue scarf, cool and calm, perched on the student's shoulder. Modern anime illustration for teenagers aged 15, cinematic lighting, clean sharp line art, cel shading with subtle gradients, cool tech vibe with floating holographic UI panels and soft neon glow. Color palette: sky blue #4F72FF, mint #22B98C and lilac #9B7BFF neon accents over deep navy #1B1F3B and slate tones, a touch of coral #FF8A5C. Stylish and confident, not cute, not babyish, no text, no letters, no numbers, no watermark. More mature and cinematic mood, refined composition, realistic proportions, restrained neon, fewer sparkles.
@@ -461,6 +520,7 @@ The student as a sharp detective in a dark room studying a holographic map where
 ### ✅ `fx9-l03-cover.webp`
 - Dùng ở: Lớp 9 · Bìa bài 3: Phương trình bậc hai
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only fx9-l03-cover`)
 
 ```text
 The student riding a sleek roller coaster whose track is a smooth glowing U-shaped parabola crossing a neon ground line at two points, night sky. Characters: a focused anime student about 15 years old, taller and more mature, short dark hair, navy jacket over a white shirt, wireless earbuds; Mochi: a sleek white cat with glowing teal eyes and a light-blue scarf, cool and calm, perched on the student's shoulder. Modern anime illustration for teenagers aged 15, cinematic lighting, clean sharp line art, cel shading with subtle gradients, cool tech vibe with floating holographic UI panels and soft neon glow. Color palette: sky blue #4F72FF, mint #22B98C and lilac #9B7BFF neon accents over deep navy #1B1F3B and slate tones, a touch of coral #FF8A5C. Stylish and confident, not cute, not babyish, no text, no letters, no numbers, no watermark. More mature and cinematic mood, refined composition, realistic proportions, restrained neon, fewer sparkles.
@@ -469,6 +529,7 @@ The student riding a sleek roller coaster whose track is a smooth glowing U-shap
 ### ✅ `fx9-l04-cover.webp`
 - Dùng ở: Lớp 9 · Bìa bài 4: Tỉ số lượng giác
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only fx9-l04-cover`)
 
 ```text
 The student on a rooftop aiming a futuristic rangefinder at a tall tower, a glowing right triangle and angle arc projected between them. Characters: a focused anime student about 15 years old, taller and more mature, short dark hair, navy jacket over a white shirt, wireless earbuds; Mochi: a sleek white cat with glowing teal eyes and a light-blue scarf, cool and calm, perched on the student's shoulder. Modern anime illustration for teenagers aged 15, cinematic lighting, clean sharp line art, cel shading with subtle gradients, cool tech vibe with floating holographic UI panels and soft neon glow. Color palette: sky blue #4F72FF, mint #22B98C and lilac #9B7BFF neon accents over deep navy #1B1F3B and slate tones, a touch of coral #FF8A5C. Stylish and confident, not cute, not babyish, no text, no letters, no numbers, no watermark. More mature and cinematic mood, refined composition, realistic proportions, restrained neon, fewer sparkles.
@@ -477,6 +538,7 @@ The student on a rooftop aiming a futuristic rangefinder at a tall tower, a glow
 ### ✅ `fx9-l05-cover.webp`
 - Dùng ở: Lớp 9 · Bìa bài 5: Đường tròn
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only fx9-l05-cover`)
 
 ```text
 The student standing inside a huge glowing circular ring of light, holographic arcs and a sector highlighted in mint, sci-fi plaza at night. Characters: a focused anime student about 15 years old, taller and more mature, short dark hair, navy jacket over a white shirt, wireless earbuds; Mochi: a sleek white cat with glowing teal eyes and a light-blue scarf, cool and calm, perched on the student's shoulder. Modern anime illustration for teenagers aged 15, cinematic lighting, clean sharp line art, cel shading with subtle gradients, cool tech vibe with floating holographic UI panels and soft neon glow. Color palette: sky blue #4F72FF, mint #22B98C and lilac #9B7BFF neon accents over deep navy #1B1F3B and slate tones, a touch of coral #FF8A5C. Stylish and confident, not cute, not babyish, no text, no letters, no numbers, no watermark. More mature and cinematic mood, refined composition, realistic proportions, restrained neon, fewer sparkles.
@@ -485,6 +547,7 @@ The student standing inside a huge glowing circular ring of light, holographic a
 ### ✅ `fx9-l06-cover.webp`
 - Dùng ở: Lớp 9 · Bìa bài 6: Hình trụ, nón, cầu
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only fx9-l06-cover`)
 
 ```text
 The student in a design studio with three holographic wireframe solids floating above the desk: a cylinder, a cone and a sphere, soft neon lighting. Characters: a focused anime student about 15 years old, taller and more mature, short dark hair, navy jacket over a white shirt, wireless earbuds; Mochi: a sleek white cat with glowing teal eyes and a light-blue scarf, cool and calm, perched on the student's shoulder. Modern anime illustration for teenagers aged 15, cinematic lighting, clean sharp line art, cel shading with subtle gradients, cool tech vibe with floating holographic UI panels and soft neon glow. Color palette: sky blue #4F72FF, mint #22B98C and lilac #9B7BFF neon accents over deep navy #1B1F3B and slate tones, a touch of coral #FF8A5C. Stylish and confident, not cute, not babyish, no text, no letters, no numbers, no watermark. More mature and cinematic mood, refined composition, realistic proportions, restrained neon, fewer sparkles.
@@ -493,6 +556,7 @@ The student in a design studio with three holographic wireframe solids floating 
 ### ✅ `subject-tapdoc-cover.webp`
 - Dùng ở: Ảnh lớn của môn Tập đọc ở trang chủ (chữ đè lên phần dưới ảnh)
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only subject-tapdoc-cover`)
 
 ```text
 Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, sitting on a stack of big picture books, holding an open book, a few large soft wooden alphabet blocks around (blank faces, no letters), warm reading nook, one continuous scene from top to bottom: characters and main objects sit in the upper 60% of the frame, and the same scene simply continues into the bottom third (more of the grass, floor, table or ground in the same colors and lighting, a little softer and less detailed, gently shaded by a natural shadow), with no characters or busy details there so white title text can be laid over it; never a separate flat color band, panel or gradient bar. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
@@ -501,6 +565,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 ### ✅ `td-cover.webp`
 - Dùng ở: Ảnh chung cho thẻ "Học tiếp" của môn Tập đọc (chữ to đè lên)
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only td-cover`)
 
 ```text
 A cozy empty classroom blackboard corner with soft chalk dust, a small potted plant and a stack of books, large plain empty area in the middle, very soft and light. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
@@ -509,6 +574,7 @@ A cozy empty classroom blackboard corner with soft chalk dust, a small potted pl
 ### ✅ `mochi-read.webp`
 - Dùng ở: Mochi đọc sách: màn hình bé ghi âm đọc to
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only mochi-read`)
 
 ```text
 Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, holding an open book and reading aloud with a small music-note sparkle near its mouth, one ear perked up as if listening, full body. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -517,6 +583,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 ### ✅ `fx-l01-s1.webp`
 - Dùng ở: Bài 1, slide 1: Mochi giới thiệu Xi Xi
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only fx-l01-s1`)
 
 ```text
 Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator presenting Xi Xi: a friendly anthropomorphic scientific calculator (dark navy body, light gray keys, small LCD screen showing a smile), tiny arms and legs with open paws, sparkles. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
@@ -525,6 +592,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 ### ✅ `fx-l01-s3.webp`
 - Dùng ở: Bài 1, slide 3: chữ vàng chữ đỏ trên phím
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only fx-l01-s3`)
 
 ```text
 Close-up of three calculator keys, each with a small yellow label and a small red label above it, glowing softly, two tiny arrows pointing to the labels. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
@@ -533,6 +601,7 @@ Close-up of three calculator keys, each with a small yellow label and a small re
 ### ✅ `fx-l02-s1.webp`
 - Dùng ở: Bài 2, slide 1: luật xếp hàng phép tính
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only fx-l02-s1`)
 
 ```text
 Four podium steps labelled with icons: parentheses on top, then a power symbol, then × ÷, then + −, cute characters on each step. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
@@ -541,6 +610,7 @@ Four podium steps labelled with icons: parentheses on top, then a power symbol, 
 ### ✅ `fx-l02-s4.webp`
 - Dùng ở: Bài 2, slide 4: mẹ đi chợ
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only fx-l02-s4`)
 
 ```text
 A mother cat and Mochi at a Vietnamese wet market stall with oranges and bundles of vegetables. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
@@ -549,6 +619,7 @@ A mother cat and Mochi at a Vietnamese wet market stall with oranges and bundles
 ### ✅ `fx-l03-s1.webp`
 - Dùng ở: Bài 3, slide 1: lũy thừa nhân đôi
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only fx-l03-s1`)
 
 ```text
 A row of five boxes, each containing twice as many glowing marbles as the one before. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
@@ -557,6 +628,7 @@ A row of five boxes, each containing twice as many glowing marbles as the one be
 ### ✅ `fx-l04-s1.webp`
 - Dùng ở: Bài 4, slide 1: chia kẹo
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only fx-l04-s1`)
 
 ```text
 Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator handing out candies to seven classmates sitting in a circle, two candies left. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
@@ -565,6 +637,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 ### ✅ `fx-l05-s1.webp`
 - Dùng ở: Bài 5, slide 1: số nguyên tố là viên đá quý
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only fx-l05-s1`)
 
 ```text
 Glowing gemstones with numbers 2, 3, 5, 7, 11 inside, and ordinary pebbles with 4, 6, 9 beside them. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
@@ -573,6 +646,7 @@ Glowing gemstones with numbers 2, 3, 5, 7, 11 inside, and ordinary pebbles with 
 ### ✅ `fx-l06-s1.webp`
 - Dùng ở: Bài 6, slide 1: GCD và LCM
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only fx-l06-s1`)
 
 ```text
 Two cute twin robot characters with badges, one badge shows a gift box, the other shows a clock. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
@@ -581,6 +655,7 @@ Two cute twin robot characters with badges, one badge shows a gift box, the othe
 ### ✅ `fx-l06-s4.webp`
 - Dùng ở: Bài 6, slide 4: chia giỏ trái cây
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only fx-l06-s4`)
 
 ```text
 Twelve equal baskets each with oranges and tangerines, arranged neatly on a table. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
@@ -589,6 +664,7 @@ Twelve equal baskets each with oranges and tangerines, arranged neatly on a tabl
 ### ✅ `fx-l07-s1.webp`
 - Dùng ở: Bài 7, slide 1: số âm quanh ta
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only fx-l07-s1`)
 
 ```text
 Split scene: snowy mountain town with a thermometer below zero on the left, a submarine underwater with a depth gauge on the right. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
@@ -597,6 +673,7 @@ Split scene: snowy mountain town with a thermometer below zero on the left, a su
 ### ✅ `fx-l08-s1.webp`
 - Dùng ở: Bài 8, slide 1: bánh pizza 3/8
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only fx-l08-s1`)
 
 ```text
 A round pizza cut into 8 equal slices, 3 slices slightly pulled out, top view. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
@@ -605,6 +682,7 @@ A round pizza cut into 8 equal slices, 3 slices slightly pulled out, top view. S
 ### ✅ `fx-l09-s2.webp`
 - Dùng ở: Bài 9, slide 2: làm tròn số
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only fx-l09-s2`)
 
 ```text
 A number line like a little road with a ball rolling to the nearest flag, gentle hills. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
@@ -613,6 +691,7 @@ A number line like a little road with a ball rolling to the nearest flag, gentle
 ### ✅ `fx-l09-s4.webp`
 - Dùng ở: Bài 9, slide 4: mua giày giảm giá
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only fx-l09-s4`)
 
 ```text
 Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator trying on sneakers in a shop, a big sale tag nearby. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
@@ -621,6 +700,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 ### ✅ `fx-l10-s1.webp`
 - Dùng ở: Bài 10, slide 1: các hình
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only fx-l10-s1`)
 
 ```text
 Five friendly shape characters: rectangle, square, rhombus, parallelogram, isosceles trapezoid, standing together. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
@@ -629,6 +709,7 @@ Five friendly shape characters: rectangle, square, rhombus, parallelogram, isosc
 ### ✅ `fx-l10-s3.webp`
 - Dùng ở: Bài 10, slide 3: rào sân
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only fx-l10-s3`)
 
 ```text
 A rectangular schoolyard with a small wooden fence being built around it, top-down three-quarter view. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
@@ -637,6 +718,7 @@ A rectangular schoolyard with a small wooden fence being built around it, top-do
 ### ✅ `bit-happy.webp`
 - Dùng ở: Thỏ Bit chào: slide mở đầu môn Gõ phím (tạo ảnh này TRƯỚC, các ảnh Bit khác lấy làm mẫu)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only bit-happy`)
 
 ```text
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile, standing relaxed and giving a small two-finger salute, full body. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
@@ -645,6 +727,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 ### ✅ `bit-think.webp`
 - Dùng ở: Bit suy nghĩ: slide giải thích
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only bit-think`)
 
 ```text
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile, one hand touching the visor which shows a tiny holographic keyboard, thinking, full body. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
@@ -653,6 +736,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 ### ✅ `bit-wow.webp`
 - Dùng ở: Bit ngạc nhiên: phím mới, mẹo hay
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only bit-wow`)
 
 ```text
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile, visor glowing pink, ears straight up in surprise, both hands open, full body. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
@@ -661,6 +745,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 ### ✅ `bit-cheer.webp`
 - Dùng ở: Bit ăn mừng: hoàn thành, thắng cuộc
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only bit-cheer`)
 
 ```text
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile, jumping with a fist pump, neon sparks around, full body. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
@@ -669,6 +754,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 ### ✅ `bit-oops.webp`
 - Dùng ở: Bit an ủi: thua lượt, gõ sai nhiều
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only bit-oops`)
 
 ```text
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile, scratching the back of the head with a lopsided grin, visor showing a small glitch, full body. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
@@ -677,6 +763,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 ### ✅ `gp-bit-diver.webp`
 - Dùng ở: Thợ lặn trong game cá mập (bên trái màn hình, nhìn sang phải)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only gp-bit-diver`)
 
 ```text
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile in a sleek dark-navy diving suit with cyan neon lines, round glass helmet around the head with the ears inside, small oxygen tank on the back, holding a laser blaster shaped like a compact keyboard pointing to the RIGHT, floating underwater, side three-quarter view facing right. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
@@ -685,6 +772,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 ### ✅ `gp-fish.webp`
 - Dùng ở: Cá nhỏ trong game (mang 1-3 chữ cái)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only gp-fish`)
 
 ```text
 A small sleek robotic piranha-like fish with amber glowing fins, side view, swimming toward the LEFT (head on the left), a large flat dark plate in the middle of the body left empty for a word label, glowing neon outline. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
@@ -693,6 +781,7 @@ A small sleek robotic piranha-like fish with amber glowing fins, side view, swim
 ### ✅ `gp-jelly.webp`
 - Dùng ở: Sứa trong game (mang 1-3 chữ cái)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only gp-jelly`)
 
 ```text
 A cyber jellyfish with a violet translucent dome and glowing pink circuit tentacles, front view, the dome has a darker flat center area for a short word label. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
@@ -701,6 +790,7 @@ A cyber jellyfish with a violet translucent dome and glowing pink circuit tentac
 ### ✅ `gp-hands.webp`
 - Dùng ở: Hai bàn tay nét mảnh đặt trên bàn phím ảo (chế độ Ngón tay ảo). App tự canh đầu ngón út trùng phím A và ;
 - Kích thước: 1536x1024 · nền trong suốt
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only gp-hands`)
 
 ```text
 Two human hands seen from directly above in the classic touch-typing home-row position, as in a typing-tutor diagram: the eight fingertips rest in one straight horizontal row across the image at about 30% from the top, evenly spaced, left pinky fingertip at about 12% from the left edge and right pinky fingertip at about 88%; fingers gently curved and relaxed, natural proportions (middle finger longest, pinky shortest); both thumbs rest a little lower near the center pointing slightly toward each other; wrists and forearms continue straight down to the bottom edge; left and right hands mirror each other. Elegant minimal line drawing: one smooth continuous thin white outline (about 3 px), no fill, no shading, no color, no fingernails detail, no keyboard, no background objects, clean vector look like a premium app icon guide, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -709,6 +799,7 @@ Two human hands seen from directly above in the classic touch-typing home-row po
 ### ✅ `gp-shark.webp`
 - Dùng ở: Cá mập máy (mang một từ)
 - Kích thước: 1536x1024 · nền trong suốt
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only gp-shark`)
 
 ```text
 A cool mechanical shark with dark navy armor plates, cyan glowing gill lines and a red glowing eye, sharp but not gory, side view, swimming toward the LEFT (head on the left), a large flat dark plate in the middle of the body left empty for a word label, glowing neon outline. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
@@ -717,6 +808,7 @@ A cool mechanical shark with dark navy armor plates, cyan glowing gill lines and
 ### ✅ `gp-boss.webp`
 - Dùng ở: Cá mập trùm (mang từ dài, câu)
 - Kích thước: 1536x1024 · nền trong suốt
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only gp-boss`)
 
 ```text
 A huge boss mechanical shark with magenta neon armor, glowing pink eyes, spiky dorsal fin like a radio antenna, menacing but kid-friendly, side view, swimming toward the LEFT (head on the left), a large flat dark plate in the middle of the body left empty for a word label, glowing neon outline. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
@@ -725,6 +817,7 @@ A huge boss mechanical shark with magenta neon armor, glowing pink eyes, spiky d
 ### ✅ `bg-gp-deep.webp`
 - Dùng ở: Cảnh nền game cá mập: biển sâu (để trống giữa cho cá bơi qua)
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only bg-gp-deep`)
 
 ```text
 Wide underwater scene in the deep ocean at night: soft god rays from the surface at the top, a far-away glowing cyber city of coral towers on the seabed at the bottom, floating particles, the middle band left mostly empty and dark-blue so fish sprites and labels stay readable, low contrast at the center. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
@@ -733,6 +826,7 @@ Wide underwater scene in the deep ocean at night: soft god rays from the surface
 ### ✅ `bg-gp-map.webp`
 - Dùng ở: Cảnh nền bản đồ bài của môn Gõ phím
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only bg-gp-map`)
 
 ```text
 Top-down view of a deep-sea cyber city: glowing neon coral reefs, light trails on the seabed like circuit boards, small submarine docks, very dark and low contrast so map nodes on top stay readable. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
@@ -741,6 +835,7 @@ Top-down view of a deep-sea cyber city: glowing neon coral reefs, light trails o
 ### ✅ `bg-gp-lesson.webp`
 - Dùng ở: Cảnh nền bài học, kiểm tra của môn Gõ phím (rất tối, mờ)
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only bg-gp-lesson`)
 
 ```text
 Inside a cozy high-tech submarine control room with a big round window showing the dark ocean, keyboard consoles with soft cyan glow, background heavily blurred and dark, mostly empty. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
@@ -749,6 +844,7 @@ Inside a cozy high-tech submarine control room with a big round window showing t
 ### ✅ `subject-gophim-cover.webp`
 - Dùng ở: Ảnh lớn môn Gõ phím ở trang chủ (chữ đè lên phần dưới ảnh)
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only subject-gophim-cover`)
 
 ```text
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile as a diver aiming a keyboard laser blaster at a mechanical shark charging in from the right, letters glowing on the shark's side, deep ocean with neon light rays, dynamic action pose, upper half has the action, lower third darker for text. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
@@ -757,6 +853,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 ### ✅ `bg-gp-race.webp`
 - Dùng ở: Cảnh nền đường đua (chế độ Đua xe)
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only bg-gp-race`)
 
 ```text
 A neon hover-car race track inside a glass tunnel under the sea, track lanes glowing cyan and pink seen from the side, fish swimming outside the tunnel, the track runs horizontally across the image, dark background. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
@@ -765,6 +862,7 @@ A neon hover-car race track inside a glass tunnel under the sea, track lanes glo
 ### ✅ `gp-car.webp`
 - Dùng ở: Xe đua trong chế độ Đua xe (app tự đổi màu cho từng bạn)
 - Kích thước: 1536x1024 · nền trong suốt
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only gp-car`)
 
 ```text
 A sleek futuristic hover race car, side view facing RIGHT, white and silver body with glowing cyan underlights and a small bubble cockpit, no driver visible, no numbers. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
@@ -773,6 +871,7 @@ A sleek futuristic hover race car, side view facing RIGHT, white and silver body
 ### ✅ `gp-mode-survival.webp`
 - Dùng ở: Biểu tượng chế độ Sinh tồn
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only gp-mode-survival`)
 
 ```text
 Round app-icon style badge: a mechanical shark head with glowing red eye bursting through a ring of three neon hearts. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
@@ -781,6 +880,7 @@ Round app-icon style badge: a mechanical shark head with glowing red eye burstin
 ### ✅ `gp-mode-passage.webp`
 - Dùng ở: Biểu tượng chế độ Bài gõ hay
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only gp-mode-passage`)
 
 ```text
 Round app-icon style badge: a glowing holographic scroll of paper floating above a neon keyboard. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
@@ -789,6 +889,7 @@ Round app-icon style badge: a glowing holographic scroll of paper floating above
 ### ✅ `gp-mode-race.webp`
 - Dùng ở: Biểu tượng chế độ Đua xe
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only gp-mode-race`)
 
 ```text
 Round app-icon style badge: a neon hover race car crossing a checkered finish line. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
@@ -797,6 +898,7 @@ Round app-icon style badge: a neon hover race car crossing a checkered finish li
 ### ✅ `gp-tier-1.webp`
 - Dùng ở: Huy hiệu trình độ Hàng phím cơ sở
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only gp-tier-1`)
 
 ```text
 Hexagon tech badge with two glowing keycaps side by side, each with a small raised bump, cyan glow. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
@@ -805,6 +907,7 @@ Hexagon tech badge with two glowing keycaps side by side, each with a small rais
 ### ✅ `gp-tier-2.webp`
 - Dùng ở: Huy hiệu trình độ Từng bàn tay
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only gp-tier-2`)
 
 ```text
 Hexagon tech badge with a robotic glove hand outline made of neon lines, violet glow. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
@@ -813,6 +916,7 @@ Hexagon tech badge with a robotic glove hand outline made of neon lines, violet 
 ### ✅ `gp-tier-3.webp`
 - Dùng ở: Huy hiệu trình độ Phối hợp
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only gp-tier-3`)
 
 ```text
 Hexagon tech badge with two neon hands crossing over a keyboard, pink and cyan glow. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
@@ -821,6 +925,7 @@ Hexagon tech badge with two neon hands crossing over a keyboard, pink and cyan g
 ### ✅ `gp-tier-4.webp`
 - Dùng ở: Huy hiệu trình độ Telex (gõ tiếng Việt)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only gp-tier-4`)
 
 ```text
 Hexagon tech badge with a glowing keycap that has a small hook and hat accent marks floating above it like Vietnamese diacritics, amber glow, no real letters. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
@@ -829,6 +934,7 @@ Hexagon tech badge with a glowing keycap that has a small hook and hat accent ma
 ### ✅ `gp-cover-nha.webp`
 - Dùng ở: Bìa các bài Hàng phím cơ sở (thẻ Học tiếp)
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only gp-cover-nha`)
 
 ```text
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile resting both hands on the middle row of a giant glowing keyboard that lies on the seabed like a dance floor. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
@@ -837,6 +943,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 ### ✅ `gp-cover-tay.webp`
 - Dùng ở: Bìa các bài Từng bàn tay
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only gp-cover-tay`)
 
 ```text
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile reaching up to a glowing top-row key and down to a bottom-row key of a giant neon keyboard, underwater. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
@@ -845,6 +952,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 ### ✅ `gp-cover-phoi.webp`
 - Dùng ở: Bìa các bài Phối hợp
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only gp-cover-phoi`)
 
 ```text
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile typing fast with both hands on a holographic keyboard, light trails following the fingers, a school of neon fish swirling around. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
@@ -853,6 +961,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 ### ✅ `gp-cover-telex.webp`
 - Dùng ở: Bìa các bài Telex
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only gp-cover-telex`)
 
 ```text
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile in a submarine cockpit typing, glowing Vietnamese-style accent marks (hooks, hats, tone marks) floating like bubbles, no full words. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
@@ -861,6 +970,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 ### ✅ `nav-pole.webp`
 - Dùng ở: Thân cọc gỗ dọc thanh bên (app lặp ảnh theo chiều dọc, kéo dài suốt màn hình)
 - Kích thước: 1024x1536 · nền trong suốt
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only nav-pole`)
 
 ```text
 A straight vertical wooden post segment, seen from the front, centered, filling the full image height and about 12% of the width, warm light-honey wood with soft grain, cute storybook look, clean dark-brown outline; SEAMLESS vertically: the top and bottom edges must tile perfectly when repeated (no cap, no end, no knots cut at the edges), nothing else in the image. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -869,6 +979,7 @@ A straight vertical wooden post segment, seen from the front, centered, filling 
 ### ✅ `nav-title.webp`
 - Dùng ở: Biển tên app treo trên đầu cọc (app đặt logo và chữ Học Vui lên trên)
 - Kích thước: 1536x1024 · nền trong suốt
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only nav-title`)
 
 ```text
 A single wide rounded-rectangle wooden name plaque, front view, about 3.2 times wider than tall, filling the image width, warm light-honey wood with soft grain, cute storybook look, clean dark-brown outline, a slightly thicker carved frame border, two small nails in the middle of the top and bottom edges, a tiny green leaf vine curling on one corner, the inner area completely BLANK flat wood for a logo and title, no post, nothing else. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -877,6 +988,7 @@ A single wide rounded-rectangle wooden name plaque, front view, about 3.2 times 
 ### ✅ `nav-hoc.webp`
 - Dùng ở: Tấm biển gắn vào cọc ở thanh bên: Học (chữ do app viết đè lên ván trống)
 - Kích thước: 1536x1024 · nền trong suốt
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only nav-hoc`)
 
 ```text
 A single wooden arrow-shaped plank sign pointing to the RIGHT, seen straight from the front, nothing else: no post, no stake, no grass; the plank fills the whole image width, about 3.5 times wider than tall, warm light-honey wood with soft grain, cute storybook look, clean dark-brown outline, two small nails near the left end (top and bottom) where it is nailed to a post; at the LEFT end a round painted emblem about 80% of the plank height; the whole area to the right of the emblem is a smooth, completely BLANK flat wood surface reserved for a label. The emblem shows an open storybook with a small sprout. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -885,6 +997,7 @@ A single wooden arrow-shaped plank sign pointing to the RIGHT, seen straight fro
 ### ✅ `nav-thi-dau.webp`
 - Dùng ở: Tấm biển gắn vào cọc ở thanh bên: Thi đấu (chữ do app viết đè lên ván trống)
 - Kích thước: 1536x1024 · nền trong suốt
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only nav-thi-dau`)
 
 ```text
 A single wooden arrow-shaped plank sign pointing to the RIGHT, seen straight from the front, nothing else: no post, no stake, no grass; the plank fills the whole image width, about 3.5 times wider than tall, warm light-honey wood with soft grain, cute storybook look, clean dark-brown outline, two small nails near the left end (top and bottom) where it is nailed to a post; at the LEFT end a round painted emblem about 80% of the plank height; the whole area to the right of the emblem is a smooth, completely BLANK flat wood surface reserved for a label. The emblem shows a yellow lightning bolt over two crossed pencils. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -893,6 +1006,7 @@ A single wooden arrow-shaped plank sign pointing to the RIGHT, seen straight fro
 ### ✅ `nav-xep-hang.webp`
 - Dùng ở: Tấm biển gắn vào cọc ở thanh bên: Xếp hạng (chữ do app viết đè lên ván trống)
 - Kích thước: 1536x1024 · nền trong suốt
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only nav-xep-hang`)
 
 ```text
 A single wooden arrow-shaped plank sign pointing to the RIGHT, seen straight from the front, nothing else: no post, no stake, no grass; the plank fills the whole image width, about 3.5 times wider than tall, warm light-honey wood with soft grain, cute storybook look, clean dark-brown outline, two small nails near the left end (top and bottom) where it is nailed to a post; at the LEFT end a round painted emblem about 80% of the plank height; the whole area to the right of the emblem is a smooth, completely BLANK flat wood surface reserved for a label. The emblem shows a small golden trophy cup. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -901,6 +1015,7 @@ A single wooden arrow-shaped plank sign pointing to the RIGHT, seen straight fro
 ### ✅ `nav-pole-neon.webp`
 - Dùng ở: Trụ thanh bên theme Neon (app lặp ảnh theo chiều dọc)
 - Kích thước: 1024x1536 · nền trong suốt
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only nav-pole-neon`)
 
 ```text
 A straight vertical brushed-metal post segment with a thin glowing cyan light strip down its center, seen from the front, centered, filling the full image height and about 12% of the width; SEAMLESS vertically: the top and bottom edges must tile perfectly when repeated (no cap, no end), nothing else in the image. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
@@ -909,6 +1024,7 @@ A straight vertical brushed-metal post segment with a thin glowing cyan light st
 ### ✅ `nav-title-neon.webp`
 - Dùng ở: Biển tên app theme Neon (app đặt logo và chữ Học Vui lên trên)
 - Kích thước: 1536x1024 · nền trong suốt
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only nav-title-neon`)
 
 ```text
 A single wide rounded-rectangle sci-fi name plaque, front view, about 3.2 times wider than tall, filling the image width, dark navy glass with a glowing neon cyan frame and small corner brackets, two small glowing bolts at the middle of the top and bottom edges, the inner area completely BLANK dark glass for a logo and title, no post, nothing else. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
@@ -917,6 +1033,7 @@ A single wide rounded-rectangle sci-fi name plaque, front view, about 3.2 times 
 ### ✅ `nav-hoc-neon.webp`
 - Dùng ở: Biển thanh bên theme Neon: Học (chữ do app viết đè lên phần kính trống; cùng bố cục với nav-hoc)
 - Kích thước: 1536x1024 · nền trong suốt
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only nav-hoc-neon`)
 
 ```text
 A single arrow-shaped sci-fi sign panel pointing to the RIGHT, seen straight from the front, nothing else: no post, no background scene; the panel fills the whole image width, about 3.5 times wider than tall, made of dark navy glass and brushed metal with a glowing neon cyan edge line, two small glowing bolts near the left end (top and bottom) where it is mounted to a post; at the LEFT end a round glowing emblem about 80% of the panel height; the whole area to the right of the emblem is a smooth, completely BLANK dark glass surface reserved for a label. The emblem shows a glowing holographic open book with a small sprout of light. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
@@ -925,6 +1042,7 @@ A single arrow-shaped sci-fi sign panel pointing to the RIGHT, seen straight fro
 ### ✅ `nav-thi-dau-neon.webp`
 - Dùng ở: Biển thanh bên theme Neon: Thi đấu (chữ do app viết đè lên phần kính trống; cùng bố cục với nav-thi-dau)
 - Kích thước: 1536x1024 · nền trong suốt
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only nav-thi-dau-neon`)
 
 ```text
 A single arrow-shaped sci-fi sign panel pointing to the RIGHT, seen straight from the front, nothing else: no post, no background scene; the panel fills the whole image width, about 3.5 times wider than tall, made of dark navy glass and brushed metal with a glowing neon cyan edge line, two small glowing bolts near the left end (top and bottom) where it is mounted to a post; at the LEFT end a round glowing emblem about 80% of the panel height; the whole area to the right of the emblem is a smooth, completely BLANK dark glass surface reserved for a label. The emblem shows a neon yellow lightning bolt over two crossed glowing pencils. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
@@ -933,6 +1051,7 @@ A single arrow-shaped sci-fi sign panel pointing to the RIGHT, seen straight fro
 ### ✅ `nav-xep-hang-neon.webp`
 - Dùng ở: Biển thanh bên theme Neon: Xếp hạng (chữ do app viết đè lên phần kính trống; cùng bố cục với nav-xep-hang)
 - Kích thước: 1536x1024 · nền trong suốt
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only nav-xep-hang-neon`)
 
 ```text
 A single arrow-shaped sci-fi sign panel pointing to the RIGHT, seen straight from the front, nothing else: no post, no background scene; the panel fills the whole image width, about 3.5 times wider than tall, made of dark navy glass and brushed metal with a glowing neon cyan edge line, two small glowing bolts near the left end (top and bottom) where it is mounted to a post; at the LEFT end a round glowing emblem about 80% of the panel height; the whole area to the right of the emblem is a smooth, completely BLANK dark glass surface reserved for a label. The emblem shows a small glowing golden trophy cup. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
@@ -941,6 +1060,7 @@ A single arrow-shaped sci-fi sign panel pointing to the RIGHT, seen straight fro
 ### ✅ `ic-star.webp`
 - Dùng ở: Icon nhỏ: XP (sao)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only ic-star`)
 
 ```text
 A plump five-pointed golden star with a soft shine. Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
@@ -949,6 +1069,7 @@ A plump five-pointed golden star with a soft shine. Game UI icon in a glossy sof
 ### ✅ `ic-fire.webp`
 - Dùng ở: Icon nhỏ: Chuỗi ngày học (lửa)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only ic-fire`)
 
 ```text
 A cute round flame, orange outside and yellow inside. Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
@@ -957,6 +1078,7 @@ A cute round flame, orange outside and yellow inside. Game UI icon in a glossy s
 ### ✅ `ic-trophy.webp`
 - Dùng ở: Icon nhỏ: Cúp, bảng xếp hạng, kỷ lục
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only ic-trophy`)
 
 ```text
 A shiny golden trophy cup with two handles on a small base. Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
@@ -965,6 +1087,7 @@ A shiny golden trophy cup with two handles on a small base. Game UI icon in a gl
 ### ✅ `ic-medal-1.webp`
 - Dùng ở: Icon nhỏ: Hạng nhất
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only ic-medal-1`)
 
 ```text
 A round gold medal with a blue ribbon, a star engraved in the middle. Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
@@ -973,6 +1096,7 @@ A round gold medal with a blue ribbon, a star engraved in the middle. Game UI ic
 ### ✅ `ic-medal-2.webp`
 - Dùng ở: Icon nhỏ: Hạng nhì
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only ic-medal-2`)
 
 ```text
 A round silver medal with a blue ribbon, a star engraved in the middle. Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
@@ -981,6 +1105,7 @@ A round silver medal with a blue ribbon, a star engraved in the middle. Game UI 
 ### ✅ `ic-medal-3.webp`
 - Dùng ở: Icon nhỏ: Hạng ba
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only ic-medal-3`)
 
 ```text
 A round bronze medal with a blue ribbon, a star engraved in the middle. Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
@@ -989,6 +1114,7 @@ A round bronze medal with a blue ribbon, a star engraved in the middle. Game UI 
 ### ✅ `ic-bolt.webp`
 - Dùng ở: Icon nhỏ: Thi đấu, thử thách, bonus
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only ic-bolt`)
 
 ```text
 A chunky yellow lightning bolt. Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
@@ -997,6 +1123,7 @@ A chunky yellow lightning bolt. Game UI icon in a glossy soft-3D anime sticker s
 ### ✅ `ic-retry.webp`
 - Dùng ở: Icon nhỏ: Chơi lại, làm lại
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only ic-retry`)
 
 ```text
 Two curved mint-green arrows chasing each other in a circle. Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
@@ -1005,6 +1132,7 @@ Two curved mint-green arrows chasing each other in a circle. Game UI icon in a g
 ### ✅ `ic-invite.webp`
 - Dùng ở: Icon nhỏ: Mời bạn
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only ic-invite`)
 
 ```text
 A sky-blue envelope with a pink heart seal and a small paper-plane wing. Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
@@ -1013,6 +1141,7 @@ A sky-blue envelope with a pink heart seal and a small paper-plane wing. Game UI
 ### ✅ `ic-party.webp`
 - Dùng ở: Icon nhỏ: Chúc mừng, đúng rồi
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only ic-party`)
 
 ```text
 A party popper cone bursting with colorful confetti. Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
@@ -1021,6 +1150,7 @@ A party popper cone bursting with colorful confetti. Game UI icon in a glossy so
 ### ✅ `ic-sound.webp`
 - Dùng ở: Icon nhỏ: Nghe, loa
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only ic-sound`)
 
 ```text
 A rounded blue speaker with two sound waves. Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
@@ -1029,6 +1159,7 @@ A rounded blue speaker with two sound waves. Game UI icon in a glossy soft-3D an
 ### ✅ `ic-hint.webp`
 - Dùng ở: Icon nhỏ: Gợi ý, mẹo
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only ic-hint`)
 
 ```text
 A glowing yellow light bulb with a tiny sparkle. Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
@@ -1037,6 +1168,7 @@ A glowing yellow light bulb with a tiny sparkle. Game UI icon in a glossy soft-3
 ### ✅ `ic-mic.webp`
 - Dùng ở: Icon nhỏ: Đọc to, ghi âm
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only ic-mic`)
 
 ```text
 A round retro microphone, coral and silver. Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
@@ -1045,6 +1177,7 @@ A round retro microphone, coral and silver. Game UI icon in a glossy soft-3D ani
 ### ✅ `ic-target.webp`
 - Dùng ở: Icon nhỏ: Bấm theo, không sai phím
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only ic-target`)
 
 ```text
 A round red and white target with a small arrow in the bullseye. Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
@@ -1053,6 +1186,7 @@ A round red and white target with a small arrow in the bullseye. Game UI icon in
 ### ✅ `ic-rocket.webp`
 - Dùng ở: Icon nhỏ: Thử thách lên lớp
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only ic-rocket`)
 
 ```text
 A small white and coral rocket flying up with a little flame. Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
@@ -1061,6 +1195,7 @@ A small white and coral rocket flying up with a little flame. Game UI icon in a 
 ### ✅ `ic-flag.webp`
 - Dùng ở: Icon nhỏ: Về đích, tạo phòng
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only ic-flag`)
 
 ```text
 A black and white checkered finish flag waving on a short pole. Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
@@ -1069,6 +1204,7 @@ A black and white checkered finish flag waving on a short pole. Game UI icon in 
 ### ✅ `ic-calc.webp`
 - Dùng ở: Icon nhỏ: Máy tính
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only ic-calc`)
 
 ```text
 A small dark-navy scientific calculator with a teal screen and round buttons. Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
@@ -1077,6 +1213,7 @@ A small dark-navy scientific calculator with a teal screen and round buttons. Ga
 ### ✅ `ic-pencil.webp`
 - Dùng ở: Icon nhỏ: Luyện tập, thử nhanh
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only ic-pencil`)
 
 ```text
 A yellow pencil with a pink eraser, tilted. Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
@@ -1085,6 +1222,7 @@ A yellow pencil with a pink eraser, tilted. Game UI icon in a glossy soft-3D ani
 ### ✅ `ic-ticket.webp`
 - Dùng ở: Icon nhỏ: Vào phòng bằng mã
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only ic-ticket`)
 
 ```text
 A lilac admission ticket with a perforated edge and a star. Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
@@ -1093,6 +1231,7 @@ A lilac admission ticket with a perforated edge and a star. Game UI icon in a gl
 ### ✅ `ic-scroll.webp`
 - Dùng ở: Icon nhỏ: Bài gõ hay
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only ic-scroll`)
 
 ```text
 A rolled paper scroll partly open, cream paper with a red ribbon. Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
@@ -1101,6 +1240,7 @@ A rolled paper scroll partly open, cream paper with a red ribbon. Game UI icon i
 ### ✅ `ic-lock.webp`
 - Dùng ở: Icon nhỏ: Chưa mở khóa
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only ic-lock`)
 
 ```text
 A chunky golden padlock, closed. Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
@@ -1109,6 +1249,7 @@ A chunky golden padlock, closed. Game UI icon in a glossy soft-3D anime sticker 
 ### ✅ `ic-heart.webp`
 - Dùng ở: Icon nhỏ: Mạng sống trong game
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only ic-heart`)
 
 ```text
 A plump glossy red heart. Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
@@ -1117,6 +1258,7 @@ A plump glossy red heart. Game UI icon in a glossy soft-3D anime sticker style: 
 ### ✅ `ic-shark.webp`
 - Dùng ở: Icon nhỏ: Vào game cá mập
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only ic-shark`)
 
 ```text
 A cute small blue shark head with a friendly grin. Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
@@ -1125,6 +1267,7 @@ A cute small blue shark head with a friendly grin. Game UI icon in a glossy soft
 ### ✅ `ic-warn.webp`
 - Dùng ở: Icon nhỏ: Chú ý
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only ic-warn`)
 
 ```text
 A rounded yellow warning triangle with an exclamation shape made of a bar and a dot (not a letter). Game UI icon in a glossy soft-3D anime sticker style: one single object, centered, front view, chunky simple rounded shapes, bold clean dark-navy outline (#252845) plus a thin white outer rim, soft highlight on top, readable at 24 pixels, palette sky blue #4F72FF, coral #FF8A5C, mint #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, no text, no letters, no numbers, no watermark, no shadow on the ground, isolated on a fully transparent background.
@@ -1133,6 +1276,7 @@ A rounded yellow warning triangle with an exclamation shape made of a bar and a 
 ### ✅ `subject-laptrinh-cover.webp`
 - Dùng ở: Ảnh lớn môn Lập trình ở trang chủ (chữ đè lên phần dưới ảnh), phong cách Hologram
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only subject-laptrinh-cover`)
 
 ```text
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile, standing confidently on a floating glass isometric 3D game board made of translucent cyan grid tiles with glowing edges and a mirror-like reflection underneath, a few frosted-glass cube walls on the board, one hand raised controlling a floating holographic code panel; glowing translucent glass command blocks (cyan, violet, mint green, amber, blank faces with no text) snapping together in mid-air like a puzzle chain, a holographic small round white cat projection made of cyan light with scan lines walking along the tiles toward a glowing mint-green portal flag, golden crystal stars hovering above some tiles, thin HUD frame corners and radar circles floating in the air, deep teal-black space background with soft cyan haze, upper half has the action, lower third darker for text. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
@@ -1141,6 +1285,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 ### ✅ `bg-lt-map.webp`
 - Dùng ở: Cảnh nền bản đồ bài của môn Lập trình (tối, neon)
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only bg-lt-map`)
 
 ```text
 A calm, minimal dark background: deep navy to teal-black gradient with a faint glowing circuit-trace pattern, very thin and sparse cyan lines only near the left and right edges, a few tiny soft bokeh dots, the whole center (60% of the width) almost empty and smooth, very low contrast and low saturation, no buildings, no trees, no big shapes, so map cards and text on top stay easy to read. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
@@ -1149,6 +1294,7 @@ A calm, minimal dark background: deep navy to teal-black gradient with a faint g
 ### ✅ `bg-lt-lesson.webp`
 - Dùng ở: Cảnh nền bài học, màn chơi môn Lập trình (rất tối, mờ)
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only bg-lt-lesson`)
 
 ```text
 A cozy futuristic coding lab at night, big holographic screens showing colorful puzzle-piece blocks, a small robot desk lamp, cyan and violet glow, background heavily blurred and dark, mostly empty. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
@@ -1157,6 +1303,7 @@ A cozy futuristic coding lab at night, big holographic screens showing colorful 
 ### ✅ `lt-cover-vo-long.webp`
 - Dùng ở: Bìa các bài Vỡ lòng môn Lập trình
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only lt-cover-vo-long`)
 
 ```text
 Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator, standing on a grass tile of a big garden grid board, holding a blue puzzle-piece command block (blank, no text), small stone walls and a red flag on other tiles, golden stars here and there. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
@@ -1165,6 +1312,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 ### ✅ `lt-cover-co-ban.webp`
 - Dùng ở: Bìa các bài Cơ bản môn Lập trình (lặp, nếu, bút vẽ)
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only lt-cover-co-ban`)
 
 ```text
 Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator, holding a giant crayon and drawing a neat square spiral path on a big garden grid board, a green looping arrow ribbon circling above, small stone walls on some tiles. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
@@ -1173,6 +1321,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 ### ✅ `lt-cover-trung-cap.webp`
 - Dùng ở: Bìa các bài Trung cấp môn Lập trình (hàm, biến, sự kiện, mini game)
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only lt-cover-trung-cap`)
 
 ```text
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile, sitting on a floating neon block platform and snapping together glowing puzzle-piece code blocks into a small arcade game screen, a holographic joystick and floating function brackets made of simple shapes around him. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
@@ -1181,6 +1330,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 ### ✅ `lt-cover-nang-cao.webp`
 - Dùng ở: Bìa các bài Nâng cao môn Lập trình (danh sách, tìm kiếm, sắp xếp, mê cung)
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only lt-cover-nang-cao`)
 
 ```text
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile, standing in a dark holographic warehouse beside a row of glowing numbered crates being sorted from short to tall, a translucent maze map hovering in front of his visor. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
@@ -1189,6 +1339,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 ### ✅ `lt-holo-mochi-happy.webp`
 - Dùng ở: Lập trình · nhân vật Mochi hologram trên sân Hologram, lúc đứng yên / đang đi
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only lt-holo-mochi-happy`)
 
 ```text
 A cute glowing HOLOGRAM of a chibi white cat with small pointed ears, seen from the front, full body, short round body and a big round head, made entirely of translucent cyan light (#4FF0FF) with a bright white-cyan outline, thin horizontal scan lines across the body, faint wireframe lines, soft outer glow, a calm friendly smile, eyes open and bright. Floating, centered, filling about 85% of the image height, feet at the bottom center; no projector base, no light beam, no floor, no ground shadow (the app draws those). Clean sci-fi game character sprite, crisp vector-like shapes, cute but cool, glowing translucent hologram look with additive cyan light, subtle chromatic edge (faint pink and violet fringe), consistent same character design across all poses, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
@@ -1197,6 +1348,7 @@ A cute glowing HOLOGRAM of a chibi white cat with small pointed ears, seen from 
 ### ✅ `lt-holo-mochi-cheer.webp`
 - Dùng ở: Lập trình · nhân vật Mochi hologram trên sân Hologram, lúc về tới cờ, thắng
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only lt-holo-mochi-cheer`)
 
 ```text
 A cute glowing HOLOGRAM of a chibi white cat with small pointed ears, seen from the front, full body, short round body and a big round head, made entirely of translucent cyan light (#4FF0FF) with a bright white-cyan outline, thin horizontal scan lines across the body, faint wireframe lines, soft outer glow, eyes closed in happy upside-down arcs, big joyful smile, one paw raised in a cheer. Floating, centered, filling about 85% of the image height, feet at the bottom center; no projector base, no light beam, no floor, no ground shadow (the app draws those). Clean sci-fi game character sprite, crisp vector-like shapes, cute but cool, glowing translucent hologram look with additive cyan light, subtle chromatic edge (faint pink and violet fringe), consistent same character design across all poses, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
@@ -1205,6 +1357,7 @@ A cute glowing HOLOGRAM of a chibi white cat with small pointed ears, seen from 
 ### ✅ `lt-holo-mochi-oops.webp`
 - Dùng ở: Lập trình · nhân vật Mochi hologram trên sân Hologram, lúc đụng tường, sai
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only lt-holo-mochi-oops`)
 
 ```text
 A cute glowing HOLOGRAM of a chibi white cat with small pointed ears, seen from the front, full body, short round body and a big round head, made entirely of translucent cyan light (#4FF0FF) with a bright white-cyan outline, thin horizontal scan lines across the body, faint wireframe lines, soft outer glow, dizzy surprised face with little x-shaped eyes, small worried mouth, one paw on the head. Floating, centered, filling about 85% of the image height, feet at the bottom center; no projector base, no light beam, no floor, no ground shadow (the app draws those). Clean sci-fi game character sprite, crisp vector-like shapes, cute but cool, glowing translucent hologram look with additive cyan light, subtle chromatic edge (faint pink and violet fringe), consistent same character design across all poses, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
@@ -1213,6 +1366,7 @@ A cute glowing HOLOGRAM of a chibi white cat with small pointed ears, seen from 
 ### ✅ `lt-holo-bit-happy.webp`
 - Dùng ở: Lập trình · nhân vật Bit hologram trên sân Hologram, lúc đứng yên / đang đi
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only lt-holo-bit-happy`)
 
 ```text
 A cute glowing HOLOGRAM of a chibi rabbit with two long upright ears whose tips glow (cyan left, pink right) and a sleek tech visor band across the eyes, seen from the front, full body, short round body and a big round head, made entirely of translucent cyan light (#4FF0FF) with a bright white-cyan outline, thin horizontal scan lines across the body, faint wireframe lines, soft outer glow, a calm friendly smile, eyes open and bright. Floating, centered, filling about 85% of the image height, feet at the bottom center; no projector base, no light beam, no floor, no ground shadow (the app draws those). Clean sci-fi game character sprite, crisp vector-like shapes, cute but cool, glowing translucent hologram look with additive cyan light, subtle chromatic edge (faint pink and violet fringe), consistent same character design across all poses, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
@@ -1221,6 +1375,7 @@ A cute glowing HOLOGRAM of a chibi rabbit with two long upright ears whose tips 
 ### ✅ `lt-holo-bit-cheer.webp`
 - Dùng ở: Lập trình · nhân vật Bit hologram trên sân Hologram, lúc về tới cờ, thắng
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only lt-holo-bit-cheer`)
 
 ```text
 A cute glowing HOLOGRAM of a chibi rabbit with two long upright ears whose tips glow (cyan left, pink right) and a sleek tech visor band across the eyes, seen from the front, full body, short round body and a big round head, made entirely of translucent cyan light (#4FF0FF) with a bright white-cyan outline, thin horizontal scan lines across the body, faint wireframe lines, soft outer glow, eyes closed in happy upside-down arcs, big joyful smile, one paw raised in a cheer. Floating, centered, filling about 85% of the image height, feet at the bottom center; no projector base, no light beam, no floor, no ground shadow (the app draws those). Clean sci-fi game character sprite, crisp vector-like shapes, cute but cool, glowing translucent hologram look with additive cyan light, subtle chromatic edge (faint pink and violet fringe), consistent same character design across all poses, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
@@ -1229,6 +1384,7 @@ A cute glowing HOLOGRAM of a chibi rabbit with two long upright ears whose tips 
 ### ✅ `lt-holo-bit-oops.webp`
 - Dùng ở: Lập trình · nhân vật Bit hologram trên sân Hologram, lúc đụng tường, sai
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only lt-holo-bit-oops`)
 
 ```text
 A cute glowing HOLOGRAM of a chibi rabbit with two long upright ears whose tips glow (cyan left, pink right) and a sleek tech visor band across the eyes, seen from the front, full body, short round body and a big round head, made entirely of translucent cyan light (#4FF0FF) with a bright white-cyan outline, thin horizontal scan lines across the body, faint wireframe lines, soft outer glow, dizzy surprised face with little x-shaped eyes, small worried mouth, one paw on the head. Floating, centered, filling about 85% of the image height, feet at the bottom center; no projector base, no light beam, no floor, no ground shadow (the app draws those). Clean sci-fi game character sprite, crisp vector-like shapes, cute but cool, glowing translucent hologram look with additive cyan light, subtle chromatic edge (faint pink and violet fringe), consistent same character design across all poses, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
@@ -1237,6 +1393,7 @@ A cute glowing HOLOGRAM of a chibi rabbit with two long upright ears whose tips 
 ### ✅ `lt-tier-1.webp`
 - Dùng ở: Huy hiệu trình độ Vỡ lòng (môn Lập trình)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only lt-tier-1`)
 
 ```text
 Round badge: a small white cat paw print stepping on a green grid tile with a tiny arrow, mint and sky-blue colors. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -1245,6 +1402,7 @@ Round badge: a small white cat paw print stepping on a green grid tile with a ti
 ### ✅ `lt-tier-2.webp`
 - Dùng ở: Huy hiệu trình độ Cơ bản (môn Lập trình)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only lt-tier-2`)
 
 ```text
 Round badge: a looping circular arrow made of a mint-green puzzle-piece block around a yellow star. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -1253,6 +1411,7 @@ Round badge: a looping circular arrow made of a mint-green puzzle-piece block ar
 ### ✅ `lt-tier-3.webp`
 - Dùng ở: Huy hiệu trình độ Trung cấp (môn Lập trình)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only lt-tier-3`)
 
 ```text
 Round badge: a cute game controller made of colorful puzzle-piece blocks, lilac glow. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -1261,6 +1420,7 @@ Round badge: a cute game controller made of colorful puzzle-piece blocks, lilac 
 ### ✅ `lt-tier-4.webp`
 - Dùng ở: Huy hiệu trình độ Nâng cao (môn Lập trình)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only lt-tier-4`)
 
 ```text
 Round badge: a row of bar-chart columns being sorted from short to tall with a small curved arrow, sky blue and coral. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -1269,6 +1429,7 @@ Round badge: a row of bar-chart columns being sorted from short to tall with a s
 ### ✅ `lt-tier-5.webp`
 - Dùng ở: Huy hiệu trình độ Python (môn Lập trình)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only lt-tier-5`)
 
 ```text
 Round badge: a friendly round blue and yellow snake coiled around a pair of curly code brackets made of simple shapes (no letters). Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -1277,6 +1438,7 @@ Round badge: a friendly round blue and yellow snake coiled around a pair of curl
 ### ✅ `subject-hoahoc-cover.webp`
 - Dùng ở: Ảnh lớn môn Thí nghiệm hoá ở trang chủ (chữ đè lên phần dưới ảnh)
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only subject-hoahoc-cover`)
 
 ```text
 Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator, now also wearing round safety goggles and a tiny white lab coat, happily pouring a glowing purple liquid from a beaker into a bubbling flask on a wooden lab table, colorful foam and soft sparkles rising, test tubes in a rack (pink, green, blue), a red cabbage and a lemon nearby, one continuous scene from top to bottom: characters and main objects sit in the upper 60% of the frame, and the same scene simply continues into the bottom third (more of the grass, floor, table or ground in the same colors and lighting, a little softer and less detailed, gently shaded by a natural shadow), with no characters or busy details there so white title text can be laid over it; never a separate flat color band, panel or gradient bar. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
@@ -1285,6 +1447,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 ### ✅ `bg-hh-nang.webp`
 - Dùng ở: Thí nghiệm hoá · nền giao diện Phòng lab nắng (Nhí): bản đồ, bài học, thực hành
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only bg-hh-nang`)
 
 ```text
 A cozy sunny home kitchen turned into a kids' science corner: a big window with peach striped curtains, blue sky and green hills outside, potted plants on the sill, a round wall clock, wooden wall shelves with glass jars of colorful ingredients (lemon juice, pink, green, purple), lemons and a red cabbage, a small rack of hanging utensils, white subway-tile backsplash, honey-colored wooden counter with visible grain, a soft diagonal sunbeam with floating dust sparkles. Layout: the bottom 30% is an empty, glossy lab bench top seen slightly from above that softly reflects the room, nothing standing on it (glassware is drawn by the app); the middle band behind where glassware will stand is calm and uncluttered; details sit on the walls and in the upper corners. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
@@ -1293,6 +1456,7 @@ A cozy sunny home kitchen turned into a kids' science corner: a big window with 
 ### ✅ `bg-hh-giakim.webp`
 - Dùng ở: Thí nghiệm hoá · nền giao diện Xưởng giả kim (KHTN)
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only bg-hh-giakim`)
 
 ```text
 Interior of a friendly alchemist's workshop: warm stone brick walls, a tall arched window showing a starry night and a full moon, four wooden shelves of curvy glass potion bottles glowing softly in emerald, violet, coral, sky blue and gold, bundles of dried herbs hanging from the ceiling, a brass hanging lantern, thick candles with warm halos, a brass armillary sphere, floating golden dust motes, polished dark walnut bench with a thin brass trim. Layout: the bottom 30% is an empty, glossy lab bench top seen slightly from above that softly reflects the room, nothing standing on it (glassware is drawn by the app); the middle band behind where glassware will stand is calm and uncluttered; details sit on the walls and in the upper corners. Warm storybook fantasy illustration for kids aged 9 to 12, an alchemist's workshop mood, clean confident line art, soft cel shading, candle-lit amber glow. Palette: dark walnut wood #3D2512, aged brass #A7773F, parchment #F3E2BF, warm amber #E0A84A, with potion accents emerald #46D18A, violet #9B5BD6, sky #4FB3FF. Magical but educational, not spooky, no skulls, no text, no letters, no numbers, no watermark.
@@ -1301,6 +1465,7 @@ Interior of a friendly alchemist's workshop: warm stone brick walls, a tall arch
 ### ✅ `bg-hh-neon.webp`
 - Dùng ở: Thí nghiệm hoá · nền giao diện Lab neon (Hoá THCS)
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only bg-hh-neon`)
 
 ```text
 A dark futuristic chemistry lab at night: hexagon-patterned dark wall panels, a large glass fume hood in the center with a glowing cyan frame and inner light, a holographic line-chart panel on the left and a floating grid of colored glowing tiles (abstract periodic table, no symbols) on the right, thick pipes along the ceiling with neon piping, a hot-pink neon strip across the wall, tiny floating light particles, black glass bench with a cyan edge light. Layout: the bottom 30% is an empty, glossy lab bench top seen slightly from above that softly reflects the room, nothing standing on it (glassware is drawn by the app); the middle band behind where glassware will stand is calm and uncluttered; details sit on the walls and in the upper corners. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
@@ -1309,6 +1474,7 @@ A dark futuristic chemistry lab at night: hexagon-patterned dark wall panels, a 
 ### ✅ `bg-hh-phantu.webp`
 - Dùng ở: Thí nghiệm hoá · nền giao diện Viện phân tử (Hoá THPT)
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only bg-hh-phantu`)
 
 ```text
 A bright high-tech research lab: white wall panels with thin seams, long ceiling light strips, a wide window showing a soft blue city skyline, a large glossy ball-and-stick molecule model floating on the right (black, red, blue and white spheres), a small white data screen with a bar chart, a slim white robotic pipette arm, very clean and airy, white epoxy bench. Layout: the bottom 30% is an empty, glossy lab bench top seen slightly from above that softly reflects the room, nothing standing on it (glassware is drawn by the app); the middle band behind where glassware will stand is calm and uncluttered; details sit on the walls and in the upper corners. Clean modern scientific illustration for students aged 16 to 18, bright research laboratory, crisp vector-like shapes, soft studio lighting, glass and white surfaces. Palette: white #F4F8FF, pale steel #DFE9F7, lab blue #3A7BFF, teal #3FD0C9, small coral accents #FF5B5B. Precise, calm, premium, no text, no letters, no numbers, no watermark.
@@ -1317,6 +1483,7 @@ A bright high-tech research lab: white wall panels with thin seams, long ceiling
 ### ✅ `hh-tier-1.webp`
 - Dùng ở: Huy hiệu trình độ Nhí (môn Hoá)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only hh-tier-1`)
 
 ```text
 Round badge: a small bubbling beaker with a green sprout, mint and sky-blue colors. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -1325,6 +1492,7 @@ Round badge: a small bubbling beaker with a green sprout, mint and sky-blue colo
 ### ✅ `hh-tier-2.webp`
 - Dùng ở: Huy hiệu trình độ Khoa học tự nhiên (môn Hoá)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only hh-tier-2`)
 
 ```text
 Round badge: a magnifier over a sparkling crystal, amber and lilac. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -1333,6 +1501,7 @@ Round badge: a magnifier over a sparkling crystal, amber and lilac. Soft anime i
 ### ✅ `hh-tier-3.webp`
 - Dùng ở: Huy hiệu trình độ Hoá THCS
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only hh-tier-3`)
 
 ```text
 Round badge: an erlenmeyer flask with a swirling glowing pink reaction. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -1341,6 +1510,7 @@ Round badge: an erlenmeyer flask with a swirling glowing pink reaction. Soft ani
 ### ✅ `hh-tier-4.webp`
 - Dùng ở: Huy hiệu trình độ Hoá THPT
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only hh-tier-4`)
 
 ```text
 Round badge: a glowing atom with three orbit rings, sky blue. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -1349,6 +1519,7 @@ Round badge: a glowing atom with three orbit rings, sky blue. Soft anime illustr
 ### ✅ `hh-cover-a01.webp`
 - Dùng ở: Bìa bài Tan hay không tan (Hoá Nhí)
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only hh-cover-a01`)
 
 ```text
 Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator, wearing round safety goggles, stirring a glass of water with a spoon on a sunny lab bench, small bowls of salt, sugar, sand and a bottle of cooking oil beside it. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
@@ -1357,6 +1528,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 ### ✅ `hh-cover-a02.webp`
 - Dùng ở: Bìa bài Nổi hay chìm (Hoá Nhí)
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only hh-cover-a02`)
 
 ```text
 Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator, wearing round safety goggles, peeking at a tall glass of water where an egg floats in the middle, a wooden block and a coin beside the glass. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
@@ -1365,6 +1537,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 ### ✅ `hh-cover-a03.webp`
 - Dùng ở: Bìa bài Nước bắp cải đổi màu (Hoá Nhí)
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only hh-cover-a03`)
 
 ```text
 Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator, wearing round safety goggles, holding a dropper above a row of four glasses with purple, pink, violet and green cabbage juice, half a red cabbage and a lemon on the bench. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
@@ -1373,6 +1546,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 ### ✅ `hh-cover-a04.webp`
 - Dùng ở: Bìa bài Núi lửa baking soda (Hoá Nhí)
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only hh-cover-a04`)
 
 ```text
 Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator, wearing round safety goggles, cheering beside a small clay volcano with pink foam bubbling out of the top, a bottle of vinegar and a box of baking soda (no text) on a tray. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
@@ -1381,6 +1555,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 ### ✅ `hh-cover-a05.webp`
 - Dùng ở: Bìa bài Nước đá, nước, hơi nước (Hoá Nhí)
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only hh-cover-a05`)
 
 ```text
 Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator, wearing round safety goggles, watching a glass beaker with ice cubes over a small burner flame, wisps of steam rising and water drops on a lid. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
@@ -1389,6 +1564,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 ### ✅ `hh-cover-k01.webp`
 - Dùng ở: Bìa bài Tách hỗn hợp (Hoá KHTN)
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only hh-cover-k01`)
 
 ```text
 Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator, wearing a lab coat and goggles, pouring muddy water through a paper filter in a glass funnel into a clear beaker, sunny colorful kids lab. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
@@ -1397,6 +1573,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 ### ✅ `hh-cover-k02.webp`
 - Dùng ở: Bìa bài Dung dịch bão hoà (Hoá KHTN)
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only hh-cover-k02`)
 
 ```text
 Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator, wearing a lab coat and goggles, stirring a beaker with white salt crystals settling at the bottom next to a spoon and a salt jar, sunny colorful kids lab. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
@@ -1405,6 +1582,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 ### ✅ `hh-cover-c01.webp`
 - Dùng ở: Bìa bài Phản ứng hoá học (Hoá THCS)
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only hh-cover-c01`)
 
 ```text
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile, wearing safety goggles, holding a glowing wooden splint above an erlenmeyer flask full of fizzing bubbles in a neon lab, a beaker of pink liquid beside it. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
@@ -1413,6 +1591,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 ### ✅ `hh-cover-c02.webp`
 - Dùng ở: Bìa bài Cân bằng phương trình (Hoá THCS)
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only hh-cover-c02`)
 
 ```text
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile, wearing safety goggles, standing beside a huge glowing two-pan balance scale with colorful glowing atom spheres on both pans, perfectly level, in a neon lab. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
@@ -1421,6 +1600,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 ### ✅ `hh-cover-c03.webp`
 - Dùng ở: Bìa bài Thi cân bằng phương trình (Hoá THCS)
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only hh-cover-c03`)
 
 ```text
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile, wearing safety goggles, racing against a huge glowing countdown timer next to a neon balance scale with colorful atom spheres, dynamic action pose, neon lab. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
@@ -1429,6 +1609,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 ### ✅ `hh-cover-l8-mol.webp`
 - Dùng ở: Bìa bài Luyện mol và khối lượng (Hoá THCS lớp 8)
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only hh-cover-l8-mol`)
 
 ```text
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile, wearing safety goggles, next to a digital lab scale with a small glass dish of white powder, a glowing mole-shaped hologram hovering above it. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
@@ -1437,6 +1618,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 ### ✅ `hh-cover-l8-nd.webp`
 - Dùng ở: Bìa bài Luyện nồng độ dung dịch (Hoá THCS lớp 8)
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only hh-cover-l8-nd`)
 
 ```text
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile, wearing safety goggles, pouring blue liquid from a beaker into a tall measuring cylinder with glowing graduation lines, two flasks of light and dark blue solution beside it. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
@@ -1445,6 +1627,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 ### ✅ `hh-cover-l8-btkl.webp`
 - Dùng ở: Bìa bài Luyện bảo toàn khối lượng (Hoá THCS lớp 8)
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only hh-cover-l8-btkl`)
 
 ```text
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile, wearing safety goggles, watching a sealed glass flask on a lab scale showing the same number before and after a small reaction, glowing equals sign hologram. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
@@ -1453,6 +1636,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 ### ✅ `hh-cover-l8-loai.webp`
 - Dùng ở: Bìa bài Luyện phân loại hợp chất (Hoá THCS lớp 8)
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only hh-cover-l8-loai`)
 
 ```text
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile, wearing safety goggles, sorting small glowing test tubes into four labeled-by-color trays (red, blue, green, yellow, no text) on a neon lab bench. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
@@ -1461,6 +1645,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 ### ✅ `hh-cover-l9-dayhd.webp`
 - Dùng ở: Bìa bài Luyện dãy hoạt động kim loại (Hoá THCS lớp 9)
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only hh-cover-l9-dayhd`)
 
 ```text
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile, wearing safety goggles, a copper-colored nail dropped into a blue copper sulfate solution in a beaker, a ladder of glowing metal-colored steps rising behind it. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
@@ -1469,6 +1654,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 ### ✅ `hh-cover-l9-pthh.webp`
 - Dùng ở: Bìa bài Luyện tính theo PTHH (Hoá THCS lớp 9)
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only hh-cover-l9-pthh`)
 
 ```text
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile, wearing safety goggles, a glass flask connected by a tube to an upside-down graduated cylinder collecting bubbles of gas in a water trough, neon lab. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
@@ -1477,6 +1663,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 ### ✅ `hh-cover-l8-trunghoa.webp`
 - Dùng ở: Bìa bài Trung hoà axit bazơ (Hoá THCS lớp 8)
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only hh-cover-l8-trunghoa`)
 
 ```text
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile, wearing safety goggles, holding a burette dripping into a flask that is turning from clear to bright pink, neon lab. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
@@ -1485,6 +1672,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 ### ✅ `hh-cover-l9-kl-axit.webp`
 - Dùng ở: Bìa bài Kim loại gặp axit (Hoá THCS lớp 9)
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only hh-cover-l9-kl-axit`)
 
 ```text
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile, wearing safety goggles, watching a grey zinc granule fizzing with hydrogen bubbles in a glass beaker, a lit splint nearby, neon lab. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
@@ -1493,6 +1681,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 ### ✅ `hh-cover-l9-day-the.webp`
 - Dùng ở: Bìa bài Kim loại đẩy kim loại (Hoá THCS lớp 9)
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only hh-cover-l9-day-the`)
 
 ```text
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile, wearing safety goggles, holding an iron nail coated in red copper above a beaker of fading blue solution, neon lab. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
@@ -1501,6 +1690,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 ### ✅ `hh-cover-l9-hcht.webp`
 - Dùng ở: Bìa bài Luyện hữu cơ cơ bản (Hoá THCS lớp 9)
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only hh-cover-l9-hcht`)
 
 ```text
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile, wearing safety goggles, beside a glowing ball-and-stick molecule of methane and a small blue Bunsen flame, a bottle of vinegar on the bench (no text). Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark.
@@ -1509,6 +1699,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 ### ✅ `hh-cover-p01.webp`
 - Dùng ở: Bìa bài Cân bằng phương trình khó (Hoá THPT)
 - Kích thước: 1536x1024
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only hh-cover-p01`)
 
 ```text
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile, wearing white lab coat and safety goggles, in a bright high-tech lab, pointing at a large floating holographic chemical equation made of colored spheres balanced on a glossy seesaw, no readable text. Clean modern scientific illustration for students aged 16 to 18, bright research laboratory, crisp vector-like shapes, soft studio lighting, glass and white surfaces. Palette: white #F4F8FF, pale steel #DFE9F7, lab blue #3A7BFF, teal #3FD0C9, small coral accents #FF5B5B. Precise, calm, premium, no text, no letters, no numbers, no watermark.
@@ -1517,6 +1708,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 ### ✅ `hh-mode-xep-lop.webp`
 - Dùng ở: Biểu tượng chế độ Xếp lớp (môn Hoá)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only hh-mode-xep-lop`)
 
 ```text
 Round app-icon style badge: a small ladder with a glowing target at the top and a flask climbing it, mint and amber colors. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -1525,6 +1717,7 @@ Round app-icon style badge: a small ladder with a glowing target at the top and 
 ### ✅ `hh-mode-so-tay.webp`
 - Dùng ở: Biểu tượng chế độ Sổ tay (môn Hoá)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only hh-mode-so-tay`)
 
 ```text
 Round app-icon style badge: an open notebook with a flask sticker and a small pencil, soft lilac and cream colors. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -1533,6 +1726,7 @@ Round app-icon style badge: an open notebook with a flask sticker and a small pe
 ### ✅ `hh-mode-bang.webp`
 - Dùng ở: Biểu tượng chế độ Bảng tuần hoàn (môn Hoá)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only hh-mode-bang`)
 
 ```text
 Round app-icon style badge: a small colorful periodic-table grid of rounded squares in rainbow colors with a sparkle, no letters. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -1541,6 +1735,7 @@ Round app-icon style badge: a small colorful periodic-table grid of rounded squa
 ### ⬜ `hh-chem-nuoc.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Nước (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only hh-chem-nuoc`)
 
 ```text
 Game item icon, a single round glass bottle with a cork stopper filled with clear light-blue water, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, no hands, no table, no shadow. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -1549,6 +1744,7 @@ Game item icon, a single round glass bottle with a cork stopper filled with clea
 ### ⬜ `hh-chem-bap-cai.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Nước bắp cải tím (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only hh-chem-bap-cai`)
 
 ```text
 Game item icon, a single round glass bottle with a cork stopper filled with deep purple liquid and a purple cabbage leaf on the side, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, no hands, no table, no shadow. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -1557,6 +1753,7 @@ Game item icon, a single round glass bottle with a cork stopper filled with deep
 ### ⬜ `hh-chem-chanh.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Nước chanh (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only hh-chem-chanh`)
 
 ```text
 Game item icon, a single round glass bottle with a cork stopper filled with bright yellow lemon juice and a lemon slice on the side, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, no hands, no table, no shadow. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -1565,6 +1762,7 @@ Game item icon, a single round glass bottle with a cork stopper filled with brig
 ### ⬜ `hh-chem-giam.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Giấm (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only hh-chem-giam`)
 
 ```text
 Game item icon, a single tall glass bottle with a cork stopper filled with pale amber vinegar, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, no hands, no table, no shadow. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -1573,6 +1771,7 @@ Game item icon, a single tall glass bottle with a cork stopper filled with pale 
 ### ⬜ `hh-chem-xa-phong.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Nước xà phòng (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only hh-chem-xa-phong`)
 
 ```text
 Game item icon, a single pump soap bottle filled with pale blue liquid with a few soap bubbles, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, no hands, no table, no shadow. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -1581,6 +1780,7 @@ Game item icon, a single pump soap bottle filled with pale blue liquid with a fe
 ### ⬜ `hh-chem-baking-soda.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Baking soda (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only hh-chem-baking-soda`)
 
 ```text
 Game item icon, a single small open glass jar of fine white powder with a little spoon, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, no hands, no table, no shadow. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -1589,6 +1789,7 @@ Game item icon, a single small open glass jar of fine white powder with a little
 ### ⬜ `hh-chem-muoi.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Muối ăn (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only hh-chem-muoi`)
 
 ```text
 Game item icon, a single salt shaker full of white salt crystals with a few grains next to it, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, no hands, no table, no shadow. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -1597,6 +1798,7 @@ Game item icon, a single salt shaker full of white salt crystals with a few grai
 ### ⬜ `hh-chem-duong.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Đường (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only hh-chem-duong`)
 
 ```text
 Game item icon, a single small glass jar of white sugar cubes and a few loose sugar crystals, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, no hands, no table, no shadow. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -1605,6 +1807,7 @@ Game item icon, a single small glass jar of white sugar cubes and a few loose su
 ### ⬜ `hh-chem-cat.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Cát (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only hh-chem-cat`)
 
 ```text
 Game item icon, a single small wooden scoop heaped with golden sand, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, no hands, no table, no shadow. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -1613,6 +1816,7 @@ Game item icon, a single small wooden scoop heaped with golden sand, centered, s
 ### ⬜ `hh-chem-dau-an.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Dầu ăn (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only hh-chem-dau-an`)
 
 ```text
 Game item icon, a single glass bottle with a cork stopper filled with golden cooking oil, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, no hands, no table, no shadow. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -1621,6 +1825,7 @@ Game item icon, a single glass bottle with a cork stopper filled with golden coo
 ### ⬜ `hh-chem-da.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Hòn đá (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only hh-chem-da`)
 
 ```text
 Game item icon, a single smooth grey stone with a lighter top, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, no hands, no table, no shadow. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -1629,6 +1834,7 @@ Game item icon, a single smooth grey stone with a lighter top, centered, slightl
 ### ⬜ `hh-chem-go.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Miếng gỗ (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only hh-chem-go`)
 
 ```text
 Game item icon, a single small block of light wood with visible grain and a round cut end, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, no hands, no table, no shadow. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -1637,6 +1843,7 @@ Game item icon, a single small block of light wood with visible grain and a roun
 ### ⬜ `hh-chem-dong-xu.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Đồng xu (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only hh-chem-dong-xu`)
 
 ```text
 Game item icon, a single shiny golden coin with a simple star in the middle, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, no hands, no table, no shadow. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -1645,6 +1852,7 @@ Game item icon, a single shiny golden coin with a simple star in the middle, cen
 ### ⬜ `hh-chem-qua-chanh.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Quả chanh (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only hh-chem-qua-chanh`)
 
 ```text
 Game item icon, a single whole yellow-green lemon with a small leaf, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, no hands, no table, no shadow. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -1653,6 +1861,7 @@ Game item icon, a single whole yellow-green lemon with a small leaf, centered, s
 ### ⬜ `hh-chem-trung.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Quả trứng (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only hh-chem-trung`)
 
 ```text
 Game item icon, a single white egg with a soft shine, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, no hands, no table, no shadow. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -1661,6 +1870,7 @@ Game item icon, a single white egg with a soft shine, centered, slightly three-q
 ### ⬜ `hh-chem-vit.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Vịt cao su (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only hh-chem-vit`)
 
 ```text
 Game item icon, a single yellow rubber duck toy with an orange beak, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, no hands, no table, no shadow. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -1669,6 +1879,7 @@ Game item icon, a single yellow rubber duck toy with an orange beak, centered, s
 ### ⬜ `hh-chem-phenol.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Phenolphtalein (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only hh-chem-phenol`)
 
 ```text
 Game item icon, a single small dropper bottle with a rubber bulb filled with clear liquid and a tiny pink drop, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, no hands, no table, no shadow. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -1677,6 +1888,7 @@ Game item icon, a single small dropper bottle with a rubber bulb filled with cle
 ### ⬜ `hh-chem-naoh.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Natri hiđroxit (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only hh-chem-naoh`)
 
 ```text
 Game item icon, a single glass bottle with a stopper and a red warning stripe filled with clear liquid, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, no hands, no table, no shadow. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -1685,6 +1897,7 @@ Game item icon, a single glass bottle with a stopper and a red warning stripe fi
 ### ⬜ `hh-chem-natri.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Natri (mẩu nhỏ) (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only hh-chem-natri`)
 
 ```text
 Game item icon, a single tiny silvery-white soft metal cube the size of a pea on a small glass dish with a little oil, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, no hands, no table, no shadow. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -1693,6 +1906,7 @@ Game item icon, a single tiny silvery-white soft metal cube the size of a pea on
 ### ⬜ `hh-chem-natri-to.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Natri (mẩu to) (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only hh-chem-natri-to`)
 
 ```text
 Game item icon, a single large silvery-white soft metal chunk on a glass dish with a red warning triangle sticker, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, no hands, no table, no shadow. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -1701,6 +1915,7 @@ Game item icon, a single large silvery-white soft metal chunk on a glass dish wi
 ### ⬜ `hh-chem-hcl.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Axit clohiđric (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only hh-chem-hcl`)
 
 ```text
 Game item icon, a single glass bottle with a stopper and a yellow hazard stripe filled with clear liquid, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, no hands, no table, no shadow. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -1709,6 +1924,7 @@ Game item icon, a single glass bottle with a stopper and a yellow hazard stripe 
 ### ⬜ `hh-chem-cuso4.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Đồng sunfat (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only hh-chem-cuso4`)
 
 ```text
 Game item icon, a single round glass bottle with a stopper filled with vivid blue liquid, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, no hands, no table, no shadow. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -1717,6 +1933,7 @@ Game item icon, a single round glass bottle with a stopper filled with vivid blu
 ### ⬜ `hh-chem-zn.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Viên kẽm (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only hh-chem-zn`)
 
 ```text
 Game item icon, a single grey-silver metal granule with a bumpy surface, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, no hands, no table, no shadow. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -1725,6 +1942,7 @@ Game item icon, a single grey-silver metal granule with a bumpy surface, centere
 ### ⬜ `hh-chem-fe.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Đinh sắt (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only hh-chem-fe`)
 
 ```text
 Game item icon, a single dark grey iron nail, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, no hands, no table, no shadow. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -1733,6 +1951,7 @@ Game item icon, a single dark grey iron nail, centered, slightly three-quarter v
 ### ⬜ `hh-chem-cu.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Dây đồng (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only hh-chem-cu`)
 
 ```text
 Game item icon, a single coil of shiny orange-copper wire, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, no hands, no table, no shadow. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -1741,6 +1960,7 @@ Game item icon, a single coil of shiny orange-copper wire, centered, slightly th
 ### ✅ `mochi-boom.webp`
 - Dùng ở: Thí nghiệm hoá · Mochi sau khi làm sai (lấm lem, lông xù)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only mochi-boom`)
 
 ```text
 Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator, wearing round safety goggles pushed crooked on its head, fur puffed up and frizzy, face smudged with gray soot, a tiny puff of smoke above the head, blinking in surprise, funny not hurt, full body. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -1749,6 +1969,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 ### ✅ `mochi-foam.webp`
 - Dùng ở: Thí nghiệm hoá · Mochi dính bọt khi trào bọt (Nhí)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only mochi-foam`)
 
 ```text
 Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator, covered in fluffy pink-white foam bubbles on its head and paws, laughing and surprised, a few bubbles floating around, full body. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -1757,6 +1978,7 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 ### ✅ `bit-boom.webp`
 - Dùng ở: Thí nghiệm hoá · Bit sau vụ nổ (THCS trở lên)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only bit-boom`)
 
 ```text
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile, visor cracked and pushed up, silver fur and hair blown back and frizzy, face smudged with soot, coughing with one hand waving away a small smoke puff, embarrassed grin, not hurt, full body. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
@@ -1765,6 +1987,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 ### ✅ `bit-safe.webp`
 - Dùng ở: Thí nghiệm hoá · Bit nhắc an toàn
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only bit-safe`)
 
 ```text
 Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long upright ears whose tips glow with small LED lights (cyan on the left ear, pink on the right ear), a translucent cyan tech visor over the eyes, dark-navy tech jacket with thin cyan neon piping and a small keyboard-key badge on the chest, fingerless gloves, confident smile, wearing clear safety goggles and blue nitrile gloves, giving a confident thumbs-up while holding tongs, full body. Modern Japanese anime illustration for teenagers, sleek sci-fi anime key visual, confident clean line art, crisp cel shading with glowing neon rim light, deep-sea cyber city mood. Palette: deep navy and indigo #050C2C #141D52, neon cyan #2FD3FF, hot pink #FF4FA3, violet #7C6BFF, accent amber #FFB020. Cool, stylish and techy, not babyish, no chibi, no text, no letters, no numbers, no watermark, isolated on a fully transparent background.
@@ -1773,6 +1996,7 @@ Bit: a cool teenage anthropomorphic white-silver rabbit, slim and athletic, long
 ### ✅ `fx-boom.webp`
 - Dùng ở: Thí nghiệm hoá · quả nổ lúc BÙM (app phóng to rồi mờ dần)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only fx-boom`)
 
 ```text
 A single cartoon explosion burst seen from the front, bright white-yellow core, orange and red jagged flame petals, a ring of dark smoke at the edges, centered. Bold clean anime game visual effect, high contrast, crisp shapes, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -1781,6 +2005,7 @@ A single cartoon explosion burst seen from the front, bright white-yellow core, 
 ### ✅ `fx-smoke-1.webp`
 - Dùng ở: Thí nghiệm hoá · một cụm khói rời (app ghép thành đám khói cuộn)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only fx-smoke-1`)
 
 ```text
 One soft puffy cartoon smoke cloud, neutral light gray with gentle shading, soft edges, centered, shape variation 1 of 3. Bold clean anime game visual effect, high contrast, crisp shapes, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -1789,6 +2014,7 @@ One soft puffy cartoon smoke cloud, neutral light gray with gentle shading, soft
 ### ✅ `fx-smoke-2.webp`
 - Dùng ở: Thí nghiệm hoá · một cụm khói rời (app ghép thành đám khói cuộn)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only fx-smoke-2`)
 
 ```text
 One soft puffy cartoon smoke cloud, neutral light gray with gentle shading, soft edges, centered, shape variation 2 of 3. Bold clean anime game visual effect, high contrast, crisp shapes, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -1797,6 +2023,7 @@ One soft puffy cartoon smoke cloud, neutral light gray with gentle shading, soft
 ### ✅ `fx-smoke-3.webp`
 - Dùng ở: Thí nghiệm hoá · một cụm khói rời (app ghép thành đám khói cuộn)
 - Kích thước: 1024x1024 · nền trong suốt
+- Tạo bằng: **local** (`npm run gen-local -- --only fx-smoke-3`)
 
 ```text
 One soft puffy cartoon smoke cloud, neutral light gray with gentle shading, soft edges, centered, shape variation 3 of 3. Bold clean anime game visual effect, high contrast, crisp shapes, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -1805,6 +2032,7 @@ One soft puffy cartoon smoke cloud, neutral light gray with gentle shading, soft
 ### ✅ `fx-crack.webp`
 - Dùng ở: Thí nghiệm hoá · vết nứt kính phủ màn hình sau tiếng nổ
 - Kích thước: 1536x1024 · nền trong suốt
+- Tạo bằng: **gpt** (`npm run asset-helper -- --only fx-crack`)
 
 ```text
 Shattered glass crack pattern radiating from a point slightly right of center, thin white crack lines with subtle light refraction, rest of the image fully transparent. Bold clean anime game visual effect, high contrast, crisp shapes, no text, no letters, no watermark, isolated on a fully transparent background.

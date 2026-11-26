@@ -5,6 +5,7 @@
 //   npm run gen-local -- --dry-run             xem sẽ tạo gì, không chạy model
 //   npm run gen-local -- --model dev --steps 20 --quantize 8   chất lượng cao hơn (chậm hơn)
 //   npm run gen-local -- --all                 cả nền, bìa, nhân vật (không khuyên dùng, xem ghi chú)
+//   Ảnh nào hợp tạo bằng local hay gpt được ghi ở cột "Tạo bằng" trong docs/ASSET_PROMPTS.md (xem genOf trong assets.ts)
 //   npm run gen-local -- --tool-dir <thư mục image-gen-kit>
 //
 // Ghi chú: model này vẽ icon (đồ vật, hoá chất, huy hiệu) tốt, nhưng nền và ảnh bìa chỉ khoảng 7/10 và không
@@ -15,8 +16,8 @@ import { existsSync } from "node:fs";
 import { spawnSync, execSync } from "node:child_process";
 import { homedir } from "node:os";
 import { join, resolve, dirname } from "node:path";
-import { IMAGES, type ImageAsset } from "@/content/assets";
-import { SRC, cli, finalize, pick } from "./asset-lib";
+import { IMAGES, genOf, type ImageAsset } from "@/content/assets";
+import { SRC, byGen, cli, finalize, pick } from "./asset-lib";
 
 const { flag, opt, only } = cli();
 
@@ -34,16 +35,14 @@ function toolDir() {
 
 const GREEN = "isolated on a plain flat solid bright green background (#00FF00), no shadow, no gradient, no ground, no checkerboard, green kept out of the subject";
 
-/** icon: ảnh vuông nền trong suốt không có nhân vật (nhân vật cần ảnh tham chiếu mà model này không nhận) */
-const isIcon = (a: ImageAsset) => a.transparent && a.size === "1024x1024" && !/Mochi:|Bit:|Xi Xi:/.test(a.prompt) && !/^(mochi|bit|xixi|avatar)-/.test(a.id);
-
 const promptOf = (a: ImageAsset) => (a.transparent ? a.prompt.replace("isolated on a fully transparent background", GREEN) : a.prompt);
 
-const list = pick(IMAGES, only, flag("force")).filter((a) => flag("all") || only || isIcon(a));
+// mặc định chỉ ảnh genOf = "local" (icon); --gen gpt hoặc --all để lấy cả loại khác
+const list = byGen(pick(IMAGES, only, flag("force")), flag("all") ? undefined : (opt("gen") ?? "local"));
 const limit = Number(opt("limit") ?? list.length);
 const todo = list.slice(0, limit);
 if (!todo.length) {
-  console.log("Không còn ảnh icon nào thiếu. Dùng --only <id> --force để làm lại, hoặc --all để gồm cả nền, bìa.");
+  console.log(`Không còn ảnh "gen = ${flag("all") ? "nào" : (opt("gen") ?? "local")}" nào thiếu. Dùng --only <id> --force để làm lại, hoặc --all để gồm cả nền, bìa.`);
   process.exit(0);
 }
 

@@ -2,6 +2,7 @@
 //
 //   npm run asset-helper                      lần lượt các ảnh còn thiếu
 //   npm run asset-helper -- --only fx-l05-*   chỉ các ảnh này (thêm --force để làm lại ảnh đã có)
+//   npm run asset-helper -- --gen gpt          chỉ các ảnh nên tạo bằng ChatGPT (nền, bìa, nhân vật), bỏ icon dành cho gen-local
 //   npm run asset-helper -- --downloads D:\Tai-ve    thư mục trình duyệt lưu file (mặc định ~/Downloads)
 //
 // Mỗi ảnh: tool chép sẵn prompt vào clipboard và mở thư mục ảnh tham chiếu. Bạn chỉ cần
@@ -15,7 +16,7 @@ import { homedir, platform } from "node:os";
 import { basename, extname, join, resolve } from "node:path";
 import { emitKeypressEvents } from "node:readline";
 import { IMAGES, type ImageAsset } from "@/content/assets";
-import { REF_INTRO, SRC, cli, mochiFirst, pick, refsFor, finalize } from "./asset-lib";
+import { REF_INTRO, SRC, byGen, cli, mochiFirst, pick, refsFor, finalize } from "./asset-lib";
 
 const { flag, opt, only } = cli();
 const DOWNLOADS = resolve(opt("downloads") ?? process.env.ASSET_DOWNLOADS ?? join(homedir(), "Downloads"));
@@ -23,7 +24,7 @@ const REF_DIR = resolve(SRC, "_tham-chieu");
 const IMG_EXT = /\.(png|webp|jpe?g)$/i;
 const OS = platform();
 
-const list = pick(IMAGES, only, flag("force")).sort(mochiFirst);
+const list = byGen(pick(IMAGES, only, flag("force")), opt("gen")).sort(mochiFirst);
 if (!list.length) {
   console.log("Không còn ảnh nào thiếu. Dùng --only <id> --force để làm lại một ảnh.");
   process.exit(0);
