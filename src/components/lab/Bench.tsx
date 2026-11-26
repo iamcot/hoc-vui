@@ -1,6 +1,7 @@
 "use client";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { chem } from "@/lib/chem/chemicals";
+import { chemIconSrc } from "@/content/assets";
 import { addChem, filterPour, colorName, floats, level, liquidColor, ph, splint, stir, stopDanger, tick, toggleHeat, vesselTags, volume, type LabEvent, type LabState, type Vessel } from "@/lib/chem/lab";
 import type { Tool } from "@/lib/chem/types";
 import { LAB_THEMES, type LabThemeId } from "@/lib/chem/themes";
@@ -54,7 +55,7 @@ function Pour({ chemId, w }: { chemId: string; w: string }) {
       <>
         {label}
         <span className="pour-obj pointer-events-none absolute left-1/2 z-30 leading-none drop-shadow-lg" style={{ fontSize: u(0.55), ["--t0" as string]: u(-0.9) }}>
-          {c.emoji}
+          <ChemIcon id={c.id} emoji={c.emoji} />
         </span>
         {splash}
       </>
@@ -150,6 +151,13 @@ export interface BenchProps {
   under?: (vesselId: string) => React.ReactNode;
   /** báo lọ đang cầm (để Mochi đổi lời: "giờ chạm vào cốc") */
   onPick?: (chemId: string | null) => void;
+}
+
+/** biểu tượng hoá chất: ảnh nếu đã tạo, chưa có thì emoji */
+function ChemIcon({ id, emoji, className = "" }: { id: string; emoji?: string; className?: string }) {
+  const src = chemIconSrc(id);
+  // eslint-disable-next-line @next/next/no-img-element
+  return src ? <img src={src} alt="" draggable={false} className={`inline-block h-[1em] w-[1em] object-contain ${className}`} /> : <span className={className}>{emoji}</span>;
 }
 
 export function Bench({ state, setState, shelf, tools = [], theme, formulas, rightPad = "0px", onEvent, locked, onReset, hint, guide, dim, under, onPick }: BenchProps) {
@@ -295,7 +303,7 @@ export function Bench({ state, setState, shelf, tools = [], theme, formulas, rig
               aria-pressed={pick === id}
               disabled={locked}
             >
-              {c.kind === "object" ? <span className="text-2xl leading-none">{c.emoji}</span> : <Bottle color={c.color} kind={c.kind} />}
+              {chemIconSrc(id) || c.kind === "object" ? <ChemIcon id={id} emoji={c.emoji} className="text-[2.2rem] leading-none" /> : <Bottle color={c.color} kind={c.kind} />}
               <span className="leading-tight">
                 {c.name}
                 {formulas && c.formula && <span className="lab-mono block text-[0.8rem] opacity-75 sm:text-sm">{c.formula}</span>}
@@ -366,7 +374,7 @@ export function Bench({ state, setState, shelf, tools = [], theme, formulas, rig
                   spilled={v.spilled}
                   grains={grains}
                   ppt={v.ppt}
-                  objects={v.objects.map((o) => ({ emoji: chem(o)?.emoji ?? "•", float: floats(v, o) }))}
+                  objects={v.objects.map((o) => ({ emoji: chem(o)?.emoji ?? "•", src: chemIconSrc(o), float: floats(v, o) }))}
                   ice={v.ice}
                   sparks={v.sparks > 0}
                   steam={(v.temp >= 99.5 && volume(v) > 0) || v.sparks > 0}
@@ -440,7 +448,7 @@ export function Bench({ state, setState, shelf, tools = [], theme, formulas, rig
 
       {drag?.moved && (
         <div className="pointer-events-none fixed z-50 -translate-x-1/2 -translate-y-1/2 text-3xl drop-shadow-lg" style={{ left: drag.x, top: drag.y }}>
-          {chem(drag.id)?.emoji ?? "💧"}
+          <ChemIcon id={drag.id} emoji={chem(drag.id)?.emoji ?? "💧"} className="text-[2.6rem]" />
         </div>
       )}
     </div>

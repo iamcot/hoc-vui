@@ -144,6 +144,36 @@ export const STYLE_FX = "Bold clean anime game visual effect, high contrast, cri
 const HH_BENCH =
   " Layout: the bottom 30% is an empty, glossy lab bench top seen slightly from above that softly reflects the room, nothing standing on it (glassware is drawn by the app); the middle band behind where glassware will stand is calm and uncluttered; details sit on the walls and in the upper corners";
 
+
+/** biểu tượng hoá chất trên kệ phòng lab: [id chất, tên, mô tả để vẽ] */
+const HH_CHEMS: [string, string, string][] = [
+  ["nuoc", "Nước", "round glass bottle with a cork stopper filled with clear light-blue water"],
+  ["bap-cai", "Nước bắp cải tím", "round glass bottle with a cork stopper filled with deep purple liquid and a purple cabbage leaf on the side"],
+  ["chanh", "Nước chanh", "round glass bottle with a cork stopper filled with bright yellow lemon juice and a lemon slice on the side"],
+  ["giam", "Giấm", "tall glass bottle with a cork stopper filled with pale amber vinegar"],
+  ["xa-phong", "Nước xà phòng", "pump soap bottle filled with pale blue liquid with a few soap bubbles"],
+  ["baking-soda", "Baking soda", "small open glass jar of fine white powder with a little spoon"],
+  ["muoi", "Muối ăn", "salt shaker full of white salt crystals with a few grains next to it"],
+  ["duong", "Đường", "small glass jar of white sugar cubes and a few loose sugar crystals"],
+  ["cat", "Cát", "small wooden scoop heaped with golden sand"],
+  ["dau-an", "Dầu ăn", "glass bottle with a cork stopper filled with golden cooking oil"],
+  ["da", "Hòn đá", "smooth grey stone with a lighter top"],
+  ["go", "Miếng gỗ", "small block of light wood with visible grain and a round cut end"],
+  ["dong-xu", "Đồng xu", "shiny golden coin with a simple star in the middle"],
+  ["qua-chanh", "Quả chanh", "whole yellow-green lemon with a small leaf"],
+  ["trung", "Quả trứng", "white egg with a soft shine"],
+  ["vit", "Vịt cao su", "yellow rubber duck toy with an orange beak"],
+  ["phenol", "Phenolphtalein", "small dropper bottle with a rubber bulb filled with clear liquid and a tiny pink drop"],
+  ["naoh", "Natri hiđroxit", "glass bottle with a stopper and a red warning stripe filled with clear liquid"],
+  ["natri", "Natri (mẩu nhỏ)", "tiny silvery-white soft metal cube the size of a pea on a small glass dish with a little oil"],
+  ["natri-to", "Natri (mẩu to)", "large silvery-white soft metal chunk on a glass dish with a red warning triangle sticker"],
+  ["hcl", "Axit clohiđric", "glass bottle with a stopper and a yellow hazard stripe filled with clear liquid"],
+  ["cuso4", "Đồng sunfat", "round glass bottle with a stopper filled with vivid blue liquid"],
+  ["zn", "Viên kẽm", "grey-silver metal granule with a bumpy surface"],
+  ["fe", "Đinh sắt", "dark grey iron nail"],
+  ["cu", "Dây đồng", "coil of shiny orange-copper wire"],
+];
+
 export const IMAGES: ImageAsset[] = [
   // Nhân vật
   img("mochi-happy", "1024x1024", "Mochi vui vẻ: lời chào, slide mở đầu", `${MOCHI}, waving one paw and smiling, full body`, true),
@@ -384,6 +414,7 @@ export const IMAGES: ImageAsset[] = [
   img("hh-mode-xep-lop", "1024x1024", "Biểu tượng chế độ Xếp lớp (môn Hoá)", "Round app-icon style badge: a small ladder with a glowing target at the top and a flask climbing it, mint and amber colors", true),
   img("hh-mode-so-tay", "1024x1024", "Biểu tượng chế độ Sổ tay (môn Hoá)", "Round app-icon style badge: an open notebook with a flask sticker and a small pencil, soft lilac and cream colors", true),
   img("hh-mode-bang", "1024x1024", "Biểu tượng chế độ Bảng tuần hoàn (môn Hoá)", "Round app-icon style badge: a small colorful periodic-table grid of rounded squares in rainbow colors with a sparkle, no letters", true),
+  ...HH_CHEMS.map(([id, vi, what]) => img(`hh-chem-${id}`, "1024x1024", `Thí nghiệm hoá · biểu tượng hoá chất: ${vi} (trên kệ và khi đổ vào cốc)`, `Game item icon, a single ${what}, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, no hands, no table, no shadow`, true)),
   img("mochi-boom", "1024x1024", "Thí nghiệm hoá · Mochi sau khi làm sai (lấm lem, lông xù)", `${MOCHI}, wearing round safety goggles pushed crooked on its head, fur puffed up and frizzy, face smudged with gray soot, a tiny puff of smoke above the head, blinking in surprise, funny not hurt, full body`, true),
   img("mochi-foam", "1024x1024", "Thí nghiệm hoá · Mochi dính bọt khi trào bọt (Nhí)", `${MOCHI}, covered in fluffy pink-white foam bubbles on its head and paws, laughing and surprised, a few bubbles floating around, full body`, true),
   cyber("bit-boom", "1024x1024", "Thí nghiệm hoá · Bit sau vụ nổ (THCS trở lên)", `${BIT}, visor cracked and pushed up, silver fur and hair blown back and frizzy, face smudged with soot, coughing with one hand waving away a small smoke puff, embarrassed grin, not hurt, full body`, true),
@@ -495,6 +526,11 @@ export const AUDIO: AudioAsset[] = [
 export const TAPDOC_AUDIO: AudioAsset[] = TAPDOC_VOICES.map((v) => ({ id: v.id, file: `/assets/voice/${v.id}.mp3`, kind: "voice", usage: v.group, prompt: v.text }));
 
 export const imageById = (id: string) => IMAGES.find((i) => i.id === id);
+/** đường dẫn ảnh biểu tượng hoá chất nếu đã tạo, chưa có thì undefined (app dùng emoji) */
+export const chemIconSrc = (chemId: string) => {
+  const f = imageById(`hh-chem-${chemId}`)?.file;
+  return f ? resolveFile(f) : undefined;
+};
 export const audioById = (id: string) => AUDIO.find((a) => a.id === id) ?? TAPDOC_AUDIO.find((a) => a.id === id);
 
 const AVAILABLE = new Map<string, string>(

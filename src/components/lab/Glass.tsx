@@ -52,7 +52,7 @@ export interface GlassProps {
   spilled?: boolean;
   grains?: { color: string; n: number }[];
   ppt?: string | null;
-  objects?: { emoji: string; float: boolean }[];
+  objects?: { emoji: string; src?: string; float: boolean }[];
   ice?: number;
   sparks?: boolean;
   steam?: boolean;
@@ -211,9 +211,13 @@ export function Glass({
         const y = o.float && has ? ly - 2 : S.bot - 6;
         return (
           <g key={o.emoji + i} className="lab-obj" style={{ transform: `translate(${x}px, ${y}px)` }}>
-            <text x={0} y={0} fontSize={Math.min(30, width * 0.34)} textAnchor="middle" dominantBaseline={o.float ? "middle" : "auto"}>
-              {o.emoji}
-            </text>
+            {o.src ? (
+              <image href={o.src} x={-Math.min(17, width * 0.19)} y={o.float ? -Math.min(17, width * 0.19) : -Math.min(30, width * 0.34)} width={Math.min(34, width * 0.38)} height={Math.min(34, width * 0.38)} />
+            ) : (
+              <text x={0} y={0} fontSize={Math.min(30, width * 0.34)} textAnchor="middle" dominantBaseline={o.float ? "middle" : "auto"}>
+                {o.emoji}
+              </text>
+            )}
           </g>
         );
       })}
