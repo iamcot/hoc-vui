@@ -20,11 +20,17 @@ lines.push(`## Ảnh (${IMAGES.length})`, "");
 lines.push("| Tạo bằng | Lệnh | Tổng | Còn thiếu |", "|---|---|---|---|");
 lines.push(`| local (icon vuông nền trong suốt) | \`npm run gen-local\` | ${IMAGES.filter((i) => genOf(i) === "local").length} | ${miss("local")} |`);
 lines.push(`| gpt (nền, bìa, nhân vật) | \`npm run asset-helper -- --gen gpt\` | ${IMAGES.filter((i) => genOf(i) === "gpt").length} | ${miss("gpt")} |`, "");
+for (const g of ["local", "gpt"] as const) {
+  const m = IMAGES.filter((i) => genOf(i) === g && !hasFile(i.file));
+  if (m.length) lines.push(`**Còn thiếu, tạo bằng ${g} (${m.length}):** ${m.map((i) => "\`" + i.id + "\`").join(", ")}`, "");
+}
 for (const i of IMAGES) {
   lines.push(`### ${done(i.file)} \`${i.file.split("/").pop()}\``);
   lines.push(`- Dùng ở: ${i.usage}`);
   lines.push(`- Kích thước: ${i.size}${i.transparent ? " · nền trong suốt" : ""}`);
-  lines.push(`- Tạo bằng: ${genOf(i) === "local" ? "**local** (`npm run gen-local -- --only " : "**gpt** (`npm run asset-helper -- --only "}${i.id}\`)`.replace("\\`", "`"));
+  const cmd = genOf(i) === "local" ? `npm run gen-local -- --only ${i.id}` : `npm run asset-helper -- --only ${i.id}`;
+  // đã có file thì coi là xong cả 2 đường; chưa có thì ghi đường nên dùng
+  lines.push(hasFile(i.file) ? "- Tạo bằng: local ✅ · gpt ✅ (đã có file)" : `- Tạo bằng: local ⬜ · gpt ⬜. Nên dùng **${genOf(i)}**: \`${cmd}\``);
   lines.push("", "```text", i.prompt, "```", "");
 }
 
