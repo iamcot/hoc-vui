@@ -71,7 +71,14 @@ export interface ImageAsset {
   prompt: string;
   /** nền trong suốt */
   transparent?: boolean;
+  /** tạo bằng đâu: "local" (npm run gen-local, hợp với icon) hay "gpt" (npm run asset-helper, hợp với nền, bìa, nhân vật). Không ghi thì tự suy ra, xem genOf */
+  gen?: "local" | "gpt";
 }
+
+/** icon vuông nền trong suốt, không có nhân vật: model chạy trên máy vẽ tốt; còn lại nên dùng ChatGPT */
+export const genOf = (a: ImageAsset): "local" | "gpt" =>
+  a.gen ??
+  (a.transparent && a.size === "1024x1024" && !/Mochi:|Bit:|Xi Xi:/.test(a.prompt) && !/^(mochi|bit|xixi|avatar|gp-bit)-/.test(a.id) ? "local" : "gpt");
 
 export interface AudioAsset {
   id: string;
@@ -134,6 +141,45 @@ const SEA_FISH = "side view, swimming toward the LEFT (head on the left), a larg
 
 /** ô lưới môn Lập trình: nhìn thẳng từ trên xuống */
 const TOP = "TOP-DOWN view seen from directly above, a single square game tile filling the whole image edge to edge";
+
+/** môn Thí nghiệm hoá: phong cách riêng của 2 giao diện Xưởng giả kim và Viện phân tử, hiệu ứng nổ/khói */
+export const STYLE_ALCH =
+  "Warm storybook fantasy illustration for kids aged 9 to 12, an alchemist's workshop mood, clean confident line art, soft cel shading, candle-lit amber glow. Palette: dark walnut wood #3D2512, aged brass #A7773F, parchment #F3E2BF, warm amber #E0A84A, with potion accents emerald #46D18A, violet #9B5BD6, sky #4FB3FF. Magical but educational, not spooky, no skulls, no text, no letters, no numbers, no watermark";
+export const STYLE_MOLE =
+  "Clean modern scientific illustration for students aged 16 to 18, bright research laboratory, crisp vector-like shapes, soft studio lighting, glass and white surfaces. Palette: white #F4F8FF, pale steel #DFE9F7, lab blue #3A7BFF, teal #3FD0C9, small coral accents #FF5B5B. Precise, calm, premium, no text, no letters, no numbers, no watermark";
+export const STYLE_FX = "Bold clean anime game visual effect, high contrast, crisp shapes, no text, no letters, no watermark";
+const HH_BENCH =
+  " Layout: the bottom 30% is an empty, glossy lab bench top seen slightly from above that softly reflects the room, nothing standing on it (glassware is drawn by the app); the middle band behind where glassware will stand is calm and uncluttered; details sit on the walls and in the upper corners";
+
+
+/** biểu tượng hoá chất trên kệ phòng lab: [id chất, tên, mô tả để vẽ] */
+const HH_CHEMS: [string, string, string][] = [
+  ["nuoc", "Nước", "round glass bottle with a cork stopper filled with clear light-blue water"],
+  ["bap-cai", "Nước bắp cải tím", "round glass bottle with a cork stopper filled with deep purple liquid and a purple cabbage leaf on the side"],
+  ["chanh", "Nước chanh", "round glass bottle with a cork stopper filled with bright yellow lemon juice and a lemon slice on the side"],
+  ["giam", "Giấm", "tall glass bottle with a cork stopper filled with pale amber vinegar"],
+  ["xa-phong", "Nước xà phòng", "pump soap bottle filled with pale blue liquid with a few soap bubbles"],
+  ["baking-soda", "Baking soda", "small open glass jar of fine white powder with a little spoon"],
+  ["muoi", "Muối ăn", "salt shaker full of white salt crystals with a few grains next to it"],
+  ["duong", "Đường", "small glass jar of white sugar cubes and a few loose sugar crystals"],
+  ["cat", "Cát", "small wooden scoop heaped with golden sand"],
+  ["dau-an", "Dầu ăn", "glass bottle with a cork stopper filled with golden cooking oil"],
+  ["da", "Hòn đá", "smooth grey stone with a lighter top"],
+  ["go", "Miếng gỗ", "small block of light wood with visible grain and a round cut end"],
+  ["dong-xu", "Đồng xu", "shiny golden coin with a simple star in the middle"],
+  ["qua-chanh", "Quả chanh", "whole yellow-green lemon with a small leaf"],
+  ["trung", "Quả trứng", "white egg with a soft shine"],
+  ["vit", "Vịt cao su", "yellow rubber duck toy with an orange beak"],
+  ["phenol", "Phenolphtalein", "small dropper bottle with a rubber bulb filled with clear liquid and a tiny pink drop"],
+  ["naoh", "Natri hiđroxit", "glass bottle with a stopper and a red warning stripe filled with clear liquid"],
+  ["natri", "Natri (mẩu nhỏ)", "tiny silvery-white soft metal cube the size of a pea on a small glass dish with a little oil"],
+  ["natri-to", "Natri (mẩu to)", "large silvery-white soft metal chunk on a glass dish with a red warning triangle sticker"],
+  ["hcl", "Axit clohiđric", "glass bottle with a stopper and a yellow hazard stripe filled with clear liquid"],
+  ["cuso4", "Đồng sunfat", "round glass bottle with a stopper filled with vivid blue liquid"],
+  ["zn", "Viên kẽm", "grey-silver metal granule with a bumpy surface"],
+  ["fe", "Đinh sắt", "dark grey iron nail"],
+  ["cu", "Dây đồng", "coil of shiny orange-copper wire"],
+];
 
 export const IMAGES: ImageAsset[] = [
   // Nhân vật
@@ -341,6 +387,48 @@ export const IMAGES: ImageAsset[] = [
   img("lt-tier-3", "1024x1024", "Huy hiệu trình độ Trung cấp (môn Lập trình)", "Round badge: a cute game controller made of colorful puzzle-piece blocks, lilac glow", true),
   img("lt-tier-4", "1024x1024", "Huy hiệu trình độ Nâng cao (môn Lập trình)", "Round badge: a row of bar-chart columns being sorted from short to tall with a small curved arrow, sky blue and coral", true),
   img("lt-tier-5", "1024x1024", "Huy hiệu trình độ Python (môn Lập trình)", "Round badge: a friendly round blue and yellow snake coiled around a pair of curly code brackets made of simple shapes (no letters)", true),
+  // ── Môn Thí nghiệm hoá: dụng cụ, dung dịch, bọt, tia lửa vẽ bằng code; ảnh chỉ cho nền, nhân vật, hiệu ứng ──
+  img("subject-hoahoc-cover", "1536x1024", "Ảnh lớn môn Thí nghiệm hoá ở trang chủ (chữ đè lên phần dưới ảnh)", `${MOCHI}, now also wearing round safety goggles and a tiny white lab coat, happily pouring a glowing purple liquid from a beaker into a bubbling flask on a wooden lab table, colorful foam and soft sparkles rising, test tubes in a rack (pink, green, blue), a red cabbage and a lemon nearby${TXT}`),
+  img("bg-hh-nang", "1536x1024", "Thí nghiệm hoá · nền giao diện Phòng lab nắng (Nhí): bản đồ, bài học, thực hành", `A cozy sunny home kitchen turned into a kids' science corner: a big window with peach striped curtains, blue sky and green hills outside, potted plants on the sill, a round wall clock, wooden wall shelves with glass jars of colorful ingredients (lemon juice, pink, green, purple), lemons and a red cabbage, a small rack of hanging utensils, white subway-tile backsplash, honey-colored wooden counter with visible grain, a soft diagonal sunbeam with floating dust sparkles.${HH_BENCH}`),
+  img("bg-hh-giakim", "1536x1024", "Thí nghiệm hoá · nền giao diện Xưởng giả kim (KHTN)", `Interior of a friendly alchemist's workshop: warm stone brick walls, a tall arched window showing a starry night and a full moon, four wooden shelves of curvy glass potion bottles glowing softly in emerald, violet, coral, sky blue and gold, bundles of dried herbs hanging from the ceiling, a brass hanging lantern, thick candles with warm halos, a brass armillary sphere, floating golden dust motes, polished dark walnut bench with a thin brass trim.${HH_BENCH}`, false, STYLE_ALCH),
+  cyber("bg-hh-neon", "1536x1024", "Thí nghiệm hoá · nền giao diện Lab neon (Hoá THCS)", `A dark futuristic chemistry lab at night: hexagon-patterned dark wall panels, a large glass fume hood in the center with a glowing cyan frame and inner light, a holographic line-chart panel on the left and a floating grid of colored glowing tiles (abstract periodic table, no symbols) on the right, thick pipes along the ceiling with neon piping, a hot-pink neon strip across the wall, tiny floating light particles, black glass bench with a cyan edge light.${HH_BENCH}`),
+  img("bg-hh-phantu", "1536x1024", "Thí nghiệm hoá · nền giao diện Viện phân tử (Hoá THPT)", `A bright high-tech research lab: white wall panels with thin seams, long ceiling light strips, a wide window showing a soft blue city skyline, a large glossy ball-and-stick molecule model floating on the right (black, red, blue and white spheres), a small white data screen with a bar chart, a slim white robotic pipette arm, very clean and airy, white epoxy bench.${HH_BENCH}`, false, STYLE_MOLE),
+  img("hh-tier-1", "1024x1024", "Huy hiệu trình độ Nhí (môn Hoá)", "Round badge: a small bubbling beaker with a green sprout, mint and sky-blue colors", true),
+  img("hh-tier-2", "1024x1024", "Huy hiệu trình độ Khoa học tự nhiên (môn Hoá)", "Round badge: a magnifier over a sparkling crystal, amber and lilac", true),
+  img("hh-tier-3", "1024x1024", "Huy hiệu trình độ Hoá THCS", "Round badge: an erlenmeyer flask with a swirling glowing pink reaction", true),
+  img("hh-tier-4", "1024x1024", "Huy hiệu trình độ Hoá THPT", "Round badge: a glowing atom with three orbit rings, sky blue", true),
+  img("hh-cover-a01", "1536x1024", "Bìa bài Tan hay không tan (Hoá Nhí)", `${MOCHI}, wearing round safety goggles, stirring a glass of water with a spoon on a sunny lab bench, small bowls of salt, sugar, sand and a bottle of cooking oil beside it`),
+  img("hh-cover-a02", "1536x1024", "Bìa bài Nổi hay chìm (Hoá Nhí)", `${MOCHI}, wearing round safety goggles, peeking at a tall glass of water where an egg floats in the middle, a wooden block and a coin beside the glass`),
+  img("hh-cover-a03", "1536x1024", "Bìa bài Nước bắp cải đổi màu (Hoá Nhí)", `${MOCHI}, wearing round safety goggles, holding a dropper above a row of four glasses with purple, pink, violet and green cabbage juice, half a red cabbage and a lemon on the bench`),
+  img("hh-cover-a04", "1536x1024", "Bìa bài Núi lửa baking soda (Hoá Nhí)", `${MOCHI}, wearing round safety goggles, cheering beside a small clay volcano with pink foam bubbling out of the top, a bottle of vinegar and a box of baking soda (no text) on a tray`),
+  img("hh-cover-a05", "1536x1024", "Bìa bài Nước đá, nước, hơi nước (Hoá Nhí)", `${MOCHI}, wearing round safety goggles, watching a glass beaker with ice cubes over a small burner flame, wisps of steam rising and water drops on a lid`),
+  img("hh-cover-k01", "1536x1024", "Bìa bài Tách hỗn hợp (Hoá KHTN)", `${MOCHI}, wearing a lab coat and goggles, pouring muddy water through a paper filter in a glass funnel into a clear beaker, sunny colorful kids lab`),
+  img("hh-cover-k02", "1536x1024", "Bìa bài Dung dịch bão hoà (Hoá KHTN)", `${MOCHI}, wearing a lab coat and goggles, stirring a beaker with white salt crystals settling at the bottom next to a spoon and a salt jar, sunny colorful kids lab`),
+  cyber("hh-cover-c01", "1536x1024", "Bìa bài Phản ứng hoá học (Hoá THCS)", `${BIT}, wearing safety goggles, holding a glowing wooden splint above an erlenmeyer flask full of fizzing bubbles in a neon lab, a beaker of pink liquid beside it`),
+  cyber("hh-cover-c02", "1536x1024", "Bìa bài Cân bằng phương trình (Hoá THCS)", `${BIT}, wearing safety goggles, standing beside a huge glowing two-pan balance scale with colorful glowing atom spheres on both pans, perfectly level, in a neon lab`),
+  cyber("hh-cover-c03", "1536x1024", "Bìa bài Thi cân bằng phương trình (Hoá THCS)", `${BIT}, wearing safety goggles, racing against a huge glowing countdown timer next to a neon balance scale with colorful atom spheres, dynamic action pose, neon lab`),
+  cyber("hh-cover-l8-mol", "1536x1024", "Bìa bài Luyện mol và khối lượng (Hoá THCS lớp 8)", `${BIT}, wearing safety goggles, next to a digital lab scale with a small glass dish of white powder, a glowing mole-shaped hologram hovering above it`),
+  cyber("hh-cover-l8-nd", "1536x1024", "Bìa bài Luyện nồng độ dung dịch (Hoá THCS lớp 8)", `${BIT}, wearing safety goggles, pouring blue liquid from a beaker into a tall measuring cylinder with glowing graduation lines, two flasks of light and dark blue solution beside it`),
+  cyber("hh-cover-l8-btkl", "1536x1024", "Bìa bài Luyện bảo toàn khối lượng (Hoá THCS lớp 8)", `${BIT}, wearing safety goggles, watching a sealed glass flask on a lab scale showing the same number before and after a small reaction, glowing equals sign hologram`),
+  cyber("hh-cover-l8-loai", "1536x1024", "Bìa bài Luyện phân loại hợp chất (Hoá THCS lớp 8)", `${BIT}, wearing safety goggles, sorting small glowing test tubes into four labeled-by-color trays (red, blue, green, yellow, no text) on a neon lab bench`),
+  cyber("hh-cover-l9-dayhd", "1536x1024", "Bìa bài Luyện dãy hoạt động kim loại (Hoá THCS lớp 9)", `${BIT}, wearing safety goggles, a copper-colored nail dropped into a blue copper sulfate solution in a beaker, a ladder of glowing metal-colored steps rising behind it`),
+  cyber("hh-cover-l9-pthh", "1536x1024", "Bìa bài Luyện tính theo PTHH (Hoá THCS lớp 9)", `${BIT}, wearing safety goggles, a glass flask connected by a tube to an upside-down graduated cylinder collecting bubbles of gas in a water trough, neon lab`),
+  cyber("hh-cover-l8-trunghoa", "1536x1024", "Bìa bài Trung hoà axit bazơ (Hoá THCS lớp 8)", `${BIT}, wearing safety goggles, holding a burette dripping into a flask that is turning from clear to bright pink, neon lab`),
+  cyber("hh-cover-l9-kl-axit", "1536x1024", "Bìa bài Kim loại gặp axit (Hoá THCS lớp 9)", `${BIT}, wearing safety goggles, watching a grey zinc granule fizzing with hydrogen bubbles in a glass beaker, a lit splint nearby, neon lab`),
+  cyber("hh-cover-l9-day-the", "1536x1024", "Bìa bài Kim loại đẩy kim loại (Hoá THCS lớp 9)", `${BIT}, wearing safety goggles, holding an iron nail coated in red copper above a beaker of fading blue solution, neon lab`),
+  cyber("hh-cover-l9-hcht", "1536x1024", "Bìa bài Luyện hữu cơ cơ bản (Hoá THCS lớp 9)", `${BIT}, wearing safety goggles, beside a glowing ball-and-stick molecule of methane and a small blue Bunsen flame, a bottle of vinegar on the bench (no text)`),
+  img("hh-cover-p01", "1536x1024", "Bìa bài Cân bằng phương trình khó (Hoá THPT)", `${BIT}, wearing white lab coat and safety goggles, in a bright high-tech lab, pointing at a large floating holographic chemical equation made of colored spheres balanced on a glossy seesaw, no readable text`, false, STYLE_MOLE),
+  img("hh-mode-xep-lop", "1024x1024", "Biểu tượng chế độ Xếp lớp (môn Hoá)", "Round app-icon style badge: a small ladder with a glowing target at the top and a flask climbing it, mint and amber colors", true),
+  img("hh-mode-so-tay", "1024x1024", "Biểu tượng chế độ Sổ tay (môn Hoá)", "Round app-icon style badge: an open notebook with a flask sticker and a small pencil, soft lilac and cream colors", true),
+  img("hh-mode-bang", "1024x1024", "Biểu tượng chế độ Bảng tuần hoàn (môn Hoá)", "Round app-icon style badge: a small colorful periodic-table grid of rounded squares in rainbow colors with a sparkle, no letters", true),
+  ...HH_CHEMS.map(([id, vi, what]) => img(`hh-chem-${id}`, "1024x1024", `Thí nghiệm hoá · biểu tượng hoá chất: ${vi} (trên kệ và khi đổ vào cốc)`, `Game item icon, a single ${what}, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, flat sticker style, the object hovers in mid-air with plain empty space all around and beneath it, one single object alone in the middle of the frame, no hands, no table, no sparkles, no particles, no extra items`, true)),
+  img("mochi-boom", "1024x1024", "Thí nghiệm hoá · Mochi sau khi làm sai (lấm lem, lông xù)", `${MOCHI}, wearing round safety goggles pushed crooked on its head, fur puffed up and frizzy, face smudged with gray soot, a tiny puff of smoke above the head, blinking in surprise, funny not hurt, full body`, true),
+  img("mochi-foam", "1024x1024", "Thí nghiệm hoá · Mochi dính bọt khi trào bọt (Nhí)", `${MOCHI}, covered in fluffy pink-white foam bubbles on its head and paws, laughing and surprised, a few bubbles floating around, full body`, true),
+  cyber("bit-boom", "1024x1024", "Thí nghiệm hoá · Bit sau vụ nổ (THCS trở lên)", `${BIT}, visor cracked and pushed up, silver fur and hair blown back and frizzy, face smudged with soot, coughing with one hand waving away a small smoke puff, embarrassed grin, not hurt, full body`, true),
+  cyber("bit-safe", "1024x1024", "Thí nghiệm hoá · Bit nhắc an toàn", `${BIT}, wearing clear safety goggles and blue nitrile gloves, giving a confident thumbs-up while holding tongs, full body`, true),
+  img("fx-boom", "1024x1024", "Thí nghiệm hoá · quả nổ lúc BÙM (app phóng to rồi mờ dần)", "A single cartoon explosion burst seen from the front, bright white-yellow core, orange and red jagged flame petals, a ring of dark smoke at the edges, centered", true, STYLE_FX),
+  ...[1, 2, 3].map((k) => img(`fx-smoke-${k}`, "1024x1024", "Thí nghiệm hoá · một cụm khói rời (app ghép thành đám khói cuộn)", `One soft puffy cartoon smoke cloud, neutral light gray with gentle shading, soft edges, centered, shape variation ${k} of 3`, true, STYLE_FX)),
+  img("fx-crack", "1536x1024", "Thí nghiệm hoá · vết nứt kính phủ màn hình sau tiếng nổ", "Shattered glass crack pattern radiating from a point slightly right of center, thin white crack lines with subtle light refraction, rest of the image fully transparent", true, STYLE_FX),
 ];
 
 const sfx = (id: string, usage: string, prompt: string): AudioAsset => ({ id, file: `/assets/sfx/${id}.mp3`, kind: "sfx", usage, prompt });
@@ -424,12 +512,32 @@ export const AUDIO: AudioAsset[] = [
   voice("vo-gp-p01", "Gõ phím · Bài đầu Phối hợp", "Giờ hai tay cùng chơi. Gõ đều tay, mắt nhìn màn hình là sẽ nhanh thôi."),
   voice("vo-gp-v01", "Gõ phím · Bài đầu Telex", "Gõ tiếng Việt có dấu thôi! Gõ a hai lần là thành chữ â. Học Vui tự ghép chữ cho em."),
   voice("vo-lt-a01", "Lập trình · Bài đầu Vỡ lòng, câu chào của Mochi", "Chào em! Hôm nay em làm người ra lệnh, còn tớ làm theo. Xếp các khối lệnh thật đúng để dẫn tớ về lá cờ nhé!"),
+  // ── Môn Thí nghiệm hoá: chưa có file thì app tự tạo tiếng bằng Web Audio (lib/chem/sfx.ts) ──
+  sfx("hh-drop", "Thí nghiệm hoá · nhỏ 1 giọt", "Single water droplet falling into a glass beaker, small plink, 0.3 seconds"),
+  sfx("hh-pour", "Thí nghiệm hoá · rót dung dịch", "Liquid pouring from a beaker into another glass, 1 second"),
+  sfx("hh-solid", "Thí nghiệm hoá · thả bột, hạt rắn", "Small handful of salt grains sprinkled into water, tiny ticks, 0.4 seconds"),
+  sfx("hh-plop", "Thí nghiệm hoá · thả đồ vật vào nước", "Small object plopping into water, soft splash, 0.4 seconds"),
+  sfx("hh-stir", "Thí nghiệm hoá · khuấy", "Glass stirring rod clinking gently against a glass beaker, 1 second"),
+  sfx("hh-fizz", "Thí nghiệm hoá · sủi bọt", "Fizzing bubbles in a glass of liquid, carbonated hiss, 2 seconds"),
+  sfx("hh-sizzle", "Thí nghiệm hoá · natri xèo xèo trên nước", "Sizzling hiss of hot metal on water, crackling, 2 seconds"),
+  sfx("hh-foam", "Thí nghiệm hoá · bọt trào (Nhí làm sai)", "Cartoon foam overflowing with bubbly gurgle and squishy sounds, playful, 1.5 seconds"),
+  sfx("hh-warn", "Thí nghiệm hoá · cảnh báo sắp nổ", "Short rising electronic warning beep alarm, tense but not scary, 1 second"),
+  sfx("hh-boom", "Thí nghiệm hoá · nổ", "Cartoon explosion boom with a deep thump, short debris rattle, not realistic, not too loud, 1.5 seconds"),
+  sfx("hh-glass", "Thí nghiệm hoá · kính vỡ", "Small glass beaker shattering, tinkling shards, 1 second"),
+  sfx("hh-pop", "Thí nghiệm hoá · khí hiđro nổ lách tách", "Small sharp squeaky pop, 0.3 seconds"),
+  sfx("hh-flame", "Thí nghiệm hoá · bật lửa, que đóm bùng cháy", "Soft whoosh of a flame igniting, 0.8 seconds"),
+  sfx("hh-chime", "Thí nghiệm hoá · đạt mục tiêu", "Magical soft shimmer chime, three rising notes, 0.8 seconds"),
 ];
 
 /** Giọng đọc mẫu môn Tập đọc (in riêng ở docs/TAPDOC_VOICES.md) */
 export const TAPDOC_AUDIO: AudioAsset[] = TAPDOC_VOICES.map((v) => ({ id: v.id, file: `/assets/voice/${v.id}.mp3`, kind: "voice", usage: v.group, prompt: v.text }));
 
 export const imageById = (id: string) => IMAGES.find((i) => i.id === id);
+/** đường dẫn ảnh biểu tượng hoá chất nếu đã tạo, chưa có thì undefined (app dùng emoji) */
+export const chemIconSrc = (chemId: string) => {
+  const f = imageById(`hh-chem-${chemId}`)?.file;
+  return f ? resolveFile(f) : undefined;
+};
 export const audioById = (id: string) => AUDIO.find((a) => a.id === id) ?? TAPDOC_AUDIO.find((a) => a.id === id);
 
 const AVAILABLE = new Map<string, string>(

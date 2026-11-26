@@ -1,6 +1,7 @@
 import type { Rng } from "@/lib/rng";
 import type { Level } from "@/lib/code/world";
 import type { LevelGen } from "@/lib/code/levels";
+import type { LabLesson } from "@/lib/chem/types";
 
 export type Mood = "happy" | "think" | "wow" | "cheer" | "oops";
 
@@ -124,6 +125,19 @@ export interface Lesson {
   typing?: TypingSpec;
   /** môn Lập trình: luyện tập là các màn kéo khối lệnh thay cho câu hỏi */
   code?: CodeSpec;
+  /** môn Thí nghiệm hoá: bài học là các thí nghiệm trên bàn ảo, luyện tập là nhiệm vụ + câu hỏi */
+  lab?: LabLesson;
+  /** môn Thí nghiệm hoá: bài cân bằng phương trình (chọn hệ số cho từng chất) */
+  balance?: BalanceSpec;
+}
+
+/** Bài cân bằng phương trình: mỗi vòng một phương trình, bé chỉnh hệ số cho đến khi hai vế bằng nhau */
+export interface BalanceSpec {
+  /** chế độ thi đấu: mỗi vòng có đồng hồ đếm ngược, chấm điểm theo thời gian và combo */
+  race?: { seconds: number };
+  intro: string;
+  rounds: { eq: string; /** tên phản ứng, vd. "Sắt gỉ" */ name: string; hint?: string; why: string }[];
+  remember: string;
 }
 
 export interface Unit {

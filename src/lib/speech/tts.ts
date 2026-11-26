@@ -35,7 +35,7 @@ export function stopSpeak() {
  * Đọc mẫu. Ưu tiên file giọng ElevenLabs (tv-*.mp3); chưa có thì dùng giọng tiếng Việt
  * của máy (iPad: giọng Linh). Trả về khi đọc xong.
  */
-export function speak(text: string, opts: { rate?: number; id?: string } = {}): Promise<void> {
+export function speak(text: string, opts: { rate?: number; id?: string; fileOnly?: boolean } = {}): Promise<void> {
   stopSpeak();
   if (typeof window === "undefined" || isMuted()) return Promise.resolve();
   const file = `/assets/voice/${opts.id ?? voiceIdFor(text)}.mp3`;
@@ -45,11 +45,11 @@ export function speak(text: string, opts: { rate?: number; id?: string } = {}): 
     return new Promise((res) => {
       const a = new Audio(src);
       current = a;
-      a.playbackRate = opts.rate && opts.rate < 1 ? 0.9 : 1;
+      a.playbackRate = opts.rate && opts.rate < 0.9 ? 0.9 : 1;
       a.onended = () => res();
       a.onerror = () => {
         missing.add(file);
-        if (current === a) void tts(text, opts.rate).then(res);
+        if (current === a && !opts.fileOnly) void tts(text, opts.rate).then(res);
         else res();
       };
       void a.play().catch((e: Error) => {
@@ -58,7 +58,8 @@ export function speak(text: string, opts: { rate?: number; id?: string } = {}): 
       });
     });
   }
-  return tts(text, opts.rate);
+  // fileOnly: chưa có file giọng thì im lặng, không dùng giọng máy
+  return opts.fileOnly ? Promise.resolve() : tts(text, opts.rate);
 }
 
 const missing = new Set<string>();

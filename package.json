@@ -14,6 +14,7 @@
     "assets": "node scripts/convert-assets.mjs",
     "gen-assets": "tsx scripts/gen-assets.ts",
     "asset-helper": "tsx scripts/asset-helper.ts",
+    "gen-local": "tsx scripts/local-gen.ts",
     "normalize-audio": "node scripts/normalize-audio.mjs"
   },
   "dependencies": {

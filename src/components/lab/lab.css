@@ -1,0 +1,204 @@
+/* Phòng thí nghiệm ảo (môn Hoá): chuyển động của dụng cụ, hiệu ứng */
+.lab-liquid { transition: transform 0.9s cubic-bezier(0.3, 0.8, 0.3, 1); }
+.lab-stop { transition: stop-color 1.1s ease; }
+.lab-obj { transition: transform 1.2s cubic-bezier(0.4, 1.4, 0.5, 1); }
+.lab-bubble { animation: lab-rise 1.4s ease-in infinite; }
+@keyframes lab-rise {
+  0% { transform: translateY(0); opacity: 0; }
+  15% { opacity: 1; }
+  100% { transform: translateY(var(--rise)); opacity: 0.2; }
+}
+.lab-swirl { animation: lab-swirl 0.7s linear 2; }
+@keyframes lab-swirl {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-6px, -14px); }
+  50% { transform: translate(5px, -22px); }
+  75% { transform: translate(7px, -10px); }
+  100% { transform: translate(0, 0); }
+}
+.lab-dart { animation: lab-dart 1.2s ease-in-out infinite; }
+@keyframes lab-dart {
+  0%, 100% { translate: -14px 0; }
+  50% { translate: 14px 0; }
+}
+.lab-spark { animation: lab-spark 0.35s linear infinite; }
+@keyframes lab-spark { 0%, 100% { opacity: 1; } 50% { opacity: 0.1; } }
+.lab-steam { animation: lab-steam 2.2s ease-out infinite; }
+@keyframes lab-steam {
+  0% { transform: translateY(4px); opacity: 0; }
+  30% { opacity: 0.7; }
+  100% { transform: translateY(-22px); opacity: 0; }
+}
+.lab-reflect { -webkit-box-reflect: below -2px linear-gradient(transparent 52%, rgba(255, 255, 255, 0.3)); }
+.lab-dark .lab-reflect { -webkit-box-reflect: below -2px linear-gradient(transparent 56%, rgba(255, 255, 255, 0.2)); }
+.lab-pick { transition: transform 0.2s ease, filter 0.2s ease; }
+.lab-pick:hover { transform: translateY(-4px); }
+.lab-pick.on { transform: translateY(-8px); filter: drop-shadow(0 0 10px var(--lab-accent)); }
+.lab-drop { animation: lab-drop 0.5s ease-in forwards; }
+@keyframes lab-drop {
+  0% { transform: translateY(-40px) scale(0.7); opacity: 0; }
+  30% { opacity: 1; }
+  100% { transform: translateY(30px) scale(1); opacity: 0; }
+}
+.lab-shake { animation: lab-shake 0.12s linear infinite; }
+@keyframes lab-shake {
+  0% { transform: translate(0, 0) rotate(0); }
+  25% { transform: translate(-2px, 1px) rotate(-1.5deg); }
+  50% { transform: translate(2px, -1px) rotate(1deg); }
+  75% { transform: translate(-1px, 2px) rotate(1.5deg); }
+}
+.lab-screen-shake { animation: lab-screen 0.45s linear; }
+@keyframes lab-screen {
+  0%, 100% { transform: translate(0, 0); }
+  20% { transform: translate(-10px, 6px) rotate(-0.6deg); }
+  40% { transform: translate(9px, -6px) rotate(0.5deg); }
+  60% { transform: translate(-6px, -4px); }
+  80% { transform: translate(5px, 4px); }
+}
+.lab-flash { animation: lab-flash 0.7s ease-out forwards; }
+@keyframes lab-flash { 0% { opacity: 1; } 100% { opacity: 0; } }
+.lab-burst { animation: lab-burst 0.9s cubic-bezier(0.2, 0.9, 0.3, 1) forwards; }
+@keyframes lab-burst {
+  0% { transform: translate(-50%, -50%) scale(0.1) rotate(-20deg); opacity: 1; }
+  60% { opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(1.15) rotate(8deg); opacity: 0.85; }
+}
+.lab-smoke { animation: lab-smoke 2.4s ease-out forwards; }
+@keyframes lab-smoke {
+  0% { transform: translate(0, 0) scale(0.3); opacity: 0; }
+  20% { opacity: 0.9; }
+  100% { transform: translate(var(--dx), var(--dy)) scale(1.3); opacity: 0.55; }
+}
+.lab-shard { animation: lab-shard 0.9s cubic-bezier(0.1, 0.8, 0.3, 1) forwards; }
+@keyframes lab-shard {
+  0% { transform: translate(0, 0) rotate(0); opacity: 1; }
+  100% { transform: translate(var(--dx), var(--dy)) rotate(var(--rot)); opacity: 0.9; }
+}
+.lab-pulse-red { animation: lab-red 0.5s ease-in-out infinite alternate; }
+@keyframes lab-red { from { box-shadow: inset 0 0 0 4px #ff3b5c, inset 0 0 60px #ff3b5c55; } to { box-shadow: inset 0 0 0 8px #ff3b5c, inset 0 0 140px #ff3b5caa; } }
+.lab-pop-in { animation: lab-pop 0.45s cubic-bezier(0.3, 1.5, 0.5, 1) both; }
+@keyframes lab-pop { from { transform: scale(0.6); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.lab-confetti-dot { animation: lab-dot 1.2s ease-out forwards; }
+@keyframes lab-dot { from { transform: translate(0, 0); opacity: 1; } to { transform: translate(var(--dx), var(--dy)); opacity: 0; } }
+.lab-hand { font-family: var(--font-hand), var(--font-display), cursive; }
+@media (prefers-reduced-motion: reduce) {
+  .lab-bubble, .lab-dart, .lab-spark, .lab-steam, .lab-shake, .lab-screen-shake { animation: none; }
+}
+.lab-calm .lab-screen-shake, .lab-calm .lab-shake { animation: none; }
+.lab-calm .lab-flash { display: none; }
+.lab-scene .lab-scene-svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.lab-scene .lab-benchtop { position: absolute; left: 0; right: 0; bottom: 0; height: 30%; }
+.lab-bench { container-type: size; }
+.lab-panel { background: var(--lab-panel); color: var(--lab-text); box-shadow: 0 0 0 1px var(--lab-line), 0 10px 30px rgba(0, 0, 0, 0.18); backdrop-filter: blur(6px); }
+.lab-soft { color: var(--lab-soft); }
+.lab-chip { background: var(--lab-chip); color: var(--lab-text); box-shadow: 0 0 0 1px var(--lab-line), 0 2px 6px rgba(0, 0, 0, 0.12); }
+[data-lab-theme="giakim"] .lab-chip { color: #f6e2b8; }
+.lab-accent { background: var(--lab-accent); color: var(--lab-accent-ink); }
+.lab-accent-text { color: var(--lab-accent); }
+.lab-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.4em; font-family: var(--font-display); font-weight: 800; border-radius: 1rem; padding: 0.6em 1.2em; transition: transform 0.15s ease, filter 0.15s; }
+.lab-btn:active { transform: scale(0.96); }
+.lab-btn:disabled { opacity: 0.45; }
+.lab-btn-main { background: var(--lab-accent); color: var(--lab-accent-ink); box-shadow: 0 4px 0 rgba(0, 0, 0, 0.22); }
+[data-lab-theme="neon"] .lab-btn-main { background: linear-gradient(90deg, #2fd3ff, #7b6bff); box-shadow: 0 0 18px #2fd3ff66; }
+.lab-btn-ghost { background: var(--lab-chip); color: var(--lab-text); box-shadow: 0 0 0 1px var(--lab-line); }
+[data-lab-theme="giakim"] .lab-btn-ghost { background: rgba(255, 255, 255, 0.5); color: #3d2512; }
+.lab-mono { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace; }
+.lab-layout { --lab-pad: 0px; }
+@media (min-width: 768px) {
+  .lab-layout { --lab-pad: calc(min(25rem, 40vw) + 1.5rem); }
+}
+
+/* Mochi dẫn bài: lọ / cốc / nút cần bấm sáng viền vàng, ngón tay nhún */
+@keyframes lab-hint { 50% { box-shadow: 0 0 0 4px #ffb81f, 0 0 0 14px #ffb81f22; } }
+.lab-hint { box-shadow: 0 0 0 4px #ffb81f, 0 0 0 8px #ffb81f55; animation: lab-hint 1.2s ease-in-out infinite; }
+@keyframes lab-finger { 50% { transform: translate(-50%, 8px); } }
+.lab-finger { transform: translateX(-50%); animation: lab-finger 0.9s ease-in-out infinite; filter: drop-shadow(0 4px 6px #0005); }
+.lab-calm .lab-hint, .lab-calm .lab-finger { animation: none; }
+/* bong bóng lời Mochi */
+.lab-say { position: relative; background: #fff; color: #252845; border-radius: 1.6rem; box-shadow: 0 0 0 3px #ffffffaa, 0 12px 30px rgba(0, 0, 0, 0.22); }
+.lab-say::before { content: ""; position: absolute; left: -15px; top: 1.6rem; border: 11px solid transparent; border-right: 16px solid #fff; border-left: 0; }
+.lab-say b { color: #7b4dff; }
+.lab-say .lab-soft { color: #8a8fb0; }
+.lab-dark .lab-say { background: #0f1a3a; color: #e9f3ff; box-shadow: 0 0 0 2px #2fd3ff, 0 0 26px #2fd3ff55; }
+.lab-dark .lab-say::before { border-right-color: #2fd3ff; }
+.lab-dark .lab-say b { color: #7fe7ff; }
+[data-lab-theme="giakim"] .lab-say { background: #f6e7c4; color: #3d2512; box-shadow: 0 0 0 2px #c9a24a, 0 12px 30px rgba(0, 0, 0, 0.35); }
+[data-lab-theme="giakim"] .lab-say::before { border-right-color: #f6e7c4; }
+[data-lab-theme="giakim"] .lab-say b { color: #9a3d12; }
+[data-lab-theme="giakim"] .lab-say .lab-soft { color: #7a5a3a; }
+.lab-mascot { animation: lab-bob 2.4s ease-in-out infinite; filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.25)); }
+@keyframes lab-bob { 50% { transform: translateY(-6px); } }
+.lab-calm .lab-mascot { animation: none; }
+/* nút trong bong bóng */
+.lab-say .lab-opt { background: #f3efff; color: #252845; box-shadow: 0 3px 0 rgba(0, 0, 0, 0.12); }
+.lab-dark .lab-say .lab-opt { background: #1b2a55; color: #e9f3ff; }
+[data-lab-theme="giakim"] .lab-say .lab-opt { background: #fff8e6; color: #3d2512; }
+/* thẻ dưới đáy (ghi nhớ, kết quả) */
+.lab-sheet { background: #fff; color: #252845; box-shadow: 0 14px 40px rgba(0, 0, 0, 0.3); }
+.lab-dark .lab-sheet { background: #0f1a3a; color: #e9f3ff; box-shadow: 0 0 0 2px #2fd3ff88, 0 14px 40px #0008; }
+[data-lab-theme="giakim"] .lab-sheet { background: #f6e7c4; color: #3d2512; }
+
+/* Anh em cùng cột */
+.sib-ball { animation: sib-skate var(--sp, 3s) ease-in-out infinite alternate; }
+@keyframes sib-skate { 0% { left: 12%; } 100% { left: 68%; } }
+.sib-flame { animation: sib-flame 0.25s ease-in-out infinite alternate; transform-origin: 50% 100%; }
+@keyframes sib-flame { 0% { transform: scale(0.9) rotate(-4deg); } 100% { transform: scale(1.15) rotate(4deg); } }
+.lab-calm .sib-ball, .lab-calm .sib-flame { animation: none; }
+
+/* Rót hoá chất: lọ nghiêng, dòng chảy, tung toé */
+.pour-bottle { animation: pour-bottle 1.7s ease-in-out both; transform-origin: 50% 55%; }
+@keyframes pour-bottle {
+  0% { opacity: 0; transform: translate(-60%, -40%) rotate(0deg) scale(0.7); }
+  18% { opacity: 1; transform: translate(0, 0) rotate(0deg) scale(1); }
+  36%, 78% { opacity: 1; transform: rotate(105deg) scale(1); }
+  100% { opacity: 0; transform: translate(-60%, -40%) rotate(0deg) scale(0.8); }
+}
+.pour-stream { transform-origin: top; animation: pour-stream 1.7s linear both; }
+@keyframes pour-stream {
+  0%, 33% { transform: scaleY(0); opacity: 1; }
+  41% { transform: scaleY(1); }
+  76% { transform: scaleY(1); opacity: 1; }
+  86%, 100% { transform: scaleY(1); opacity: 0; }
+}
+.pour-grain { top: 0; opacity: 0; animation: pour-grain 0.55s ease-in both; }
+@keyframes pour-grain { 0% { top: 0; opacity: 1; } 100% { top: 100%; opacity: 1; } }
+.pour-splash { left: 0; top: 0; opacity: 0; animation: pour-splash 0.7s ease-out 0.68s both; }
+@keyframes pour-splash {
+  0% { opacity: 1; transform: translate(0, 0) scale(1); }
+  100% { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(0.4); }
+}
+.pour-label { animation: pour-label 1.7s ease-out both; }
+@keyframes pour-label {
+  0% { opacity: 0; transform: translate(0, 10px) scale(0.7); }
+  12% { opacity: 1; transform: translate(0, 0) scale(1.08); }
+  20%, 84% { opacity: 1; transform: translate(0, 0) scale(1); }
+  100% { opacity: 0; transform: translate(0, -8px) scale(1); }
+}
+.pour-obj { top: var(--t0); animation: pour-obj 1.2s cubic-bezier(0.5, 0, 0.9, 0.6) both; }
+@keyframes pour-obj {
+  0% { top: var(--t0); opacity: 0; transform: translateX(-50%) scale(1.3) rotate(-20deg); }
+  15% { opacity: 1; }
+  55% { top: 34%; opacity: 1; transform: translateX(-50%) scale(1) rotate(10deg); }
+  70% { top: 34%; opacity: 0; transform: translateX(-50%) scale(0.5); }
+  100% { opacity: 0; transform: translateX(-50%) scale(0.5); }
+}
+.lab-calm .pour-bottle, .lab-calm .pour-splash { animation-duration: 0.01s; }
+
+/* thẻ câu hỏi dùng chung, đổi màu theo tấm bảng lab (sáng hoặc tối) */
+.lab-q { color: inherit; }
+.lab-q .bg-white, .lab-q input { background: color-mix(in srgb, currentColor 8%, transparent) !important; color: inherit !important; }
+.lab-q .border-line, .lab-q input { border-color: color-mix(in srgb, currentColor 28%, transparent) !important; }
+.lab-q input:focus { border-color: var(--lab-accent) !important; }
+.lab-q input::placeholder { color: inherit; opacity: 0.5; }
+.lab-q .text-ink-soft, .lab-q .text-ink { color: inherit !important; opacity: 0.85; }
+.lab-q .btn-primary { background: var(--lab-accent); color: var(--lab-accent-ink); }
+[data-lab-theme="neon"] .lab-q .btn-primary { background: linear-gradient(90deg, #2fd3ff, #7b6bff); color: #04122e; box-shadow: 0 0 18px #2fd3ff66; }
+.lab-q .btn-ghost { background: color-mix(in srgb, currentColor 10%, transparent); color: inherit; }
+.lab-q .bg-sun-soft, .lab-q .bg-sky-soft { background: #ffefc4 !important; color: #3d2a00 !important; }
+.lab-q .bg-mint-soft { background: #d9f7e8 !important; color: #0e4a33 !important; }
+.lab-q .bg-berry-soft { background: #ffe1e8 !important; color: #6b1230 !important; }
+.lab-dark .lab-q .bg-mint-soft { background: #123d2f !important; color: #c9ffe9 !important; }
+.lab-dark .lab-q .bg-berry-soft { background: #4a1530 !important; color: #ffd9e4 !important; }
+.lab-q .bg-mint-soft *, .lab-q .bg-berry-soft * { color: inherit; }
+.lab-q .bg-mint-soft .btn-primary, .lab-q .bg-berry-soft .btn-primary { color: #fff !important; }
+[data-lab-theme="neon"] .lab-q .bg-mint-soft .btn-primary, [data-lab-theme="neon"] .lab-q .bg-berry-soft .btn-primary { color: #04122e !important; }

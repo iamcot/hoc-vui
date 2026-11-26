@@ -1,6 +1,6 @@
 // In danh sách prompt ảnh/âm thanh ra docs/ASSET_PROMPTS.md. Chạy: npm run prompts
 import { writeFileSync } from "node:fs";
-import { AUDIO, IMAGES, MOCHI, STYLE, STYLE_TEEN, TAPDOC_AUDIO, VOICE_SETTINGS, XIXI, hasFile } from "@/content/assets";
+import { AUDIO, IMAGES, genOf, MOCHI, STYLE, STYLE_TEEN, TAPDOC_AUDIO, VOICE_SETTINGS, XIXI, hasFile } from "@/content/assets";
 
 const lines: string[] = [];
 const done = (f: string) => (hasFile(f) ? "✅" : "⬜");
@@ -15,11 +15,22 @@ lines.push("**Giữ nhân vật đồng nhất:** tạo `mochi-happy` trước, 
 lines.push("### Phong cách chung (đã gắn sẵn vào cuối mỗi prompt)", "", "> " + STYLE, "", "### Phong cách lớp lớn (lớp 8, 9 trở lên): anime trưởng thành, chất công nghệ", "", "> " + STYLE_TEEN, "");
 lines.push("### Nhân vật", "", `- ${MOCHI}`, `- ${XIXI}`, "");
 
+const miss = (g: "local" | "gpt") => IMAGES.filter((i) => genOf(i) === g && !hasFile(i.file)).length;
 lines.push(`## Ảnh (${IMAGES.length})`, "");
+lines.push("| Tạo bằng | Lệnh | Tổng | Còn thiếu |", "|---|---|---|---|");
+lines.push(`| local (icon vuông nền trong suốt) | \`npm run gen-local\` | ${IMAGES.filter((i) => genOf(i) === "local").length} | ${miss("local")} |`);
+lines.push(`| gpt (nền, bìa, nhân vật) | \`npm run asset-helper -- --gen gpt\` | ${IMAGES.filter((i) => genOf(i) === "gpt").length} | ${miss("gpt")} |`, "");
+for (const g of ["local", "gpt"] as const) {
+  const m = IMAGES.filter((i) => genOf(i) === g && !hasFile(i.file));
+  if (m.length) lines.push(`**Còn thiếu, tạo bằng ${g} (${m.length}):** ${m.map((i) => "\`" + i.id + "\`").join(", ")}`, "");
+}
 for (const i of IMAGES) {
   lines.push(`### ${done(i.file)} \`${i.file.split("/").pop()}\``);
   lines.push(`- Dùng ở: ${i.usage}`);
   lines.push(`- Kích thước: ${i.size}${i.transparent ? " · nền trong suốt" : ""}`);
+  const cmd = genOf(i) === "local" ? `npm run gen-local -- --only ${i.id}` : `npm run asset-helper -- --only ${i.id}`;
+  // đã có file thì coi là xong cả 2 đường; chưa có thì ghi đường nên dùng
+  lines.push(hasFile(i.file) ? "- Tạo bằng: local ✅ · gpt ✅ (đã có file)" : `- Tạo bằng: local ⬜ · gpt ⬜. Nên dùng **${genOf(i)}**: \`${cmd}\``);
   lines.push("", "```text", i.prompt, "```", "");
 }
 

@@ -2,7 +2,7 @@
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { execSync } from "node:child_process";
 import { basename, extname, join } from "node:path";
-import type { ImageAsset } from "@/content/assets";
+import { genOf, type ImageAsset } from "@/content/assets";
 
 export const SRC = "assets-src";
 export const PUB = "public";
@@ -46,6 +46,11 @@ export function exists(file: string, id: string) {
 /** lọc theo --only, bỏ mục đã có file (trừ khi force) */
 export function pick<T extends { id: string; file: string }>(list: T[], only?: RegExp[], force = false) {
   return list.filter((a) => (only ? only.some((r) => r.test(a.id)) : true)).filter((a) => force || !exists(a.file, a.id));
+}
+
+/** lọc theo --gen local|gpt (bỏ trống: lấy hết) */
+export function byGen<T extends ImageAsset>(list: T[], gen?: string) {
+  return gen === "local" || gen === "gpt" ? list.filter((a) => genOf(a) === gen) : list;
 }
 
 export function findImage(id: string) {

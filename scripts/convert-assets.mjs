@@ -29,7 +29,7 @@ const TRANSPARENT = new Set(existsSync("scripts/transparent-ids.json") ? JSON.pa
  * Xóa nền trơn (trắng, xanh lá, hay ô caro giả trong suốt) của ảnh tải từ công cụ không xuất được PNG trong suốt.
  * Lấy màu ở viền ảnh, loang từ viền vào các điểm gần màu đó; nét viền nhân vật chặn lại nên phần trắng bên trong không mất.
  */
-async function removeBackground(src) {
+async function removeBackground(src, single = false) {
   const { data, info } = await sharp(src).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
   const { width: w, height: h } = info;
   const px = (i) => [data[i * 4], data[i * 4 + 1], data[i * 4 + 2]];
@@ -68,8 +68,33 @@ async function removeBackground(src) {
       else if (d < TOL * 2.2) data[n * 4 + 3] = Math.round(255 * ((d - TOL) / (TOL * 1.2))); // mép mềm
     }
   }
-  // bớt ánh xanh ở mép khi nền là xanh lá
   const greenBg = bg.some(([r, g, b]) => g > 180 && r < 120 && b < 120);
+  if (single) {
+    // nền xanh lá làm model vẽ thêm bóng đổ xanh dưới vật: xoá điểm xanh lá rõ rệt (trừ vật vốn màu xanh)
+    // chỉ xoá loang từ vùng nền ra, nên kính xanh lá nằm trong nét viền (vd. chai giấm) không bị ảnh hưởng
+    if (greenBg && !/qua-chanh|lime/.test(basename(src))) {
+      const greenish = (i) => {
+        const r = data[i * 4], g = data[i * 4 + 1], b = data[i * 4 + 2];
+        return g > r + 25 && g > b + 40;
+      };
+      const st = [];
+      for (let i = 0; i < w * h; i++) if (data[i * 4 + 3] === 0) st.push(i);
+      while (st.length) {
+        const i = st.pop();
+        const x = i % w, y = (i / w) | 0;
+        for (const [nx, ny] of [[x + 1, y], [x - 1, y], [x, y + 1], [x, y - 1]]) {
+          if (nx < 0 || ny < 0 || nx >= w || ny >= h) continue;
+          const n = ny * w + nx;
+          if (data[n * 4 + 3] !== 0 && greenish(n)) {
+            data[n * 4 + 3] = 0;
+            st.push(n);
+          }
+        }
+      }
+    }
+    keepLargest(data, w, h);
+  }
+  // bớt ánh xanh ở mép khi nền là xanh lá
   if (greenBg) for (let i = 0; i < w * h; i++) {
     if (data[i * 4 + 3] === 0) continue;
     const r = data[i * 4], g = data[i * 4 + 1], b = data[i * 4 + 2];
@@ -78,6 +103,97 @@ async function removeBackground(src) {
   const wm = removeCornerMark(data, w, h);
   console.log(`  ${basename(src)}: không có nền trong suốt, đã tự xóa nền${wm ? " và dấu watermark ở góc" : ""} (${greenBg ? "xanh lá" : bg.length > 1 ? "ô caro" : "màu trơn"})`);
   return sharp(data, { raw: { width: w, height: h, channels: 4 } }).png().toBuffer();
+}
+
+/**
+ * Vật thừa model vẽ sát vào vật chính (tia lấp lánh, bông hoa) có thể dính liền qua một chỗ hẹp.
+ * Co mặt nạ vào (erode) để cắt chỗ hẹp, giữ mảnh lớn nhất rồi nở ra lại trong phạm vi mặt nạ gốc.
+ */
+function detachNarrow(data, w, h) {
+  const r = Math.max(4, Math.round(Math.min(w, h) * 0.02));
+  const solid = new Uint8Array(w * h);
+  for (let i = 0; i < w * h; i++) solid[i] = data[i * 4 + 3] >= 16 ? 1 : 0;
+  const dilateOrErode = (src, want) => {
+    // lọc tách theo chiều ngang rồi dọc (hình vuông bán kính r)
+    const tmp = new Uint8Array(w * h), out = new Uint8Array(w * h);
+    for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+      let v = want ? 0 : 1;
+      for (let k = Math.max(0, x - r); k <= Math.min(w - 1, x + r); k++) {
+        if (want ? src[y * w + k] : !src[y * w + k]) { v = want ? 1 : 0; break; }
+      }
+      tmp[y * w + x] = v;
+    }
+    for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+      let v = want ? 0 : 1;
+      for (let k = Math.max(0, y - r); k <= Math.min(h - 1, y + r); k++) {
+        if (want ? tmp[k * w + x] : !tmp[k * w + x]) { v = want ? 1 : 0; break; }
+      }
+      out[y * w + x] = v;
+    }
+    return out;
+  };
+  const core = dilateOrErode(solid, false);
+  // mảnh lớn nhất của phần lõi
+  const label = new Int32Array(w * h);
+  const sizes = [0];
+  let best = 0;
+  for (let s0 = 0; s0 < w * h; s0++) {
+    if (label[s0] || !core[s0]) continue;
+    const id = sizes.length;
+    sizes.push(0);
+    const stack = [s0];
+    label[s0] = id;
+    while (stack.length) {
+      const i = stack.pop();
+      sizes[id]++;
+      const x = i % w, y = (i / w) | 0;
+      for (const [nx, ny] of [[x + 1, y], [x - 1, y], [x, y + 1], [x, y - 1]]) {
+        if (nx < 0 || ny < 0 || nx >= w || ny >= h) continue;
+        const n = ny * w + nx;
+        if (label[n] || !core[n]) continue;
+        label[n] = id;
+        stack.push(n);
+      }
+    }
+    if (sizes[id] > (sizes[best] ?? 0)) best = id;
+  }
+  if (sizes.length <= 2) return;
+  const keep = new Uint8Array(w * h);
+  for (let i = 0; i < w * h; i++) keep[i] = label[i] === best ? 1 : 0;
+  const grown = dilateOrErode(keep, true);
+  for (let i = 0; i < w * h; i++) if (!grown[i]) data[i * 4 + 3] = 0;
+  console.log(`  (cắt vật dính liền, bỏ ${sizes.length - 2} vật thừa)`);
+}
+
+/** icon chỉ có một vật: giữ mảnh liền lớn nhất, xoá các mảnh rời (tia lấp lánh, vật thừa model vẽ thêm) */
+function keepLargest(data, w, h) {
+  detachNarrow(data, w, h);
+  const label = new Int32Array(w * h);
+  const sizes = [0];
+  let best = 0;
+  for (let s0 = 0; s0 < w * h; s0++) {
+    if (label[s0] || data[s0 * 4 + 3] < 16) continue;
+    const id = sizes.length;
+    sizes.push(0);
+    const stack = [s0];
+    label[s0] = id;
+    while (stack.length) {
+      const i = stack.pop();
+      sizes[id]++;
+      const x = i % w, y = (i / w) | 0;
+      for (const [nx, ny] of [[x + 1, y], [x - 1, y], [x, y + 1], [x, y - 1]]) {
+        if (nx < 0 || ny < 0 || nx >= w || ny >= h) continue;
+        const n = ny * w + nx;
+        if (label[n] || data[n * 4 + 3] < 16) continue;
+        label[n] = id;
+        stack.push(n);
+      }
+    }
+    if (sizes[id] > (sizes[best] ?? 0)) best = id;
+  }
+  if (sizes.length <= 2) return;
+  for (let i = 0; i < w * h; i++) if (label[i] && label[i] !== best) data[i * 4 + 3] = 0;
+  console.log(`  (giữ mảnh lớn nhất, bỏ ${sizes.length - 2} mảnh rời)`);
 }
 
 /**
@@ -116,14 +232,18 @@ function removeCornerMark(data, w, h) {
 
 // Chỉ xử lý ảnh mới hoặc đã đổi: bỏ qua khi bản .webp đã có và mới hơn ảnh nguồn (npm run dev chạy nhanh).
 // Muốn làm lại tất cả (vd. sau khi sửa cách xoá nền): node scripts/convert-assets.mjs --force
+// Chỉ làm lại vài ảnh: node scripts/convert-assets.mjs --force --only giam,xa-phong   (khớp một phần tên file)
 const FORCE = process.argv.includes("--force");
+const onlyArg = process.argv.find((a) => a.startsWith("--only="))?.slice(7) ?? (process.argv.includes("--only") ? process.argv[process.argv.indexOf("--only") + 1] : "");
+const ONLY = onlyArg ? onlyArg.split(",").filter(Boolean) : [];
+const skipped = (name) => ONLY.length > 0 && !ONLY.some((o) => name.includes(o));
 const upToDate = (file, out) => !FORCE && existsSync(out) && statSync(out).mtimeMs >= statSync(file).mtimeMs;
 
 async function toWebp(file) {
   let src = file;
   const name = basename(src, extname(src));
   const out = join(OUT_IMG, `${name}.webp`);
-  if (upToDate(file, out)) return;
+  if (skipped(name) || upToDate(file, out)) return;
   let img = sharp(src);
   const meta = await img.metadata();
   let alpha = meta.hasAlpha;
@@ -132,7 +252,7 @@ async function toWebp(file) {
     const st = alpha ? await sharp(src).stats() : null;
     const opaque = !alpha || (st && st.channels[3] && st.channels[3].min === 255);
     if (opaque) {
-      const buf = await removeBackground(src);
+      const buf = await removeBackground(src, /^hh-chem-/.test(name));
       if (buf) {
         src = buf;
         img = sharp(buf);
@@ -156,7 +276,7 @@ async function toWebp(file) {
   console.log(`${name}.webp  ${(before / 1024).toFixed(0)}KB → ${(after / 1024).toFixed(0)}KB`);
 }
 
-const srcDir = process.argv.slice(2).find((a) => !a.startsWith("--")) ?? "assets-src";
+const srcDir = process.argv.slice(2).find((a, i, all) => !a.startsWith("--") && all[i - 1] !== "--only") ?? "assets-src";
 mkdirSync(OUT_IMG, { recursive: true });
 mkdirSync("public/assets/voice", { recursive: true });
 mkdirSync("public/assets/sfx", { recursive: true });

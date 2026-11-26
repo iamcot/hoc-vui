@@ -71,6 +71,8 @@ Chạy trên máy của bạn (cần Node 20+, `npm install` một lần).
 
 **Ảnh, bán tự động bằng tài khoản ChatGPT:** `npm run asset-helper`. Tool mở ChatGPT, chép sẵn prompt vào clipboard và mở thư mục ảnh tham chiếu (mochi-happy, bg-home...). Bạn kéo ảnh tham chiếu vào, dán prompt, gửi, rồi bấm tải ảnh về. Tool thấy file mới trong Downloads sẽ tự đổi đúng tên và sang ảnh kế tiếp. Phím: `c` chép lại prompt, `s` bỏ qua, `b` quay lại, `q` thoát. Thoát xong tool tự chuyển ảnh sang WebP. Trình duyệt lưu file ở chỗ khác thì thêm `-- --downloads <thư mục>`.
 
+**Ảnh icon bằng model chạy trên máy (image-gen-kit, FLUX):** `npm run gen-local`. Mặc định chỉ tạo các ảnh icon còn thiếu (hoá chất, huy hiệu, biểu tượng), `-- --only "hh-chem-*"` để chọn, `-- --dry-run` để xem trước, `-- --model dev --steps 20 --quantize 8` cho chất lượng cao hơn. Tool tự tìm image-gen-kit qua skill `~/.claude/skills/image-gen` (hoặc `--tool-dir`, biến `IMAGE_GEN_KIT`). Model này vẽ icon tốt nhưng nền, bìa chỉ khoảng 7/10 và không giữ được nhân vật, nên các loại đó vẫn dùng `asset-helper`.
+
 **Ảnh, tự động hoàn toàn bằng OpenAI API (tốn phí riêng, khác gói ChatGPT Plus, khoảng 0,04 đến 0,06 USD/ảnh):** thêm `OPENAI_API_KEY=...` vào `.env.local`, rồi `npm run gen-assets -- --images`.
 
 Tùy chọn chung: `--dry-run` (chỉ xem, không gọi API), `--only fx-l05-*,vo-l02-s1` (chỉ các mục này), `--force` (làm lại file đã có), `--limit 3`, `--quality high`. Mặc định tool chỉ tạo file còn thiếu. File tạo ra vào `assets-src/`, sau đó tool tự chuyển sang `public/assets/...` và cập nhật `docs/ASSET_PROMPTS.md`. Xem lại rồi commit các file trong `public/assets`.

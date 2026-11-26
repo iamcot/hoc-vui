@@ -56,10 +56,13 @@ Dụng cụ, dung dịch, hiệu ứng vẽ bằng code. Ảnh chỉ cho:
 - Mochi nhà khoa học 3 tư thế, thẻ An toàn.
 
 ## Tiến độ
-- [ ] Bản thử: 1 cốc dung dịch + bọt khí + đổi màu + kết tủa (giấm + baking soda, bắp cải tím), chụp màn hình/quay video gửi duyệt
-- [ ] Bảng phản ứng dạng dữ liệu + 4 lớp giải thích
-- [ ] Bàn thí nghiệm kéo thả, bảng tuần hoàn
-- [ ] Nhà khoa học nhí, Khoa học tự nhiên
-- [ ] Hóa THCS, THPT (cân bằng phương trình)
-- [ ] Thi đấu cân bằng phương trình
+- [x] Bản thử: 1 cốc dung dịch + bọt khí + đổi màu + kết tủa (giấm + baking soda, bắp cải tím), chụp màn hình/quay video gửi duyệt
+- [x] Bảng phản ứng dạng dữ liệu + 4 lớp giải thích
+- [x] Bàn thí nghiệm kéo thả, bảng tuần hoàn (118 nguyên tố, nhóm có tính cách, đi săn)
+- [x] Nhà khoa học nhí (5 bài), Khoa học tự nhiên (2 bài: tách hỗn hợp, dung dịch bão hoà). Còn lại: bài Sự cháy (cần nến, que đóm, đậy lọ)
+- [x] Sự cố khi làm sai (trào bọt, nổ natri) + thẻ Vì sao + Sổ sự cố
+- [x] Xếp lớp cho học sinh cấp 2 (bỏ qua bài dễ), Biết rồi? Thử 3 câu, Sổ tay ôn nhanh
+- [x] 4 theme phòng lab (Nắng, Giả kim, Neon, Phân tử), dụng cụ kính bóng gương
+- [x] Hóa THCS (lớp 8: phản ứng, cân bằng, thi cân bằng, trung hoà, 5 node luyện tập; lớp 9: kim loại + axit, kim loại đẩy kim loại, 5 node luyện tập), THPT (1 bài: cân bằng phương trình khó)
+- [x] Thi đấu cân bằng phương trình (đồng hồ 30 giây, combo, kỷ lục)
 - [ ] PR (mỗi trình độ một PR)

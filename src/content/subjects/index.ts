@@ -3,6 +3,7 @@ import { mayTinh } from "./may-tinh";
 import { tapDoc } from "./tap-doc";
 import { goPhim } from "./go-phim";
 import { lapTrinh } from "./lap-trinh";
+import { hoaHoc } from "./hoa-hoc";
 
 /**
  * Danh mục môn học. Thêm môn mới: tạo thư mục trong src/content/subjects/<id>/
@@ -15,6 +16,7 @@ export const SUBJECTS: Subject[] = [
   tapDoc,
   goPhim,
   lapTrinh,
+  hoaHoc,
   // Các môn sắp có: hiện trên trang chủ dạng "sắp ra mắt".
   { id: "toan-lop1", name: "Toán vui", levelsLabel: "Lớp 1", tagline: "Đếm, cộng trừ trong phạm vi 100", emoji: "🍎", color: "#ff9fb2", cover: "subject-soon", tiers: [], ready: false, stage: "primary" },
   { id: "tieng-anh-lop6", name: "Tiếng Anh", levelsLabel: "Lớp 6", tagline: "Từ vựng và ngữ pháp", emoji: "🌏", color: "#ffc978", cover: "subject-soon", tiers: [], ready: false, stage: "secondary" },
