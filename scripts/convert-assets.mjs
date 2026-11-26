@@ -71,9 +71,26 @@ async function removeBackground(src, single = false) {
   const greenBg = bg.some(([r, g, b]) => g > 180 && r < 120 && b < 120);
   if (single) {
     // nền xanh lá làm model vẽ thêm bóng đổ xanh dưới vật: xoá điểm xanh lá rõ rệt (trừ vật vốn màu xanh)
-    if (greenBg && !/qua-chanh|lime/.test(basename(src))) for (let i = 0; i < w * h; i++) {
-      const r = data[i * 4], g = data[i * 4 + 1], b = data[i * 4 + 2];
-      if (g > r + 25 && g > b + 40) data[i * 4 + 3] = 0;
+    // chỉ xoá loang từ vùng nền ra, nên kính xanh lá nằm trong nét viền (vd. chai giấm) không bị ảnh hưởng
+    if (greenBg && !/qua-chanh|lime/.test(basename(src))) {
+      const greenish = (i) => {
+        const r = data[i * 4], g = data[i * 4 + 1], b = data[i * 4 + 2];
+        return g > r + 25 && g > b + 40;
+      };
+      const st = [];
+      for (let i = 0; i < w * h; i++) if (data[i * 4 + 3] === 0) st.push(i);
+      while (st.length) {
+        const i = st.pop();
+        const x = i % w, y = (i / w) | 0;
+        for (const [nx, ny] of [[x + 1, y], [x - 1, y], [x, y + 1], [x, y - 1]]) {
+          if (nx < 0 || ny < 0 || nx >= w || ny >= h) continue;
+          const n = ny * w + nx;
+          if (data[n * 4 + 3] !== 0 && greenish(n)) {
+            data[n * 4 + 3] = 0;
+            st.push(n);
+          }
+        }
+      }
     }
     keepLargest(data, w, h);
   }
