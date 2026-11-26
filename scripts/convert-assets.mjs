@@ -232,14 +232,18 @@ function removeCornerMark(data, w, h) {
 
 // Chỉ xử lý ảnh mới hoặc đã đổi: bỏ qua khi bản .webp đã có và mới hơn ảnh nguồn (npm run dev chạy nhanh).
 // Muốn làm lại tất cả (vd. sau khi sửa cách xoá nền): node scripts/convert-assets.mjs --force
+// Chỉ làm lại vài ảnh: node scripts/convert-assets.mjs --force --only giam,xa-phong   (khớp một phần tên file)
 const FORCE = process.argv.includes("--force");
+const onlyArg = process.argv.find((a) => a.startsWith("--only="))?.slice(7) ?? (process.argv.includes("--only") ? process.argv[process.argv.indexOf("--only") + 1] : "");
+const ONLY = onlyArg ? onlyArg.split(",").filter(Boolean) : [];
+const skipped = (name) => ONLY.length > 0 && !ONLY.some((o) => name.includes(o));
 const upToDate = (file, out) => !FORCE && existsSync(out) && statSync(out).mtimeMs >= statSync(file).mtimeMs;
 
 async function toWebp(file) {
   let src = file;
   const name = basename(src, extname(src));
   const out = join(OUT_IMG, `${name}.webp`);
-  if (upToDate(file, out)) return;
+  if (skipped(name) || upToDate(file, out)) return;
   let img = sharp(src);
   const meta = await img.metadata();
   let alpha = meta.hasAlpha;
@@ -272,7 +276,7 @@ async function toWebp(file) {
   console.log(`${name}.webp  ${(before / 1024).toFixed(0)}KB → ${(after / 1024).toFixed(0)}KB`);
 }
 
-const srcDir = process.argv.slice(2).find((a) => !a.startsWith("--")) ?? "assets-src";
+const srcDir = process.argv.slice(2).find((a, i, all) => !a.startsWith("--") && all[i - 1] !== "--only") ?? "assets-src";
 mkdirSync(OUT_IMG, { recursive: true });
 mkdirSync("public/assets/voice", { recursive: true });
 mkdirSync("public/assets/sfx", { recursive: true });
