@@ -184,16 +184,21 @@
 }
 .lab-calm .pour-bottle, .lab-calm .pour-splash { animation-duration: 0.01s; }
 
-/* thẻ câu hỏi dùng chung, đổi sang màu lab */
-.lab-q { color: var(--lab-text); }
-.lab-q .bg-white, .lab-q input { background: var(--lab-chip) !important; color: var(--lab-text) !important; }
-.lab-q .border-line, .lab-q input { border-color: var(--lab-line) !important; }
+/* thẻ câu hỏi dùng chung, đổi màu theo tấm bảng lab (sáng hoặc tối) */
+.lab-q { color: inherit; }
+.lab-q .bg-white, .lab-q input { background: color-mix(in srgb, currentColor 8%, transparent) !important; color: inherit !important; }
+.lab-q .border-line, .lab-q input { border-color: color-mix(in srgb, currentColor 28%, transparent) !important; }
 .lab-q input:focus { border-color: var(--lab-accent) !important; }
-.lab-q input::placeholder { color: var(--lab-text); opacity: 0.5; }
-.lab-q .text-ink-soft { color: var(--lab-text) !important; opacity: 0.8; }
+.lab-q input::placeholder { color: inherit; opacity: 0.5; }
+.lab-q .text-ink-soft, .lab-q .text-ink { color: inherit !important; opacity: 0.85; }
 .lab-q .btn-primary { background: var(--lab-accent); color: var(--lab-accent-ink); }
 [data-lab-theme="neon"] .lab-q .btn-primary { background: linear-gradient(90deg, #2fd3ff, #7b6bff); color: #04122e; box-shadow: 0 0 18px #2fd3ff66; }
-.lab-q .btn-ghost { background: var(--lab-chip); color: var(--lab-text); }
+.lab-q .btn-ghost { background: color-mix(in srgb, currentColor 10%, transparent); color: inherit; }
 .lab-q .bg-sun-soft, .lab-q .bg-sky-soft { background: #ffefc4 !important; color: #3d2a00 !important; }
-.lab-q .bg-mint-soft { background: #123d2f !important; color: #c9ffe9 !important; }
-.lab-q .bg-berry-soft { background: #4a1530 !important; color: #ffd9e4 !important; }
+.lab-q .bg-mint-soft { background: #d9f7e8 !important; color: #0e4a33 !important; }
+.lab-q .bg-berry-soft { background: #ffe1e8 !important; color: #6b1230 !important; }
+.lab-dark .lab-q .bg-mint-soft { background: #123d2f !important; color: #c9ffe9 !important; }
+.lab-dark .lab-q .bg-berry-soft { background: #4a1530 !important; color: #ffd9e4 !important; }
+.lab-q .bg-mint-soft *, .lab-q .bg-berry-soft * { color: inherit; }
+.lab-q .bg-mint-soft .btn-primary, .lab-q .bg-berry-soft .btn-primary { color: #fff !important; }
+[data-lab-theme="neon"] .lab-q .bg-mint-soft .btn-primary, [data-lab-theme="neon"] .lab-q .bg-berry-soft .btn-primary { color: #04122e !important; }

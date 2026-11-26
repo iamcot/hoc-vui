@@ -231,7 +231,7 @@ function Run({ subjectId, lessonId, seed, again }: { subjectId: string; lessonId
                 <div className="text-xs font-extrabold tracking-wider opacity-60">
                   CÂU {qi + 1}/{QUIZ} · nhiệm vụ đã được {score}/{MAX_MISSION} điểm
                 </div>
-                <div className="rounded-2xl bg-white p-1 text-ink">
+                <div className="lab-q p-1">
                   <QuestionCard
                     key={qs[qi].id}
                     q={qs[qi]}

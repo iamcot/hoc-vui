@@ -434,7 +434,7 @@ export function ChemLesson({ subjectId, lessonId }: { subjectId: string; lessonI
                     <div className="text-xs font-extrabold tracking-wider opacity-60">
                       THỬ NHANH · CÂU {quiz.i + 1}/{quiz.qs.length} · đúng 2 câu là qua bài
                     </div>
-                    <div className="rounded-2xl bg-white p-1 text-ink">
+                    <div className="lab-q p-1">
                       <QuestionCard key={quiz.qs[quiz.i].id} q={quiz.qs[quiz.i]} onNext={(r) => setQuiz((z) => (z ? { ...z, i: z.i + 1, ok: z.ok + (r.correct ? 1 : 0) } : z))} />
                     </div>
                   </>
