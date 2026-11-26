@@ -28,10 +28,8 @@ File này sinh tự động từ `src/content/assets.ts` bằng `npm run prompts
 
 | Tạo bằng | Lệnh | Tổng | Còn thiếu |
 |---|---|---|---|
-| local (icon vuông nền trong suốt) | `npm run gen-local` | 84 | 1 |
+| local (icon vuông nền trong suốt) | `npm run gen-local` | 84 | 0 |
 | gpt (nền, bìa, nhân vật) | `npm run asset-helper -- --gen gpt` | 139 | 0 |
-
-**Còn thiếu, tạo bằng local (1):** `hh-chem-cu`
 
 ### ✅ `mochi-happy.webp`
 - Dùng ở: Mochi vui vẻ: lời chào, slide mở đầu
@@ -1950,10 +1948,10 @@ Game item icon, a single grey-silver metal granule with a bumpy surface, centere
 Game item icon, a single dark grey iron nail, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, flat sticker style, the object hovers in mid-air with plain empty space all around and beneath it, one single object alone in the middle of the frame, no hands, no table, no sparkles, no particles, no extra items. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `hh-chem-cu.webp`
+### ✅ `hh-chem-cu.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Dây đồng (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
-- Tạo bằng: local ⬜ · gpt ⬜. Nên dùng **local**: `npm run gen-local -- --only hh-chem-cu`
+- Tạo bằng: local ✅ · gpt ✅ (đã có file)
 
 ```text
 Game item icon, a single coil of shiny orange-copper wire, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, flat sticker style, the object hovers in mid-air with plain empty space all around and beneath it, one single object alone in the middle of the frame, no hands, no table, no sparkles, no particles, no extra items. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
