@@ -26,6 +26,10 @@ export interface Chem {
   oil?: boolean;
   /** vật: khối lượng riêng (nước = 1) */
   density?: number;
+  /** độ tan: số liều tan được trong mỗi liều nước ở 25°C (không ghi: tan không giới hạn) */
+  solub?: number;
+  /** độ tan tăng thêm theo mỗi °C trên 25°C (tỉ lệ) */
+  solubT?: number;
   /** muối cacbonat: gặp axit sinh khí CO₂ */
   carbonate?: boolean;
   /** ở đâu trong nhà / dùng làm gì (chạm vào chất để xem) */
@@ -44,8 +48,8 @@ export const CHEMS: Record<string, Chem> = Object.fromEntries(
     C({ id: "giam", name: "Giấm", formula: "CH₃COOH", kind: "liquid", color: "#f3eed8", acid: 1, ph: 2.9, emoji: "🍶", note: "Giấm ăn trong bếp, chứa axit axetic" }),
     C({ id: "xa-phong", name: "Nước xà phòng", kind: "liquid", color: "#e9f7ff", base: 0.9, ph: 10, emoji: "🧼", note: "Hơi nhờn, có tính bazơ (kiềm)" }),
     C({ id: "baking-soda", name: "Baking soda", formula: "NaHCO₃", kind: "solid", color: "#ffffff", base: 0.35, ph: 8.3, soluble: true, carbonate: true, emoji: "🧂", note: "Bột nở làm bánh, tên hoá học natri hiđrocacbonat" }),
-    C({ id: "muoi", name: "Muối ăn", formula: "NaCl", kind: "solid", color: "#ffffff", soluble: true, emoji: "🧂", note: "Muối hạt trong bếp" }),
-    C({ id: "duong", name: "Đường", kind: "solid", color: "#fff8e6", soluble: true, emoji: "🍬", note: "Đường kính trắng" }),
+    C({ id: "muoi", name: "Muối ăn", formula: "NaCl", kind: "solid", color: "#ffffff", soluble: true, solub: 0.6, solubT: 0.002, emoji: "🧂", note: "Muối hạt trong bếp" }),
+    C({ id: "duong", name: "Đường", kind: "solid", color: "#fff8e6", soluble: true, solub: 1.2, solubT: 0.03, emoji: "🍬", note: "Đường kính trắng" }),
     C({ id: "cat", name: "Cát", kind: "solid", color: "#d9b26a", soluble: false, emoji: "🏖️", note: "Cát xây nhà, không tan trong nước" }),
     C({ id: "dau-an", name: "Dầu ăn", kind: "liquid", color: "#ffd23f", oil: true, emoji: "🫒", note: "Nhẹ hơn nước và không trộn với nước" }),
     C({ id: "da", name: "Hòn đá", kind: "object", color: "#8a8fa8", density: 2.6, emoji: "🪨" }),

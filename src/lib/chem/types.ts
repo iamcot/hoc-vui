@@ -10,7 +10,7 @@ export const DEPTHS: { id: Depth; name: string; emoji: string }[] = [
   { id: "thpt", name: "THPT", emoji: "🧬" },
 ];
 
-export type Tool = "stir" | "heat" | "splint" | "ph" | "thermo";
+export type Tool = "stir" | "heat" | "splint" | "ph" | "thermo" | "filter";
 
 export interface Step {
   /** nhãn ngắn trên dải nhiệm vụ */

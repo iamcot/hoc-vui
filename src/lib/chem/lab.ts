@@ -22,6 +22,8 @@ export interface VesselSpec {
   /** sức chứa (liều). Mặc định theo dụng cụ */
   cap?: number;
   temp?: number;
+  /** cốc lọc: bấm Lọc thì chất lỏng chảy qua giấy lọc sang cốc này */
+  into?: string;
 }
 
 export interface Vessel {
@@ -52,6 +54,7 @@ export interface Vessel {
   /** tia lửa xèo xèo (giây) */
   sparks: number;
   spilled: boolean;
+  into?: string;
 }
 
 export type LabEventType =
@@ -114,6 +117,7 @@ export function initLab(specs: VesselSpec[]): LabState {
       swirl: 0,
       sparks: 0,
       spilled: false,
+      into: s.into,
     };
     for (const [id, n] of s.contents ?? []) put(v, id, n, true);
     return v;
@@ -376,6 +380,49 @@ export function addChem(state: LabState, vesselId: string, id: string): LabState
   return s;
 }
 
+/** hoà tan chất rắn vào nước, tối đa tới độ tan (nóng thì tan được nhiều hơn) */
+function dissolve(s: LabState, v: Vessel, id: string) {
+  const c = chem(id);
+  const n = v.grains[id] ?? 0;
+  if (!c || n <= 0) return;
+  const water = Object.entries(v.liquid).reduce((a, [k, x]) => a + (chem(k)?.kind === "liquid" && !chem(k)?.oil ? x : 0), 0);
+  const cap = c.solub === undefined ? Infinity : c.solub * Math.max(0, water) * Math.max(0.2, 1 + (c.solubT ?? 0) * (v.temp - 25));
+  const take = Math.max(0, Math.min(n, cap - (v.liquid[id] ?? 0)));
+  if (take > 0.001) {
+    v.grains[id] = n - take;
+    v.liquid[id] = (v.liquid[id] ?? 0) + take;
+    addLog(s, `dissolve:${id}`);
+    if (v.temp > 28) addLog(s, `dissolve-hot:${id}`);
+  }
+  if ((v.grains[id] ?? 0) > 0.02) addLog(s, `saturated:${id}`);
+  else v.grains[id] = 0;
+}
+
+/** lọc: chất lỏng (và chất đã tan) chảy sang cốc đích, cặn rắn ở lại trên giấy lọc */
+export function filterPour(state: LabState, vesselId: string): LabState {
+  const s = clone(state);
+  const v = s.vessels.find((x) => x.id === vesselId);
+  const t = s.vessels.find((x) => x.id === v?.into);
+  if (!v || !t || volume(v) <= 0) return state;
+  const room = Math.max(0, t.cap - volume(t));
+  let moved = 0;
+  for (const [id, n] of Object.entries(v.liquid)) {
+    const take = Math.min(n, Math.max(0, room - moved));
+    if (take <= 0) continue;
+    v.liquid[id] = n - take;
+    t.liquid[id] = (t.liquid[id] ?? 0) + take;
+    moved += take;
+  }
+  for (const [id, n] of Object.entries(v.liquid)) if (n <= 0.001) delete v.liquid[id];
+  s.events.push({ type: "pour", vessel: t.id });
+  addLog(s, `filter:${v.id}`);
+  const residue = Object.entries(v.grains).filter(([, n]) => n > 0.001);
+  for (const [id] of residue) addLog(s, `residue:${id}`);
+  if (Object.values(t.grains).every((n) => !n)) addLog(s, `clear:${t.id}`);
+  for (const id of Object.keys(t.liquid)) if (chem(id)?.kind === "solid") addLog(s, `passed:${id}`);
+  return s;
+}
+
 export function stir(state: LabState, vesselId: string): LabState {
   const s = clone(state);
   const v = s.vessels.find((x) => x.id === vesselId);
@@ -384,11 +431,8 @@ export function stir(state: LabState, vesselId: string): LabState {
   s.events.push({ type: "stir", vessel: v.id });
   for (const [id, n] of Object.entries(v.grains)) {
     if (n <= 0) continue;
-    if (chem(id)?.soluble) {
-      v.grains[id] = 0;
-      v.liquid[id] = (v.liquid[id] ?? 0) + n;
-      addLog(s, `dissolve:${id}`);
-    } else addLog(s, `nodissolve:${id}`);
+    if (chem(id)?.soluble) dissolve(s, v, id);
+    else addLog(s, `nodissolve:${id}`);
   }
   if (v.liquid["dau-an"]) addLog(s, "nodissolve:dau-an");
   react(s, v);
@@ -474,6 +518,7 @@ export function tick(state: LabState, dt: number): LabState {
     }
     const water = volume(v) > 0 || v.ice > 0;
     if (v.heating && water) {
+      for (const id of Object.keys(v.grains)) if (chem(id)?.soluble && (v.grains[id] ?? 0) > 0) dissolve(s, v, id);
       if (v.ice > 0) {
         v.temp = Math.min(v.temp + dt * 6, 0);
         if (v.temp >= 0) {
@@ -493,7 +538,22 @@ export function tick(state: LabState, dt: number): LabState {
             s.events.push({ type: "boil", vessel: v.id });
             addLog(s, "boil");
           }
-          v.liquid.nuoc = Math.max(0.6, (v.liquid.nuoc ?? 0) - dt * 0.04);
+          const dissolved = Object.keys(v.liquid).filter((id) => chem(id)?.kind === "solid" && (v.liquid[id] ?? 0) > 0.001);
+          if (dissolved.length) {
+            // nước muối/đường: nước bay hơi hết thì chất tan kết tinh lại
+            v.liquid.nuoc = Math.max(0, (v.liquid.nuoc ?? 0) - dt * 0.15);
+            v.bubbles = 0.6;
+            if (v.liquid.nuoc <= 0.05) {
+              v.liquid.nuoc = 0;
+              for (const id of dissolved) {
+                v.grains[id] = (v.grains[id] ?? 0) + (v.liquid[id] ?? 0);
+                v.liquid[id] = 0;
+                addLog(s, `crystal:${id}`);
+              }
+              v.heating = false;
+              s.events.push({ type: "heat", vessel: v.id });
+            }
+          } else v.liquid.nuoc = Math.max(0.6, (v.liquid.nuoc ?? 0) - dt * 0.04);
           if (v.lid) {
             v.condense = Math.min(1, v.condense + dt * 0.25);
             if (v.condense > 0.6) addLog(s, "condense");

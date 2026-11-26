@@ -1,7 +1,7 @@
 "use client";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { chem } from "@/lib/chem/chemicals";
-import { addChem, colorName, floats, level, liquidColor, ph, splint, stir, stopDanger, tick, toggleHeat, vesselTags, volume, type LabEvent, type LabState, type Vessel } from "@/lib/chem/lab";
+import { addChem, filterPour, colorName, floats, level, liquidColor, ph, splint, stir, stopDanger, tick, toggleHeat, vesselTags, volume, type LabEvent, type LabState, type Vessel } from "@/lib/chem/lab";
 import type { Tool } from "@/lib/chem/types";
 import { LAB_THEMES, type LabThemeId } from "@/lib/chem/themes";
 import { sfx } from "@/lib/chem/sfx";
@@ -231,6 +231,10 @@ export function Bench({ state, setState, shelf, tools = [], theme, formulas, rig
     if (x === "heat") setState((s) => toggleHeat(s, v));
     if (x === "splint") setState((s) => splint(s, v));
     if (x === "ph") setPhShow((p) => !p);
+    if (x === "filter") {
+      const src = state.vessels.find((q) => q.id === v)?.into ? v : state.vessels.find((q) => q.into)?.id;
+      if (src) setState((s) => filterPour(s, src));
+    }
   };
 
   // kéo thả từ kệ vào dụng cụ
@@ -404,6 +408,11 @@ export function Bench({ state, setState, shelf, tools = [], theme, formulas, rig
           {tools.includes("splint") && (
             <button className={`lab-chip rounded-2xl px-4 py-2.5 text-base font-extrabold sm:text-lg ${hint?.tool === "splint" && !locked ? "lab-hint" : ""}`} onClick={() => tool("splint")} disabled={locked}>
               🪵 Que đóm
+            </button>
+          )}
+          {tools.includes("filter") && (
+            <button className={`lab-chip rounded-2xl px-4 py-2.5 text-base font-extrabold sm:text-lg ${hint?.tool === "filter" && !locked ? "lab-hint" : ""}`} onClick={() => tool("filter")} disabled={locked}>
+              🧻 Lọc
             </button>
           )}
           {tools.includes("ph") && (

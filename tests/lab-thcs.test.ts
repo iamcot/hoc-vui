@@ -30,3 +30,33 @@ test("sắt và kẽm đẩy đồng, đồng thì không", () => {
   assert.equal(s.vessels[1].ppt, null);
   assert.ok(s.vessels[0].ppt);
 });
+
+import { filterPour, stir, tick } from "../src/lib/chem/lab";
+import { unitsKhtn } from "../src/content/subjects/hoa-hoc/khtn";
+
+test("KHTN: lọc giữ cát, muối lọt qua; đun cạn thì muối kết tinh", () => {
+  const [k01] = unitsKhtn[0].lessons;
+  const [loc, bay] = k01.lab!.experiments;
+  let s = initLab(loc.vessels);
+  s = filterPour(stir(s, "A"), "A");
+  assert.ok(loc.goal.done(s.log, s));
+  assert.ok(s.vessels[0].grains.cat > 0);
+  let h = stir(initLab(bay.vessels), "A");
+  h.vessels[0].heating = true;
+  for (let i = 0; i < 400; i++) h = tick(h, 0.1);
+  assert.ok(bay.goal.done(h.log, h));
+  assert.ok(h.vessels[0].grains.muoi > 0.5);
+});
+
+test("KHTN: muối bão hoà, đường nóng tan thêm", () => {
+  const [, k02] = unitsKhtn[0].lessons;
+  const [bh, nong] = k02.lab!.experiments;
+  let s = initLab(bh.vessels);
+  for (let i = 0; i < 2; i++) s = stir(addChem(s, "A", "muoi"), "A");
+  assert.ok(bh.goal.done(s.log, s));
+  let d = stir(initLab(nong.vessels), "A");
+  assert.ok(d.log.includes("saturated:duong"));
+  d.vessels[0].heating = true;
+  for (let i = 0; i < 60; i++) d = tick(d, 0.1);
+  assert.ok(nong.goal.done(d.log, d));
+});

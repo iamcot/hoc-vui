@@ -1,4 +1,5 @@
 import type { Subject } from "@/content/types";
+import { unitsKhtn } from "./khtn";
 import { unitsNhi } from "./nhi";
 import { unitsThcs } from "./thcs";
 import { unitsThpt } from "./thpt";
@@ -20,7 +21,7 @@ export const hoaHoc: Subject = {
   ],
   tiers: [
     { id: "nhi", name: "Nhí", short: "Tan, nổi chìm, đổi màu, núi lửa · lớp 1-3", emoji: "🧪", icon: "hh-tier-1", units: unitsNhi, challenge: { count: 10, pass: 8 } },
-    { id: "khtn", name: "Khoa học tự nhiên", short: "Chất, tách chất, nguyên tử, sự cháy · lớp 4-7", emoji: "🔬", icon: "hh-tier-2", units: [] },
+    { id: "khtn", name: "Khoa học tự nhiên", short: "Chất, tách chất, nguyên tử, sự cháy · lớp 4-7", emoji: "🔬", icon: "hh-tier-2", units: unitsKhtn, challenge: { count: 10, pass: 8 } },
     { id: "thcs", name: "Hoá THCS", short: "Phản ứng, axit bazơ, muối, kim loại · lớp 8-9", emoji: "⚗️", icon: "hh-tier-3", units: unitsThcs, challenge: { count: 10, pass: 8 }, mascot: "bit" },
     { id: "thpt", name: "Hoá THPT", short: "Liên kết, tốc độ, cân bằng, điện hoá · lớp 10-12", emoji: "🧬", icon: "hh-tier-4", units: unitsThpt, challenge: { count: 10, pass: 8 }, mascot: "bit" },
   ],
