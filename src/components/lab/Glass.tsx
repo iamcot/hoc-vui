@@ -260,10 +260,11 @@ export function Glass({
         </g>
       )}
 
-      <path d={S.body} fill="none" stroke={outline} strokeOpacity=".95" strokeWidth="2.4" strokeLinejoin="round" />
-      <path d={S.body} fill="none" stroke={inner} strokeOpacity=".55" strokeWidth=".8" strokeLinejoin="round" />
-      <ellipse cx={rimC} cy={S.top} rx={rimW / 2 + 1.5} ry={Math.max(2, rimW * 0.06)} fill="none" stroke="#fff" strokeWidth="2.2" opacity=".95" />
-      <ellipse cx={rimC} cy={S.top} rx={rimW / 2 + 1.5} ry={Math.max(2, rimW * 0.06)} fill="none" stroke={inner} strokeWidth=".7" opacity=".6" />
+      <path d={S.body.replace(/Z$/, "")} fill="none" stroke={outline} strokeOpacity=".95" strokeWidth="2.4" strokeLinejoin="round" />
+      <path d={S.body.replace(/Z$/, "")} fill="none" stroke={inner} strokeOpacity=".55" strokeWidth=".8" strokeLinejoin="round" />
+      {/* chỉ nửa sau của miệng: nửa trước làm một đường cắt ngang giữa bình */}
+      <path d={`M${rimC - rimW / 2 - 1.5} ${S.top} A${rimW / 2 + 1.5} ${Math.max(2, rimW * 0.06)} 0 0 1 ${rimC + rimW / 2 + 1.5} ${S.top}`} fill="none" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" opacity=".95" />
+      <path d={`M${rimC - rimW / 2 - 1.5} ${S.top} A${rimW / 2 + 1.5} ${Math.max(2, rimW * 0.06)} 0 0 1 ${rimC + rimW / 2 + 1.5} ${S.top}`} fill="none" stroke={inner} strokeWidth=".7" strokeLinecap="round" opacity=".6" />
       {S.lid && (
         <g>
           <rect x="8" y="-6" width="84" height="12" rx="3" fill="#c9a24a" stroke="#8a6a24" />
