@@ -29,7 +29,7 @@ const TRANSPARENT = new Set(existsSync("scripts/transparent-ids.json") ? JSON.pa
  * Xóa nền trơn (trắng, xanh lá, hay ô caro giả trong suốt) của ảnh tải từ công cụ không xuất được PNG trong suốt.
  * Lấy màu ở viền ảnh, loang từ viền vào các điểm gần màu đó; nét viền nhân vật chặn lại nên phần trắng bên trong không mất.
  */
-async function removeBackground(src) {
+async function removeBackground(src, single = false) {
   const { data, info } = await sharp(src).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
   const { width: w, height: h } = info;
   const px = (i) => [data[i * 4], data[i * 4 + 1], data[i * 4 + 2]];
@@ -68,8 +68,16 @@ async function removeBackground(src) {
       else if (d < TOL * 2.2) data[n * 4 + 3] = Math.round(255 * ((d - TOL) / (TOL * 1.2))); // mép mềm
     }
   }
-  // bớt ánh xanh ở mép khi nền là xanh lá
   const greenBg = bg.some(([r, g, b]) => g > 180 && r < 120 && b < 120);
+  if (single) {
+    // nền xanh lá làm model vẽ thêm bóng đổ xanh dưới vật: xoá điểm xanh lá rõ rệt (trừ vật vốn màu xanh)
+    if (greenBg && !/qua-chanh|lime/.test(basename(src))) for (let i = 0; i < w * h; i++) {
+      const r = data[i * 4], g = data[i * 4 + 1], b = data[i * 4 + 2];
+      if (g > r + 25 && g > b + 40) data[i * 4 + 3] = 0;
+    }
+    keepLargest(data, w, h);
+  }
+  // bớt ánh xanh ở mép khi nền là xanh lá
   if (greenBg) for (let i = 0; i < w * h; i++) {
     if (data[i * 4 + 3] === 0) continue;
     const r = data[i * 4], g = data[i * 4 + 1], b = data[i * 4 + 2];
@@ -78,6 +86,36 @@ async function removeBackground(src) {
   const wm = removeCornerMark(data, w, h);
   console.log(`  ${basename(src)}: không có nền trong suốt, đã tự xóa nền${wm ? " và dấu watermark ở góc" : ""} (${greenBg ? "xanh lá" : bg.length > 1 ? "ô caro" : "màu trơn"})`);
   return sharp(data, { raw: { width: w, height: h, channels: 4 } }).png().toBuffer();
+}
+
+/** icon chỉ có một vật: giữ mảnh liền lớn nhất, xoá các mảnh rời (tia lấp lánh, vật thừa model vẽ thêm) */
+function keepLargest(data, w, h) {
+  const label = new Int32Array(w * h);
+  const sizes = [0];
+  let best = 0;
+  for (let s0 = 0; s0 < w * h; s0++) {
+    if (label[s0] || data[s0 * 4 + 3] < 16) continue;
+    const id = sizes.length;
+    sizes.push(0);
+    const stack = [s0];
+    label[s0] = id;
+    while (stack.length) {
+      const i = stack.pop();
+      sizes[id]++;
+      const x = i % w, y = (i / w) | 0;
+      for (const [nx, ny] of [[x + 1, y], [x - 1, y], [x, y + 1], [x, y - 1]]) {
+        if (nx < 0 || ny < 0 || nx >= w || ny >= h) continue;
+        const n = ny * w + nx;
+        if (label[n] || data[n * 4 + 3] < 16) continue;
+        label[n] = id;
+        stack.push(n);
+      }
+    }
+    if (sizes[id] > (sizes[best] ?? 0)) best = id;
+  }
+  if (sizes.length <= 2) return;
+  for (let i = 0; i < w * h; i++) if (label[i] && label[i] !== best) data[i * 4 + 3] = 0;
+  console.log(`  (giữ mảnh lớn nhất, bỏ ${sizes.length - 2} mảnh rời)`);
 }
 
 /**
@@ -132,7 +170,7 @@ async function toWebp(file) {
     const st = alpha ? await sharp(src).stats() : null;
     const opaque = !alpha || (st && st.channels[3] && st.channels[3].min === 255);
     if (opaque) {
-      const buf = await removeBackground(src);
+      const buf = await removeBackground(src, /^hh-chem-/.test(name));
       if (buf) {
         src = buf;
         img = sharp(buf);
