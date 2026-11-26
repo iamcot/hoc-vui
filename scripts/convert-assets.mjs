@@ -88,8 +88,69 @@ async function removeBackground(src, single = false) {
   return sharp(data, { raw: { width: w, height: h, channels: 4 } }).png().toBuffer();
 }
 
+/**
+ * Vật thừa model vẽ sát vào vật chính (tia lấp lánh, bông hoa) có thể dính liền qua một chỗ hẹp.
+ * Co mặt nạ vào (erode) để cắt chỗ hẹp, giữ mảnh lớn nhất rồi nở ra lại trong phạm vi mặt nạ gốc.
+ */
+function detachNarrow(data, w, h) {
+  const r = Math.max(4, Math.round(Math.min(w, h) * 0.02));
+  const solid = new Uint8Array(w * h);
+  for (let i = 0; i < w * h; i++) solid[i] = data[i * 4 + 3] >= 16 ? 1 : 0;
+  const dilateOrErode = (src, want) => {
+    // lọc tách theo chiều ngang rồi dọc (hình vuông bán kính r)
+    const tmp = new Uint8Array(w * h), out = new Uint8Array(w * h);
+    for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+      let v = want ? 0 : 1;
+      for (let k = Math.max(0, x - r); k <= Math.min(w - 1, x + r); k++) {
+        if (want ? src[y * w + k] : !src[y * w + k]) { v = want ? 1 : 0; break; }
+      }
+      tmp[y * w + x] = v;
+    }
+    for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+      let v = want ? 0 : 1;
+      for (let k = Math.max(0, y - r); k <= Math.min(h - 1, y + r); k++) {
+        if (want ? tmp[k * w + x] : !tmp[k * w + x]) { v = want ? 1 : 0; break; }
+      }
+      out[y * w + x] = v;
+    }
+    return out;
+  };
+  const core = dilateOrErode(solid, false);
+  // mảnh lớn nhất của phần lõi
+  const label = new Int32Array(w * h);
+  const sizes = [0];
+  let best = 0;
+  for (let s0 = 0; s0 < w * h; s0++) {
+    if (label[s0] || !core[s0]) continue;
+    const id = sizes.length;
+    sizes.push(0);
+    const stack = [s0];
+    label[s0] = id;
+    while (stack.length) {
+      const i = stack.pop();
+      sizes[id]++;
+      const x = i % w, y = (i / w) | 0;
+      for (const [nx, ny] of [[x + 1, y], [x - 1, y], [x, y + 1], [x, y - 1]]) {
+        if (nx < 0 || ny < 0 || nx >= w || ny >= h) continue;
+        const n = ny * w + nx;
+        if (label[n] || !core[n]) continue;
+        label[n] = id;
+        stack.push(n);
+      }
+    }
+    if (sizes[id] > (sizes[best] ?? 0)) best = id;
+  }
+  if (sizes.length <= 2) return;
+  const keep = new Uint8Array(w * h);
+  for (let i = 0; i < w * h; i++) keep[i] = label[i] === best ? 1 : 0;
+  const grown = dilateOrErode(keep, true);
+  for (let i = 0; i < w * h; i++) if (!grown[i]) data[i * 4 + 3] = 0;
+  console.log(`  (cắt vật dính liền, bỏ ${sizes.length - 2} vật thừa)`);
+}
+
 /** icon chỉ có một vật: giữ mảnh liền lớn nhất, xoá các mảnh rời (tia lấp lánh, vật thừa model vẽ thêm) */
 function keepLargest(data, w, h) {
+  detachNarrow(data, w, h);
   const label = new Int32Array(w * h);
   const sizes = [0];
   let best = 0;
