@@ -33,7 +33,7 @@ function toolDir() {
   }
 }
 
-const GREEN = "isolated on a plain flat solid bright green background (#00FF00), no shadow, no gradient, no ground, no checkerboard, green kept out of the subject";
+const GREEN = "cut-out sticker on a chroma-key green screen: the whole background is one perfectly flat uniform bright green (#00FF00) with nothing else in it, and the green is kept out of the object itself";
 
 const promptOf = (a: ImageAsset) => (a.transparent ? a.prompt.replace("isolated on a fully transparent background", GREEN) : a.prompt);
 
