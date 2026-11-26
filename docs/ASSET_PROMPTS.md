@@ -28,10 +28,8 @@ File này sinh tự động từ `src/content/assets.ts` bằng `npm run prompts
 
 | Tạo bằng | Lệnh | Tổng | Còn thiếu |
 |---|---|---|---|
-| local (icon vuông nền trong suốt) | `npm run gen-local` | 84 | 19 |
+| local (icon vuông nền trong suốt) | `npm run gen-local` | 84 | 0 |
 | gpt (nền, bìa, nhân vật) | `npm run asset-helper -- --gen gpt` | 139 | 0 |
-
-**Còn thiếu, tạo bằng local (19):** `hh-chem-baking-soda`, `hh-chem-muoi`, `hh-chem-duong`, `hh-chem-cat`, `hh-chem-dau-an`, `hh-chem-da`, `hh-chem-go`, `hh-chem-qua-chanh`, `hh-chem-trung`, `hh-chem-vit`, `hh-chem-phenol`, `hh-chem-naoh`, `hh-chem-natri`, `hh-chem-natri-to`, `hh-chem-hcl`, `hh-chem-cuso4`, `hh-chem-zn`, `hh-chem-fe`, `hh-chem-cu`
 
 ### ✅ `mochi-happy.webp`
 - Dùng ở: Mochi vui vẻ: lời chào, slide mở đầu
@@ -1779,64 +1777,64 @@ Game item icon, a single tall glass bottle with a cork stopper filled with pale 
 Game item icon, a single pump soap bottle filled with pale blue liquid with a few soap bubbles, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, flat sticker style, the object hovers in mid-air with plain empty space all around and beneath it, one single object alone in the middle of the frame, no hands, no table, no sparkles, no particles, no extra items. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `hh-chem-baking-soda.webp`
+### ✅ `hh-chem-baking-soda.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Baking soda (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
-- Tạo bằng: local ⬜ · gpt ⬜. Nên dùng **local**: `npm run gen-local -- --only hh-chem-baking-soda`
+- Tạo bằng: local ✅ · gpt ✅ (đã có file)
 
 ```text
 Game item icon, a single small open glass jar of fine white powder with a little spoon, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, flat sticker style, the object hovers in mid-air with plain empty space all around and beneath it, one single object alone in the middle of the frame, no hands, no table, no sparkles, no particles, no extra items. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `hh-chem-muoi.webp`
+### ✅ `hh-chem-muoi.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Muối ăn (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
-- Tạo bằng: local ⬜ · gpt ⬜. Nên dùng **local**: `npm run gen-local -- --only hh-chem-muoi`
+- Tạo bằng: local ✅ · gpt ✅ (đã có file)
 
 ```text
 Game item icon, a single salt shaker full of white salt crystals with a few grains next to it, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, flat sticker style, the object hovers in mid-air with plain empty space all around and beneath it, one single object alone in the middle of the frame, no hands, no table, no sparkles, no particles, no extra items. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `hh-chem-duong.webp`
+### ✅ `hh-chem-duong.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Đường (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
-- Tạo bằng: local ⬜ · gpt ⬜. Nên dùng **local**: `npm run gen-local -- --only hh-chem-duong`
+- Tạo bằng: local ✅ · gpt ✅ (đã có file)
 
 ```text
 Game item icon, a single small glass jar of white sugar cubes and a few loose sugar crystals, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, flat sticker style, the object hovers in mid-air with plain empty space all around and beneath it, one single object alone in the middle of the frame, no hands, no table, no sparkles, no particles, no extra items. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `hh-chem-cat.webp`
+### ✅ `hh-chem-cat.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Cát (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
-- Tạo bằng: local ⬜ · gpt ⬜. Nên dùng **local**: `npm run gen-local -- --only hh-chem-cat`
+- Tạo bằng: local ✅ · gpt ✅ (đã có file)
 
 ```text
 Game item icon, a single small wooden scoop heaped with golden sand, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, flat sticker style, the object hovers in mid-air with plain empty space all around and beneath it, one single object alone in the middle of the frame, no hands, no table, no sparkles, no particles, no extra items. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `hh-chem-dau-an.webp`
+### ✅ `hh-chem-dau-an.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Dầu ăn (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
-- Tạo bằng: local ⬜ · gpt ⬜. Nên dùng **local**: `npm run gen-local -- --only hh-chem-dau-an`
+- Tạo bằng: local ✅ · gpt ✅ (đã có file)
 
 ```text
 Game item icon, a single glass bottle with a cork stopper filled with golden cooking oil, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, flat sticker style, the object hovers in mid-air with plain empty space all around and beneath it, one single object alone in the middle of the frame, no hands, no table, no sparkles, no particles, no extra items. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `hh-chem-da.webp`
+### ✅ `hh-chem-da.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Hòn đá (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
-- Tạo bằng: local ⬜ · gpt ⬜. Nên dùng **local**: `npm run gen-local -- --only hh-chem-da`
+- Tạo bằng: local ✅ · gpt ✅ (đã có file)
 
 ```text
 Game item icon, a single smooth grey stone with a lighter top, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, flat sticker style, the object hovers in mid-air with plain empty space all around and beneath it, one single object alone in the middle of the frame, no hands, no table, no sparkles, no particles, no extra items. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `hh-chem-go.webp`
+### ✅ `hh-chem-go.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Miếng gỗ (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
-- Tạo bằng: local ⬜ · gpt ⬜. Nên dùng **local**: `npm run gen-local -- --only hh-chem-go`
+- Tạo bằng: local ✅ · gpt ✅ (đã có file)
 
 ```text
 Game item icon, a single small block of light wood with visible grain and a round cut end, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, flat sticker style, the object hovers in mid-air with plain empty space all around and beneath it, one single object alone in the middle of the frame, no hands, no table, no sparkles, no particles, no extra items. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
@@ -1851,109 +1849,109 @@ Game item icon, a single small block of light wood with visible grain and a roun
 Game item icon, a single shiny golden coin with a simple star in the middle, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, flat sticker style, the object hovers in mid-air with plain empty space all around and beneath it, one single object alone in the middle of the frame, no hands, no table, no sparkles, no particles, no extra items. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `hh-chem-qua-chanh.webp`
+### ✅ `hh-chem-qua-chanh.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Quả chanh (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
-- Tạo bằng: local ⬜ · gpt ⬜. Nên dùng **local**: `npm run gen-local -- --only hh-chem-qua-chanh`
+- Tạo bằng: local ✅ · gpt ✅ (đã có file)
 
 ```text
 Game item icon, a single whole yellow-green lemon with a small leaf, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, flat sticker style, the object hovers in mid-air with plain empty space all around and beneath it, one single object alone in the middle of the frame, no hands, no table, no sparkles, no particles, no extra items. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `hh-chem-trung.webp`
+### ✅ `hh-chem-trung.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Quả trứng (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
-- Tạo bằng: local ⬜ · gpt ⬜. Nên dùng **local**: `npm run gen-local -- --only hh-chem-trung`
+- Tạo bằng: local ✅ · gpt ✅ (đã có file)
 
 ```text
 Game item icon, a single white egg with a soft shine, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, flat sticker style, the object hovers in mid-air with plain empty space all around and beneath it, one single object alone in the middle of the frame, no hands, no table, no sparkles, no particles, no extra items. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `hh-chem-vit.webp`
+### ✅ `hh-chem-vit.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Vịt cao su (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
-- Tạo bằng: local ⬜ · gpt ⬜. Nên dùng **local**: `npm run gen-local -- --only hh-chem-vit`
+- Tạo bằng: local ✅ · gpt ✅ (đã có file)
 
 ```text
 Game item icon, a single yellow rubber duck toy with an orange beak, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, flat sticker style, the object hovers in mid-air with plain empty space all around and beneath it, one single object alone in the middle of the frame, no hands, no table, no sparkles, no particles, no extra items. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `hh-chem-phenol.webp`
+### ✅ `hh-chem-phenol.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Phenolphtalein (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
-- Tạo bằng: local ⬜ · gpt ⬜. Nên dùng **local**: `npm run gen-local -- --only hh-chem-phenol`
+- Tạo bằng: local ✅ · gpt ✅ (đã có file)
 
 ```text
 Game item icon, a single small dropper bottle with a rubber bulb filled with clear liquid and a tiny pink drop, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, flat sticker style, the object hovers in mid-air with plain empty space all around and beneath it, one single object alone in the middle of the frame, no hands, no table, no sparkles, no particles, no extra items. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `hh-chem-naoh.webp`
+### ✅ `hh-chem-naoh.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Natri hiđroxit (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
-- Tạo bằng: local ⬜ · gpt ⬜. Nên dùng **local**: `npm run gen-local -- --only hh-chem-naoh`
+- Tạo bằng: local ✅ · gpt ✅ (đã có file)
 
 ```text
 Game item icon, a single glass bottle with a stopper and a red warning stripe filled with clear liquid, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, flat sticker style, the object hovers in mid-air with plain empty space all around and beneath it, one single object alone in the middle of the frame, no hands, no table, no sparkles, no particles, no extra items. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `hh-chem-natri.webp`
+### ✅ `hh-chem-natri.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Natri (mẩu nhỏ) (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
-- Tạo bằng: local ⬜ · gpt ⬜. Nên dùng **local**: `npm run gen-local -- --only hh-chem-natri`
+- Tạo bằng: local ✅ · gpt ✅ (đã có file)
 
 ```text
 Game item icon, a single tiny silvery-white soft metal cube the size of a pea on a small glass dish with a little oil, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, flat sticker style, the object hovers in mid-air with plain empty space all around and beneath it, one single object alone in the middle of the frame, no hands, no table, no sparkles, no particles, no extra items. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `hh-chem-natri-to.webp`
+### ✅ `hh-chem-natri-to.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Natri (mẩu to) (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
-- Tạo bằng: local ⬜ · gpt ⬜. Nên dùng **local**: `npm run gen-local -- --only hh-chem-natri-to`
+- Tạo bằng: local ✅ · gpt ✅ (đã có file)
 
 ```text
 Game item icon, a single large silvery-white soft metal chunk on a glass dish with a red warning triangle sticker, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, flat sticker style, the object hovers in mid-air with plain empty space all around and beneath it, one single object alone in the middle of the frame, no hands, no table, no sparkles, no particles, no extra items. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `hh-chem-hcl.webp`
+### ✅ `hh-chem-hcl.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Axit clohiđric (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
-- Tạo bằng: local ⬜ · gpt ⬜. Nên dùng **local**: `npm run gen-local -- --only hh-chem-hcl`
+- Tạo bằng: local ✅ · gpt ✅ (đã có file)
 
 ```text
 Game item icon, a single glass bottle with a stopper and a yellow hazard stripe filled with clear liquid, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, flat sticker style, the object hovers in mid-air with plain empty space all around and beneath it, one single object alone in the middle of the frame, no hands, no table, no sparkles, no particles, no extra items. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `hh-chem-cuso4.webp`
+### ✅ `hh-chem-cuso4.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Đồng sunfat (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
-- Tạo bằng: local ⬜ · gpt ⬜. Nên dùng **local**: `npm run gen-local -- --only hh-chem-cuso4`
+- Tạo bằng: local ✅ · gpt ✅ (đã có file)
 
 ```text
 Game item icon, a single round glass bottle with a stopper filled with vivid blue liquid, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, flat sticker style, the object hovers in mid-air with plain empty space all around and beneath it, one single object alone in the middle of the frame, no hands, no table, no sparkles, no particles, no extra items. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `hh-chem-zn.webp`
+### ✅ `hh-chem-zn.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Viên kẽm (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
-- Tạo bằng: local ⬜ · gpt ⬜. Nên dùng **local**: `npm run gen-local -- --only hh-chem-zn`
+- Tạo bằng: local ✅ · gpt ✅ (đã có file)
 
 ```text
 Game item icon, a single grey-silver metal granule with a bumpy surface, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, flat sticker style, the object hovers in mid-air with plain empty space all around and beneath it, one single object alone in the middle of the frame, no hands, no table, no sparkles, no particles, no extra items. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `hh-chem-fe.webp`
+### ✅ `hh-chem-fe.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Đinh sắt (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
-- Tạo bằng: local ⬜ · gpt ⬜. Nên dùng **local**: `npm run gen-local -- --only hh-chem-fe`
+- Tạo bằng: local ✅ · gpt ✅ (đã có file)
 
 ```text
 Game item icon, a single dark grey iron nail, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, flat sticker style, the object hovers in mid-air with plain empty space all around and beneath it, one single object alone in the middle of the frame, no hands, no table, no sparkles, no particles, no extra items. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
 ```
 
-### ⬜ `hh-chem-cu.webp`
+### ✅ `hh-chem-cu.webp`
 - Dùng ở: Thí nghiệm hoá · biểu tượng hoá chất: Dây đồng (trên kệ và khi đổ vào cốc)
 - Kích thước: 1024x1024 · nền trong suốt
-- Tạo bằng: local ⬜ · gpt ⬜. Nên dùng **local**: `npm run gen-local -- --only hh-chem-cu`
+- Tạo bằng: local ✅ · gpt ✅ (đã có file)
 
 ```text
 Game item icon, a single coil of shiny orange-copper wire, centered, slightly three-quarter view, chunky friendly shape with a soft white highlight, flat sticker style, the object hovers in mid-air with plain empty space all around and beneath it, one single object alone in the middle of the frame, no hands, no table, no sparkles, no particles, no extra items. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark, isolated on a fully transparent background.
