@@ -88,9 +88,9 @@ function KeyButton({ k, on, onPress, big }: { k: CalcKey; on: boolean; onPress: 
       : k.id === "ALPHA"
         ? "bg-alpha text-white"
         : k.kind === "num" || k.kind === "op"
-          ? "bg-[#eceaf3] text-ink"
+          ? "bg-[#eceaf3] text-[#252845]"
           : k.kind === "eq"
-            ? "bg-[#eceaf3] text-ink"
+            ? "bg-[#eceaf3] text-[#252845]"
             : k.id === "AC" || k.id === "DEL"
               ? "bg-[#ff9f6b] text-white"
               : "bg-[#454b6e] text-white";

@@ -68,7 +68,7 @@ export function FreeCalc({ onResult }: { onResult?: (r: CalcResult | null) => vo
   }, [res, onResult]);
 
   function press(k: CalcKey) {
-    play("tap", 0.3);
+    play("tap");
     const id = k.id;
     if (id === "SHIFT" || id === "ALPHA") {
       const m = id === "SHIFT" ? "S" : "A";
@@ -112,7 +112,7 @@ export function FreeCalc({ onResult }: { onResult?: (r: CalcResult | null) => vo
         setErr((e as Error).message);
         setRes(null);
         setShake((x) => x + 1);
-        play("wrong", 0.3);
+        play("wrong");
       }
       return;
     }

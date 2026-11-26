@@ -8,9 +8,9 @@
   --color-line: #e6dcef;
   --color-sky: #4f72ff;
   --color-sky-soft: #dbe3ff;
-  --color-peach: #ff8a5c;
+  --color-peach: #f2703f;
   --color-peach-soft: #ffe4d6;
-  --color-mint: #22b98c;
+  --color-mint: #13a37a;
   --color-mint-soft: #d2f3e8;
   --color-berry: #ff4f7b;
   --color-berry-soft: #ffdbe5;
@@ -669,3 +669,13 @@ button {
 .lt-skin-holo g.lt_ifelse > .blocklyPath,
 .lt-skin-holo g.lt_lif > .blocklyPath,
 .lt-skin-holo g.lt_lifelse > .blocklyPath { fill: url(#lt-g-logic) !important; stroke: #ffb8d8 !important; --gl: rgb(255 95 168 / 0.5); }
+
+/* trang bài học theme sáng: thẻ gần như đặc để chữ rõ trên nền ảnh */
+/* (theme Neon bọc ngoài bằng .theme-cyber thì bỏ qua) */
+.lesson-light:not(.theme-cyber *) .card {
+  background: rgb(255 255 255 / 0.94);
+  box-shadow: 0 14px 40px -16px rgb(45 40 110 / 0.35);
+}
+.lesson-light:not(.theme-cyber *) .text-ink-soft {
+  color: #4a4f72;
+}
