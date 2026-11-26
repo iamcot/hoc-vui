@@ -24,7 +24,7 @@ File này sinh tự động từ `src/content/assets.ts` bằng `npm run prompts
 - Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator
 - Xi Xi: a friendly anthropomorphic scientific calculator (dark navy body, light gray keys, small LCD screen showing a smile), tiny arms and legs
 
-## Ảnh (196)
+## Ảnh (198)
 
 ### ✅ `mochi-happy.webp`
 - Dùng ở: Mochi vui vẻ: lời chào, slide mở đầu
@@ -1384,6 +1384,22 @@ Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a lig
 
 ```text
 Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator, wearing round safety goggles, watching a glass beaker with ice cubes over a small burner flame, wisps of steam rising and water drops on a lid. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
+```
+
+### ✅ `hh-cover-k01.webp`
+- Dùng ở: Bìa bài Tách hỗn hợp (Hoá KHTN)
+- Kích thước: 1536x1024
+
+```text
+Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator, wearing a lab coat and goggles, pouring muddy water through a paper filter in a glass funnel into a clear beaker, sunny colorful kids lab. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
+```
+
+### ✅ `hh-cover-k02.webp`
+- Dùng ở: Bìa bài Dung dịch bão hoà (Hoá KHTN)
+- Kích thước: 1536x1024
+
+```text
+Mochi: a small round white cat with big sparkly teal eyes, tiny pink nose, a light-blue scarf, wearing a small yellow backpack shaped like a calculator, wearing a lab coat and goggles, stirring a beaker with white salt crystals settling at the bottom next to a spoon and a salt jar, sunny colorful kids lab. Soft anime illustration in the style of a cozy Japanese children's picture book, clean dark-navy line art (#252845), soft cel shading, warm daylight. Color palette, bright but not neon: sky blue #4F72FF, coral peach #FF8A5C, mint green #22B98C, sunny yellow #FFB81F, lilac #9B7BFF, on creamy whites #FFF3E3. Cute and calm, child-friendly but not babyish, no text, no letters, no watermark.
 ```
 
 ### ✅ `hh-cover-c01.webp`
